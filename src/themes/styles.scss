@@ -1,0 +1,47 @@
+@use "./colors";
+
+* {
+  font-family: "CascadiaMono" !important;
+  color: colors.$main-font;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  background-color: colors.$background;
+  min-height: 100%;
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 97px;
+}
+
+.border {
+  border-bottom: 2px solid colors.$transparent;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    border-bottom: 2px solid;
+  }
+}
+
+.line {
+  width: 70%;
+  margin-left: 10px;
+  height: 1px;
+  opacity: 0.2;
+  background-color: colors.$main-font-transparent;
+}
+
+.border-block {
+  background-color: colors.$background-light;
+  padding: 20px;
+  border-radius: 20px;
+}

@@ -1,0 +1,88 @@
+@use "../../themes/colors";
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+
+  .form {
+    &-block {
+      margin-top: 60px;
+      padding: 30px;
+      background-color: colors.$white;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    &-register-block {
+      display: flex;
+      justify-content: right;
+
+      a {
+        color: colors.$button-red;
+        border-bottom: colors.$transparent 2px solid;
+        transition: 0.2s;
+
+        &:hover {
+          border-bottom: colors.$button-red 2px solid;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 36px;
+    }
+
+    &-input-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      div {
+        font-size: 18px;
+      }
+
+      input {
+        border-radius: 10px;
+        width: calc(100% - 20px);
+        border: none;
+        font-size: 20px;
+        padding: 10px;
+        background-color: colors.$input-gray;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    &-login-button-block {
+      display: flex;
+      justify-content: center;
+
+      button {
+        font-size: 24px;
+        border-radius: 20px;
+        border: none;
+        padding: 12px 40px;
+        background: colors.$button-red;
+        transition: 0.2s;
+        cursor: pointer;
+        color: colors.$white;
+
+        &:hover {
+          background: colors.$button-red-hover;
+        }
+
+        &:disabled {
+          cursor: default;
+          background: colors.$button-disabled;
+        }
+      }
+    }
+  }
+}

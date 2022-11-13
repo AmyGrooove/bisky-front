@@ -1,0 +1,75 @@
+@use "../../themes/colors";
+
+.header {
+  background-color: colors.$background-up;
+  width: 100%;
+  position: fixed;
+
+  &-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-left {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+
+    &-links {
+      display: flex;
+
+      a {
+        font-weight: 500;
+        color: colors.$gray;
+        padding: 24px 0;
+        font-size: 20px;
+        width: 96px;
+        text-align: center;
+        transition: 0.2s;
+        border-bottom: 5px solid colors.$transparent;
+
+        &:hover {
+          color: colors.$white;
+          border-bottom: 5px solid colors.$button-red;
+        }
+      }
+    }
+
+    &-title {
+      padding: 24px 0;
+      font-size: 24px;
+      font-weight: 600;
+      display: flex;
+      cursor: pointer;
+      color: colors.$bisky;
+    }
+  }
+
+  &-right {
+    display: flex;
+    gap: 16px;
+
+    button {
+      font-weight: 500;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &.button-red {
+        background: colors.$button-red;
+        border-radius: 10px;
+        padding: 12px 20px;
+        color: colors.$white;
+
+        &:hover {
+          background: colors.$button-red-hover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "extends": ["react-app", "react-app/jest"],
+  "rules": {
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+
+    "max-len": ["warn", 120],
+    "comma-dangle": ["warn", "always-multiline"],
+    "no-console": "warn",
+    "semi": ["warn", "never"],
+    "quotes": ["warn", "single"],
+    "indent": ["warn", 2],
+
+    "jsx-quotes": ["warn", "prefer-double"],
+    "react/jsx-indent": ["warn", 2],
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-first-prop-new-line": ["warn", "multiline"],
+    "react/jsx-max-props-per-line": ["warn", { "maximum": 2 }]
+  }
+}
