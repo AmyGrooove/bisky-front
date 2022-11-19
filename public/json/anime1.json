@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": {
+      "en": "Chainsaw Man",
+      "ru": "Человек-бензопила"
+    },
+    "img": "https://animego.org/media/cache/thumbs_250x350/upload/anime/images/6319cd947a99a365246749.jpg",
+    "type": "ТВ Сериал",
+    "status": "Airing",
+    "episodeCount": 12,
+    "genre": ["Демоны", "Приключения", "Сверхъестественное", "Сёнэн", "Экшен"],
+    "datePublishing": "12 октября 2022",
+    "studio": "MAPPA",
+    "ageLimit": "18+",
+    "episodeDuration": "25 min",
+    "description": "Дэндзи приходится полностью изменить свою жизнь, чтобы отработать непомерные долги отца. Он становится подручным якудзы в нелегком деле уничтожения демонов. На второй план отошли не только сон и отдых, а и общение с любимой девушкой. Только дьявольский питомец-помощник Почита вносит немного разнообразия в череду кровавых будней.",
+    "linked": [""],
+    "rating": {
+      "score": 9.6,
+      "count": 1549
+    },
+    "screens": [
+      "https://animego.org/upload/anime/images/6345998b9c3d3607998789.jpg",
+      "https://animego.org/upload/anime/images/6345998b9af80309109201.jpg",
+      "https://animego.org/upload/anime/images/6345998b9df8a426627200.jpg"
+    ],
+    "video": "https://www.youtube.com/embed/q15CRdE5Bv0"
+  },
+  {
+    "id": 2,
+    "name": {
+      "en": "",
+      "ru": ""
+    },
+    "img": "",
+    "type": "",
+    "status": "",
+    "episodeCount": 26,
+    "genre": [],
+    "datePublishing": "",
+    "studio": "",
+    "ageLimit": "",
+    "episodeDuration": "",
+    "description": "",
+    "linked": [""],
+    "rating": {
+      "score": 2,
+      "count": 1
+    },
+    "screens": [""],
+    "video": ""
+  }
+]

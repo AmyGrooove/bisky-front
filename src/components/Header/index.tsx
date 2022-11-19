@@ -1,22 +1,39 @@
-import Link from "next/link";
+import useHeader from "./useHeader";
 import userStore from "../../store/userStore";
+import Link from "next/dist/client/link";
 
 const Header = () => {
+  const { selectStyle } = useHeader();
+
   return (
     <div className="header">
-      <div className="header-container">
+      <div className="container header-container">
         <div className="header-left">
           <Link href="/">
-            <div className="header-left-title">Bisky</div>
+            <div className="header-left-name">Bisky</div>
           </Link>
-          <div className="header-left-links">
-            <Link href="/animes">Anime</Link>
-          </div>
+          <Link href="/list?type=anime">
+            <div className={`header-left-link ${selectStyle("anime")}`}>
+              Аниме
+            </div>
+          </Link>
+          <Link href="/list?type=kino">
+            <div className={`header-left-link ${selectStyle("kino")}`}>
+              Фильмы
+            </div>
+          </Link>
+          <Link href="/list?type=series">
+            <div className={`header-left-link ${selectStyle("series")}`}>
+              Сериалы
+            </div>
+          </Link>
         </div>
         <div className="header-right">
-          <Link href={userStore.logged ? `/${userStore.user.login}` : "/login"}>
-            <button className="button-red">
-              {userStore.logged ? userStore.user.login : "Sign in"}
+          <Link
+            href={userStore.logged ? `/user/${userStore.user.login}` : "/login"}
+          >
+            <button className="button button-red">
+              {userStore.logged ? userStore.user.login : "Войти"}
             </button>
           </Link>
         </div>

@@ -1,3 +1,3 @@
 const APP_URL_ICON = process.env.APP_URL || "/icons";
 
-export const TEST = `${APP_URL_ICON}/test.test`;
+export const BISKY_CHAR = `${APP_URL_ICON}/bisky.png`;

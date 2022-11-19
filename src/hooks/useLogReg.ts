@@ -19,7 +19,7 @@ const useLogReg = () => {
 
   const Log = async () => {
     if (await userStore.logging(email, password)) {
-      router.push("/");
+      router.push("/" + userStore.user.login);
     }
   };
 

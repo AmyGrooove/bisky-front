@@ -1,20 +1,23 @@
 import { AppProps } from "next/app";
 import { ReactElement } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 import "../themes/styles.scss";
 import "../themes/fonts.scss";
-import Header from "../components/Header";
 
 import "../themes/styles/Header.scss";
-import "../themes/styles/Login.scss";
+import "../themes/styles/Home.scss";
 import "../themes/styles/Title.scss";
-import "../themes/styles/Footer.scss";
-import "../themes/styles/User.scss";
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
     <>
       <Header />
-      <Component {...pageProps} />
+      <div className="container main">
+        <Component {...pageProps} />
+      </div>
+      <Footer />
     </>
   );
 };

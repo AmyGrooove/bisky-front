@@ -1,10 +1,34 @@
 @use "../../themes/colors";
 
+.select {
+  &-box {
+    border-radius: 10px;
+    background-color: colors.$background-up;
+    padding: 20px;
+    cursor: pointer;
+
+    input {
+      opacity: 0;
+      width: 0px;
+      margin: 0;
+    }
+
+    &-text {
+      color: colors.$white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+
+  #openList:checked + &-options {
+    font-size: 30px;
+  }
+}
+
 .title {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 20px;
+  background-color: colors.$background-light;
+  border-radius: 20px;
+  padding: 20px;
 
   &-name {
     display: flex;
@@ -14,9 +38,11 @@
     font-size: 28px;
     align-items: center;
     font-weight: 600;
+    margin-bottom: 20px;
 
     div {
       font-size: 32px;
+      color: colors.$main-font;
     }
   }
 
@@ -27,7 +53,7 @@
 
   &-main {
     display: flex;
-    gap: 50px;
+    gap: 30px;
 
     img {
       width: 250px;
@@ -39,6 +65,7 @@
       display: flex;
       gap: 10px;
       flex-direction: column;
+      margin-top: 10px;
 
       &-info {
         display: flex;
@@ -87,7 +114,6 @@
               transition: 0.2s;
 
               &:hover {
-                border: 1px solid colors.$transparent;
                 background-color: colors.$gray;
               }
             }
@@ -102,6 +128,8 @@
       background-color: colors.$background;
       border-radius: 10px;
       padding: 10px;
+
+      margin-bottom: 20px;
 
       &-headline {
         color: colors.$white;
@@ -143,54 +171,6 @@
         margin-top: 5px;
         font-size: 14px;
         border-radius: 10px;
-      }
-    }
-
-    select {
-      margin-top: 10px;
-      background-color: colors.$background;
-      color: colors.$white;
-      font-size: 18px;
-      border-radius: 10px;
-      padding: 10px;
-      cursor: pointer;
-      min-width: 250px;
-
-      option {
-        color: colors.$white;
-        font-size: 18px;
-        padding: 5px;
-
-        &.delete {
-          color: colors.$red;
-        }
-      }
-    }
-  }
-
-  &-media {
-    display: flex;
-    justify-content: space-between;
-
-    &-block {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      &-headline {
-        font-size: 24px;
-        font-weight: 600;
-      }
-
-      &-row {
-        display: flex;
-        gap: 10px;
-        justify-content: space-between;
-
-        img {
-          width: 300px;
-          height: 170px;
-        }
       }
     }
   }
