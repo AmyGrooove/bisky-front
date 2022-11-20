@@ -9,19 +9,11 @@ const useLogReg = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const [checkReg, setCheckReg] = useState<boolean>(true);
-
   const Reg = async () => {
-    if (await userStore.register(login, email, password)) {
-      router.push("/");
-    }
+    userStore.register(login, email, password);
   };
 
-  const Log = async () => {
-    if (await userStore.logging(email, password)) {
-      router.push("/" + userStore.user.login);
-    }
-  };
+  const Log = async () => {};
 
   return {
     login,
@@ -32,7 +24,6 @@ const useLogReg = () => {
     setEmail,
     Reg,
     Log,
-    checkReg,
   };
 };
 

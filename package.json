@@ -8,7 +8,6 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.0.5",
     "axios": "^1.1.3",
     "mobx-react-lite": "^3.4.0",
     "next": "^12.3.1",

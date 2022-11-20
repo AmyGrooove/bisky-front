@@ -1,9 +1,8 @@
-import { BISKY_CHAR } from "../themes/sources";
-
 import * as animeList from "../../public/json/animeList.json";
 import * as facts from "../../public/json/facts.json";
 import Link from "next/dist/client/link";
 import { useEffect, useState } from "react";
+import { BISKY_MAIN } from "../themes/sources";
 
 const Home = () => {
   const [fact, setFact] = useState<string>();
@@ -15,10 +14,10 @@ const Home = () => {
   return (
     <div className="gaps">
       <div className="home home-header">
-        <img src={BISKY_CHAR} alt="" />
+        <img src={BISKY_MAIN} alt="" />
         <div className="home-header-title">
           <div className="home-header-title-text">
-            <div>Bisky</div> - сайт asd
+            <div>Bisky</div> - Охотник 2-х Звёзд, мастер Шинген-Рю
           </div>
           <div className="home-header-title-desc">{fact}</div>
         </div>

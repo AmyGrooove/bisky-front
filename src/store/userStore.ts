@@ -1,5 +1,6 @@
+import axios from "axios";
 import { makeAutoObservable } from "mobx";
-import { supabaseClient } from "../api";
+import { API_URL } from "../api";
 
 interface IUser {
   email: string;
@@ -17,17 +18,13 @@ class userStore {
   public register = async (login: string, email: string, password: string) => {
     let success = false;
 
-    await supabaseClient.auth
-      .signUp({
+    axios
+      .post(API_URL + "users", {
         email: email,
         password: password,
-        options: {
-          data: {
-            login: login,
-          },
-        },
       })
-      .then(() => {
+      .then((response) => {
+        console.log(response);
         success = true;
       })
       .catch((error) => {
@@ -40,22 +37,22 @@ class userStore {
   public logging = async (email: string, password: string) => {
     let success = false;
 
-    await supabaseClient.auth
-      .signInWithPassword({
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        this.user = {
-          email: response.data.user?.email || "",
-          login: response.data.user?.user_metadata.login || "",
-        };
-        this.logged = true;
-        success = true;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // await supabaseClient.auth
+    //   .signInWithPassword({
+    //     email: email,
+    //     password: password,
+    //   })
+    //   .then((response) => {
+    //     this.user = {
+    //       email: response.data.user?.email || "",
+    //       login: response.data.user?.user_metadata.login || "",
+    //     };
+    //     this.logged = true;
+    //     success = true;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
 
     return success;
   };

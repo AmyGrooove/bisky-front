@@ -1,27 +1,79 @@
 @use "../../themes/colors";
 
 .select {
+  width: 230px;
+  user-select: none;
+
   &-box {
     border-radius: 10px;
     background-color: colors.$background-up;
-    padding: 20px;
+    padding: 15px 20px;
     cursor: pointer;
+    transition: 0.2s;
 
-    input {
-      opacity: 0;
-      width: 0px;
-      margin: 0;
+    display: flex;
+    justify-content: space-between;
+
+    &-title {
+      font-size: 18px;
+      color: colors.$white;
     }
 
-    &-text {
+    &-icon {
       color: colors.$white;
-      font-size: 16px;
-      cursor: pointer;
+      transition: 0.2s;
+
+      &::before {
+        content: "\25BC";
+      }
+    }
+
+    &.active {
+      background-color: colors.$background-header;
+      border-radius: 10px 10px 0px 0px;
+
+      .select-box-icon {
+        transform-origin: center;
+        transform: rotate(180deg);
+      }
     }
   }
 
-  #openList:checked + &-options {
-    font-size: 30px;
+  &-options {
+    border-radius: 10px;
+    background-color: colors.$background-up;
+    transition: 0.2s;
+
+    display: flex;
+    flex-direction: column;
+
+    &.open {
+      border-radius: 0px 0px 10px 10px;
+
+      .select-options-element {
+        opacity: 1;
+        padding: 10px;
+        height: 20px;
+      }
+    }
+
+    &-element {
+      transition: 0.2s;
+      opacity: 0;
+      color: colors.$white;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 10px;
+      height: 0px;
+
+      &:hover {
+        background-color: colors.$input-light;
+      }
+
+      &.delete {
+        color: colors.$red;
+      }
+    }
   }
 }
 
@@ -56,8 +108,8 @@
     gap: 30px;
 
     img {
-      width: 250px;
-      height: 350px;
+      width: 300px;
+      height: 420px;
       border-radius: 20px;
     }
 
@@ -173,5 +225,39 @@
         border-radius: 10px;
       }
     }
+  }
+
+  &-media {
+    display: flex;
+    justify-content: space-between;
+
+    &-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-headline {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      &-row {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+
+        img {
+          width: 300px;
+          height: 170px;
+        }
+      }
+    }
+  }
+
+  &-player {
+    padding: 20px;
+    background-color: colors.$background-up;
+    border-radius: 10px;
+    height: 600px;
   }
 }

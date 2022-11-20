@@ -9,6 +9,8 @@ import "../themes/fonts.scss";
 import "../themes/styles/Header.scss";
 import "../themes/styles/Home.scss";
 import "../themes/styles/Title.scss";
+import "../themes/styles/LogReg.scss";
+import "../themes/styles/List.scss";
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
