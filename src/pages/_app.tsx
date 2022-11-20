@@ -11,6 +11,7 @@ import "../themes/styles/Home.scss";
 import "../themes/styles/Title.scss";
 import "../themes/styles/LogReg.scss";
 import "../themes/styles/List.scss";
+import "../themes/styles/User.scss";
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
   return (

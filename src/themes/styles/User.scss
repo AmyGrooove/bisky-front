@@ -1,0 +1,56 @@
+@use "../../themes/colors";
+
+.user {
+  background-color: colors.$background-light;
+  border-radius: 20px;
+
+  &-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 16px 16px 0 0;
+    background-position: center;
+    background-size: cover;
+
+    background-image: linear-gradient(
+      36deg,
+      rgba(133, 67, 88, 1) 0%,
+      rgba(219, 83, 125, 1) 49%,
+      rgba(249, 20, 93, 1) 100%
+    );
+  }
+
+  &-main {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+    top: -100px;
+
+    &-image {
+      border-radius: 100px;
+      width: 150px;
+      height: 150px;
+      border: 5px solid colors.$background-light;
+      z-index: 1;
+      background-image: linear-gradient(
+        36deg,
+        rgba(133, 67, 88, 1) 0%,
+        rgba(219, 83, 125, 1) 49%,
+        rgba(249, 20, 93, 1) 100%
+      );
+    }
+
+    &-block {
+      position: relative;
+      left: -10px;
+      border-radius: 0 20px 20px 0;
+      background-color: colors.$background-light;
+      padding: 5px 10px 5px 20px;
+
+      &-name {
+        font-size: 28px;
+      }
+    }
+  }
+}

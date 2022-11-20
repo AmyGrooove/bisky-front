@@ -21,13 +21,23 @@
     align-items: center;
 
     &-name {
-      font-size: 32px;
-      font-weight: 600;
       display: flex;
+      gap: 10px;
+      align-items: center;
       cursor: pointer;
-      color: colors.$bisky;
-      margin-right: 30px;
-      padding: 21px 0;
+
+      img {
+        width: 32px;
+        height: 48px;
+      }
+
+      div {
+        font-size: 32px;
+        font-weight: 600;
+        color: colors.$bisky;
+        margin-right: 30px;
+        padding: 21px 0;
+      }
     }
 
     &-link {
