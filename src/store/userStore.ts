@@ -5,6 +5,8 @@ import { API_URL } from "../api";
 interface IUser {
   email: string;
   login: string;
+  avatar?: string;
+  background?: string;
 }
 
 class userStore {
@@ -19,12 +21,12 @@ class userStore {
     let success = false;
 
     axios
-      .post(API_URL + "users", {
+      .post(API_URL + "auth/registration", {
+        login: login,
         email: email,
         password: password,
       })
       .then((response) => {
-        console.log(response);
         success = true;
       })
       .catch((error) => {
@@ -35,26 +37,23 @@ class userStore {
   };
 
   public logging = async (email: string, password: string) => {
-    let success = false;
-
-    // await supabaseClient.auth
-    //   .signInWithPassword({
-    //     email: email,
-    //     password: password,
-    //   })
-    //   .then((response) => {
-    //     this.user = {
-    //       email: response.data.user?.email || "",
-    //       login: response.data.user?.user_metadata.login || "",
-    //     };
-    //     this.logged = true;
-    //     success = true;
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
-    return success;
+    axios
+      .post(API_URL + "auth/login", {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        this.logged = true;
+        console.log(response);
+        this.user = {
+          email: response.data[2],
+          login: response.data[1],
+        };
+        return true;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   constructor() {

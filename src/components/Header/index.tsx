@@ -2,8 +2,9 @@ import useHeader from "./useHeader";
 import userStore from "../../store/userStore";
 import Link from "next/dist/client/link";
 import { BISKY_LOGO } from "../../themes/sources";
+import { observer } from "mobx-react-lite";
 
-const Header = () => {
+const Header = observer(() => {
   const { selectStyle } = useHeader();
 
   return (
@@ -44,6 +45,6 @@ const Header = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Header;

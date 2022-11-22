@@ -67,10 +67,9 @@
     }
 
     &-kino {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 44px;
+      max-width: 170px;
+      height: 250px;
+      user-select: none;
 
       &-block {
         width: 170px;

@@ -4,6 +4,11 @@ import Link from "next/dist/client/link";
 import { useEffect, useState } from "react";
 import { BISKY_MAIN } from "../themes/sources";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Mousewheel } from "swiper";
+import "swiper/css";
+import "swiper/css/free-mode";
+
 const Home = () => {
   const [fact, setFact] = useState<string>();
 
@@ -26,31 +31,49 @@ const Home = () => {
         <div className="home-new-title">
           <div>Новинки</div>
         </div>
-        <div className="home-new-kino">
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={44}
+          loop
+          mousewheel
+          grabCursor
+          modules={[FreeMode, Mousewheel]}
+        >
           {animeList.map((el, index) => (
-            <Link href={`/title/${el.id}`} key={index}>
-              <button className="home-new-kino-block">
-                <img src={el.img} />
-                <div>{el.name}</div>
-              </button>
-            </Link>
+            <SwiperSlide key={index} className="home-new-kino">
+              <Link href={`/title/${el.id}`}>
+                <button className="home-new-kino-block">
+                  <img src={el.img} />
+                  <div>{el.name}</div>
+                </button>
+              </Link>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
       <div className="home home-new">
         <div className="home-new-title">
           <div>Самое популярное</div>
         </div>
-        <div className="home-new-kino">
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={44}
+          loop
+          mousewheel
+          grabCursor
+          modules={[FreeMode, Mousewheel]}
+        >
           {animeList.map((el, index) => (
-            <Link href={`/title/${el.id}`} key={index}>
-              <button className="home-new-kino-block">
-                <img src={el.img} />
-                <div>{el.name}</div>
-              </button>
-            </Link>
+            <SwiperSlide key={index} className="home-new-kino">
+              <Link href={`/title/${el.id}`}>
+                <button className="home-new-kino-block">
+                  <img src={el.img} />
+                  <div>{el.name}</div>
+                </button>
+              </Link>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </div>
   );

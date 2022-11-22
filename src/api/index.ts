@@ -1,3 +1,3 @@
-const API_URL = "http://26.218.178.152:1488/";
+const API_URL = process.env.API_URL || "";
 
 export { API_URL };

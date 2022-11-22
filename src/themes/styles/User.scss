@@ -3,6 +3,7 @@
 .user {
   background-color: colors.$background-light;
   border-radius: 20px;
+  max-height: 400px;
 
   &-image {
     width: 100%;
