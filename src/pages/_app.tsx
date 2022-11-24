@@ -1,5 +1,5 @@
 import { AppProps } from "next/app";
-import { ReactElement } from "react";
+import { ReactElement, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Head from "next/head";

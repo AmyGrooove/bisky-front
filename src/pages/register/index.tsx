@@ -1,5 +1,6 @@
 import Link from "next/link";
 import useLogReg from "../../hooks/useLogReg";
+import userStore from "../../store/userStore";
 
 const Register = () => {
   const {
@@ -15,13 +16,21 @@ const Register = () => {
     errorPassword,
     openPass,
     setOpenPass,
+    errorValid,
   } = useLogReg();
+
+  const { errorMsg } = userStore;
 
   return (
     <div className="container-form">
       <div className="form-block">
         <div className="form-title">Регистрация</div>
-        <div className={`form-input-block ${errorLogin && "error-form"}`}>
+        {errorValid && <div className="form-error">{errorMsg}</div>}
+        <div
+          className={`form-input-block ${
+            (errorLogin || errorValid) && "error-form"
+          }`}
+        >
           <div>Логин</div>
           <input
             type="text"
@@ -30,7 +39,11 @@ const Register = () => {
             onChange={(e) => setLogin(e.target.value)}
           />
         </div>
-        <div className={`form-input-block ${errorEmail && "error-form"}`}>
+        <div
+          className={`form-input-block ${
+            (errorEmail || errorValid) && "error-form"
+          }`}
+        >
           <div>Email</div>
           <input
             type="text"

@@ -6,6 +6,10 @@
   padding-top: 100px;
 
   .form {
+    &-error {
+      color: colors.$red;
+    }
+
     &-block {
       padding: 30px;
       background-color: colors.$background-light;

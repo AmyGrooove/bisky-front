@@ -1,19 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import * as types from "../../../public/json/types.json";
-import * as animeList from "../../../public/json/animeList.json";
+import useList from "../../hooks/useList";
 import { BISKY_TITLE } from "../../themes/sources";
 
 const List = () => {
-  const { query } = useRouter();
-
-  const selectType = () => {
-    return (
-      { ["anime"]: types[0], ["kino"]: types[1], ["series"]: types[2] }[
-        (query.type || "anime").toString()
-      ] || types[0]
-    );
-  };
+  const { animeList, selectType } = useList();
 
   return (
     <div className="filter-container">

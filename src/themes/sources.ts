@@ -7,3 +7,4 @@ export const BISKY_ERROR = `${APP_URL_ICON}/bisky_error.png`;
 
 export const EYE_OPEN = `${APP_URL_ICON}/eye_open.svg`;
 export const EYE_CLOSE = `${APP_URL_ICON}/eye_close.svg`;
+export const TRANSPARENT = `${APP_URL_ICON}/transparent.svg`;

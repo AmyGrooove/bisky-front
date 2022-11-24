@@ -21,13 +21,14 @@
       margin-bottom: 20px;
 
       &-text {
-        font-size: 32px;
+        font-size: 24px;
         display: flex;
         align-items: center;
         color: colors.$white;
         gap: 15px;
 
         div {
+          font-size: 32px;
           color: colors.$bisky;
           font-weight: 600;
         }

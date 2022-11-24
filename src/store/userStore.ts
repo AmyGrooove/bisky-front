@@ -17,10 +17,12 @@ class userStore {
     login: "",
   };
 
+  public errorMsg: string = "";
+
   public register = async (login: string, email: string, password: string) => {
     let success = false;
 
-    axios
+    await axios
       .post(API_URL + "auth/registration", {
         login: login,
         email: email,
@@ -31,13 +33,16 @@ class userStore {
       })
       .catch((error) => {
         console.log(error);
+        this.errorMsg = error.response.data.message;
       });
 
     return success;
   };
 
   public logging = async (email: string, password: string) => {
-    axios
+    let success = false;
+
+    await axios
       .post(API_URL + "auth/login", {
         email: email,
         password: password,
@@ -49,11 +54,15 @@ class userStore {
           email: response.data[2],
           login: response.data[1],
         };
-        return true;
+
+        success = true;
       })
       .catch((error) => {
         console.log(error);
+        this.errorMsg = error.response.data.message;
       });
+
+    return success;
   };
 
   constructor() {

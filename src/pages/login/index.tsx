@@ -1,6 +1,7 @@
 import { observer } from "mobx-react-lite";
 import Link from "next/link";
 import useLogReg from "../../hooks/useLogReg";
+import userStore from "../../store/userStore";
 
 const Login = observer(() => {
   const {
@@ -13,13 +14,21 @@ const Login = observer(() => {
     errorPassword,
     openPass,
     setOpenPass,
+    errorValid,
   } = useLogReg();
+
+  const { errorMsg } = userStore;
 
   return (
     <div className="container-form">
       <div className="form-block" style={{ marginTop: "60px" }}>
         <div className="form-title">Вход</div>
-        <div className={`form-input-block ${errorEmail && "error-form"}`}>
+        {errorValid && <div className="form-error">{errorMsg}</div>}
+        <div
+          className={`form-input-block ${
+            (errorEmail || errorValid) && "error-form"
+          }`}
+        >
           <div>Email</div>
           <input
             type="text"
@@ -27,7 +36,11 @@ const Login = observer(() => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div className={`form-input-block ${errorPassword && "error-form"}`}>
+        <div
+          className={`form-input-block ${
+            (errorPassword || errorValid) && "error-form"
+          }`}
+        >
           <div>Пароль</div>
           <input
             type={openPass ? "text" : "password"}

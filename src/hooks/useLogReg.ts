@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import userStore from "../store/userStore";
 
@@ -9,6 +9,7 @@ const useLogReg = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const [errorValid, setErrorValid] = useState<boolean>(false);
   const [openPass, setOpenPass] = useState<boolean>(false);
 
   const errorLogin = login.length < 4 || login.length > 32;
@@ -18,20 +19,31 @@ const useLogReg = () => {
     );
   const errorPassword = password.length < 8;
 
-  const Reg = async () => {
-    userStore.register(login, email, password);
-    push("/login");
+  useEffect(() => {
+    if (errorValid) {
+      setErrorValid(false);
+    }
+  }, [login, email, password]);
+
+  const Reg = () => {
+    userStore.register(login, email, password).then((el) => {
+      if (el) {
+        push("/login");
+      } else {
+        setErrorValid(true);
+      }
+    });
   };
 
-  const Log = async () => {
-    userStore.logging(email, password);
-    push("/");
+  const Log = () => {
+    userStore.logging(email, password).then((el) => {
+      if (el) {
+        push("/");
+      } else {
+        setErrorValid(true);
+      }
+    });
   };
-
-  // useEffect(() => {
-  //   if (login.length < 4 || login.length > 32) {
-  //   }
-  // }, [login]);
 
   return {
     login,
@@ -47,6 +59,7 @@ const useLogReg = () => {
     errorPassword,
     openPass,
     setOpenPass,
+    errorValid,
   };
 };
 

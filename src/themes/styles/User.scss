@@ -28,6 +28,28 @@
     position: relative;
     top: -100px;
 
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-desc {
+        font-size: 16px;
+      }
+
+      &-block {
+        position: relative;
+        left: -10px;
+        border-radius: 0 20px 20px 0;
+        background-color: colors.$background-light;
+        padding: 5px 0 5px 20px;
+
+        &-name {
+          font-size: 28px;
+        }
+      }
+    }
+
     &-image {
       border-radius: 100px;
       width: 150px;
@@ -41,17 +63,102 @@
         rgba(249, 20, 93, 1) 100%
       );
     }
+  }
+}
 
-    &-block {
-      position: relative;
-      left: -10px;
-      border-radius: 0 20px 20px 0;
-      background-color: colors.$background-light;
-      padding: 5px 10px 5px 20px;
+.settings {
+  background-color: colors.$background-light;
+  border-radius: 20px;
+  padding: 20px;
 
-      &-name {
-        font-size: 28px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  &-bread {
+    display: flex;
+
+    div {
+      color: colors.$main-font-transparent;
+      font-size: 16px;
+      cursor: pointer;
+      border-bottom: 2px solid;
+      padding: 5px 10px 2px 5px;
+      transition: 0.2s;
+
+      &:hover {
+        color: colors.$main-font;
       }
     }
   }
+
+  &-title {
+    font-weight: 600;
+    font-size: 28px;
+  }
+
+  &-block {
+    &-doplInput {
+      border-radius: 10px;
+      width: 50%;
+      border: colors.$transparent 2px solid;
+      background-color: colors.$input-gray;
+      padding: 10px;
+      font-size: 20px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-input {
+      display: flex;
+      border-radius: 10px;
+      font-size: 20px;
+      align-items: center;
+      background-color: colors.$input-gray;
+      width: 50%;
+      padding-right: 10px;
+
+      div {
+        border-radius: 10px;
+        padding: 10px;
+        background-color: colors.$input-gray;
+      }
+
+      input {
+        border-radius: 0 10px 10px 0;
+        width: 100%;
+        border: colors.$transparent 2px solid;
+        font-size: 20px;
+        transition: 0.2s;
+        background-color: colors.$background-light;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &-button {
+    display: flex;
+    justify-content: center;
+
+    button {
+      border: colors.$transparent 2px solid;
+      padding: 15px;
+      font-size: 24px;
+      border-radius: 10px;
+      background-color: colors.$green;
+      color: colors.$white;
+      cursor: pointer;
+    }
+  }
+}
+
+.list {
+  background-color: colors.$background-light;
+  border-radius: 20px;
+  padding: 20px;
 }

@@ -1,30 +1,34 @@
-import useTitle from "./useTitle";
+import { ITitle } from "../../hooks/useTitle";
 
-const TitleDesc = () => {
-  const { title } = useTitle();
+interface ITitleDesc {
+  title: ITitle;
+}
 
+const TitleDesc = ({ title }: ITitleDesc) => {
   return (
     <div className="title">
-      <div>{title().description}</div>
+      <div>{title.description}</div>
       <div className="title-media">
         <div className="title-media-block">
           <div className="title-media-block-headline">Скриншоты</div>
           <div className="title-media-block-row">
-            <img src={title().screens[0]} alt="" />
-            <img src={title().screens[1]} alt="" />
-            <img src={title().screens[2]} alt="" />
+            <img src={title.screens[0]} alt="" />
+            <img src={title.screens[1]} alt="" />
+            <img src={title.screens[2]} alt="" />
           </div>
         </div>
         <div className="title-media-block">
           <div className="title-media-block-headline">Видео</div>
           <div className="title-media-block-row">
             <a
-              href={"https://www.youtube.com/watch?v=" + title().video}
+              href={"https://www.youtube.com/watch?v=" + title.video}
               target="_blank"
             >
               <img
                 src={
-                  "https://i.ytimg.com/vi/" + title().video + "/hqdefault.jpg"
+                  title.video !== ""
+                    ? "https://i.ytimg.com/vi/" + title.video + "/hqdefault.jpg"
+                    : ""
                 }
                 alt=""
               />

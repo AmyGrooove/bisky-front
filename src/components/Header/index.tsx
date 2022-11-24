@@ -34,9 +34,7 @@ const Header = observer(() => {
           </Link>
         </div>
         <div className="header-right">
-          <Link
-            href={userStore.logged ? `/user/${userStore.user.login}` : "/login"}
-          >
+          <Link href={userStore.logged ? `/${userStore.user.login}` : "/login"}>
             <button className="button button-red">
               {userStore.logged ? userStore.user.login : "Войти"}
             </button>

@@ -1,20 +1,14 @@
-import * as animeList from "../../public/json/animeList.json";
-import * as facts from "../../public/json/facts.json";
 import Link from "next/dist/client/link";
-import { useEffect, useState } from "react";
 import { BISKY_MAIN } from "../themes/sources";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Mousewheel } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
+import useHome from "../hooks/useHome";
 
 const Home = () => {
-  const [fact, setFact] = useState<string>();
-
-  useEffect(() => {
-    setFact(facts[Math.floor(Math.random() * facts.length)]);
-  }, []);
+  const { fact, animeList } = useHome();
 
   return (
     <div className="gaps">
@@ -22,7 +16,8 @@ const Home = () => {
         <img src={BISKY_MAIN} alt="" />
         <div className="home-header-title">
           <div className="home-header-title-text">
-            <div>Bisky</div> - Охотник 2-х Звёзд, мастер Шинген-Рю
+            <div>Bisky</div> - Сайт для видения списка просмотренных
+            фильмов/сериалов
           </div>
           <div className="home-header-title-desc">{fact}</div>
         </div>
@@ -34,8 +29,8 @@ const Home = () => {
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={44}
-          loop
           mousewheel
+          freeMode
           grabCursor
           modules={[FreeMode, Mousewheel]}
         >
@@ -44,7 +39,7 @@ const Home = () => {
               <Link href={`/title/${el.id}`}>
                 <button className="home-new-kino-block">
                   <img src={el.img} />
-                  <div>{el.name}</div>
+                  <div>{el.name[0]}</div>
                 </button>
               </Link>
             </SwiperSlide>
@@ -58,8 +53,8 @@ const Home = () => {
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={44}
-          loop
           mousewheel
+          freeMode
           grabCursor
           modules={[FreeMode, Mousewheel]}
         >
@@ -68,7 +63,7 @@ const Home = () => {
               <Link href={`/title/${el.id}`}>
                 <button className="home-new-kino-block">
                   <img src={el.img} />
-                  <div>{el.name}</div>
+                  <div>{el.name[0]}</div>
                 </button>
               </Link>
             </SwiperSlide>
