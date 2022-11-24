@@ -2,6 +2,8 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { API_URL } from "../api";
+import { TO_LIST_STATES } from "../components/Title/SelectTitle";
+import userStore from "../store/userStore";
 
 export interface ITitle {
   id: number;
@@ -25,6 +27,12 @@ export interface ITitle {
 
 const useTitle = () => {
   const { asPath } = useRouter();
+  const { user, logged } = userStore;
+
+  const [rateStatus, setRateStatus] = useState<boolean>(false);
+
+  const [toList, setToList] = useState<number>(0);
+  const [rateTitle, setRateTitle] = useState<number>(0);
 
   const [title, setTitles] = useState<ITitle>({
     id: 0,
@@ -58,8 +66,63 @@ const useTitle = () => {
         .catch((error) => {
           console.log(error);
         });
+
+      if (logged) {
+        axios
+          .get(
+            API_URL +
+              "users/StatusAndRating/" +
+              user.id +
+              "/" +
+              Number(pathName),
+          )
+          .then((response) => {
+            console.log(TO_LIST_STATES.indexOf(response.data.status));
+            setToList(TO_LIST_STATES.indexOf(response.data.status) + 1);
+            setRateTitle(response.data.rating);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     }
   }, [asPath]);
+
+  const listHandler = (input: number) => {
+    const pathName = asPath.split("/")[asPath.split("/").length - 1];
+
+    axios
+      .post(API_URL + "users/addTitle", {
+        userId: user.id,
+        titleId: Number(pathName),
+        status: input === 0 ? "Remove" : TO_LIST_STATES[input - 1],
+        userRating: rateTitle,
+      })
+      .then((response) => {
+        setToList(input);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const rateHandler = (input: number) => {
+    const pathName = asPath.split("/")[asPath.split("/").length - 1];
+
+    axios
+      .post(API_URL + "users/addTitle", {
+        userId: user.id,
+        titleId: Number(pathName),
+        status: TO_LIST_STATES[toList - 1],
+        userRating: input,
+      })
+      .then((response) => {
+        setRateTitle(input);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const getRatingColor = () => {
     return title.rating < 4
@@ -74,6 +137,12 @@ const useTitle = () => {
   return {
     title,
     getRatingColor,
+    rateStatus,
+    setRateStatus,
+    toList,
+    listHandler,
+    rateTitle,
+    rateHandler,
   };
 };
 

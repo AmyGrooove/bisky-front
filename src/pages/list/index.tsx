@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import useList from "../../hooks/useList";
 import { BISKY_TITLE } from "../../themes/sources";
 

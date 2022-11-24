@@ -183,6 +183,46 @@
 
       margin-bottom: 20px;
 
+      &-block {
+        margin-top: 10px;
+        display: flex;
+        gap: 5px;
+
+        button {
+          cursor: pointer;
+          border-radius: 5px;
+          border: none;
+          padding: 2px 6px;
+          font-size: 16px;
+
+          &.b1,
+          &.b2,
+          &.b3,
+          &.b4 {
+            color: colors.$white;
+            background-color: colors.$red;
+          }
+
+          &.b5,
+          &.b6,
+          &.b7 {
+            color: colors.$main-font;
+            background-color: colors.$yellow;
+          }
+
+          &.b8,
+          &.b9 {
+            color: colors.$white;
+            background-color: colors.$green;
+          }
+
+          &.b10 {
+            color: colors.$white;
+            background-color: colors.$bisky;
+          }
+        }
+      }
+
       &-headline {
         color: colors.$white;
         font-size: 30px;
@@ -220,9 +260,13 @@
         padding: 4px 6px;
         background-color: colors.$gray;
         border: none;
-        margin-top: 5px;
         font-size: 14px;
         border-radius: 10px;
+
+        &:disabled {
+          background-color: colors.$button-disabled;
+          cursor: not-allowed;
+        }
       }
     }
   }

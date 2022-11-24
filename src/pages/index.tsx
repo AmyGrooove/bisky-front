@@ -16,7 +16,7 @@ const Home = () => {
         <img src={BISKY_MAIN} alt="" />
         <div className="home-header-title">
           <div className="home-header-title-text">
-            <div>Bisky</div> - Сайт для видения списка просмотренных
+            <div>Bisky</div> - Сайт для ведения списка просмотренных
             фильмов/сериалов
           </div>
           <div className="home-header-title-desc">{fact}</div>

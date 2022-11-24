@@ -38,7 +38,7 @@ const useLogReg = () => {
   const Log = () => {
     userStore.logging(email, password).then((el) => {
       if (el) {
-        push("/");
+        push("/user/" + userStore.user.login);
       } else {
         setErrorValid(true);
       }

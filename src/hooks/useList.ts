@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { API_URL } from "../api";
-import * as types from "../../public/json/types.json";
+import { types } from "../constants";
 
 export interface IShortTitle {
   id: number;
@@ -28,9 +28,12 @@ const useList = () => {
 
   const selectType = () => {
     return (
-      { ["anime"]: types[0], ["kino"]: types[1], ["series"]: types[2] }[
-        (query.type || "anime").toString()
-      ] || types[0]
+      {
+        ["anime"]: types[0],
+        ["kino"]: types[1],
+        ["series"]: types[2],
+        ["games"]: types[3],
+      }[(query.type || "anime").toString()] || types[0]
     );
   };
 

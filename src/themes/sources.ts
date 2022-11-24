@@ -8,3 +8,5 @@ export const BISKY_ERROR = `${APP_URL_ICON}/bisky_error.png`;
 export const EYE_OPEN = `${APP_URL_ICON}/eye_open.svg`;
 export const EYE_CLOSE = `${APP_URL_ICON}/eye_close.svg`;
 export const TRANSPARENT = `${APP_URL_ICON}/transparent.svg`;
+export const SETTINGS_ICON = `${APP_URL_ICON}/settings_icon.svg`;
+export const EXIT_ICON = `${APP_URL_ICON}/exit_icon.svg`;

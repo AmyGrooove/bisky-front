@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
-const TO_LIST_STATES = ["Completed", "Dropped", "Planned to Watch", "Watching"];
+export const TO_LIST_STATES = [
+  "Completed",
+  "Dropped",
+  "Planned to Watch",
+  "Watching",
+];
 
-const SelectTitle = () => {
-  const [toList, setToList] = useState<number>(0);
+interface ISelectTitle {
+  toList: number;
+  setToList: (input: number) => void;
+}
+
+const SelectTitle = ({ toList, setToList }: ISelectTitle) => {
   const [openList, setOpenList] = useState<boolean>(false);
 
   return (

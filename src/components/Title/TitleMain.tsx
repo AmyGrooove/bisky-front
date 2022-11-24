@@ -1,12 +1,31 @@
+import { Dispatch, SetStateAction } from "react";
 import { ITitle } from "../../hooks/useTitle";
+import userStore from "../../store/userStore";
 import SelectTitle from "./SelectTitle";
 
 interface ITitleMain {
   title: ITitle;
   getRatingColor: () => "orange" | "yellow" | "green" | "bisky";
+  rateStatus: boolean;
+  setRateStatus: Dispatch<SetStateAction<boolean>>;
+  toList: number;
+  setToList: (input: number) => void;
+  rateTitle: number;
+  setRateTitle: (input: number) => void;
 }
 
-const TitleMain = ({ title, getRatingColor }: ITitleMain) => {
+const TitleMain = ({
+  title,
+  getRatingColor,
+  rateStatus,
+  setRateStatus,
+  toList,
+  setToList,
+  rateTitle,
+  setRateTitle,
+}: ITitleMain) => {
+  const { logged } = userStore;
+
   return (
     <div className="title">
       <div className="title-name">
@@ -78,9 +97,48 @@ const TitleMain = ({ title, getRatingColor }: ITitleMain) => {
             <div className="title-right-rating-count">
               {title.ratingCount} оценок
             </div>
-            <button className="title-right-rating-rait">Оценить</button>
+            {logged && (
+              <>
+                {rateStatus ? (
+                  <div className="title-right-rating-block">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el, index) => (
+                      <button
+                        onClick={() => {
+                          setRateTitle(el);
+                          setRateStatus(false);
+                        }}
+                        key={index}
+                        className={"b" + el.toString()}
+                      >
+                        {el}
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="title-right-rating-block">
+                    <button
+                      className="title-right-rating-rait"
+                      disabled={toList === 0}
+                      onClick={() => setRateStatus(true)}
+                    >
+                      Оценить
+                    </button>
+                    {rateTitle !== 0 && (
+                      <button
+                        style={{
+                          cursor: "default",
+                        }}
+                        className={"b" + rateTitle.toString()}
+                      >
+                        {rateTitle}
+                      </button>
+                    )}
+                  </div>
+                )}
+              </>
+            )}
           </div>
-          <SelectTitle />
+          {logged && <SelectTitle toList={toList} setToList={setToList} />}
         </div>
       </div>
     </div>

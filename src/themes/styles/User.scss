@@ -1,5 +1,120 @@
 @use "../../themes/colors";
 
+.listUser {
+  background-color: colors.$background-light;
+  border-radius: 20px;
+  padding: 20px;
+
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  &-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &-flex {
+      padding: 0 10px;
+      position: relative;
+      top: 40px;
+
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+
+      &-rating {
+        padding: 3px 6px;
+        border-radius: 5px;
+
+        &.b1,
+        &.b2,
+        &.b3,
+        &.b4 {
+          color: colors.$white;
+          background-color: colors.$red;
+        }
+
+        &.b5,
+        &.b6,
+        &.b7 {
+          color: colors.$main-font;
+          background-color: colors.$yellow;
+        }
+
+        &.b8,
+        &.b9 {
+          color: colors.$white;
+          background-color: colors.$green;
+        }
+
+        &.b10 {
+          color: colors.$white;
+          background-color: colors.$bisky;
+        }
+      }
+
+      &-status {
+        background-color: colors.$background-light;
+        padding: 3px;
+        border-radius: 5px;
+      }
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    div {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  &-pannels {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.miniInfo {
+  background-color: colors.$background-light;
+  border-radius: 20px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &-title {
+    cursor: pointer;
+    border-bottom: 2px solid;
+    font-size: 26px;
+    font-weight: 600;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-length {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  &-block {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    &-row {
+      font-size: 20px;
+    }
+  }
+}
+
 .user {
   background-color: colors.$background-light;
   border-radius: 20px;
@@ -23,45 +138,66 @@
   &-main {
     padding: 20px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: space-between;
     border-radius: 10px;
     position: relative;
     top: -100px;
 
-    &-info {
+    &-left {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      align-items: center;
 
-      &-desc {
-        font-size: 16px;
+      &-image {
+        border-radius: 100px;
+        width: 150px;
+        height: 150px;
+        border: 5px solid colors.$background-light;
+        z-index: 1;
+        background-image: linear-gradient(
+          36deg,
+          rgba(133, 67, 88, 1) 0%,
+          rgba(219, 83, 125, 1) 49%,
+          rgba(249, 20, 93, 1) 100%
+        );
       }
 
-      &-block {
-        position: relative;
-        left: -10px;
-        border-radius: 0 20px 20px 0;
-        background-color: colors.$background-light;
-        padding: 5px 0 5px 20px;
+      &-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
-        &-name {
-          font-size: 28px;
+        &-desc {
+          font-size: 16px;
+        }
+
+        &-block {
+          position: relative;
+          left: -10px;
+          border-radius: 0 20px 20px 0;
+          background-color: colors.$background-light;
+          padding: 5px 0 5px 20px;
+
+          &-name {
+            font-size: 28px;
+            padding-right: 15px;
+          }
         }
       }
     }
 
-    &-image {
-      border-radius: 100px;
-      width: 150px;
-      height: 150px;
-      border: 5px solid colors.$background-light;
-      z-index: 1;
-      background-image: linear-gradient(
-        36deg,
-        rgba(133, 67, 88, 1) 0%,
-        rgba(219, 83, 125, 1) 49%,
-        rgba(249, 20, 93, 1) 100%
-      );
+    &-right {
+      display: flex;
+      gap: 10px;
+
+      img {
+        background-color: colors.$button-white;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }

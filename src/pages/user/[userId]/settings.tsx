@@ -1,8 +1,9 @@
+import { observer } from "mobx-react-lite";
 import Link from "next/link";
-import { URL } from "../../api";
-import useUser from "../../hooks/useUser";
+import { URL } from "../../../api";
+import useUser from "../../../hooks/useUser";
 
-const Settings = () => {
+const Settings = observer(() => {
   const {
     user,
     changeLogin,
@@ -11,12 +12,13 @@ const Settings = () => {
     setAvatar,
     background,
     setBackground,
+    sumbitSettings,
   } = useUser();
 
   return (
     <div className="gaps">
       <div className="settings">
-        <Link href={`/${user.username}`}>
+        <Link href={`/user/${user.login}`}>
           <div className="settings-bread">
             <div>🠔 Назад</div>
           </div>
@@ -57,11 +59,13 @@ const Settings = () => {
       </div>
       <div className="settings">
         <div className="settings-button">
-          <button className="settings-button">Сохранить изменения</button>
+          <button className="settings-button" onClick={sumbitSettings}>
+            Сохранить изменения
+          </button>
         </div>
       </div>
     </div>
   );
-};
+});
 
 export default Settings;

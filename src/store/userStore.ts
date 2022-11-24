@@ -3,21 +3,34 @@ import { makeAutoObservable } from "mobx";
 import { API_URL } from "../api";
 
 interface IUser {
+  id: 0;
   email: string;
   login: string;
-  avatar?: string;
-  background?: string;
 }
 
 class userStore {
   public logged = false;
 
   public user: IUser = {
+    id: 0,
     email: "",
     login: "",
   };
 
   public errorMsg: string = "";
+
+  public exit = () => {
+    this.user = {
+      id: 0,
+      email: "",
+      login: "",
+    };
+    this.logged = false;
+  };
+
+  public changeUserLogin = (input: string) => {
+    this.user.login = input;
+  };
 
   public register = async (login: string, email: string, password: string) => {
     let success = false;
@@ -49,8 +62,8 @@ class userStore {
       })
       .then((response) => {
         this.logged = true;
-        console.log(response);
         this.user = {
+          id: response.data[3],
           email: response.data[2],
           login: response.data[1],
         };
