@@ -7,7 +7,6 @@ import { HomeAnime } from '@/constants/types'
 import styles from './index.module.scss'
 import useSeasonal from './index.use'
 
-
 import 'swiper/css'
 
 interface ISeasonal {
@@ -16,7 +15,7 @@ interface ISeasonal {
 
 const Seasonal = ({ data }: ISeasonal) => {
   const { getRating } = useSeasonal()
-
+  console.log(data[0].image)
   return (
     <section>
       <Swiper
