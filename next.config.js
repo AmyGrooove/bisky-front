@@ -9,6 +9,8 @@ const nextConfig = {
     API_URL: process.env.API_URL,
   },
   images: {
+    loader: "akamai",
+    path: "",
     remotePatterns: [
       {
         protocol: "https",

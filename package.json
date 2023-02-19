@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
