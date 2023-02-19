@@ -1,0 +1,92 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.header {
+  background-color: colors.$background-header;
+  z-index: 10;
+  height: 80px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+
+  &_container {
+    @extend .container;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__left {
+    display: flex;
+    gap: 50px;
+    height: 100%;
+
+    &__logo {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      &_label {
+        font-size: 32px;
+        font-weight: 600;
+        color: colors.$bisky;
+      }
+    }
+
+    &__navigation {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      &_link {
+        font-weight: 500;
+        font-size: 20px;
+        color: colors.$font-white;
+
+        width: 100px;
+        height: calc(100% - 5px);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-bottom: 5px solid colors.$transparent;
+        transition: 0.2s;
+        opacity: 0.9;
+
+        &:hover {
+          opacity: 1;
+          border-bottom: 5px solid colors.$bisky-dark;
+        }
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+
+    &__account {
+      font-size: 16px;
+      font-weight: 500;
+      color: colors.$font-white;
+
+      cursor: pointer;
+      transition: 0.2s;
+      background: colors.$bisky-dark;
+      border: none;
+
+      border-radius: 10px;
+      padding: 12px 20px;
+
+      &:hover {
+        // background: colors.$bisky-dark_hover;
+      }
+    }
+  }
+}

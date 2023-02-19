@@ -1,0 +1,92 @@
+@use "@/theme/colors";
+
+* {
+  font-family: "CascadiaMono" !important;
+  color: colors.$font-black;
+}
+
+.swiper {
+  width: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: colors.$background;
+  height: 100%;
+}
+
+#__next {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  &::marker {
+    content: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: 0.2s;
+  background: colors.$bisky-dark;
+  color: colors.$font-white;
+  border: none;
+
+  border-radius: 10px;
+  padding: 12px 20px;
+
+  &:hover {
+    // background: colors.$bisky-dark_hover;
+  }
+
+  &:disabled {
+    cursor: default;
+    background: colors.$button-disabled;
+  }
+}
+
+input {
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 8px;
+  transition: 0.2s;
+  border: 2px solid colors.$transparent;
+  // background-color: colors.$font-black-transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.swiper-slide-active {
+  &::before {
+    background-color: rgba(0, 0, 0, 0.25) !important;
+  }
+
+  &::after {
+    background-color: colors.$transparent !important;
+    visibility: hidden;
+  }
+}

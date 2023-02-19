@@ -1,0 +1,143 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.swiper {
+  &__slide {
+    background-position: center;
+    background-size: cover;
+    transition: 0.5s ease all !important;
+    border-radius: 20px;
+    user-select: none;
+
+    max-width: 1000px;
+    min-height: 500px;
+
+    margin: 0 20px;
+
+    &::before {
+      content: "";
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transition: 0.7s;
+    }
+
+    &::after {
+      content: "";
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transition: 0.7s;
+      z-index: 2;
+    }
+
+    &_link {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  }
+
+  &__card {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    height: 90%;
+    position: absolute;
+    margin-left: 40px;
+
+    &_img {
+      border-radius: 20px;
+    }
+
+    &__name {
+      padding: 20px;
+      display: flex;
+
+      position: relative;
+      bottom: 50px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        background-color: colors.$background-transparent;
+        filter: blur(30px);
+      }
+
+      &_text {
+        color: colors.$font-white;
+        font-size: 48px;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__genre {
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+    align-items: flex-end;
+
+    &_label {
+      opacity: 0.7;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    &_name {
+      color: colors.$font-white;
+      font-size: 18px;
+    }
+  }
+
+  &__rating {
+    opacity: 0.9;
+    width: 100%;
+    position: absolute;
+
+    display: flex;
+    justify-content: flex-end;
+
+    &_score {
+      margin: 20px;
+      color: colors.$font-white;
+      font-size: 36px;
+      padding: 10px;
+
+      border-radius: 20px;
+
+      &_high {
+        background-color: colors.$rating-high;
+      }
+
+      &_medium {
+        background-color: colors.$rating-medium;
+      }
+
+      &_low {
+        background-color: colors.$rating-low;
+      }
+    }
+  }
+
+  &__container {
+    @extend .container;
+    margin-top: 20px;
+  }
+
+  &__watchNow {
+    @extend .block;
+  }
+}

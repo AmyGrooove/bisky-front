@@ -1,43 +1,42 @@
-import useHeader from "./useHeader";
-import userStore from "../../store/userStore";
-import Link from "next/dist/client/link";
-import { BISKY_LOGO } from "../../themes/sources";
-import { observer } from "mobx-react-lite";
-import { types } from "../../constants";
+import Image from 'next/image'
+import Link from 'next/link'
 
-const Header = observer(() => {
-  const { selectStyle } = useHeader();
+import { BISKY_LOGO } from '@/theme/sources'
+import { links } from '@/constants'
 
+import styles from './index.module.scss'
+
+function Header() {
   return (
-    <div className="header">
-      <div className="container header-container">
-        <div className="header-left">
-          <Link href="/">
-            <div className="header-left-name">
-              <img src={BISKY_LOGO} alt="" />
-              <div>Bisky</div>
-            </div>
+    <header className={styles.header}>
+      <div className={styles.header_container}>
+        <div className={styles.header__left}>
+          <Link href="/" className={styles.header__left__logo}>
+            <Image
+              src={BISKY_LOGO} alt="Bisky logo"
+              width={32} height={48} />
+            <h1 className={styles.header__left__logo_label}>Bisky</h1>
           </Link>
-          {types.map((el) => (
-            <Link href={`/list?type=${el.type}`}>
-              <div className={`header-left-link ${selectStyle(el.type)}`}>
+          <div className={styles.header__left__navigation}>
+            {links.map((el) => (
+              <Link
+                key={el.name}
+                href={el.href}
+                className={styles.header__left__navigation_link}
+              >
                 {el.name}
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="header-right">
-          <Link
-            href={userStore.logged ? `/user/${userStore.user.login}` : "/login"}
-          >
-            <button className="button button-red">
-              {userStore.logged ? userStore.user.login : "Войти"}
-            </button>
+        <div className={styles.header__right}>
+          <Link href="/login" className={styles.header__right__account}>
+            Войти
           </Link>
         </div>
       </div>
-    </div>
-  );
-});
+    </header>
+  )
+}
 
-export default Header;
+export default Header

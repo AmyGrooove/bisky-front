@@ -1,5 +1,19 @@
 {
-  "extends": ["react-app", "react-app/jest"],
+  "parserOptions": {
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "ecmaVersion": 2022
+  },
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": ["react"],
   "rules": {
     "import/order": [
       "warn",
@@ -17,18 +31,18 @@
         "newlines-between": "always"
       }
     ],
-
     "max-len": ["warn", 120],
     "comma-dangle": ["warn", "always-multiline"],
     "no-console": "warn",
     "semi": ["warn", "never"],
     "quotes": ["warn", "single"],
     "indent": ["warn", 2],
-
     "jsx-quotes": ["warn", "prefer-double"],
     "react/jsx-indent": ["warn", 2],
     "react/jsx-indent-props": ["warn", 2],
     "react/jsx-first-prop-new-line": ["warn", "multiline"],
-    "react/jsx-max-props-per-line": ["warn", { "maximum": 2 }]
+    "react/jsx-max-props-per-line": ["warn", { "maximum": 2 }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }

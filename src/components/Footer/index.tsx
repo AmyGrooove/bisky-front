@@ -1,13 +1,21 @@
-const Footer = () => {
-  return (
-    <a
-      href="https://hunterxhunter.fandom.com/ru/wiki/Бискет_Крюгер"
-      className="footer"
-      target="_blank"
-    >
-      © Bisky
-    </a>
-  );
-};
+import Link from 'next/link'
 
-export default Footer;
+import styles from './index.module.scss'
+
+function Footer() {
+  return (
+    <>
+      <span />
+      <footer className={styles.footer}>
+        <Link
+          href="https://hunterxhunter.fandom.com/ru/wiki/Бискет_Крюгер"
+          className={styles.footer__label}
+        >
+          © Bisky
+        </Link>
+      </footer>
+    </>
+  )
+}
+
+export default Footer

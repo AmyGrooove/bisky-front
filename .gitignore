@@ -2,3 +2,4 @@
 .next
 yarn-error.log
 out
+.env

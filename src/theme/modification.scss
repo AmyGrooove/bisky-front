@@ -1,0 +1,29 @@
+@use "@/theme/colors";
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.headerPadding {
+  padding-top: 100px;
+}
+
+.block {
+  padding: 20px;
+  background-color: colors.$background-light;
+  border-radius: 20px;
+}
+
+.score_high {
+  background-color: colors.$rating-high;
+}
+
+.score_medium {
+  background-color: colors.$rating-medium;
+}
+
+.score_low {
+  background-color: colors.$rating-low;
+}
