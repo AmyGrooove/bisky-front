@@ -16,3 +16,8 @@ export interface Genres {
   genre_id: number;
   name: RusEngLabels;
 }
+
+export interface FactsType {
+  _id: string;
+  fact: string;
+}
