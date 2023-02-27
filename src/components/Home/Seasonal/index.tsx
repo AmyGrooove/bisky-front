@@ -1,52 +1,60 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Link from 'next/link'
-import Image from 'next/image'
+import { Swiper, SwiperSlide } from "swiper/react";
+import Link from "next/link";
+import Image from "next/image";
 
-import { HomeAnime } from '@/constants/types'
+import { SeasonalAnime } from "@/supportingTool/types";
 
-import styles from './index.module.scss'
-import useSeasonal from './index.use'
+import styles from "./index.module.scss";
+import useSeasonal from "./index.use";
 
-import 'swiper/css'
+import "swiper/css";
+import { SHIKI_URL } from "@/supportingTool/constatns";
 
 interface ISeasonal {
-  data: HomeAnime[];
+  data: SeasonalAnime[];
 }
 
 const Seasonal = ({ data }: ISeasonal) => {
-  const { getRating } = useSeasonal()
-  console.log(data[0].image)
+  const { getRating, currentScreen } = useSeasonal();
+
   return (
     <section>
-      <Swiper
-        slidesPerView={'auto'} grabCursor
-        centeredSlides loop>
+      <Swiper slidesPerView={"auto"} grabCursor centeredSlides loop>
         {data.map((el) => (
           <SwiperSlide
             key={el.shiki_id}
             className={styles.swiper__slide}
             style={{
-              backgroundImage: `url(${el.screenshots[0]})`,
+              backgroundImage: `url(${SHIKI_URL}system/screenshots/original/${el.screenshots[currentScreen]}.jpg)`,
             }}
           >
-            <Link href={'#'} className={styles.swiper__slide_link}>
+            <Link href={"#"} className={styles.swiper__slide_link}>
               <span className={styles.swiper__card}>
                 <Image
                   height={335}
                   width={225}
-                  src={el.image}
+                  src={
+                    el.image
+                      ? SHIKI_URL +
+                        "system/animes/original/" +
+                        el.image +
+                        ".jpg"
+                      : ""
+                  }
                   alt=""
                   className={styles.swiper__card_img}
                 />
                 <div className={styles.swiper__card__name}>
-                  <h1 className={styles.swiper__card__name_text}>{el.name}</h1>
+                  <h1 className={styles.swiper__card__name_text}>
+                    {el.label.ru}
+                  </h1>
                 </div>
               </span>
               <span className={styles.swiper__genre}>
                 <h2 className={styles.swiper__genre_label}>
                   {el.genres.map((gen) => (
-                    <li key={gen} className={styles.swiper__genre_name}>
-                      {gen}
+                    <li key={gen.name.ru} className={styles.swiper__genre_name}>
+                      {gen.name.ru}
                     </li>
                   ))}
                 </h2>
@@ -65,7 +73,7 @@ const Seasonal = ({ data }: ISeasonal) => {
         ))}
       </Swiper>
     </section>
-  )
-}
+  );
+};
 
-export default Seasonal
+export default Seasonal;

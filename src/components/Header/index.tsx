@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { BISKY_LOGO } from '@/theme/sources'
-import { links } from '@/constants'
+import { links } from '@/supportingTool/constatns'
 
 import styles from './index.module.scss'
 

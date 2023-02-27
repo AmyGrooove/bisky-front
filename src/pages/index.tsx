@@ -1,14 +1,14 @@
-import { HomeAnime } from '@/constants/types'
+import { SeasonalAnime } from '@/supportingTool/types'
 import { Seasonal } from '@/components/Home'
-import { http } from '@/constants/functions'
-import { API_URL } from '@/constants'
+import { http } from '@/supportingTool/functions'
+import { API_URL } from '@/supportingTool/constatns'
 
 import styles from './index.module.scss'
 
 const account = true
 
 interface IHome {
-  SeasonalData: HomeAnime[];
+  SeasonalData: SeasonalAnime[];
 }
 
 function Home({ SeasonalData }: IHome) {
@@ -23,7 +23,7 @@ function Home({ SeasonalData }: IHome) {
 }
 
 export async function getServerSideProps() {
-  const SeasonalData = await http<HomeAnime[]>(API_URL + '/home/seasonal')
+  const SeasonalData = await http<SeasonalAnime[]>(API_URL + '/home/seasonal')
 
   return { props: { SeasonalData } }
 }

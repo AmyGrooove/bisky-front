@@ -1,4 +1,18 @@
+import { useEffect, useState } from 'react'
+
+import { getRandomValue } from '@/supportingTool/functions'
+
 const useSeasonal = () => {
+  const [currentScreen, setCurrentScreen] = useState(getRandomValue(4))
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentScreen(getRandomValue(4))
+    }, 8000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   const getRating = (score: number) => {
     switch (true) {
     case score >= 7:
@@ -10,7 +24,7 @@ const useSeasonal = () => {
     }
   }
 
-  return { getRating }
+  return { getRating, currentScreen }
 }
 
 export default useSeasonal

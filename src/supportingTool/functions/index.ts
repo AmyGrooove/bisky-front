@@ -4,4 +4,8 @@ async function http<T>(url: string): Promise<T> {
   return body
 }
 
-export { http }
+const getRandomValue = (until: number) => {
+  return Math.floor(Math.random() * (until + 1))
+}
+
+export { http, getRandomValue }
