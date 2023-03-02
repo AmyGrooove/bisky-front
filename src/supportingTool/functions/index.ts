@@ -10,8 +10,8 @@ async function httpGet<T>(url: string): Promise<T> {
   }).then((response) => response.json())
 }
 
-const getRandomValue = (until: number) => {
-  return Math.floor(Math.random() * (until + 1))
+function getRandomValue(max: number, min: number = 0) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 const getNormalKind = (value: string) => {

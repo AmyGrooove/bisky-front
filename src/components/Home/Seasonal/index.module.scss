@@ -1,12 +1,23 @@
 @use "@/theme/colors";
 @use "@/theme/modification";
 
+@keyframes invoke {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .swiper {
   &__slide {
-    background-position: center;
-    background-size: cover;
-    transition: 0.5s ease all !important;
-    border-radius: 20px;
     user-select: none;
 
     max-width: 1000px;
@@ -14,14 +25,12 @@
 
     margin: 0 20px;
 
-    &::before {
-      content: "";
-      border-radius: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
+    &_img {
       position: absolute;
-      height: 100%;
-      width: 100%;
-      transition: 0.7s;
+      border-radius: 20px;
+      filter: brightness(80%);
+
+      animation: invoke 8s linear infinite;
     }
 
     &::after {
