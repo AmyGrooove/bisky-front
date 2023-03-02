@@ -31,6 +31,7 @@
         "newlines-between": "always"
       }
     ],
+    "no-unused-vars": "warn",
     "max-len": ["warn", 120],
     "comma-dangle": ["warn", "always-multiline"],
     "no-console": "warn",

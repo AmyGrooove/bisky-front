@@ -1,7 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import styles from "./index.module.scss";
-import { BISKY_TIPS } from "@/theme/sources";
+import { BISKY_TIPS } from '@/theme/sources'
+
+import styles from './index.module.scss'
 
 interface IFacts {
   data: string;
@@ -21,7 +22,7 @@ const Facts = ({ data }: IFacts) => {
         <h1 className={styles.facts__block_text}>{data}</h1>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Facts;
+export default Facts

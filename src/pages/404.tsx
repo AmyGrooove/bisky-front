@@ -1,6 +1,8 @@
-import { BISKY_ERROR } from "@/theme/sources";
-import styles from "./index.module.scss";
-import Image from "next/image";
+import Image from 'next/image'
+
+import { BISKY_ERROR } from '@/theme/sources'
+
+import styles from './index.module.scss'
 
 const Error404 = () => {
   return (
@@ -11,10 +13,12 @@ const Error404 = () => {
           <span className={styles.error404__block_mainText_number}>404</span>
         </h1>
         <h2>Такой страницы не существует</h2>
-        <Image width={200} height={250} src={BISKY_ERROR} alt="" />
+        <Image
+          width={200} height={250}
+          src={BISKY_ERROR} alt="" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Error404;
+export default Error404

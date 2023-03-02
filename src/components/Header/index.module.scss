@@ -1,6 +1,28 @@
 @use "@/theme/colors";
 @use "@/theme/modification";
 
+.opactityBack {
+  position: absolute;
+  z-index: 9;
+  background-color: colors.$black;
+
+  opacity: 0;
+  visibility: hidden;
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.2s;
+
+  &_active {
+    visibility: visible;
+    opacity: 0.3;
+  }
+}
+
 .header {
   background-color: colors.$background-header;
   z-index: 10;
@@ -50,12 +72,13 @@
         color: colors.$font-white;
 
         width: 100px;
-        height: calc(100% - 5px);
+        height: calc(100% - 10px);
 
         display: flex;
         justify-content: center;
         align-items: center;
 
+        border-top: 5px solid colors.$transparent;
         border-bottom: 5px solid colors.$transparent;
         transition: 0.2s;
         opacity: 0.9;

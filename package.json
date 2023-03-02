@@ -2,8 +2,8 @@
   "name": "bisky-front",
   "version": "1.0.1",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
     "lint:fix": "next lint --fix"
   },
   "dependencies": {

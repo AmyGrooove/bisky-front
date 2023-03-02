@@ -1,0 +1,147 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.search {
+  max-width: 750px;
+  width: 100%;
+
+  &__inputFloor {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &_input {
+      width: 100%;
+      background-color: colors.$background-search;
+      color: colors.$font-white;
+
+      &:focus,
+      &:focus + .search__inputFloor_icon {
+        background-color: colors.$background-light;
+        opacity: 1;
+        color: colors.$font-black;
+      }
+
+      &:focus + .search__result {
+        opacity: 1;
+        visibility: visible;
+        background-color: black;
+      }
+    }
+
+    &_icon {
+      background-color: colors.$background-search;
+      position: absolute;
+      padding: 6px;
+      display: flex;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+
+  &__result {
+    position: absolute;
+    top: 80px;
+    max-width: 694px;
+    margin: 0 20px;
+    width: 100%;
+
+    transition: 0.2s;
+    opacity: 0;
+    visibility: hidden;
+
+    padding: 8px;
+    border-radius: 20px;
+    background-color: colors.$background-search;
+
+    display: flex;
+    flex-direction: column;
+
+    &_none {
+      color: colors.$font-white;
+      padding: 20px;
+    }
+
+    &_active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &__element {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &__br {
+        display: flex;
+        align-self: center;
+        width: calc(100% - 152px);
+        height: 5px;
+        opacity: 0.6;
+        border-radius: 50px;
+        background-color: colors.$background-header;
+      }
+
+      &__item {
+        display: flex;
+        gap: 10px;
+
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 20px;
+        transition: 0.2s;
+        margin: 1px 0;
+
+        &:hover {
+          background-color: colors.$background-search-lighter;
+        }
+
+        &_img {
+          border-radius: 10px;
+        }
+
+        &__info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          &_label {
+            &_ru {
+              color: colors.$font-white;
+              font-size: 20px;
+              max-width: 600px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            &_en {
+              color: colors.$font-white;
+              font-size: 16px;
+              opacity: 0.3;
+              max-width: 600px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+          }
+
+          &_adit {
+            display: flex;
+            gap: 10px;
+
+            &_text {
+              opacity: 0.8;
+              color: colors.$font-white;
+            }
+
+            &_slash {
+              color: colors.$font-white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

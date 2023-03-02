@@ -1,0 +1,25 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.best {
+  @extend .container;
+
+  margin-top: 20px;
+
+  &__block {
+    @extend .block;
+  }
+
+  &__table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &__element {
+      background-color: colors.$background;
+      color: colors.$font-white;
+      padding: 5px;
+      border-radius: 20px;
+    }
+  }
+}
