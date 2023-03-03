@@ -9,48 +9,49 @@ import useSeasonal from './index.use'
 
 import 'swiper/css'
 import { SHIKI_URL } from '@/supportingTool/constatns'
-import { BISKY_BLUR, BISKY_POSTER_BLUR } from '@/theme/sources'
+import { BISKY_POSTER_BLUR_BIG, BISKY_POSTER_BLUR } from '@/theme/sources'
+
+import { SyntheticEvent } from 'react'
 
 interface ISeasonal {
   data: SeasonalAnime[];
 }
 
 const Seasonal = ({ data }: ISeasonal) => {
-  const { getRating, currentScreen } = useSeasonal()
+  const { getRating, imageIndex } = useSeasonal()
 
   return (
     <section>
       <Swiper
-        slidesPerView={'auto'}
-        grabCursor
-        centeredSlides
-        loop
-        onActiveIndexChange={(el) => console.log(el.realIndex)}
-      >
+        slidesPerView={'auto'} grabCursor
+        centeredSlides loop>
         {data.map((el) => (
           <SwiperSlide key={el.shiki_id} className={styles.swiper__slide}>
             <>
-              <Image
-                width={1000}
-                height={500}
-                quality={50}
-                placeholder="blur"
-                blurDataURL={BISKY_BLUR}
-                src={
-                  SHIKI_URL +
-                  'system/screenshots/original/' +
-                  el.screenshots[currentScreen] +
-                  '.jpg'
-                }
-                alt=""
-                className={styles.swiper__slide_img}
-              />
+              {el.screenshots.map((el, index) => (
+                <Image
+                  key={index}
+                  width={1000}
+                  height={500}
+                  quality={30}
+                  placeholder="blur"
+                  blurDataURL={BISKY_POSTER_BLUR_BIG}
+                  loading="eager"
+                  src={SHIKI_URL + 'system/screenshots/original/' + el + '.jpg'}
+                  alt=""
+                  className={`${styles.swiper__slide_img} ${
+                    imageIndex === index
+                      ? styles.swiper__slide_img_visible
+                      : styles.swiper__slide_img_hidden
+                  }`}
+                />
+              ))}
               <Link href={'#'} className={styles.swiper__slide_link}>
                 <span className={styles.swiper__card}>
                   <Image
                     height={335}
                     width={225}
-                    quality={80}
+                    quality={70}
                     placeholder="blur"
                     blurDataURL={BISKY_POSTER_BLUR}
                     src={

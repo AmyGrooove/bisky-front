@@ -14,7 +14,18 @@
       position: absolute;
       border-radius: 20px;
       filter: brightness(80%);
-      transition: 0.3s;
+
+      transition: 1s;
+
+      &_visible {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &_hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
     }
 
     &::after {
@@ -93,6 +104,17 @@
     &_name {
       color: colors.$font-white;
       font-size: 18px;
+
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+
+      &::after {
+        content: "|";
+        margin-left: 10px;
+      }
     }
   }
 

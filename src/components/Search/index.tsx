@@ -46,6 +46,7 @@ const Search = () => {
                   <Image
                     placeholder="blur"
                     blurDataURL={BISKY_POSTER_BLUR}
+                    quality={80}
                     src={
                       SHIKI_URL + 'system/animes/original/' + el.image + '.jpg'
                     }

@@ -1,21 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const useSeasonal = () => {
-  const [currentScreen, setCurrentScreen] = useState(0)
+  const [imageIndex, setImageIndex] = useState(0)
 
   useEffect(() => {
     let interval = setInterval(() => {
-      if (currentScreen !== 5) {
-        setCurrentScreen(currentScreen + 1)
-      } else {
-        setCurrentScreen(0)
-      }
+      setImageIndex(imageIndex === 5 ? 0 : imageIndex + 1)
     }, 8000)
 
     return () => {
       clearInterval(interval)
     }
-  }, [currentScreen])
+  }, [imageIndex])
 
   const getRating = (score: number) => {
     switch (true) {
@@ -28,7 +24,7 @@ const useSeasonal = () => {
     }
   }
 
-  return { getRating, currentScreen }
+  return { getRating, imageIndex }
 }
 
 export default useSeasonal

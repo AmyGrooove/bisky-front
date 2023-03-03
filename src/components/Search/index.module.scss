@@ -1,6 +1,15 @@
 @use "@/theme/colors";
 @use "@/theme/modification";
 
+@keyframes invoke {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .search {
   max-width: 750px;
   width: 100%;
@@ -61,6 +70,7 @@
     &_none {
       color: colors.$font-white;
       padding: 20px;
+      animation: invoke 0.3s linear;
     }
 
     &_active {
@@ -72,6 +82,9 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      transition: 0.3s;
+
+      animation: invoke 0.3s linear;
 
       &__br {
         display: flex;
@@ -99,6 +112,7 @@
 
         &_img {
           border-radius: 10px;
+          transition: 0.3s;
         }
 
         &__info {
