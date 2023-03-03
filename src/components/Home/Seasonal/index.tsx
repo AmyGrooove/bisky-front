@@ -9,6 +9,7 @@ import useSeasonal from './index.use'
 
 import 'swiper/css'
 import { SHIKI_URL } from '@/supportingTool/constatns'
+import { BISKY_BLUR, BISKY_POSTER_BLUR } from '@/theme/sources'
 
 interface ISeasonal {
   data: SeasonalAnime[];
@@ -20,8 +21,12 @@ const Seasonal = ({ data }: ISeasonal) => {
   return (
     <section>
       <Swiper
-        slidesPerView={'auto'} grabCursor
-        centeredSlides loop>
+        slidesPerView={'auto'}
+        grabCursor
+        centeredSlides
+        loop
+        onActiveIndexChange={(el) => console.log(el.realIndex)}
+      >
         {data.map((el) => (
           <SwiperSlide key={el.shiki_id} className={styles.swiper__slide}>
             <>
@@ -29,6 +34,8 @@ const Seasonal = ({ data }: ISeasonal) => {
                 width={1000}
                 height={500}
                 quality={50}
+                placeholder="blur"
+                blurDataURL={BISKY_BLUR}
                 src={
                   SHIKI_URL +
                   'system/screenshots/original/' +
@@ -44,6 +51,8 @@ const Seasonal = ({ data }: ISeasonal) => {
                     height={335}
                     width={225}
                     quality={80}
+                    placeholder="blur"
+                    blurDataURL={BISKY_POSTER_BLUR}
                     src={
                       el.image
                         ? SHIKI_URL +

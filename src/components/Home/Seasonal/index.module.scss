@@ -1,21 +1,6 @@
 @use "@/theme/colors";
 @use "@/theme/modification";
 
-@keyframes invoke {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .swiper {
   &__slide {
     user-select: none;
@@ -29,8 +14,7 @@
       position: absolute;
       border-radius: 20px;
       filter: brightness(80%);
-
-      animation: invoke 8s linear infinite;
+      transition: 0.3s;
     }
 
     &::after {
@@ -62,6 +46,7 @@
 
     &_img {
       border-radius: 20px;
+      transition: 0.3s;
     }
 
     &__name {

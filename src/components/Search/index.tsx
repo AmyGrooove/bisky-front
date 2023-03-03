@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useContext } from 'react'
 
-import { SEARCH_ICON } from '@/theme/sources'
+import { BISKY_POSTER_BLUR, SEARCH_ICON } from '@/theme/sources'
 import { SHIKI_URL } from '@/supportingTool/constatns'
 import { getNormalKind } from '@/supportingTool/functions'
 
@@ -44,6 +44,8 @@ const Search = () => {
               <Link href="#">
                 <div className={styles.search__result__element__item}>
                   <Image
+                    placeholder="blur"
+                    blurDataURL={BISKY_POSTER_BLUR}
                     src={
                       SHIKI_URL + 'system/animes/original/' + el.image + '.jpg'
                     }
