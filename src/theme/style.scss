@@ -34,10 +34,8 @@ ul {
   padding: 0;
 }
 
-li {
-  &::marker {
-    content: none;
-  }
+li::marker {
+  content: none;
 }
 
 a {
@@ -57,13 +55,13 @@ button {
   border-radius: 10px;
   padding: 12px 20px;
 
-  &:hover {
-    // background: colors.$bisky-dark_hover;
-  }
-
   &:disabled {
     cursor: default;
     background: colors.$button-disabled;
+  }
+
+  &:hover {
+    background: colors.$bisky-dark-hover;
   }
 }
 
@@ -73,7 +71,6 @@ input {
   padding: 8px;
   transition: 0.2s;
   border: 2px solid colors.$transparent;
-  // background-color: colors.$font-black-transparent;
 
   &:focus {
     outline: none;

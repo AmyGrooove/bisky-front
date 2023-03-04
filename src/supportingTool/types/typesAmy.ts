@@ -26,7 +26,13 @@ export interface PosterAnime {
   shiki_id: number;
   label: RusEngLabels;
   image: string;
+  score: number;
   kind: string;
   status: string;
   aired_on: string;
+}
+
+export interface UserMainAnimes {
+  posterAnime: PosterAnime[];
+  status: string;
 }

@@ -10,15 +10,14 @@ import useSeasonal from './index.use'
 import 'swiper/css'
 import { SHIKI_URL } from '@/supportingTool/constatns'
 import { BISKY_POSTER_BLUR_BIG, BISKY_POSTER_BLUR } from '@/theme/sources'
-
-import { SyntheticEvent } from 'react'
+import { getRating } from '@/supportingTool/functions'
 
 interface ISeasonal {
   data: SeasonalAnime[];
 }
 
 const Seasonal = ({ data }: ISeasonal) => {
-  const { getRating, imageIndex } = useSeasonal()
+  const { imageIndex } = useSeasonal()
 
   return (
     <section>
@@ -89,7 +88,7 @@ const Seasonal = ({ data }: ISeasonal) => {
                       el.score,
                     )}`}
                   >
-                    {el.score.toFixed(1)}
+                    {el.score}
                   </h2>
                 </span>
               </Link>

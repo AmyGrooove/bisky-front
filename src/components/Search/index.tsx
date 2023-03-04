@@ -15,8 +15,6 @@ const Search = () => {
   const { inputValue, setInputValue, searchResult } = useSearch()
   const headerObj = useContext(HeaderContext)
 
-  console.log(BISKY_POSTER_BLUR)
-
   return (
     <div className={styles.search}>
       <div className={styles.search__inputFloor}>
@@ -42,7 +40,7 @@ const Search = () => {
       >
         {searchResult.length !== 0 ? (
           searchResult.map((el, index) => (
-            <div key={el.shiki_id} className={styles.search__result__element}>
+            <div key={el.label.en} className={styles.search__result__element}>
               <Link href="#">
                 <div className={styles.search__result__element__item}>
                   <Image

@@ -24,6 +24,7 @@
       width: 100%;
       background-color: colors.$background-search;
       color: colors.$font-white;
+      caret-color: colors.$bisky-dark;
 
       &:focus,
       &:focus + .search__inputFloor_icon {
@@ -46,6 +47,10 @@
       display: flex;
       cursor: pointer;
       opacity: 0.5;
+
+      &:hover {
+        background-color: colors.$background-search;
+      }
     }
   }
 

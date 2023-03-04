@@ -58,6 +58,13 @@
         font-size: 32px;
         font-weight: 600;
         color: colors.$bisky;
+        transition: 0.2s;
+      }
+
+      &:hover {
+        .header__left__logo_label {
+          color: colors.$bisky-hover;
+        }
       }
     }
 
@@ -108,7 +115,7 @@
       padding: 12px 20px;
 
       &:hover {
-        // background: colors.$bisky-dark_hover;
+        background: colors.$bisky-dark-hover;
       }
     }
   }
