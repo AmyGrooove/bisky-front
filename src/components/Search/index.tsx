@@ -15,6 +15,8 @@ const Search = () => {
   const { inputValue, setInputValue, searchResult } = useSearch()
   const headerObj = useContext(HeaderContext)
 
+  console.log(BISKY_POSTER_BLUR)
+
   return (
     <div className={styles.search}>
       <div className={styles.search__inputFloor}>
