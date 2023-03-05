@@ -9,6 +9,7 @@ const nextConfig = {
     API_URL: process.env.API_URL,
   },
   images: {
+    unoptimized: true,
     minimumCacheTTL: 60,
     remotePatterns: [
       {

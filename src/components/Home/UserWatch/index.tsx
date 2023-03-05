@@ -29,7 +29,9 @@ const UserWatch = ({ data }: IUserWatch) => {
           grabCursor>
           {data.posterAnime.map((el) => (
             <SwiperSlide key={el.shiki_id} className={styles.userWatch__slide}>
-              <Poster el={el} offBack={true} />
+              <Poster
+                el={el} offBack
+                offName />
             </SwiperSlide>
           ))}
         </Swiper>

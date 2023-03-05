@@ -13,7 +13,6 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
     <>
       <Head>
-        <link rel="icon" href="/icons/bisky_logo.svg" />
         <title>Bisky</title>
       </Head>
       <Header />

@@ -1,21 +1,16 @@
 @use "@/theme/colors";
 @use "@/theme/modification";
 
-.userWatch {
+.best {
   @extend .container;
 
   margin-top: 20px;
 
-  &__block {
-    @extend .block;
-  }
-
   &__label {
-    width: 282px;
+    width: 300px;
     font-size: 32px;
     transition: 0.2s;
     border-bottom: 5px solid colors.$transparent;
-    margin-bottom: 20px;
 
     &:hover {
       color: colors.$bisky-dark;
@@ -23,7 +18,22 @@
     }
   }
 
-  &__slide {
-    max-width: 180px;
+  &__block {
+    @extend .block;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    margin-top: 40px;
+    display: flex;
+    align-self: center;
+  }
+
+  &__table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
   }
 }

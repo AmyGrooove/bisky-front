@@ -2,11 +2,12 @@ import { API_URL } from '../constatns'
 
 import useDebounce from './useDebounce'
 
-async function httpGet<T>(url: string): Promise<T> {
+async function httpGet<T>(url: string, body?: Record<string, any>): Promise<T> {
   return fetch(API_URL + url, {
     headers: {
       accept: 'application/json',
     },
+    body: JSON.stringify(body),
   }).then((response) => response.json())
 }
 
@@ -28,7 +29,7 @@ const getRating = (score: number) => {
   case score >= 7:
     return 'score_high'
   case score >= 5:
-    return 'score_meduim'
+    return 'score_medium'
   default:
     return 'score_low'
   }

@@ -15,19 +15,27 @@
   animation: invoke 0.3s linear;
   transition: 0.2s;
   max-width: 180px;
+  position: relative;
+
+  &_blur {
+    object-fit: cover;
+    position: absolute;
+    border-radius: 20px;
+  }
 
   &_noShadow {
+    position: static;
+
     &::before {
       content: none !important;
     }
   }
 
   &__rating {
-    opacity: 1;
     top: 10px;
     left: 10px;
     position: absolute;
-    display: none;
+    display: flex;
 
     &_score {
       color: colors.$font-white;
@@ -35,18 +43,20 @@
       padding: 5px;
 
       border-radius: 10px;
+    }
+  }
 
-      &_high {
-        background-color: colors.$rating-high;
-      }
+  &__status {
+    position: absolute;
+    display: flex;
+    bottom: 4px;
+    right: 0px;
 
-      &_medium {
-        background-color: colors.$rating-medium;
-      }
-
-      &_low {
-        background-color: colors.$rating-low;
-      }
+    &_type {
+      box-shadow: 0px 0px 1px black;
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 20px 0 20px 0;
     }
   }
 
@@ -60,40 +70,60 @@
     border-radius: 20px;
   }
 
-  &_label {
+  &__label {
     pointer-events: none;
-    max-width: 180px;
-    font-size: 18px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
     transition: 0.2s;
     position: absolute;
+    max-width: 180px;
+    width: 100%;
+
+    &::before {
+      content: "";
+      background-color: colors.$transparent;
+      transition: 0.2s;
+    }
+
+    &_text {
+      font-size: 18px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
 
   &:hover {
     transform: scale(1.15);
+    z-index: 1;
 
     &::before {
       filter: blur(30px);
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.4);
       width: 100%;
       height: 100%;
       position: absolute;
       z-index: -1;
     }
 
-    .poster__rating {
-      animation: invoke 0.2s;
-      display: flex;
-    }
+    .poster__label {
+      &::before {
+        filter: blur(30px);
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+      }
 
-    .poster_label {
-      width: calc(100% - 20px);
-      white-space: pre-wrap;
-      color: colors.$font-white;
-      padding: 0px 10px 10px 10px;
-      text-shadow: 0px 0px 10px colors.$black;
+      &_text {
+        position: relative;
+        bottom: 20px;
+        z-index: -1;
+        padding: 20px 10px 10px 10px;
+        background-color: colors.$bisky-dark;
+        border-radius: 0 0 20px 20px;
+        white-space: pre-wrap;
+        color: colors.$font-white;
+      }
     }
   }
 }
