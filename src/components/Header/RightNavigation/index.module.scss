@@ -1,0 +1,56 @@
+@use "@/theme/colors";
+
+.right {
+  &__account {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 5px;
+
+    &_nickname {
+      max-width: 140px;
+      padding: 10px 0 10px 10px;
+      border-radius: 10px 0 0 10px;
+      background-color: colors.$bisky-dark;
+      height: 20px;
+
+      color: colors.$font-white;
+      font-size: 16px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &_avatar {
+      border-radius: 100px;
+      object-fit: cover;
+    }
+
+    &::before {
+      content: "";
+      background-color: colors.$bisky-dark;
+      width: 20px;
+      height: 40px;
+      position: absolute;
+      right: 40px;
+      z-index: -1;
+    }
+  }
+
+  &__button {
+    font-size: 16px;
+    font-weight: 500;
+    color: colors.$font-white;
+
+    cursor: pointer;
+    transition: 0.2s;
+    background: colors.$bisky-dark;
+    border: none;
+
+    border-radius: 10px;
+    padding: 12px 20px;
+
+    &:hover {
+      background: colors.$bisky-dark-hover;
+    }
+  }
+}

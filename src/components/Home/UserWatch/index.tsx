@@ -20,15 +20,17 @@ const UserWatch = ({ data }: IUserWatch) => {
             data.status === 'watch' ? 'Продолжить просмотр' : 'Начать просмотр'
           }
           href="#"
+          leftPadding
         />
         <Swiper
-          slidesPerView={'auto'} spaceBetween={20}
-          grabCursor>
+          slidesPerView={'auto'}
+          spaceBetween={30}
+          grabCursor
+          className={styles.userWatch__swiper}
+        >
           {data.posterAnime.map((el) => (
             <SwiperSlide key={el.shiki_id} className={styles.userWatch__slide}>
-              <Poster
-                el={el} offBack
-                offName />
+              <Poster el={el} offBack />
             </SwiperSlide>
           ))}
         </Swiper>

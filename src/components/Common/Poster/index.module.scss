@@ -83,6 +83,12 @@
       transition: 0.2s;
     }
 
+    &_noShadow {
+      &::before {
+        content: none;
+      }
+    }
+
     &_text {
       font-size: 18px;
       text-overflow: ellipsis;

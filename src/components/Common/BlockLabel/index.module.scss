@@ -4,6 +4,10 @@
 .blockLabel {
   display: flex;
 
+  &_padding {
+    padding-left: 20px;
+  }
+
   &__label {
     font-size: 32px;
     transition: 0.2s;

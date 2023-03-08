@@ -12,10 +12,9 @@ import styles from './index.module.scss'
 interface IPoster {
   el: PosterAnime;
   offBack?: boolean;
-  offName?: boolean;
 }
 
-const Poster = ({ el, offBack, offName }: IPoster) => {
+const Poster = ({ el, offBack }: IPoster) => {
   return (
     <Link
       href="#"
@@ -35,13 +34,15 @@ const Poster = ({ el, offBack, offName }: IPoster) => {
         className={styles.poster_img}
         backSrc={BLUR_POSTER}
       />
-      {!offName && (
-        <div className={styles.poster__label}>
-          <h2 className={styles.poster__label_text}>
-            {el.label !== undefined ? el.label.ru : ''}
-          </h2>
-        </div>
-      )}
+      <div
+        className={`${styles.poster__label} ${
+          offBack && styles.poster__label_noShadow
+        }`}
+      >
+        <h2 className={styles.poster__label_text}>
+          {el.label !== undefined ? el.label.ru : ''}
+        </h2>
+      </div>
       <span className={styles.poster__rating}>
         <h3 className={`${styles.poster__rating_score} ${getRating(el.score)}`}>
           {el.score}
