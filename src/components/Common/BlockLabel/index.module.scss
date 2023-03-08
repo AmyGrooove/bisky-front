@@ -1,0 +1,21 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.blockLabel {
+  display: flex;
+
+  &__label {
+    font-size: 32px;
+    transition: 0.2s;
+    border-bottom: 5px solid colors.$transparent;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  &:hover {
+    .blockLabel__label {
+      color: colors.$bisky-dark;
+      border-bottom: 5px solid colors.$bisky-dark;
+    }
+  }
+}

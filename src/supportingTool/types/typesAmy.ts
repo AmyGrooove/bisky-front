@@ -3,8 +3,8 @@ export interface SeasonalAnime {
   label: RusEngLabels;
   image: string | null;
   score: number;
-  screenshots: string[];
   genres: Genres[];
+  screenshots: string[];
 }
 
 export interface RusEngLabels {

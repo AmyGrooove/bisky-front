@@ -1,8 +1,8 @@
 @use "@/theme/colors";
 
 * {
-  font-family: "CascadiaMono" !important;
   color: colors.$font-black;
+  letter-spacing: 1px;
 }
 
 .swiper {

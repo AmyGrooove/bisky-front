@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import { PosterAnime, RusEngLabels } from '@/supportingTool/types'
-import Poster from '@/components/Poster'
+import { RusEngLabels } from '@/supportingTool/types'
+import Poster from '@/components/Common/Poster'
 
 import styles from './index.module.scss'
 import useGenreBlock from './index.use'

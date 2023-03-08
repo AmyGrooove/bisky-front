@@ -2,7 +2,7 @@
 @use "@/theme/modification";
 
 .opactityBack {
-  position: absolute;
+  position: fixed;
   z-index: 9;
   background-color: colors.$black;
 
@@ -11,10 +11,6 @@
 
   width: 100%;
   height: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   transition: 0.2s;
 
   &_active {
@@ -29,8 +25,7 @@
   height: 80px;
 
   position: fixed;
-  top: 0;
-  left: 0;
+  width: 100%;
   right: 0;
 
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
@@ -99,9 +94,42 @@
   }
 
   &__right {
-    display: flex;
-
     &__account {
+      display: flex;
+      align-items: center;
+      position: relative;
+      gap: 5px;
+
+      &_nickname {
+        max-width: 140px;
+        padding: 10px 0 10px 10px;
+        border-radius: 10px 0 0 10px;
+        background-color: colors.$bisky-dark;
+        height: 20px;
+
+        color: colors.$font-white;
+        font-size: 16px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &_avatar {
+        border-radius: 100px;
+        object-fit: cover;
+      }
+
+      &::before {
+        content: "";
+        background-color: colors.$bisky-dark;
+        width: 20px;
+        height: 40px;
+        position: absolute;
+        right: 40px;
+        z-index: -1;
+      }
+    }
+
+    &__button {
       font-size: 16px;
       font-weight: 500;
       color: colors.$font-white;

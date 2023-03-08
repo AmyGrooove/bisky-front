@@ -1,0 +1,9 @@
+.load {
+  object-fit: cover;
+  position: absolute;
+
+  &_border {
+    border-radius: 20px;
+    filter: brightness(80%);
+  }
+}

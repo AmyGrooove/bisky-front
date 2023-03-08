@@ -2,9 +2,10 @@
   "name": "bisky-front",
   "version": "1.0.1",
   "scripts": {
-    "build": "next build",
+    "lint:fix": "next lint --fix",
     "dev": "next dev",
-    "lint:fix": "next lint --fix"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "mobx-react-lite": "^3.4.0",

@@ -1,7 +1,6 @@
-import Link from 'next/link'
-
 import { PosterAnime } from '@/supportingTool/types'
-import Poster from '@/components/Poster'
+import Poster from '@/components/Common/Poster'
+import BlockLabel from '@/components/Common/BlockLabel'
 
 import styles from './index.module.scss'
 import useBest from './index.use'
@@ -16,9 +15,7 @@ const Best = ({ data }: IBest) => {
   return (
     <section className={styles.best}>
       <div className={styles.best__block}>
-        <Link href="#">
-          <h1 className={styles.best__label}>Самое популярное</h1>
-        </Link>
+        <BlockLabel label="Самое популярное" href="#" />
         <div className={styles.best__table}>
           {bestAnimes.map((el) => (
             <Poster key={el.shiki_id} el={el} />

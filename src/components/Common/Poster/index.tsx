@@ -1,11 +1,11 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 
 import { PosterAnime } from '@/supportingTool/types'
-import { BISKY_POSTER_BLUR } from '@/theme/sources'
 import { SHIKI_URL } from '@/supportingTool/constatns'
 import { getRating } from '@/supportingTool/functions'
+import { BLUR_POSTER } from '@/theme/sources'
+
+import AmyImage from '../AmyImage'
 
 import styles from './index.module.scss'
 
@@ -16,23 +16,13 @@ interface IPoster {
 }
 
 const Poster = ({ el, offBack, offName }: IPoster) => {
-  const [loaded, setLoaded] = useState(false)
-
   return (
     <Link
       href="#"
       key={el.shiki_id}
       className={`${styles.poster} ${offBack && styles.poster_noShadow}`}
     >
-      {!loaded && (
-        <Image
-          src={BISKY_POSTER_BLUR}
-          fill
-          alt=""
-          className={styles.poster_blur}
-        />
-      )}
-      <Image
+      <AmyImage
         src={
           el.image
             ? SHIKI_URL + 'system/animes/original/' + el.image + '.jpg'
@@ -42,10 +32,9 @@ const Poster = ({ el, offBack, offName }: IPoster) => {
         width={180}
         height={290}
         alt=""
-        onLoad={() => setLoaded(true)}
         className={styles.poster_img}
+        backSrc={BLUR_POSTER}
       />
-
       {!offName && (
         <div className={styles.poster__label}>
           <h2 className={styles.poster__label_text}>

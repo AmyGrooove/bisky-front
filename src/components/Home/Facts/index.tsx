@@ -1,6 +1,5 @@
-import Image from 'next/image'
-
 import { BISKY_TIPS } from '@/theme/sources'
+import AmyImage from '@/components/Common/AmyImage'
 
 import styles from './index.module.scss'
 
@@ -12,7 +11,7 @@ const Facts = ({ data }: IFacts) => {
   return (
     <section className={styles.facts}>
       <div className={styles.facts__block}>
-        <Image
+        <AmyImage
           width={250}
           height={200}
           src={BISKY_TIPS}

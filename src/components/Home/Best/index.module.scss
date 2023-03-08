@@ -6,18 +6,6 @@
 
   margin-top: 20px;
 
-  &__label {
-    width: 300px;
-    font-size: 32px;
-    transition: 0.2s;
-    border-bottom: 5px solid colors.$transparent;
-
-    &:hover {
-      color: colors.$bisky-dark;
-      border-bottom: 5px solid colors.$bisky-dark;
-    }
-  }
-
   &__block {
     @extend .block;
     display: flex;

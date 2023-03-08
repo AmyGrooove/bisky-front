@@ -1,13 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { UserMainAnimes } from '@/supportingTool/types'
+import 'swiper/css'
+import Poster from '@/components/Common/Poster'
+import BlockLabel from '@/components/Common/BlockLabel'
 
 import styles from './index.module.scss'
-
-import 'swiper/css'
-import Poster from '@/components/Poster'
-
-import Link from 'next/link'
 
 interface IUserWatch {
   data: UserMainAnimes;
@@ -17,13 +15,12 @@ const UserWatch = ({ data }: IUserWatch) => {
   return (
     <section className={styles.userWatch}>
       <div className={styles.userWatch__block}>
-        <Link href="#">
-          <h1 className={styles.userWatch__label}>
-            {data.status === 'watch'
-              ? 'Продолжить просмотр'
-              : 'Начать просмотр'}
-          </h1>
-        </Link>
+        <BlockLabel
+          label={
+            data.status === 'watch' ? 'Продолжить просмотр' : 'Начать просмотр'
+          }
+          href="#"
+        />
         <Swiper
           slidesPerView={'auto'} spaceBetween={20}
           grabCursor>

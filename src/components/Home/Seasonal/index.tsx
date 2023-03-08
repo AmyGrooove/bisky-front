@@ -1,16 +1,17 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
-import Image from 'next/image'
+import { Autoplay } from 'swiper'
 
 import { SeasonalAnime } from '@/supportingTool/types'
+import 'swiper/scss'
+import 'swiper/scss/autoplay'
+import { SHIKI_URL } from '@/supportingTool/constatns'
+import { getRating } from '@/supportingTool/functions'
+import AmyImage from '@/components/Common/AmyImage'
+import { BLUR_POSTER, BLUR_POSTER_BIG } from '@/theme/sources'
 
 import styles from './index.module.scss'
 import useSeasonal from './index.use'
-
-import 'swiper/css'
-import { SHIKI_URL } from '@/supportingTool/constatns'
-import { BISKY_POSTER_BLUR_BIG, BISKY_POSTER_BLUR } from '@/theme/sources'
-import { getRating } from '@/supportingTool/functions'
 
 interface ISeasonal {
   data: SeasonalAnime[];
@@ -22,20 +23,22 @@ const Seasonal = ({ data }: ISeasonal) => {
   return (
     <section>
       <Swiper
-        slidesPerView={'auto'} grabCursor
-        centeredSlides loop>
+        slidesPerView={'auto'}
+        grabCursor
+        centeredSlides
+        loop
+        autoplay={{ delay: 10000 }}
+        modules={[Autoplay]}
+      >
         {data.map((el) => (
           <SwiperSlide key={el.shiki_id} className={styles.swiper__slide}>
             <>
               {el.screenshots.map((el, index) => (
-                <Image
+                <AmyImage
                   key={index}
                   width={1000}
                   height={500}
                   quality={30}
-                  placeholder="blur"
-                  blurDataURL={BISKY_POSTER_BLUR_BIG}
-                  loading="eager"
                   src={SHIKI_URL + 'system/screenshots/original/' + el + '.jpg'}
                   alt=""
                   className={`${styles.swiper__slide_img} ${
@@ -43,16 +46,16 @@ const Seasonal = ({ data }: ISeasonal) => {
                       ? styles.swiper__slide_img_visible
                       : styles.swiper__slide_img_hidden
                   }`}
+                  backSrc={BLUR_POSTER_BIG}
+                  border
                 />
               ))}
               <Link href={'#'} className={styles.swiper__slide_link}>
                 <span className={styles.swiper__card}>
-                  <Image
+                  <AmyImage
                     height={335}
                     width={225}
                     quality={70}
-                    placeholder="blur"
-                    blurDataURL={BISKY_POSTER_BLUR}
                     src={
                       el.image
                         ? SHIKI_URL +
@@ -63,6 +66,7 @@ const Seasonal = ({ data }: ISeasonal) => {
                     }
                     alt=""
                     className={styles.swiper__card_img}
+                    backSrc={BLUR_POSTER}
                   />
                   <div className={styles.swiper__card__name}>
                     <h1 className={styles.swiper__card__name_text}>
