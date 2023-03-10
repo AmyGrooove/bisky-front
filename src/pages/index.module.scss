@@ -1,6 +1,12 @@
 @use "@/theme/colors";
 @use "@/theme/modification";
 
+$sizes: 40px, 50px, 80px;
+
 .home {
   @extend .headerPadding;
+}
+
+.home > * {
+  position: relative;
 }

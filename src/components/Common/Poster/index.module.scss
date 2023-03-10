@@ -24,8 +24,6 @@
   }
 
   &_noShadow {
-    position: static;
-
     &::before {
       content: none !important;
     }
@@ -99,7 +97,7 @@
 
   &:hover {
     transform: scale(1.15);
-    z-index: 1;
+    z-index: 13;
 
     &::before {
       filter: blur(30px);

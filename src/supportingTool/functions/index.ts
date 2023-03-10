@@ -1,4 +1,5 @@
 import { API_URL } from '../constatns'
+import { PosterAnime } from '../types'
 
 import useDebounce from './useDebounce'
 
@@ -35,4 +36,47 @@ const getRating = (score: number) => {
   }
 }
 
-export { httpGet, getRandomValue, useDebounce, getNormalKind, getRating }
+function swiperGridArrays(arr: any[]): {
+  firstArr: any[];
+  secondArr: any[];
+} {
+  const firstArr: any[] = []
+  const secondArr: any[] = []
+  let change = true
+
+  arr.forEach((el) => {
+    if (change) {
+      firstArr.push(el)
+      change = false
+    } else {
+      secondArr.push(el)
+      change = true
+    }
+  })
+
+  return { firstArr, secondArr }
+}
+
+function removeDuplicates(arr: PosterAnime[]): PosterAnime[] {
+  const uniqueArr: PosterAnime[] = []
+  const seenIds: Set<number> = new Set()
+
+  for (const element of arr) {
+    if (!seenIds.has(element.shiki_id)) {
+      seenIds.add(element.shiki_id)
+      uniqueArr.push(element)
+    }
+  }
+
+  return uniqueArr
+}
+
+export {
+  httpGet,
+  getRandomValue,
+  useDebounce,
+  getNormalKind,
+  getRating,
+  swiperGridArrays,
+  removeDuplicates,
+}

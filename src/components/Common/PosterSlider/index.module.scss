@@ -1,0 +1,51 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.posterSlider {
+  @extend .container;
+
+  margin-top: 20px;
+
+  &__block {
+    @extend .block;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__swiper {
+    user-select: none;
+    width: calc(100% - 52px);
+    overflow-x: clip;
+    overflow-y: visible;
+    padding: 0 26px;
+  }
+
+  &__slide {
+    max-width: 180px;
+    display: flex;
+
+    flex-direction: column;
+    gap: 20px;
+
+    &_arrow {
+      height: 314px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: 0.2s;
+      gap: 10px;
+
+      &_img {
+        border-radius: 20px;
+        padding: 8px;
+        background-color: colors.$bisky;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

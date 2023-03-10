@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { RusEngLabels } from '@/supportingTool/types'
 
-const useBestGenres = (data: RusEngLabels[]) => {
+const useGenres = (data: RusEngLabels[]) => {
   const [animeBlock, setAnimeBlock] = useState<RusEngLabels[]>([data[0]])
 
   const addNewBlock = () => {
@@ -14,4 +14,4 @@ const useBestGenres = (data: RusEngLabels[]) => {
   return { animeBlock, addNewBlock }
 }
 
-export default useBestGenres
+export default useGenres

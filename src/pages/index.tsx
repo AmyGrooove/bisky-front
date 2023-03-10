@@ -6,12 +6,9 @@ import {
   RusEngLabels,
   SeasonalAnime,
 } from '@/supportingTool/types'
-import { Seasonal } from '@/components/Home'
+import { Genres, Facts, Seasonal } from '@/components/Home'
 import { httpGet } from '@/supportingTool/functions'
-import Facts from '@/components/Home/Facts'
-import Best from '@/components/Home/Best'
-import UserWatch from '@/components/Home/UserWatch'
-import BestGenres from '@/components/Home/BestGenres'
+import PosterSlider from '@/components/Common/PosterSlider'
 
 import styles from './index.module.scss'
 
@@ -24,13 +21,26 @@ interface IHome {
   AllGenres: RusEngLabels[];
 }
 
+const status = 'watch'
+
 function Home({ SeasonalData, FactsData, BestData, AllGenres }: IHome) {
   return (
     <main className={styles.home}>
       <Seasonal data={SeasonalData} />
-      {account && <UserWatch data={{ posterAnime: BestData, status: 'a' }} />}
-      <Best data={BestData} />
-      <BestGenres data={AllGenres} />
+      {account && (
+        <PosterSlider
+          animes={BestData}
+          label={status === 'watch' ? 'Продолжить просмотр' : 'Начать просмотр'}
+          path="/home/best?"
+        />
+      )}
+      <PosterSlider
+        animes={BestData}
+        label="Самое популярное"
+        path="/home/best?"
+        column
+      />
+      <Genres data={AllGenres} />
       <Facts data={FactsData} />
     </main>
   )

@@ -3,10 +3,10 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import { httpGet } from '@/supportingTool/functions'
 import { PosterAnime } from '@/supportingTool/types'
 
-import { BestGenresContext } from '..'
+import { GenresContext } from '..'
 
 const useGenreBlock = (genre: string) => {
-  const { addNewBlock } = useContext(BestGenresContext)
+  const { addNewBlock } = useContext(GenresContext)
   const targetRef = useRef<HTMLDivElement>(null)
 
   const [animes, setAnimes] = useState<PosterAnime[]>([])
@@ -35,18 +35,11 @@ const useGenreBlock = (genre: string) => {
 
   const ShowNewPage = async () => {
     setAnimes(
-      animes.concat(
-        await httpGet<PosterAnime[]>(
-          '/home/genres/anime?genre=' +
-            genre +
-            '&usedAnimes=' +
-            animes.map((el) => el.shiki_id),
-        ),
-      ),
+      await httpGet<PosterAnime[]>('/home/genres/anime?genre=' + genre),
     )
   }
 
-  return { targetRef, ShowNewPage, animes }
+  return { targetRef, animes }
 }
 
 export default useGenreBlock

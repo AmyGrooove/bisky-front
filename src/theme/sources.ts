@@ -9,6 +9,7 @@ export const BLUR_POSTER_BIG = `${APP_URL_ICON}/blur_poster_big.svg`
 export const BISKY_TIPS = `${APP_URL_ICON}/bisky_tips.png`
 export const BISKY_ERROR = `${APP_URL_ICON}/bisky_error.png`
 
+export const ARROW_RIGHT = `${APP_URL_ICON}/arrow_right.svg`
 export const DONE_ICON = `${APP_URL_ICON}/done_icon.svg`
 export const DELETE_ICON = `${APP_URL_ICON}/delete_icon.svg`
 export const INBOX_ICON = `${APP_URL_ICON}/inbox_icon.svg`
