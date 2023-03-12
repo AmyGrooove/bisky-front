@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { AnimeInfo, PosterAnime } from '@/supportingTool/types'
 import { getNormalKind, nextEpisode } from '@/supportingTool/functions'
+import PosterSlider from '@/components/Common/PosterSlider'
 
 import styles from './index.module.scss'
 
@@ -108,6 +109,7 @@ const Info = ({ data }: IInfo) => {
           <h3>{data.duration} мин</h3>
         </div>
       </div>
+      {/* <PosterSlider data={data.relations}/> */}
     </section>
   )
 }

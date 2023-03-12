@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 import AmyImage from '@/components/Common/AmyImage'
 
 import styles from './index.module.scss'
@@ -7,6 +10,8 @@ interface IMainPage {
 }
 
 const MainImage = ({ data }: IMainPage) => {
+  const { query } = useRouter()
+
   return (
     <section className={styles.mainImage}>
       <div className={styles.mainImage_wrapper}>
@@ -17,7 +22,9 @@ const MainImage = ({ data }: IMainPage) => {
           poster
           className={styles.mainImage_img}
         />
-        <button className={styles.mainImage_button}>Смотреть</button>
+        <Link href={'/anime/' + query.animeId + '/player'}>
+          <button className={styles.mainImage_button}>Смотреть</button>
+        </Link>
         <button className={styles.mainImage_button}>Добавить в закладки</button>
       </div>
     </section>

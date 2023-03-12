@@ -10,7 +10,11 @@ const useSearch = () => {
   const [searchResult, setSearchResult] = useState<PosterAnime[]>([])
 
   useEffect(() => {
-    searchAsync()
+    if (inputValue === '') {
+      setSearchResult([])
+    } else {
+      searchAsync()
+    }
   }, [debounceInputValue])
 
   const searchAsync = async () => {

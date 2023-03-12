@@ -1,5 +1,5 @@
 import { RusEngLabels } from '@/supportingTool/types'
-import PosterSlider from '@/components/Common/PosterSlider'
+import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
 
 import useGenreBlock from './index.use'
 
@@ -12,13 +12,12 @@ const GenreBlock = ({ genre }: IGenreBlock) => {
 
   return (
     <div ref={targetRef}>
-      <PosterSlider
-        animes={animes}
+      <PosterSliderBlock
         label={genre.ru || genre.en || ''}
-        path={'/home/genres/anime?genre=' + genre.en}
-        goToFull={{
-          count: 12,
-          url: '#',
+        data={animes}
+        options={{
+          path: '/home/genres/anime?genre=' + genre.en,
+          goToFull: '#',
         }}
       />
     </div>

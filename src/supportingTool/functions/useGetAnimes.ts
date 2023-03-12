@@ -1,53 +1,33 @@
 import { useEffect, useState } from 'react'
 
-import { httpGet, swiperGridArrays } from '@/supportingTool/functions'
 import { PosterAnime } from '@/supportingTool/types'
 
+import { httpGet } from './'
+
 interface IUseGetAnimes {
-  data: PosterAnime[];
-  path: string;
-  usedAnimes?: boolean;
-  column?: boolean;
-  goToFull?: {
-    count: number;
-    url: string;
-  };
+  data?: PosterAnime[];
+  path?: string;
 }
 
-const useGetAnimes = ({
-  data,
-  path,
-  usedAnimes,
-  column,
-  goToFull,
-}: IUseGetAnimes) => {
+const useGetAnimes = ({ data, path }: IUseGetAnimes) => {
   const [page, setPage] = useState(1)
-  const [getAnimes, setGetAnimes] = useState<PosterAnime[]>(data)
-
-  const [firstAnimes, setFirstAnimes] = useState<PosterAnime[]>(
-    swiperGridArrays(getAnimes).firstArr,
-  )
-  const [secondAnimes, setSecondAnimes] = useState<PosterAnime[]>(
-    swiperGridArrays(getAnimes).secondArr,
-  )
+  const [animes, setAnimes] = useState<PosterAnime[]>(data || [])
 
   useEffect(() => {
-    if (column) {
-      setFirstAnimes(swiperGridArrays(getAnimes).firstArr)
-      setSecondAnimes(swiperGridArrays(getAnimes).secondArr)
+    if (animes.length === 0 && path !== undefined) {
+      AddNewAnimes()
     }
-  }, [getAnimes])
+  }, [animes])
 
-  const ShowNewPage = async () => {
-    setGetAnimes(
-      getAnimes.concat(
+  const AddNewAnimes = async () => {
+    setAnimes(
+      animes.concat(
         await httpGet<PosterAnime[]>(
           path +
             '&page=' +
             Number(page + 1) +
-            (usedAnimes
-              ? '&usedAnimes=' + getAnimes.map((el) => el.shiki_id).slice(-12)
-              : ''),
+            '&usedAnimes=' +
+            animes.map((el) => el.shiki_id),
         ),
       ),
     )
@@ -55,12 +35,7 @@ const useGetAnimes = ({
     setPage(page + 1)
   }
 
-  return {
-    getAnimes,
-    ShowNewPage,
-    firstAnimes,
-    secondAnimes,
-  }
+  return { animes, AddNewAnimes }
 }
 
 export default useGetAnimes

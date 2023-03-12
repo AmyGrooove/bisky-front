@@ -8,7 +8,7 @@ import {
 } from '@/supportingTool/types'
 import { Genres, Facts, Seasonal } from '@/components/Home'
 import { httpGet } from '@/supportingTool/functions'
-import PosterSlider from '@/components/Common/PosterSlider'
+import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
 
 import styles from './index.module.scss'
 
@@ -28,17 +28,21 @@ function Home({ SeasonalData, FactsData, BestData, AllGenres }: IHome) {
     <main className={styles.home}>
       <Seasonal data={SeasonalData} />
       {account && (
-        <PosterSlider
-          animes={BestData}
+        <PosterSliderBlock
+          data={BestData}
           label={status === 'watch' ? 'Продолжить просмотр' : 'Начать просмотр'}
-          path="/home/best?"
+          options={{
+            path: '/home/best?',
+          }}
         />
       )}
-      <PosterSlider
-        animes={BestData}
+      <PosterSliderBlock
+        data={BestData}
         label="Самое популярное"
-        path="/home/best?"
-        column
+        options={{
+          path: '/home/best?',
+          column: true,
+        }}
       />
       <Genres data={AllGenres} />
       <Facts data={FactsData} />

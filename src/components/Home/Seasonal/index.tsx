@@ -51,7 +51,7 @@ const Seasonal = ({ data }: ISeasonal) => {
                 />
               ))}
               <Link
-                href={'animes/' + el.shiki_id}
+                href={'anime/' + el.shiki_id}
                 className={styles.swiper__slide_link}
               >
                 <span className={styles.swiper__card}>

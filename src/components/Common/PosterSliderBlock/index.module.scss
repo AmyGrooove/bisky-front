@@ -1,0 +1,15 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.posterSlider {
+  @extend .container;
+
+  margin-top: 20px;
+
+  &__block {
+    @extend .block;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+  }
+}

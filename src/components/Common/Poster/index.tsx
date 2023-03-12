@@ -17,7 +17,7 @@ interface IPoster {
 const Poster = ({ el, offBack }: IPoster) => {
   return (
     <Link
-      href={'animes/' + el.shiki_id}
+      href={'anime/' + el.shiki_id}
       key={el.shiki_id}
       className={`${styles.poster} ${offBack && styles.poster_noShadow}`}
     >
