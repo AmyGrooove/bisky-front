@@ -8,9 +8,19 @@ interface IUseGetAnimes {
   path: string;
   usedAnimes?: boolean;
   column?: boolean;
+  goToFull?: {
+    count: number;
+    url: string;
+  };
 }
 
-const useGetAnimes = ({ data, path, usedAnimes, column }: IUseGetAnimes) => {
+const useGetAnimes = ({
+  data,
+  path,
+  usedAnimes,
+  column,
+  goToFull,
+}: IUseGetAnimes) => {
   const [page, setPage] = useState(1)
   const [getAnimes, setGetAnimes] = useState<PosterAnime[]>(data)
 
@@ -45,7 +55,12 @@ const useGetAnimes = ({ data, path, usedAnimes, column }: IUseGetAnimes) => {
     setPage(page + 1)
   }
 
-  return { getAnimes, ShowNewPage, firstAnimes, secondAnimes }
+  return {
+    getAnimes,
+    ShowNewPage,
+    firstAnimes,
+    secondAnimes,
+  }
 }
 
 export default useGetAnimes

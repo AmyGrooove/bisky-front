@@ -1,0 +1,203 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.info {
+  @extend .block;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+
+    &_ru {
+      font-size: 32px;
+    }
+
+    &_en {
+      font-size: 20px;
+      opacity: 0.7;
+    }
+
+    &_addit {
+      display: flex;
+      width: 50px;
+
+      &_text {
+        cursor: pointer;
+        font-size: 16px;
+        color: colors.$bisky-dark;
+        opacity: 0.7;
+        padding-right: 10px;
+      }
+
+      &_allLabels {
+        position: relative;
+
+        &_pos {
+          visibility: hidden;
+          position: absolute;
+          background-color: colors.$bisky-dark;
+          padding: 12px;
+          border-radius: 10px;
+          opacity: 0;
+          transition: 0.2s;
+          top: -20px;
+          box-shadow: 0 0 12px rgb(0, 0, 0, 0.4);
+          width: 300px;
+
+          &_text {
+            margin-bottom: 5px;
+            color: colors.$font-white;
+            font-size: 16px;
+          }
+        }
+      }
+
+      &:hover {
+        .info__label_addit_allLabels_pos {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    // &_text {
+    //   font-size: 20px;
+    //   opacity: 0.7;
+    // }
+
+    // &_addit {
+    //   cursor: pointer;
+    //   margin-left: 8px;
+    //   font-size: 16px;
+    //   color: colors.$bisky-dark;
+    //   opacity: 0.7;
+    //   padding-right: 10px;
+
+    //   &:hover + .info__label_en_allLabels,
+    //   + .info__label_en_allLabels:hover {
+    //     .info__label_en_allLabels_pos {
+    //       visibility: visible;
+    //       opacity: 1;
+    //     }
+    //   }
+    // }
+
+    // &_allLabels {
+    //   position: relative;
+
+    //   &_pos {
+    //     visibility: hidden;
+    //     position: absolute;
+    //     background-color: colors.$bisky-dark;
+    //     padding: 12px;
+    //     border-radius: 10px;
+    //     opacity: 0;
+    //     transition: 0.2s;
+    //     top: -20px;
+    //     box-shadow: 0 0 12px rgb(0, 0, 0, 0.4);
+
+    //     &_text {
+    //       color: colors.$font-white;
+    //       font-size: 16px;
+    //     }
+    //   }
+    // }
+  }
+
+  &__addInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    z-index: 0;
+
+    &__br {
+      background-color: colors.$black;
+      border-radius: 100px;
+      opacity: 0.2;
+      height: 2px;
+      width: 300px;
+      margin: 8px;
+    }
+
+    &_text {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &_date {
+        position: relative;
+
+        &::after {
+          content: attr(data-text);
+          transition: 0.2s;
+          opacity: 0;
+          background-color: colors.$bisky-dark;
+          color: colors.$font-white;
+          padding: 5px;
+          border-radius: 10px;
+
+          position: absolute;
+          top: -30px;
+          left: 200px;
+        }
+
+        &:hover {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+
+      &_label {
+        font-weight: 500;
+        opacity: 0.7;
+        font-size: 20px;
+      }
+
+      &_link {
+        text-transform: capitalize;
+        transition: 0.2s;
+        border-bottom: 2px solid colors.$transparent;
+        position: relative;
+        top: 2px;
+        font-size: 20px;
+        font-weight: 700;
+
+        &:hover {
+          color: colors.$bisky;
+          border-bottom: 2px solid colors.$bisky;
+        }
+      }
+
+      &_status {
+        &_released {
+          color: colors.$font-white;
+          padding: 3px 7px;
+          border-radius: 10px;
+          background-color: colors.$type-released;
+        }
+
+        &_anons {
+          color: colors.$font-white;
+          padding: 3px 7px;
+          border-radius: 10px;
+          background-color: colors.$type-anons;
+        }
+
+        &_ongoing {
+          color: colors.$font-white;
+          padding: 3px 7px;
+          border-radius: 10px;
+          background-color: colors.$type-ongoing;
+        }
+      }
+    }
+  }
+}

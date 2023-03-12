@@ -1,0 +1,14 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.animePage {
+  @extend .headerPadding;
+  @extend .container;
+
+  display: flex;
+  gap: 20px;
+
+  &__info {
+    width: 100%;
+  }
+}

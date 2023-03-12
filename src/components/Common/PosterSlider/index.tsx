@@ -4,10 +4,9 @@ import { PosterAnime } from '@/supportingTool/types'
 import 'swiper/css'
 import Poster from '@/components/Common/Poster'
 import BlockLabel from '@/components/Common/BlockLabel'
-
 import 'swiper/css/grid'
 import useGetAnimes from '@/supportingTool/functions/useGetAnimes'
-import { ARROW_RIGHT } from '@/theme/sources'
+import { ARROW_RIGHT, LOADING_ICON } from '@/theme/sources'
 
 import AmyImage from '../AmyImage'
 
@@ -50,11 +49,12 @@ const PosterSlider = ({
           slidesPerView={'auto'}
           spaceBetween={30}
           grabCursor
-          onReachEnd={
+          onBeforeInit={(el) => el.slides.length === 0 && ShowNewPage()}
+          onSlideChange={(el) => {
             goToFull && goToFull.count <= getAnimes.length
               ? () => {}
-              : ShowNewPage
-          }
+              : el.activeIndex >= el.slides.length - 6 && ShowNewPage()
+          }}
           className={styles.posterSlider__swiper}
         >
           {(column ? firstAnimes : getAnimes).map((el, index) => (
@@ -66,8 +66,8 @@ const PosterSlider = ({
               {column && <Poster el={secondAnimes[index]} offBack={!column} />}
             </SwiperSlide>
           ))}
-          {goToFull && goToFull.count <= getAnimes.length && (
-            <SwiperSlide className={styles.posterSlider__slide}>
+          <SwiperSlide className={styles.posterSlider__slide}>
+            {goToFull && goToFull.count <= getAnimes.length ? (
               <Link
                 href={goToFull.url}
                 className={styles.posterSlider__slide_arrow}
@@ -82,8 +82,21 @@ const PosterSlider = ({
                   Показать все
                 </h2>
               </Link>
-            </SwiperSlide>
-          )}
+            ) : (
+              <div
+                className={`${styles.posterSlider__slide_load} ${
+                  column && styles.posterSlider__slide_load_column
+                }`}
+              >
+                <AmyImage
+                  className={styles.posterSlider__slide_load_img}
+                  width={70}
+                  height={70}
+                  src={LOADING_ICON}
+                />
+              </div>
+            )}
+          </SwiperSlide>
         </Swiper>
       </div>
     </section>

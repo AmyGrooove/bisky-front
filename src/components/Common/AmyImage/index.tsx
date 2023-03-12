@@ -2,12 +2,14 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import { BLUR_AVATAR } from '@/theme/sources'
+import { SHIKI_URL } from '@/supportingTool/constatns'
 
 import styles from './index.module.scss'
 
 interface IAmyImage {
   width: number;
   height: number;
+  poster?: boolean;
   src?: string;
   quality?: number;
   backSrc?: string;
@@ -19,6 +21,7 @@ interface IAmyImage {
 const AmyImage = ({
   width,
   height,
+  poster,
   src,
   quality,
   backSrc,
@@ -27,6 +30,15 @@ const AmyImage = ({
   border,
 }: IAmyImage) => {
   const [loaded, setLoaded] = useState(false)
+
+  const getSrc = () => {
+    switch (true) {
+    case poster:
+      return SHIKI_URL + 'system/animes/original/' + src + '.jpg'
+    default:
+      return src
+    }
+  }
 
   return (
     <>
@@ -43,7 +55,7 @@ const AmyImage = ({
         />
       )}
       <Image
-        src={src ? src : BLUR_AVATAR}
+        src={getSrc() || BLUR_AVATAR}
         width={width}
         height={height}
         alt={alt ? alt : ''}

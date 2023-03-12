@@ -36,6 +36,41 @@ const getRating = (score: number) => {
   }
 }
 
+const nextEpisode = (date: string) => {
+  let normalDate = (new Date(date).getTime() - Date.now()) / 3600000
+  console.log(normalDate)
+
+  if (normalDate >= 24) {
+    normalDate = Math.floor(normalDate / 24)
+
+    switch (normalDate % 10) {
+    case 1:
+      return normalDate + ' день'
+    case 2:
+    case 3:
+    case 4:
+      return normalDate + ' дня'
+    default:
+      return normalDate + ' дней'
+    }
+  } else {
+    normalDate = Math.floor(normalDate)
+
+    switch (normalDate % 10) {
+    case 1:
+      return normalDate + ' час'
+    case 2:
+    case 3:
+    case 4:
+      return normalDate + ' часа'
+    case 0:
+      return '<1 часа'
+    default:
+      return normalDate + ' часов'
+    }
+  }
+}
+
 function swiperGridArrays(arr: any[]): {
   firstArr: any[];
   secondArr: any[];
@@ -71,6 +106,34 @@ function removeDuplicates(arr: PosterAnime[]): PosterAnime[] {
   return uniqueArr
 }
 
+function debounce<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number = 100,
+  immediate = false,
+): (...args: Parameters<T>) => void {
+  let timeout: ReturnType<typeof setTimeout> | undefined
+
+  return function debounced(this: any, ...args: Parameters<T>): void {
+    const context = this
+
+    const later = function (): void {
+      timeout = undefined
+      if (!immediate) {
+        func.apply(context, args)
+      }
+    }
+
+    const callNow = immediate && !timeout
+
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+
+    if (callNow) {
+      func.apply(context, args)
+    }
+  }
+}
+
 export {
   httpGet,
   getRandomValue,
@@ -79,4 +142,6 @@ export {
   getRating,
   swiperGridArrays,
   removeDuplicates,
+  nextEpisode,
+  debounce,
 }
