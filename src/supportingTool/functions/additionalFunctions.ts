@@ -79,6 +79,15 @@ function debounce<T extends (...args: any[]) => any>(
   }
 }
 
+const dateFormat = (date: string) =>
+  new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+    .format(new Date(date))
+    .replace(/\u202F/g, ' ')
+
 export {
   httpGet,
   getRandomValue,
@@ -86,4 +95,5 @@ export {
   swiperGridArrays,
   removeDuplicates,
   debounce,
+  dateFormat,
 }

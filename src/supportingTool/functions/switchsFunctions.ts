@@ -18,6 +18,18 @@ const getNormalKind = (value: string): string => {
   return normalKinds[value] || normalKinds.default
 }
 
+const getNormalRating = (value: string): string => {
+  const normalRating: { [key: string]: string } = {
+    g: 'G',
+    pg: 'PG',
+    pg_13: 'PG-13',
+    r: 'R-17',
+    r_plus: 'R+',
+    default: 'Rx',
+  }
+  return normalRating[value] || normalRating.default
+}
+
 const nextEpisode = (date: string) => {
   let normalDate = (new Date(date).getTime() - Date.now()) / 3600000
 
@@ -52,4 +64,4 @@ const nextEpisode = (date: string) => {
   }
 }
 
-export { getNormalKind, getRating, nextEpisode }
+export { getNormalKind, getRating, nextEpisode, getNormalRating }

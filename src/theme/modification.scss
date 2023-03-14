@@ -32,6 +32,10 @@
   background-color: colors.$rating-low;
 }
 
+.released {
+  background-color: colors.$type-released;
+}
+
 .ongoing {
   background-color: colors.$type-ongoing;
 }

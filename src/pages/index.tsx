@@ -12,7 +12,8 @@ import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
 
 import styles from './index.module.scss'
 
-const account = true
+const account = false
+const status = 'watch'
 
 interface IHome {
   SeasonalData: SeasonalAnime[];
@@ -20,8 +21,6 @@ interface IHome {
   BestData: PosterAnime[];
   AllGenres: RusEngLabels[];
 }
-
-const status = 'watch'
 
 function Home({ SeasonalData, FactsData, BestData, AllGenres }: IHome) {
   return (

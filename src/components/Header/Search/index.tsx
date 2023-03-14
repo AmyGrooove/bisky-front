@@ -41,7 +41,7 @@ const Search = () => {
         {searchResult.length !== 0 ? (
           searchResult.map((el, index) => (
             <div key={el.label.en} className={styles.search__result__element}>
-              <Link href="#">
+              <Link href={'/anime/' + el.shiki_id}>
                 <div className={styles.search__result__element__item}>
                   <AmyImage
                     quality={80}

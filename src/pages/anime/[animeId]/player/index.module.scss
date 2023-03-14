@@ -1,0 +1,21 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.player {
+  @extend .headerPadding;
+  @extend .container;
+
+  &__window {
+    width: 100%;
+    height: 600px;
+    background-color: colors.$bisky-dark;
+    border-radius: 20px;
+
+    &__play {
+      width: 100%;
+      height: 100%;
+      background-color: colors.$bisky;
+      border-radius: 20px;
+    }
+  }
+}
