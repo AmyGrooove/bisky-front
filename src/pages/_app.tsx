@@ -18,44 +18,40 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
     <>
       <Head>
-        <title>Bisky</title>
-        <style>{`* { font-family: ${roboto.style.fontFamily} !important }`}</style>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#dd5480" />
+        <meta name="msapplication-TileColor" content="#dd5480" />
+        <meta property="og:url" content="https://bisky.one/" />
+        <link href="https://bisky.one/" rel="canonical" />
+        <title>Bisky — Смотреть Аниме онлайн</title>
+        <meta property="og:site_name" content="Bisky" />
+        <meta name="apple-mobile-web-app-title" content="Bisky" />
+        <meta name="application-name" content="Bisky" />
+        <meta name="title" content="Bisky — Смотреть Аниме онлайн" />
+        <meta property="og:title" content="Bisky — Смотреть Аниме онлайн" />
+        <meta
+          name="description"
+          content="Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве."
+        />
+        <meta
+          property="og:description"
+          content="Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве."
+        />
+        <meta
+          name="keywords"
+          content="bisky биски бисквит аниме смотреть онлайн бесплатно в хорошем качестве лучшее"
+        />
+        <meta
+          name="msapplication-TileImage"
+          content="/favicons/favicon-apple.png"
+        />
         <link
           rel="apple-touch-icon"
           type="image/png"
           sizes="180x180"
           href="/favicons/favicon-apple.png"
         />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicons/favicon-16x16.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicons/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="64x64"
-          href="/favicons/favicon-64x64.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="128x128"
-          href="/favicons/favicon-128x128.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="256x256"
-          href="/favicons/favicon-256x256.png"
-        />
+        <style>{`* { font-family: ${roboto.style.fontFamily} !important }`}</style>
         <link
           rel="icon" type="image/x-icon"
           href="/favicons/favicon.ico" />

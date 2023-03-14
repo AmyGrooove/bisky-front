@@ -1,8 +1,11 @@
+import Head from 'next/head'
+
 import { AnimeInfo } from '@/supportingTool/types'
 
 import styles from './index.module.scss'
 import Label from './Label'
 import AddInfo from './AddInfo'
+import Description from './Description'
 
 interface IInfo {
   data: AnimeInfo;
@@ -30,6 +33,7 @@ const Info = ({ data }: IInfo) => {
         }}
         videos={data.videos}
       />
+      <Description description={data.description || ''} />
     </section>
   )
 }
