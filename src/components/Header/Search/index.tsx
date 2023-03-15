@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useContext } from 'react'
 
-import { BLUR_POSTER, SEARCH_ICON } from '@/theme/sources'
+import { SEARCH_ICON } from '@/theme/sources'
 import { SHIKI_URL } from '@/supportingTool/constatns'
 import { getNormalKind } from '@/supportingTool/functions'
 import AmyImage from '@/components/Common/AmyImage'
@@ -29,8 +29,8 @@ const Search = () => {
         />
         <button className={styles.search__inputFloor_icon} onClick={() => {}}>
           <AmyImage
-            width={32} height={32}
-            src={SEARCH_ICON} alt="" />
+            src={SEARCH_ICON} width={32}
+            height={32} />
         </button>
       </div>
       <div
@@ -44,15 +44,12 @@ const Search = () => {
               <Link href={'/anime/' + el.shiki_id}>
                 <div className={styles.search__result__element__item}>
                   <AmyImage
-                    quality={80}
-                    src={
-                      SHIKI_URL + 'system/animes/original/' + el.image + '.jpg'
-                    }
+                    src={el.image}
                     width={60}
                     height={90}
-                    alt=""
+                    imageType="search"
+                    quality={80}
                     className={styles.search__result__element__item_img}
-                    backSrc={BLUR_POSTER}
                   />
                   <div className={styles.search__result__element__item__info}>
                     <div
@@ -60,47 +57,47 @@ const Search = () => {
                         styles.search__result__element__item__info_label
                       }
                     >
-                      <h1
+                      <h4
                         className={
                           styles.search__result__element__item__info_label_ru
                         }
                       >
                         {el.label.ru}
-                      </h1>
-                      <h2
+                      </h4>
+                      <h5
                         className={
                           styles.search__result__element__item__info_label_en
                         }
                       >
                         {el.label.en}
-                      </h2>
+                      </h5>
                     </div>
                     <div
                       className={
                         styles.search__result__element__item__info_adit
                       }
                     >
-                      <h3
+                      <span
                         className={
                           styles.search__result__element__item__info_adit_text
                         }
                       >
                         {getNormalKind(el.kind)}
-                      </h3>
-                      <h3
+                      </span>
+                      <span
                         className={
                           styles.search__result__element__item__info_adit_slash
                         }
                       >
                         /
-                      </h3>
-                      <h3
+                      </span>
+                      <span
                         className={
                           styles.search__result__element__item__info_adit_text
                         }
                       >
                         {new Date(el.aired_on).getFullYear()}
-                      </h3>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -111,9 +108,9 @@ const Search = () => {
             </div>
           ))
         ) : (
-          <h1 className={styles.search__result_none}>
+          <span className={styles.search__result_none}>
             Ничего не нашлось :{'('}
-          </h1>
+          </span>
         )}
       </div>
     </div>

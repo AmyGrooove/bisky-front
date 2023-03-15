@@ -11,8 +11,8 @@ function LeftNavigation() {
     <div className={styles.left}>
       <Link href="/" className={styles.left__logo}>
         <AmyImage
-          src={BISKY_LOGO} alt=""
-          width={48} height={48} />
+          src={BISKY_LOGO} width={48}
+          height={48} />
         <h1 className={styles.left__logo_label}>Bisky</h1>
       </Link>
       <div className={styles.left__navigation}>

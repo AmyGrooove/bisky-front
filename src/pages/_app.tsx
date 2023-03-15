@@ -54,7 +54,7 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
         <style>{`* { font-family: ${roboto.style.fontFamily} !important }`}</style>
         <link
           rel="icon" type="image/x-icon"
-          href="/favicons/favicon.ico" />
+          href="/favicon.ico" />
         <link
           rel="icon" type="image/svg+xml"
           href="/favicons/favicon.svg" />

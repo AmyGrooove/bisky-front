@@ -53,14 +53,14 @@ const PosterSlider = ({ data, options }: IPosterSlider) => {
             className={styles.posterSlider__slide_arrow}
           >
             <AmyImage
-              className={styles.posterSlider__slide_arrow_img}
               src={ARROW_RIGHT}
               height={60}
               width={70}
+              className={styles.posterSlider__slide_arrow_img}
             />
-            <h2 className={styles.posterSlider__slide_arrow_label}>
+            <span className={styles.posterSlider__slide_arrow_label}>
               Показать все
-            </h2>
+            </span>
           </Link>
         ) : (
           <div
@@ -71,10 +71,10 @@ const PosterSlider = ({ data, options }: IPosterSlider) => {
             }`}
           >
             <AmyImage
-              className={styles.posterSlider__slide_load_img}
+              src={LOADING_ICON}
               width={70}
               height={70}
-              src={LOADING_ICON}
+              className={styles.posterSlider__slide_load_img}
             />
           </div>
         )}

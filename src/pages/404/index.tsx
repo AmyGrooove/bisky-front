@@ -7,14 +7,14 @@ const Error404 = () => {
   return (
     <div className={styles.error404}>
       <div className={styles.error404__block}>
-        <h1 className={styles.error404__block_mainText}>
+        <h2 className={styles.error404__block_mainText}>
           Ошибка
           <span className={styles.error404__block_mainText_number}>404</span>
-        </h1>
-        <h2>Такой страницы не существует</h2>
+        </h2>
+        <h3>Такой страницы не существует</h3>
         <AmyImage
-          width={200} height={250}
-          src={BISKY_ERROR} alt="" />
+          src={BISKY_ERROR} width={200}
+          height={250} />
       </div>
     </div>
   )

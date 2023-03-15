@@ -19,7 +19,7 @@ const MainImage = ({ data }: IMainPage) => {
           src={data}
           width={250}
           height={360}
-          poster
+          imageType="poster"
           className={styles.mainImage_img}
         />
         <Link href={'/anime/' + query.animeId + '/player'}>

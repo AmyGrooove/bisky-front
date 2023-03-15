@@ -11,12 +11,11 @@ function RightNavigation() {
     <div className={styles.right}>
       {account ? (
         <Link href="#" className={styles.right__account}>
-          <h2 className={styles.right__account_nickname}>NULL</h2>
+          <span className={styles.right__account_nickname}>NULL</span>
           <AmyImage
+            src=""
             width={50}
             height={50}
-            src=""
-            alt=""
             className={styles.right__account_avatar}
           />
         </Link>

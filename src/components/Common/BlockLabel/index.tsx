@@ -16,7 +16,7 @@ const BlockLabel = ({ label, href, leftPadding }: IBlockLabel) => {
         leftPadding && styles.blockLabel_padding
       }`}
     >
-      <h1 className={styles.blockLabel__label}>{label}</h1>
+      <h2 className={styles.blockLabel__label}>{label}</h2>
     </Link>
   )
 }

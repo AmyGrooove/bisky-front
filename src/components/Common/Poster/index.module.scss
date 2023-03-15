@@ -36,6 +36,7 @@
     display: flex;
 
     &_score {
+      font-weight: 600;
       color: colors.$font-white;
       font-size: 20px;
       padding: 5px;
@@ -47,10 +48,11 @@
   &__status {
     position: absolute;
     display: flex;
-    bottom: 4px;
+    bottom: 0px;
     right: 0px;
 
     &_type {
+      font-weight: 600;
       box-shadow: 0px 0px 1px black;
       font-size: 16px;
       padding: 5px 10px;
@@ -74,6 +76,7 @@
     position: absolute;
     max-width: 180px;
     width: 100%;
+    margin-top: 4px;
 
     &::before {
       content: "";

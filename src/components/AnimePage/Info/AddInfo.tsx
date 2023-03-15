@@ -5,7 +5,8 @@ import {
   getNormalKind,
   getNormalRating,
   nextEpisode,
-  dateFormat } from '@/supportingTool/functions'
+  dateFormat,
+} from '@/supportingTool/functions'
 import AmyImage from '@/components/Common/AmyImage'
 import { ARROW_RIGHT } from '@/theme/sources'
 
@@ -147,8 +148,8 @@ const AddInfo = ({
           >
             Видео {index + 1}
             <AmyImage
-              width={20} height={20}
-              src={ARROW_RIGHT} />
+              src={ARROW_RIGHT} width={20}
+              height={20} />
           </Link>
         ))}
       </div>

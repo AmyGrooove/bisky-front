@@ -8,7 +8,7 @@ import 'swiper/scss/autoplay'
 import { SHIKI_URL } from '@/supportingTool/constatns'
 import { getRating } from '@/supportingTool/functions'
 import AmyImage from '@/components/Common/AmyImage'
-import { BLUR_POSTER, BLUR_POSTER_BIG } from '@/theme/sources'
+import Poster from '@/components/Common/Poster'
 
 import styles from './index.module.scss'
 import useSeasonal from './index.use'
@@ -36,18 +36,16 @@ const Seasonal = ({ data }: ISeasonal) => {
               {el.screenshots.map((el, index) => (
                 <AmyImage
                   key={index}
+                  src={el}
                   width={1000}
                   height={500}
+                  imageType="screenshot"
                   quality={30}
-                  src={SHIKI_URL + 'system/screenshots/original/' + el + '.jpg'}
-                  alt=""
                   className={`${styles.swiper__slide_img} ${
                     imageIndex === index
                       ? styles.swiper__slide_img_visible
                       : styles.swiper__slide_img_hidden
                   }`}
-                  backSrc={BLUR_POSTER_BIG}
-                  border
                 />
               ))}
               <Link
@@ -56,29 +54,21 @@ const Seasonal = ({ data }: ISeasonal) => {
               >
                 <span className={styles.swiper__card}>
                   <AmyImage
+                    src={el.image}
                     height={335}
                     width={225}
+                    imageType="poster"
                     quality={70}
-                    src={
-                      el.image
-                        ? SHIKI_URL +
-                          'system/animes/original/' +
-                          el.image +
-                          '.jpg'
-                        : ''
-                    }
-                    alt=""
                     className={styles.swiper__card_img}
-                    backSrc={BLUR_POSTER}
                   />
                   <div className={styles.swiper__card__name}>
-                    <h1 className={styles.swiper__card__name_text}>
+                    <h3 className={styles.swiper__card__name_text}>
                       {el.label.ru}
-                    </h1>
+                    </h3>
                   </div>
                 </span>
                 <span className={styles.swiper__genre}>
-                  <h2 className={styles.swiper__genre_label}>
+                  <span className={styles.swiper__genre_label}>
                     {el.genres.map((gen) => (
                       <li
                         key={gen.name.en}
@@ -87,16 +77,16 @@ const Seasonal = ({ data }: ISeasonal) => {
                         {gen.name.ru}
                       </li>
                     ))}
-                  </h2>
+                  </span>
                 </span>
                 <span className={styles.swiper__rating}>
-                  <h2
+                  <span
                     className={`${styles.swiper__rating_score} ${getRating(
                       el.score,
                     )}`}
                   >
                     {el.score}
-                  </h2>
+                  </span>
                 </span>
               </Link>
             </>

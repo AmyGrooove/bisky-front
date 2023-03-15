@@ -12,13 +12,12 @@ const Facts = ({ data }: IFacts) => {
     <section className={styles.facts}>
       <div className={styles.facts__block}>
         <AmyImage
+          src={BISKY_TIPS}
           width={250}
           height={200}
-          src={BISKY_TIPS}
-          alt=""
           className={styles.facts__block_image}
         />
-        <h1 className={styles.facts__block_text}>{data}</h1>
+        <span className={styles.facts__block_text}>{data}</span>
       </div>
     </section>
   )

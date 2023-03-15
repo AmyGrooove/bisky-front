@@ -1,9 +1,37 @@
-.load {
-  object-fit: cover;
-  position: absolute;
+@use "@/theme/colors";
 
-  &_border {
-    border-radius: 20px;
-    filter: brightness(80%);
+.load {
+  position: relative;
+  display: flex;
+
+  &__blur {
+    object-fit: cover;
+    position: absolute;
+    transition: 0.3s;
+
+    width: 100%;
+    height: 100%;
+    background-color: colors.$background-header;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_disable {
+      opacity: 0;
+    }
+
+    &_border {
+      border-radius: 20px;
+      filter: brightness(80%);
+
+      &_search {
+        border-radius: 10px;
+      }
+    }
+  }
+
+  &__img {
+    background-color: colors.$background-header;
   }
 }

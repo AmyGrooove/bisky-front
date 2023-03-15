@@ -50,6 +50,10 @@
       transition: 0.2s;
       gap: 10px;
 
+      &_label {
+        font-weight: 600;
+      }
+
       &_img {
         border-radius: 20px;
         padding: 8px;
