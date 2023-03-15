@@ -1,5 +1,3 @@
-import Head from 'next/head'
-
 import { AnimeInfo } from '@/supportingTool/types'
 
 import styles from './index.module.scss'

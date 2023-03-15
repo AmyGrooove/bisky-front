@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { useContext } from 'react'
 
 import { SEARCH_ICON } from '@/theme/sources'
-import { SHIKI_URL } from '@/supportingTool/constatns'
 import { getNormalKind } from '@/supportingTool/functions'
 import AmyImage from '@/components/Common/AmyImage'
 

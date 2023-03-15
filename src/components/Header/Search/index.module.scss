@@ -76,7 +76,6 @@
       color: colors.$font-white;
       padding: 20px;
       animation: invoke 0.3s linear;
-      font-weight: 600;
     }
 
     &_active {
@@ -152,13 +151,11 @@
             gap: 10px;
 
             &_text {
-              font-weight: 600;
               opacity: 0.8;
               color: colors.$font-white;
             }
 
             &_slash {
-              font-weight: 600;
               color: colors.$font-white;
             }
           }

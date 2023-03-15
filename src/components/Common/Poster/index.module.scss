@@ -36,11 +36,9 @@
     display: flex;
 
     &_score {
-      font-weight: 600;
       color: colors.$font-white;
       font-size: 20px;
       padding: 5px;
-
       border-radius: 10px;
     }
   }
@@ -52,7 +50,6 @@
     right: 0px;
 
     &_type {
-      font-weight: 600;
       box-shadow: 0px 0px 1px black;
       font-size: 16px;
       padding: 5px 10px;

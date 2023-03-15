@@ -34,7 +34,7 @@ const AmyImage = ({
         setDisableBack(true)
       }, 320)
     }
-  }, [loaded])
+  }, [loaded, imageType])
 
   const getSrc = () => {
     switch (imageType) {

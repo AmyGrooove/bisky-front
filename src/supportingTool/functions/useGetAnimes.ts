@@ -17,7 +17,7 @@ const useGetAnimes = ({ data, path }: IUseGetAnimes) => {
     if (animes.length === 0 && path !== undefined) {
       AddNewAnimes()
     }
-  }, [animes])
+  }, [animes, path])
 
   const AddNewAnimes = async () => {
     setAnimes(

@@ -1,8 +1,7 @@
 import { GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 
-import AmyImage from '@/components/Common/AmyImage'
-import { getNormalKind, httpGet } from '@/supportingTool/functions'
+import { httpGet } from '@/supportingTool/functions'
 import { AnimeInfo } from '@/supportingTool/types'
 import { Info, MainImage, ScreenShot } from '@/components/AnimePage'
 import { SHIKI_URL } from '@/supportingTool/constatns'

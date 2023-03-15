@@ -8,7 +8,6 @@
     gap: 5px;
 
     &_nickname {
-      font-weight: 600;
       max-width: 140px;
       padding: 10px 0 10px 10px;
       border-radius: 10px 0 0 10px;
@@ -39,7 +38,7 @@
 
   &__button {
     font-size: 16px;
-    font-weight: 500;
+
     color: colors.$font-white;
 
     cursor: pointer;

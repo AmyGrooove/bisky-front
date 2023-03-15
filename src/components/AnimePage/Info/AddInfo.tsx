@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Genres, RusEngLabels, ShortStudio } from '@/supportingTool/types'
+import { Genres, ShortStudio } from '@/supportingTool/types'
 import {
   getNormalKind,
   getNormalRating,

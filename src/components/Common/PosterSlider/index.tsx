@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Link from 'next/link'
 
 import { PosterAnime } from '@/supportingTool/types'
 import 'swiper/css'
@@ -9,9 +10,6 @@ import { ARROW_RIGHT, LOADING_ICON } from '@/theme/sources'
 import AmyImage from '../AmyImage'
 
 import styles from './index.module.scss'
-
-import Link from 'next/link'
-
 import usePosterSlider from './index.use'
 
 interface IPosterSlider {

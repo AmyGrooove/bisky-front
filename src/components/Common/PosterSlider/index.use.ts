@@ -30,7 +30,7 @@ const usePosterSlider = (
       setFirstAnimes(swiperGridArrays(animes).firstArr)
       setSecondAnimes(swiperGridArrays(animes).secondArr)
     }
-  }, [animes])
+  }, [animes, options])
 
   const onBeforeInit = (swiper: ISwiper) =>
     swiper.slides.length === 0 && AddNewAnimes()

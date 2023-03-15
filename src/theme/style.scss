@@ -3,6 +3,7 @@
 * {
   color: colors.$font-black;
   letter-spacing: 1px;
+  font-weight: 700;
 }
 
 .swiper {
@@ -16,8 +17,8 @@ body {
   height: 100%;
 }
 
-#__next {
-  min-height: 100%;
+#__body {
+  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
@@ -45,7 +46,6 @@ a {
 
 button {
   font-size: 16px;
-  font-weight: 500;
 
   cursor: pointer;
   transition: 0.2s;
