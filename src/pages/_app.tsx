@@ -4,6 +4,7 @@ import Head from 'next/head'
 import '@/theme/style.scss'
 import '@/theme/modification.scss'
 import { Roboto } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -34,6 +35,7 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
         <Component {...pageProps} className={roboto.className} />
         <Footer />
       </div>
+      <Analytics />
     </>
   )
 }
