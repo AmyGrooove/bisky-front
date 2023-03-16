@@ -195,4 +195,51 @@
 }
 
 .description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__label {
+    font-size: 28px;
+  }
+
+  &__text {
+    font-size: 16px;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      right: 0;
+      left: 0;
+      bottom: 0;
+      position: absolute;
+
+      height: 44px;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(247, 248, 250, 0),
+        colors.$background-light
+      );
+    }
+
+    &_unActive {
+      max-height: 120px;
+
+      &::after {
+        content: "";
+        opacity: 1;
+      }
+    }
+
+    &_active {
+      max-height: unset;
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__button {
+  }
 }
