@@ -1,20 +1,4 @@
-import { API_URL } from '../constatns'
-import { PosterAnime } from '../types'
-
 import useDebounce from './useDebounce'
-
-async function httpGet<T>(url: string, body?: Record<string, any>): Promise<T> {
-  return fetch(API_URL + url, {
-    headers: {
-      accept: 'application/json',
-    },
-    body: JSON.stringify(body),
-  }).then((response) => response.json())
-}
-
-function getRandomValue(max: number, min = 0): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
 
 function swiperGridArrays(arr: any[]): {
   firstArr: any[];
@@ -35,20 +19,6 @@ function swiperGridArrays(arr: any[]): {
   })
 
   return { firstArr, secondArr }
-}
-
-function removeDuplicates(arr: PosterAnime[]): PosterAnime[] {
-  const uniqueArr: PosterAnime[] = []
-  const seenIds: Set<number> = new Set()
-
-  for (const element of arr) {
-    if (!seenIds.has(element.shiki_id)) {
-      seenIds.add(element.shiki_id)
-      uniqueArr.push(element)
-    }
-  }
-
-  return uniqueArr
 }
 
 function debounce<T extends (...args: any[]) => any>(
@@ -79,21 +49,15 @@ function debounce<T extends (...args: any[]) => any>(
   }
 }
 
-const dateFormat = (date: string) =>
-  new Intl.DateTimeFormat('ru-RU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
-    .format(new Date(date))
-    .replace(/\u202F/g, ' ')
+const dateFormat = (date: Date | null) =>
+  date !== null
+    ? new Intl.DateTimeFormat('ru-RU', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+      .format(new Date(date))
+      .replace(/\u202F/g, ' ')
+    : null
 
-export {
-  httpGet,
-  getRandomValue,
-  useDebounce,
-  swiperGridArrays,
-  removeDuplicates,
-  debounce,
-  dateFormat,
-}
+export { useDebounce, swiperGridArrays, debounce, dateFormat }

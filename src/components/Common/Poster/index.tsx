@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { PosterAnime } from '@/supportingTool/types'
+import { IPosterAnime } from '@/supportingTool/types'
 import { getRating } from '@/supportingTool/functions'
 
 import AmyImage from '../AmyImage'
@@ -8,7 +8,7 @@ import AmyImage from '../AmyImage'
 import styles from './index.module.scss'
 
 interface IPoster {
-  el: PosterAnime;
+  el: IPosterAnime;
   offBack?: boolean;
 }
 
@@ -20,7 +20,7 @@ const Poster = ({ el, offBack }: IPoster) => {
       className={`${styles.poster} ${offBack && styles.poster_noShadow}`}
     >
       <AmyImage
-        src={el.image}
+        src={el.poster}
         width={180}
         height={290}
         imageType="poster"
@@ -32,15 +32,15 @@ const Poster = ({ el, offBack }: IPoster) => {
           offBack && styles.poster__label_noShadow
         }`}
       >
-        <h3 className={styles.poster__label_text}>
-          {el.label !== undefined ? el.label.ru : ''}
-        </h3>
+        <h3 className={styles.poster__label_text}>{el.labels[0]}</h3>
       </div>
       <span className={styles.poster__rating}>
         <span
-          className={`${styles.poster__rating_score} ${getRating(el.score)}`}
+          className={`${styles.poster__rating_score} ${getRating(
+            el.scores[0],
+          )}`}
         >
-          {el.score}
+          {el.scores[0]}
         </span>
       </span>
       {el.status !== 'released' && (

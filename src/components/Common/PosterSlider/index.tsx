@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
 
-import { PosterAnime } from '@/supportingTool/types'
+import { IPosterAnime } from '@/supportingTool/types'
 import 'swiper/css'
 import Poster from '@/components/Common/Poster'
 import 'swiper/css/grid'
@@ -13,7 +13,7 @@ import styles from './index.module.scss'
 import usePosterSlider from './index.use'
 
 interface IPosterSlider {
-  data?: PosterAnime[];
+  data?: IPosterAnime[];
   options: {
     path?: string;
     column?: boolean;

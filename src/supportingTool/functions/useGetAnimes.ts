@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-import { PosterAnime } from '@/supportingTool/types'
-
-import { httpGet } from './'
+import { IPosterAnime } from '../types'
+import { API_URL } from '../constatns'
 
 interface IUseGetAnimes {
-  data?: PosterAnime[];
+  data?: IPosterAnime[];
   path?: string;
 }
 
 const useGetAnimes = ({ data, path }: IUseGetAnimes) => {
   const [page, setPage] = useState(1)
-  const [animes, setAnimes] = useState<PosterAnime[]>(data || [])
+  const [animes, setAnimes] = useState<IPosterAnime[]>(data || [])
 
   useEffect(() => {
     if (animes.length === 0 && path !== undefined) {
@@ -22,13 +22,16 @@ const useGetAnimes = ({ data, path }: IUseGetAnimes) => {
   const AddNewAnimes = async () => {
     setAnimes(
       animes.concat(
-        await httpGet<PosterAnime[]>(
-          path +
-            '&page=' +
-            Number(page + 1) +
-            '&usedAnimes=' +
-            animes.map((el) => el.shiki_id),
-        ),
+        (
+          await axios.get<IPosterAnime[]>(
+            API_URL +
+              path +
+              '&page=' +
+              Number(page + 1) +
+              '&usedAnimes=' +
+              animes.map((el) => el.shiki_id),
+          )
+        ).data,
       ),
     )
 

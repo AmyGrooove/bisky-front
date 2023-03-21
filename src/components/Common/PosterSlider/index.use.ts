@@ -3,7 +3,7 @@ import { Swiper as ISwiper } from 'swiper/types'
 
 import { swiperGridArrays } from '@/supportingTool/functions'
 import useGetAnimes from '@/supportingTool/functions/useGetAnimes'
-import { PosterAnime } from '@/supportingTool/types'
+import { IPosterAnime } from '@/supportingTool/types'
 
 const usePosterSlider = (
   options: {
@@ -11,17 +11,17 @@ const usePosterSlider = (
     column?: boolean;
     goToFull?: string;
   },
-  data?: PosterAnime[],
+  data?: IPosterAnime[],
 ) => {
   const { animes, AddNewAnimes } = useGetAnimes({
     data,
     path: options ? options.path : undefined,
   })
 
-  const [firstAnimes, setFirstAnimes] = useState<PosterAnime[]>(
+  const [firstAnimes, setFirstAnimes] = useState<IPosterAnime[]>(
     swiperGridArrays(animes).firstArr,
   )
-  const [secondAnimes, setSecondAnimes] = useState<PosterAnime[]>(
+  const [secondAnimes, setSecondAnimes] = useState<IPosterAnime[]>(
     swiperGridArrays(animes).secondArr,
   )
 

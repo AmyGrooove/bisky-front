@@ -1,55 +1,37 @@
 import { GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
+import axios from 'axios'
 
-import { httpGet } from '@/supportingTool/functions'
-import { AnimeInfo } from '@/supportingTool/types'
+import { IAnimeInfo } from '@/supportingTool/types'
 import { Info, MainImage, ScreenShot } from '@/components/AnimePage'
-import { SHIKI_URL } from '@/supportingTool/constatns'
+import { API_URL, SHIKI_URL } from '@/supportingTool/constatns'
 
 import styles from './index.module.scss'
 
 interface IAnimePage {
-  AnimeInfomation: AnimeInfo;
+  AnimeInfomation: IAnimeInfo;
 }
 
 const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
   return (
     <>
       <Head>
-        <title>
-          {AnimeInfomation.label.ru || AnimeInfomation.label.en} смотреть Аниме
-          — Bisky
-        </title>
-        <meta
-          name="description"
-          content={
-            (AnimeInfomation.label.ru || AnimeInfomation.label.en) +
-            ' — ' +
-            AnimeInfomation.description
-          }
-        />
-        <meta
-          name="keywords"
-          content={
-            (AnimeInfomation.label.ru || AnimeInfomation.label.en) +
-            ' — ' +
-            AnimeInfomation.description
-          }
-        />
+        <title>{AnimeInfomation.labels[0]} смотреть Аниме — Bisky</title>
+        <meta name="description" content={AnimeInfomation.labels[0]} />
         <link
           rel="image_src"
           href={
-            AnimeInfomation.image
+            AnimeInfomation.poster
               ? SHIKI_URL +
                 'system/animes/original/' +
-                AnimeInfomation.image +
+                AnimeInfomation.poster +
                 '.jpg'
               : ''
           }
         />
       </Head>
       <main className={styles.animePage}>
-        <MainImage data={AnimeInfomation.image || ''} />
+        <MainImage data={AnimeInfomation.poster || ''} />
         <div className={styles.animePage__info}>
           <Info data={AnimeInfomation} />
           <ScreenShot />
@@ -64,9 +46,11 @@ export const getServerSideProps = async (
 ) => {
   const { params } = context
 
-  const [AnimeInfomation] = await Promise.all([
-    httpGet<AnimeInfo | null>('/animePage?shiki_id=' + params?.animeId),
-  ])
+  const AnimeInfomation = (
+    await axios.get<IAnimeInfo>(
+      API_URL + '/animePage?shiki_id=' + params?.animeId,
+    )
+  ).data
 
   return { props: { AnimeInfomation } }
 }

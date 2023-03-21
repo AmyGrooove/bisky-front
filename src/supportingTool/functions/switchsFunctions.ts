@@ -13,6 +13,9 @@ const getNormalKind = (value: string): string => {
   const normalKinds: { [key: string]: string } = {
     tv: 'Сериал',
     movie: 'Фильм',
+    special: 'Спешл',
+    ova: 'OVA',
+    ona: 'ONA',
     default: 'anime',
   }
   return normalKinds[value] || normalKinds.default
@@ -30,8 +33,10 @@ const getNormalRating = (value: string): string => {
   return normalRating[value] || normalRating.default
 }
 
-const nextEpisode = (date: string) => {
-  let normalDate = (new Date(date).getTime() - Date.now()) / 3600000
+const nextEpisode = (date: Date) => {
+  date = new Date(date)
+
+  let normalDate = (date.getTime() - Date.now()) / 3600000
 
   if (normalDate >= 24) {
     normalDate = Math.floor(normalDate / 24)

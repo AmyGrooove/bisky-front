@@ -1,13 +1,13 @@
 import { createContext } from 'react'
 
-import { RusEngLabels } from '@/supportingTool/types'
+import { IAllGenres } from '@/supportingTool/types'
 
 import styles from './index.module.scss'
 import useGenres from './index.use'
 import GenreBlock from './GenreBlock'
 
 interface IBest {
-  data: RusEngLabels[];
+  data: IAllGenres[];
 }
 
 export const GenresContext = createContext({ addNewBlock: () => {} })
@@ -19,7 +19,7 @@ const Genres = ({ data }: IBest) => {
     <GenresContext.Provider value={{ addNewBlock }}>
       <section className={styles.genres}>
         {animeBlock.map((el) => (
-          <GenreBlock key={el.en} genre={el} />
+          <GenreBlock key={el.genre_id} genre={el} />
         ))}
       </section>
     </GenresContext.Provider>

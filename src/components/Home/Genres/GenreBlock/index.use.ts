@@ -1,15 +1,17 @@
 import { useContext, useEffect, useRef, useState } from 'react'
+import axios from 'axios'
 
-import { httpGet } from '@/supportingTool/functions'
-import { PosterAnime } from '@/supportingTool/types'
+import { IPosterAnime } from '@/supportingTool/types'
+import { API_URL } from '@/supportingTool/constatns'
 
 import { GenresContext } from '..'
 
-const useGenreBlock = (genre: string) => {
+
+const useGenreBlock = (genre_id: number) => {
   const { addNewBlock } = useContext(GenresContext)
   const targetRef = useRef<HTMLDivElement>(null)
 
-  const [animes, setAnimes] = useState<PosterAnime[]>([])
+  const [animes, setAnimes] = useState<IPosterAnime[]>([])
 
   useEffect(() => {
     ShowNewPage()
@@ -35,7 +37,11 @@ const useGenreBlock = (genre: string) => {
 
   const ShowNewPage = async () => {
     setAnimes(
-      await httpGet<PosterAnime[]>('/home/genres/anime?genre=' + genre),
+      (
+        await axios.get<IPosterAnime[]>(
+          API_URL + '/home/genres/anime?genre=' + genre_id,
+        )
+      ).data,
     )
   }
 

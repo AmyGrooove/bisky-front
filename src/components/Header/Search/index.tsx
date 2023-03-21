@@ -39,11 +39,11 @@ const Search = () => {
       >
         {searchResult.length !== 0 ? (
           searchResult.map((el, index) => (
-            <div key={el.label.en} className={styles.search__result__element}>
+            <div key={el.labels[1]} className={styles.search__result__element}>
               <Link href={'/anime/' + el.shiki_id}>
                 <div className={styles.search__result__element__item}>
                   <AmyImage
-                    src={el.image}
+                    src={el.poster}
                     width={60}
                     height={90}
                     imageType="search"
@@ -61,14 +61,14 @@ const Search = () => {
                           styles.search__result__element__item__info_label_ru
                         }
                       >
-                        {el.label.ru}
+                        {el.labels[0]}
                       </h4>
                       <h5
                         className={
                           styles.search__result__element__item__info_label_en
                         }
                       >
-                        {el.label.en}
+                        {el.labels[1]}
                       </h5>
                     </div>
                     <div

@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-import { useDebounce, httpGet } from '@/supportingTool/functions'
-import { PosterAnime } from '@/supportingTool/types'
+import { useDebounce } from '@/supportingTool/functions'
+import { IPosterAnime } from '@/supportingTool/types'
+import { API_URL } from '@/supportingTool/constatns'
 
 const useSearch = () => {
   const [inputValue, setInputValue] = useState<string>('')
   const debounceInputValue = useDebounce<string>(inputValue, 250)
 
-  const [searchResult, setSearchResult] = useState<PosterAnime[]>([])
+  const [searchResult, setSearchResult] = useState<IPosterAnime[]>([])
 
   useEffect(() => {
     if (inputValue === '') {
@@ -19,7 +21,8 @@ const useSearch = () => {
 
   const searchAsync = async () => {
     setSearchResult(
-      await httpGet<PosterAnime[]>('/search?value=' + inputValue),
+      (await axios.get<IPosterAnime[]>(API_URL + '/search?value=' + inputValue))
+        .data,
     )
   }
 

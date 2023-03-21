@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import { Genres, ShortStudio } from '@/supportingTool/types'
 import {
   getNormalKind,
   getNormalRating,
@@ -9,38 +8,38 @@ import {
 } from '@/supportingTool/functions'
 import AmyImage from '@/components/Common/AmyImage'
 import { ARROW_RIGHT } from '@/theme/sources'
+import { IAnimeInfo, IGenres, IStudios } from '@/supportingTool/types'
 
 import styles from './index.module.scss'
 
 interface IAddInfo {
-  kind: string;
-  status: string;
-  next_episode_at: string | null;
   episodes: {
     count: number | null;
-    aired: number;
+    aired: number | null;
     duration: number;
+    next_episode_at: Date | null;
   };
-  genres: Genres[];
-  rating: string;
-  studios: ShortStudio[];
-  releaseDates: {
-    aired_on: string;
-    released_on: string | null;
+  kind: 'tv' | 'movie' | 'ova' | 'ona' | 'special' | 'music';
+  genres: IGenres[];
+  rating: 'none' | 'g' | 'pg' | 'pg_13' | 'r' | 'r_plus' | 'rx';
+  studios: IStudios[];
+  dates: {
+    aired_on: Date | null;
+    released_on: Date | null;
   };
   videos: string[];
+  status: 'anons' | 'ongoing' | 'released';
 }
 
 const AddInfo = ({
-  kind,
-  status,
-  next_episode_at,
   episodes,
+  kind,
   genres,
   rating,
   studios,
-  releaseDates,
+  dates,
   videos,
+  status,
 }: IAddInfo) => {
   const episodeCountCheck = episodes.count ? episodes.count : '?'
 
@@ -60,14 +59,14 @@ const AddInfo = ({
           </h4>
         </Link>
       </div>
-      {next_episode_at && (
+      {episodes.next_episode_at && (
         <div
           className={`${styles.addInfo__info} ${styles.addInfo__info__nextEpisode}`}
-          data-content={dateFormat(next_episode_at)}
+          data-content={dateFormat(episodes.next_episode_at)}
         >
           <span className={styles.addInfo__info__label}>До новой серии:</span>
           <h5 className={styles.addInfo__info__text}>
-            {nextEpisode(next_episode_at)}
+            {nextEpisode(episodes.next_episode_at)}
           </h5>
         </div>
       )}
@@ -128,13 +127,11 @@ const AddInfo = ({
       </div>
       <div
         className={`${styles.addInfo__info} ${styles.addInfo__info__nextEpisode}`}
-        data-content={
-          releaseDates.released_on ? dateFormat(releaseDates.released_on) : '?'
-        }
+        data-content={dates.released_on ? dateFormat(dates.released_on) : '?'}
       >
         <span className={styles.addInfo__info__label}>Дата премьера:</span>
         <h5 className={styles.addInfo__info__text}>
-          {dateFormat(releaseDates.aired_on)}
+          {dateFormat(dates.aired_on)}
         </h5>
       </div>
       <div className={styles.addInfo__info}>

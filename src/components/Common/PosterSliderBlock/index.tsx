@@ -1,4 +1,4 @@
-import { PosterAnime } from '@/supportingTool/types'
+import { IPosterAnime } from '@/supportingTool/types'
 import 'swiper/css'
 import BlockLabel from '@/components/Common/BlockLabel'
 import 'swiper/css/grid'
@@ -7,10 +7,9 @@ import PosterSlider from '../PosterSlider'
 
 import styles from './index.module.scss'
 
-
 interface IPosterSliderBlock {
   label: string;
-  data?: PosterAnime[];
+  data?: IPosterAnime[];
   options: {
     path?: string;
     column?: boolean;

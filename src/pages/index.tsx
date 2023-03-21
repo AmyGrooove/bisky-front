@@ -1,14 +1,14 @@
 import { GetServerSideProps } from 'next'
+import axios from 'axios'
 
 import {
-  FactsType,
-  PosterAnime,
-  RusEngLabels,
-  SeasonalAnime,
+  IAllGenres,
+  IPosterAnime,
+  ISeasonalAnime,
 } from '@/supportingTool/types'
 import { Genres, Facts, Seasonal } from '@/components/Home'
-import { httpGet } from '@/supportingTool/functions'
 import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
+import { API_URL } from '@/supportingTool/constatns'
 
 import styles from './index.module.scss'
 
@@ -16,10 +16,10 @@ const account = false
 const status = 'watch'
 
 interface IHome {
-  SeasonalData: SeasonalAnime[];
+  SeasonalData: ISeasonalAnime[];
   FactsData: string;
-  BestData: PosterAnime[];
-  AllGenres: RusEngLabels[];
+  BestData: IPosterAnime[];
+  AllGenres: IAllGenres[];
 }
 
 function Home({ SeasonalData, FactsData, BestData, AllGenres }: IHome) {
@@ -50,12 +50,12 @@ function Home({ SeasonalData, FactsData, BestData, AllGenres }: IHome) {
 }
 
 export const getServerSideProps: GetServerSideProps<IHome> = async () => {
-  const [SeasonalData, FactsData, BestData, AllGenres] = await Promise.all([
-    httpGet<SeasonalAnime[]>('/home/seasonal'),
-    httpGet<FactsType>('/home/fact').then(({ fact }) => fact),
-    httpGet<PosterAnime[]>('/home/best?page=1'),
-    httpGet<RusEngLabels[]>('/home/genres/all'),
-  ])
+  const [SeasonalData, FactsData, BestData, AllGenres] = [
+    (await axios.get<ISeasonalAnime[]>(API_URL + '/home/seasonal')).data,
+    (await axios.get<string>(API_URL + '/home/fact')).data,
+    (await axios.get<IPosterAnime[]>(API_URL + '/home/best?page=1')).data,
+    (await axios.get<IAllGenres[]>(API_URL + '/home/genres/all')).data,
+  ]
 
   return { props: { SeasonalData, FactsData, BestData, AllGenres } }
 }

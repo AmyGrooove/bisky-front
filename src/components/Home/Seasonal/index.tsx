@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
 import { Autoplay } from 'swiper'
 
-import { SeasonalAnime } from '@/supportingTool/types'
+import { ISeasonalAnime } from '@/supportingTool/types'
 import 'swiper/scss'
 import 'swiper/scss/autoplay'
 import { getRating } from '@/supportingTool/functions'
@@ -12,7 +12,7 @@ import styles from './index.module.scss'
 import useSeasonal from './index.use'
 
 interface ISeasonal {
-  data: SeasonalAnime[];
+  data: ISeasonalAnime[];
 }
 
 const Seasonal = ({ data }: ISeasonal) => {
@@ -52,7 +52,7 @@ const Seasonal = ({ data }: ISeasonal) => {
               >
                 <span className={styles.swiper__card}>
                   <AmyImage
-                    src={el.image}
+                    src={el.poster}
                     height={335}
                     width={225}
                     imageType="poster"
@@ -61,7 +61,7 @@ const Seasonal = ({ data }: ISeasonal) => {
                   />
                   <div className={styles.swiper__card__name}>
                     <h3 className={styles.swiper__card__name_text}>
-                      {el.label.ru}
+                      {el.labels[0]}
                     </h3>
                   </div>
                 </span>
@@ -69,7 +69,7 @@ const Seasonal = ({ data }: ISeasonal) => {
                   <span className={styles.swiper__genre_label}>
                     {el.genres.map((gen) => (
                       <li
-                        key={gen.name.en}
+                        key={gen.name.ru}
                         className={styles.swiper__genre_name}
                       >
                         {gen.name.ru}
@@ -80,10 +80,10 @@ const Seasonal = ({ data }: ISeasonal) => {
                 <span className={styles.swiper__rating}>
                   <span
                     className={`${styles.swiper__rating_score} ${getRating(
-                      el.score,
+                      el.scores[0],
                     )}`}
                   >
-                    {el.score}
+                    {el.scores[0]}
                   </span>
                 </span>
               </Link>
