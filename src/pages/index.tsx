@@ -7,8 +7,8 @@ import {
   ISeasonalAnime,
 } from '@/supportingTool/types'
 import { Genres, Facts, Seasonal } from '@/components/Home'
-import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
 import { API_URL } from '@/supportingTool/constatns'
+import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
 
 import styles from './index.module.scss'
 

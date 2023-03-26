@@ -6,9 +6,10 @@ interface IBlockLabel {
   label: string;
   href: string;
   leftPadding?: boolean;
+  downgrade?: boolean;
 }
 
-const BlockLabel = ({ label, href, leftPadding }: IBlockLabel) => {
+const BlockLabel = ({ label, href, leftPadding, downgrade }: IBlockLabel) => {
   return (
     <Link
       href={href}
@@ -16,7 +17,15 @@ const BlockLabel = ({ label, href, leftPadding }: IBlockLabel) => {
         leftPadding && styles.blockLabel_padding
       }`}
     >
-      <h2 className={styles.blockLabel__label}>{label}</h2>
+      {downgrade ? (
+        <h3 className={styles.blockLabel__downgrade}>{label}</h3>
+      ) : (
+        <h2
+          className={`${styles.blockLabel__label} ${styles.blockLabel__label_downgrade}`}
+        >
+          {label}
+        </h2>
+      )}
     </Link>
   )
 }

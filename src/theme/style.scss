@@ -10,6 +10,32 @@
   width: 100%;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: colors.$bisky-dark;
+  padding: 10px;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 20px;
+  transition: 0.2s;
+  box-shadow: 0px 0px 4px colors.$black-transparent;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    background-color: colors.$bisky-dark-hover;
+  }
+
+  &::after {
+    color: colors.$bisky;
+    font-size: 36px !important;
+  }
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+}
+
 html,
 body {
   margin: 0;

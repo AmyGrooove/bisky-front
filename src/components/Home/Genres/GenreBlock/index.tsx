@@ -1,19 +1,23 @@
-import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
+import PosterSlider from '@/components/Common/PosterSlider'
 import { IAllGenres } from '@/supportingTool/types'
+import BlockLabel from '@/components/Common/BlockLabel'
 
 import useGenreBlock from './index.use'
 
 interface IGenreBlock {
   genre: IAllGenres;
+  zIndex: number;
 }
 
-const GenreBlock = ({ genre }: IGenreBlock) => {
-  const { targetRef, animes } = useGenreBlock(genre.genre_id)
+const GenreBlock = ({ genre, zIndex }: IGenreBlock) => {
+  const { animes } = useGenreBlock(genre.genre_id)
 
   return (
-    <div ref={targetRef}>
-      <PosterSliderBlock
-        label={genre.name.ru}
+    <div style={{ zIndex: zIndex, position: 'relative' }}>
+      <BlockLabel
+        label={genre.name.ru} href="#"
+        leftPadding downgrade />
+      <PosterSlider
         data={animes}
         options={{
           path: '/home/genres/anime?genre=' + genre.genre_id,

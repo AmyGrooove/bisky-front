@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
-import { Autoplay } from 'swiper'
+import { Autoplay, Navigation } from 'swiper'
 
 import { ISeasonalAnime } from '@/supportingTool/types'
 import 'swiper/scss'
 import 'swiper/scss/autoplay'
+import 'swiper/css/navigation'
 import { getRating } from '@/supportingTool/functions'
 import AmyImage from '@/components/Common/AmyImage'
 
@@ -26,7 +27,8 @@ const Seasonal = ({ data }: ISeasonal) => {
         centeredSlides
         loop
         autoplay={{ delay: 10000 }}
-        modules={[Autoplay]}
+        navigation
+        modules={[Autoplay, Navigation]}
       >
         {data.map((el) => (
           <SwiperSlide key={el.shiki_id} className={styles.swiper__slide}>

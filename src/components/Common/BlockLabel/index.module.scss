@@ -14,12 +14,29 @@
     border-bottom: 5px solid colors.$transparent;
     margin-bottom: 20px;
     padding: 0 10px;
+
+    &_downgrade {
+      margin: 0px;
+    }
+  }
+
+  &__downgrade {
+    transition: 0.2s;
+    border-bottom: 3px solid colors.$transparent;
+    padding: 0 10px;
+    margin: 20px 0;
+    font-size: 24px;
   }
 
   &:hover {
     .blockLabel__label {
       color: colors.$bisky-dark;
       border-bottom: 5px solid colors.$bisky-dark;
+    }
+
+    .blockLabel__downgrade {
+      color: colors.$bisky-dark;
+      border-bottom: 3px solid colors.$bisky-dark;
     }
   }
 }

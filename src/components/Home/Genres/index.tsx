@@ -1,6 +1,7 @@
 import { createContext } from 'react'
 
 import { IAllGenres } from '@/supportingTool/types'
+import BlockLabel from '@/components/Common/BlockLabel'
 
 import styles from './index.module.scss'
 import useGenres from './index.use'
@@ -10,19 +11,29 @@ interface IBest {
   data: IAllGenres[];
 }
 
-export const GenresContext = createContext({ addNewBlock: () => {} })
-
 const Genres = ({ data }: IBest) => {
-  const { animeBlock, addNewBlock } = useGenres(data)
+  const { animeBlock, addNewBlock, allGenres } = useGenres(data)
 
   return (
-    <GenresContext.Provider value={{ addNewBlock }}>
-      <section className={styles.genres}>
-        {animeBlock.map((el) => (
-          <GenreBlock key={el.genre_id} genre={el} />
+    <section className={styles.genres}>
+      <BlockLabel
+        label="Жанры" href="#"
+        leftPadding />
+      {animeBlock.map((el, index) => (
+        <GenreBlock
+          key={el.genre_id}
+          genre={el}
+          zIndex={animeBlock.length - index}
+        />
+      ))}
+      <div className={styles.genres__allGenres}>
+        {allGenres.map((el, index) => (
+          <button key={el.genre_id} onClick={() => addNewBlock(index)}>
+            {el.name.ru}
+          </button>
         ))}
-      </section>
-    </GenresContext.Provider>
+      </div>
+    </section>
   )
 }
 

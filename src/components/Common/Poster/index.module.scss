@@ -108,6 +108,10 @@
       z-index: -1;
     }
 
+    .poster_img {
+      box-shadow: 0px 0px 2px black;
+    }
+
     .poster__label {
       &::before {
         filter: blur(30px);
@@ -127,6 +131,8 @@
         border-radius: 0 0 20px 20px;
         white-space: pre-wrap;
         color: colors.$font-white;
+
+        box-shadow: 0px 0px 10px black;
       }
     }
   }

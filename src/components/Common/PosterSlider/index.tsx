@@ -1,11 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Link from 'next/link'
+import { Navigation } from 'swiper'
 
 import { IPosterAnime } from '@/supportingTool/types'
-import 'swiper/css'
 import Poster from '@/components/Common/Poster'
-import 'swiper/css/grid'
 import { ARROW_RIGHT, LOADING_ICON } from '@/theme/sources'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 import AmyImage from '../AmyImage'
 
@@ -21,6 +22,10 @@ interface IPosterSlider {
   };
 }
 
+const a = () => {
+  return <div>2</div>
+}
+
 const PosterSlider = ({ data, options }: IPosterSlider) => {
   const { getAnimes, onBeforeInit, onSlideChange, firstAnimes, secondAnimes } =
     usePosterSlider(options, data)
@@ -33,6 +38,8 @@ const PosterSlider = ({ data, options }: IPosterSlider) => {
       onBeforeInit={onBeforeInit}
       onSlideChange={onSlideChange}
       className={styles.posterSlider}
+      navigation
+      modules={[Navigation]}
     >
       {(options && options.column ? firstAnimes : getAnimes).map(
         (el, index) => (

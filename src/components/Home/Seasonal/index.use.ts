@@ -8,6 +8,16 @@ const useSeasonal = () => {
       setImageIndex(imageIndex === 5 ? 0 : imageIndex + 1)
     }, 8000)
 
+    if (document) {
+      const container: HTMLElement | null = document.querySelector(
+        '#__body > main > section:nth-child(1) > div',
+      )
+
+      if (container) {
+        container
+      }
+    }
+
     return () => {
       clearInterval(interval)
     }
