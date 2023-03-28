@@ -75,6 +75,18 @@ export interface IStudios {
   img: string | null;
 }
 
+export interface INestError {
+  response: {
+    statusCode: number;
+    message: string;
+    error: string;
+  };
+  status: number;
+  options: object;
+  message: string;
+  name: string;
+}
+
 ///
 export interface UserMainAnimes {
   posterAnime: IPosterAnime[];

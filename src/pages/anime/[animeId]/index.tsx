@@ -2,7 +2,7 @@ import { GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 import axios from 'axios'
 
-import { IAnimeInfo } from '@/supportingTool/types'
+import { IAnimeInfo, INestError } from '@/supportingTool/types'
 import { Info, MainImage, ScreenShot } from '@/components/AnimePage'
 import { API_URL, SHIKI_URL } from '@/supportingTool/constatns'
 
@@ -44,13 +44,18 @@ const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
 export const getServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
-  const { params } = context
+  const { params, res } = context
 
   const AnimeInfomation = (
-    await axios.get<IAnimeInfo>(
+    await axios.get<IAnimeInfo | INestError>(
       API_URL + '/animePage?shiki_id=' + params?.animeId,
     )
   ).data
+
+  if (AnimeInfomation.status === 404) {
+    res.writeHead(302, { Location: '/404' })
+    res.end()
+  }
 
   return { props: { AnimeInfomation } }
 }

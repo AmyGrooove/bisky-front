@@ -8,12 +8,16 @@ const useGenres = (data: IAllGenres[]) => {
   const [animeBlock, setAnimeBlock] = useState<IAllGenres[]>([])
 
   useEffect(() => {
-    addNewBlock(0)
+    addNewBlock(0, false)
   }, [data])
 
-  const addNewBlock = (index: number) => {
+  const addNewBlock = (index: number, scroll = true) => {
     setAnimeBlock(animeBlock.concat([allGenres[index]]))
     setAllGenres(allGenres.filter((el, i) => i !== index))
+
+    if (scroll) {
+      window.scrollTo({ top: window.pageYOffset + 400, behavior: 'smooth' })
+    }
   }
 
   return { animeBlock, addNewBlock, allGenres }
