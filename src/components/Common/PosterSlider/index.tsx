@@ -13,77 +13,81 @@ import AmyImage from '../AmyImage'
 import styles from './index.module.scss'
 import usePosterSlider from './index.use'
 
-interface IPosterSlider {
+export interface IPosterSlider {
   data?: IPosterAnime[];
-  options: {
-    path?: string;
-    column?: boolean;
-    goToFull?: string;
-  };
+  path?: string;
+  column?: boolean;
+  goToFull?: string;
 }
 
-const a = () => {
-  return <div>2</div>
-}
-
-const PosterSlider = ({ data, options }: IPosterSlider) => {
-  const { getAnimes, onBeforeInit, onSlideChange, firstAnimes, secondAnimes } =
-    usePosterSlider(options, data)
+const PosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
+  const { animes, animesColumn, onSlideChange } = usePosterSlider({
+    data,
+    path,
+    column,
+    goToFull,
+  })
 
   return (
     <Swiper
       slidesPerView={'auto'}
       spaceBetween={30}
       grabCursor
-      onBeforeInit={onBeforeInit}
       onSlideChange={onSlideChange}
       className={styles.posterSlider}
       navigation
       modules={[Navigation]}
     >
-      {(options && options.column ? firstAnimes : getAnimes).map(
-        (el, index) => (
-          <SwiperSlide key={el.shiki_id} className={styles.posterSlider__slide}>
-            <Poster el={el} offBack={!options.column} />
-            {options.column && (
-              <Poster el={secondAnimes[index]} offBack={!options.column} />
-            )}
-          </SwiperSlide>
-        ),
+      {(column ? animesColumn.first : animes).map((el, index) => (
+        <SwiperSlide key={el.shiki_id} className={styles.posterSlider__slide}>
+          <Poster
+            shiki_id={el.shiki_id}
+            poster={el.poster || null}
+            labels={el.labels[0]}
+            scores={el.scores[0]}
+            status={el.status}
+          />
+          {column && (
+            <Poster
+              shiki_id={animesColumn.second[index].shiki_id}
+              poster={animesColumn.second[index].poster || null}
+              labels={animesColumn.second[index].labels[0]}
+              scores={animesColumn.second[index].scores[0]}
+              status={animesColumn.second[index].status}
+            />
+          )}
+        </SwiperSlide>
+      ))}
+      {path && (
+        <SwiperSlide className={styles.posterSlider__slide}>
+          {goToFull && animes.length >= 12 ? (
+            <Link href={goToFull} className={styles.posterSlider__slide_arrow}>
+              <AmyImage
+                src={ARROW_RIGHT}
+                height={60}
+                width={70}
+                className={styles.posterSlider__slide_arrow_img}
+              />
+              <span className={styles.posterSlider__slide_arrow_label}>
+                Показать все
+              </span>
+            </Link>
+          ) : (
+            <div
+              className={`${styles.posterSlider__slide_load} ${
+                column && styles.posterSlider__slide_load_column
+              }`}
+            >
+              <AmyImage
+                src={LOADING_ICON}
+                width={70}
+                height={70}
+                className={styles.posterSlider__slide_load_img}
+              />
+            </div>
+          )}
+        </SwiperSlide>
       )}
-      <SwiperSlide className={styles.posterSlider__slide}>
-        {options && options.goToFull && 12 <= getAnimes.length ? (
-          <Link
-            href={options.goToFull}
-            className={styles.posterSlider__slide_arrow}
-          >
-            <AmyImage
-              src={ARROW_RIGHT}
-              height={60}
-              width={70}
-              className={styles.posterSlider__slide_arrow_img}
-            />
-            <span className={styles.posterSlider__slide_arrow_label}>
-              Показать все
-            </span>
-          </Link>
-        ) : (
-          <div
-            className={`${styles.posterSlider__slide_load} ${
-              options &&
-              options.column &&
-              styles.posterSlider__slide_load_column
-            }`}
-          >
-            <AmyImage
-              src={LOADING_ICON}
-              width={70}
-              height={70}
-              className={styles.posterSlider__slide_load_img}
-            />
-          </div>
-        )}
-      </SwiperSlide>
     </Swiper>
   )
 }

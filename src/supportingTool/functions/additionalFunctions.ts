@@ -1,24 +1,24 @@
 import useDebounce from './useDebounce'
 
-function swiperGridArrays(arr: any[]): {
-  firstArr: any[];
-  secondArr: any[];
+function swiperGridArrays<T>(arr: T[]): {
+  first: T[];
+  second: T[];
 } {
-  const firstArr: any[] = []
-  const secondArr: any[] = []
+  const first: T[] = []
+  const second: T[] = []
   let change = true
 
   arr.forEach((el) => {
     if (change) {
-      firstArr.push(el)
+      first.push(el)
       change = false
     } else {
-      secondArr.push(el)
+      second.push(el)
       change = true
     }
   })
 
-  return { firstArr, secondArr }
+  return { first, second }
 }
 
 function debounce<T extends (...args: any[]) => any>(

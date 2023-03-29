@@ -31,7 +31,10 @@ const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
         />
       </Head>
       <main className={styles.animePage}>
-        <MainImage data={AnimeInfomation.poster || ''} />
+        <MainImage
+          poster={AnimeInfomation.poster || null}
+          status={AnimeInfomation.status}
+        />
         <div className={styles.animePage__info}>
           <Info data={AnimeInfomation} />
           <ScreenShot />

@@ -50,7 +50,7 @@ export interface IAnimeInfo {
   studios: IStudios[];
   relations: {
     franchise: string | null;
-    animes: { link: IAnimeInfo; relation: { en: string; ru: string } }[];
+    animes: { link: IPosterAnime; relation: { en: string; ru: string } }[];
   };
 }
 

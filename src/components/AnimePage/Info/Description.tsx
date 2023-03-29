@@ -8,15 +8,34 @@ const Description = () => {
   const { description } = useContext(AnimeInfoContext)
 
   const [openDesc, setOpenDesc] = useState(false)
+  const [checkHeight, setCheckHeight] = useState(false)
 
-  const blockRef = useRef<HTMLHeadingElement>(null)
-  const [descHeight, setDescHeight] = useState(0)
+  const descriptionRef = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => {
-    if (blockRef.current) {
-      setDescHeight(blockRef.current.offsetHeight)
-    }
-  }, [descHeight, blockRef])
+    setCheckHeight(
+      descriptionRef.current
+        ? descriptionRef.current?.offsetHeight > 200
+        : false,
+    )
+  }, [descriptionRef])
+
+  const openDescHandler = () => {
+    const asyncOpenDesc = new Promise((resolve, reject) => {
+      setOpenDesc(!openDesc)
+
+      resolve(true)
+    })
+
+    asyncOpenDesc.then(() => {
+      window.scrollBy({
+        top: descriptionRef.current
+          ? descriptionRef.current?.offsetHeight
+          : 150,
+        behavior: 'smooth',
+      })
+    })
+  }
 
   return (
     <>
@@ -24,21 +43,17 @@ const Description = () => {
         <div className={styles.description}>
           <h4 className={styles.description__label}>Описание</h4>
           <h5
-            ref={blockRef}
+            ref={descriptionRef}
             className={`${styles.description__text} ${
-              descHeight >= 119 &&
-              (openDesc
-                ? styles.description__text_active
-                : styles.description__text_unActive)
+              checkHeight && !openDesc && styles.description__text_hide
             }`}
           >
-            {description}
+            {description.split('<br>').map((el) => (
+              <p key={el}>{el}</p>
+            ))}
           </h5>
-          {descHeight >= 119 && (
-            <button
-              className={styles.description__button}
-              onClick={() => setOpenDesc(!openDesc)}
-            >
+          {checkHeight && (
+            <button onClick={openDescHandler}>
               {openDesc ? 'Скрыть' : 'Читать дальше'}
             </button>
           )}

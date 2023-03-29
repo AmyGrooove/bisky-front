@@ -6,25 +6,22 @@ import useGenreBlock from './index.use'
 
 interface IGenreBlock {
   genre: IAllGenres;
-  zIndex: number;
 }
 
-const GenreBlock = ({ genre, zIndex }: IGenreBlock) => {
+const GenreBlock = ({ genre }: IGenreBlock) => {
   const { animes } = useGenreBlock(genre.genre_id)
 
   return (
-    <div style={{ zIndex: zIndex, position: 'relative' }}>
+    <>
       <BlockLabel
         label={genre.name.ru} href="#"
         leftPadding downgrade />
       <PosterSlider
         data={animes}
-        options={{
-          path: '/home/genres/anime?genre=' + genre.genre_id,
-          goToFull: '#',
-        }}
+        path={'/home/genres/anime?genre=' + genre.genre_id}
+        goToFull="#"
       />
-    </div>
+    </>
   )
 }
 

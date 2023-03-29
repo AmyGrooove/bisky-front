@@ -1,51 +1,56 @@
 import { useEffect, useState } from 'react'
 import { Swiper as ISwiper } from 'swiper/types'
+import axios from 'axios'
 
 import { swiperGridArrays } from '@/supportingTool/functions'
-import useGetAnimes from '@/supportingTool/functions/useGetAnimes'
 import { IPosterAnime } from '@/supportingTool/types'
+import { API_URL } from '@/supportingTool/constatns'
 
-const usePosterSlider = (
-  options: {
-    path?: string;
-    column?: boolean;
-    goToFull?: string;
-  },
-  data?: IPosterAnime[],
-) => {
-  const { animes, AddNewAnimes } = useGetAnimes({
-    data,
-    path: options ? options.path : undefined,
-  })
+import { IPosterSlider } from '.'
 
-  const [firstAnimes, setFirstAnimes] = useState<IPosterAnime[]>(
-    swiperGridArrays(animes).firstArr,
-  )
-  const [secondAnimes, setSecondAnimes] = useState<IPosterAnime[]>(
-    swiperGridArrays(animes).secondArr,
-  )
+const usePosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
+  const [page, setPage] = useState(1)
+  const [animes, setAnimes] = useState<IPosterAnime[]>(data || [])
+  const [animesColumn, setAnimesColumn] = useState<{
+    first: IPosterAnime[];
+    second: IPosterAnime[];
+  }>({ first: [], second: [] })
 
   useEffect(() => {
-    if (options && options.column) {
-      setFirstAnimes(swiperGridArrays(animes).firstArr)
-      setSecondAnimes(swiperGridArrays(animes).secondArr)
-    }
-  }, [animes, options])
+    if (column) setAnimesColumn(swiperGridArrays(animes))
+    if (animes.length === 0) AddNewAnimes()
+  }, [animes])
 
-  const onBeforeInit = (swiper: ISwiper) =>
-    swiper.slides.length === 0 && AddNewAnimes()
+  const AddNewAnimes = async () => {
+    setAnimes(
+      animes.concat(
+        (
+          await axios.get<IPosterAnime[]>(
+            API_URL +
+              path +
+              '&page=' +
+              Number(page + 1) +
+              '&usedAnimes=' +
+              animes.map((el) => el.shiki_id),
+          )
+        ).data,
+      ),
+    )
+
+    setPage(page + 1)
+  }
 
   const onSlideChange = (swiper: ISwiper) =>
-    options.goToFull && 12 <= animes.length
-      ? () => {}
-      : swiper.activeIndex >= swiper.slides.length - 6 && AddNewAnimes()
+    path && swiper.activeIndex + 6 >= swiper.slides.length - 1
+      ? goToFull && animes.length >= 12
+        ? () => {}
+        : AddNewAnimes()
+      : () => {}
 
   return {
-    getAnimes: animes,
-    onBeforeInit,
+    animes,
+    animesColumn,
     onSlideChange,
-    firstAnimes,
-    secondAnimes,
   }
 }
 

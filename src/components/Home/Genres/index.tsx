@@ -12,7 +12,7 @@ interface IBest {
 }
 
 const Genres = ({ data }: IBest) => {
-  const { animeBlock, addNewBlock, allGenres } = useGenres(data)
+  const { animeBlock, addNewBlock, allGenres, genreBlockRef } = useGenres(data)
 
   return (
     <section className={styles.genres}>
@@ -20,11 +20,13 @@ const Genres = ({ data }: IBest) => {
         label="Жанры" href="#"
         leftPadding />
       {animeBlock.map((el, index) => (
-        <GenreBlock
+        <div
           key={el.genre_id}
-          genre={el}
-          zIndex={animeBlock.length - index}
-        />
+          ref={genreBlockRef}
+          style={{ zIndex: animeBlock.length - index, position: 'relative' }}
+        >
+          <GenreBlock genre={el} />
+        </div>
       ))}
       <div className={styles.genres__allGenres}>
         {allGenres.map((el, index) => (

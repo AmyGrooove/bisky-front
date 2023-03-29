@@ -8,12 +8,10 @@ import {
 } from '@/supportingTool/types'
 import { Genres, Facts, Seasonal } from '@/components/Home'
 import { API_URL } from '@/supportingTool/constatns'
-import PosterSliderBlock from '@/components/Common/PosterSliderBlock'
+import Best from '@/components/Home/Best'
+import Poster from '@/components/Common/Poster'
 
 import styles from './index.module.scss'
-
-const account = false
-const status = 'watch'
 
 interface IHome {
   SeasonalData: ISeasonalAnime[];
@@ -26,23 +24,7 @@ function Home({ SeasonalData, FactsData, BestData, AllGenres }: IHome) {
   return (
     <main className={styles.home}>
       <Seasonal data={SeasonalData} />
-      {account && (
-        <PosterSliderBlock
-          data={BestData}
-          label={status === 'watch' ? 'Продолжить просмотр' : 'Начать просмотр'}
-          options={{
-            path: '/home/best?',
-          }}
-        />
-      )}
-      <PosterSliderBlock
-        data={BestData}
-        label="Самое популярное"
-        options={{
-          path: '/home/best?',
-          column: true,
-        }}
-      />
+      <Best data={BestData} />
       <Genres data={AllGenres} />
       <Facts data={FactsData} />
     </main>

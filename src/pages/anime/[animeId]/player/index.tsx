@@ -50,6 +50,11 @@ export const getServerSideProps = async (
     (await axios.get<IKodikPlayer>(KODIK_API_URL + AnimeInfomation.shiki_id))
       .data
 
+  if (KodikPlayer && KodikPlayer.results.length === 0) {
+    res.writeHead(302, { Location: '/404' })
+    res.end()
+  }
+
   return {
     props: {
       AnimeInfomation,

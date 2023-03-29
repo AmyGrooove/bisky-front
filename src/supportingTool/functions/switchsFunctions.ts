@@ -1,4 +1,4 @@
-const getRating = (score: number) => {
+const getRating = (score = 0) => {
   switch (true) {
   case score >= 7:
     return 'score_high'
