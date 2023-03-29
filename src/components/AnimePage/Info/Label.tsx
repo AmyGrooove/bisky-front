@@ -1,10 +1,12 @@
+import { useContext } from 'react'
+
 import styles from './index.module.scss'
 
-interface ILabel {
-  labels: string[];
-}
+import { AnimeInfoContext } from '.'
 
-const Label = ({ labels }: ILabel) => {
+const Label = () => {
+  const { labels } = useContext(AnimeInfoContext)
+
   return (
     <div className={styles.label}>
       <h1 className={styles.label__main}>{labels[0]}</h1>

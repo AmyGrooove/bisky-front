@@ -61,10 +61,8 @@ const nextEpisode = (date: Date) => {
     case 3:
     case 4:
       return normalDate + ' часа'
-    case 0:
-      return '<1 часа'
     default:
-      return normalDate + ' часов'
+      return '<1 часа'
     }
   }
 }

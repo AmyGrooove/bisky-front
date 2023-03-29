@@ -49,15 +49,24 @@ function debounce<T extends (...args: any[]) => any>(
   }
 }
 
-const dateFormat = (date: Date | null) =>
-  date !== null
-    ? new Intl.DateTimeFormat('ru-RU', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    })
-      .format(new Date(date))
-      .replace(/\u202F/g, ' ')
-    : null
+const dateFormat = (date: Date | null) => {
+  if (!date) return null
+
+  const normDate = new Date(date)
+
+  if (
+    normDate.getFullYear() >= new Date().getFullYear() &&
+    normDate.getMonth() + normDate.getDate() === 1
+  )
+    return 'в ' + normDate.getFullYear() + ' году'
+
+  return new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+    .format(normDate)
+    .replace(/\u202F/g, ' ')
+}
 
 export { useDebounce, swiperGridArrays, debounce, dateFormat }
