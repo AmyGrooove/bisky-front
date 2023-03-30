@@ -1,1 +1,1 @@
-export * from './typesAmy'
+export * from "./typesAmy"

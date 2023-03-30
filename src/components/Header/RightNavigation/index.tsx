@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link"
 
-import AmyImage from '@/components/Common/AmyImage'
+import AmyImage from "@/components/Common/AmyImage"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 const account = false
 

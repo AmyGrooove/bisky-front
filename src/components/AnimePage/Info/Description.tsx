@@ -1,8 +1,8 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from "react"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
-import { AnimeInfoContext } from '.'
+import { AnimeInfoContext } from "."
 
 const Description = () => {
   const { description } = useContext(AnimeInfoContext)
@@ -21,7 +21,7 @@ const Description = () => {
   }, [descriptionRef])
 
   const openDescHandler = () => {
-    const asyncOpenDesc = new Promise((resolve, reject) => {
+    const asyncOpenDesc = new Promise((resolve) => {
       setOpenDesc(!openDesc)
 
       resolve(true)
@@ -32,7 +32,7 @@ const Description = () => {
         top: descriptionRef.current
           ? descriptionRef.current?.offsetHeight
           : 150,
-        behavior: 'smooth',
+        behavior: "smooth",
       })
     })
   }
@@ -48,13 +48,13 @@ const Description = () => {
               checkHeight && !openDesc && styles.description__text_hide
             }`}
           >
-            {description.split('<br>').map((el) => (
+            {description.split("<br>").map((el) => (
               <p key={el}>{el}</p>
             ))}
           </h5>
           {checkHeight && (
             <button onClick={openDescHandler}>
-              {openDesc ? 'Скрыть' : 'Читать дальше'}
+              {openDesc ? "Скрыть" : "Читать дальше"}
             </button>
           )}
         </div>

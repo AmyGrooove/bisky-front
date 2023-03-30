@@ -1,15 +1,15 @@
-import { GetServerSidePropsContext } from 'next'
-import Head from 'next/head'
-import axios from 'axios'
+import { GetServerSidePropsContext } from "next"
+import Head from "next/head"
+import axios from "axios"
 
-import { IAnimeInfo, INestError } from '@/supportingTool/types'
-import { Info, MainImage, ScreenShot } from '@/components/AnimePage'
-import { API_URL, SHIKI_URL } from '@/supportingTool/constatns'
+import { IAnimeInfo, INestError } from "@/supportingTool/types"
+import { Info, MainImage, ScreenShot } from "@/components/AnimePage"
+import { API_URL, SHIKI_URL } from "@/supportingTool/constatns"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 interface IAnimePage {
-  AnimeInfomation: IAnimeInfo;
+  AnimeInfomation: IAnimeInfo
 }
 
 const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
@@ -23,10 +23,10 @@ const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
           href={
             AnimeInfomation.poster
               ? SHIKI_URL +
-                'system/animes/original/' +
+                "system/animes/original/" +
                 AnimeInfomation.poster +
-                '.jpg'
-              : ''
+                ".jpg"
+              : ""
           }
         />
       </Head>
@@ -51,12 +51,12 @@ export const getServerSideProps = async (
 
   const AnimeInfomation = (
     await axios.get<IAnimeInfo | INestError>(
-      API_URL + '/animePage?shiki_id=' + params?.animeId,
+      API_URL + "/animePage?shiki_id=" + params?.animeId,
     )
   ).data
 
   if (AnimeInfomation.status === 404) {
-    res.writeHead(302, { Location: '/404' })
+    res.writeHead(302, { Location: "/404" })
     res.end()
   }
 

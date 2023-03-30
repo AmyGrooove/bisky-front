@@ -1,19 +1,19 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Link from 'next/link'
-import { Autoplay, Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from "swiper/react"
+import Link from "next/link"
+import { Autoplay, Navigation } from "swiper"
 
-import { ISeasonalAnime } from '@/supportingTool/types'
-import 'swiper/scss'
-import 'swiper/scss/autoplay'
-import 'swiper/css/navigation'
-import { getRating } from '@/supportingTool/functions'
-import AmyImage from '@/components/Common/AmyImage'
+import { ISeasonalAnime } from "@/supportingTool/types"
+import "swiper/scss"
+import "swiper/scss/autoplay"
+import "swiper/css/navigation"
+import { getRating } from "@/supportingTool/functions"
+import AmyImage from "@/components/Common/AmyImage"
 
-import styles from './index.module.scss'
-import useSeasonal from './index.use'
+import styles from "./index.module.scss"
+import useSeasonal from "./index.use"
 
 interface ISeasonal {
-  data: ISeasonalAnime[];
+  data: ISeasonalAnime[]
 }
 
 const Seasonal = ({ data }: ISeasonal) => {
@@ -22,7 +22,7 @@ const Seasonal = ({ data }: ISeasonal) => {
   return (
     <section>
       <Swiper
-        slidesPerView={'auto'}
+        slidesPerView={"auto"}
         grabCursor
         centeredSlides
         loop
@@ -49,7 +49,7 @@ const Seasonal = ({ data }: ISeasonal) => {
                 />
               ))}
               <Link
-                href={'anime/' + el.shiki_id}
+                href={"anime/" + el.shiki_id}
                 className={styles.swiper__slide_link}
               >
                 <span className={styles.swiper__card}>

@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from "react"
 
-import { IAllGenres } from '@/supportingTool/types'
+import { IAllGenres } from "@/supportingTool/types"
 
 const useGenres = (data: IAllGenres[]) => {
   const [allGenres, setAllGenres] = useState<IAllGenres[]>(data)
@@ -14,7 +14,7 @@ const useGenres = (data: IAllGenres[]) => {
   }, [data])
 
   const addNewBlock = (index: number, scroll = true) => {
-    const asyncAddNewBlock = new Promise((resolve, reject) => {
+    const asyncAddNewBlock = new Promise((resolve) => {
       setAnimeBlock(animeBlock.concat([allGenres[index]]))
       setAllGenres(allGenres.filter((el, i) => i !== index))
 
@@ -30,7 +30,7 @@ const useGenres = (data: IAllGenres[]) => {
           top: genreBlockRef.current
             ? genreBlockRef.current?.offsetHeight
             : 300,
-          behavior: 'smooth',
+          behavior: "smooth",
         })
       })
     }

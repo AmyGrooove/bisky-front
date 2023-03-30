@@ -1,10 +1,10 @@
-import { useContext } from 'react'
+import { useContext } from "react"
 
-import PosterSlider from '@/components/Common/PosterSlider'
+import PosterSlider from "@/components/Common/PosterSlider"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
-import { AnimeInfoContext } from '.'
+import { AnimeInfoContext } from "."
 
 const Relations = () => {
   const { relations } = useContext(AnimeInfoContext)

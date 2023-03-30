@@ -1,10 +1,10 @@
-import { BISKY_TIPS } from '@/theme/sources'
-import AmyImage from '@/components/Common/AmyImage'
+import { BISKY_TIPS } from "@/theme/sources"
+import AmyImage from "@/components/Common/AmyImage"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 interface IFacts {
-  data: string;
+  data: string
 }
 
 const Facts = ({ data }: IFacts) => {

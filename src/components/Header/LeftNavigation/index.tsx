@@ -1,18 +1,16 @@
-import Link from 'next/link'
+import Link from "next/link"
 
-import { BISKY_LOGO } from '@/theme/sources'
-import { links } from '@/supportingTool/constatns'
-import AmyImage from '@/components/Common/AmyImage'
+import { BISKY_LOGO } from "@/theme/sources"
+import { links } from "@/supportingTool/constatns"
+import AmyImage from "@/components/Common/AmyImage"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 function LeftNavigation() {
   return (
     <div className={styles.left}>
       <Link href="/" className={styles.left__logo}>
-        <AmyImage
-          src={BISKY_LOGO} width={48}
-          height={48} />
+        <AmyImage src={BISKY_LOGO} width={48} height={48} />
         <h1 className={styles.left__logo_label}>Bisky</h1>
       </Link>
       <div className={styles.left__navigation}>

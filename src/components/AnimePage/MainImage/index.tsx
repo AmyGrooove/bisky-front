@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from "next/link"
+import { useRouter } from "next/router"
 
-import AmyImage from '@/components/Common/AmyImage'
+import AmyImage from "@/components/Common/AmyImage"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 interface IMainPage {
-  poster: string | null;
-  status: 'released' | 'anons' | 'ongoing';
+  poster: string | null
+  status: "released" | "anons" | "ongoing"
 }
 
 const MainImage = ({ poster, status }: IMainPage) => {
@@ -23,8 +23,8 @@ const MainImage = ({ poster, status }: IMainPage) => {
           imageType="poster"
           className={styles.mainImage_img}
         />
-        {status !== 'anons' && (
-          <Link href={'/anime/' + query.animeId + '/player'}>
+        {status !== "anons" && (
+          <Link href={"/anime/" + query.animeId + "/player"}>
             <button className={styles.mainImage_button}>Смотреть</button>
           </Link>
         )}

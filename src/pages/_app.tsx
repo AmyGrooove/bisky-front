@@ -1,17 +1,17 @@
-import { AppProps } from 'next/app'
-import { ReactElement } from 'react'
-import Head from 'next/head'
-import '@/theme/style.scss'
-import '@/theme/modification.scss'
-import { Roboto } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react'
+import { AppProps } from "next/app"
+import { ReactElement } from "react"
+import Head from "next/head"
+import "@/theme/style.scss"
+import "@/theme/modification.scss"
+import { Roboto } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['400', '700'],
+  subsets: ["latin"],
+  weight: ["400", "700"],
 })
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {

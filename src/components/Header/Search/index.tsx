@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import { useContext } from 'react'
+import Link from "next/link"
+import { useContext } from "react"
 
-import { SEARCH_ICON } from '@/theme/sources'
-import { getNormalKind } from '@/supportingTool/functions'
-import AmyImage from '@/components/Common/AmyImage'
+import { SEARCH_ICON } from "@/theme/sources"
+import { getNormalKind } from "@/supportingTool/functions"
+import AmyImage from "@/components/Common/AmyImage"
 
-import { HeaderContext } from '..'
+import { HeaderContext } from ".."
 
-import styles from './index.module.scss'
-import useSearch from './index.use'
+import styles from "./index.module.scss"
+import useSearch from "./index.use"
 
 const Search = () => {
   const { inputValue, setInputValue, searchResult } = useSearch()
@@ -27,20 +27,18 @@ const Search = () => {
           className={styles.search__inputFloor_input}
         />
         <button className={styles.search__inputFloor_icon} onClick={() => {}}>
-          <AmyImage
-            src={SEARCH_ICON} width={32}
-            height={32} />
+          <AmyImage src={SEARCH_ICON} width={32} height={32} />
         </button>
       </div>
       <div
         className={`${styles.search__result} ${
-          inputValue !== '' && headerObj.bool && styles.search__result_active
+          inputValue !== "" && headerObj.bool && styles.search__result_active
         }`}
       >
         {searchResult.length !== 0 ? (
           searchResult.map((el, index) => (
             <div key={el.labels[1]} className={styles.search__result__element}>
-              <Link href={'/anime/' + el.shiki_id}>
+              <Link href={"/anime/" + el.shiki_id}>
                 <div className={styles.search__result__element__item}>
                   <AmyImage
                     src={el.poster}
@@ -108,7 +106,7 @@ const Search = () => {
           ))
         ) : (
           <span className={styles.search__result_none}>
-            Ничего не нашлось :{'('}
+            Ничего не нашлось :{"("}
           </span>
         )}
       </div>

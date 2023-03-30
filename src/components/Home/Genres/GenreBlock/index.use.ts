@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useState } from "react"
+import axios from "axios"
 
-import { IPosterAnime } from '@/supportingTool/types'
-import { API_URL } from '@/supportingTool/constatns'
+import { IPosterAnime } from "@/supportingTool/types"
+import { API_URL } from "@/supportingTool/constatns"
 
 const useGenreBlock = (genre_id: number) => {
   const [animes, setAnimes] = useState<IPosterAnime[]>([])
@@ -15,7 +15,7 @@ const useGenreBlock = (genre_id: number) => {
     setAnimes(
       (
         await axios.get<IPosterAnime[]>(
-          API_URL + '/home/genres/anime?genre=' + genre_id,
+          API_URL + "/home/genres/anime?genre=" + genre_id,
         )
       ).data,
     )

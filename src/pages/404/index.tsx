@@ -1,7 +1,7 @@
-import { BISKY_ERROR } from '@/theme/sources'
-import AmyImage from '@/components/Common/AmyImage'
+import { BISKY_ERROR } from "@/theme/sources"
+import AmyImage from "@/components/Common/AmyImage"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 const Error404 = () => {
   return (
@@ -12,9 +12,7 @@ const Error404 = () => {
           <span className={styles.error404__block_mainText_number}>404</span>
         </h2>
         <h3>Такой страницы не существует</h3>
-        <AmyImage
-          src={BISKY_ERROR} width={200}
-          height={250} />
+        <AmyImage src={BISKY_ERROR} width={200} height={250} />
       </div>
     </div>
   )

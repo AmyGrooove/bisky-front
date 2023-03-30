@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link"
 
-import { BISKY_WIKI_URL } from '@/supportingTool/constatns'
+import { BISKY_WIKI_URL } from "@/supportingTool/constatns"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 function Footer() {
   return (

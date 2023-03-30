@@ -1,35 +1,35 @@
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import Image from "next/image"
+import { useEffect, useState } from "react"
 
-import { SHIKI_URL } from '@/supportingTool/constatns'
-import { BLUR_LOGO } from '@/theme/sources'
+import { SHIKI_URL } from "@/supportingTool/constatns"
+import { BLUR_LOGO } from "@/theme/sources"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 interface IAmyImage {
-  width: number;
-  height: number;
-  src: string | null;
-  imageType?: 'poster' | 'screenshot' | 'search' | 'vector';
-  quality?: number;
-  alt?: string;
-  className?: string;
+  width: number
+  height: number
+  src: string | null
+  imageType?: "poster" | "screenshot" | "search" | "vector"
+  quality?: number
+  alt?: string
+  className?: string
 }
 
 const AmyImage = ({
   width,
   height,
   src,
-  imageType = 'vector',
+  imageType = "vector",
   quality = 100,
   alt,
   className,
 }: IAmyImage) => {
   const [loaded, setLoaded] = useState(false)
-  const [disableBack, setDisableBack] = useState(imageType === 'vector')
+  const [disableBack, setDisableBack] = useState(imageType === "vector")
 
   useEffect(() => {
-    if (loaded && imageType !== 'vector') {
+    if (loaded && imageType !== "vector") {
       setTimeout(() => {
         setDisableBack(true)
       }, 320)
@@ -38,13 +38,13 @@ const AmyImage = ({
 
   const getSrc = () => {
     switch (imageType) {
-    case 'poster':
-    case 'search':
-      return SHIKI_URL + 'system/animes/original/' + src + '.jpg'
-    case 'screenshot':
-      return SHIKI_URL + 'system/screenshots/original/' + src + '.jpg'
-    default:
-      return src
+      case "poster":
+      case "search":
+        return SHIKI_URL + "system/animes/original/" + src + ".jpg"
+      case "screenshot":
+        return SHIKI_URL + "system/screenshots/original/" + src + ".jpg"
+      default:
+        return src
     }
   }
 
@@ -56,7 +56,7 @@ const AmyImage = ({
           className={`${styles.load__blur} ${
             loaded && styles.load__blur_disable
           } ${
-            imageType !== 'vector' && imageType === 'search'
+            imageType !== "vector" && imageType === "search"
               ? styles.load__blur_border_search
               : styles.load__blur_border
           }`}
@@ -65,7 +65,7 @@ const AmyImage = ({
             src={BLUR_LOGO}
             width={height / 2}
             height={height / 2}
-            alt={alt ? alt : ''}
+            alt={alt ? alt : ""}
             quality={30}
             className={styles.load__blur_img}
           />
@@ -75,9 +75,9 @@ const AmyImage = ({
         src={getSrc() || BLUR_LOGO}
         width={width}
         height={height}
-        alt={alt ? alt : ''}
+        alt={alt ? alt : ""}
         quality={quality}
-        className={`${className} ${imageType !== 'vector' && styles.load__img}`}
+        className={`${className} ${imageType !== "vector" && styles.load__img}`}
         onLoad={() => setLoaded(true)}
       />
     </div>

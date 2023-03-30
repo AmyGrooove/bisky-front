@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import { useContext } from 'react'
+import Link from "next/link"
+import { useContext } from "react"
 
-import { dateFormat, getNormalRating } from '@/supportingTool/functions'
-import AmyImage from '@/components/Common/AmyImage'
-import { ARROW_RIGHT } from '@/theme/sources'
+import { dateFormat, getNormalRating } from "@/supportingTool/functions"
+import AmyImage from "@/components/Common/AmyImage"
+import { ARROW_RIGHT } from "@/theme/sources"
 
-import { AnimeInfoContext } from '..'
+import { AnimeInfoContext } from ".."
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 const OtherInfo = () => {
   const { rating, studios, dates, videos, status } =
@@ -15,7 +15,7 @@ const OtherInfo = () => {
 
   return (
     <>
-      {rating !== 'none' && (
+      {rating !== "none" && (
         <div className={styles.addInfo__info}>
           <span className={styles.addInfo__info__label}>Ограничения:</span>
           <Link href="#" className={styles.addInfo__info__link}>
@@ -42,10 +42,10 @@ const OtherInfo = () => {
       {dates.aired_on !== null && (
         <div
           className={`${styles.addInfo__info} ${styles.addInfo__info__nextEpisode}`}
-          data-content={dates.released_on ? dateFormat(dates.released_on) : '?'}
+          data-content={dates.released_on ? dateFormat(dates.released_on) : "?"}
         >
           <span className={styles.addInfo__info__label}>
-            {status !== 'anons' ? 'Дата премьеры:' : 'Дата выхода:'}
+            {status !== "anons" ? "Дата премьеры:" : "Дата выхода:"}
           </span>
           <h5 className={styles.addInfo__info__text}>
             {dateFormat(dates.aired_on)}
@@ -63,9 +63,7 @@ const OtherInfo = () => {
               className={styles.addInfo__info__video}
             >
               Видео {index + 1}
-              <AmyImage
-                src={ARROW_RIGHT} width={20}
-                height={20} />
+              <AmyImage src={ARROW_RIGHT} width={20} height={20} />
             </Link>
           ))}
         </div>

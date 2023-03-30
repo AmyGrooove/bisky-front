@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { useContext } from 'react'
+import Link from "next/link"
+import { useContext } from "react"
 
-import { AnimeInfoContext } from '..'
+import { AnimeInfoContext } from ".."
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 const Genres = () => {
   const { genres } = useContext(AnimeInfoContext)

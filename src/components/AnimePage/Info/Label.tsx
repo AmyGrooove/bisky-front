@@ -1,8 +1,8 @@
-import { useContext } from 'react'
+import { useContext } from "react"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
-import { AnimeInfoContext } from '.'
+import { AnimeInfoContext } from "."
 
 const Label = () => {
   const { labels } = useContext(AnimeInfoContext)

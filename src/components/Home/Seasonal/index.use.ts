@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
 
 const useSeasonal = () => {
   const [imageIndex, setImageIndex] = useState(0)
 
   useEffect(() => {
-    let interval = setInterval(() => {
+    const interval = setInterval(() => {
       setImageIndex(imageIndex === 5 ? 0 : imageIndex + 1)
     }, 8000)
 
     if (document) {
       const container: HTMLElement | null = document.querySelector(
-        '#__body > main > section:nth-child(1) > div',
+        "#__body > main > section:nth-child(1) > div",
       )
 
       if (container) {

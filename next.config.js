@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("path")
 
 const nextConfig = {
   reactStrictMode: true,
@@ -23,6 +23,6 @@ const nextConfig = {
       { loader: "next/font/google", options: { subsets: ["latin"] } },
     ],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

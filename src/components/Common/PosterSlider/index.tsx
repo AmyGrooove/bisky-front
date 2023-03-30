@@ -1,23 +1,23 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Link from 'next/link'
-import { Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from "swiper/react"
+import Link from "next/link"
+import { Navigation } from "swiper"
 
-import { IPosterAnime } from '@/supportingTool/types'
-import Poster from '@/components/Common/Poster'
-import { ARROW_RIGHT, LOADING_ICON } from '@/theme/sources'
-import 'swiper/css'
-import 'swiper/css/navigation'
+import { IPosterAnime } from "@/supportingTool/types"
+import Poster from "@/components/Common/Poster"
+import { ARROW_RIGHT, LOADING_ICON } from "@/theme/sources"
+import "swiper/css"
+import "swiper/css/navigation"
 
-import AmyImage from '../AmyImage'
+import AmyImage from "../AmyImage"
 
-import styles from './index.module.scss'
-import usePosterSlider from './index.use'
+import styles from "./index.module.scss"
+import usePosterSlider from "./index.use"
 
 export interface IPosterSlider {
-  data?: IPosterAnime[];
-  path?: string;
-  column?: boolean;
-  goToFull?: string;
+  data?: IPosterAnime[]
+  path?: string
+  column?: boolean
+  goToFull?: string
 }
 
 const PosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
@@ -30,7 +30,7 @@ const PosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
 
   return (
     <Swiper
-      slidesPerView={'auto'}
+      slidesPerView={"auto"}
       spaceBetween={30}
       grabCursor
       onSlideChange={onSlideChange}

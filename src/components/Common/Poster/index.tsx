@@ -1,22 +1,22 @@
-import Link from 'next/link'
+import Link from "next/link"
 
-import { getRating } from '@/supportingTool/functions'
+import { getRating } from "@/supportingTool/functions"
 
-import AmyImage from '../AmyImage'
+import AmyImage from "../AmyImage"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 interface IPoster {
-  shiki_id: number;
-  poster: string | null;
-  labels: string;
-  scores: number;
-  status: 'released' | 'ongoing' | 'anons';
+  shiki_id: number
+  poster: string | null
+  labels: string
+  scores: number
+  status: "released" | "ongoing" | "anons"
 }
 
 const Poster = ({ shiki_id, poster, labels, scores, status }: IPoster) => {
   return (
-    <Link href={'/anime/' + shiki_id} className={styles.poster}>
+    <Link href={"/anime/" + shiki_id} className={styles.poster}>
       <div>
         <AmyImage
           src={poster}
@@ -38,7 +38,7 @@ const Poster = ({ shiki_id, poster, labels, scores, status }: IPoster) => {
             </span>
           </span>
         )}
-        {status !== 'released' && (
+        {status !== "released" && (
           <span className={styles.poster__status}>
             <span
               className={`${

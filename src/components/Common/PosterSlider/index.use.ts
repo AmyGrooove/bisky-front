@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react'
-import { Swiper as ISwiper } from 'swiper/types'
-import axios from 'axios'
+import { useEffect, useState } from "react"
+import { Swiper as ISwiper } from "swiper/types"
+import axios from "axios"
 
-import { swiperGridArrays } from '@/supportingTool/functions'
-import { IPosterAnime } from '@/supportingTool/types'
-import { API_URL } from '@/supportingTool/constatns'
+import { swiperGridArrays } from "@/supportingTool/functions"
+import { IPosterAnime } from "@/supportingTool/types"
+import { API_URL } from "@/supportingTool/constatns"
 
-import { IPosterSlider } from '.'
+import { IPosterSlider } from "."
 
 const usePosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
   const [page, setPage] = useState(1)
   const [animes, setAnimes] = useState<IPosterAnime[]>(data || [])
   const [animesColumn, setAnimesColumn] = useState<{
-    first: IPosterAnime[];
-    second: IPosterAnime[];
+    first: IPosterAnime[]
+    second: IPosterAnime[]
   }>({ first: [], second: [] })
 
   useEffect(() => {
     if (column) setAnimesColumn(swiperGridArrays(animes))
     if (animes.length === 0) AddNewAnimes()
-  }, [animes])
+  }, [animes, column])
 
   const AddNewAnimes = async () => {
     setAnimes(
@@ -28,9 +28,9 @@ const usePosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
           await axios.get<IPosterAnime[]>(
             API_URL +
               path +
-              '&page=' +
+              "&page=" +
               Number(page + 1) +
-              '&usedAnimes=' +
+              "&usedAnimes=" +
               animes.map((el) => el.shiki_id),
           )
         ).data,

@@ -1,12 +1,12 @@
-import Link from 'next/link'
+import Link from "next/link"
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 interface IBlockLabel {
-  label: string;
-  href: string;
-  leftPadding?: boolean;
-  downgrade?: boolean;
+  label: string
+  href: string
+  leftPadding?: boolean
+  downgrade?: boolean
 }
 
 const BlockLabel = ({ label, href, leftPadding, downgrade }: IBlockLabel) => {

@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import { useContext } from 'react'
+import Link from "next/link"
+import { useContext } from "react"
 
 import {
   dateFormat,
   getNormalKind,
   nextEpisode,
-} from '@/supportingTool/functions'
+} from "@/supportingTool/functions"
 
-import { AnimeInfoContext } from '..'
+import { AnimeInfoContext } from ".."
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
 
 const TypeStatus = () => {
   const { kind, status, episodes } = useContext(AnimeInfoContext)

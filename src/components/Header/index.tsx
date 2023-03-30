@@ -1,9 +1,9 @@
-import { createContext, useState } from 'react'
+import { createContext, useState } from "react"
 
-import Search from './Search'
-import styles from './index.module.scss'
-import LeftNavigation from './LeftNavigation'
-import RightNavigation from './RightNavigation'
+import Search from "./Search"
+import styles from "./index.module.scss"
+import LeftNavigation from "./LeftNavigation"
+import RightNavigation from "./RightNavigation"
 
 export const HeaderContext = createContext({ bool: false, func: () => {} })
 

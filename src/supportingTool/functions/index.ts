@@ -1,2 +1,2 @@
-export * from './additionalFunctions'
-export * from './switchsFunctions'
+export * from "./additionalFunctions"
+export * from "./switchsFunctions"

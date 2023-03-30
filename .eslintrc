@@ -1,20 +1,25 @@
 {
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "parser": "@babel/eslint-parser",
-    "requireConfigFile": false,
+    "project": "./tsconfig.json",
     "sourceType": "module",
     "ecmaVersion": 2022
   },
+  "plugins": ["@typescript-eslint/eslint-plugin", "import", "react"],
   "extends": [
     "next",
-    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
     "plugin:jsx-a11y/recommended"
   ],
-  "plugins": ["react"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "import/order": [
       "warn",
       {
@@ -30,20 +35,6 @@
         ],
         "newlines-between": "always"
       }
-    ],
-    "no-unused-vars": "warn",
-    "max-len": ["warn", 120],
-    "comma-dangle": ["warn", "always-multiline"],
-    "no-console": "warn",
-    "semi": ["warn", "never"],
-    "quotes": ["warn", "single"],
-    "indent": ["warn", 2],
-    "jsx-quotes": ["warn", "prefer-double"],
-    "react/jsx-indent": ["warn", 2],
-    "react/jsx-indent-props": ["warn", 2],
-    "react/jsx-first-prop-new-line": ["warn", "multiline"],
-    "react/jsx-max-props-per-line": ["warn", { "maximum": 2 }],
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    ]
   }
 }
