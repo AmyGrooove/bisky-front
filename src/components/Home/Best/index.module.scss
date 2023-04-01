@@ -8,9 +8,7 @@
 
   &__block {
     @extend .block;
+
     padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
   }
 }

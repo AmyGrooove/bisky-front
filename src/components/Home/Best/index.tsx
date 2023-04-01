@@ -12,7 +12,7 @@ const Best = ({ data }: ISeasonal) => {
   return (
     <section className={styles.best}>
       <div className={styles.best__block}>
-        <BlockLabel label="Лучшее аниме" href="#" leftPadding />
+        <BlockLabel label="Лучшее аниме" href="#" slider />
         <PosterSlider data={data} column path="/home/best?" />
       </div>
     </section>

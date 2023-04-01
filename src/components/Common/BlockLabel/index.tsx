@@ -4,29 +4,70 @@ import styles from "./index.module.scss"
 
 interface IBlockLabel {
   label: string
-  href: string
-  leftPadding?: boolean
-  downgrade?: boolean
+  href?: string
+  h3?: boolean
+  h4?: boolean
+  slider?: boolean
+  className?: string
 }
 
-const BlockLabel = ({ label, href, leftPadding, downgrade }: IBlockLabel) => {
+const BlockLabel = ({
+  label,
+  href,
+  h3,
+  h4,
+  slider,
+  className,
+}: IBlockLabel) => {
+  const LabelsCompare = () => {
+    switch (true) {
+      case h3:
+        return (
+          <h3
+            className={`${styles.blockLabel__label} ${
+              href && styles.blockLabel__label_href
+            } ${styles.blockLabel__label_h3}`}
+          >
+            {label}
+          </h3>
+        )
+      case h4:
+        return (
+          <h4
+            className={`${styles.blockLabel__label} ${
+              href && styles.blockLabel__label_href
+            } ${styles.blockLabel__label_h4}`}
+          >
+            {label}
+          </h4>
+        )
+      default:
+        return (
+          <h2
+            className={`${styles.blockLabel__label} ${
+              href && styles.blockLabel__label_href
+            }`}
+          >
+            {label}
+          </h2>
+        )
+    }
+  }
+
   return (
-    <Link
-      href={href}
+    <div
       className={`${styles.blockLabel} ${
-        leftPadding && styles.blockLabel_padding
-      }`}
+        slider && styles.blockLabel_slider
+      } ${className}`}
     >
-      {downgrade ? (
-        <h3 className={styles.blockLabel__downgrade}>{label}</h3>
+      {href ? (
+        <Link href={href}>
+          <LabelsCompare />
+        </Link>
       ) : (
-        <h2
-          className={`${styles.blockLabel__label} ${styles.blockLabel__label_downgrade}`}
-        >
-          {label}
-        </h2>
+        <LabelsCompare />
       )}
-    </Link>
+    </div>
   )
 }
 

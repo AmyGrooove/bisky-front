@@ -1,8 +1,9 @@
 import { useContext, useEffect, useRef, useState } from "react"
 
-import styles from "./index.module.scss"
+import { AnimeInfoContext } from "@/pages/anime/[animeId]"
+import BlockLabel from "@/components/Common/BlockLabel"
 
-import { AnimeInfoContext } from "."
+import styles from "./index.module.scss"
 
 const Description = () => {
   const { description } = useContext(AnimeInfoContext)
@@ -41,7 +42,7 @@ const Description = () => {
     <>
       {description && (
         <div className={styles.description}>
-          <h4 className={styles.description__label}>Описание</h4>
+          <BlockLabel label="Описание" h4 />
           <h5
             ref={descriptionRef}
             className={`${styles.description__text} ${

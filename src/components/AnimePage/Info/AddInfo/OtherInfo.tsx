@@ -4,8 +4,7 @@ import { useContext } from "react"
 import { dateFormat, getNormalRating } from "@/supportingTool/functions"
 import AmyImage from "@/components/Common/AmyImage"
 import { ARROW_RIGHT } from "@/theme/sources"
-
-import { AnimeInfoContext } from ".."
+import { AnimeInfoContext } from "@/pages/anime/[animeId]"
 
 import styles from "./index.module.scss"
 

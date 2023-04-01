@@ -1,17 +1,15 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useContext } from "react"
 
 import AmyImage from "@/components/Common/AmyImage"
+import { AnimeInfoContext } from "@/pages/anime/[animeId]"
 
 import styles from "./index.module.scss"
 
-interface IMainPage {
-  poster: string | null
-  status: "released" | "anons" | "ongoing"
-}
-
-const MainImage = ({ poster, status }: IMainPage) => {
+const MainImage = () => {
   const { query } = useRouter()
+  const { poster, status } = useContext(AnimeInfoContext)
 
   return (
     <section className={styles.mainImage}>

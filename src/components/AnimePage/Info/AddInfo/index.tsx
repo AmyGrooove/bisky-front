@@ -1,6 +1,6 @@
 import { useContext } from "react"
 
-import { AnimeInfoContext } from ".."
+import { AnimeInfoContext } from "@/pages/anime/[animeId]"
 
 import styles from "./index.module.scss"
 import TypeStatus from "./TypeStatus"

@@ -4,39 +4,34 @@
 .blockLabel {
   display: flex;
 
-  &_padding {
-    padding-left: 20px;
-  }
-
   &__label {
-    font-size: 32px;
-    transition: 0.2s;
-    border-bottom: 5px solid colors.$transparent;
     margin-bottom: 20px;
-    padding: 0 10px;
 
-    &_downgrade {
-      margin: 0px;
+    font-size: 32px;
+
+    &_href {
+      margin-bottom: 15px;
+      border-bottom: 5px solid colors.$transparent;
+      transition: 0.2s;
+    }
+
+    &_h3 {
+      font-size: 28px;
+    }
+
+    &_h4 {
+      font-size: 24px;
     }
   }
 
-  &__downgrade {
-    transition: 0.2s;
-    border-bottom: 3px solid colors.$transparent;
-    padding: 0 10px;
-    margin: 20px 0;
-    font-size: 24px;
+  &_slider {
+    margin-left: 20px;
   }
 
   &:hover {
-    .blockLabel__label {
+    .blockLabel__label_href {
       color: colors.$bisky-dark;
       border-bottom: 5px solid colors.$bisky-dark;
-    }
-
-    .blockLabel__downgrade {
-      color: colors.$bisky-dark;
-      border-bottom: 3px solid colors.$bisky-dark;
     }
   }
 }

@@ -13,7 +13,7 @@ const GenreBlock = ({ genre }: IGenreBlock) => {
 
   return (
     <>
-      <BlockLabel label={genre.name.ru} href="#" leftPadding downgrade />
+      <BlockLabel label={genre.name.ru} href="#" slider h3 />
       <PosterSlider
         data={animes}
         path={"/home/genres/anime?genre=" + genre.genre_id}

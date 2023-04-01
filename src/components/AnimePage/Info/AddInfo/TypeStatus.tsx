@@ -6,8 +6,7 @@ import {
   getNormalKind,
   nextEpisode,
 } from "@/supportingTool/functions"
-
-import { AnimeInfoContext } from ".."
+import { AnimeInfoContext } from "@/pages/anime/[animeId]"
 
 import styles from "./index.module.scss"
 

@@ -14,12 +14,16 @@ const Genres = ({ data }: IBest) => {
 
   return (
     <section className={styles.genres}>
-      <BlockLabel label="Жанры" href="#" leftPadding />
+      <BlockLabel label="Жанры" href="#" slider />
       {animeBlock.map((el, index) => (
         <div
           key={el.genre_id}
           ref={genreBlockRef}
-          style={{ zIndex: animeBlock.length - index, position: "relative" }}
+          className={styles.genres__block}
+          style={{
+            zIndex: animeBlock.length - index,
+            marginTop: index === 0 ? 0 : 20,
+          }}
         >
           <GenreBlock genre={el} />
         </div>
