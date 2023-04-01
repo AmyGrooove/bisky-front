@@ -18,5 +18,10 @@
   &__img {
     border-radius: 20px;
     cursor: pointer;
+
+    &_full {
+      border-radius: 20px;
+      cursor: default;
+    }
   }
 }

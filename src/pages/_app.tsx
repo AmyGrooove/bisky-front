@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import Modal from "@/components/Common/Modal"
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -30,11 +31,13 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
           content="Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве."
         />
       </Head>
-      <div id="__body" className={roboto.className}>
-        <Header />
-        <Component {...pageProps} className={roboto.className} />
-        <Footer />
-      </div>
+      <Modal>
+        <div id="__body" className={roboto.className}>
+          <Header />
+          <Component {...pageProps} className={roboto.className} />
+          <Footer />
+        </div>
+      </Modal>
       <Analytics />
     </>
   )

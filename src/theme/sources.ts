@@ -16,3 +16,4 @@ export const REPLAY_ICON = `${APP_URL_ICON}/replay_icon.svg`
 export const PLAY_ICON = `${APP_URL_ICON}/play_icon.svg`
 export const TODAY_ICON = `${APP_URL_ICON}/today_icon.svg`
 export const PLUS_ICON = `${APP_URL_ICON}/plus_icon.svg`
+export const CLOSE_ICON = `${APP_URL_ICON}/close_icon.svg`

@@ -5,16 +5,19 @@ import "swiper/css"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import "swiper/css/navigation"
-import styles from "./index.module.scss"
 
 import { FreeMode, Navigation } from "swiper"
 
 import AmyImage from "@/components/Common/AmyImage"
 import "swiper/css/free-mode"
 import BlockLabel from "@/components/Common/BlockLabel"
+import { ModalContext } from "@/components/Common/Modal"
+
+import styles from "./index.module.scss"
 
 const ScreenShot = () => {
   const { screenshots } = useContext(AnimeInfoContext)
+  const { setModal } = useContext(ModalContext)
 
   return (
     <>
@@ -33,6 +36,17 @@ const ScreenShot = () => {
             {screenshots.map((el) => (
               <SwiperSlide
                 key={el}
+                onClick={() =>
+                  setModal(
+                    <AmyImage
+                      src={el}
+                      imageType="screenshot"
+                      width={1280}
+                      height={720}
+                      className={styles.screenshot__img_full}
+                    />,
+                  )
+                }
                 className={styles.screenshot__swiper__slide}
               >
                 <AmyImage
