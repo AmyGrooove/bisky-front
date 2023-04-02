@@ -11,7 +11,6 @@ import Footer from "@/components/Footer"
 import Modal from "@/components/Common/Modal"
 
 const roboto = Roboto({
-  subsets: ["latin"],
   weight: ["400", "700"],
 })
 
