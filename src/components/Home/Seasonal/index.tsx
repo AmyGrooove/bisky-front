@@ -6,8 +6,9 @@ import { ISeasonalAnime } from "@/supportingTool/types"
 import "swiper/scss"
 import "swiper/scss/autoplay"
 import "swiper/css/navigation"
-import { getRating } from "@/supportingTool/functions"
+import { getRandomInt, getRating } from "@/supportingTool/functions"
 import AmyImage from "@/components/Common/AmyImage"
+import useWindowSize from "@/supportingTool/functions/useWindowSize"
 
 import styles from "./index.module.scss"
 import useSeasonal from "./index.use"
@@ -18,6 +19,7 @@ interface ISeasonal {
 
 const Seasonal = ({ data }: ISeasonal) => {
   const { imageIndex } = useSeasonal()
+  const { laptop } = useWindowSize()
 
   return (
     <section>
@@ -33,21 +35,34 @@ const Seasonal = ({ data }: ISeasonal) => {
         {data.map((el) => (
           <SwiperSlide key={el.shiki_id} className={styles.swiper__slide}>
             <>
-              {el.screenshots.map((el, index) => (
+              {laptop ? (
                 <AmyImage
-                  key={index}
-                  src={el}
+                  src={el.screenshots[getRandomInt(el.screenshots.length - 1)]}
                   width={1000}
                   height={500}
                   imageType="screenshot"
                   quality={30}
-                  className={`${styles.swiper__slide_img} ${
-                    imageIndex === index
-                      ? styles.swiper__slide_img_visible
-                      : styles.swiper__slide_img_hidden
-                  }`}
+                  className={styles.swiper__slide_img}
                 />
-              ))}
+              ) : (
+                <>
+                  {el.screenshots.map((el, index) => (
+                    <AmyImage
+                      key={index}
+                      src={el}
+                      width={1000}
+                      height={500}
+                      imageType="screenshot"
+                      quality={30}
+                      className={`${styles.swiper__slide_img} ${
+                        imageIndex === index
+                          ? styles.swiper__slide_img_visible
+                          : styles.swiper__slide_img_hidden
+                      }`}
+                    />
+                  ))}
+                </>
+              )}
               <Link
                 href={"anime/" + el.shiki_id}
                 className={styles.swiper__slide_link}

@@ -8,6 +8,8 @@ import { ARROW_RIGHT, LOADING_ICON } from "@/theme/sources"
 import "swiper/css"
 import "swiper/css/navigation"
 
+import useWindowSize from "@/supportingTool/functions/useWindowSize"
+
 import AmyImage from "../AmyImage"
 
 import styles from "./index.module.scss"
@@ -28,10 +30,12 @@ const PosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
     goToFull,
   })
 
+  const { laptop, mobile } = useWindowSize()
+
   return (
     <Swiper
       slidesPerView={"auto"}
-      spaceBetween={30}
+      spaceBetween={laptop ? (mobile ? 10 : 20) : 30}
       grabCursor
       onSlideChange={onSlideChange}
       className={styles.posterSlider}

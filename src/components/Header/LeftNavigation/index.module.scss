@@ -1,4 +1,5 @@
 @use "@/theme/colors";
+@use "@/theme/modification";
 
 .left {
   display: flex;
@@ -48,6 +49,28 @@
         opacity: 1;
         border-bottom: 5px solid colors.$bisky-dark;
       }
+    }
+  }
+}
+
+@media screen and (max-width: modification.$laptop) {
+  .left {
+    &__navigation {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: modification.$mobile) {
+  .left {
+    &__logo {
+      &_label {
+        display: none;
+      }
+    }
+
+    &__navigation {
+      display: none;
     }
   }
 }

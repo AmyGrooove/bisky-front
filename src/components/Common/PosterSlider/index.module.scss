@@ -62,3 +62,41 @@
     }
   }
 }
+
+@media screen and (max-width: modification.$laptop) {
+  .posterSlider {
+    margin: auto;
+    padding: 0 12px;
+    width: calc(100% - 24px);
+  }
+}
+
+@media screen and (max-width: modification.$twoSlider) {
+  .posterSlider {
+    max-width: 360px;
+  }
+}
+
+@media screen and (max-width: modification.$twoSlider) and (min-width: modification.$mobile) {
+  .posterSlider {
+    max-width: 380px;
+  }
+}
+
+@media screen and (max-width: modification.$threeSlider) and (min-width: modification.$twoSlider) {
+  .posterSlider {
+    max-width: 580px;
+  }
+}
+
+@media screen and (max-width: modification.$fourSlider) and (min-width: modification.$threeSlider) {
+  .posterSlider {
+    max-width: 780px;
+  }
+}
+
+@media screen and (max-width: modification.$fiveSlider) and (min-width: modification.$fourSlider) {
+  .posterSlider {
+    max-width: 1020px;
+  }
+}

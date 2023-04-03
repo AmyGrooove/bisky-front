@@ -30,7 +30,11 @@ const Genres = ({ data }: IBest) => {
       ))}
       <div className={styles.genres__allGenres}>
         {allGenres.map((el, index) => (
-          <button key={el.genre_id} onClick={() => addNewBlock(index)}>
+          <button
+            className={styles.genres__allGenres__button}
+            key={el.genre_id}
+            onClick={() => addNewBlock(index)}
+          >
             {el.name.ru}
           </button>
         ))}

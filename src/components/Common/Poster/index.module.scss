@@ -91,3 +91,37 @@
     }
   }
 }
+
+@media screen and (max-width: modification.$mobile) {
+  .poster {
+    max-width: 170px;
+
+    &__label {
+      max-width: 170px;
+    }
+  }
+}
+
+@media screen and (max-width: modification.$laptop) {
+  .poster {
+    &:hover {
+      transform: unset;
+
+      .poster_img {
+        box-shadow: unset;
+      }
+
+      .poster__label {
+        &_text {
+          position: unset;
+          padding: 0;
+          background-color: unset;
+          border-radius: unset;
+          white-space: nowrap;
+          color: unset;
+          box-shadow: unset;
+        }
+      }
+    }
+  }
+}

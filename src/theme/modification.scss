@@ -1,5 +1,13 @@
 @use "@/theme/colors";
 
+$mobile: 600px;
+$laptop: 1000px;
+
+$twoSlider: 649px;
+$threeSlider: 830px;
+$fourSlider: 1090px;
+$fiveSlider: 1300px;
+
 .container {
   max-width: 1280px;
   width: 100%;
@@ -42,4 +50,10 @@
 
 .anons {
   background-color: colors.$type-anons;
+}
+
+@media screen and (max-width: $fiveSlider) {
+  .container {
+    width: calc(100% - 24px);
+  }
 }

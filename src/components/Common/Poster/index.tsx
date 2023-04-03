@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { getRating } from "@/supportingTool/functions"
+import useWindowSize from "@/supportingTool/functions/useWindowSize"
 
 import AmyImage from "../AmyImage"
 
@@ -15,13 +16,15 @@ interface IPoster {
 }
 
 const Poster = ({ shiki_id, poster, labels, scores, status }: IPoster) => {
+  const { mobile } = useWindowSize()
+
   return (
     <Link href={"/anime/" + shiki_id} className={styles.poster}>
       <div>
         <AmyImage
           src={poster}
-          width={180}
-          height={290}
+          width={mobile ? 170 : 180}
+          height={mobile ? 280 : 290}
           imageType="poster"
           quality={70}
           className={styles.poster_img}

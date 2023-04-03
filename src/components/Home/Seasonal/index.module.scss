@@ -157,3 +157,156 @@
     @extend .block;
   }
 }
+
+@media screen and (max-width: modification.$laptop) {
+  .swiper {
+    &__slide {
+      max-width: 600px;
+      min-height: 500px;
+
+      &_img {
+        object-fit: cover;
+        width: 600px;
+        height: 500px;
+      }
+    }
+
+    &__card {
+      margin-top: 20px;
+      position: static;
+      height: unset;
+      padding: 0;
+      gap: 0px;
+      flex-direction: column;
+      width: 100%;
+      margin-left: 0px;
+
+      &_img {
+        width: 200px;
+        height: 300px;
+      }
+
+      &__name {
+        position: static;
+        padding: 10px;
+        text-align: center;
+
+        max-height: 72px;
+        overflow: hidden;
+
+        &_text {
+          font-size: 32px;
+        }
+      }
+    }
+
+    &__genre {
+      height: unset;
+      position: static;
+      justify-content: center;
+
+      &_label {
+        opacity: 0.7;
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+
+      &_name {
+        font-size: 16px;
+
+        &::after {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &__rating {
+      top: 0;
+
+      &_score {
+        margin: 12px;
+        font-size: 28px;
+        padding: 8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: modification.$mobile) {
+  .swiper {
+    &__slide {
+      max-width: 380px;
+      min-height: 500px;
+
+      &_img {
+        width: 380px;
+        height: 500px;
+      }
+    }
+
+    &__card {
+      margin-top: 20px;
+      position: static;
+      height: unset;
+      padding: 0;
+      gap: 0px;
+      flex-direction: column;
+      width: 100%;
+      margin-left: 0px;
+
+      &_img {
+        width: 200px;
+        height: 300px;
+      }
+
+      &__name {
+        position: static;
+        padding: 10px;
+        text-align: center;
+
+        max-height: 72px;
+        overflow: hidden;
+
+        &_text {
+          font-size: 32px;
+        }
+      }
+    }
+
+    &__genre {
+      height: unset;
+      position: static;
+      justify-content: center;
+
+      &_label {
+        opacity: 0.7;
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px;
+      }
+
+      &_name {
+        font-size: 16px;
+
+        &::after {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &__rating {
+      top: 0;
+
+      &_score {
+        margin: 12px;
+        font-size: 28px;
+        padding: 8px;
+      }
+    }
+  }
+}

@@ -41,4 +41,8 @@ const dateFormat = (date: Date | null) => {
     .replace(/\u202F/g, " ")
 }
 
-export { useDebounce, swiperGridArrays, dateFormat }
+const getRandomInt = (max: number): number => {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
+export { useDebounce, swiperGridArrays, dateFormat, getRandomInt }
