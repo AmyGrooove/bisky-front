@@ -6,16 +6,16 @@ class MyDocument extends Document {
     return (
       <Html lang="ru">
         <Head>
-          <link rel="manifest" href="/manifest.json" />
+          <meta name="robots" content="all" />
           <meta name="theme-color" content="#dd5480" />
           <meta name="msapplication-TileColor" content="#dd5480" />
-          <meta property="og:url" content="https://bisky.one/" />
-          <link href="https://bisky.one/" rel="canonical" />
-          <meta property="og:site_name" content="Bisky" />
           <meta
             name="msapplication-TileImage"
             content="/favicons/favicon-apple.png"
           />
+
+          <link href="https://bisky.one/" rel="canonical" />
+          <link rel="manifest" href="/manifest.json" />
           <link
             rel="apple-touch-icon"
             type="image/png"
@@ -24,6 +24,8 @@ class MyDocument extends Document {
           />
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+
+          <meta name="og:site_name" content="Bisky" />
 
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-HVWD016914"

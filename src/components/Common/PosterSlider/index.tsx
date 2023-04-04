@@ -5,10 +5,10 @@ import { Navigation } from "swiper"
 import { IPosterAnime } from "@/supportingTool/types"
 import Poster from "@/components/Common/Poster"
 import { ARROW_RIGHT, LOADING_ICON } from "@/theme/sources"
+import useWindowSize from "@/supportingTool/functions/useWindowSize"
+
 import "swiper/css"
 import "swiper/css/navigation"
-
-import useWindowSize from "@/supportingTool/functions/useWindowSize"
 
 import AmyImage from "../AmyImage"
 

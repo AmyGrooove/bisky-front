@@ -66,11 +66,59 @@ const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
       {reload && (
         <>
           <Head>
-            <title>{AnimeInfomation.labels[0]} смотреть Аниме — Bisky</title>
+            <title>{AnimeInfomation.labels[0]} — смотреть Аниме — Bisky</title>
             <meta name="description" content={AnimeInfomation.labels[0]} />
             <link
               rel="image_src"
               href={
+                AnimeInfomation.poster
+                  ? SHIKI_URL +
+                    "system/animes/original/" +
+                    AnimeInfomation.poster +
+                    ".jpg"
+                  : ""
+              }
+            />
+
+            <title>
+              {AnimeInfomation.labels[0] + " — смотреть Аниме — Bisky"}
+            </title>
+            <meta
+              name="description"
+              content={AnimeInfomation.description || ""}
+            />
+            <meta
+              name="url"
+              content={"https://bisky.one/anime/" + AnimeInfomation.shiki_id}
+            />
+
+            <link
+              rel="image_src"
+              href={
+                AnimeInfomation.poster
+                  ? SHIKI_URL +
+                    "system/animes/original/" +
+                    AnimeInfomation.poster +
+                    ".jpg"
+                  : ""
+              }
+            />
+
+            <meta
+              name="og:title"
+              content={AnimeInfomation.labels[0] + " — смотреть Аниме — Bisky"}
+            />
+            <meta
+              name="og:description"
+              content={AnimeInfomation.description || ""}
+            />
+            <meta
+              name="og:url"
+              content={"https://bisky.one/anime/" + AnimeInfomation.shiki_id}
+            />
+            <meta
+              name="og:image"
+              content={
                 AnimeInfomation.poster
                   ? SHIKI_URL +
                     "system/animes/original/" +

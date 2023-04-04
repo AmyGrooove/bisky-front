@@ -19,16 +19,21 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
     <>
       <Head>
         <title>Bisky — Смотреть Аниме онлайн</title>
-        <meta name="title" content="Bisky — Смотреть Аниме онлайн" />
-        <meta property="og:title" content="Bisky — Смотреть Аниме онлайн" />
         <meta
           name="description"
           content="Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве."
         />
+        <meta name="url" content="https://bisky.one" />
+
+        <link rel="image_src" href="/favicons/favicon-128x128.png" />
+
+        <meta name="og:title" content="Bisky — Смотреть Аниме онлайн" />
         <meta
-          property="og:description"
+          name="og:description"
           content="Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве."
         />
+        <meta name="og:url" content="https://bisky.one" />
+        <meta name="og:image" content="/favicons/favicon-128x128.png" />
       </Head>
       <Modal>
         <div id="__body" className={roboto.className}>

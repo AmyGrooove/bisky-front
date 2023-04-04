@@ -1,18 +1,15 @@
-import { AnimeInfoContext } from "@/pages/anime/[animeId]"
-
-import { useContext } from "react"
-import "swiper/css"
 import { Swiper, SwiperSlide } from "swiper/react"
-
-import "swiper/css/navigation"
-
+import { useContext } from "react"
 import { FreeMode, Navigation } from "swiper"
 
+import { AnimeInfoContext } from "@/pages/anime/[animeId]"
 import AmyImage from "@/components/Common/AmyImage"
 import "swiper/css/free-mode"
 import BlockLabel from "@/components/Common/BlockLabel"
 import { ModalContext } from "@/components/Common/Modal"
 
+import "swiper/css"
+import "swiper/css/navigation"
 import styles from "./index.module.scss"
 
 const ScreenShot = () => {

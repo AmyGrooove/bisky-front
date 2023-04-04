@@ -1,5 +1,6 @@
 import axios from "axios"
 import { GetServerSidePropsContext } from "next"
+import Head from "next/head"
 
 import { API_URL, KODIK_API_URL } from "@/supportingTool/constatns"
 import {
@@ -18,14 +19,19 @@ interface IPlayer {
 
 const Player = ({ AnimeInfomation, KodikPlayer }: IPlayer) => {
   return (
-    <section className={styles.player}>
-      <iframe
-        src={KodikPlayer.link}
-        title={AnimeInfomation.labels[0]}
-        allowFullScreen
-        className={styles.player__window}
-      />
-    </section>
+    <>
+      <Head>
+        <title>{AnimeInfomation.labels[0]} — смотреть Аниме — Bisky</title>
+      </Head>
+      <main className={styles.player}>
+        <iframe
+          src={KodikPlayer.link}
+          title={AnimeInfomation.labels[0]}
+          allowFullScreen
+          className={styles.player__window}
+        />
+      </main>
+    </>
   )
 }
 
