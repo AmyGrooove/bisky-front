@@ -47,7 +47,7 @@ const PosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
           <Poster
             shiki_id={el.shiki_id}
             poster={el.poster || null}
-            labels={el.labels[0]}
+            label={el.labels[0]}
             scores={el.scores[0]}
             status={el.status}
           />
@@ -55,7 +55,7 @@ const PosterSlider = ({ data, path, column, goToFull }: IPosterSlider) => {
             <Poster
               shiki_id={animesColumn.second[index].shiki_id}
               poster={animesColumn.second[index].poster || null}
-              labels={animesColumn.second[index].labels[0]}
+              label={animesColumn.second[index].labels[0]}
               scores={animesColumn.second[index].scores[0]}
               status={animesColumn.second[index].status}
             />

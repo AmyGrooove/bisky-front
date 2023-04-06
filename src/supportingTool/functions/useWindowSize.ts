@@ -8,7 +8,11 @@ const useWindowSize = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowSize(window.innerWidth)
+      if (window.screen.width <= 1000) {
+        setWindowSize(window.screen.width)
+      } else {
+        setWindowSize(window.innerWidth)
+      }
     }
 
     window.addEventListener("resize", handleResize)

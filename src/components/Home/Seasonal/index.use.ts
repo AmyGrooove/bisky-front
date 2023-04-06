@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react"
 
-import useWindowSize from "@/supportingTool/functions/useWindowSize"
+import { getSrc } from "@/supportingTool/functions"
 
-const useSeasonal = () => {
-  const [imageIndex, setImageIndex] = useState(0)
-  const { laptop } = useWindowSize()
+const useSeasonal = (screenshots: string[]) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [errSrc, setErrSrc] = useState(false)
 
   useEffect(() => {
-    if (!laptop) {
-      const interval = setInterval(() => {
-        setImageIndex(imageIndex === 5 ? 0 : imageIndex + 1)
-      }, 8000)
-
-      return () => {
-        clearInterval(interval)
-      }
+    const img = new Image()
+    img.onerror = () => {
+      setErrSrc(true)
     }
-  }, [imageIndex])
+    img.src = getSrc(screenshots[0], "screenshot")
+  }, [])
 
-  return { imageIndex }
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((currentIndex + 1) % screenshots.length)
+    }, 8000)
+
+    return () => clearInterval(intervalId)
+  }, [currentIndex, screenshots.length])
+
+  return { currentIndex, errSrc }
 }
 
 export default useSeasonal

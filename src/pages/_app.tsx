@@ -3,8 +3,8 @@ import { ReactElement } from "react"
 import Head from "next/head"
 import "@/theme/style.scss"
 import "@/theme/modification.scss"
-import { Roboto } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
+import { Roboto } from "next/font/google"
 
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
@@ -38,7 +38,7 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
       <Modal>
         <div id="__body" className={roboto.className}>
           <Header />
-          <Component {...pageProps} className={roboto.className} />
+          <Component {...pageProps} />
           <Footer />
         </div>
       </Modal>

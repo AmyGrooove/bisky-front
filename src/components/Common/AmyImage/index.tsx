@@ -1,8 +1,8 @@
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { CSSProperties, useEffect, useState } from "react"
 
-import { SHIKI_URL } from "@/supportingTool/constatns"
 import { BLUR_LOGO } from "@/theme/sources"
+import { getSrc } from "@/supportingTool/functions"
 
 import styles from "./index.module.scss"
 
@@ -14,6 +14,8 @@ interface IAmyImage {
   quality?: number
   alt?: string
   className?: string
+  containerClass?: string
+  style?: CSSProperties
 }
 
 const AmyImage = ({
@@ -24,8 +26,11 @@ const AmyImage = ({
   quality = 100,
   alt,
   className,
+  containerClass,
 }: IAmyImage) => {
   const [loaded, setLoaded] = useState(false)
+  const [errorGet, setErrorGet] = useState(false)
+
   const [disableBack, setDisableBack] = useState(imageType === "vector")
 
   useEffect(() => {
@@ -36,20 +41,8 @@ const AmyImage = ({
     }
   }, [loaded, imageType])
 
-  const getSrc = () => {
-    switch (imageType) {
-      case "poster":
-      case "search":
-        return SHIKI_URL + "system/animes/original/" + src + ".jpg"
-      case "screenshot":
-        return SHIKI_URL + "system/screenshots/original/" + src + ".jpg"
-      default:
-        return src
-    }
-  }
-
   return (
-    <div className={styles.load}>
+    <div className={`${styles.load} ${containerClass}`}>
       {!disableBack && (
         <span
           style={{ height: height }}
@@ -72,11 +65,13 @@ const AmyImage = ({
         </span>
       )}
       <Image
-        src={getSrc() || BLUR_LOGO}
+        src={getSrc(src || BLUR_LOGO, imageType, errorGet)}
         width={width}
         height={height}
         alt={alt ? alt : ""}
         quality={quality}
+        priority
+        onError={() => setErrorGet(true)}
         className={`${className} ${imageType !== "vector" && styles.load__img}`}
         onLoad={() => setLoaded(true)}
       />

@@ -2,159 +2,93 @@
 @use "@/theme/modification";
 
 .swiper {
+  width: 100%;
+  user-select: none;
+
   &__slide {
-    user-select: none;
-
     max-width: 1000px;
-    min-height: 500px;
+  }
+}
 
-    margin: 0 20px;
+.oneSlide {
+  background-size: cover;
+  background-position: center;
+  transition: 1s;
+  border-radius: 30px;
 
-    &_img {
-      position: absolute;
-      border-radius: 20px;
-      filter: brightness(80%);
+  display: flex;
+  min-height: 500px;
 
-      transition: 1s;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
-      &_visible {
-        visibility: visible;
-        opacity: 1;
-      }
-
-      &_hidden {
-        visibility: hidden;
-        opacity: 0;
-      }
-    }
-
-    &::after {
-      content: "";
-      border-radius: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      transition: 0.7s;
-      z-index: 2;
-    }
-
-    &_link {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-    }
+    border-radius: 30px;
+    background-color: colors.$black;
+    opacity: 0.2;
   }
 
-  &__card {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-
-    height: 90%;
+  &__main {
     position: absolute;
     margin-left: 40px;
+    width: 90%;
+    height: 80%;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &_label {
+      color: colors.$font-white;
+      font-size: 48px;
+      text-shadow: 0px 0px 30px colors.$black;
+    }
 
     &_img {
       border-radius: 20px;
-      transition: 0.2s;
-    }
-
-    &__name {
-      padding: 20px;
-      display: flex;
-
-      position: relative;
-      bottom: 50px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 100%;
-
-        background-color: colors.$background-transparent;
-        filter: blur(30px);
-      }
-
-      &_text {
-        color: colors.$font-white;
-        font-size: 48px;
-        z-index: 1;
-      }
+      box-shadow: 0px 0px 30px colors.$black;
     }
   }
 
-  &__genre {
-    height: 100%;
+  &__score {
     position: absolute;
+    top: 20px;
+    right: 20px;
+
+    opacity: 0.9;
+    color: colors.$font-white;
+    font-size: 36px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  &__genres {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 
     display: flex;
-    align-items: flex-end;
+    gap: 10px;
 
-    &_label {
+    &_text {
       opacity: 0.7;
-
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 20px;
-    }
-
-    &_name {
       color: colors.$font-white;
       font-size: 18px;
+      text-shadow: 0px 0px 30px colors.$black;
 
-      &:last-child {
-        &::after {
+      &:first-child {
+        &::before {
           content: none;
         }
       }
 
-      &::after {
+      &::before {
         content: "|";
-        margin-left: 10px;
+        margin-right: 10px;
       }
     }
-  }
-
-  &__rating {
-    opacity: 0.9;
-    width: 100%;
-    position: absolute;
-
-    display: flex;
-    justify-content: flex-end;
-
-    &_score {
-      margin: 20px;
-      color: colors.$font-white;
-      font-size: 36px;
-      padding: 10px;
-
-      border-radius: 20px;
-
-      &_high {
-        background-color: colors.$rating-high;
-      }
-
-      &_medium {
-        background-color: colors.$rating-medium;
-      }
-
-      &_low {
-        background-color: colors.$rating-low;
-      }
-    }
-  }
-
-  &__container {
-    @extend .container;
-    margin-top: 20px;
-  }
-
-  &__watchNow {
-    @extend .block;
   }
 }
 
@@ -162,74 +96,29 @@
   .swiper {
     &__slide {
       max-width: 600px;
-      min-height: 500px;
-
-      &_img {
-        object-fit: cover;
-        width: 600px;
-        height: 500px;
-      }
     }
+  }
 
-    &__card {
-      margin-top: 20px;
-      position: static;
-      height: unset;
-      padding: 0;
-      gap: 0px;
-      flex-direction: column;
-      width: 100%;
-      margin-left: 0px;
+  .oneSlide {
+    &__main {
+      &_label {
+        font-size: 32px;
+      }
 
       &_img {
         width: 200px;
         height: 300px;
       }
-
-      &__name {
-        position: static;
-        padding: 10px;
-        text-align: center;
-
-        max-height: 72px;
-        overflow: hidden;
-
-        &_text {
-          font-size: 32px;
-        }
-      }
     }
 
-    &__genre {
-      height: unset;
-      position: static;
-      justify-content: center;
+    &__score {
+      font-size: 28px;
+      padding: 8px;
+    }
 
-      &_label {
-        opacity: 0.7;
-
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 10px;
-      }
-
-      &_name {
+    &__genres {
+      &_text {
         font-size: 16px;
-
-        &::after {
-          margin-left: 8px;
-        }
-      }
-    }
-
-    &__rating {
-      top: 0;
-
-      &_score {
-        margin: 12px;
-        font-size: 28px;
-        padding: 8px;
       }
     }
   }
@@ -239,73 +128,58 @@
   .swiper {
     &__slide {
       max-width: 380px;
-      min-height: 500px;
-
-      &_img {
-        width: 380px;
-        height: 500px;
-      }
     }
+  }
 
-    &__card {
-      margin-top: 20px;
-      position: static;
-      height: unset;
-      padding: 0;
-      gap: 0px;
+  .oneSlide {
+    min-height: 520px;
+
+    &__main {
       flex-direction: column;
-      width: 100%;
       margin-left: 0px;
+      width: calc(100% - 40px);
+      height: 100%;
+      padding: 20px 20px 0 20px;
+
+      &_label {
+        text-shadow: none;
+        text-align: center;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
 
       &_img {
         width: 200px;
         height: 300px;
       }
-
-      &__name {
-        position: static;
-        padding: 10px;
-        text-align: center;
-
-        max-height: 72px;
-        overflow: hidden;
-
-        &_text {
-          font-size: 32px;
-        }
-      }
     }
 
-    &__genre {
-      height: unset;
-      position: static;
+    &__score {
+      font-size: 24px;
+      padding: 8px;
+
+      top: 10px;
+      right: 10px;
+    }
+
+    &__genres {
+      width: calc(100% - 20px);
+      gap: 4px;
+      flex-wrap: wrap;
       justify-content: center;
+      left: 0;
+      bottom: 0;
+      padding: 0 10px 10px 10px;
 
-      &_label {
-        opacity: 0.7;
-
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 10px;
-      }
-
-      &_name {
+      &_text {
         font-size: 16px;
 
-        &::after {
-          margin-left: 8px;
+        &::before {
+          margin-right: 4px;
         }
-      }
-    }
-
-    &__rating {
-      top: 0;
-
-      &_score {
-        margin: 12px;
-        font-size: 28px;
-        padding: 8px;
       }
     }
   }

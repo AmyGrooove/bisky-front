@@ -27,20 +27,6 @@ class MyDocument extends Document {
 
           <meta name="og:site_name" content="Bisky" />
 
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-HVWD016914"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-HVWD016914');
-            `}
-          </Script>
-
           <Script id="yandex-metrika" strategy="afterInteractive">
             {`
               (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

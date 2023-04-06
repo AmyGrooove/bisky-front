@@ -1,3 +1,5 @@
+import { SHIKI_URL } from "../constatns"
+
 const getRating = (score = 0) => {
   switch (true) {
     case score >= 7:
@@ -67,4 +69,30 @@ const nextEpisode = (date: Date) => {
   }
 }
 
-export { getNormalKind, getRating, nextEpisode, getNormalRating }
+const getSrc = (
+  src: string,
+  imageType: "poster" | "screenshot" | "search" | "vector" = "vector",
+  errorGet = false,
+) => {
+  switch (imageType) {
+    case "poster":
+    case "search":
+      return (
+        SHIKI_URL +
+        "system/animes/original/" +
+        src +
+        (errorGet ? ".JPG" : ".jpg")
+      )
+    case "screenshot":
+      return (
+        SHIKI_URL +
+        "system/screenshots/original/" +
+        src +
+        (errorGet ? ".JPG" : ".jpg")
+      )
+    default:
+      return src
+  }
+}
+
+export { getNormalKind, getRating, nextEpisode, getNormalRating, getSrc }

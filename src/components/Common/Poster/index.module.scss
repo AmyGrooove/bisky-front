@@ -67,26 +67,28 @@
     }
   }
 
-  &:hover {
-    transform: scale(1.15);
-    z-index: 20;
+  &__hover {
+    &:hover {
+      transform: scale(1.15);
+      z-index: 20;
 
-    .poster_img {
-      box-shadow: 0px 0px 2px black;
-    }
+      .poster_img {
+        box-shadow: 0px 0px 2px black;
+      }
 
-    .poster__label {
-      &_text {
-        position: relative;
-        bottom: 20px;
-        z-index: -1;
-        padding: 20px 10px 10px 10px;
-        background-color: colors.$bisky-dark;
-        border-radius: 0 0 20px 20px;
-        white-space: pre-wrap;
-        color: colors.$font-white;
+      .poster__label {
+        &_text {
+          position: relative;
+          bottom: 20px;
+          z-index: -1;
+          padding: 20px 10px 10px 10px;
+          background-color: colors.$bisky-dark;
+          border-radius: 0 0 20px 20px;
+          white-space: pre-wrap;
+          color: colors.$font-white;
 
-        box-shadow: 0px 0px 10px black;
+          box-shadow: 0px 0px 10px black;
+        }
       }
     }
   }

@@ -52,6 +52,7 @@ export interface IAnimeInfo {
     franchise: string | null
     animes: { link: IPosterAnime; relation: { en: string; ru: string } }[]
   }
+  updateDate: Date
 }
 
 export interface IPlatform {

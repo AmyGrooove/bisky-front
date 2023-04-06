@@ -30,6 +30,7 @@ export const AnimeInfoContext = createContext<IAnimeInfo>({
   genres: [],
   studios: [],
   relations: { franchise: null, animes: [] },
+  updateDate: new Date(),
 })
 
 const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
@@ -61,31 +62,20 @@ const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
         genres: AnimeInfomation.genres,
         studios: AnimeInfomation.studios,
         relations: AnimeInfomation.relations,
+        updateDate: AnimeInfomation.updateDate,
       }}
     >
       {reload && (
         <>
           <Head>
-            <title>{AnimeInfomation.labels[0]} — смотреть Аниме — Bisky</title>
-            <meta name="description" content={AnimeInfomation.labels[0]} />
-            <link
-              rel="image_src"
-              href={
-                AnimeInfomation.poster
-                  ? SHIKI_URL +
-                    "system/animes/original/" +
-                    AnimeInfomation.poster +
-                    ".jpg"
-                  : ""
-              }
-            />
-
             <title>
               {AnimeInfomation.labels[0] + " — смотреть Аниме — Bisky"}
             </title>
             <meta
               name="description"
-              content={AnimeInfomation.description || ""}
+              content={
+                AnimeInfomation.description?.replaceAll("<br>", "\n") || ""
+              }
             />
             <meta
               name="url"
@@ -110,7 +100,9 @@ const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
             />
             <meta
               name="og:description"
-              content={AnimeInfomation.description || ""}
+              content={
+                AnimeInfomation.description?.replaceAll("<br>", "\n") || ""
+              }
             />
             <meta
               name="og:url"

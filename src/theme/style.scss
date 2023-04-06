@@ -63,8 +63,12 @@ ul {
   padding: 0;
 }
 
-li::marker {
-  content: none;
+li {
+  list-style-type: none;
+
+  &::marker {
+    content: none;
+  }
 }
 
 a {
@@ -120,5 +124,15 @@ input {
   .swiper-button-next,
   .swiper-button-prev {
     opacity: 0.3;
+  }
+}
+
+.paralaxImages {
+  &-enter {
+    opacity: 1;
+  }
+
+  &-exit {
+    opacity: 0;
   }
 }
