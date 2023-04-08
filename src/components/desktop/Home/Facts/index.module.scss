@@ -41,21 +41,3 @@
     }
   }
 }
-
-@media screen and (max-width: modification.$mobile) {
-  .facts {
-    &__block {
-      padding: 10px;
-      gap: 0px;
-
-      &_image {
-        display: none;
-      }
-
-      &_text {
-        margin-bottom: 0px;
-        font-size: 20px;
-      }
-    }
-  }
-}

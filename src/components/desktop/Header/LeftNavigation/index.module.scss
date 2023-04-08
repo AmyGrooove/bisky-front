@@ -60,17 +60,3 @@
     }
   }
 }
-
-@media screen and (max-width: modification.$mobile) {
-  .left {
-    &__logo {
-      &_label {
-        display: none;
-      }
-    }
-
-    &__navigation {
-      display: none;
-    }
-  }
-}

@@ -1,8 +1,4 @@
-export interface ISeasonalAnime {
-  shiki_id: number
-  labels: string[]
-  poster: string | null
-  scores: number[]
+export interface ISeasonalAnime extends IPosterAnime {
   genres: IGenres[]
   screenshots: string[]
 }
@@ -19,10 +15,20 @@ export interface IPosterAnime {
   shiki_id: number
   labels: string[]
   poster: string | null
-  scores: number[]
   kind: "tv" | "movie" | "ova" | "ona" | "special" | "music"
+  scores: number[]
   status: "anons" | "ongoing" | "released"
-  aired_on: Date
+  episodes: {
+    count: number | null
+    aired: number | null
+    duration: number
+    next_episode_at: Date | null
+  }
+  dates: {
+    aired_on: Date | null
+    released_on: Date | null
+  }
+  rating: "none" | "g" | "pg" | "pg_13" | "r" | "r_plus" | "rx"
 }
 
 export interface IAnimeInfo {

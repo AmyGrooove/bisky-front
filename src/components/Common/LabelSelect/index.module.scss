@@ -1,0 +1,36 @@
+@use "@/theme/colors";
+@use "@/theme/modification";
+
+.labelSelect {
+  display: flex;
+  gap: 20px;
+  background-color: colors.$background-header;
+  overflow-x: scroll;
+  user-select: none;
+
+  &__button {
+    color: colors.$font-white;
+    font-size: 20px;
+
+    background: none;
+    padding: 12px 8px;
+    border-radius: 0px;
+    border-bottom: 4px solid colors.$transparent;
+
+    &:first-child {
+      margin-left: 20px;
+    }
+
+    &:last-child {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      background: none;
+    }
+
+    &_active {
+      border-bottom: 4px solid colors.$bisky-dark;
+    }
+  }
+}

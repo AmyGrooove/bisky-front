@@ -63,19 +63,7 @@
   }
 }
 
-@media screen and (max-width: modification.$mobile) {
-  .posterSlider {
-    margin: auto;
-    padding: 0 4px;
-    width: calc(100% - 8px);
-
-    &__slide {
-      max-width: 170px;
-    }
-  }
-}
-
-@media screen and (max-width: modification.$laptop) and (min-width: modification.$mobile) {
+@media screen and (max-width: modification.$laptop) {
   .posterSlider {
     margin: auto;
     padding: 0 12px;
@@ -89,7 +77,7 @@
   }
 }
 
-@media screen and (max-width: modification.$twoSlider) and (min-width: modification.$mobile) {
+@media screen and (max-width: modification.$twoSlider) {
   .posterSlider {
     max-width: 380px;
   }

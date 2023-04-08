@@ -8,7 +8,7 @@ import {
 
 import { CLOSE_ICON } from "@/theme/sources"
 
-import AmyImage from "../AmyImage"
+import AmyImage from "../Common/AmyImage"
 
 import style from "./index.module.scss"
 

@@ -69,7 +69,7 @@ const AnimePage = ({ AnimeInfomation }: IAnimePage) => {
         <>
           <Head>
             <title>
-              {AnimeInfomation.labels[0] + " — смотреть Аниме — Bisky"}
+              {AnimeInfomation.labels[0] + " смотреть Аниме — Bisky"}
             </title>
             <meta
               name="description"

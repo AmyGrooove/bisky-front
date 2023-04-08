@@ -94,16 +94,6 @@
   }
 }
 
-@media screen and (max-width: modification.$mobile) {
-  .poster {
-    max-width: 170px;
-
-    &__label {
-      max-width: 170px;
-    }
-  }
-}
-
 @media screen and (max-width: modification.$laptop) {
   .poster {
     &:hover {
@@ -124,6 +114,15 @@
           box-shadow: unset;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: modification.$mobile) {
+  .poster {
+    &_img {
+      width: 130px;
+      height: 200px;
     }
   }
 }

@@ -1,9 +1,6 @@
 import useDebounce from "./useDebounce"
 
-function swiperGridArrays<T>(arr: T[]): {
-  first: T[]
-  second: T[]
-} {
+const swiperGridArrays = <T>(arr: T[]): { first: T[]; second: T[] } => {
   const first: T[] = []
   const second: T[] = []
   let change = true
@@ -45,4 +42,14 @@ const getRandomInt = (max: number): number => {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
-export { useDebounce, swiperGridArrays, dateFormat, getRandomInt }
+const removeDuplicates = <T>(arr: T[]): T[] => {
+  return Array.from(new Set(arr))
+}
+
+export {
+  useDebounce,
+  swiperGridArrays,
+  dateFormat,
+  getRandomInt,
+  removeDuplicates,
+}

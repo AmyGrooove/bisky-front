@@ -6,15 +6,19 @@ import "@/theme/modification.scss"
 import { Analytics } from "@vercel/analytics/react"
 import { Roboto } from "next/font/google"
 
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-import Modal from "@/components/Common/Modal"
+import Header from "@/components/desktop/Header"
+import Footer from "@/components/desktop/Footer"
+import Modal from "@/components/Modal"
+import useWindowSize from "@/supportingTool/functions/useWindowSize"
+import Menu from "@/components/mobile/Menu"
 
 const roboto = Roboto({
   weight: ["400", "700"],
 })
 
 const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
+  const { mobile } = useWindowSize()
+
   return (
     <>
       <Head>
@@ -37,9 +41,9 @@ const MyApp = ({ Component, pageProps }: AppProps): ReactElement => {
       </Head>
       <Modal>
         <div id="__body" className={roboto.className}>
-          <Header />
+          {mobile ? <Menu /> : <Header />}
           <Component {...pageProps} />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Modal>
       <Analytics />

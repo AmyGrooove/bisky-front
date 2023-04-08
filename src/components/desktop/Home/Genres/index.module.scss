@@ -25,19 +25,3 @@
     margin-top: 20px;
   }
 }
-
-@media screen and (max-width: modification.$mobile) {
-  .genres {
-    &__allGenres {
-      gap: 4px;
-
-      margin-top: 20px;
-      padding: 0 20px;
-
-      &__button {
-        font-size: 12px;
-        padding: 12px 20px;
-      }
-    }
-  }
-}

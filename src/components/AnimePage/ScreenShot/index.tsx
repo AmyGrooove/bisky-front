@@ -6,7 +6,7 @@ import { AnimeInfoContext } from "@/pages/anime/[animeId]"
 import AmyImage from "@/components/Common/AmyImage"
 import "swiper/css/free-mode"
 import BlockLabel from "@/components/Common/BlockLabel"
-import { ModalContext } from "@/components/Common/Modal"
+import { ModalContext } from "@/components/Modal"
 
 import "swiper/css"
 import "swiper/css/navigation"

@@ -4,6 +4,7 @@
   "scripts": {
     "lint:fix": "next lint --fix",
     "dev": "next dev -p 3001",
+    "dev:local": "concurrently \"next dev -p 3001\" \"cd ../bisky-back && nest start --watch\"",
     "build": "next build",
     "start": "next start"
   },

@@ -99,7 +99,7 @@ const Search = () => {
                             styles.search__result__element__item__info_adit_text
                           }
                         >
-                          {new Date(el.aired_on).getFullYear()}
+                          {new Date(el.dates.aired_on || "").getFullYear()}
                         </span>
                       </div>
                     </div>
