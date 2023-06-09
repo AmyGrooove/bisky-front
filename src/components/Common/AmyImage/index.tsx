@@ -1,36 +1,34 @@
 import Image from "next/image"
-import { CSSProperties, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
-import { BLUR_LOGO } from "@/theme/sources"
-import { getSrc } from "@/supportingTool/functions"
+import { cl, getImageSrc } from "@/utils"
 
 import styles from "./index.module.scss"
+import GetSvg from "./GetSvg"
 
 interface IAmyImage {
+  src: string | null
   width: number
   height: number
-  src: string | null
   imageType?: "poster" | "screenshot" | "search" | "vector"
   quality?: number
   alt?: string
   className?: string
   containerClass?: string
-  style?: CSSProperties
 }
 
 const AmyImage = ({
+  src,
   width,
   height,
-  src,
   imageType = "vector",
   quality = 100,
-  alt,
+  alt = "",
   className,
   containerClass,
 }: IAmyImage) => {
   const [loaded, setLoaded] = useState(false)
   const [errorGet, setErrorGet] = useState(false)
-
   const [disableBack, setDisableBack] = useState(imageType === "vector")
 
   useEffect(() => {
@@ -42,40 +40,45 @@ const AmyImage = ({
   }, [loaded, imageType])
 
   return (
-    <div className={`${styles.load} ${containerClass}`}>
-      {!disableBack && (
-        <span
-          style={{ height: height }}
-          className={`${styles.load__blur} ${
-            loaded && styles.load__blur_disable
-          } ${
-            imageType !== "vector" && imageType === "search"
-              ? styles.load__blur_border_search
-              : styles.load__blur_border
-          }`}
-        >
+    <>
+      {imageType === "vector" || src === null ? (
+        <GetSvg
+          width={width}
+          height={height}
+          className={cl(styles.amyImage, className)}
+          src={src || undefined}
+        />
+      ) : (
+        <div className={cl(styles.amyImage, containerClass)}>
+          {!disableBack && (
+            <span
+              style={{ height: height }}
+              className={cl(
+                styles.amyImage__blur,
+                loaded && styles.amyImage__blur_disable,
+              )}
+            >
+              <GetSvg
+                width={height / 2}
+                height={height / 2}
+                className={styles.amyImage__blur__img}
+              />
+            </span>
+          )}
           <Image
-            src={BLUR_LOGO}
-            width={height / 2}
-            height={height / 2}
+            src={getImageSrc(src, imageType, errorGet)}
+            width={width}
+            height={height}
             alt={alt ? alt : ""}
-            quality={30}
-            className={styles.load__blur_img}
+            quality={quality}
+            priority
+            onError={() => setErrorGet(true)}
+            className={cl(styles.amyImage__img, className)}
+            onLoad={() => setLoaded(true)}
           />
-        </span>
+        </div>
       )}
-      <Image
-        src={getSrc(src || BLUR_LOGO, imageType, errorGet)}
-        width={width}
-        height={height}
-        alt={alt ? alt : ""}
-        quality={quality}
-        priority
-        onError={() => setErrorGet(true)}
-        className={`${className} ${imageType !== "vector" && styles.load__img}`}
-        onLoad={() => setLoaded(true)}
-      />
-    </div>
+    </>
   )
 }
 

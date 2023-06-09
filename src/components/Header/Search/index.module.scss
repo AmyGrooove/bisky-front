@@ -1,0 +1,296 @@
+@use "@/theme/colors" as *;
+@use "@/theme/extra" as *;
+
+@keyframes invoke {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.search {
+  width: 100%;
+
+  &__inputFloor {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+
+    &_input {
+      width: 100%;
+      background-color: $background-search;
+      color: $font-white;
+      border: none;
+      outline: none;
+
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 20px;
+      transition: 0.2s;
+
+      &:focus,
+      &:focus + .search__inputFloor_icon {
+        background-color: $background-light;
+        opacity: 1;
+        color: $font-black;
+      }
+
+      &:focus + .search__result {
+        opacity: 1;
+        visibility: visible;
+        background-color: black;
+      }
+    }
+
+    &_icon {
+      background-color: unset;
+      position: absolute;
+      padding: 0px;
+      display: flex;
+      cursor: pointer;
+      opacity: 0.5;
+      border: none;
+      height: 100%;
+      align-items: center;
+      margin-right: 4px;
+      border-radius: 20px;
+      transition: 0.2s;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  &__result {
+    position: relative;
+    top: -2px;
+    margin: 0 20px;
+
+    &__block {
+      position: absolute;
+      width: calc(100% - 16px);
+
+      transition: 0.2s;
+      opacity: 0;
+      visibility: hidden;
+
+      padding: 8px;
+      border-radius: 20px;
+      background-color: $background-search;
+
+      display: flex;
+      flex-direction: column;
+
+      &_active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &_none {
+      color: $font-white;
+      padding: 20px;
+      animation: invoke 0.3s linear;
+    }
+
+    &__element {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: 0.2s;
+
+      animation: invoke 0.3s linear;
+
+      &__br {
+        display: flex;
+        align-self: center;
+        width: calc(100% - 152px);
+        height: 5px;
+        opacity: 0.6;
+        border-radius: 50px;
+        background-color: $background-header;
+      }
+
+      &__item {
+        display: flex;
+        gap: 10px;
+
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 20px;
+        transition: 0.2s;
+        margin: 1px 0;
+
+        &_img {
+          border-radius: 10px;
+          transition: 0.2s;
+        }
+
+        &__info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 8px 0;
+          overflow: hidden;
+
+          &_label {
+            &_ru {
+              color: $font-white;
+              font-size: 20px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            &_en {
+              color: $font-white;
+              font-size: 16px;
+              opacity: 0.3;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+          }
+
+          &_adit {
+            display: flex;
+            gap: 10px;
+
+            &_text {
+              opacity: 0.8;
+              color: $font-white;
+            }
+
+            &_slash {
+              color: $font-white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: modification.$laptop) {
+//   .search {
+//     &__result {
+//       position: static;
+
+//       &__block {
+//         position: absolute;
+//         top: 80px;
+//         left: 0;
+//         right: 0;
+//         width: calc(100% - 16px);
+
+//         transition: 0.2s;
+//         opacity: 0;
+//         visibility: hidden;
+
+//         padding: 8px;
+//         border-radius: 20px;
+//         background-color: $background-search;
+
+//         display: flex;
+//         flex-direction: column;
+
+//         &_active {
+//           opacity: 1;
+//           visibility: visible;
+//         }
+//       }
+
+//       &_none {
+//         color: $font-white;
+//         padding: 20px;
+//         animation: invoke 0.3s linear;
+//       }
+
+//       &__element {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         transition: 0.2s;
+
+//         animation: invoke 0.3s linear;
+
+//         &__br {
+//           display: flex;
+//           align-self: center;
+//           width: calc(100% - 152px);
+//           height: 5px;
+//           opacity: 0.6;
+//           border-radius: 50px;
+//           background-color: $background-header;
+//         }
+
+//         &__item {
+//           display: flex;
+//           gap: 10px;
+
+//           cursor: pointer;
+//           padding: 10px;
+//           border-radius: 20px;
+//           transition: 0.2s;
+//           margin: 1px 0;
+
+//           &:hover {
+//             background-color: $background-search-lighter;
+//           }
+
+//           &_img {
+//             border-radius: 10px;
+//             transition: 0.2s;
+//           }
+
+//           &__info {
+//             display: flex;
+//             flex-direction: column;
+//             justify-content: space-between;
+//             padding: 8px 0;
+//             overflow: hidden;
+
+//             &_label {
+//               &_ru {
+//                 color: $font-white;
+//                 font-size: 20px;
+//                 text-overflow: ellipsis;
+//                 white-space: nowrap;
+//                 overflow: hidden;
+//               }
+
+//               &_en {
+//                 color: $font-white;
+//                 font-size: 16px;
+//                 opacity: 0.3;
+//                 text-overflow: ellipsis;
+//                 white-space: nowrap;
+//                 overflow: hidden;
+//               }
+//             }
+
+//             &_adit {
+//               display: flex;
+//               gap: 10px;
+
+//               &_text {
+//                 opacity: 0.8;
+//                 color: $font-white;
+//               }
+
+//               &_slash {
+//                 color: $font-white;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

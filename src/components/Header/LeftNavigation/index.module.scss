@@ -1,0 +1,58 @@
+@use "@/theme/colors" as *;
+@use "@/theme/extra" as *;
+
+.left {
+  display: flex;
+  gap: 50px;
+  height: 100%;
+
+  &__logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &_label {
+      font-size: 32px;
+      color: $bisky;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      .left__logo_icon {
+        svg {
+          fill: $bisky-hover !important;
+        }
+      }
+
+      .left__logo_label {
+        color: $bisky-hover;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &_link {
+      font-size: 20px;
+      color: $font-white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 4px;
+
+      border-top: 5px solid $transparent;
+      border-bottom: 5px solid $transparent;
+      transition: 0.2s;
+      opacity: 0.9;
+
+      &:hover {
+        opacity: 1;
+        border-bottom: 5px solid $bisky-dark;
+      }
+    }
+  }
+}

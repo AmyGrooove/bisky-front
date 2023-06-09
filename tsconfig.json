@@ -21,8 +21,14 @@
     "paths": {
       "@/*": ["src/*"],
       "@public/*": ["public/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "types": ["react/next"]
   },
-  "include": ["src", "declarations.d.ts"],
+  "include": ["src", "declarations.d.ts", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
