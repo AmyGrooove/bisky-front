@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /*/player
 
 Sitemap: https://bisky.one/sitemap.xml

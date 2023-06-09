@@ -1,0 +1,60 @@
+@use "@/theme/colors" as *;
+
+$mobile: 600px;
+$laptop: 1000px;
+
+@keyframes invoke {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+
+  &_marginTop {
+    margin-top: 100px;
+  }
+}
+
+.score {
+  &_high {
+    background-color: $score-high;
+  }
+
+  &_medium {
+    background-color: $score-medium;
+  }
+
+  &_low {
+    background-color: $score-low;
+  }
+}
+
+.status {
+  &_released {
+    background-color: $status-released;
+  }
+
+  &_ongoing {
+    background-color: $status-ongoing;
+  }
+
+  &_anons {
+    background-color: $status-anons;
+  }
+}

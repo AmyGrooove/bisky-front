@@ -1,43 +1,16 @@
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useState,
-} from "react"
+"use client"
 
-import { CLOSE_ICON } from "@/theme/sources"
-
-import AmyImage from "../Common/AmyImage"
+import { ReactNode } from "react"
 
 import style from "./index.module.scss"
+import { ModalContext, useModal } from "./index.use"
 
 interface IModal {
   children: ReactNode
 }
 
-interface IModalContext {
-  setModal: Dispatch<SetStateAction<ReactNode>>
-  closeModal: () => void
-}
-
-export const ModalContext = createContext<IModalContext>({
-  setModal: () => {},
-  closeModal: () => {},
-})
-
 const Modal = ({ children }: IModal) => {
-  const [modal, setModal] = useState<ReactNode>(null)
-  const [close, setClose] = useState(false)
-
-  const handleCloseModal = () => {
-    setClose(true)
-
-    setTimeout(() => {
-      setModal(null)
-      setClose(false)
-    }, 190)
-  }
+  const { modal, close, setModal, handleCloseModal } = useModal()
 
   return (
     <ModalContext.Provider value={{ setModal, closeModal: handleCloseModal }}>
@@ -50,7 +23,7 @@ const Modal = ({ children }: IModal) => {
             onClick={handleCloseModal}
             className={style.modal__closeIcon}
           >
-            <AmyImage src={CLOSE_ICON} height={60} width={60} />
+            {/* <AmyImage src={CLOSE_ICON} height={60} width={60} /> */}
           </span>
           <span
             aria-hidden

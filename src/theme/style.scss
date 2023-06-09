@@ -1,53 +1,17 @@
-@use "@/theme/colors";
-@use "@/theme/modification";
+@use "@/theme/colors" as *;
+@use "@/theme/extra" as *;
 
 * {
-  color: colors.$font-black;
+  color: $font-black;
   letter-spacing: 1px;
   font-weight: 700;
 }
 
-.swiper {
-  width: 100%;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  background-color: colors.$bisky-dark;
-  padding: 10px;
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 20px;
-  transition: 0.2s;
-  box-shadow: 0px 0px 4px colors.$black-transparent;
-  opacity: 0.8;
-
-  &:hover {
-    opacity: 1;
-    background-color: colors.$bisky-dark-hover;
-  }
-
-  &::after {
-    color: colors.$bisky;
-    font-size: 36px !important;
-  }
-}
-
-.swiper-button-disabled {
-  opacity: 0 !important;
-}
-
 body {
   margin: 0;
-  background-color: colors.$background;
+  background-color: $background;
   height: 100%;
   overflow-x: hidden;
-}
-
-#__body {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
 }
 
 p,
@@ -59,81 +23,6 @@ h5 {
   margin: 0;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-
-  &::marker {
-    content: none;
-  }
-}
-
 a {
   text-decoration: none;
-}
-
-button {
-  font-size: 16px;
-
-  cursor: pointer;
-  transition: 0.2s;
-  background: colors.$bisky-dark;
-  color: colors.$font-white;
-  border: none;
-
-  border-radius: 10px;
-  padding: 12px 20px;
-
-  &:disabled {
-    cursor: default;
-    background: colors.$button-disabled;
-  }
-
-  &:hover {
-    background: colors.$bisky-dark-hover;
-  }
-}
-
-input {
-  border-radius: 10px;
-  font-size: 20px;
-  padding: 8px;
-  transition: 0.2s;
-  border: 2px solid colors.$transparent;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.swiper-slide-active {
-  &::before {
-    background-color: rgba(0, 0, 0, 0.25) !important;
-  }
-
-  &::after {
-    background-color: colors.$transparent !important;
-    visibility: hidden;
-  }
-}
-
-@media screen and (max-width: modification.$laptop) {
-  .swiper-button-next,
-  .swiper-button-prev {
-    opacity: 0.3;
-  }
-}
-
-.paralaxImages {
-  &-enter {
-    opacity: 1;
-  }
-
-  &-exit {
-    opacity: 0;
-  }
 }
