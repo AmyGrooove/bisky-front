@@ -10,14 +10,14 @@ const getImageSrc = (
     case "search":
       return (
         SHKIMORI_URL +
-        "system/animes/original/" +
+        "/system/animes/original/" +
         src +
         (errorGet ? ".JPG" : ".jpg")
       )
     case "screenshot":
       return (
         SHKIMORI_URL +
-        "system/screenshots/original/" +
+        "/system/screenshots/original/" +
         src +
         (errorGet ? ".JPG" : ".jpg")
       )

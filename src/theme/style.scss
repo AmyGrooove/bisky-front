@@ -5,7 +5,7 @@
   color: $bisky-dark-400;
   letter-spacing: 1px;
   font-weight: 700;
-  color: white;
+  color: $bisky-light-100;
 }
 
 body {
@@ -26,4 +26,17 @@ h5 {
 
 a {
   text-decoration: none;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: $bisky-300;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: $bisky-200;
+  }
 }

@@ -1,0 +1,9 @@
+@use "@/theme/colors" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: $bisky-dark-300;
+  padding: 4px 20px;
+}
