@@ -5,6 +5,8 @@ import { observer } from "mobx-react-lite"
 
 import { screenStore } from "@/store"
 
+import Header from "../Header"
+
 interface ICheckDevice {
   children: ReactNode
 }
@@ -12,7 +14,7 @@ interface ICheckDevice {
 const CheckDevice = observer(({ children }: ICheckDevice) => {
   const { isMobile } = screenStore
 
-  return <>{isMobile ? <>{children}</> : <>{children}</>}</>
+  return <>{false ? <>{children}</> : <Header>{children}</Header>}</>
 })
 
 export default CheckDevice
