@@ -1,9 +1,15 @@
 import { ReactNode } from "react"
 import "@/theme/style.scss"
-
+import { Roboto } from "next/font/google"
 import Modal from "@/components/Modal"
 import { APP_URL } from "@/constants"
 import CheckDevice from "@/components/CheckDevice"
+
+const roboto = Roboto({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+})
 
 export const metadata = {
   metadataBase: new URL(APP_URL),
@@ -52,7 +58,7 @@ export const metadata = {
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="ru">
-      <body>
+      <body className={roboto.className}>
         <Modal>
           <CheckDevice>{children}</CheckDevice>
         </Modal>

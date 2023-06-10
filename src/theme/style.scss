@@ -4,7 +4,6 @@
 * {
   color: $bisky-dark-400;
   letter-spacing: 1px;
-  font-weight: 700;
   color: $bisky-light-100;
 }
 
@@ -36,7 +35,19 @@ button {
   cursor: pointer;
   transition: 0.2s;
 
+  font-family: inherit;
+  font-weight: 700;
+
   &:hover {
     background-color: $bisky-200;
+  }
+}
+
+input {
+  border: none;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
   }
 }
