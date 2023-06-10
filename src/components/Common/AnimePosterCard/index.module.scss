@@ -1,0 +1,109 @@
+@use "@/theme/colors" as *;
+
+@keyframes invoke {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.poster__wrapper {
+  position: relative;
+  max-width: 180px;
+}
+
+.poster {
+  animation: invoke 0.3s linear;
+  transition: 0.2s;
+  border-radius: 20px;
+
+  &__image {
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: -10;
+  }
+
+  &__label {
+    max-width: 180px;
+    width: 100%;
+    margin-top: 4px;
+    position: absolute;
+
+    &__text {
+      font-size: 18px;
+      height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__score {
+    z-index: -10;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+  }
+
+  &__watchStatus {
+    z-index: -10;
+    bottom: 10px;
+    left: 10px;
+    position: absolute;
+  }
+
+  &__newEpisode {
+    z-index: -10;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+  }
+
+  &__counterEpisode {
+    z-index: -10;
+    bottom: 10px;
+    right: 10px;
+    position: absolute;
+  }
+
+  &__plusOne {
+    z-index: -10;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+  }
+
+  &__status {
+    z-index: -10;
+    &_anons {
+      bottom: 10px;
+      right: 10px;
+      position: absolute;
+    }
+    &_ongoing {
+      bottom: 10px;
+      right: 10px;
+      position: absolute;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.15);
+
+    .poster {
+      &__label {
+        &__text {
+          position: relative;
+          bottom: 20px;
+          padding: 20px 10px 10px 10px;
+          background-color: $bisky-300;
+          border-radius: 0 0 20px 20px;
+          white-space: pre-wrap;
+          height: 80px;
+          z-index: -20;
+        }
+      }
+    }
+  }
+}
