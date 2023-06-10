@@ -1,0 +1,39 @@
+@use "@/theme/colors" as *;
+
+.watchStatus {
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  background-color: $bisky-200;
+  fill: $bisky-light-100;
+  border-radius: 10px;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &__setWatch {
+    background-color: $bisky-200;
+    opacity: 0.6;
+  }
+
+  &__complete {
+    background-color: $green;
+    opacity: 0.8;
+  }
+
+  &__added {
+    background-color: $bisky-200;
+    opacity: 0.6;
+  }
+
+  &__watching {
+    background-color: $blue;
+    opacity: 0.8;
+  }
+
+  &__dropped {
+    background-color: $bisky-dark-100;
+    opacity: 0.8;
+  }
+}

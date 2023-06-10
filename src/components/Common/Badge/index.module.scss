@@ -1,0 +1,35 @@
+@use "@/theme/colors" as *;
+
+.bagde {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-weight: 700;
+
+  &__blue {
+    background-color: $blue;
+  }
+
+  &__orange {
+    background-color: $orange;
+  }
+
+  &__green {
+    background-color: $green;
+  }
+
+  &__red {
+    background-color: $red;
+  }
+
+  &__gray {
+    background-color: $gray;
+  }
+
+  &__lime {
+    background-color: $lime;
+  }
+}
