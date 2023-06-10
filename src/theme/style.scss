@@ -2,14 +2,15 @@
 @use "@/theme/extra" as *;
 
 * {
-  color: $font-black;
+  color: $bisky-dark-400;
   letter-spacing: 1px;
   font-weight: 700;
+  color: white;
 }
 
 body {
   margin: 0;
-  background-color: $background;
+  background-color: $bisky-dark-400;
   height: 100%;
   overflow-x: hidden;
 }

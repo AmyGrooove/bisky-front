@@ -1,46 +1,31 @@
 {
   "name": "bisky-front",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
-    "lint:fix": "next lint --fix",
     "dev": "next dev -p 3001",
-    "dev:local": "concurrently \"next dev -p 3001\" \"cd ../bisky-back && nest start --watch\"",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "keen-slider": "^6.8.5",
     "mobx-react-lite": "^3.4.3",
-    "next": "^13.4.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "13.4.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "20.2.5",
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
-    "eslint": "^8.38.0",
-    "eslint-config-next": "^13.3.0",
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.9",
+    "@types/react-dom": "^18.2.4",
+    "eslint": "^8.42.0",
+    "eslint-config-next": "^13.4.4",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "mobx": "^6.9.0",
-    "mobx-react": "^7.6.0",
-    "sass": "^1.62.0",
-    "typescript": "^5.0.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "prettier": "^2.8.8",
+    "sass": "^1.63.3",
+    "typescript": "^5.1.3"
   }
 }

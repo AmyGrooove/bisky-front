@@ -34,4 +34,6 @@ class ScreenStore {
   }
 }
 
-export default new ScreenStore()
+const screenStore = new ScreenStore()
+
+export default screenStore

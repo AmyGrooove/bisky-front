@@ -25,36 +25,4 @@ $laptop: 1000px;
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-
-  &_marginTop {
-    margin-top: 100px;
-  }
-}
-
-.score {
-  &_high {
-    background-color: $score-high;
-  }
-
-  &_medium {
-    background-color: $score-medium;
-  }
-
-  &_low {
-    background-color: $score-low;
-  }
-}
-
-.status {
-  &_released {
-    background-color: $status-released;
-  }
-
-  &_ongoing {
-    background-color: $status-ongoing;
-  }
-
-  &_anons {
-    background-color: $status-anons;
-  }
 }
