@@ -6,7 +6,7 @@ const RightSide = () => {
   return (
     <>
       <Link href="/login">
-        <button>Войти</button>
+        <button className={styles.rightSide__login}>Войти</button>
       </Link>
     </>
   )

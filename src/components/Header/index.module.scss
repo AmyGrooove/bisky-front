@@ -3,7 +3,10 @@
 .header {
   display: flex;
   align-items: center;
-  width: 100%;
-  background-color: $bisky-dark-300;
+  justify-content: space-between;
   padding: 4px 20px;
+  width: 100%;
+  gap: 32px;
+  box-sizing: border-box;
+  background-color: $bisky-dark-300;
 }
