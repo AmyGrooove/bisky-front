@@ -1,168 +1,101 @@
-import { ReactNode } from "react"
-
-import styles from "./index.module.scss"
-import { IAnimePoster, ICAnimePoster } from "@/types"
-import { cl } from "@/utils"
-import Image from "next/image"
-import AmyImage from "../AmyImage"
 import Link from "next/link"
-import { STAR_FULL, STAR_OUTLINE } from "@/constants"
-import StatusBagde from "../StatusBadge"
+
+import { IAnimePoster } from "@/types"
+import { cl } from "@/utils"
+
+import AppImage from "../AppImage"
 import ScoreBadge from "../ScoreBadge"
-import Badge from "../Badge"
+import StatusBagde from "../StatusBadge"
 import WatchStatusButton from "../WatchStatusButton"
 
+import styles from "./index.module.scss"
+
 interface IAnimePosterCard {
-  rating?: string
-  status?: "released" | "ongoing" | "anons"
-  badge:
-    | "anons"
-    | "ongoing"
-    | "released"
-    | "new_episode"
-    | "watching"
-    | "watching_plus_one"
-  isAdded: boolean
-  anime: ICAnimePoster
+  anime: IAnimePoster
+
+  posterType?: "normal" | "newSeries" | "watching"
+  watchedCount?: number
+  statusWatch?: "added" | "complete" | "watching" | "dropped"
   className?: string
 }
 
+const account = true
+
 const AnimePosterCard = ({
-  badge,
-  isAdded,
   anime,
+  posterType = "normal",
+  watchedCount,
+  statusWatch,
   className,
 }: IAnimePosterCard) => {
   return (
-    <Link href="/" className={cl(styles.poster__wrapper, className)}>
-      <div className={cl(styles.poster)}>
-        <div className={cl(styles.poster__image)}>
-          <AmyImage
-            className={cl(styles.poster__image)}
-            imageType="poster"
-            src={anime.poster!}
-            width={180}
-            height={290}
-            alt={anime.labels[0]}
+    <Link href="" className={cl(styles.animePosterCard, className)}>
+      <div>
+        <AppImage
+          src={anime.shiki_id.toString()}
+          width={200}
+          height={320}
+          imageType="poster"
+          className={styles.animePosterCard__image}
+          containerClass={styles.animePosterCard__image}
+        />
+
+        {anime.status !== "anons" && (
+          <ScoreBadge
+            score={anime.scores}
+            className={styles.animePosterCard__score}
           />
+        )}
 
-          {isAdded && (
-            <WatchStatusButton
-              status="setWatch"
-              className={cl(styles.poster__watchStatus)}
-            />
-          )}
+        {posterType === "newSeries" && (
+          <StatusBagde
+            status="ongoing"
+            className={styles.animePosterCard__leftStatus}
+          >
+            {anime.episodes.aired} серия
+          </StatusBagde>
+        )}
 
-          {anime.status === "anons" && (
-            <>
-              <StatusBagde
-                status="anons"
-                className={cl(styles.poster__status_anons)}
-              />
-            </>
-          )}
-
-          {anime.status === "ongoing" && (
-            <>
-              <StatusBagde
-                status="ongoing"
-                className={cl(styles.poster__status_ongoing)}
-              />
-              <ScoreBadge
-                score={anime.scores[0]}
-                className={cl(styles.poster__score)}
-              />
-            </>
-          )}
-
-          {anime.status === "released" && (
-            <ScoreBadge
-              score={anime.scores[0]}
-              className={cl(styles.poster__score)}
-            />
-          )}
-
-          {anime.status === "new_episode" && (
-            <>
-              <Badge color="blue" className={cl(styles.poster__newEpisode)}>
-                2 серия
-              </Badge>
-              <ScoreBadge
-                score={anime.scores[0]}
-                className={cl(styles.poster__score)}
-              />
-            </>
-          )}
-
-          {anime.status === "watching" && (
-            <>
-              <Badge color="blue" className={cl(styles.poster__counterEpisode)}>
-                3/6
-              </Badge>
-              <ScoreBadge
-                score={anime.scores[0]}
-                className={cl(styles.poster__score)}
-              />
-            </>
-          )}
-
-          {anime.status === "watching_plus_one" && (
-            <>
-              <Badge color="red" className={cl(styles.poster__plusOne)}>
-                +1
-              </Badge>
-              <Badge color="blue" className={cl(styles.poster__counterEpisode)}>
-                3/6
-              </Badge>
-              <ScoreBadge
-                score={anime.scores[0]}
-                className={cl(styles.poster__score)}
-              />
-            </>
-          )}
-
-          {anime.status === "anons" && (
+        {posterType === "watching" &&
+          anime.status === "ongoing" &&
+          anime.episodes.aired &&
+          watchedCount &&
+          anime.episodes.aired > watchedCount && (
             <StatusBagde
-              status="anons"
-              className={cl(styles.poster__status_anons)}
-            />
+              status="red"
+              className={styles.animePosterCard__leftStatus}
+            >
+              +{anime.episodes.aired - watchedCount}
+            </StatusBagde>
           )}
 
-          {anime.status === "ongoing" && (
-            <>
-              <StatusBagde
-                status="ongoing"
-                className={cl(styles.poster__status_ongoing)}
-              />
-              <ScoreBadge
-                score={anime.scores[0]}
-                className={cl(styles.poster__score)}
-              />
-            </>
-          )}
+        {posterType !== "newSeries" && (
+          <StatusBagde
+            status={anime.status}
+            className={styles.animePosterCard__rightStatus}
+          >
+            {posterType === "watching"
+              ? watchedCount + "/" + anime.episodes.aired
+              : anime.status}
+          </StatusBagde>
+        )}
 
-          {anime.status === "released" && (
-            <ScoreBadge
-              score={anime.scores[0]}
-              className={cl(styles.poster__score)}
-            />
-          )}
+        {account && (
+          <WatchStatusButton
+            onClick={() => {}}
+            status={statusWatch}
+            className={cl(
+              styles.animePosterCard__button,
+              statusWatch === undefined &&
+                styles.animePosterCard__button_setWatch,
+            )}
+          />
+        )}
 
-          {anime.status === "new_episode" && (
-            <>
-              <Badge color="blue" className={cl(styles.poster__newEpisode)}>
-                2 серия
-              </Badge>
-              <ScoreBadge
-                score={anime.scores[0]}
-                className={cl(styles.poster__score)}
-              />
-            </>
-          )}
-        </div>
-
-        <div className={cl(styles.poster__label)}>
-          <h3 className={cl(styles.poster__label__text)}>{anime.labels[0]}</h3>
+        <div className={styles.animePosterCard__label}>
+          <div className={styles.animePosterCard__label__text}>
+            {anime.labels}
+          </div>
         </div>
       </div>
     </Link>

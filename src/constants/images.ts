@@ -26,6 +26,6 @@ export const SETTINGS = `${APP_URL_ICON}/settings.svg`
 export const SHIELD = `${APP_URL_ICON}/shield.svg`
 export const SHIKIMORI = `${APP_URL_ICON}/shikimori.svg`
 export const STAR_FULL = `${APP_URL_ICON}/starFull.svg`
-export const STAR_OUTLINE = `${APP_URL_ICON}/starOutlinne.svg`
+export const STAR_OUTLINE = `${APP_URL_ICON}/starOutline.svg`
 export const TRASH = `${APP_URL_ICON}/trash.svg`
 export const VK = `${APP_URL_ICON}/vk.svg`
