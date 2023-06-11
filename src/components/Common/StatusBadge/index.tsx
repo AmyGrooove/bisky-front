@@ -1,38 +1,30 @@
 import { ReactNode } from "react"
 
 import { cl } from "@/utils"
+
 import styles from "./index.module.scss"
 
 interface IStatusBagde {
+  status: "ongoing" | "anons" | "released" | "red"
+  children: ReactNode
+
   className?: string
-  status: "ongoing" | "anons" | "released" | "new_episode"
-  children?: ReactNode
 }
 
-const StatusBagde = ({ className, status, children }: IStatusBagde) => {
+const StatusBagde = ({ status, children, className }: IStatusBagde) => {
+  const SELECT_STATUS =
+    status === "released"
+      ? styles.statusBagde__green
+      : status === "anons"
+      ? styles.statusBagde__orange
+      : status === "ongoing"
+      ? styles.statusBagde__blue
+      : styles.statusBagde__red
+
   return (
-    <div className={cl(className)}>
-      {status === "ongoing" && (
-        <span className={cl(styles.status, styles.status__blue)}>
-          {children ? children : "ongoing"}
-        </span>
-      )}
-      {status === "anons" && (
-        <span className={cl(styles.status, styles.status__orange)}>
-          {children ? children : "anons"}
-        </span>
-      )}
-      {status === "released" && (
-        <span className={cl(styles.status, styles.status__green)}>
-          {children ? children : "released"}
-        </span>
-      )}
-      {status === "new_episode" && (
-        <span className={cl(styles.status, styles.status__red)}>
-          {children ? children : "new_episode"}
-        </span>
-      )}
-    </div>
+    <span className={cl(styles.statusBagde, className, SELECT_STATUS)}>
+      {children}
+    </span>
   )
 }
 

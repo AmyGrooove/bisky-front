@@ -23,7 +23,7 @@ const Modal = ({ children }: IModal) => {
             onClick={handleCloseModal}
             className={style.modal__closeIcon}
           >
-            {/* <AmyImage src={CLOSE_ICON} height={60} width={60} /> */}
+            {/* <AppImage src={CLOSE_ICON} height={60} width={60} /> */}
           </span>
           <span
             aria-hidden

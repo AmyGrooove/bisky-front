@@ -1,6 +1,7 @@
 import { ReactNode } from "react"
-import "@/theme/style.scss"
 import { Roboto } from "next/font/google"
+import "@/theme/style.scss"
+
 import Modal from "@/components/Modal"
 import { APP_URL } from "@/constants"
 import CheckDevice from "@/components/CheckDevice"

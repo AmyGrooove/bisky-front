@@ -13,22 +13,13 @@ export interface IAllGenres {
 
 export interface IAnimePoster {
   shiki_id: number
-  labels: string[]
-  poster: string | null
-  kind: "tv" | "movie" | "ova" | "ona" | "special" | "music"
-  scores: number[]
+  labels: string
+  scores: number
   status: "anons" | "ongoing" | "released"
   episodes: {
     count: number | null
     aired: number | null
-    duration: number
-    next_episode_at: Date | null
   }
-  dates: {
-    aired_on: Date | null
-    released_on: Date | null
-  }
-  rating: "none" | "g" | "pg" | "pg_13" | "r" | "r_plus" | "rx"
 }
 
 export interface IAnimeInfo {

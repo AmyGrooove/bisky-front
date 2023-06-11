@@ -8,7 +8,7 @@ import { cl, getImageSrc } from "@/utils"
 import styles from "./index.module.scss"
 import GetSvg from "./GetSvg"
 
-interface IAmyImage {
+interface IAppImage {
   src: string | null
   width: number
   height: number
@@ -19,7 +19,7 @@ interface IAmyImage {
   containerClass?: string
 }
 
-const AmyImage = ({
+const AppImage = ({
   src,
   width,
   height,
@@ -28,7 +28,7 @@ const AmyImage = ({
   alt = "",
   className,
   containerClass,
-}: IAmyImage) => {
+}: IAppImage) => {
   const [loaded, setLoaded] = useState(false)
   const [errorGet, setErrorGet] = useState(false)
   const [disableBack, setDisableBack] = useState(imageType === "vector")
@@ -47,23 +47,24 @@ const AmyImage = ({
         <GetSvg
           width={width}
           height={height}
-          className={cl(styles.amyImage, className)}
+          className={cl(styles.AppImage, className)}
           src={src || undefined}
         />
       ) : (
-        <div className={cl(styles.amyImage, containerClass)}>
+        <div className={cl(styles.AppImage, containerClass)}>
           {!disableBack && (
             <span
               style={{ height: height }}
               className={cl(
-                styles.amyImage__blur,
-                loaded && styles.amyImage__blur_disable,
+                styles.AppImage__blur,
+                loaded && styles.AppImage__blur_disable,
+                className,
               )}
             >
               <GetSvg
                 width={height / 2}
                 height={height / 2}
-                className={styles.amyImage__blur__img}
+                className={styles.AppImage__blur__img}
               />
             </span>
           )}
@@ -75,7 +76,7 @@ const AmyImage = ({
             quality={quality}
             priority
             onError={() => setErrorGet(true)}
-            className={cl(styles.amyImage__img, className)}
+            className={cl(styles.AppImage__img, className)}
             onLoad={() => setLoaded(true)}
           />
         </div>
@@ -84,4 +85,4 @@ const AmyImage = ({
   )
 }
 
-export default AmyImage
+export default AppImage
