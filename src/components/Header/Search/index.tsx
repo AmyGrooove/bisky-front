@@ -1,6 +1,7 @@
-import AmyImage from "@/components/Common/AmyImage"
-import styles from "./index.module.scss"
+import AppImage from "@/components/Common/AppImage"
 import { SEARCH } from "@/constants"
+
+import styles from "./index.module.scss"
 
 const Search = () => {
   return (
@@ -11,7 +12,7 @@ const Search = () => {
           placeholder="Поиск"
           className={styles.search__form__input}
         />
-        <AmyImage
+        <AppImage
           src={SEARCH}
           width={20}
           height={20}

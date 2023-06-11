@@ -1,35 +1,26 @@
 import { cl } from "@/utils"
+
 import styles from "./index.module.scss"
 
 interface IScoreBadge {
-  className?: string
   score: number
+
+  className?: string
 }
 
-const ScoreBadge = ({ className, score }: IScoreBadge) => {
-  let content = <></>
+const ScoreBadge = ({ score, className }: IScoreBadge) => {
+  const SELECT_SCORE =
+    score >= 0 && score <= 4.9
+      ? styles.scoreBadge__red
+      : score >= 5 && score <= 6.9
+      ? styles.scoreBadge__gray
+      : styles.scoreBadge__lime
 
-  if (score >= 0 && score <= 4.9) {
-    content = (
-      <span className={cl(styles.status, styles.status__red)}>
-        {score.toFixed(1)}
-      </span>
-    )
-  } else if (score >= 5 && score <= 6.9) {
-    content = (
-      <span className={cl(styles.status, styles.status__gray)}>
-        {score.toFixed(1)}
-      </span>
-    )
-  } else {
-    content = (
-      <span className={cl(styles.status, styles.status__lime)}>
-        {score.toFixed(1)}
-      </span>
-    )
-  }
-
-  return <div className={cl(className)}>{content}</div>
+  return (
+    <span className={cl(styles.scoreBadge, className, SELECT_SCORE)}>
+      {score.toFixed(1)}
+    </span>
+  )
 }
 
 export default ScoreBadge
