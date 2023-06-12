@@ -6,21 +6,21 @@
   align-items: center;
 
   padding: 4px 8px;
-  border-radius: 20px;
+  border-radius: 10px;
 
   font-weight: 700;
   font-size: 20px;
   line-height: 23px;
 
-  &__red {
+  &_red {
     background-color: $red;
   }
 
-  &__gray {
+  &_gray {
     background-color: $gray;
   }
 
-  &__lime {
+  &_lime {
     background-color: $lime;
   }
 }

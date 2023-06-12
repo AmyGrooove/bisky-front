@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { IAnimePoster } from "@/types"
+import { IPoster } from "@/types"
 import { cl } from "@/utils"
 
 import AppImage from "../AppImage"
@@ -11,7 +11,7 @@ import WatchStatusButton from "../WatchStatusButton"
 import styles from "./index.module.scss"
 
 interface IAnimePosterCard {
-  anime: IAnimePoster
+  anime: IPoster
 
   posterType?: "normal" | "newSeries" | "watching"
   watchedCount?: number

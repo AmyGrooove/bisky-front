@@ -8,19 +8,9 @@ const getImageSrc = (
   switch (imageType) {
     case "poster":
     case "search":
-      return (
-        SHKIMORI_URL +
-        "/system/animes/original/" +
-        src +
-        (errorGet ? ".JPG" : ".jpg")
-      )
+      return SHKIMORI_URL + "/system/animes/original/" + src + ".jpg"
     case "screenshot":
-      return (
-        SHKIMORI_URL +
-        "/system/screenshots/original/" +
-        src +
-        (errorGet ? ".JPG" : ".jpg")
-      )
+      return SHKIMORI_URL + "/system/screenshots/original/" + src + ".jpg"
     default:
       return src
   }
