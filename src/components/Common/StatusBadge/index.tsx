@@ -14,12 +14,12 @@ interface IStatusBagde {
 const StatusBagde = ({ status, children, className }: IStatusBagde) => {
   const SELECT_STATUS =
     status === "released"
-      ? styles.statusBagde__green
+      ? styles.statusBagde_green
       : status === "anons"
-      ? styles.statusBagde__orange
+      ? styles.statusBagde_orange
       : status === "ongoing"
-      ? styles.statusBagde__blue
-      : styles.statusBagde__red
+      ? styles.statusBagde_blue
+      : styles.statusBagde_red
 
   return (
     <span className={cl(styles.statusBagde, className, SELECT_STATUS)}>
