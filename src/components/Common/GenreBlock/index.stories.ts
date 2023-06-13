@@ -14,7 +14,7 @@ type Story = StoryObj<typeof GenreCard>
 export const GenreCardIsekai: Story = {
   args: {
     title: "Исекай",
-    imgSrc: "",
+    imgSrc: "57e7ed3ab8f60b2c5562827a1453aa8ef4ad7ba2",
     children: "это аниме о `попаданцах`, которые попали в другой",
   },
 }
