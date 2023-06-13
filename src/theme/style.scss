@@ -2,9 +2,12 @@
 @use "@/theme/extra.scss" as *;
 
 * {
-  color: $bisky-dark-400;
   letter-spacing: 1px;
   color: $bisky-light-100;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 body {
@@ -25,29 +28,4 @@ h5 {
 
 a {
   text-decoration: none;
-}
-
-button {
-  padding: 12px 20px;
-  background-color: $bisky-300;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-
-  font-family: inherit;
-  font-weight: 700;
-
-  &:hover {
-    background-color: $bisky-200;
-  }
-}
-
-input {
-  border: none;
-  font-family: inherit;
-
-  &:focus {
-    outline: none;
-  }
 }

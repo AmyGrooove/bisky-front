@@ -3,7 +3,7 @@ import SeasonCard from "."
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof SeasonCard> = {
-  title: "Common/SeasonCard",
+  title: "Components/Common/SeasonCard",
   component: SeasonCard,
   tags: ["autodocs"],
 }

@@ -3,7 +3,7 @@ import ScoreBadge from "."
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof ScoreBadge> = {
-  title: "Common/ScoreBadge",
+  title: "Components/Common/ScoreBadge",
   component: ScoreBadge,
   tags: ["autodocs"],
 }
