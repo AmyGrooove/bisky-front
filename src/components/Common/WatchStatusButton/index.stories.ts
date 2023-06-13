@@ -3,7 +3,7 @@ import WatchStatusButton from "."
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof WatchStatusButton> = {
-  title: "Common/WatchStatusButton",
+  title: "Components/Common/WatchStatusButton",
   component: WatchStatusButton,
   tags: ["autodocs"],
 }

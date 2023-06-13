@@ -61,9 +61,12 @@
     &__text {
       font-size: 16px;
       line-height: 19px;
+      font-weight: 700;
 
       overflow: hidden;
       max-height: 40px;
+
+      color: $bisky-light-100;
     }
   }
 

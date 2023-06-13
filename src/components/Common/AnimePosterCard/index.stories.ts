@@ -3,7 +3,7 @@ import AnimePosterCard from "."
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof AnimePosterCard> = {
-  title: "Common/AnimePosterCard",
+  title: "Components/Common/AnimePosterCard",
   component: AnimePosterCard,
   tags: ["autodocs"],
 }

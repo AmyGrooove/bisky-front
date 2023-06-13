@@ -1,8 +1,8 @@
 @use "@/theme/colors.scss" as *;
 
 .watchStatusButton {
-  border-radius: 10px;
-  padding: 8px;
+  border-radius: 10px !important;
+  padding: 8px !important;
   display: flex;
   fill: $bisky-light-100;
   opacity: 0.8;
