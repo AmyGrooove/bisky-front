@@ -11,7 +11,7 @@ const meta: Meta<typeof SeasonCard> = {
 export default meta
 type Story = StoryObj<typeof SeasonCard>
 
-export const StatusBadgeOngoing: Story = {
+export const SeasonCardDefault: Story = {
   args: {
     anime: {
       shiki_id: 51535,

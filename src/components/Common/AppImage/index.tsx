@@ -12,7 +12,7 @@ interface IAppImage {
   src: string | null
   width: number
   height: number
-  imageType?: "poster" | "screenshot" | "search" | "vector"
+  imageType?: "poster" | "screenshot" | "search" | "vector" | "another"
   quality?: number
   alt?: string
   className?: string
@@ -69,7 +69,11 @@ const AppImage = ({
             </span>
           )}
           <Image
-            src={getImageSrc(src, imageType, errorGet)}
+            src={
+              imageType === "another"
+                ? src
+                : getImageSrc(src, imageType, errorGet)
+            }
             width={width}
             height={height}
             alt={alt ? alt : ""}

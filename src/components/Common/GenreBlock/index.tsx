@@ -19,11 +19,18 @@ interface IGenreCard {
 const GenreCard = ({ title, imgSrc, children, className }: IGenreCard) => {
   return (
     <div className={cl(styles.genreCard, className)}>
-      <div className={styles.genreCard__title}>{title}</div>
-      <p className={styles.genreCard__content}>{children}</p>
-      <div className={styles.genreCard__image}>
-        <AppImage src={imgSrc} width={300} height={200} imageType="poster" />
+      <div className={styles.genreCard__content}>
+        <div className={styles.genreCard__title}>{title}</div>
+        <div>{children}</div>
       </div>
+      <AppImage
+        containerClass={styles.genreCard__imageContainer}
+        className={styles.genreCard__image}
+        src={imgSrc}
+        width={300}
+        height={160}
+        imageType="screenshot"
+      />
     </div>
   )
 }
