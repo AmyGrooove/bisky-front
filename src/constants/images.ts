@@ -1,6 +1,6 @@
 import { APP_URL } from "./links"
 
-const APP_URL_ICON = APP_URL + "/icons" || "/icons"
+const APP_URL_ICON = "https://dev.bisky.one" + "/icons" || "/icons"
 
 export const BISKY_ERROR_1 = `${APP_URL_ICON}/biskyError1.png`
 export const BISKY_ERROR_2 = `${APP_URL_ICON}/biskyError2.png`

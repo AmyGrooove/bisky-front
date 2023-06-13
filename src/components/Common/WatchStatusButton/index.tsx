@@ -4,6 +4,7 @@ import { cl } from "@/utils"
 import { CHECK, PLAY, STAR_FULL, STAR_OUTLINE, TRASH } from "@/constants"
 
 import AppImage from "../AppImage"
+import Button from "../Button"
 
 import styles from "./index.module.scss"
 
@@ -39,9 +40,9 @@ const WatchStatusButton = ({
       : TRASH
 
   return (
-    <button className={cl(styles.watchStatusButton, SELECT_STATUS, className)}>
+    <Button className={cl(styles.watchStatusButton, SELECT_STATUS, className)}>
       <AppImage src={SELECT_STATUS_TEXT} width={20} height={20} />
-    </button>
+    </Button>
   )
 }
 
