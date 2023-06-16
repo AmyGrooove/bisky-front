@@ -67,7 +67,9 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
           <ResponsiveComponent mobile={<BottomNavigation />}>
             <Header />
           </ResponsiveComponent>
-          <main>{children}</main>
+          <main className="main">
+            <div className="main__content">{children}</div>
+          </main>
           <Footer />
         </Modal>
       </body>

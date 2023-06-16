@@ -5,7 +5,7 @@ import AuthForm from "./AuthForm"
 
 const Page = () => {
   return (
-    <div className={cl(styles.authContainer, styles.contar)}>
+    <div className={styles.authContainer}>
       <AuthForm />
     </div>
   )

@@ -1,21 +1,14 @@
 "use client"
 
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import {
-  ChangeEvent,
-  FormEventHandler,
-  MouseEventHandler,
-  useState,
-} from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { FormEventHandler, useState } from "react"
 
-import { cl, getImageSrc } from "@/utils"
-import { ARROW, CROSS } from "@/constants"
-import AppImage from "@/components/Common/AppImage"
-import Button from "@/components/Common/Button"
-import Input from "@/components/Common/Input"
 import Checkbox from "@/components/Common/Checkbox"
+import IconButton from "@/components/Common/IconButton"
+import Input from "@/components/Common/Input"
+import { ARROW, BACK, GOOGLE, SHIKIMORI, VK } from "@/constants"
+import { cl } from "@/utils"
 
 import styles from "./index.module.scss"
 
@@ -68,50 +61,45 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
     <>
       <div className={cl(styles.authForm, className)}>
         <div className={styles.authForm__header}>
-          <Button
-            variant="subtle"
-            className={styles.authForm__header__back}
-            onClick={handleResetStates}
-          >
-            <AppImage src={CROSS} width={24} height={24} />
-          </Button>
+          {(showSignIn || showSignUp) && (
+            <IconButton
+              onClick={handleResetStates}
+              iconName={BACK}
+              size={24}
+              className={styles.authForm__header__back}
+            />
+          )}
           <h3 className={styles.authForm__header__title}>Вход</h3>
         </div>
         <form onSubmit={handleSubmit} className={styles.authForm__form}>
           <Input
-            variant="light"
+            variant="dark"
             right={
               !showSignIn &&
               !showSignUp && (
-                <Button
-                  type="submit"
-                  variant="subtle"
-                  className={styles.authForm__form__button}
-                >
-                  <AppImage src={ARROW} width={20} height={20} />
-                </Button>
+                <IconButton type="submit" iconName={ARROW} size={20} />
               )
             }
             placeholder="Имя пользователя"
             name="username"
             onChange={handleResetStates}
+            required
+            type="text"
+            pattern="[a-zA-Z0-9]{3,15}"
+            title="Имя должно быть длиною от 3 до 15 символов и состоять из цифр (0-9), строчных или заглавных букв (a-z, A-Z)."
           />
           {showSignIn && (
             <>
               <Input
                 className={styles.authForm__form__input}
-                variant="light"
-                right={
-                  <Button
-                    type="submit"
-                    variant="subtle"
-                    className={styles.authForm__form__button}
-                  >
-                    <AppImage src={ARROW} width={20} height={20} />
-                  </Button>
-                }
+                variant="dark"
+                right={<IconButton type="submit" iconName={ARROW} size={20} />}
                 placeholder="Пароль"
                 name="password"
+                required
+                type="password"
+                pattern="[a-zA-Z0-9!$#]{6,15}"
+                title="Пароль должно быть длиною от 6 до 15 символов и состоять из цифр (0-9), строчных или заглавных букв (a-z, A-Z) и символов (!, $, #)."
               />
             </>
           )}
@@ -119,26 +107,28 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
             <>
               <Input
                 className={styles.authForm__form__input}
-                variant="light"
+                variant="dark"
                 placeholder="Пароль"
                 name="password"
+                required
+                type="password"
+                pattern="[a-zA-Z0-9!$#]{6,15}"
+                title="Пароль должно быть длиною от 6 до 15 символов и состоять из цифр (0-9), строчных или заглавных букв (a-z, A-Z) и символов (!, $, #)."
               />
               <Input
                 className={styles.authForm__form__input}
-                variant="light"
+                variant="dark"
                 right={
                   confirmAgreement && (
-                    <Button
-                      type="submit"
-                      variant="subtle"
-                      className={styles.authForm__form__button}
-                    >
-                      <AppImage src={ARROW} width={20} height={20} />
-                    </Button>
+                    <IconButton type="submit" iconName={ARROW} size={20} />
                   )
                 }
                 placeholder="Повторите пароль"
                 name="confirmPassword"
+                required
+                type="password"
+                pattern="[a-zA-Z0-9!$#]{6,15}"
+                title="Пароль должно быть длиною от 6 до 15 символов и состоять из цифр (0-9), строчных или заглавных букв (a-z, A-Z) и символов (!, $, #)."
               />
               <Checkbox
                 onChange={() => setConfirmAgreement((prev) => !prev)}
@@ -153,6 +143,16 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
             </>
           )}
         </form>
+        {!showSignIn && !showSignUp && (
+          <>
+            <span>Или войти с помощью</span>
+            <div className={styles.authForm__providers}>
+              <IconButton iconName={GOOGLE} size={24} />
+              <IconButton iconName={SHIKIMORI} size={24} disabled />
+              <IconButton iconName={VK} size={24} disabled />
+            </div>
+          </>
+        )}
       </div>
     </>
   )

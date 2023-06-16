@@ -13,8 +13,16 @@ const meta: Meta<typeof IconButton> = {
 export default meta
 type Story = StoryObj<typeof IconButton>
 
-export const IconButtonDefault: Story = {
+export const IconButtonSubtle: Story = {
   args: {
+    variant: "subtle",
+    iconName: ARROW,
+  },
+}
+
+export const IconButtonFilled: Story = {
+  args: {
+    variant: "filled",
     iconName: ARROW,
   },
 }

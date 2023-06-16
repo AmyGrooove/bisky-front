@@ -3,23 +3,10 @@
 .iconButton {
   padding: 0px;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
 
   cursor: pointer;
   transition: 0.2s;
-
-  font-family: inherit;
-  font-weight: 700;
-
-  background-color: transparent;
-
-  svg {
-    fill: $bisky-light-100;
-  }
-
-  &:hover {
-    background-color: transparent;
-  }
 
   &:active {
     transform: scale(0.9);
@@ -31,5 +18,33 @@
     pointer-events: none;
 
     opacity: 0.4;
+  }
+
+  &_filled {
+    background-color: $bisky-300;
+    color: $bisky-light-100;
+
+    padding: 10px;
+
+    svg {
+      fill: $bisky-light-100;
+    }
+
+    &:hover {
+      background-color: $bisky-200;
+    }
+  }
+
+  &_subtle {
+    background-color: transparent;
+    color: $bisky-light-100;
+
+    svg {
+      fill: $bisky-light-100;
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 }

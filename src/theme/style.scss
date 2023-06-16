@@ -10,11 +10,42 @@
   }
 }
 
+html {
+  display: flex;
+  min-height: 100%;
+}
+
 body {
-  margin: 0;
-  background-color: $bisky-dark-400;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
   overflow-x: hidden;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: $bisky-dark-400;
+}
+
+.main {
+  position: relative;
+  height: 100%;
+  z-index: 10;
+
+  flex: 1 auto;
+
+  padding: 0 16px;
+  margin-bottom: 200px;
+
+  background-color: $bisky-dark-400;
+}
+
+.main__content {
+  max-width: 1080px;
+  height: 100%;
+
+  margin: 0 auto;
 }
 
 p,
@@ -28,4 +59,9 @@ h5 {
 
 a {
   text-decoration: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
 }
