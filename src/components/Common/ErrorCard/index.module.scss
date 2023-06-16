@@ -1,0 +1,38 @@
+@use "@/theme/colors.scss" as *;
+@use "@/theme/extra.scss" as *;
+
+.errorCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  width: fit-content;
+  border-radius: 20px;
+  padding: 32px;
+
+  background-color: $bisky-dark-200;
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  &__label {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  &__image {
+    background-color: transparent;
+  }
+}

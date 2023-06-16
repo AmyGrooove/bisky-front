@@ -11,7 +11,7 @@ const meta: Meta<typeof Header> = {
 export default meta
 type Story = StoryObj<typeof Header>
 
-export const HeaderOngoing: Story = {
+export const HeaderDefault: Story = {
   args: {
     children: "",
   },

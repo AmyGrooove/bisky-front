@@ -1,15 +1,11 @@
-import { ReactNode } from "react"
-
 import LeftSide from "./LeftSide"
 import RightSide from "./RightSide"
 import Search from "./Search"
 import styles from "./index.module.scss"
 
-interface IHeader {
-  children: ReactNode
-}
+interface IHeader {}
 
-const Header = ({ children }: IHeader) => {
+const Header = ({}: IHeader) => {
   return (
     <>
       <div className={styles.header}>
@@ -17,7 +13,6 @@ const Header = ({ children }: IHeader) => {
         <Search />
         <RightSide />
       </div>
-      {children}
     </>
   )
 }

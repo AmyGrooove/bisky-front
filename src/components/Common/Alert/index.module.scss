@@ -1,0 +1,41 @@
+@use "@/theme/colors.scss" as *;
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 4px;
+
+  max-width: 400px;
+
+  padding: 16px 24px;
+  border-radius: 16px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__message {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 300;
+  }
+
+  &_red {
+    background-color: $red;
+  }
+
+  &_green {
+    background-color: $green;
+  }
+
+  &_blue {
+    background-color: $blue;
+  }
+
+  &_orange {
+    background-color: $orange;
+  }
+}

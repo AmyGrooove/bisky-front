@@ -6,19 +6,18 @@ import { cl } from "@/utils"
 
 import styles from "./index.module.scss"
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
-
+interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode
   variant?: "filled" | "subtle" | "outline"
   className?: string
 }
 
 const Button = ({
   variant = "filled",
-  children,
-  className,
+  children = "",
+  className = "",
   ...props
-}: IButtonProps) => {
+}: IButton) => {
   const variants = {
     filled: styles.button_filled,
     subtle: styles.button_subtle,

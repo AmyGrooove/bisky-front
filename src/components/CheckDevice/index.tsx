@@ -13,6 +13,7 @@ interface ICheckDevice {
 
 const CheckDevice = observer(({ children }: ICheckDevice) => {
   const { isMobile } = screenStore
+  console.log(isMobile)
 
   return <>{false ? <>{children}</> : <Header>{children}</Header>}</>
 })

@@ -1,0 +1,35 @@
+@use "@/theme/colors.scss" as *;
+
+.iconButton {
+  padding: 0px;
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: 0.2s;
+
+  font-family: inherit;
+  font-weight: 700;
+
+  background-color: transparent;
+
+  svg {
+    fill: $bisky-light-100;
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:active {
+    transform: scale(0.9);
+    transition-duration: 200ms;
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    opacity: 0.4;
+  }
+}
