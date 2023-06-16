@@ -1,4 +1,7 @@
 import { cl } from "@/utils"
+import { CROSS } from "@/constants"
+
+import IconButton from "../IconButton"
 
 import styles from "./index.module.scss"
 
@@ -6,6 +9,7 @@ interface IAlert {
   title: string
 
   color?: "red" | "green" | "blue" | "orange"
+  onClose?: () => void
   children?: string
   className?: string
 }
@@ -13,6 +17,7 @@ interface IAlert {
 const Alert = ({
   title,
   color = "blue",
+  onClose,
   children = "",
   className = "",
 }: IAlert) => {
@@ -25,7 +30,10 @@ const Alert = ({
 
   return (
     <div className={cl(styles.alert, colors[color], className)}>
-      <span className={styles.alert__title}>{title}</span>
+      <div className={styles.alert__header}>
+        <span className={styles.alert__header__title}>{title}</span>
+        <IconButton iconName={CROSS} onClick={onClose} />
+      </div>
       <p className={styles.alert__message}>{children}</p>
     </div>
   )

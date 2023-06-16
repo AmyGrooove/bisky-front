@@ -6,13 +6,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 32px;
 
-  width: 380px;
+  width: 370px;
   padding: 24px;
   border-radius: 20px;
 
-  background-color: $bisky-dark-100;
+  background-color: $bisky-dark-300;
 
   &__header {
     display: flex;
@@ -23,16 +23,12 @@
     width: 100%;
 
     &__back {
-      padding: 0;
-
-      svg {
-        fill: $bisky-100;
-      }
+      position: absolute;
     }
 
     &__title {
       font-weight: 700;
-      font-size: 32px;
+      font-size: 26px;
       line-height: 38px;
 
       color: $bisky-light-100;
@@ -51,14 +47,14 @@
     &__input {
       animation: fadeInDown 0.3s ease-in-out 0s;
     }
+  }
 
-    // &__input:nth-child(3) {
-    //   animation: fadeInDown 0.5s ease-in-out 0.2s;
-    // }
-
-    &__button {
-      padding: 0;
-    }
+  &__providers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
   }
 }
 

@@ -8,11 +8,11 @@ interface IHeader {}
 const Header = ({}: IHeader) => {
   return (
     <>
-      <div className={styles.header}>
+      <header className={styles.header}>
         <LeftSide />
         <Search />
         <RightSide />
-      </div>
+      </header>
     </>
   )
 }

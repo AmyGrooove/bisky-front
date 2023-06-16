@@ -11,10 +11,20 @@
   padding: 16px 24px;
   border-radius: 16px;
 
-  &__title {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &__close {
+    }
   }
 
   &__message {

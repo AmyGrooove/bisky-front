@@ -24,6 +24,12 @@
       color: $bisky-light-400;
     }
 
+    &:focus {
+      outline-width: 2px;
+      outline-style: solid;
+      outline-offset: 2px;
+    }
+
     &:disabled {
       cursor: default;
       pointer-events: auto;
@@ -32,8 +38,11 @@
     }
 
     &_light {
+      color-scheme: light;
       background-color: $bisky-light-100;
       color: $bisky-dark-400;
+
+      outline-color: $bisky-light-100;
 
       &:focus + .inputGroup__right svg {
         fill: $bisky-dark-400 !important;
@@ -41,8 +50,11 @@
     }
 
     &_dark {
+      color-scheme: dark;
       background-color: $bisky-dark-100;
       color: $bisky-light-100;
+
+      outline-color: $bisky-dark-100;
 
       &:focus + .inputGroup__right svg {
         fill: $bisky-light-100 !important;
