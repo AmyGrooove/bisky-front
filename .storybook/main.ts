@@ -6,6 +6,9 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-essentials",
   ],
+  core: {
+    disableTelemetry: true,
+  },
   framework: {
     name: "@storybook/nextjs",
     options: {},

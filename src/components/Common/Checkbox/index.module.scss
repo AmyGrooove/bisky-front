@@ -1,0 +1,66 @@
+@use "@/theme/colors.scss" as *;
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  &__checkbox {
+    position: relative;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__input {
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    background-color: $bisky-dark-300;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    padding: 0px;
+    margin: 0px;
+
+    transition: background-color 0.3s ease 0s;
+
+    &:checked {
+      background-color: $bisky-300;
+    }
+
+    &:checked + .checkboxGroup__icon {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+
+      color: $bisky-light-100;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 1;
+    margin: auto;
+
+    pointer-events: none;
+
+    transform: translateY(8px) scale(0.5);
+    transition-property: opacity, transform;
+    transition-timing-function: ease;
+    transition-duration: 0.1s;
+
+    svg {
+      fill: $bisky-light-300;
+    }
+  }
+
+  &__label {
+    width: 100%;
+
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}

@@ -1,6 +1,4 @@
-"use client"
-
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ReactNode } from "react"
 
 import { cl } from "@/utils"
 

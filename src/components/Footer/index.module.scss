@@ -1,0 +1,20 @@
+@use "@/theme/colors.scss" as *;
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: auto;
+  min-height: 80px;
+  width: 100%;
+
+  background-color: $bisky-dark-300;
+
+  &__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
