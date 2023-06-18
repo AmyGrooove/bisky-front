@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { cl } from "@/utils"
 import AppImage from "@/components/Common/AppImage"
 
@@ -6,6 +8,7 @@ import styles from "./index.module.scss"
 interface INavigationItem {
   iconName: string
   label: string
+  href: string
 
   active?: boolean
   className?: string
@@ -14,13 +17,17 @@ interface INavigationItem {
 const NavigationItem = ({
   iconName,
   label,
+  href,
   active = false,
   className = "",
 }: INavigationItem) => {
   const activeClass = active ? styles.navigationItem_active : ""
 
   return (
-    <div className={cl(styles.navigationItem, activeClass, className)}>
+    <Link
+      href={href}
+      className={cl(styles.navigationItem, activeClass, className)}
+    >
       <AppImage
         className={styles.navigationItem__icon}
         imageType="vector"
@@ -29,7 +36,7 @@ const NavigationItem = ({
         height={20}
       />
       <span className={styles.navigationItem__label}>{label}</span>
-    </div>
+    </Link>
   )
 }
 
