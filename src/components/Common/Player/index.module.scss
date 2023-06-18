@@ -1,0 +1,53 @@
+@use "@/theme/colors.scss" as *;
+
+.player {
+  position: relative;
+  height: 640px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  &:hover .player__controls {
+    transform: translateY(0%);
+  }
+
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    max-width: 500px;
+
+    padding: 14px;
+    border-radius: 10px;
+
+    background-color: transparentize($bisky-dark-200, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    transform: translateY(150%);
+    transition: all 0.3s ease-in-out;
+
+    &__actions {
+    }
+
+    &__velocity {
+      appearance: none;
+      background: none;
+      color: white;
+      outline: none;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+}

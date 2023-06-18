@@ -1,6 +1,7 @@
 import { APP_URL } from "./links"
 
 const APP_URL_ICON = "https://dev.bisky.one" + "/icons" || "/icons"
+// const APP_URL_ICON = "http://localhost:3001/" + "/icons" || "/icons"
 
 export const BISKY_ERROR_1 = `${APP_URL_ICON}/biskyError1.png`
 export const BISKY_ERROR_2 = `${APP_URL_ICON}/biskyError2.png`
@@ -30,3 +31,6 @@ export const STAR_OUTLINE = `${APP_URL_ICON}/starOutline.svg`
 export const TRASH = `${APP_URL_ICON}/trash.svg`
 export const VK = `${APP_URL_ICON}/vk.svg`
 export const BACK = `${APP_URL_ICON}/back.svg`
+export const PAUSE = `${APP_URL_ICON}/pause.svg`
+export const VOLUMEON = `${APP_URL_ICON}/volumeOn.svg`
+export const VOLUMEOFF = `${APP_URL_ICON}/volumeOff.svg`

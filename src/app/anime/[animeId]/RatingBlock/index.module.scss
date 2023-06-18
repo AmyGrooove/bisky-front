@@ -1,0 +1,29 @@
+@use "@/theme/colors.scss" as *;
+
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  &__score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    &__count {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: $bisky-light-400;
+    }
+  }
+}
