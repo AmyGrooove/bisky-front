@@ -1,0 +1,127 @@
+@use "@/theme/colors.scss" as *;
+
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+
+  height: 500px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: fit-content;
+
+    margin-top: 32px;
+  }
+
+  &__poster {
+    position: relative;
+
+    &__anime {
+      border-radius: 10px;
+    }
+
+    &__score {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+  }
+
+  &__backgroundContainer {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    z-index: -10;
+    width: 100%;
+    height: 500px;
+
+    @media (max-width: 768px) {
+      height: fit-content;
+    }
+  }
+
+  &__background {
+    object-fit: cover;
+    filter: brightness(0.4);
+
+    width: 100%;
+    height: 500px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  &__upper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+
+    &__title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 38px;
+    }
+
+    &__subtitle {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+
+      color: $bisky-light-400;
+    }
+
+    &__rating {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      padding: 4px;
+      border-radius: 10px;
+
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+
+      background-color: $bisky-light-200;
+      color: $bisky-dark-400;
+      opacity: 0.8;
+    }
+  }
+
+  &__summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+
+      svg {
+        fill: $bisky-light-100;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
