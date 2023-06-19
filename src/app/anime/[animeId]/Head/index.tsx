@@ -3,9 +3,9 @@ import { notFound } from "next/navigation"
 import AppImage from "@/components/Common/AppImage"
 import ScoreBadge from "@/components/Common/ScoreBadge"
 import Title from "@/components/Common/Title"
-import { CALENDAR, CLOCK, PLAYER } from "@/constants"
 import { getOneAnimeInfo } from "@/services"
 import { formatDate } from "@/utils"
+import { CalendarIcon, ClockIcon, PlayerIcon } from "@/Icons"
 
 import styles from "./index.module.scss"
 
@@ -47,29 +47,19 @@ const Head = async ({ animeId = 0 }: IHead) => {
           </div>
           <div className={styles.head__summary}>
             <div className={styles.head__summary__item}>
-              <AppImage
-                imageType="vector"
-                width={24}
-                height={24}
-                src={PLAYER}
-              />
+              <PlayerIcon size={24} />
               <span>
                 {animeInfo.episodes.count} эп. по ~{" "}
                 {animeInfo.episodes.duration} мин.
               </span>
             </div>
             <div className={styles.head__summary__item}>
-              <AppImage imageType="vector" width={24} height={24} src={CLOCK} />
+              <ClockIcon size={24} />
               <span>Сериал,</span>
               <span>вышел</span>
             </div>
             <div className={styles.head__summary__item}>
-              <AppImage
-                imageType="vector"
-                width={24}
-                height={24}
-                src={CALENDAR}
-              />
+              <CalendarIcon size={24} />
               <span>{formatDate(animeInfo.dates.released_on)}</span>
             </div>
           </div>

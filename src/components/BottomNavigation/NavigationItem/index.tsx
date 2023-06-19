@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ReactNode } from "react"
 
 import { cl } from "@/utils"
 import AppImage from "@/components/Common/AppImage"
@@ -6,7 +7,7 @@ import AppImage from "@/components/Common/AppImage"
 import styles from "./index.module.scss"
 
 interface INavigationItem {
-  iconName: string
+  icon: ReactNode
   label: string
   href: string
 
@@ -15,7 +16,7 @@ interface INavigationItem {
 }
 
 const NavigationItem = ({
-  iconName,
+  icon,
   label,
   href,
   active = false,
@@ -28,13 +29,7 @@ const NavigationItem = ({
       href={href}
       className={cl(styles.navigationItem, activeClass, className)}
     >
-      <AppImage
-        className={styles.navigationItem__icon}
-        imageType="vector"
-        src={iconName}
-        width={20}
-        height={20}
-      />
+      {icon}
       <span className={styles.navigationItem__label}>{label}</span>
     </Link>
   )

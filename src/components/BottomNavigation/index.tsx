@@ -1,5 +1,5 @@
 import { cl } from "@/utils"
-import { SEARCH, STAR_FULL } from "@/constants"
+import { SearchIcon, StarFullIcon } from "@/Icons"
 
 import styles from "./index.module.scss"
 import NavigationItem from "./NavigationItem"
@@ -12,31 +12,31 @@ const BottomNavigation = ({ className = "" }: IBottomNavigation) => {
   const items = [
     {
       label: "Главная",
-      icon: STAR_FULL,
+      icon: <StarFullIcon />,
       href: "/",
       active: true,
     },
     {
       label: "Каталог",
-      icon: STAR_FULL,
+      icon: <StarFullIcon />,
       href: "/",
       active: false,
     },
     {
       label: "Моё",
-      icon: STAR_FULL,
+      icon: <StarFullIcon />,
       href: "/",
       active: false,
     },
     {
       label: "Аккаунт",
-      icon: STAR_FULL,
+      icon: <StarFullIcon />,
       href: "/",
       active: false,
     },
     {
       label: "Поиск",
-      icon: SEARCH,
+      icon: <SearchIcon />,
       href: "/",
       active: false,
     },
@@ -49,7 +49,7 @@ const BottomNavigation = ({ className = "" }: IBottomNavigation) => {
           key={index}
           label={item.label}
           href={item.href}
-          iconName={item.icon}
+          icon={item.icon}
           active={item.active}
         />
       ))}

@@ -1,4 +1,5 @@
-const APP_URL = process.env.APP_URL || "https://bisky.one"
+const API_URL = process.env.API_URL || ""
+
 const SHKIMORI_URL = "https://shikimori.me"
 
-export { APP_URL, SHKIMORI_URL }
+export { API_URL, SHKIMORI_URL }

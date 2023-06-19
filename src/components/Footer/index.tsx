@@ -1,14 +1,8 @@
-import { cl } from "@/utils"
-
 import styles from "./index.module.scss"
 
-interface IFooter {
-  className?: string
-}
-
-const Footer = ({ className = "" }: IFooter) => {
+const Footer = () => {
   return (
-    <footer className={cl(styles.footer, className)}>
+    <footer className={styles.footer}>
       <span className={styles.footer__title}>Bisky</span>
     </footer>
   )

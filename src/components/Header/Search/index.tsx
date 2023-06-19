@@ -1,5 +1,5 @@
 import Input from "@/components/Common/Input"
-import { SEARCH } from "@/constants"
+import { SearchIcon } from "@/Icons"
 import IconButton from "@/components/Common/IconButton"
 
 import styles from "./index.module.scss"
@@ -9,7 +9,7 @@ const Search = () => {
     <div className={styles.search}>
       <Input
         variant="dark"
-        right={<IconButton iconName={SEARCH} />}
+        right={<IconButton icon={<SearchIcon />} />}
         type="text"
         placeholder="Поиск"
       />

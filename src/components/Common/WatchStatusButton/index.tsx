@@ -1,9 +1,14 @@
 import { MouseEventHandler } from "react"
 
 import { cl } from "@/utils"
-import { CHECK, PLAY, STAR_FULL, STAR_OUTLINE, TRASH } from "@/constants"
+import {
+  CheckIcon,
+  PlayIcon,
+  StarFullIcon,
+  StarOutlineIcon,
+  TrashIcon,
+} from "@/Icons"
 
-import AppImage from "../AppImage"
 import Button from "../Button"
 
 import styles from "./index.module.scss"
@@ -29,19 +34,21 @@ const WatchStatusButton = ({
       : styles.watchStatusButton_setWatch
 
   const SELECT_STATUS_TEXT =
-    status === "setWatch"
-      ? STAR_OUTLINE
-      : status === "added"
-      ? STAR_FULL
-      : status === "complete"
-      ? CHECK
-      : status === "watching"
-      ? PLAY
-      : TRASH
+    status === "setWatch" ? (
+      <StarOutlineIcon size={20} />
+    ) : status === "added" ? (
+      <StarFullIcon size={20} />
+    ) : status === "complete" ? (
+      <CheckIcon size={20} />
+    ) : status === "watching" ? (
+      <PlayIcon size={20} />
+    ) : (
+      <TrashIcon size={20} />
+    )
 
   return (
     <Button className={cl(styles.watchStatusButton, SELECT_STATUS, className)}>
-      <AppImage src={SELECT_STATUS_TEXT} width={20} height={20} />
+      {SELECT_STATUS_TEXT}
     </Button>
   )
 }

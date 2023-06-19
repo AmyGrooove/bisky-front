@@ -1,4 +1,7 @@
 "use client"
+import ErrorCard from "@/components/Common/ErrorCard"
+
+import styles from "./index.module.scss"
 
 export default function GlobalError({
   error,
@@ -10,8 +13,9 @@ export default function GlobalError({
   return (
     <html>
       <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+        <div className={styles.error404}>
+          <ErrorCard type={"500"} />
+        </div>
       </body>
     </html>
   )

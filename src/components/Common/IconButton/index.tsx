@@ -1,26 +1,22 @@
 "use client"
 
-import { ButtonHTMLAttributes } from "react"
+import { ButtonHTMLAttributes, ReactNode } from "react"
 
 import { cl } from "@/utils"
-
-import AppImage from "../AppImage"
 
 import styles from "./index.module.scss"
 
 interface IIconButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  iconName: string
+  icon: ReactNode
 
   variant?: "filled" | "subtle"
-  size?: number
   className?: string
 }
 
 const IconButton = ({
-  iconName,
-  size = 20,
+  icon,
   variant = "subtle",
-  className = "",
+  className,
   ...props
 }: IIconButton) => {
   const variants = {
@@ -33,7 +29,7 @@ const IconButton = ({
       {...props}
       className={cl(styles.iconButton, variants[variant], className)}
     >
-      <AppImage imageType="vector" src={iconName} width={size} height={size} />
+      {icon}
     </button>
   )
 }

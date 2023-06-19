@@ -15,7 +15,7 @@ interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = ({
   variant = "filled",
   children = "",
-  className = "",
+  className,
   ...props
 }: IButton) => {
   const variants = {

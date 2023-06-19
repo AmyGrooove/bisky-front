@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react"
 
 import IconButton from "@/components/Common/IconButton"
-import { STAR_FULL, STAR_OUTLINE } from "@/constants"
+import { StarFullIcon, StarOutlineIcon } from "@/Icons"
 
 import styles from "./index.module.scss"
 
@@ -28,17 +28,17 @@ const Rating = ({
   const getStar = (index: number) => {
     if (readOnly) {
       if (defaultValue >= index) {
-        return STAR_FULL
+        return <StarFullIcon size={28} />
       } else {
-        return STAR_OUTLINE
+        return <StarOutlineIcon size={28} />
       }
     } else {
       if (hoveredStars >= index) {
-        return STAR_FULL
+        return <StarFullIcon size={28} />
       } else if (!hoveredStars && defaultValue >= index) {
-        return STAR_FULL
+        return <StarFullIcon size={28} />
       }
-      return STAR_OUTLINE
+      return <StarOutlineIcon size={28} />
     }
   }
 
@@ -52,8 +52,7 @@ const Rating = ({
             onClick={onSelectedClick && (() => onSelectedClick(index))}
             onMouseEnter={() => setHoveredStars(index)}
             onMouseLeave={() => setHoveredStars(0)}
-            iconName={getStar(index)}
-            size={28}
+            icon={getStar(index)}
             className={styles.rating__item__star}
           />
           {withLabels && (

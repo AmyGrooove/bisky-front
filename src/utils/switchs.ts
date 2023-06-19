@@ -2,12 +2,11 @@ import { SHKIMORI_URL } from "@/constants"
 
 const getImageSrc = (
   src: string,
-  imageType: "poster" | "screenshot" | "search" | "vector" = "vector",
+  imageType: "poster" | "screenshot",
   errorGet = false,
 ) => {
   switch (imageType) {
     case "poster":
-    case "search":
       return SHKIMORI_URL + "/system/animes/original/" + src + ".jpg"
     case "screenshot":
       return SHKIMORI_URL + "/system/screenshots/original/" + src + ".jpg"
