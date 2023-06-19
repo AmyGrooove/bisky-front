@@ -2,13 +2,12 @@
 
 .footer {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
 
   position: fixed;
   bottom: 0;
-  height: 200px;
+  height: 80px;
   width: 100%;
 
   background-color: $bisky-dark-300;

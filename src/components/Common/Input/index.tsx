@@ -12,12 +12,7 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
 }
 
-const Input = ({
-  variant = "light",
-  className = "",
-  right = "",
-  ...props
-}: IInput) => {
+const Input = ({ variant = "light", right, className, ...props }: IInput) => {
   const variants = {
     light: styles.inputGroup__input_light,
     dark: styles.inputGroup__input_dark,
@@ -29,7 +24,7 @@ const Input = ({
         {...props}
         className={cl(styles.inputGroup__input, variants[variant])}
       />
-      {right !== "" && <div className={styles.inputGroup__right}>{right}</div>}
+      {right && <div className={styles.inputGroup__right}>{right}</div>}
     </div>
   )
 }

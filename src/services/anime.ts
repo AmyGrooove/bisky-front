@@ -5,40 +5,57 @@ import graphqlClient from "./GraphQLClient"
 export const getOneAnimeInfo = async (animeId: number) => {
   const response = await graphqlClient.makeRequest(`query getOneAnimeInfo {
     getOneAnime(id: ${animeId}) {
-      id
-      labels
-      poster  
-      kind
-      scores
       anotherScores
-      status
-      episodes {
-        count
-        aired
-        duration
-        next_episode_at
-      }
       dates {
         aired_on
         released_on
       }
-      rating
       description
-      screenshots
-      videos
-      genres
-      studios
+      episodes {
+        aired
+        count
+        duration
+        next_episode_at
+      }
       franshise {
-        name
         animes {
+          anotherScores
           id
+          kind
+          labels
+          poster
           relation {
             en
             ru
           }
+          scores
+          status
         }
+        name
+      }
+      genres {
+        id
+        name {
+          en
+          ru
+        }
+        type
+      }
+      id
+      kind
+      labels
+      poster
+      rating
+      scores
+      screenshots
+      status
+      studios {
+        id
+        img
+        name
       }
       updateDate
+      videos
     }
   }`)
 

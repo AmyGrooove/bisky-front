@@ -8,7 +8,7 @@ interface ISpinner {
   className?: string
 }
 
-const Spinner = ({ size = 20, color = "blue", className }: ISpinner) => {
+const Spinner = ({ size = 20, color = "bisky", className }: ISpinner) => {
   const colors = {
     lime: styles.spinner_lime,
     gray: styles.spinner_gray,

@@ -3,7 +3,6 @@ import { Roboto } from "next/font/google"
 import "@/theme/style.scss"
 
 import Modal from "@/components/Modal"
-import { APP_URL } from "@/constants"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import ResponsiveComponent from "@/components/ResponsiveComponent/ResponsiveComponent"
@@ -16,7 +15,7 @@ const roboto = Roboto({
 })
 
 export const metadata = {
-  metadataBase: new URL(APP_URL),
+  // metadataBase: "",
 
   title: "Bisky — Смотреть Аниме онлайн",
   description:

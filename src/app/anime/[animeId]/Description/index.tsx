@@ -4,9 +4,9 @@ import { useState } from "react"
 
 import AppImage from "@/components/Common/AppImage"
 import Button from "@/components/Common/Button"
-import { MASK, PAINT } from "@/constants"
 import { IAnimeInfo } from "@/types"
 import { cl } from "@/utils"
+import { MaskIcon, PaintIcon } from "@/Icons"
 
 import styles from "./index.module.scss"
 
@@ -23,11 +23,11 @@ const Description = ({ description = "" }: IDescription) => {
     <>
       <div className={styles.genres}>
         <div className={styles.genres__item}>
-          <AppImage imageType="vector" width={24} height={24} src={MASK} />
+          <MaskIcon size={24} />
           <span>боевик, боевик, боевик, боевик</span>
         </div>
         <div className={styles.genres__item}>
-          <AppImage imageType="vector" width={24} height={24} src={PAINT} />
+          <PaintIcon size={24} />
           <span>David Production</span>
         </div>
       </div>

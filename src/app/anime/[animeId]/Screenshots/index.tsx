@@ -18,9 +18,7 @@ const Screenshots = async ({ animeId }: IScreenshots) => {
   return (
     <div>
       <div>
-        <Title order={2} withRight>
-          Кадры
-        </Title>
+        <Title order={2}>Кадры</Title>
         <Slider images={animeInfo.screenshots} />
       </div>
     </div>

@@ -1,5 +1,3 @@
-import { cl } from "@/utils"
-
 import styles from "./index.module.scss"
 import AuthForm from "./AuthForm"
 

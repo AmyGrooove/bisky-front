@@ -6,9 +6,7 @@ const Video = ({}: IVideo) => {
   return (
     <div>
       <div>
-        <Title order={2} withRight>
-          Видео
-        </Title>
+        <Title order={2}>Видео</Title>
       </div>
     </div>
   )

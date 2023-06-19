@@ -58,6 +58,7 @@ const AnimePosterCard = ({
 
         {posterType === "watching" &&
           anime.status === "ongoing" &&
+          watchedCount !== 0 &&
           anime.episodes.aired &&
           watchedCount &&
           anime.episodes.aired > watchedCount && (

@@ -3,7 +3,7 @@
 import { useRef } from "react"
 
 import { cl } from "@/utils"
-import { PAUSE, PLAY, VOLUMEOFF, VOLUMEON } from "@/constants"
+import { PauseIcon, PlayIcon, VolumeOffIcon, VolumeOnIcon } from "@/Icons"
 
 import IconButton from "../IconButton"
 
@@ -36,8 +36,13 @@ const Player = ({ className = "" }: IPlayer) => {
         <div className={styles.player__controls__actions}>
           <IconButton
             onClick={togglePlay}
-            iconName={!playerState.isPlaying ? PLAY : PAUSE}
-            size={25}
+            icon={
+              !playerState.isPlaying ? (
+                <PlayIcon size={24} />
+              ) : (
+                <PauseIcon size={24} />
+              )
+            }
           />
         </div>
         <input
@@ -59,8 +64,13 @@ const Player = ({ className = "" }: IPlayer) => {
         </select>
         <IconButton
           onClick={toggleMute}
-          iconName={!playerState.isMuted ? VOLUMEON : VOLUMEOFF}
-          size={40}
+          icon={
+            !playerState.isMuted ? (
+              <VolumeOnIcon size={20} />
+            ) : (
+              <VolumeOffIcon size={20} />
+            )
+          }
         />
       </div>
     </div>

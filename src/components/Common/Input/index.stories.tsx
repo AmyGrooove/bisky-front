@@ -1,5 +1,5 @@
 import IconButton from "@/components/Common/IconButton"
-import { SEARCH } from "@/constants"
+import { SearchIcon } from "@/Icons"
 
 import Input from "."
 
@@ -33,7 +33,7 @@ export const InputDark: Story = {
 export const InputLightWithRight: Story = {
   args: {
     variant: "light",
-    right: <IconButton iconName={SEARCH} />,
+    right: <IconButton icon={<SearchIcon />} />,
     placeholder: "Lorem ipsum dolor sit amet",
   },
 }
@@ -41,7 +41,7 @@ export const InputLightWithRight: Story = {
 export const InputDarkWithRight: Story = {
   args: {
     variant: "dark",
-    right: <IconButton iconName={SEARCH} />,
+    right: <IconButton icon={<SearchIcon />} />,
     placeholder: "",
   },
 }

@@ -1,5 +1,5 @@
 import { cl } from "@/utils"
-import { CROSS } from "@/constants"
+import { CrossIcon } from "@/Icons"
 
 import IconButton from "../IconButton"
 
@@ -32,7 +32,7 @@ const Alert = ({
     <div className={cl(styles.alert, colors[color], className)}>
       <div className={styles.alert__header}>
         <span className={styles.alert__header__title}>{title}</span>
-        <IconButton iconName={CROSS} onClick={onClose} />
+        <IconButton icon={<CrossIcon size={12} />} onClick={onClose} />
       </div>
       <p className={styles.alert__message}>{children}</p>
     </div>

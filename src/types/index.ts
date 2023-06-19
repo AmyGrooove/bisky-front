@@ -1,1 +1,1 @@
-export * from "./anime"
+export * from "./objects"

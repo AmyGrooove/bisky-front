@@ -1,16 +1,16 @@
 @use "@/theme/colors.scss" as *;
 
 .iconButton {
-  padding: 0px;
   border: none;
   border-radius: 6px;
+  padding: 8px;
 
   cursor: pointer;
   transition: 0.2s;
 
   &:active {
     transform: scale(0.9);
-    transition-duration: 200ms;
+    transition-duration: 0.2s;
   }
 
   &:disabled {
@@ -23,8 +23,6 @@
   &_filled {
     background-color: $bisky-300;
     color: $bisky-light-100;
-
-    padding: 10px;
 
     svg {
       fill: $bisky-light-100;

@@ -7,8 +7,8 @@ import { FormEventHandler, useState } from "react"
 import Checkbox from "@/components/Common/Checkbox"
 import IconButton from "@/components/Common/IconButton"
 import Input from "@/components/Common/Input"
-import { ARROW, BACK, GOOGLE, SHIKIMORI, VK } from "@/constants"
 import { cl } from "@/utils"
+import { ArrowIcon, BackIcon, GoogleIcon, ShikimoriIcon, VkIcon } from "@/Icons"
 
 import styles from "./index.module.scss"
 
@@ -64,8 +64,7 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
           {(showSignIn || showSignUp) && (
             <IconButton
               onClick={handleResetStates}
-              iconName={BACK}
-              size={24}
+              icon={<BackIcon size={24} />}
               className={styles.authForm__header__back}
             />
           )}
@@ -76,9 +75,7 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
             variant="dark"
             right={
               !showSignIn &&
-              !showSignUp && (
-                <IconButton type="submit" iconName={ARROW} size={20} />
-              )
+              !showSignUp && <IconButton type="submit" icon={<ArrowIcon />} />
             }
             placeholder="Имя пользователя"
             name="username"
@@ -93,7 +90,7 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
               <Input
                 className={styles.authForm__form__input}
                 variant="dark"
-                right={<IconButton type="submit" iconName={ARROW} size={20} />}
+                right={<IconButton type="submit" icon={<ArrowIcon />} />}
                 placeholder="Пароль"
                 name="password"
                 required
@@ -120,7 +117,7 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
                 variant="dark"
                 right={
                   confirmAgreement && (
-                    <IconButton type="submit" iconName={ARROW} size={20} />
+                    <IconButton type="submit" icon={<ArrowIcon />} />
                   )
                 }
                 placeholder="Повторите пароль"
@@ -147,9 +144,9 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
           <>
             <span>Или войти с помощью</span>
             <div className={styles.authForm__providers}>
-              <IconButton iconName={GOOGLE} size={24} />
-              <IconButton iconName={SHIKIMORI} size={24} disabled />
-              <IconButton iconName={VK} size={24} disabled />
+              <IconButton icon={<GoogleIcon size={24} />} />
+              <IconButton icon={<ShikimoriIcon size={24} />} disabled />
+              <IconButton icon={<VkIcon size={24} />} disabled />
             </div>
           </>
         )}

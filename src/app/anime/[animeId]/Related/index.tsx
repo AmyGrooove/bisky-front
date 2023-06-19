@@ -6,9 +6,7 @@ const Related = ({}: IRelated) => {
   return (
     <div>
       <div>
-        <Title order={2} withRight>
-          Связанное
-        </Title>
+        <Title order={2}>Связанное</Title>
       </div>
     </div>
   )

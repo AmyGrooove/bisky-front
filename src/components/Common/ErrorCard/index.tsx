@@ -7,20 +7,28 @@ import StatusBagde from "../StatusBadge"
 import styles from "./index.module.scss"
 
 interface IErrorCard {
-  type: 404 | 500
+  type: "404" | "500"
 
   className?: string
 }
 
 const ErrorCard = ({ type, className }: IErrorCard) => {
   const errors = {
-    404: {
+    "404": {
       label: "Страница не найдена",
       image: BISKY_ERROR_1,
+      size: {
+        width: 170,
+        height: 220,
+      },
     },
-    500: {
+    "500": {
       label: "Проблемы на сервере",
       image: BISKY_ERROR_2,
+      size: {
+        width: 220,
+        height: 170,
+      },
     },
   }
 
@@ -34,8 +42,8 @@ const ErrorCard = ({ type, className }: IErrorCard) => {
         className={styles.errorCard__image}
         imageType="another"
         src={errors[type].image}
-        width={170}
-        height={217}
+        width={errors[type].size.width}
+        height={errors[type].size.height}
       />
     </div>
   )
