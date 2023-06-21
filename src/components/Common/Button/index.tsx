@@ -18,16 +18,10 @@ const Button = ({
   className,
   ...props
 }: IButton) => {
-  const variants = {
-    filled: styles.button_filled,
-    subtle: styles.button_subtle,
-    outline: styles.button_outline,
-  }
-
   return (
     <button
       {...props}
-      className={cl(styles.button, variants[variant], className)}
+      className={cl(styles.button, styles[`button_${variant}`], className)}
     >
       {children}
     </button>

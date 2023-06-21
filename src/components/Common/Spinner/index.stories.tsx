@@ -11,6 +11,13 @@ const meta: Meta<typeof Spinner> = {
 export default meta
 type Story = StoryObj<typeof Spinner>
 
+export const SpinnerWhite: Story = {
+  args: {
+    color: "white",
+    size: 36,
+  },
+}
+
 export const SpinnerLime: Story = {
   args: {
     color: "lime",

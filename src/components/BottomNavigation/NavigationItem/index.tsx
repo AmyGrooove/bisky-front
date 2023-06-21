@@ -20,7 +20,7 @@ const NavigationItem = ({
   label,
   href,
   active = false,
-  className = "",
+  className,
 }: INavigationItem) => {
   const activeClass = active ? styles.navigationItem_active : ""
 

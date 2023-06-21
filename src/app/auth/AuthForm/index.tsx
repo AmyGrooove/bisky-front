@@ -17,7 +17,7 @@ interface IAuthForm {
   className?: string
 }
 
-const AuthForm = ({ className = "" }: IAuthForm) => {
+const AuthForm = ({ className }: IAuthForm) => {
   const router = useRouter()
 
   const searchParams = useSearchParams()

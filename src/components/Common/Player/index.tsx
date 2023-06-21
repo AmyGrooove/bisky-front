@@ -14,7 +14,7 @@ interface IPlayer {
   className?: string
 }
 
-const Player = ({ className = "" }: IPlayer) => {
+const Player = ({ className }: IPlayer) => {
   const videoElement = useRef(null)
   const {
     playerState,

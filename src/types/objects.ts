@@ -20,38 +20,61 @@ export interface ISeason {
 export interface IAnimeInfo {
   id: number
   labels: string[]
-  poster: string
-  kind: string
+  poster: string | null
+  kind: "tv" | "movie" | "ova" | "ona" | "special" | "music"
   scores: number
   anotherScores: number[]
-  status: string
+  status: "anons" | "ongoing" | "released"
   episodes: {
-    count: number
-    aired: number
+    count: number | null
+    aired: number | null
     duration: number
-    next_episode_at: Date
+    next_episode_at: Date | null
   }
   dates: {
-    aired_on: Date
-    released_on: Date
+    aired_on: Date | null
+    released_on: Date | null
   }
   rating: "none" | "g" | "pg" | "pg_13" | "r" | "r_plus" | "rx"
-  description: string
+  description: string | null
   screenshots: string[]
   videos: string[]
-  genres: number[]
-  studios: number[]
-  franshise: {
-    name: string
-    animes: {
-      id: number
-      relation: {
-        en: string
-        ru: string
-      }
-    }[]
-  }
+  genres: IGenre[]
+  franshise: IFranshise
+  studios: IStudio[]
   updateDate: Date
+}
+
+export interface IGenre {
+  id: number
+  name: {
+    en: string
+    ru: string
+  }
+  type: "anime" | "manga" | null
+}
+
+export interface IFranshise {
+  name: string
+  animes: {
+    id: number
+    labels: string[]
+    poster: string | null
+    kind: "tv" | "movie" | "ova" | "ona" | "special" | "music"
+    scores: number
+    anotherScores: number[]
+    status: "anons" | "ongoing" | "released"
+    relation: {
+      en: string
+      ru: string
+    }
+  }[]
+}
+
+export interface IStudio {
+  id: number
+  name: string
+  img: string | null
 }
 
 export interface IUser {

@@ -1,16 +1,9 @@
 "use client"
 
-import {
-  InputHTMLAttributes,
-  ReactNode,
-  memo,
-  useEffect,
-  useMemo,
-  useState,
-} from "react"
+import { InputHTMLAttributes, ReactNode, useEffect, useState } from "react"
 
-import { cl } from "@/utils"
 import { CheckIcon } from "@/Icons"
+import { cl } from "@/utils"
 
 import styles from "./index.module.scss"
 

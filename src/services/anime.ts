@@ -2,6 +2,10 @@ import graphqlClient from "@/lib/graphqlClient"
 import { IAnimeInfo } from "@/types"
 
 export const getOneAnimeInfo = async (animeId: number) => {
+  // if (typeof animeId !== "number") {
+  //   throw new Error("[getOneAnimeInfo] 'animeId' is not a number")
+  // }
+
   const { data } = await graphqlClient.makeRequest(`
     query GetOneAnime {
       getOneAnime(id: ${animeId}) {

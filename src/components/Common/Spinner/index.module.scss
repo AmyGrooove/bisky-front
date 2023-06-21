@@ -8,6 +8,11 @@
   -webkit-animation: rotation 0.8s ease infinite;
   animation: rotation 0.8s ease infinite;
 
+  &_white {
+    border-top-color: $bisky-light-100;
+    border-bottom-color: $bisky-light-100;
+  }
+
   &_lime {
     border-top-color: $lime;
     border-bottom-color: $lime;

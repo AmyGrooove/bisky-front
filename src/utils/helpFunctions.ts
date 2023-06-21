@@ -15,4 +15,8 @@ const cl = (...args: (string | undefined | false)[]) => {
   return args.filter((el) => el !== undefined && el !== false).join(" ")
 }
 
-export { debounce, cl }
+function hasOnlyDigits(str: string) {
+  return /^-?\d+$/.test(str)
+}
+
+export { debounce, cl, hasOnlyDigits }
