@@ -8,7 +8,7 @@ interface IBottomNavigation {
   className?: string
 }
 
-const BottomNavigation = ({ className = "" }: IBottomNavigation) => {
+const BottomNavigation = ({ className }: IBottomNavigation) => {
   const items = [
     {
       label: "Главная",

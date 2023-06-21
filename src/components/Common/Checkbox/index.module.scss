@@ -16,6 +16,8 @@
     appearance: none;
     background-color: $bisky-dark-100;
 
+    cursor: pointer;
+
     width: 20px;
     height: 20px;
     border-radius: 4px;
@@ -55,6 +57,11 @@
 
   &__label {
     width: 100%;
+
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
 
     font-weight: 400;
     font-size: 14px;

@@ -19,17 +19,10 @@ const Alert = ({
   color = "blue",
   onClose,
   children = "",
-  className = "",
+  className,
 }: IAlert) => {
-  const colors = {
-    red: styles.alert_red,
-    green: styles.alert_green,
-    blue: styles.alert_blue,
-    orange: styles.alert_orange,
-  }
-
   return (
-    <div className={cl(styles.alert, colors[color], className)}>
+    <div className={cl(styles.alert, styles[`alert_${color}`], className)}>
       <div className={styles.alert__header}>
         <span className={styles.alert__header__title}>{title}</span>
         <IconButton icon={<CrossIcon size={12} />} onClick={onClose} />

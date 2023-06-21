@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 
 import { getOneAnimeInfo } from "@/services"
+import { hasOnlyDigits } from "@/utils"
 
 import Description from "./Description"
 import Head from "./Head"
@@ -24,11 +25,13 @@ import styles from "./index.module.scss"
 //   }));
 // }
 
-const Page = async ({
-  params: { animeId },
-}: {
-  params: { animeId: number }
-}) => {
+const Page = async ({ params: { id } }: { params: { id: string } }) => {
+  if (!hasOnlyDigits(id)) {
+    return notFound()
+  }
+
+  const animeId = parseInt(id)
+
   const animeInfo = await getOneAnimeInfo(animeId)
 
   // const { data: findAnimeId } = await graphqlClient.makeRequest(`

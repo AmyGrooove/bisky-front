@@ -15,7 +15,7 @@ const RightSide = () => {
   const variants = {
     loading: {
       href: "/",
-      button: <Spinner color="gray" />,
+      button: <Spinner color="white" size={14} />,
     },
     authenticated: {
       href: `/u/${session.data?.user?.name}`,

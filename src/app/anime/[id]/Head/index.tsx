@@ -26,7 +26,7 @@ const Head = async ({ animeId = 0 }: IHead) => {
         <div className={styles.head__poster}>
           <AppImage
             className={styles.head__poster__anime}
-            src={animeInfo.poster}
+            src={animeInfo.poster!}
             width={241}
             height={336}
             imageType="poster"
@@ -62,7 +62,7 @@ const Head = async ({ animeId = 0 }: IHead) => {
             </div>
             <div className={styles.head__summary__item}>
               <CalendarIcon size={24} />
-              <span>{formatDate(animeInfo.dates.released_on)}</span>
+              <span>{formatDate(animeInfo.dates.released_on!)}</span>
             </div>
           </div>
         </div>
