@@ -11,7 +11,7 @@
     gap: 10px;
 
     width: 100%;
-    padding: 10px;
+    padding: 10px 50px 10px 10px;
     border: none;
     border-radius: 10px;
 
@@ -41,7 +41,7 @@
       background-color: $bisky-light-100;
       color: $bisky-dark-400;
 
-      outline-color: $bisky-light-100;
+      outline-color: $bisky-light-100 !important;
 
       &:focus + .inputGroup__right svg {
         fill: $bisky-dark-400 !important;
@@ -53,7 +53,7 @@
       background-color: $bisky-dark-100;
       color: $bisky-light-100;
 
-      outline-color: $bisky-dark-100;
+      outline-color: $bisky-dark-100 !important;
 
       &:focus + .inputGroup__right svg {
         fill: $bisky-light-100 !important;

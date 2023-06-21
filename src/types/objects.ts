@@ -35,7 +35,7 @@ export interface IAnimeInfo {
     aired_on: Date
     released_on: Date
   }
-  rating: string
+  rating: "none" | "g" | "pg" | "pg_13" | "r" | "r_plus" | "rx"
   description: string
   screenshots: string[]
   videos: string[]
@@ -52,4 +52,12 @@ export interface IAnimeInfo {
     }[]
   }
   updateDate: Date
+}
+
+export interface IUser {
+  id: string
+  username: string
+  email: string
+  created_at: string
+  image: string
 }

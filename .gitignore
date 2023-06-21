@@ -4,6 +4,7 @@
 .pnp.js
 .env
 .vscode
+.idea
 
 # testing
 /coverage

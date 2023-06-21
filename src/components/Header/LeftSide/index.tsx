@@ -12,7 +12,7 @@ const LeftSide = () => {
         <h1 className={styles.leftSide__logo__text}>Bisky</h1>
       </Link>
       <div className={styles.leftSide__links}>
-        <Link href="/" className={styles.leftSide__links__text}>
+        <Link href="/anime" className={styles.leftSide__links__text}>
           Каталог
         </Link>
         <Link href="/" className={styles.leftSide__links__text}>

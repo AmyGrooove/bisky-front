@@ -2,11 +2,10 @@
 
 import { useState } from "react"
 
-import AppImage from "@/components/Common/AppImage"
+import { MaskIcon, PaintIcon } from "@/Icons"
 import Button from "@/components/Common/Button"
 import { IAnimeInfo } from "@/types"
 import { cl } from "@/utils"
-import { MaskIcon, PaintIcon } from "@/Icons"
 
 import styles from "./index.module.scss"
 
@@ -32,23 +31,25 @@ const Description = ({ description = "" }: IDescription) => {
         </div>
       </div>
 
-      <div className={styles.description}>
-        <p
-          className={cl(
-            styles.description__text,
-            isExpanded && styles.description__text_expanded,
-          )}
-        >
-          {description}
-        </p>
-        <Button
-          variant="subtle"
-          onClick={handleMore}
-          className={styles.description__more}
-        >
-          Подробнее...
-        </Button>
-      </div>
+      {description && (
+        <div className={styles.description}>
+          <p
+            className={cl(
+              styles.description__text,
+              isExpanded && styles.description__text_expanded,
+            )}
+          >
+            {description}
+          </p>
+          <Button
+            variant="subtle"
+            onClick={handleMore}
+            className={styles.description__more}
+          >
+            Подробнее...
+          </Button>
+        </div>
+      )}
     </>
   )
 }
