@@ -1,22 +1,16 @@
 "use client"
-import ErrorCard from "@/components/Common/ErrorCard"
 
-import styles from "./index.module.scss"
+import Button from "@/components/Common/Button"
 
-export default function GlobalError({
-  error,
-  reset,
-}: {
-  error: Error
-  reset: () => void
-}) {
+const GlobalError = ({ error, reset }: { error: Error; reset: () => void }) => {
   return (
     <html>
       <body>
-        <div className={styles.error404}>
-          <ErrorCard type={"500"} />
-        </div>
+        {error.message}
+        <Button onClick={() => reset()}>Повторить</Button>
       </body>
     </html>
   )
 }
+
+export default GlobalError

@@ -1,3 +1,5 @@
+import { ReactNode } from "react"
+
 import { cl } from "@/utils"
 import { BISKY_ERROR_1, BISKY_ERROR_2 } from "@/constants"
 
@@ -9,10 +11,11 @@ import styles from "./index.module.scss"
 interface IErrorCard {
   type: "404" | "500"
 
+  children?: ReactNode
   className?: string
 }
 
-const ErrorCard = ({ type, className }: IErrorCard) => {
+const ErrorCard = ({ type, className, children }: IErrorCard) => {
   const errors = {
     "404": {
       label: "Страница не найдена",
@@ -45,6 +48,7 @@ const ErrorCard = ({ type, className }: IErrorCard) => {
         width={errors[type].size.width}
         height={errors[type].size.height}
       />
+      {children}
     </div>
   )
 }

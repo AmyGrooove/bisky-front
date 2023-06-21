@@ -24,12 +24,20 @@ import styles from "./index.module.scss"
 //   }));
 // }
 
-export default async function Page({
+const Page = async ({
   params: { animeId },
 }: {
   params: { animeId: number }
-}) {
+}) => {
   const animeInfo = await getOneAnimeInfo(animeId)
+
+  // const { data: findAnimeId } = await graphqlClient.makeRequest(`
+  //   query getOneAnimeId {
+  //     getOneAnime(id: ${animeId}) {
+  //       id
+  //     }
+  //   }
+  // `)
 
   if (!animeInfo) {
     return notFound()
@@ -52,3 +60,5 @@ export default async function Page({
     </div>
   )
 }
+
+export default Page

@@ -1,6 +1,6 @@
 "use client"
 
-import { InputHTMLAttributes, ReactNode } from "react"
+import { InputHTMLAttributes, ReactNode, memo } from "react"
 
 import { cl } from "@/utils"
 
@@ -12,21 +12,25 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
 }
 
-const Input = ({ variant = "light", right, className, ...props }: IInput) => {
-  const variants = {
-    light: styles.inputGroup__input_light,
-    dark: styles.inputGroup__input_dark,
-  }
+const Input = memo(
+  ({ variant = "light", right, className, ...props }: IInput) => {
+    const variants = {
+      light: styles.inputGroup__input_light,
+      dark: styles.inputGroup__input_dark,
+    }
 
-  return (
-    <div className={cl(styles.inputGroup, className)}>
-      <input
-        {...props}
-        className={cl(styles.inputGroup__input, variants[variant])}
-      />
-      {right && <div className={styles.inputGroup__right}>{right}</div>}
-    </div>
-  )
-}
+    return (
+      <div className={cl(styles.inputGroup, className)}>
+        <input
+          {...props}
+          className={cl(styles.inputGroup__input, variants[variant])}
+        />
+        {right && <div className={styles.inputGroup__right}>{right}</div>}
+      </div>
+    )
+  },
+)
+
+Input.displayName = "Input"
 
 export default Input

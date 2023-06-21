@@ -1,6 +1,13 @@
 "use client"
 
-import { InputHTMLAttributes, ReactNode } from "react"
+import {
+  InputHTMLAttributes,
+  ReactNode,
+  memo,
+  useEffect,
+  useMemo,
+  useState,
+} from "react"
 
 import { cl } from "@/utils"
 import { CheckIcon } from "@/Icons"
@@ -13,17 +20,31 @@ interface ICheckbox extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Checkbox = ({ label, className, ...props }: ICheckbox) => {
+  const [randomId, setRandomId] = useState("")
+
+  useEffect(() => {
+    setRandomId((prev) => Math.random().toString(36).substring(2, 7))
+  }, [])
+
   return (
     <div className={cl(styles.checkboxGroup, className)}>
       <div className={cl(styles.checkboxGroup__checkbox, className)}>
         <input
+          id={`checkbox_${randomId}`}
           type="checkbox"
           {...props}
           className={styles.checkboxGroup__input}
         />
         <CheckIcon size={14} className={styles.checkboxGroup__icon} />
       </div>
-      {label && <label className={styles.checkboxGroup__label}>{label}</label>}
+      {label && (
+        <label
+          htmlFor={`checkbox_${randomId}`}
+          className={styles.checkboxGroup__label}
+        >
+          {label}
+        </label>
+      )}
     </div>
   )
 }

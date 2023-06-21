@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { FormEventHandler, useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { FormEventHandler, useCallback, useState } from "react"
+import { signIn } from "next-auth/react"
 
 import Checkbox from "@/components/Common/Checkbox"
 import IconButton from "@/components/Common/IconButton"
@@ -18,6 +19,9 @@ interface IAuthForm {
 
 const AuthForm = ({ className = "" }: IAuthForm) => {
   const router = useRouter()
+
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get("callbackUrl") || "/"
 
   const [showSignIn, setShowSignIn] = useState(false)
   const [showSignUp, setShowSignUp] = useState(false)
@@ -41,21 +45,35 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
 
     if (showSignIn) {
       console.log("Это авторизация")
+
       const password = formData.get("password")
       console.log(username, password)
+
+      const res = await signIn("credentials", {
+        username: formData.get("username"),
+        password: formData.get("password"),
+        redirect: false,
+      })
+
+      if (res && !res.error) {
+        router.push(callbackUrl)
+      } else {
+        console.log(res)
+      }
     } else if (showSignUp) {
       console.log("Это регистрация")
+
       const password = formData.get("password")
       const confirmPassword = formData.get("confirmPassword")
       console.log(username, password, confirmPassword)
     }
   }
 
-  const handleResetStates = () => {
+  const handleResetStates = useCallback(() => {
     setShowSignIn(false)
     setShowSignUp(false)
     setConfirmAgreement(false)
-  }
+  }, [])
 
   return (
     <>
@@ -144,9 +162,19 @@ const AuthForm = ({ className = "" }: IAuthForm) => {
           <>
             <span>Или войти с помощью</span>
             <div className={styles.authForm__providers}>
-              <IconButton icon={<GoogleIcon size={24} />} />
-              <IconButton icon={<ShikimoriIcon size={24} />} disabled />
-              <IconButton icon={<VkIcon size={24} />} disabled />
+              <IconButton
+                onClick={() => signIn("google", { callbackUrl })}
+                icon={<GoogleIcon size={24} />}
+              />
+              <IconButton
+                onClick={() => signIn("shikimori", { callbackUrl })}
+                icon={<ShikimoriIcon size={24} />}
+                disabled
+              />
+              <IconButton
+                onClick={() => signIn("vk", { callbackUrl })}
+                icon={<VkIcon size={24} />}
+              />
             </div>
           </>
         )}

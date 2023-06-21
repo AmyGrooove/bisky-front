@@ -26,7 +26,7 @@ const RatingBlock = ({ scores = 0 }: IRatingBlock) => {
         />
         <div className={styles.rating__score}>
           <ScoreBadge score={scores} />
-          <span className={styles.rating__score__count}>228 оценок</span>
+          {/* <span className={styles.rating__score__count}>228 оценок</span> */}
         </div>
       </div>
     </div>

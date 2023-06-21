@@ -1,6 +1,6 @@
 "use client"
 
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ButtonHTMLAttributes, ReactNode, memo } from "react"
 
 import { cl } from "@/utils"
 
@@ -13,25 +13,24 @@ interface IIconButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
 }
 
-const IconButton = ({
-  icon,
-  variant = "subtle",
-  className,
-  ...props
-}: IIconButton) => {
-  const variants = {
-    filled: styles.iconButton_filled,
-    subtle: styles.iconButton_subtle,
-  }
+const IconButton = memo(
+  ({ icon, variant = "subtle", className, ...props }: IIconButton) => {
+    const variants = {
+      filled: styles.iconButton_filled,
+      subtle: styles.iconButton_subtle,
+    }
 
-  return (
-    <button
-      {...props}
-      className={cl(styles.iconButton, variants[variant], className)}
-    >
-      {icon}
-    </button>
-  )
-}
+    return (
+      <button
+        {...props}
+        className={cl(styles.iconButton, variants[variant], className)}
+      >
+        {icon}
+      </button>
+    )
+  },
+)
+
+IconButton.displayName = "IconButton"
 
 export default IconButton

@@ -7,6 +7,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import ResponsiveComponent from "@/components/ResponsiveComponent/ResponsiveComponent"
 import BottomNavigation from "@/components/BottomNavigation"
+import { Providers } from "@/components/Providers"
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -62,7 +63,7 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="ru">
       <body className={roboto.className}>
-        <Modal>
+        <Providers>
           <ResponsiveComponent mobile={<BottomNavigation />}>
             <Header />
           </ResponsiveComponent>
@@ -70,7 +71,7 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
             <div className="main__content">{children}</div>
           </main>
           <Footer />
-        </Modal>
+        </Providers>
       </body>
     </html>
   )

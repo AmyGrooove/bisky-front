@@ -4,7 +4,7 @@ import AppImage from "@/components/Common/AppImage"
 import ScoreBadge from "@/components/Common/ScoreBadge"
 import Title from "@/components/Common/Title"
 import { getOneAnimeInfo } from "@/services"
-import { formatDate } from "@/utils"
+import { formatDate, prettyRating } from "@/utils"
 import { CalendarIcon, ClockIcon, PlayerIcon } from "@/Icons"
 
 import styles from "./index.module.scss"
@@ -43,7 +43,9 @@ const Head = async ({ animeId = 0 }: IHead) => {
             <span className={styles.head__upper__subtitle}>
               {animeInfo.labels[1]}
             </span>
-            <div className={styles.head__upper__rating}>{animeInfo.rating}</div>
+            <div className={styles.head__upper__rating}>
+              {prettyRating(animeInfo.rating)}
+            </div>
           </div>
           <div className={styles.head__summary}>
             <div className={styles.head__summary__item}>
