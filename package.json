@@ -9,6 +9,7 @@
     "storybook": "storybook dev -p 4001"
   },
   "dependencies": {
+    "jwt-decode": "^3.1.2",
     "keen-slider": "^6.8.5",
     "ky": "^0.33.3",
     "ky-universal": "^0.11.0",

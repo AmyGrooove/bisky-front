@@ -1,19 +1,20 @@
 import { getServerSession } from "next-auth"
 
 import { authOptions } from "@/lib"
+import { getAccount } from "@/services/auth"
 
-import Head from "./Head"
-import Settings from "./Settings"
+import SignOutButton from "./SignOutButton"
 
 const Page = async ({ params: { name } }: { params: { name: string } }) => {
   const session = await getServerSession(authOptions)
-  console.log(session)
+
+  const account = await getAccount(session?.accessToken!)
+  console.log(account)
 
   return (
     <div>
-      <Head userId={Number(session?.user.id)} />
-      {name}
-      <Settings />
+      <SignOutButton />
+      {session?.accessToken}
     </div>
   )
 }

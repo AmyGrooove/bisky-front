@@ -1,6 +1,11 @@
 @use "@/theme/colors.scss" as *;
 @use "@/theme/extra.scss" as *;
 
+.loading {
+  position: absolute;
+  z-index: 100;
+}
+
 .authForm {
   display: flex;
   flex-direction: column;
@@ -13,6 +18,12 @@
   border-radius: 20px;
 
   background-color: $bisky-dark-300;
+
+  &_loading {
+    filter: blur(4px);
+
+    pointer-events: none;
+  }
 
   &__header {
     display: flex;

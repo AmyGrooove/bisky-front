@@ -32,8 +32,11 @@ export const getOneAnimeInfo = async (animeId: number) => {
             next_episode_at
         }
         genres {
-            id
-            type
+            hentai
+            link_id {
+                anime
+                manga
+            }
             name {
                 en
                 ru

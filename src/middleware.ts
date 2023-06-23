@@ -1,5 +1,11 @@
-export { default } from "next-auth/middleware"
+import { withAuth } from "next-auth/middleware"
 
-export const config = {
-  matcher: ["/u/:path*"],
-}
+export default withAuth({
+  callbacks: {
+    authorized: ({ token }) => {
+      return token?.user?.role === "user"
+    },
+  },
+})
+
+export const config = { matcher: ["/u/:path/edit"] }

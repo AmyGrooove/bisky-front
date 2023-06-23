@@ -1,15 +1,18 @@
 "use client"
 
+import { signIn } from "next-auth/react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { FormEventHandler, useCallback, useState } from "react"
-import { signIn } from "next-auth/react"
 
+import { ArrowIcon, BackIcon, GoogleIcon, ShikimoriIcon, VkIcon } from "@/Icons"
 import Checkbox from "@/components/Common/Checkbox"
 import IconButton from "@/components/Common/IconButton"
 import Input from "@/components/Common/Input"
 import { cl } from "@/utils"
-import { ArrowIcon, BackIcon, GoogleIcon, ShikimoriIcon, VkIcon } from "@/Icons"
+import { registerUser } from "@/services/auth"
+import { getUserProfile } from "@/services"
+import Spinner from "@/components/Common/Spinner"
 
 import styles from "./index.module.scss"
 
@@ -23,49 +26,87 @@ const AuthForm = ({ className }: IAuthForm) => {
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get("callbackUrl") || "/"
 
+  const [isLoading, setIsLoading] = useState(false)
   const [showSignIn, setShowSignIn] = useState(false)
   const [showSignUp, setShowSignUp] = useState(false)
   const [confirmAgreement, setConfirmAgreement] = useState(false)
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
+    setIsLoading((prev) => !prev)
 
     const formData = new FormData(event.currentTarget)
-    const username = formData.get("username")
+    const username = formData.get("username")?.toString()
 
-    if (!showSignIn && !showSignUp) {
-      console.log("Проверка на существование юзернейма")
-      if (username === "vanya") {
-        setShowSignIn((prev) => !prev)
-      } else {
-        setShowSignUp((prev) => !prev)
+    try {
+      if (!showSignIn && !showSignUp) {
+        console.log("Проверка на существование юзернейма")
+
+        if (username) {
+          try {
+            const res = await getUserProfile(username)
+            if (res) {
+              setShowSignIn((prev) => !prev)
+            }
+          } catch {
+            setShowSignUp((prev) => !prev)
+          } finally {
+            return
+          }
+        }
       }
-      return
-    }
 
-    if (showSignIn) {
-      console.log("Это авторизация")
+      if (showSignIn) {
+        console.log("Это авторизация")
 
-      const password = formData.get("password")
-      console.log(username, password)
+        const password = formData.get("password")?.toString()
+        console.log(username, password)
 
-      const res = await signIn("credentials", {
-        username: formData.get("username"),
-        password: formData.get("password"),
-        redirect: false,
-      })
+        const res = await signIn("credentials", {
+          username: username,
+          password: password,
+          redirect: false,
+        })
 
-      if (res && !res.error) {
-        router.push(callbackUrl)
-      } else {
-        console.log(res)
+        if (res && !res.error) {
+          router.push(`/u/${username}`)
+        } else {
+          console.log(res)
+        }
+      } else if (showSignUp) {
+        console.log("Это регистрация")
+
+        const email = formData.get("email")?.toString()
+        const password = formData.get("password")?.toString()
+        const confirmPassword = formData.get("confirmPassword")?.toString()
+        console.log(username, email, password, confirmPassword)
+
+        if (email && password && username) {
+          if (password !== confirmPassword) {
+            throw new Error("There are different passwords")
+          }
+
+          await registerUser(username, password, email)
+
+          const res = await signIn("credentials", {
+            username: username,
+            password: password,
+            redirect: false,
+          })
+
+          if (res && !res.error) {
+            router.push(`/u/${username}`)
+          } else {
+            console.log(res)
+          }
+        } else {
+          throw new Error("Email, password, confirmPassword is not specified")
+        }
       }
-    } else if (showSignUp) {
-      console.log("Это регистрация")
-
-      const password = formData.get("password")
-      const confirmPassword = formData.get("confirmPassword")
-      console.log(username, password, confirmPassword)
+    } catch (error: any) {
+      alert("Что-то пошло не так")
+    } finally {
+      setIsLoading((prev) => !prev)
     }
   }
 
@@ -77,7 +118,16 @@ const AuthForm = ({ className }: IAuthForm) => {
 
   return (
     <>
-      <div className={cl(styles.authForm, className)}>
+      {isLoading && (
+        <Spinner className={styles.loading} size={64} color="white" />
+      )}
+      <div
+        className={cl(
+          styles.authForm,
+          className,
+          isLoading && styles.authForm_loading,
+        )}
+      >
         <div className={styles.authForm__header}>
           {(showSignIn || showSignUp) && (
             <IconButton
@@ -120,6 +170,17 @@ const AuthForm = ({ className }: IAuthForm) => {
           )}
           {showSignUp && (
             <>
+              <Input
+                className={styles.authForm__form__input}
+                variant="dark"
+                placeholder="Электронная почта"
+                name="email"
+                required
+                type="email"
+                inputMode="email"
+                // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                title="Электронная почта должна быть валидной"
+              />
               <Input
                 className={styles.authForm__form__input}
                 variant="dark"
