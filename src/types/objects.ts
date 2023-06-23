@@ -78,9 +78,18 @@ export interface IStudio {
 }
 
 export interface IUser {
+  username: string
+  name: string
+  email: string
+  role: string
+  image: string
+  accessToken?: string | null
+  refreshToken?: string | null
+}
+
+export interface JWTDecoded {
   id: string
   username: string
-  email: string
-  created_at: string
-  image: string
+  iat: number
+  exp: number
 }

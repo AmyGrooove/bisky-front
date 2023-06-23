@@ -11,6 +11,7 @@ import styles from "./index.module.scss"
 const RightSide = () => {
   // const session = await getServerSession(authOptions)
   const session = useSession()
+  console.log(session)
 
   const variants = {
     loading: {
@@ -18,7 +19,7 @@ const RightSide = () => {
       button: <Spinner color="white" size={14} />,
     },
     authenticated: {
-      href: `/u/${session.data?.user?.name}`,
+      href: `/u/${session.data?.user?.username}`,
       button: "Профиль",
     },
     unauthenticated: {

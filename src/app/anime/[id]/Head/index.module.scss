@@ -34,8 +34,11 @@
     left: 0;
     top: 0;
     z-index: -10;
+
     width: 100%;
     height: 500px;
+
+    filter: blur(8px);
 
     @media (max-width: 768px) {
       height: fit-content;

@@ -12,6 +12,7 @@ const Search = () => {
         right={<IconButton icon={<SearchIcon />} />}
         type="text"
         placeholder="Поиск"
+        inputMode="search"
       />
     </div>
   )
