@@ -33,6 +33,7 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
   const animeId = parseInt(id)
 
   const animeInfo = await getOneAnimeInfo(animeId)
+  console.log(animeInfo?.franchise)
 
   // const { data: findAnimeId } = await graphqlClient.makeRequest(`
   //   query getOneAnimeId {
@@ -50,15 +51,19 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
     <div className={styles.anime}>
       <Head animeId={animeId} />
       <div className={styles.anime__content}>
-        <Description description={animeInfo.description} />
+        <Description
+          description={animeInfo.description}
+          genres={animeInfo.genres}
+          studios={animeInfo.studios}
+        />
         <PlayerBlock />
         <div className={styles.anime__group}>
           <RatingBlock scores={animeInfo.anotherScores[0]} />
           <Lists />
         </div>
-        <Related />
+        <Related animes={animeInfo.franchise?.animes ?? []} />
         <Screenshots animeId={animeId} />
-        <Video />
+        <Video animeId={animeId} />
       </div>
     </div>
   )

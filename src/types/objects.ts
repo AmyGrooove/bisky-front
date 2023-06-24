@@ -17,6 +17,28 @@ export interface ISeason {
   genres: string[]
 }
 
+export interface IFilter {
+  [key: string]: any
+  kind?: "movie" | "music" | "ona" | "ova" | "special" | "tv"
+  status?: "anons" | "ongoing" | "released"
+  rating?: "g" | "none" | "pg" | "pg_13" | "r" | "r_plus" | "rx"
+  airedOn?: {
+    [key: string]: any
+    from?: Date
+    to?: Date
+  }
+  genres?: number[]
+  studios?: number[]
+  franchiseName?: string
+}
+
+export interface ISort {
+  [key: string]: any
+  scores?: boolean
+  airedOn?: boolean
+  updateDate?: boolean
+}
+
 export interface IAnimeInfo {
   id: number
   labels: string[]
@@ -29,32 +51,35 @@ export interface IAnimeInfo {
     count: number | null
     aired: number | null
     duration: number
-    next_episode_at: Date | null
+    nextEpisodeAt: Date | null
   }
   dates: {
-    aired_on: Date | null
-    released_on: Date | null
+    airedOn: Date | null
+    releasedOn: Date | null
   }
   rating: "none" | "g" | "pg" | "pg_13" | "r" | "r_plus" | "rx"
   description: string | null
   screenshots: string[]
   videos: string[]
   genres: IGenre[]
-  franshise: IFranshise
+  franchise: IFranchise
   studios: IStudio[]
   updateDate: Date
 }
 
 export interface IGenre {
-  id: number
+  hentai: boolean
+  linkId: {
+    anime: number
+    manga: number
+  }
   name: {
     en: string
     ru: string
   }
-  type: "anime" | "manga" | null
 }
 
-export interface IFranshise {
+export interface IFranchise {
   name: string
   animes: {
     id: number

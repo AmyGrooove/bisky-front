@@ -1,5 +1,11 @@
 @use "@/theme/colors.scss" as *;
 @use "@/theme/extra.scss" as *;
 
-.anime {
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  gap: 24px;
+
+  margin: 0 auto;
 }

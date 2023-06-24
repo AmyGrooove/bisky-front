@@ -7,7 +7,6 @@ import SignOutButton from "./SignOutButton"
 
 const Page = async ({ params: { name } }: { params: { name: string } }) => {
   const session = await getServerSession(authOptions)
-
   const account = await getAccount(session?.accessToken!)
   console.log(account)
 
