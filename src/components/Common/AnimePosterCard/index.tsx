@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { IPoster } from "@/types"
+import { IAnimeInfo } from "@/types"
 import { cl } from "@/utils"
 
 import AppImage from "../AppImage"
@@ -11,7 +11,7 @@ import WatchStatusButton from "../WatchStatusButton"
 import styles from "./index.module.scss"
 
 interface IAnimePosterCard {
-  anime: IPoster
+  anime: Partial<IAnimeInfo>
 
   posterType?: "normal" | "newSeries" | "watching"
   watchedCount?: number
@@ -29,10 +29,13 @@ const AnimePosterCard = ({
   className,
 }: IAnimePosterCard) => {
   return (
-    <Link href="" className={cl(styles.animePosterCard, className)}>
+    <Link
+      href={`/anime/${anime.id}`}
+      className={cl(styles.animePosterCard, className)}
+    >
       <div>
         <AppImage
-          src={anime.shiki_id.toString()}
+          src={anime.id?.toString()!}
           width={200}
           height={320}
           imageType="poster"
@@ -42,7 +45,7 @@ const AnimePosterCard = ({
 
         {anime.status !== "anons" && (
           <ScoreBadge
-            score={anime.scores}
+            score={anime.scores!}
             className={styles.animePosterCard__score}
           />
         )}
@@ -52,14 +55,14 @@ const AnimePosterCard = ({
             status="ongoing"
             className={styles.animePosterCard__leftStatus}
           >
-            {anime.episodes.aired} серия
+            {anime.episodes?.aired} серия
           </StatusBagde>
         )}
 
         {posterType === "watching" &&
           anime.status === "ongoing" &&
           watchedCount !== 0 &&
-          anime.episodes.aired &&
+          anime.episodes?.aired &&
           watchedCount &&
           anime.episodes.aired > watchedCount && (
             <StatusBagde
@@ -72,11 +75,11 @@ const AnimePosterCard = ({
 
         {posterType !== "newSeries" && (
           <StatusBagde
-            status={anime.status}
+            status={anime.status!}
             className={styles.animePosterCard__rightStatus}
           >
             {posterType === "watching"
-              ? watchedCount + "/" + anime.episodes.aired
+              ? watchedCount + "/" + anime.episodes?.aired
               : anime.status}
           </StatusBagde>
         )}

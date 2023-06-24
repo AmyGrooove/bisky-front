@@ -1,6 +1,6 @@
 import { SHKIMORI_URL } from "@/constants"
 
-const getImageSrc = (
+export const getImageSrc = (
   src: string,
   imageType: "poster" | "screenshot",
   errorGet = false,
@@ -15,7 +15,7 @@ const getImageSrc = (
   }
 }
 
-const prettyRating = (
+export const prettyRating = (
   mpaa: "none" | "g" | "pg" | "pg_13" | "r" | "r_plus" | "rx",
 ): string => {
   switch (mpaa) {
@@ -38,4 +38,23 @@ const prettyRating = (
   }
 }
 
-export { getImageSrc, prettyRating }
+export const prettyKind = (
+  kind: "tv" | "movie" | "ova" | "ona" | "special" | "music",
+): string => {
+  switch (kind) {
+    case "tv":
+      return "TV Сериал"
+    case "movie":
+      return "Фильм"
+    case "ova":
+      return "OVA"
+    case "ona":
+      return "ONA"
+    case "special":
+      return "Спешл"
+    case "music":
+      return "Клип"
+    default:
+      return ""
+  }
+}

@@ -11,7 +11,11 @@ import styles from "./index.module.scss"
 
 interface IDescription extends Partial<IAnimeInfo> {}
 
-const Description = ({ description = "" }: IDescription) => {
+const Description = ({
+  description = "",
+  genres = [],
+  studios = [],
+}: IDescription) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleMore = () => {
@@ -23,11 +27,15 @@ const Description = ({ description = "" }: IDescription) => {
       <div className={styles.genres}>
         <div className={styles.genres__item}>
           <MaskIcon size={24} />
-          <span>боевик, боевик, боевик, боевик</span>
+          {genres?.map((item, index) => (
+            <span key={index}>{item.name.ru}</span>
+          ))}
         </div>
         <div className={styles.genres__item}>
           <PaintIcon size={24} />
-          <span>David Production</span>
+          {studios?.map((item, index) => (
+            <span key={item.id}>{item.name}</span>
+          ))}
         </div>
       </div>
 

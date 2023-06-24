@@ -1,14 +1,20 @@
-import Title from "@/components/Common/Title"
+import Carousel from "@/components/Common/Carousel"
+import { getOneAnimeInfo } from "@/services"
 
-interface IVideo {}
+interface IVideo {
+  animeId: number
+}
 
-const Video = ({}: IVideo) => {
+const Video = async ({ animeId }: IVideo) => {
+  const animeInfo = await getOneAnimeInfo(animeId)
+
   return (
-    <div>
-      <div>
-        <Title order={2}>Видео</Title>
-      </div>
-    </div>
+    <Carousel
+      variant="Screenshots"
+      carouselData={animeInfo?.screenshots}
+      withTitle
+      title="Видео"
+    />
   )
 }
 

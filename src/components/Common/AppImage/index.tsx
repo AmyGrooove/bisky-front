@@ -3,8 +3,8 @@
 import Image, { ImageProps } from "next/image"
 import { useEffect, useState } from "react"
 
-import { cl, getImageSrc } from "@/utils"
 import BlurLogoIcon from "@/Icons/components/BlurLogoIcon"
+import { cl, getImageSrc } from "@/utils"
 
 import styles from "./index.module.scss"
 

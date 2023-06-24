@@ -1,14 +1,19 @@
-import Title from "@/components/Common/Title"
+import Carousel from "@/components/Common/Carousel"
 
-interface IRelated {}
+interface IRelated {
+  animes: any[]
+}
 
-const Related = ({}: IRelated) => {
+const Related = async ({ animes }: IRelated) => {
+  // const animeInfo = await getOneAnimeInfo(animeId)
+
   return (
-    <div>
-      <div>
-        <Title order={2}>Связанное</Title>
-      </div>
-    </div>
+    <Carousel
+      variant="AnimePosterCard"
+      carouselData={animes}
+      withTitle
+      title="Связанное"
+    />
   )
 }
 

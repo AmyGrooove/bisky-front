@@ -1,6 +1,8 @@
-import SeasonCard from "@/components/Common/SeasonCard"
 import { ISeason } from "@/types"
+import Carousel from "@/components/Common/Carousel"
+import { getAllGenres, getAnimePages } from "@/services"
 
+import RandomFact from "./RandomFact"
 import styles from "./index.module.scss"
 
 const Home = async () => {
@@ -19,9 +21,43 @@ const Home = async () => {
     genres: ["Экшен", "Военное", "Сёнен", "Драма"],
   }
 
+  const genres = await getAllGenres()
+
+  const animePagesNewSeries = await getAnimePages(undefined, undefined, {
+    updateDate: true,
+  })
+
+  const animePagesMostPopular = await getAnimePages(undefined, undefined, {
+    scores: true,
+  })
+
   return (
-    <div className={styles.seasonCardCarousel}>
-      <SeasonCard anime={anime} />
+    <div className={styles.home}>
+      {/* <SeasonCard anime={anime} /> */}
+
+      <Carousel
+        variant="AnimePosterCard"
+        carouselData={animePagesNewSeries ?? []}
+        withTitle
+        title="Новые серии"
+      />
+
+      <Carousel
+        variant="AnimePosterCard"
+        carouselData={animePagesMostPopular ?? []}
+        withTitle
+        title="Самое популярное"
+        rows={2}
+      />
+
+      <Carousel
+        variant="GenreCard"
+        carouselData={genres}
+        withTitle
+        title="Жанры"
+      />
+
+      <RandomFact />
     </div>
   )
 }

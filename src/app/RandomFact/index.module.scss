@@ -1,0 +1,17 @@
+@use "@/theme/colors.scss" as *;
+
+.randomFact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+
+  padding: 12px 20px 12px 20px;
+  border-radius: 20px;
+
+  background-color: $bisky-dark-200;
+
+  &__text {
+    font-size: 20px;
+  }
+}

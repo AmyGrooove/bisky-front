@@ -2,119 +2,31 @@
 
 import { signIn } from "next-auth/react"
 import Link from "next/link"
-import { useRouter, useSearchParams } from "next/navigation"
-import { FormEventHandler, useCallback, useState } from "react"
 
 import { ArrowIcon, BackIcon, GoogleIcon, ShikimoriIcon, VkIcon } from "@/Icons"
 import Checkbox from "@/components/Common/Checkbox"
 import IconButton from "@/components/Common/IconButton"
 import Input from "@/components/Common/Input"
-import { cl } from "@/utils"
-import { registerUser } from "@/services/auth"
-import { getUserProfile } from "@/services"
 import Spinner from "@/components/Common/Spinner"
+import { cl } from "@/utils"
 
 import styles from "./index.module.scss"
+import useAuthForm from "./index.use"
 
 interface IAuthForm {
   className?: string
 }
 
 const AuthForm = ({ className }: IAuthForm) => {
-  const router = useRouter()
-
-  const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get("callbackUrl") || "/"
-
-  const [isLoading, setIsLoading] = useState(false)
-  const [showSignIn, setShowSignIn] = useState(false)
-  const [showSignUp, setShowSignUp] = useState(false)
-  const [confirmAgreement, setConfirmAgreement] = useState(false)
-
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault()
-    setIsLoading((prev) => !prev)
-
-    const formData = new FormData(event.currentTarget)
-    const username = formData.get("username")?.toString()
-
-    try {
-      if (!showSignIn && !showSignUp) {
-        console.log("Проверка на существование юзернейма")
-
-        if (username) {
-          try {
-            const res = await getUserProfile(username)
-            if (res) {
-              setShowSignIn((prev) => !prev)
-            }
-          } catch {
-            setShowSignUp((prev) => !prev)
-          } finally {
-            return
-          }
-        }
-      }
-
-      if (showSignIn) {
-        console.log("Это авторизация")
-
-        const password = formData.get("password")?.toString()
-        console.log(username, password)
-
-        const res = await signIn("credentials", {
-          username: username,
-          password: password,
-          redirect: false,
-        })
-
-        if (res && !res.error) {
-          router.push(`/u/${username}`)
-        } else {
-          console.log(res)
-        }
-      } else if (showSignUp) {
-        console.log("Это регистрация")
-
-        const email = formData.get("email")?.toString()
-        const password = formData.get("password")?.toString()
-        const confirmPassword = formData.get("confirmPassword")?.toString()
-        console.log(username, email, password, confirmPassword)
-
-        if (email && password && username) {
-          if (password !== confirmPassword) {
-            throw new Error("There are different passwords")
-          }
-
-          await registerUser(username, password, email)
-
-          const res = await signIn("credentials", {
-            username: username,
-            password: password,
-            redirect: false,
-          })
-
-          if (res && !res.error) {
-            router.push(`/u/${username}`)
-          } else {
-            console.log(res)
-          }
-        } else {
-          throw new Error("Email, password, confirmPassword is not specified")
-        }
-      }
-    } catch (error: any) {
-      alert("Что-то пошло не так")
-    } finally {
-      setIsLoading((prev) => !prev)
-    }
-  }
-
-  const handleResetStates = useCallback(() => {
-    setShowSignIn(false)
-    setShowSignUp(false)
-    setConfirmAgreement(false)
-  }, [])
+  const {
+    isLoading,
+    showSignIn,
+    showSignUp,
+    confirmAgreement,
+    setConfirmAgreement,
+    handleSubmit,
+    handleResetStates,
+  } = useAuthForm()
 
   return (
     <>
@@ -224,16 +136,16 @@ const AuthForm = ({ className }: IAuthForm) => {
             <span>Или войти с помощью</span>
             <div className={styles.authForm__providers}>
               <IconButton
-                onClick={() => signIn("google", { callbackUrl })}
+                onClick={() => signIn("google")}
                 icon={<GoogleIcon size={24} />}
               />
               <IconButton
-                onClick={() => signIn("shikimori", { callbackUrl })}
+                onClick={() => signIn("shikimori")}
                 icon={<ShikimoriIcon size={24} />}
                 disabled
               />
               <IconButton
-                onClick={() => signIn("vk", { callbackUrl })}
+                onClick={() => signIn("vk")}
                 icon={<VkIcon size={24} />}
               />
             </div>

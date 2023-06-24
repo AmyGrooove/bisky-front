@@ -14,13 +14,15 @@ type Story = StoryObj<typeof AnimePosterCard>
 export const AnimePosterCardOngoing: Story = {
   args: {
     anime: {
-      shiki_id: 51535,
-      labels: "Атака титанов: Финал — Заключительная глава",
+      id: 51535,
+      labels: ["Атака титанов: Финал — Заключительная глава"],
       scores: 9.15,
       status: "ongoing",
       episodes: {
-        count: 2,
-        aired: 1,
+        aired: 2,
+        count: 123,
+        duration: 213,
+        nextEpisodeAt: null,
       },
     },
     posterType: "normal",
@@ -33,13 +35,15 @@ export const AnimePosterCardOngoing: Story = {
 export const AnimePosterCardAnons: Story = {
   args: {
     anime: {
-      shiki_id: 51535,
-      labels: "Атака титанов: Финал — Заключительная глава",
+      id: 51535,
+      labels: ["Атака титанов: Финал — Заключительная глава"],
       scores: 9.15,
       status: "anons",
       episodes: {
-        count: 2,
-        aired: 1,
+        aired: 2,
+        count: 123,
+        duration: 213,
+        nextEpisodeAt: null,
       },
     },
     posterType: "normal",
@@ -52,13 +56,15 @@ export const AnimePosterCardAnons: Story = {
 export const AnimePosterCardReleased: Story = {
   args: {
     anime: {
-      shiki_id: 51535,
-      labels: "Атака титанов: Финал — Заключительная глава",
+      id: 51535,
+      labels: ["Атака титанов: Финал — Заключительная глава"],
       scores: 9.15,
       status: "released",
       episodes: {
-        count: 2,
-        aired: 1,
+        aired: 2,
+        count: 123,
+        duration: 213,
+        nextEpisodeAt: null,
       },
     },
     posterType: "normal",
