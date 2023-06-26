@@ -2,15 +2,17 @@ import { notFound } from "next/navigation"
 
 import { getOneAnimeInfo } from "@/services"
 import { hasOnlyDigits } from "@/utils"
+import {
+  Head,
+  Description,
+  PlayerBlock,
+  RatingBlock,
+  Lists,
+  Related,
+  Screenshots,
+  Video,
+} from "@/components/pages/anime/id"
 
-import Description from "./Description"
-import Head from "./Head"
-import Lists from "./Lists"
-import PlayerBlock from "./PlayerBlock"
-import RatingBlock from "./RatingBlock"
-import Related from "./Related"
-import Screenshots from "./Screenshots"
-import Video from "./Video"
 import styles from "./index.module.scss"
 
 // export const revalidate = 0;

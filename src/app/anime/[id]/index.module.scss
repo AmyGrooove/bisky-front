@@ -16,7 +16,7 @@
     align-items: flex-start;
     gap: 30px;
 
-    @media (max-width: 768px) {
+    @media (max-width: $mobile) {
       flex-direction: column;
     }
   }

@@ -22,7 +22,8 @@
     ],
     "paths": {
       "@/*": ["src/*"],
-      "@/common/*": ["src/commponents/common/*"],
+      "@/common/*": ["src/components/common/*"],
+      "@/icons": ["src/components/icons"],
       "@/public/*": ["public/*"]
     }
   },

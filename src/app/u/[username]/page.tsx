@@ -1,9 +1,7 @@
 import { getServerSession } from "next-auth"
 
-import { authOptions } from "@/lib"
-
-import Head from "./Head"
-import SettingsButton from "./SettingsButton"
+import { Head, SettingsButton } from "@/components/pages/u/username"
+import { authOptions } from "@/utils"
 
 const Page = async ({
   params: { username },

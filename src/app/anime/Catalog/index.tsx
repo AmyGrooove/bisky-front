@@ -1,5 +1,5 @@
-import AnimePosterCard from "@/components/Common/AnimePosterCard"
 import { getAnimePages } from "@/services"
+import AnimePosterCard from "@/components/common/AnimePosterCard"
 
 import styles from "./index.module.scss"
 
