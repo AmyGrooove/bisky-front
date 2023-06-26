@@ -1,0 +1,42 @@
+@use "@/theme/colors.scss" as *;
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  user-select: none;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+
+    &:checked ~ .checkbox__container {
+      background-color: $bisky-300;
+
+      .checkbox__container__icon {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    background-color: $bisky-dark-100;
+    border-radius: 4px;
+    transition: 0.2s;
+
+    &__icon {
+      transform: translateY(8px) scale(0.5);
+      transition: 0.2s;
+      opacity: 0;
+    }
+  }
+}

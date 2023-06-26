@@ -1,5 +1,5 @@
-import graphqlClient from "@/lib/graphqlClient"
-import { IAnimeInfo, IFilter, ISort } from "@/types"
+import { AnimeInfoType, IFilter, ISort } from "@/types"
+import graphqlClient from "@/utils/graphqlClient"
 
 export const getOneAnimeInfo = async (animeId: number) => {
   const { data } = await graphqlClient.makeRequest(`
@@ -18,46 +18,46 @@ export const getOneAnimeInfo = async (animeId: number) => {
         updateDate
         videos
         dates {
-            airedOn
-            releasedOn
+          airedOn
+          releasedOn
         }
         episodes {
-            aired
-            count
-            duration
-            nextEpisodeAt
+          aired
+          count
+          duration
+          nextEpisodeAt
         }
         franchise {
-            name
-            animes {
-                anotherScores
-                id
-                kind
-                labels
-                poster
-                scores
-                status
-                relation {
-                    en
-                    ru
-                }
+          name
+          animes {
+            anotherScores
+            id
+            kind
+            labels
+            poster
+            scores
+            status
+            relation {
+              en
+              ru
             }
+          }
         }
         genres {
-            hentai
-            linkId {
-                anime
-                manga
-            }
-            name {
-                en
-                ru
-            }
+          hentai
+          linkId {
+            anime
+            manga
+          }
+          name {
+            en
+            ru
+          }
         }
         studios {
-            id
-            img
-            name
+          id
+          img
+          name
         }
       }
     }
@@ -67,17 +67,9 @@ export const getOneAnimeInfo = async (animeId: number) => {
     return null
   }
 
-  const animeInfo: IAnimeInfo = data.getOneAnime
+  const animeInfo: AnimeInfoType = data.getOneAnime
 
   return animeInfo
-}
-
-const ObjectToString = (obj: any) => {
-  let array = []
-  for (let prop in obj) {
-    array.push(`${prop}: ${obj[prop]}`)
-  }
-  return array.toString()
 }
 
 export const getAnimePages = async (
@@ -137,46 +129,46 @@ export const getAnimePages = async (
         updateDate
         videos
         dates {
-            airedOn
-            releasedOn
+          airedOn
+          releasedOn
         }
         episodes {
-            aired
-            count
-            duration
-            nextEpisodeAt
+          aired
+          count
+          duration
+          nextEpisodeAt
         }
         franchise {
-            name
-            animes {
-                anotherScores
-                id
-                kind
-                labels
-                poster
-                scores
-                status
-                relation {
-                    en
-                    ru
-                }
+          name
+          animes {
+            anotherScores
+            id
+            kind
+            labels
+            poster
+            scores
+            status
+            relation {
+              en
+              ru
             }
+          }
         }
         genres {
-            hentai
-            linkId {
-                anime
-                manga
-            }
-            name {
-                en
-                ru
-            }
+          hentai
+          linkId {
+            anime
+            manga
+          }
+          name {
+            en
+            ru
+          }
         }
         studios {
-            id
-            img
-            name
+          id
+          img
+          name
         }
         description
       }
@@ -187,7 +179,7 @@ export const getAnimePages = async (
     return null
   }
 
-  const animePages: IAnimeInfo[] = data.getAnimePages
+  const animePages: AnimeInfoType[] = data.getAnimePages
 
   return animePages
 }
@@ -214,12 +206,12 @@ export const getAllGenres = async () => {
       getAllGenres {
         hentai
         linkId {
-            anime
-            manga
+          anime
+          manga
         }
         name {
-            en
-            ru
+          en
+          ru
         }
       }
     }

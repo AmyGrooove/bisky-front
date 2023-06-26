@@ -1,7 +1,8 @@
-import styles from "./index.module.scss"
-import AuthForm from "./AuthForm"
+import { AuthForm } from "@/components/pages/auth"
 
-const Page = () => {
+import styles from "./index.module.scss"
+
+const Auth = () => {
   return (
     <div className={styles.authContainer}>
       <AuthForm />
@@ -9,4 +10,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default Auth

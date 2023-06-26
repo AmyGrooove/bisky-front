@@ -1,4 +1,4 @@
-import Title from "@/components/Common/Title"
+import Title from "@/components/common/Title"
 
 import Catalog from "./Catalog"
 import styles from "./index.module.scss"

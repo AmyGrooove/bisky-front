@@ -1,4 +1,4 @@
-import ErrorCard from "@/components/Common/ErrorCard"
+import ErrorCard from "@/components/common/ErrorCard"
 
 import styles from "./index.module.scss"
 

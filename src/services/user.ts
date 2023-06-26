@@ -1,5 +1,5 @@
 import { API_URL } from "@/constants"
-import { IUser } from "@/types"
+// import { UserType } from "@/types"
 
 export const getUserProfile = async (username: string) => {
   const res = await fetch(`${API_URL}/users/profile/${username}`, {
@@ -14,7 +14,7 @@ export const getUserProfile = async (username: string) => {
   return data
 }
 
-// export const updateUser = async (user: IUser) => {
+// export const updateUser = async (user: UserType) => {
 //   try {
 //     const res = await userApi
 //       .put(`/user${user.username}`, { json: user })

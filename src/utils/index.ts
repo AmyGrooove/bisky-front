@@ -1,3 +1,5 @@
 export * from "./helpFunctions"
-export * from "./switchs"
+export * from "./switches"
 export * from "./dates"
+export * from "./graphqlClient"
+export * from "./nextAuth"

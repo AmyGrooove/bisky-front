@@ -1,18 +1,22 @@
-"use client"
-
-import { SessionProvider } from "next-auth/react"
 import { ReactNode } from "react"
 
-import Modal from "../Modal"
+import BottomNavigation from "../layout/BottomNavigation"
+import Header from "../layout/Header"
 
-interface IProvidersProps {
+import DeviceChecker from "./DeviceChecker"
+import ClientProvider from "./ClientProvider"
+
+interface IProviders {
   children: ReactNode
 }
 
-export const Providers = ({ children }: IProvidersProps) => {
+const Providers = ({ children }: IProviders) => {
   return (
-    <SessionProvider>
-      <Modal>{children}</Modal>
-    </SessionProvider>
+    <ClientProvider>
+      <DeviceChecker mobile={<BottomNavigation />} desktop={<Header />} />
+      {children}
+    </ClientProvider>
   )
 }
+
+export default Providers

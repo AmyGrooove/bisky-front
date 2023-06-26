@@ -1,0 +1,57 @@
+@use "@/theme/colors.scss" as *;
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border: 3px solid transparent;
+  border-radius: 50%;
+
+  animation: rotation 0.8s ease infinite;
+
+  &_white {
+    border-top-color: $bisky-light-100;
+    border-bottom-color: $bisky-light-100;
+  }
+
+  &_lime {
+    border-top-color: $lime;
+    border-bottom-color: $lime;
+  }
+
+  &_gray {
+    border-top-color: $gray;
+    border-bottom-color: $gray;
+  }
+
+  &_red {
+    border-top-color: $red;
+    border-bottom-color: $red;
+  }
+
+  &_blue {
+    border-top-color: $blue;
+    border-bottom-color: $blue;
+  }
+
+  &_orange {
+    border-top-color: $orange;
+    border-bottom-color: $orange;
+  }
+
+  &_green {
+    border-top-color: $green;
+    border-bottom-color: $green;
+  }
+
+  &_bisky {
+    border-top-color: $bisky-300;
+    border-bottom-color: $bisky-300;
+  }
+}
