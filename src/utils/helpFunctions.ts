@@ -18,6 +18,7 @@ export const cl = (...args: (string | undefined | false)[]) => {
   return args.filter((el) => el !== undefined && el !== false).join(" ")
 }
 
-export function hasOnlyDigits(str: string) {
-  return /^-?\d+$/.test(str)
-}
+export const hasOnlyDigits = (str: string) => /^-?\d+$/.test(str)
+
+export const getRandomValue = (max = 100, min = 0) =>
+  Math.floor(Math.random() * (max - min + 1) + min)

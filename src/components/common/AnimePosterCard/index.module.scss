@@ -12,7 +12,7 @@
 .animePosterCard {
   display: flex;
   width: 200px;
-  margin-bottom: 40px;
+  cursor: default;
 
   z-index: 1;
   position: relative;
@@ -78,6 +78,9 @@
   }
 
   &__hover {
+    margin-bottom: 40px;
+    cursor: pointer;
+
     &:hover {
       transform: scale(1.15);
       z-index: 2;
