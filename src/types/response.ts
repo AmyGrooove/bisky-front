@@ -1,3 +1,5 @@
+import { KindEnum, StatusEnum, RatingEnum } from "./enums"
+
 export interface JWTDecoded {
   id: string
   username: string
@@ -7,9 +9,9 @@ export interface JWTDecoded {
 
 export interface IFilter {
   [key: string]: any
-  kind?: "movie" | "music" | "ona" | "ova" | "special" | "tv"
-  status?: "anons" | "ongoing" | "released"
-  rating?: "g" | "none" | "pg" | "pg_13" | "r" | "r_plus" | "rx"
+  kind?: KindEnum
+  status?: StatusEnum
+  rating?: RatingEnum
   airedOn?: {
     [key: string]: any
     from?: Date

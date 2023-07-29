@@ -16,6 +16,7 @@ interface IAnimePosterCard {
   watchedCount?: number
   statusWatch?: "added" | "complete" | "watching" | "dropped"
   hover?: boolean
+  score?: boolean
   badges?: boolean
   title?: boolean
   className?: string
@@ -28,6 +29,7 @@ const AnimePosterCard = ({
   statusWatch,
   className,
   hover = true,
+  score = true,
   badges = true,
   title = true,
 }: IAnimePosterCard) => {
@@ -36,7 +38,7 @@ const AnimePosterCard = ({
 
   return (
     <Link
-      href={`/anime/${anime.id}`}
+      href={hover ? `/anime/${anime.id}` : ""}
       className={cl(
         styles.animePosterCard,
         hover && styles.animePosterCard__hover,
@@ -53,7 +55,7 @@ const AnimePosterCard = ({
           containerClass={styles.animePosterCard__image}
         />
 
-        {anime.status !== "anons" && badges && (
+        {anime.status !== "anons" && score && (
           <Badge calculate className={styles.animePosterCard__score}>
             {anime.anotherScores![0].toString()}
           </Badge>

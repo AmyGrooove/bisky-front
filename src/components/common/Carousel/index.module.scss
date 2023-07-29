@@ -1,0 +1,44 @@
+.carousel {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    &__label {
+      font-family: Roboto;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: fit-content;
+
+      &__left {
+        transform: rotate(180deg);
+
+        &:active {
+          transform: scale(0.9) rotate(180deg);
+          transition-duration: 0.2s;
+        }
+      }
+    }
+  }
+
+  &__swiper {
+    user-select: none;
+    overflow: visible;
+
+    &__slide {
+      width: auto;
+
+      &_double {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  }
+}

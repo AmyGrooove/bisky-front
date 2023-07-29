@@ -1,11 +1,8 @@
-import { ReactNode } from "react"
-
 import { cl } from "@/utils"
 import { BISKY_ERROR_1, BISKY_ERROR_2 } from "@/constants"
 
 import AppImage from "../AppImage"
 import Badge from "../Badge"
-import Button from "../Button"
 
 import styles from "./index.module.scss"
 
