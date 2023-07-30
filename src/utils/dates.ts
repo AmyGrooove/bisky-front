@@ -1,4 +1,4 @@
-export const formatDate = (dateInput: Date | null): string => {
+const formatDate = (dateInput: Date | null): string => {
   const months = ["Зима", "Весна", "Лето", "Осень"]
 
   if (dateInput === null) {
@@ -12,7 +12,7 @@ export const formatDate = (dateInput: Date | null): string => {
   return `${month} ${year} г.`
 }
 
-export const getYear = (dateInput: Date | null): string => {
+const getYear = (dateInput: Date | null): string => {
   if (dateInput === null) {
     return "Нет даты выхода"
   }
@@ -22,3 +22,5 @@ export const getYear = (dateInput: Date | null): string => {
 
   return `${year} г.`
 }
+
+export { formatDate, getYear }

@@ -1,7 +1,8 @@
+import AnimePosterCard from "../AnimePosterCard"
+
 import Carousel from "."
 
 import type { Meta, StoryObj } from "@storybook/react"
-import AnimePosterCard from "../AnimePosterCard"
 
 const meta: Meta<typeof Carousel> = {
   title: "Components/Common/Carousel",
