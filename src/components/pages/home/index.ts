@@ -1,3 +1,4 @@
 import RandomFact from "./RandomFact"
+import SeasonCarousel from "./SeasonCarousel"
 
-export { RandomFact }
+export { RandomFact, SeasonCarousel }

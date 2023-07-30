@@ -9,9 +9,9 @@ import {
   InfoIcon,
 } from "@/components/icons"
 import Badge from "@/components/common/Badge"
+import AnimePosterCard from "@/components/common/AnimePosterCard"
 
 import styles from "./index.module.scss"
-import AnimePosterCard from "@/components/common/AnimePosterCard"
 
 interface IHead {
   animeId: number

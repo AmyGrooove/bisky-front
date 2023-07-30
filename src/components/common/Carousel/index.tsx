@@ -1,10 +1,16 @@
+"use client"
+
 import { Swiper, SwiperProps, SwiperRef, SwiperSlide } from "swiper/react"
 import "swiper/css"
-import { Fragment, ReactNode, useCallback, useEffect, useRef } from "react"
-import styles from "./index.module.scss"
-import IconButton from "../IconButton"
+import { Fragment, ReactNode, useCallback, useMemo, useRef } from "react"
+import { Autoplay } from "swiper"
+
 import { ArrowIcon } from "@/components/icons"
 import { cl } from "@/utils"
+
+import IconButton from "../IconButton"
+
+import styles from "./index.module.scss"
 
 interface ICarousel extends SwiperProps {
   slides: ReactNode[]
@@ -35,6 +41,13 @@ const Carousel = ({
     if (sliderRef.current) sliderRef.current.swiper.slideNext()
   }, [])
 
+  const modules = useMemo(() => {
+    const moduleArray = []
+    if (props.autoplay) moduleArray.push(Autoplay)
+
+    return moduleArray
+  }, [props])
+
   return (
     <div className={cl(styles.carousel, className)}>
       <div className={styles.carousel__header}>
@@ -61,6 +74,7 @@ const Carousel = ({
         ref={sliderRef}
         slidesPerView={"auto"}
         grabCursor
+        modules={modules}
         className={styles.carousel__swiper}
         {...props}
       >
