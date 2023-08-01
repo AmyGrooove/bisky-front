@@ -6,7 +6,9 @@
     "build": "next build",
     "start": "next start",
     "lint:fix": "next lint --fix",
-    "storybook": "storybook dev -p 4001"
+    "storybook": "storybook dev -p 4001",
+    "build-storybook": "next build && npx sb@next build",
+    "deploy-storybook": "yarn build-storybook && yarn github-pages-deploy-action"
   },
   "dependencies": {
     "jwt-decode": "^3.1.2",
@@ -36,9 +38,11 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-storybook": "^0.6.13",
+    "github-pages-deploy-action": "^3.5.1",
     "mobx": "^6.10.0",
     "prettier": "^3.0.0",
     "sass": "^1.64.1",
+    "sb": "^7.1.1",
     "storybook": "^7.1.1",
     "typescript": "^5.1.6"
   },

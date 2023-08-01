@@ -1,0 +1,40 @@
+name: Deploy Storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+    inputs:
+      manual_run:
+        description: "Run the deploy manually"
+        default: ""
+
+env:
+  API_URL: ${{ secrets.API_URL }}
+  SHKIMORI_URL: ${{ secrets.SHKIMORI_URL }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build Storybook
+        run: yarn run build-storybook
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: ./storybook-static
