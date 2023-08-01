@@ -6,6 +6,8 @@
 .vscode
 .idea
 
+/storybook-static
+
 # testing
 /coverage
 
