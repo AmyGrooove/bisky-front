@@ -1,0 +1,48 @@
+@use "@/01-shared/themes/colors.scss" as *;
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 10px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+
+  &_lime {
+    background-color: $lime;
+  }
+
+  &_gray {
+    background-color: $gray;
+  }
+
+  &_red {
+    background-color: $red;
+  }
+
+  &_blue {
+    background-color: $blue;
+  }
+
+  &_orange {
+    background-color: $orange;
+  }
+
+  &_green {
+    background-color: $green;
+  }
+
+  &_white {
+    color: $bisky-dark-400;
+    background-color: $bisky-light-100;
+  }
+
+  &_bisky {
+    background-color: $bisky-300;
+  }
+}

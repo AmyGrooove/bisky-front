@@ -1,10 +1,12 @@
 import { ReactNode } from "react"
 import { Roboto } from "next/font/google"
 
-import "@/theme/style.scss"
-import Providers from "@/components/Providers"
-import Footer from "@/components/layout/Footer"
-import { META_DATA } from "@/constants"
+import "@/07-core/styles/global.scss"
+import { META_DATA } from "@/01-shared/data"
+import { Providers } from "@/07-core/providers"
+import { Footer } from "@/04-widgets/Footer"
+import { Header } from "@/04-widgets/Header"
+import { BottomNavigation } from "@/04-widgets/BottomNavigation"
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -19,6 +21,8 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
     <html lang="ru">
       <body className={roboto.className}>
         <Providers>
+          <Header />
+          <BottomNavigation />
           <main className="main">
             <div className="main__content">{children}</div>
           </main>

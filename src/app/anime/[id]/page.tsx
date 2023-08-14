@@ -1,19 +1,19 @@
 import { notFound } from "next/navigation"
 
-import { getOneAnimeInfo } from "@/services"
-import { hasOnlyDigits } from "@/utils"
+import { hasOnlyDigits } from "@/01-shared/utils"
+import { getOneAnimeInfo } from "@/02-entities/anime"
 import {
-  Head,
   Description,
-  PlayerBlock,
-  RatingBlock,
+  Head,
   Lists,
   Related,
+  Scores,
   Screenshots,
   Video,
-} from "@/components/pages/anime/id"
+  Watching,
+} from "@/05-pages/anime/[id]"
 
-import styles from "./index.module.scss"
+import styles from "./page.module.scss"
 
 // export const revalidate = 0;
 
@@ -33,17 +33,7 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
   }
 
   const animeId = parseInt(id)
-
   const animeInfo = await getOneAnimeInfo(animeId)
-  console.log(animeInfo?.franchise)
-
-  // const { data: findAnimeId } = await graphqlClient.makeRequest(`
-  //   query getOneAnimeId {
-  //     getOneAnime(id: ${animeId}) {
-  //       id
-  //     }
-  //   }
-  // `)
 
   if (!animeInfo) {
     return notFound()
@@ -58,13 +48,13 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
           genres={animeInfo.genres}
           studios={animeInfo.studios}
         />
-        <PlayerBlock />
+        <Watching animeId={animeInfo.id} labels={animeInfo.labels} />
         <div className={styles.anime__group}>
-          <RatingBlock scores={animeInfo.anotherScores[0]} />
+          <Scores scores={animeInfo.anotherScores[0]} />
           <Lists />
         </div>
         <Related animes={animeInfo.franchise?.animes ?? []} />
-        <Screenshots animeId={animeId} />
+        <Screenshots screenshots={animeInfo.screenshots} />
         <Video animeId={animeId} />
       </div>
     </div>

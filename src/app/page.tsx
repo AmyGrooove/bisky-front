@@ -1,8 +1,8 @@
-import { RandomFact, SeasonCarousel } from "@/components/pages/home"
+import { RandomFact, SeasonCarousel } from "@/05-pages"
 
 import styles from "./index.module.scss"
 
-const Home = async () => {
+const Page = async () => {
   return (
     <div className={styles.home}>
       <SeasonCarousel />
@@ -11,4 +11,4 @@ const Home = async () => {
   )
 }
 
-export default Home
+export default Page

@@ -1,7 +1,7 @@
-import Title from "@/components/common/Title"
+import { Title } from "@/01-shared/ui/Title"
+import { Catalog } from "@/05-pages/anime"
 
-import Catalog from "./Catalog"
-import styles from "./index.module.scss"
+import styles from "./page.module.scss"
 
 const Page = async () => {
   return (

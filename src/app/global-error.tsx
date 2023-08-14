@@ -1,6 +1,6 @@
 "use client"
 
-import Button from "@/components/common/Button"
+import { Button } from "@/01-shared/ui/Button"
 
 const GlobalError = ({ error, reset }: { error: Error; reset: () => void }) => {
   return (

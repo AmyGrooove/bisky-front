@@ -1,0 +1,59 @@
+@use "@/01-shared/themes/colors.scss" as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: 0.2s;
+
+  font-family: inherit;
+  font-weight: 700;
+
+  &:active {
+    transform: scale(0.95);
+    transition-duration: 0.2s;
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+
+    opacity: 0.4;
+  }
+
+  &_filled {
+    background-color: $bisky-300;
+    color: $bisky-light-100;
+
+    &:hover {
+      background-color: $bisky-200;
+    }
+  }
+
+  &_subtle {
+    background-color: transparent;
+    color: $bisky-light-100;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &_outline {
+    border: 1px solid $bisky-100;
+
+    background-color: transparent;
+    color: $bisky-100;
+
+    &:hover {
+      background-color: $bisky-dark-300;
+    }
+  }
+}

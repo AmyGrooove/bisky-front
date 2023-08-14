@@ -22,9 +22,13 @@
     ],
     "paths": {
       "@/*": ["src/*"],
-      "@/common/*": ["src/components/common/*"],
-      "@/icons": ["src/components/icons"],
-      "@/public/*": ["public/*"]
+      "public/*": ["public/*"],
+      "@/shared/*": ["src/01-shared/*"],
+      "@/entities/*": ["src/02-entities/*"],
+      "@/features/*": ["src/03-features/*"],
+      "@/widgets/*": ["src/04-widgets/*"],
+      "@/pages/*": ["src/05-pages/*"],
+      "@/core/*": ["src/07-core/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

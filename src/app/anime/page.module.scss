@@ -1,0 +1,10 @@
+@use "@/01-shared/themes/colors.scss" as *;
+@use "@/01-shared/themes/extra.scss" as *;
+
+.anime {
+  margin: 32px 0px;
+
+  &__title {
+    margin-bottom: 16px;
+  }
+}

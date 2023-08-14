@@ -1,0 +1,29 @@
+@use "@/01-shared/themes/colors.scss" as *;
+
+.navigationItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  opacity: 0.6;
+
+  &_active {
+    opacity: 1;
+  }
+
+  &__label {
+    margin-top: 5px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  &__icon {
+    svg {
+      fill: $bisky-light-100;
+    }
+  }
+}

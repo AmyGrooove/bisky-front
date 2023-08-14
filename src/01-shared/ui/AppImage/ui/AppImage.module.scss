@@ -1,0 +1,27 @@
+@use "@/01-shared/themes/colors.scss" as *;
+
+.AppImage {
+  position: relative;
+  display: flex;
+
+  &__blur {
+    position: absolute;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $bisky-300;
+    transition: 0.2s;
+
+    &_disable {
+      opacity: 0;
+    }
+  }
+
+  &__img {
+    position: relative;
+    object-fit: cover;
+  }
+}
