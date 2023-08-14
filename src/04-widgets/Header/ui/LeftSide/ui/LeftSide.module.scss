@@ -1,0 +1,49 @@
+@use "@/01-shared/themes/colors.scss" as *;
+
+.leftSide {
+  display: flex;
+  gap: 24px;
+  height: 72px;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &__text {
+      transition: 0.2s;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 36px;
+      color: $bisky-100;
+    }
+
+    &:hover > &__text,
+    &:hover svg {
+      color: $bisky-200;
+      fill: $bisky-200;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 16px;
+
+    &__text {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      color: $bisky-light-100;
+      border-bottom: 4px solid transparent;
+      transition: 0.2s;
+
+      &:hover {
+        border-bottom: 4px solid $bisky-100;
+      }
+    }
+  }
+}

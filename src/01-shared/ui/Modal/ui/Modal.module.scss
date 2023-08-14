@@ -1,0 +1,152 @@
+@use "@/01-shared/themes/colors.scss" as *;
+@use "@/01-shared/themes/extra.scss" as *;
+
+@keyframes invoke {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes goUp {
+  0% {
+    transform: translateY(500px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes goDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(500px);
+  }
+}
+
+@keyframes backgroundInvoke {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes backgroundClose {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &__background {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: $bisky-dark-400;
+    opacity: 0.8;
+
+    animation: backgroundInvoke 0.1s linear;
+
+    &_close {
+      animation: backgroundClose 0.1s linear;
+    }
+  }
+
+  &__container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 200px;
+
+    box-shadow: 0px 0px 8px
+      color-mix(in oklab, $bisky-dark-400, $transparent-100);
+    background-color: $bisky-dark-100;
+    padding: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    animation: invoke 0.1s linear;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__icon {
+        cursor: pointer;
+      }
+
+      &_noTitle {
+        justify-content: flex-end;
+      }
+    }
+
+    &_close {
+      animation: close 0.1s linear;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .modal {
+    &__container {
+      top: unset;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: unset;
+
+      border-radius: 20px 20px 0 0;
+
+      animation: goUp 0.3s linear;
+
+      &::after {
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+
+        content: "";
+
+        background-color: $bisky-dark-100;
+        height: 20px;
+      }
+
+      &_close {
+        animation: goDown 0.1s linear;
+      }
+    }
+  }
+}

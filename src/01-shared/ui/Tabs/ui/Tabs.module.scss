@@ -1,0 +1,59 @@
+@use "@/01-shared/themes/colors.scss" as *;
+
+.tabs {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    padding: 0;
+
+    list-style-type: none;
+
+    &__slider {
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $bisky-300;
+      transform-origin: 0 0;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__tab {
+    flex: 1 0 0;
+
+    padding: 4px 0px;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 2px solid $bisky-light-200;
+
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    &:hover {
+      background: $bisky-dark-300;
+
+      cursor: pointer;
+    }
+
+    &_active {
+    }
+  }
+
+  &__panel {
+    font-size: 16px;
+    line-height: 24px;
+
+    display: none;
+    padding: 8px 0;
+
+    &_active {
+      display: block;
+    }
+  }
+}

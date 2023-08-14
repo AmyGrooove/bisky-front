@@ -1,7 +1,8 @@
 import { getServerSession } from "next-auth"
 
-import { Head, SettingsButton } from "@/components/pages/u/username"
-import { authOptions } from "@/utils"
+import { authOptions } from "@/01-shared/libs/next-auth"
+import { getUserProfile } from "@/02-entities/user"
+import { Head } from "@/05-pages/u/[username]"
 
 const Page = async ({
   params: { username },
@@ -9,16 +10,13 @@ const Page = async ({
   params: { username: string }
 }) => {
   const session = await getServerSession(authOptions)
+  const sessionUsername: string = session?.user.username ?? ""
 
-  // const data: any = await getUserProfile(session?.user?.username!)
-  // console.log(data)
+  const user = await getUserProfile(username)
 
   return (
     <div>
-      <Head username={session?.user?.username!} />
-      {username}
-      <SettingsButton username={session?.user?.username!} />
-      {/* {data.username} */}
+      <Head username={user.username} image={user.image ?? ""} />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import ErrorCard from "@/components/common/ErrorCard"
+import { ErrorCard } from "@/04-widgets/ErrorCard"
 
 import styles from "./index.module.scss"
 

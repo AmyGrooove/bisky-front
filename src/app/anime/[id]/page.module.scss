@@ -1,0 +1,23 @@
+@use "@/01-shared/themes/colors.scss" as *;
+@use "@/01-shared/themes/extra.scss" as *;
+
+.anime {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    margin: 32px 0px;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+  }
+}

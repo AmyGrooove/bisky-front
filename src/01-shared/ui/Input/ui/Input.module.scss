@@ -1,0 +1,73 @@
+@use "@/01-shared/themes/colors.scss" as *;
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &__input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 10px 50px 10px 10px;
+    border: none;
+    border-radius: 10px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    &::placeholder {
+      color: $bisky-light-400;
+    }
+
+    &:focus {
+      outline-width: 2px;
+      outline-style: solid;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      cursor: default;
+      pointer-events: auto;
+
+      opacity: 0.4;
+    }
+
+    &_light {
+      color-scheme: light;
+      background-color: $bisky-light-100;
+      color: $bisky-dark-400;
+
+      outline-color: $bisky-light-100 !important;
+
+      &:focus + .inputGroup__right svg {
+        fill: $bisky-dark-400 !important;
+      }
+    }
+
+    &_dark {
+      color-scheme: dark;
+      background-color: $bisky-dark-100;
+      color: $bisky-light-100;
+
+      outline-color: $bisky-dark-100 !important;
+
+      &:focus + .inputGroup__right svg {
+        fill: $bisky-light-100 !important;
+      }
+    }
+  }
+
+  &__right {
+    position: absolute !important;
+    padding: 10px;
+    display: flex;
+
+    svg {
+      fill: $bisky-light-400 !important;
+    }
+  }
+}

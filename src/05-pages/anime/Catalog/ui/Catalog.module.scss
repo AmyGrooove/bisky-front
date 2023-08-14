@@ -1,0 +1,11 @@
+@use "@/01-shared/themes/colors.scss" as *;
+@use "@/01-shared/themes/extra.scss" as *;
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  gap: 24px;
+
+  margin: 0 auto;
+}

@@ -2,10 +2,10 @@ import type { Preview } from "@storybook/react"
 
 import biskyTheme from "./theme"
 
-import "@/theme/colors.scss"
-import "@/theme/extra.scss"
-import "@/theme/style.scss"
-import "@/theme/storybook.scss"
+import "@/01-shared/themes/colors.scss"
+import "@/01-shared/themes/extra.scss"
+import "@/07-core/styles/global.scss"
+import "./storybook.scss"
 
 const preview: Preview = {
   parameters: {
