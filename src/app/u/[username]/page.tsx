@@ -12,11 +12,11 @@ const Page = async ({
   const session = await getServerSession(authOptions)
   const sessionUsername: string = session?.user.username ?? ""
 
-  const user = await getUserProfile(username)
+  // const user = await getUserProfile(username)
 
   return (
     <div>
-      <Head username={user.username} image={user.image ?? ""} />
+      {/* <Head username={user.username} image={user.image ?? ""} /> */}
     </div>
   )
 }
