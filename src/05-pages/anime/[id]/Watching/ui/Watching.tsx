@@ -8,6 +8,7 @@ interface IWatching {
 
 const Watching = async ({ animeId, labels }: IWatching) => {
   const kodikData = await getKodikData(animeId)
+
   return (
     <div>
       <PlayersTabs
