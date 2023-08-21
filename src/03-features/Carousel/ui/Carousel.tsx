@@ -72,6 +72,7 @@ const Carousel = ({
           </div>
         )}
       </div>
+
       <Swiper
         ref={sliderRef}
         slidesPerView={"auto"}

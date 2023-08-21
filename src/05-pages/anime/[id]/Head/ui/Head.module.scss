@@ -1,3 +1,5 @@
+@use "@/01-shared/themes/extra.scss" as *;
+
 .background {
   z-index: -1;
   position: absolute;
@@ -21,6 +23,14 @@
   gap: 20px;
 
   height: 420px;
+
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+
+    height: fit-content;
+
+    margin-top: 24px;
+  }
 
   &__anime {
     display: flex;

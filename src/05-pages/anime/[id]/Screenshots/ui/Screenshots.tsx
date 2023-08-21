@@ -15,7 +15,7 @@ const Screenshots = async ({ screenshots }: IScreenshots) => {
     <Fancybox
       options={{
         Carousel: {
-          infinite: false,
+          infinite: true,
         },
         groupAll: true,
       }}

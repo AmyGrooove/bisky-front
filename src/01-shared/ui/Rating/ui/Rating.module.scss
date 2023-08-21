@@ -4,12 +4,16 @@
   display: flex;
   align-items: center;
 
+  overflow: auto;
+  max-width: calc(100vw - 32px);
+  width: fit-content;
+
   &__item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 
     &__star {
       svg {
