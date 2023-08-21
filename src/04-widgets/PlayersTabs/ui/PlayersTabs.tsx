@@ -1,6 +1,7 @@
 "use client"
 
 import { Tabs } from "@/01-shared/ui/Tabs"
+import { AspectRatio } from "@/01-shared/ui/AspectRatio"
 
 import styles from "./PlayersTabs.module.scss"
 
@@ -16,17 +17,19 @@ const PlayersTabs = ({ kodikLink, labels }: IPlayersTabs) => {
         <Tabs.Tab value="bisky">Bisky</Tabs.Tab>
         <Tabs.Tab value="kodik">Kodik</Tabs.Tab>
       </Tabs.List>
-      <Tabs.Panel value="bisky">s</Tabs.Panel>
+      <Tabs.Panel value="bisky">В работе</Tabs.Panel>
       <Tabs.Panel value="kodik">
         {kodikLink !== undefined ? (
-          <iframe
-            className={styles.kodikPlayer}
-            src={kodikLink}
-            width="1280"
-            height="600"
-            allowFullScreen
-            allow="autoplay *; fullscreen *"
-          />
+          <AspectRatio ratio={16 / 9}>
+            <iframe
+              className={styles.kodikPlayer}
+              src={kodikLink}
+              width="1280"
+              height="600"
+              allowFullScreen
+              allow="autoplay *; fullscreen *"
+            />
+          </AspectRatio>
         ) : (
           <span>Нету в Kodik&apos;e</span>
         )}

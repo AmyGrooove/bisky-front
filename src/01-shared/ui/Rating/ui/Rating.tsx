@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useCallback, useMemo, useState } from "react"
 
 import { StarFullIcon, StarOutlineIcon } from "../../icons"
 import { IconButton } from "../../IconButton"
@@ -11,6 +11,7 @@ interface IRating {
   defaultValue: number
 
   count?: number
+  sizeIcons?: number
   withLabels?: boolean
   readOnly?: boolean
   onSelectedClick?: (index: number) => void
@@ -19,28 +20,32 @@ interface IRating {
 const Rating = ({
   defaultValue,
   count = 10,
+  sizeIcons = 22,
   withLabels = false,
   readOnly = false,
   onSelectedClick,
 }: IRating) => {
   const [hoveredStars, setHoveredStars] = useState(0)
 
-  const getStar = (index: number) => {
-    if (readOnly) {
-      if (defaultValue >= index) {
-        return <StarFullIcon size={28} />
+  const getStar = useCallback(
+    (index: number) => {
+      if (readOnly) {
+        if (defaultValue >= index) {
+          return <StarFullIcon size={sizeIcons} />
+        } else {
+          return <StarOutlineIcon size={sizeIcons} />
+        }
       } else {
-        return <StarOutlineIcon size={28} />
+        if (hoveredStars >= index) {
+          return <StarFullIcon size={sizeIcons} />
+        } else if (!hoveredStars && defaultValue >= index) {
+          return <StarFullIcon size={sizeIcons} />
+        }
+        return <StarOutlineIcon size={sizeIcons} />
       }
-    } else {
-      if (hoveredStars >= index) {
-        return <StarFullIcon size={28} />
-      } else if (!hoveredStars && defaultValue >= index) {
-        return <StarFullIcon size={28} />
-      }
-      return <StarOutlineIcon size={28} />
-    }
-  }
+    },
+    [defaultValue, hoveredStars, readOnly, sizeIcons],
+  )
 
   const starRating = useMemo(() => {
     return Array(count)
@@ -60,7 +65,7 @@ const Rating = ({
           )}
         </div>
       ))
-  }, [count, defaultValue, hoveredStars])
+  }, [count, getStar, onSelectedClick, withLabels])
 
   return <div className={styles.rating}>{starRating}</div>
 }

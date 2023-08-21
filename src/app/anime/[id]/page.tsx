@@ -54,7 +54,7 @@ const Page = async ({ params: { id } }: { params: { id: string } }) => {
           <Lists />
         </div>
         <Related animes={animeInfo.franchise?.animes ?? []} />
-        <Screenshots screenshots={animeInfo.screenshots} />
+        <Screenshots screenshots={animeInfo.screenshots.slice(0, 10)} />
         <Video animeId={animeId} />
       </div>
     </div>

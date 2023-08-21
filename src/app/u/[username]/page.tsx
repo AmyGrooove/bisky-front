@@ -1,8 +1,6 @@
 import { getServerSession } from "next-auth"
 
 import { authOptions } from "@/01-shared/libs/next-auth"
-import { getUserProfile } from "@/02-entities/user"
-import { Head } from "@/05-pages/u/[username]"
 
 const Page = async ({
   params: { username },
