@@ -1,11 +1,12 @@
-import { RandomFact, SeasonCarousel } from "@/05-pages"
+import { RandomFact, SeasonCarousel, NewSeriesCarousel } from "@/05-pages/home"
 
 import styles from "./index.module.scss"
 
-const Page = async () => {
+const Page = () => {
   return (
     <div className={styles.home}>
       <SeasonCarousel />
+      <NewSeriesCarousel />
       <RandomFact />
     </div>
   )

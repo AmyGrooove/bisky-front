@@ -1,6 +1,9 @@
 @use "@/01-shared/themes/colors.scss" as *;
+@use "@/01-shared/themes/extra.scss" as *;
 
 .randomFact {
+  @extend .container;
+
   display: flex;
   align-items: center;
   gap: 20px;
@@ -10,7 +13,7 @@
 
   background-color: $bisky-dark-200;
 
-  &__text {
+  .factInfo {
     font-size: 20px;
   }
 }

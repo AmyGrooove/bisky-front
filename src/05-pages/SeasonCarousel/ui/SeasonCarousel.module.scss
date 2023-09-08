@@ -1,9 +1,0 @@
-@use "@/01-shared/themes/extra.scss" as *;
-
-.seasonCarousel {
-  overflow: visible;
-
-  @media screen and (max-width: $mobile) {
-    display: none;
-  }
-}
