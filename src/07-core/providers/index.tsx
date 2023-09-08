@@ -1,6 +1,5 @@
 import { ReactNode } from "react"
 
-
 import { ClientProvider } from "./ClientProvider"
 
 interface IProviders {

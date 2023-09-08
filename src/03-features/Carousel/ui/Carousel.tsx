@@ -19,6 +19,7 @@ interface ICarousel extends SwiperProps {
   label?: string
   labelButtons?: boolean
   doubleRow?: boolean
+  swiperClassName?: string
   className?: string
 }
 
@@ -28,6 +29,7 @@ const Carousel = ({
   label,
   labelButtons,
   doubleRow,
+  swiperClassName,
   className,
   ...props
 }: ICarousel) => {
@@ -50,35 +52,37 @@ const Carousel = ({
 
   return (
     <div className={cl(styles.carousel, className)}>
-      <div className={styles.carousel__header}>
-        {(label || labelButtons) && (
-          <Title order={3} className={styles.carousel__header__label}>
-            {label ?? ""}
-          </Title>
-        )}
-        {labelButtons && (
-          <div className={styles.carousel__header__buttons}>
-            <IconButton
-              variant="filled"
-              icon={<ArrowIcon />}
-              onClick={handlePrev}
-              className={styles.carousel__header__buttons__left}
-            />
-            <IconButton
-              variant="filled"
-              icon={<ArrowIcon />}
-              onClick={handleNext}
-            />
-          </div>
-        )}
-      </div>
+      {(label || labelButtons) && (
+        <div className={styles.carousel__header}>
+          {(label || labelButtons) && (
+            <Title order={3} className={styles.carousel__header__label}>
+              {label ?? ""}
+            </Title>
+          )}
+          {labelButtons && (
+            <div className={styles.carousel__header__buttons}>
+              <IconButton
+                variant="filled"
+                icon={<ArrowIcon />}
+                onClick={handlePrev}
+                className={styles.carousel__header__buttons__left}
+              />
+              <IconButton
+                variant="filled"
+                icon={<ArrowIcon />}
+                onClick={handleNext}
+              />
+            </div>
+          )}
+        </div>
+      )}
 
       <Swiper
         ref={sliderRef}
         slidesPerView={"auto"}
         grabCursor
         modules={modules}
-        className={styles.carousel__swiper}
+        className={cl(styles.carousel__swiper, swiperClassName)}
         {...props}
       >
         {doubleRow

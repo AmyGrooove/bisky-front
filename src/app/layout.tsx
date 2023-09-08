@@ -23,9 +23,7 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
         <Providers>
           <Header />
           <BottomNavigation />
-          <main className="main">
-            <div className="main__content">{children}</div>
-          </main>
+          <main className="main">{children}</main>
           <Footer />
         </Providers>
       </body>

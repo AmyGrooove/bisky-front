@@ -2,8 +2,6 @@ import { Carousel } from "@/03-features/Carousel"
 import { AnimeSeasonCard } from "@/04-widgets/AnimeSeasonCard"
 import { getCurrentSeasonAnimes } from "@/04-widgets/AnimeSeasonCard/api"
 
-import styles from "./SeasonCarousel.module.scss"
-
 const SeasonCarousel = async () => {
   const seasonSlides = (await getCurrentSeasonAnimes()) ?? []
 
@@ -28,7 +26,6 @@ const SeasonCarousel = async () => {
         />
       ))}
       keys={seasonSlides.map((el) => String(el.id))}
-      className={styles.seasonCarousel}
     />
   )
 }
