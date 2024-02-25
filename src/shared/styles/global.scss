@@ -1,2 +1,51 @@
 @import "./variables/borders.scss";
 @import "./variables/colors.scss";
+
+* {
+  letter-spacing: 1px;
+  color: var(--light-100);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  display: flex;
+  min-height: 100%;
+
+  @extend .colors, .borders;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  overflow-x: hidden;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--dark-400);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
+}
