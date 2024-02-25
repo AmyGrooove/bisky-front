@@ -15,20 +15,16 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["src/*"],
       "public/*": ["public/*"],
-      "@/shared/*": ["src/01-shared/*"],
-      "@/entities/*": ["src/02-entities/*"],
-      "@/features/*": ["src/03-features/*"],
-      "@/widgets/*": ["src/04-widgets/*"],
-      "@/pages/*": ["src/05-pages/*"],
-      "@/core/*": ["src/07-core/*"]
+      "@shared/*": ["src/shared/*"],
+      "@entities/*": ["src/entities/*"],
+      "@features/*": ["src/features/*"],
+      "@widgets/*": ["src/widgets/*"],
+      "@pages/*": ["src/pages/*"],
+      "@core/*": ["src/core/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
