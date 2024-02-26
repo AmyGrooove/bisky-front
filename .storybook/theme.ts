@@ -4,7 +4,7 @@ export default create({
   base: "dark",
 
   // Typography
-  fontBase: '"Roboto", sans-serif',
+  fontBase: "Ubuntu",
   fontCode: "monospace",
 
   brandTitle: "Bisky",
