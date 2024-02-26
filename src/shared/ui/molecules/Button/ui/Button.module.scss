@@ -1,0 +1,30 @@
+@import "@shared/styles/reusable.scss";
+
+.button {
+  display: flex;
+  align-items: center;
+  background-color: #801a59;
+  border-radius: 12px;
+  border: none;
+  padding: 12px 20px;
+  gap: 4px;
+
+  @include transition((background-color, transform), (0.2s, 0.1s));
+
+  &:hover {
+    background-color: #be3d73;
+  }
+
+  &:active {
+    background-color: #731750;
+    transform: scale(0.9);
+  }
+
+  &:disabled {
+    background-color: #777777;
+  }
+
+  &--icon {
+    padding: 12px 16px;
+  }
+}
