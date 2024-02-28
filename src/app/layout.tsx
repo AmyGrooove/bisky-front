@@ -1,5 +1,6 @@
 import { ReactNode } from "react"
 import { Ubuntu } from "next/font/google"
+
 import { META_DATA } from "@shared/constants/metaData"
 import "@shared/styles/global.scss"
 

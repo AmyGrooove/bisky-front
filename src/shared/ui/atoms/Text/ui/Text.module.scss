@@ -1,0 +1,5 @@
+@import "../styles/defineFontSize.scss";
+@import "../styles/defineFontWeight.scss";
+
+@include defineFontSize((12, 16, 20, 24, 28, 32, 44));
+@include defineFontWeight((400, 700));
