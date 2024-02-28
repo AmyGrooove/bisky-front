@@ -6,7 +6,7 @@ import st from "./Text.module.scss"
 
 const Text = (props: ITextProps) => {
   const {
-    children = "Button",
+    children,
     size,
     weight,
     className,
@@ -14,7 +14,14 @@ const Text = (props: ITextProps) => {
   } = props
 
   return (
-    <Element className={cn(st.root, className, st[`${size}`], st[`${weight}`])}>
+    <Element
+      className={cn(
+        st.root,
+        className,
+        st[`size_${size}`],
+        st[`weight_${weight}`],
+      )}
+    >
       {children}
     </Element>
   )

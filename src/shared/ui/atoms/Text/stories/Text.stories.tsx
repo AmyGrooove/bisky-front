@@ -12,41 +12,41 @@ export default meta
 type Story = StoryObj<typeof Text>
 
 export const Size12: Story = {
-  args: { size: "size-12" },
+  args: { children: "Text", size: "12" },
 }
 
 export const Size16: Story = {
-  args: { size: "size-16" },
+  args: { children: "Text", size: "16" },
 }
 
 export const Size20: Story = {
-  args: { size: "size-20" },
+  args: { children: "Text", size: "20" },
 }
 
 export const Size24: Story = {
-  args: { size: "size-24" },
+  args: { children: "Text", size: "24" },
 }
 
 export const Size28: Story = {
-  args: { size: "size-28" },
+  args: { children: "Text", size: "28" },
 }
 
 export const Size32: Story = {
-  args: { size: "size-32" },
+  args: { children: "Text", size: "32" },
 }
 
 export const Size44: Story = {
-  args: { size: "size-44" },
+  args: { children: "Text", size: "44" },
 }
 
 export const Weight400: Story = {
-  args: { weight: "weight-400" },
+  args: { children: "Text", weight: "400" },
 }
 
 export const Weight700: Story = {
-  args: { weight: "weight-700" },
+  args: { children: "Text", weight: "700" },
 }
 
 export const AsH1: Story = {
-  args: { as: "h1" },
+  args: { children: "Text", as: "h1" },
 }
