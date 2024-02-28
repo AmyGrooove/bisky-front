@@ -1,0 +1,7 @@
+@mixin defineFontWeight($weights) {
+  @each $weight in $weights {
+    .weight_#{$weight} {
+      font-weight: $weight;
+    }
+  }
+}

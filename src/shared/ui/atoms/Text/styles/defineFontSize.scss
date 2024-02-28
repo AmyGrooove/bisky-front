@@ -1,0 +1,7 @@
+@mixin defineFontSize($sizes) {
+  @each $size in $sizes {
+    .size_#{$size} {
+      font-size: #{$size}px;
+    }
+  }
+}
