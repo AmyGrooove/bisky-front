@@ -7,6 +7,8 @@
   width: max-content;
   padding: 4px 8px;
   gap: 4px;
+  -webkit-user-select: none;
+  user-select: none;
 
   &_icon {
     padding: 8px;
