@@ -1,0 +1,14 @@
+.badge {
+  display: flex;
+  align-items: center;
+  background-color: var(--bisky-300);
+  border-radius: var(--small-radius);
+  border: none;
+  width: max-content;
+  padding: 4px 8px;
+  gap: 4px;
+
+  &_icon {
+    padding: 8px;
+  }
+}
