@@ -1,0 +1,15 @@
+.circle_views {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 30px;
+  box-sizing: border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
