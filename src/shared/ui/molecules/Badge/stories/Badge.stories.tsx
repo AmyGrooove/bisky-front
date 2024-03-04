@@ -15,14 +15,14 @@ type Story = StoryObj<typeof Badge>
 
 export const IconRight: Story = {
   args: {
-    children: "Badge",
+    text: "Badge",
     iconRight: <ClockIcon width="15px" height="15px" />,
   },
 }
 
 export const IconLeft: Story = {
   args: {
-    children: "Badge",
+    text: "Badge",
     iconLeft: <ClockIcon width="15px" height="15px" />,
   },
 }

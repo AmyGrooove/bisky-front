@@ -1,7 +1,8 @@
 import { ReactElement } from "react"
 
 interface IBadgeProps {
-  children?: string
+  className?: string
+  text?: string
   iconRight?: ReactElement
   iconLeft?: ReactElement
 }
