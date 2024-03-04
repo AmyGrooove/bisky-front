@@ -1,0 +1,51 @@
+@import "@shared/styles/reusable.scss";
+
+.toggle_wrapper {
+  width: 112px;
+  height: 56px;
+  display: block;
+  position: relative;
+  border-radius: var(--full-radius);
+  background-color: var(--dark-200);
+  @include transition(background-color);
+
+  .toggle {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    background-color: var(--bisky-400);
+    @include transition((background-color, transform, left, width));
+  }
+
+  &:active::after {
+    width: 64px;
+  }
+
+  &:has(.toggle:checked) {
+    background-color: var(--dark-100);
+  }
+
+  &:has(.toggle:checked)::after {
+    left: calc(100% - 4px);
+    transform: translateX(-100%);
+    background-color: var(--bisky-100);
+  }
+
+  &:has(.toggle:disabled) {
+    background-color: var(--grey);
+    &::after {
+      background-color: var(--light-400);
+    }
+    &:active::after {
+      width: 48px;
+    }
+  }
+}
