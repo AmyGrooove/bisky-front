@@ -31,19 +31,21 @@
 
   &:has(.toggle:checked) {
     background-color: var(--dark-100);
-  }
 
-  &:has(.toggle:checked)::after {
-    left: calc(100% - 4px);
-    transform: translateX(-100%);
-    background-color: var(--bisky-100);
+    &::after {
+      left: calc(100% - 4px);
+      transform: translateX(-100%);
+      background-color: var(--bisky-100);
+    }
   }
 
   &:has(.toggle:disabled) {
     background-color: var(--grey);
+
     &::after {
       background-color: var(--light-400);
     }
+
     &:active::after {
       width: 48px;
     }

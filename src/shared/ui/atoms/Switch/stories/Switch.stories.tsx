@@ -17,5 +17,5 @@ export const Default: Story = {
 }
 
 export const Disable: Story = {
-  args: { inputProps: { attributes: { disabled: true } } },
+  args: { disabled: true },
 }

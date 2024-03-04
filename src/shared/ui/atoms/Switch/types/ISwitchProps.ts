@@ -1,13 +1,5 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from "react"
+import { InputHTMLAttributes } from "react"
 
-interface ISwitchProps {
-  inputProps?: {
-    attributes: DetailedHTMLProps<
-      InputHTMLAttributes<HTMLInputElement>,
-      HTMLInputElement
-    >
-  }
-  labelProps?: { className: string }
-}
+interface ISwitchProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 export type { ISwitchProps }
