@@ -1,3 +1,5 @@
+@import "@shared/styles/reusable.scss";
+
 .season {
   position: relative;
   display: flex;
@@ -7,63 +9,41 @@
   border-radius: var(--big-radius);
   background-color: rgba($color: #000000, $alpha: 0.6);
   overflow: hidden;
+}
 
-  .season_content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding-top: 12px;
-    padding-bottom: 20px;
+.season_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
 
-    .poster {
-      width: 182px;
-      height: 252px;
-      border-radius: var(--small-radius);
-    }
-  }
+.poster {
+  width: 182px;
+  height: 252px;
+  border-radius: var(--small-radius);
+}
 
-  .rating {
-    background-color: var(--lime);
-    align-self: end;
-  }
+.rating {
+  background-color: var(--lime);
+  align-self: end;
+}
 
-  .genres {
-    opacity: 0.8;
-  }
+.genres {
+  opacity: 0.8;
+}
 
-  .background_image1,
-  .background_image2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  object-fit: cover;
+  z-index: -1;
+  @include transition(opacity, 2s);
 
-  .background_image2 {
-    z-index: -2;
-  }
-
-  .image_wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    visibility: visible;
-    opacity: 1;
-    height: 100%;
-    transition:
-      opacity 3s ease-in-out,
-      visibility 3s ease-in-out;
-    z-index: -1;
-
-    .image_wrapper_hidden {
-      visibility: hidden;
-      opacity: 0;
-      transition:
-        opacity 0.3s ease-in-out,
-        visibility 0.3s ease-in-out;
-    }
+  &_hide {
+    opacity: 0;
   }
 }

@@ -1,10 +1,10 @@
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
-import { Badge } from "@shared/ui/molecules/Badge/ui/Badge"
-import { Text } from "@shared/ui/atoms/Text/ui/Text"
+import { Badge } from "@shared/ui/molecules/Badge"
+import { Text } from "@shared/ui/atoms/Text"
 import { StarIcon } from "@shared/icons"
-import { cn } from "@shared/utils/functions/cn"
+import { cn } from "@shared/utils/functions"
 
 import { ISeasonProps } from "../types/ISeasonProps"
 
@@ -12,24 +12,29 @@ import st from "./Season.module.scss"
 
 const Season = (props: ISeasonProps) => {
   const { title, poster, rating, genres, backgroundImages } = props
-  const [backgroundImage1, setBackgroundImage1] = useState(backgroundImages[0])
-  const [backgroundImage2, setBackgroundImage2] = useState(backgroundImages[1])
-  const backgroundRef1 = useRef<HTMLDivElement>(null)
+
+  const [isNextImageShow, setIsNextImageShow] = useState(false)
+  const [backgroundImage1, setBackgroundImage1] = useState(0)
+  const [backgroundImage2, setBackgroundImage2] = useState(1)
 
   useEffect(() => {
-    let indexImage1 = 0
-    let indexImage2 = 1
-    const changeBackground = setInterval(() => {
-      console.log(backgroundRef1.current)
-      backgroundRef1.current?.classList.toggle("image_wrapper_hidden")
-      if (backgroundRef1.current?.classList.contains("image_wrapper_hidden")) {
-        setBackgroundImage1(
-          backgroundImages[(indexImage2 + 1) % backgroundImages.length],
-        )
+    const interval = setTimeout(() => {
+      if (isNextImageShow) {
+        setBackgroundImage1((backgroundImage2 + 1) % backgroundImages.length)
+      } else {
+        setBackgroundImage2((backgroundImage1 + 1) % backgroundImages.length)
       }
+
+      setIsNextImageShow((prev) => !prev)
     }, 10000)
-    return () => clearInterval(changeBackground)
-  }, [backgroundImages])
+
+    return () => clearTimeout(interval)
+  }, [
+    backgroundImage1,
+    backgroundImage2,
+    backgroundImages.length,
+    isNextImageShow,
+  ])
 
   return (
     <div className={st.season}>
@@ -50,18 +55,22 @@ const Season = (props: ISeasonProps) => {
         {genres.join(" | ")}
       </Text>
 
-      <div ref={backgroundRef1} className={st.image_wrapper}>
-        <Image
-          className={st.background_image1}
-          src={backgroundImage1}
-          alt=""
-          fill
-        />
-      </div>
+      <Image
+        className={cn(
+          st.backgroundImage,
+          isNextImageShow && st.backgroundImage_hide,
+        )}
+        src={backgroundImages[backgroundImage1]}
+        alt=""
+        fill
+      />
 
       <Image
-        className={st.background_image2}
-        src={backgroundImage2}
+        className={cn(
+          st.backgroundImage,
+          !isNextImageShow && st.backgroundImage_hide,
+        )}
+        src={backgroundImages[backgroundImage2]}
         alt=""
         fill
       />
