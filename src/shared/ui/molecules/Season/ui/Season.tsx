@@ -17,6 +17,8 @@ const Season = (props: ISeasonProps) => {
   const [backgroundImage1, setBackgroundImage1] = useState(0)
   const [backgroundImage2, setBackgroundImage2] = useState(1)
 
+  const isBackgroundImageEmpty = backgroundImages.length === 0
+
   useEffect(() => {
     const interval = setTimeout(() => {
       if (isNextImageShow) {
@@ -54,27 +56,35 @@ const Season = (props: ISeasonProps) => {
         {genres.join(" | ")}
       </Text>
 
-      <Image
-        className={cn(
-          st.backgroundImage,
-          isNextImageShow && st.backgroundImage_hide,
-        )}
-        src={backgroundImages[backgroundImage1]}
-        priority={true}
-        alt=""
-        fill
-      />
+      {isBackgroundImageEmpty && <div className={st.stub} />}
 
-      <Image
-        className={cn(
-          st.backgroundImage,
-          !isNextImageShow && st.backgroundImage_hide,
-        )}
-        src={backgroundImages[backgroundImage2]}
-        priority={true}
-        alt=""
-        fill
-      />
+      {!isBackgroundImageEmpty && (
+        <>
+          <Image
+            className={cn(
+              st.backgroundImage,
+              isNextImageShow && st.backgroundImage_hide,
+            )}
+            src={backgroundImages[backgroundImage1]}
+            priority={true}
+            alt=""
+            fill
+          />
+
+          {backgroundImages.length > 1 && (
+            <Image
+              className={cn(
+                st.backgroundImage,
+                !isNextImageShow && st.backgroundImage_hide,
+              )}
+              src={backgroundImages[backgroundImage2]}
+              priority={true}
+              alt=""
+              fill
+            />
+          )}
+        </>
+      )}
     </div>
   )
 }

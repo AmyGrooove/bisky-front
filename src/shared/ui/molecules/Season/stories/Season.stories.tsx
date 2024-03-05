@@ -28,3 +28,14 @@ export const Default: Story = {
     ],
   },
 }
+
+export const BackgroundImageEmpty: Story = {
+  args: {
+    title: "Невероятное приключение ДжоДжо: Рыцари звёздной пыли",
+    poster:
+      "https://sun9-38.userapi.com/impg/o2fsOfta4k2qhRiXZBTaO1oCG9sjk5nzflgfyg/x_osbMnSFzk.jpg?size=182x252&quality=96&sign=2381e0d1436d592963162509605295a0&type=album",
+    rating: "10",
+    genres: ["ДжоДжо", "ДжоДжо", "ДжоДжо"],
+    backgroundImages: [],
+  },
+}

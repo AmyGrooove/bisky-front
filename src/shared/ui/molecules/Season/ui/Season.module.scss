@@ -51,3 +51,13 @@
     opacity: 0;
   }
 }
+
+.stub {
+  position: absolute;
+  inset: 0;
+  background-color: var(--dark-300);
+  background-image: url(../../../../../../public/favicon.ico);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
