@@ -38,13 +38,12 @@ const Season = (props: ISeasonProps) => {
 
   return (
     <div className={st.season}>
-      <Badge
-        className={st.rating}
-        iconLeft={<StarIcon fillStar={true} width="15px" height="15px" />}
-        text={rating ? Number(rating).toFixed(1) : "0.0"}
-      />
-
       <div className={st.season_content}>
+        <Badge
+          className={st.rating}
+          iconLeft={<StarIcon fillStar={true} width="15px" height="15px" />}
+          text={rating ? Number(rating).toFixed(1) : "0.0"}
+        />
         <Image className={st.poster} src={poster} width={0} height={0} alt="" />
         <Text className={st.title} as="p" size="32" weight="700">
           {title}
@@ -61,6 +60,7 @@ const Season = (props: ISeasonProps) => {
           isNextImageShow && st.backgroundImage_hide,
         )}
         src={backgroundImages[backgroundImage1]}
+        priority={true}
         alt=""
         fill
       />
@@ -71,6 +71,7 @@ const Season = (props: ISeasonProps) => {
           !isNextImageShow && st.backgroundImage_hide,
         )}
         src={backgroundImages[backgroundImage2]}
+        priority={true}
         alt=""
         fill
       />

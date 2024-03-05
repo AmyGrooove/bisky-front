@@ -12,21 +12,25 @@
 }
 
 .season_content {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding-top: 12px;
   padding-bottom: 20px;
 }
 
 .poster {
-  width: 182px;
-  height: 252px;
+  width: 216px;
+  height: 296px;
+  object-fit: cover;
   border-radius: var(--small-radius);
 }
 
 .rating {
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: var(--lime);
   align-self: end;
 }
