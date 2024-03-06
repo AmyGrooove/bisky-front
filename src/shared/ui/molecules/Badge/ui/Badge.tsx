@@ -8,16 +8,16 @@ import { IBadgeProps } from "../types/IBadgeProps"
 import st from "./Badge.modules.scss"
 
 const Badge = (props: IBadgeProps) => {
-  const { children, iconLeft, iconRight } = props
+  const { className, text, iconLeft, iconRight } = props
 
-  const isIconButton = !children && (iconRight || iconLeft)
+  const isIconButton = !text && (iconRight || iconLeft)
 
   return (
-    <div className={cn(st.badge, isIconButton && st.badge_icon)}>
+    <div className={cn(st.badge, className, isIconButton && st.badge_icon)}>
       {iconLeft && cloneElement(iconLeft)}
-      {children && (
+      {text && (
         <Text size="20" weight="700">
-          {children}
+          {text}
         </Text>
       )}
       {iconRight && cloneElement(iconRight)}
