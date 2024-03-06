@@ -1,0 +1,63 @@
+@import "@shared/styles/reusable.scss";
+
+.season {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: var(--big-radius);
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  overflow: hidden;
+}
+
+.season_content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.poster {
+  width: 216px;
+  height: 296px;
+  object-fit: cover;
+  border-radius: var(--small-radius);
+}
+
+.rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--lime);
+  align-self: end;
+}
+
+.genres {
+  opacity: 0.8;
+}
+
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  object-fit: cover;
+  z-index: -1;
+  @include transition(opacity, 2s);
+
+  &_hide {
+    opacity: 0;
+  }
+}
+
+.stub {
+  position: absolute;
+  inset: 0;
+  background-color: var(--dark-300);
+  background-image: url(../../../../../../public/favicon.ico);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
