@@ -1,6 +1,6 @@
-import { AnchorHTMLAttributes } from "react"
+import { LinkProps } from "next/link"
 
-interface ITabProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface ITabProps extends LinkProps {
   text: string
   href: string
   active?: boolean

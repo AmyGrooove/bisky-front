@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { Text } from "@shared/ui/atoms/Text"
 import { cn } from "@shared/utils/functions"
 
@@ -10,11 +12,11 @@ const Tab = (props: ITabProps) => {
 
   return (
     <div className={cn(st.tab, active && st.active)}>
-      <a {...props} href={href}>
+      <Link {...props} href={href}>
         <Text as="span" size="24" weight="700">
           {text}
         </Text>
-      </a>
+      </Link>
     </div>
   )
 }
