@@ -1,0 +1,59 @@
+@import "@shared/styles/reusable.scss";
+
+.checkbox {
+  display: none;
+}
+
+.checkbox_wrapper {
+  display: inline-flex;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+  gap: 10px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--dark-100);
+    border-radius: 50%;
+    border: 3px solid var(--bisky-300);
+    @include transition(border-color);
+  }
+
+  &:hover::before {
+    border-color: var(--bisky-200);
+  }
+
+  &:active::before {
+    background-color: var(--bisky-200);
+  }
+
+  &:has(.checkbox:checked) {
+    &[data-kind="check_mark"]::before {
+      background-color: var(--bisky-200);
+      border-color: var(--bisky-200);
+      background-image: url("/public/svg/check_mark.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 80%;
+    }
+
+    &[data-kind="point"]::before {
+      background-image: radial-gradient(
+        30% 30%,
+        var(--bisky-200) 95%,
+        transparent
+      );
+      border-color: var(--bisky-200);
+      border-width: 3px;
+    }
+  }
+
+  &:has(.checkbox:disabled)::before {
+    background-color: var(--light-300);
+    border-color: var(--light-400);
+  }
+}
