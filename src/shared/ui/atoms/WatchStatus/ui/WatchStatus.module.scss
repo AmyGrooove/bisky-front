@@ -1,0 +1,25 @@
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
+
+.complete {
+  background-color: var(--lime);
+}
+
+.setWatch,
+.added {
+  background-color: var(--bisky-200);
+}
+
+.watching {
+  background-color: var(--blue);
+}
+
+.dropped {
+  background-color: var(--dark-100);
+}
