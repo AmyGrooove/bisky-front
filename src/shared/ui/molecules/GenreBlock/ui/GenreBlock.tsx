@@ -21,7 +21,7 @@ const GenreBlock = (props: IGenreBlock) => {
         {posters.map((path) => (
           <Image
             key={path}
-            src={path}
+            src={path ?? ""}
             width={126}
             height={202}
             className={st.poster}
