@@ -4,6 +4,7 @@
 * {
   letter-spacing: 1px;
   color: var(--light-100);
+  box-sizing: border-box;
 
   &:focus {
     outline: none;

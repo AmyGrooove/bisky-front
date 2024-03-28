@@ -1,20 +1,22 @@
-import { cn } from "@/shared/utils/functions"
+import { cn } from "@shared/utils/functions"
 
-import { ITextProps } from "../Types/ITextProps"
+import { ITextProps } from "../types/ITextProps"
 
 import st from "./Text.module.scss"
 
 const Text = (props: ITextProps) => {
   const {
     children,
-    size,
-    weight,
+    size = "16",
+    weight = "400",
     className,
     as: Element = "div",
+    ...otherProps
   } = props
 
   return (
     <Element
+      {...otherProps}
       className={cn(
         st.root,
         className,

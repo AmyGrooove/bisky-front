@@ -1,23 +1,45 @@
+$bisky-100: #dd5480;
+$bisky-200: #be3d73;
+$bisky-300: #801a59;
+$bisky-400: #731750;
+
+$dark-100: #472f4d;
+$dark-200: #322136;
+$dark-300: #231726;
+$dark-400: #170e19;
+
+$light-100: #f8f8f8;
+$light-200: #eef0eb;
+$light-300: #e0e1dd;
+$light-400: #a4a4a4;
+
+$blue: #4f91e8;
+$green: #4a884d;
+$grey: #777777;
+$orange: #ef8d50;
+$lime: #3bb33b;
+$red: #ff0000;
+
 .colors {
-  --bisky-100: #dd5480;
-  --bisky-200: #be3d73;
-  --bisky-300: #801a59;
-  --bisky-400: #731750;
+  --bisky-100: #{$bisky-100};
+  --bisky-200: #{$bisky-200};
+  --bisky-300: #{$bisky-300};
+  --bisky-400: #{$bisky-400};
 
-  --dark-100: #472f4d;
-  --dark-200: #322136;
-  --dark-300: #231726;
-  --dark-400: #170e19;
+  --dark-100: #{$dark-100};
+  --dark-200: #{$dark-200};
+  --dark-300: #{$dark-300};
+  --dark-400: #{$dark-400};
 
-  --light-100: #f8f8f8;
-  --light-200: #eef0eb;
-  --light-300: #e0e1dd;
-  --light-400: #a4a4a4;
+  --light-100: #{$light-100};
+  --light-200: #{$light-200};
+  --light-300: #{$light-300};
+  --light-400: #{$light-400};
 
-  --blue: #4f91e8;
-  --green: #4a884d;
-  --grey: #777777;
-  --orange: #ef8d50;
-  --lime: #3bb33b;
-  --red: #ff0000;
+  --blue: #{$blue};
+  --green: #{$green};
+  --grey: #{$grey};
+  --orange: #{$orange};
+  --lime: #{$lime};
+  --red: #{$red};
 }

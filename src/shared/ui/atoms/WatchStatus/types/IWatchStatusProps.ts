@@ -1,18 +1,9 @@
-enum Statuses {
-  complete = "complete",
-  setWatch = "setWatch",
-  added = "added",
-  watching = "watching",
-  dropped = "dropped",
+import { ButtonHTMLAttributes } from "react"
+
+import { EWatchStatuses } from "@shared/types/enums/EWatchStatuses"
+
+interface IWatchStatusProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  status: keyof typeof EWatchStatuses
 }
 
-type StatusMap = {
-  [key in Statuses]: JSX.Element
-}
-
-interface IWatchStatusProps {
-  status: keyof typeof Statuses
-}
-
-export type { IWatchStatusProps, StatusMap }
-export { Statuses }
+export type { IWatchStatusProps }

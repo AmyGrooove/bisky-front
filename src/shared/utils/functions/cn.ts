@@ -1,5 +1,6 @@
-const cn = (...args: (string | Record<string, boolean>)[]) =>
+const cn = (...args: (string | undefined | Record<string, boolean>)[]) =>
   args
+    .filter((item) => item !== undefined)
     .map((item) =>
       typeof item === "string"
         ? item

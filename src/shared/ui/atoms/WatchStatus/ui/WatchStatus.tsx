@@ -1,17 +1,19 @@
+import { cloneElement } from "react"
+
 import { cn } from "@shared/utils/functions"
 
 import { IWatchStatusProps } from "../types/IWatchStatusProps"
-import { SynchronizedStatusMap } from "../static/static"
+import { getIconFromWatchStatus } from "../functions/getIconFromWatchStatus"
 
 import st from "./WatchStatus.module.scss"
 
 const WatchStatus = (props: IWatchStatusProps) => {
-  const { status } = props
+  const { status, ...otherProps } = props
 
   return (
-    <div className={cn(st.status, st[status])}>
-      {SynchronizedStatusMap[status]}
-    </div>
+    <button {...otherProps} className={cn(st.root, st[`root_${status}`])}>
+      {cloneElement(getIconFromWatchStatus(status), { className: st.icon })}
+    </button>
   )
 }
 

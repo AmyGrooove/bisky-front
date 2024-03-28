@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { SearchIcon } from "@/shared/icons"
-
 import { InputField } from "../ui/InputField"
 
 const meta: Meta<typeof InputField> = {
@@ -13,38 +11,24 @@ const meta: Meta<typeof InputField> = {
 export default meta
 type Story = StoryObj<typeof InputField>
 
-export const Default: Story = {
-  args: { value: "", onChange: () => {}, placeholder: "placeholder" },
+export const DefaultDark: Story = { args: { placeholder: "placeholder" } }
+
+export const DefaultLight: Story = {
+  args: { placeholder: "placeholder", variant: "light" },
 }
 
-export const Active: Story = {
-  args: { value: "input", onChange: () => {}, placeholder: "placeholder" },
+export const DarkIcon: Story = {
+  args: { placeholder: "placeholder", isSearchIconOn: true },
 }
 
-export const Icon: Story = {
-  args: {
-    value: "",
-    onChange: () => {},
-    placeholder: "placeholder",
-    icon: <SearchIcon />,
-  },
+export const LightIcon: Story = {
+  args: { placeholder: "placeholder", variant: "light", isSearchIconOn: true },
 }
 
-export const IconActive: Story = {
-  args: {
-    value: "input",
-    onChange: () => {},
-    placeholder: "placeholder",
-    icon: <SearchIcon />,
-  },
+export const Disabled: Story = {
+  args: { placeholder: "placeholder", disabled: true },
 }
 
-export const LightTheme: Story = {
-  args: {
-    value: "input",
-    onChange: () => {},
-    placeholder: "placeholder",
-    icon: <SearchIcon />,
-    theme: "light",
-  },
+export const DisabledIcon: Story = {
+  args: { placeholder: "placeholder", disabled: true, isSearchIconOn: true },
 }

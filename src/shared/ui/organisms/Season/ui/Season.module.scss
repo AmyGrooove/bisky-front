@@ -1,41 +1,55 @@
 @import "@shared/styles/reusable.scss";
 
-.season {
+.root {
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
-  padding: 20px;
+  width: 1000px;
+  height: 380px;
+
   border-radius: var(--big-radius);
-  background-color: rgba($color: #000000, $alpha: 0.6);
+  background-color: rgba(
+    red($dark-400),
+    green($dark-400),
+    blue($dark-400),
+    0.6
+  );
   overflow: hidden;
 }
 
-.season_content {
+.mainContent {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding-bottom: 20px;
+  padding: 0px 20px;
+  height: 100%;
+  width: calc(100% - 40px);
 }
 
 .poster {
-  width: 216px;
-  height: 296px;
+  width: 182px;
+  height: 252px;
   object-fit: cover;
-  border-radius: var(--small-radius);
+  border-radius: var(--big-radius);
 }
 
-.rating {
+.score {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: var(--lime);
+  top: 20px;
+  right: 20px;
   align-self: end;
+
+  scale: 1.25;
+  background-color: var(--lime);
 }
 
 .genres {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
   opacity: 0.8;
 }
 
@@ -50,14 +64,4 @@
   &_hide {
     opacity: 0;
   }
-}
-
-.stub {
-  position: absolute;
-  inset: 0;
-  background-color: var(--dark-300);
-  background-image: url(../../../../../../public/favicon.ico);
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: -1;
 }

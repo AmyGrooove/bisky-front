@@ -13,20 +13,14 @@ const meta: Meta<typeof Badge> = {
 export default meta
 type Story = StoryObj<typeof Badge>
 
+export const Default: Story = { args: { children: "Badge" } }
+
 export const IconRight: Story = {
-  args: {
-    text: "Badge",
-    iconRight: <ClockIcon width="15px" height="15px" />,
-  },
+  args: { children: "Badge", iconRight: <ClockIcon /> },
 }
 
 export const IconLeft: Story = {
-  args: {
-    text: "Badge",
-    iconLeft: <ClockIcon width="15px" height="15px" />,
-  },
+  args: { children: "Badge", iconLeft: <ClockIcon /> },
 }
 
-export const Icon: Story = {
-  args: { iconLeft: <ClockIcon width="15px" height="15px" /> },
-}
+export const OnlyIcon: Story = { args: { iconLeft: <ClockIcon /> } }

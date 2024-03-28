@@ -13,30 +13,16 @@ const meta: Meta<typeof Button> = {
 export default meta
 type Story = StoryObj<typeof Button>
 
+export const Default: Story = { args: { children: "Button" } }
+
 export const IconRight: Story = {
-  args: { iconRight: <ClockIcon width="24px" height="24px" /> },
+  args: { children: "Button", iconRight: <ClockIcon /> },
 }
 
 export const IconLeft: Story = {
-  args: { iconLeft: <ClockIcon width="24px" height="24px" /> },
+  args: { children: "Button", iconLeft: <ClockIcon /> },
 }
 
-export const Icon: Story = {
-  args: { children: "", iconLeft: <ClockIcon width="24px" height="24px" /> },
-}
+export const OnlyIcon: Story = { args: { iconLeft: <ClockIcon /> } }
 
-export const DisabledIconRight: Story = {
-  args: { disabled: true, iconRight: <ClockIcon width="24px" height="24px" /> },
-}
-
-export const DisabledIconLeft: Story = {
-  args: { disabled: true, iconLeft: <ClockIcon width="24px" height="24px" /> },
-}
-
-export const DisabledIcon: Story = {
-  args: {
-    disabled: true,
-    children: "",
-    iconLeft: <ClockIcon width="24px" height="24px" />,
-  },
-}
+export const Disabled: Story = { args: { children: "Button", disabled: true } }

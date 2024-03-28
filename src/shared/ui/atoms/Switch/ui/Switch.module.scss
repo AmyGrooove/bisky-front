@@ -1,35 +1,36 @@
 @import "@shared/styles/reusable.scss";
 
-.toggle_wrapper {
-  width: 112px;
-  height: 56px;
-  display: block;
+.root {
+  width: 72px;
+  height: 40px;
+  display: flex;
   position: relative;
+  align-items: center;
+
+  cursor: pointer;
   border-radius: var(--full-radius);
   background-color: var(--dark-200);
-  @include transition(background-color);
 
-  .toggle {
-    display: none;
-  }
+  @include transition(background-color);
 
   &::after {
     content: "";
     position: absolute;
-    top: 4px;
+    width: 32px;
+    height: 32px;
     left: 4px;
-    width: 48px;
-    height: 48px;
-    border-radius: 24px;
+
+    border-radius: var(--full-radius);
     background-color: var(--bisky-400);
-    @include transition((background-color, transform, left, width));
+
+    @include transition((background-color, width, transform, left));
   }
 
   &:active::after {
-    width: 64px;
+    width: 40px;
   }
 
-  &:has(.toggle:checked) {
+  &:has(.input:checked) {
     background-color: var(--dark-100);
 
     &::after {
@@ -39,15 +40,16 @@
     }
   }
 
-  &:has(.toggle:disabled) {
+  &:has(.input:disabled) {
     background-color: var(--grey);
+    cursor: default;
 
     &::after {
       background-color: var(--light-400);
     }
 
     &:active::after {
-      width: 48px;
+      width: 32px;
     }
   }
 }

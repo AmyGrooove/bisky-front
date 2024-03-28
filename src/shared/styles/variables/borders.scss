@@ -1,5 +1,9 @@
+$small-radius: 12px;
+$big-radius: 20px;
+$full-radius: 100px;
+
 .borders {
-  --small-radius: 12px;
-  --big-radius: 20px;
-  --full-radius: 100px;
+  --small-radius: #{$small-radius};
+  --big-radius: #{$big-radius};
+  --full-radius: #{$full-radius};
 }
