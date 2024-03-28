@@ -17,14 +17,14 @@
     "baseUrl": ".",
     "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": ["src/*"],
-      "public/*": ["public/*"],
       "@shared/*": ["src/shared/*"],
       "@entities/*": ["src/entities/*"],
       "@features/*": ["src/features/*"],
       "@widgets/*": ["src/widgets/*"],
       "@pages/*": ["src/pages/*"],
-      "@core/*": ["src/core/*"]
+      "@core/*": ["src/core/*"],
+      "@/*": ["src/*"],
+      "public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

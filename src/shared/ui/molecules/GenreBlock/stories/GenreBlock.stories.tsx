@@ -13,8 +13,8 @@ type Story = StoryObj<typeof GenreBlock>
 
 export const Default: Story = {
   args: {
-    href: "http://",
-    background: [
+    href: "#",
+    posters: [
       "https://desu.shikimori.one/uploads/poster/animes/9253/475db7c6df0f11d567138322aebf411b.jpeg",
       "https://desu.shikimori.one/uploads/poster/animes/35849/bf85c0be813f3403855968b197c449ff.jpeg",
       "https://desu.shikimori.one/uploads/poster/animes/5680/dbea6bd3879512c3847373021f6e2940.jpeg",

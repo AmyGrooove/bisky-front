@@ -1,15 +1,23 @@
 @import "@shared/styles/reusable.scss";
 
-.button {
+.root {
   display: flex;
   align-items: center;
+  height: 40px;
+  width: fit-content;
+  padding: 0px 16px;
+  gap: 4px;
+
   background-color: var(--bisky-300);
   border-radius: var(--small-radius);
   border: none;
-  padding: 12px 20px;
-  gap: 4px;
+  cursor: pointer;
 
   @include transition((background-color, transform), (0.25s, 0.1s));
+
+  &_icon {
+    padding: 0px 10px;
+  }
 
   &:hover {
     background-color: var(--bisky-200);
@@ -22,13 +30,20 @@
 
   &:disabled {
     background-color: var(--grey);
-  }
+    cursor: default;
 
-  &_text_icon {
-    padding: 12px 16px;
+    &:active {
+      transform: scale(1);
+    }
   }
+}
 
-  &_icon {
-    padding: 12px 12px;
+.icon {
+  width: 16px;
+  height: 16px;
+
+  &_only {
+    width: 20px;
+    height: 20px;
   }
 }

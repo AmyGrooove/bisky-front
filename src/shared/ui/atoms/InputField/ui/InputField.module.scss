@@ -1,49 +1,80 @@
-.input {
+@import "@shared/styles/reusable.scss";
+
+.root {
   display: flex;
-  padding: 8px 12px;
+  align-items: center;
   width: 300px;
+  height: 40px;
+
   border-radius: var(--small-radius);
 
-  & svg {
-    fill: var(--grey);
-    width: 24px;
-    height: 24px;
-  }
-
-  & input {
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    font-weight: 400;
-    padding: 0;
-
-    &,
-    &::placeholder {
-      color: var(--grey);
-    }
-  }
-
-  &.dark {
+  &_dark {
     background-color: var(--dark-100);
 
-    & input:focus {
+    .input {
+      background-color: var(--dark-100);
       color: var(--light-100);
+    }
 
-      & + svg {
-        fill: var(--light-100);
-      }
+    &:has(.input:focus) .icon {
+      fill: var(--light-100);
     }
   }
 
-  &.light {
+  &_light {
     background-color: var(--light-100);
 
-    & input:focus {
-      color: var(--dark-400);
+    .input {
+      background-color: var(--light-100);
+      color: var(--dark-100);
+    }
 
-      & + svg {
-        fill: var(--dark-400);
-      }
+    &:has(.input:focus) .icon {
+      fill: var(--dark-100);
     }
   }
+
+  &:has(.input:disabled) {
+    background-color: var(--light-400);
+
+    .input {
+      background-color: var(--light-400);
+
+      &::placeholder {
+        color: var(--grey);
+      }
+    }
+
+    .icon {
+      cursor: default;
+      fill: var(--grey);
+    }
+  }
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 8px 0px 8px 12px;
+  border: 0px;
+
+  font-size: 20px;
+
+  border-radius: var(--small-radius);
+
+  &::placeholder {
+    color: var(--light-400);
+  }
+}
+
+.icon {
+  width: 48px;
+  height: 40px;
+  padding: 8px 12px;
+
+  cursor: pointer;
+  fill: var(--light-400);
+
+  @include transition(fill);
 }

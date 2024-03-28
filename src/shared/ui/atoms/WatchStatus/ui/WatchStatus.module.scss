@@ -1,25 +1,36 @@
-.status {
+@import "@shared/styles/reusable.scss";
+
+.root {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 28px;
   height: 28px;
-  border-radius: 8px;
-}
 
-.complete {
-  background-color: var(--lime);
-}
+  border: none;
+  cursor: pointer;
+  border-radius: var(--small-radius);
 
-.setWatch,
-.added {
-  background-color: var(--bisky-200);
-}
+  @include transition((background-color, transform), (0.25s, 0.1s));
 
-.watching {
-  background-color: var(--blue);
-}
+  &:active {
+    transform: scale(0.9);
+  }
 
-.dropped {
-  background-color: var(--dark-100);
+  &_complete {
+    background-color: var(--lime);
+  }
+
+  &_setWatch,
+  &_added {
+    background-color: var(--bisky-200);
+  }
+
+  &_watching {
+    background-color: var(--blue);
+  }
+
+  &_dropped {
+    background-color: var(--dark-100);
+  }
 }

@@ -1,59 +1,56 @@
 @import "@shared/styles/reusable.scss";
 
-.checkbox {
-  display: none;
+.root {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  cursor: pointer;
+  border-radius: var(--small-radius);
+  background-color: var(--dark-100);
+  border: 4px solid var(--bisky-300);
+
+  @include transition(
+    (background-color, border-color, transform),
+    (0.25s, 0.25s, 0.1s)
+  );
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:has(.input:checked) {
+    border-color: var(--bisky-200);
+    background-color: var(--bisky-200);
+
+    .icon {
+      opacity: 1;
+    }
+  }
+
+  &:has(.input:disabled) {
+    background-color: var(--grey);
+    border-color: var(--light-400);
+    cursor: default;
+
+    &:has(.input:checked) {
+      background-color: var(--light-400);
+    }
+
+    &:active {
+      transform: none;
+    }
+  }
 }
 
-.checkbox_wrapper {
-  display: inline-flex;
-  align-items: center;
-  -webkit-user-select: none;
-  user-select: none;
-  gap: 10px;
-  cursor: pointer;
+.icon {
+  width: 24px;
+  height: 24px;
 
-  &::before {
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: var(--dark-100);
-    border-radius: 50%;
-    border: 3px solid var(--bisky-300);
-    @include transition(border-color);
-  }
+  opacity: 0;
 
-  &:hover::before {
-    border-color: var(--bisky-200);
-  }
-
-  &:active::before {
-    background-color: var(--bisky-200);
-  }
-
-  &:has(.checkbox:checked) {
-    &[data-kind="check_mark"]::before {
-      background-color: var(--bisky-200);
-      border-color: var(--bisky-200);
-      background-image: url("/public/svg/check_mark.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 80%;
-    }
-
-    &[data-kind="point"]::before {
-      background-image: radial-gradient(
-        30% 30%,
-        var(--bisky-200) 95%,
-        transparent
-      );
-      border-color: var(--bisky-200);
-      border-width: 3px;
-    }
-  }
-
-  &:has(.checkbox:disabled)::before {
-    background-color: var(--light-300);
-    border-color: var(--light-400);
-  }
+  @include transition(opacity);
 }
