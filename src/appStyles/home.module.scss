@@ -3,4 +3,13 @@
 .root {
   max-width: var(--lg);
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }

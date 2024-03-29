@@ -47,7 +47,7 @@
   transform-origin: center;
   transform: rotate(12deg);
 
-  box-shadow: 0px 0px 12px var(--dark-400);
+  box-shadow: 0px 0px 12px var(--dark-440);
 
   @for $i from 0 through 3 {
     &:nth-child(#{$i + 1}) {

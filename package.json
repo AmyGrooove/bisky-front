@@ -10,6 +10,7 @@
     "storybook": "storybook dev -p 6060"
   },
   "dependencies": {
+    "keen-slider": "^6.8.6",
     "next": "^14.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -1,9 +1,8 @@
+import { IGenreFullModel } from "@entities/Genre"
 import { LinkProps } from "next/link"
 
 interface IGenreBlock extends LinkProps {
-  title: string
-  description: string
-  posters: (string | null)[]
+  genre: IGenreFullModel
 
   className?: string
 }
