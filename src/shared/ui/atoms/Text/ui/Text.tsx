@@ -24,7 +24,7 @@ const Text = (props: ITextProps) => {
         st[`weight_${weight}`],
       )}
     >
-      {children}
+      {children ?? ""}
     </Element>
   )
 }

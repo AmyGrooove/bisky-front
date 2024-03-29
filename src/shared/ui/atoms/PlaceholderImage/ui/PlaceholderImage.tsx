@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useMemo, useState } from "react"
 import Image from "next/image"
 
@@ -33,7 +35,8 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
   }, [otherProps.src])
 
   useEffect(() => {
-    if (isLoaded) setTimeout(() => setIsClose(true), 500)
+    if (isLoaded && otherProps.src !== "")
+      setTimeout(() => setIsClose(true), 500)
   }, [isLoaded])
 
   return (

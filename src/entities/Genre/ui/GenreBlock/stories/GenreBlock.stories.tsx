@@ -14,14 +14,32 @@ type Story = StoryObj<typeof GenreBlock>
 export const Default: Story = {
   args: {
     href: "#",
-    posters: [
-      "https://desu.shikimori.one/uploads/poster/animes/9253/475db7c6df0f11d567138322aebf411b.jpeg",
-      "https://desu.shikimori.one/uploads/poster/animes/35849/bf85c0be813f3403855968b197c449ff.jpeg",
-      "https://desu.shikimori.one/uploads/poster/animes/5680/dbea6bd3879512c3847373021f6e2940.jpeg",
-      "https://desu.shikimori.one/uploads/poster/animes/1293/a142337b6bb898a0dfcef86b8379fd2b.jpeg",
-    ],
-    title: "Исекай",
-    description:
-      "Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме Аниме ",
+    genre: {
+      _id: "65f0ae0553206e63e8039413",
+      description: { en: null, ru: null },
+      name: { en: "Kids", ru: "Детское" },
+      relatedWorks: [
+        {
+          _id: "65f0b12653206e63e8059f8d",
+          poster:
+            "https://desu.shikimori.one/uploads/poster/animes/2150/6a99603870fe4b4a332b23cf0dda1d9d.jpeg",
+        },
+        {
+          _id: "65f0b12653206e63e8059fb2",
+          poster:
+            "https://desu.shikimori.one/uploads/poster/animes/10534/316ed7dc7cebb03973a0d899108d9b37.jpeg",
+        },
+        {
+          _id: "65f0b12653206e63e8059fc6",
+          poster:
+            "https://desu.shikimori.one/uploads/poster/animes/40853/94ec592f9b20f7ced392f26de1a09e62.jpeg",
+        },
+        {
+          _id: "65f0b12653206e63e805a02c",
+          poster:
+            "https://desu.shikimori.one/uploads/poster/animes/21469/5bf43c169dd7ac69c2b70b3277507145.jpeg",
+        },
+      ],
+    },
   },
 }

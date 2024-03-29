@@ -9,19 +9,19 @@ import { IGenreBlock } from "../types/IGenreBlockProps"
 import st from "./GenreBlock.module.scss"
 
 const GenreBlock = (props: IGenreBlock) => {
-  const { posters, title, description, className, ...otherProps } = props
+  const { genre, className, ...otherProps } = props
 
   return (
     <Link {...otherProps} className={cn(st.root, className)}>
       <Text size="24" weight="700">
-        {title}
+        {genre.name.ru}
       </Text>
-      <Text className={st.description}>{description}</Text>
+      <Text className={st.description}>{genre.description.ru}</Text>
       <div className={st.backgroundPosters}>
-        {posters.map((path) => (
+        {genre.relatedWorks.map((item) => (
           <PlaceholderImage
-            key={path}
-            src={path ?? ""}
+            key={item._id + (genre.name.en ?? "")}
+            src={item.poster ?? ""}
             width={126}
             height={202}
             className={st.poster}

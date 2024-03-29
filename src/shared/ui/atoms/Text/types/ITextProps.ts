@@ -1,5 +1,5 @@
 interface ITextProps {
-  children: string
+  children: string | null
 
   size?: "12" | "16" | "20" | "24" | "28" | "32" | "44"
   weight?: "400" | "700"
