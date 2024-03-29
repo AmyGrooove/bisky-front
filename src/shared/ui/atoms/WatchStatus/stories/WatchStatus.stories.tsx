@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { WatchStatus } from "../ui/WatchStatus"
 
 const meta: Meta<typeof WatchStatus> = {
-  title: "atoms/WatchStatus",
+  title: "shared/atoms/WatchStatus",
   component: WatchStatus,
   tags: ["autodocs"],
 }
@@ -29,4 +29,8 @@ export const Watching: Story = {
 
 export const Dropped: Story = {
   args: { status: "dropped" },
+}
+
+export const Disabled: Story = {
+  args: { status: "complete", disabled: true },
 }

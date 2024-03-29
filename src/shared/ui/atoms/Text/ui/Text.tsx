@@ -18,8 +18,8 @@ const Text = (props: ITextProps) => {
     <Element
       {...otherProps}
       className={cn(
-        st.root,
         className,
+        st.root,
         st[`size_${size}`],
         st[`weight_${weight}`],
       )}

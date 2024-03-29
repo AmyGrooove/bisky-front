@@ -1,9 +1,10 @@
 import { HTMLAttributes, ReactElement } from "react"
 
 interface IBadgeProps extends HTMLAttributes<HTMLDivElement> {
+  variant?: "big" | "medium" | "small"
   children?: string
-  iconRight?: ReactElement
-  iconLeft?: ReactElement
+  rightIcon?: ReactElement
+  leftIcon?: ReactElement
   isScoreStatus?: boolean
 }
 

@@ -41,13 +41,13 @@
       background-color: var(--light-400);
 
       &::placeholder {
-        color: var(--grey);
+        color: var(--gray);
       }
     }
 
     .icon {
       cursor: default;
-      fill: var(--grey);
+      fill: var(--gray);
     }
   }
 }

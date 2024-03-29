@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { InputField } from "../ui/InputField"
 
 const meta: Meta<typeof InputField> = {
-  title: "atoms/InputField",
+  title: "shared/atoms/InputField",
   component: InputField,
   tags: ["autodocs"],
 }

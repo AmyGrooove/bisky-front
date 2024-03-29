@@ -5,7 +5,7 @@ import { Button } from "../ui/Button"
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof Button> = {
-  title: "molecules/Button",
+  title: "shared/molecules/Button",
   component: Button,
   tags: ["autodocs"],
 }
@@ -15,14 +15,14 @@ type Story = StoryObj<typeof Button>
 
 export const Default: Story = { args: { children: "Button" } }
 
-export const IconRight: Story = {
-  args: { children: "Button", iconRight: <ClockIcon /> },
+export const RightIcon: Story = {
+  args: { children: "Button", rightIcon: <ClockIcon /> },
 }
 
-export const IconLeft: Story = {
-  args: { children: "Button", iconLeft: <ClockIcon /> },
+export const LeftIcon: Story = {
+  args: { children: "Button", leftIcon: <ClockIcon /> },
 }
 
-export const OnlyIcon: Story = { args: { iconLeft: <ClockIcon /> } }
+export const OnlyIcon: Story = { args: { leftIcon: <ClockIcon /> } }
 
 export const Disabled: Story = { args: { children: "Button", disabled: true } }

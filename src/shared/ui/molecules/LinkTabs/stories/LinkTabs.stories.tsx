@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { LinkTabs } from "../ui/LinkTabs"
 
 const meta: Meta<typeof LinkTabs> = {
-  title: "molecules/LinkTabs",
+  title: "shared/molecules/LinkTabs",
   component: LinkTabs,
   tags: ["autodocs"],
 }

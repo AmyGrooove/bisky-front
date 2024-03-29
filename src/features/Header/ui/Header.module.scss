@@ -1,0 +1,55 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  padding: 0px 20px;
+
+  background-color: var(--dark-240);
+  border-radius: var(--big-radius);
+}
+
+.leftSide,
+.rightSide {
+  display: flex;
+  gap: 28px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logoIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.logoText {
+  color: var(--bisky-100);
+}
+
+.searchButton {
+  width: 140px;
+  justify-content: space-between;
+
+  background-color: var(--dark-100);
+
+  &:hover {
+    background-color: var(--dark-200);
+  }
+}
+
+.searchText {
+  color: var(--light-400);
+}
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+
+  fill: var(--light-400);
+}

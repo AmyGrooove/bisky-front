@@ -3,7 +3,7 @@ import { Text } from "../ui/Text"
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof Text> = {
-  title: "atoms/Text",
+  title: "shared/atoms/Text",
   component: Text,
   tags: ["autodocs"],
 }

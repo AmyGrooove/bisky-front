@@ -7,6 +7,7 @@ $dark-100: #472f4d;
 $dark-200: #322136;
 $dark-300: #231726;
 $dark-400: #170e19;
+$dark-240: #32213666;
 
 $light-100: #f8f8f8;
 $light-200: #eef0eb;
@@ -15,7 +16,7 @@ $light-400: #a4a4a4;
 
 $blue: #4f91e8;
 $green: #4a884d;
-$grey: #777777;
+$gray: #777777;
 $orange: #ef8d50;
 $lime: #3bb33b;
 $red: #ff0000;
@@ -30,6 +31,7 @@ $red: #ff0000;
   --dark-200: #{$dark-200};
   --dark-300: #{$dark-300};
   --dark-400: #{$dark-400};
+  --dark-240: #{$dark-240};
 
   --light-100: #{$light-100};
   --light-200: #{$light-200};
@@ -38,7 +40,7 @@ $red: #ff0000;
 
   --blue: #{$blue};
   --green: #{$green};
-  --grey: #{$grey};
+  --gray: #{$gray};
   --orange: #{$orange};
   --lime: #{$lime};
   --red: #{$red};

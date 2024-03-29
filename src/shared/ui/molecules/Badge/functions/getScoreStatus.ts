@@ -4,7 +4,7 @@ const getScoreStatus = (score: string) => {
   return isNaN(scoreNumber) || scoreNumber < 6
     ? "low"
     : scoreNumber < 8.5
-      ? "medium"
+      ? "normal"
       : "high"
 }
 
