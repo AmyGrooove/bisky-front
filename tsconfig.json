@@ -21,10 +21,9 @@
       "@entities/*": ["src/entities/*"],
       "@features/*": ["src/features/*"],
       "@widgets/*": ["src/widgets/*"],
-      "@pages/*": ["src/pages/*"],
-      "@core/*": ["src/core/*"],
+      "@appStyles/*": ["src/appStyles/*"],
       "@/*": ["src/*"],
-      "public/*": ["public/*"]
+      "@public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

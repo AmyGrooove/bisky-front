@@ -3,7 +3,7 @@ import { CircleViews } from "../ui/CircleViews"
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof CircleViews> = {
-  title: "atoms/CircleViews",
+  title: "shared/atoms/CircleViews",
   component: CircleViews,
   tags: ["autodocs"],
 }

@@ -4,8 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
 
   border: none;
   cursor: pointer;
@@ -33,4 +33,18 @@
   &_dropped {
     background-color: var(--dark-100);
   }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: default;
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
 }

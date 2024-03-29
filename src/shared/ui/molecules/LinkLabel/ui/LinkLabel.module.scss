@@ -1,0 +1,33 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  border-bottom: 1px solid transparent;
+
+  @include transition(border-color);
+
+  &:hover {
+    border-color: var(--bisky-100);
+  }
+}
+
+.linkText {
+  color: var(--bisky-100);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+
+  fill: var(--bisky-100);
+}

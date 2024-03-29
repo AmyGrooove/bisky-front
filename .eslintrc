@@ -1,21 +1,15 @@
 {
-  "plugins": ["import", "unused-imports", "react", "jsx-a11y"],
-  "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:storybook/recommended",
+  ],
   "rules": {
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
-    "unused-imports/no-unused-imports": "warn",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
-      }
-    ],
     "import/order": [
       "warn",
       {
@@ -27,10 +21,10 @@
           "sibling",
           "index",
           "object",
-          "type"
+          "type",
         ],
-        "newlines-between": "always"
-      }
-    ]
-  }
+        "newlines-between": "always",
+      },
+    ],
+  },
 }

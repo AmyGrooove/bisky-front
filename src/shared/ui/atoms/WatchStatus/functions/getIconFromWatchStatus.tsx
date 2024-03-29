@@ -1,7 +1,9 @@
 import { CheckIcon, PlayIcon, StarIcon, TrashIcon } from "@shared/icons"
 import { EWatchStatuses } from "@shared/types/enums/EWatchStatuses"
 
-const getIconFromWatchStatus = (status: keyof typeof EWatchStatuses) =>
+const getIconFromWatchStatus = (
+  status: keyof typeof EWatchStatuses | "setWatch",
+) =>
   ({
     [EWatchStatuses.complete]: <CheckIcon />,
     [EWatchStatuses.setWatch]: <StarIcon variant="unFilled" />,

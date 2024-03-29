@@ -11,24 +11,29 @@ import st from "./Badge.modules.scss"
 const Badge = (props: IBadgeProps) => {
   const {
     children,
-    iconLeft,
-    iconRight,
+    leftIcon,
+    rightIcon,
     className,
     isScoreStatus = false,
+    variant = "small",
     ...otherProps
   } = props
 
   return (
     <div
       {...otherProps}
-      className={cn(st.root, className, {
-        [st.root_icon]: !!iconLeft || !!iconRight,
+      className={cn(className, st.root, st[`root_${variant}`], {
+        [st.root_icon]: !!leftIcon || !!rightIcon,
         [st[`root_${getScoreStatus(children!)}`]]: isScoreStatus && !!children,
       })}
     >
-      {iconLeft && cloneElement(iconLeft, { className: st.icon })}
-      {children && <Text weight="700">{children}</Text>}
-      {iconRight && cloneElement(iconRight, { className: st.icon })}
+      {leftIcon && cloneElement(leftIcon, { className: st.icon })}
+      {children && (
+        <Text size={variant === "small" ? "16" : "20"} weight="700">
+          {children}
+        </Text>
+      )}
+      {rightIcon && cloneElement(rightIcon, { className: st.icon })}
     </div>
   )
 }

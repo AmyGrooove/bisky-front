@@ -6,10 +6,15 @@ import { IInputFieldProps } from "../types/IInputFieldProps"
 import st from "./InputField.module.scss"
 
 const InputField = (props: IInputFieldProps) => {
-  const { variant = "dark", isSearchIconOn = false, ...otherProps } = props
+  const {
+    variant = "dark",
+    isSearchIconOn = false,
+    className,
+    ...otherProps
+  } = props
 
   return (
-    <div className={cn(st.root, st[`root_${variant}`])}>
+    <div className={cn(className, st.root, st[`root_${variant}`])}>
       <input {...otherProps} className={st.input} />
       {isSearchIconOn && <SearchIcon className={st.icon} />}
     </div>

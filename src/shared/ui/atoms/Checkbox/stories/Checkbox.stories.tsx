@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Checkbox } from "../ui/Checkbox"
 
 const meta: Meta<typeof Checkbox> = {
-  title: "atoms/Checkbox",
+  title: "shared/atoms/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
 }

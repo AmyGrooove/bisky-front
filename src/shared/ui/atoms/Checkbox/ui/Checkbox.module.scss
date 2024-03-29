@@ -32,7 +32,7 @@
   }
 
   &:has(.input:disabled) {
-    background-color: var(--grey);
+    background-color: var(--gray);
     border-color: var(--light-400);
     cursor: default;
 

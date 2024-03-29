@@ -1,5 +1,6 @@
 @import "./variables/borders.scss";
 @import "./variables/colors.scss";
+@import "./variables/containers.scss";
 
 * {
   letter-spacing: 1px;
@@ -20,7 +21,7 @@ html {
   display: flex;
   min-height: 100%;
 
-  @extend .colors, .borders;
+  @extend .colors, .borders, .containers;
 }
 
 body {
