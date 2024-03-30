@@ -1,14 +1,17 @@
-import { Text } from "@shared/ui/atoms/Text"
 import Image from "next/image"
-import { IFactBlockProps } from "../types/IFactBlockProps"
+
+import { Text } from "@shared/ui/atoms/Text"
 import { cn } from "@shared/utils/functions"
+
+import { IFactBlockProps } from "../types/IFactBlockProps"
+
 import st from "./FactBlock.module.scss"
 
 const FactBlock = (props: IFactBlockProps) => {
   const { fact, className, ...otherProps } = props
 
   return (
-    <div {...otherProps} className={cn(className, st.root)}>
+    <div {...otherProps} className={cn(st.root, className)}>
       <Image
         width={200}
         height={168}

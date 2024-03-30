@@ -9,7 +9,7 @@ const Checkbox = (props: ICheckboxProps) => {
   const { className, ...otherProps } = props
 
   return (
-    <label className={cn(className, st.root)}>
+    <label className={cn(st.root, className)}>
       <input {...otherProps} type="checkbox" className={st.input} hidden />
       <CheckIcon className={st.icon} />
     </label>

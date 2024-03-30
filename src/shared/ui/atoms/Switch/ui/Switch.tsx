@@ -8,7 +8,7 @@ const Switch = (props: ISwitchProps) => {
   const { className, ...otherProps } = props
 
   return (
-    <label className={cn(className, st.root)}>
+    <label className={cn(st.root, className)}>
       <input {...otherProps} type="checkbox" className={st.input} hidden />
     </label>
   )

@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react"
 import Link from "next/link"
 
@@ -12,15 +14,7 @@ import { ISeasonProps } from "../types/ISeasonProps"
 import st from "./Season.module.scss"
 
 const Season = (props: ISeasonProps) => {
-  const {
-    title,
-    poster,
-    score,
-    genres,
-    screenshots,
-    className,
-    ...otherProps
-  } = props
+  const { anime, className, ...otherProps } = props
 
   const [isNextImageShow, setIsNextImageShow] = useState(false)
   const [backgroundImage1, setBackgroundImage1] = useState(0)
@@ -29,28 +23,38 @@ const Season = (props: ISeasonProps) => {
   useEffect(() => {
     const interval = setTimeout(() => {
       if (isNextImageShow)
-        setBackgroundImage1((backgroundImage2 + 1) % screenshots.length)
-      else setBackgroundImage2((backgroundImage1 + 1) % screenshots.length)
+        setBackgroundImage1(
+          (backgroundImage2 + 1) % (anime.screenshots?.length ?? 0),
+        )
+      else
+        setBackgroundImage2(
+          (backgroundImage1 + 1) % (anime.screenshots?.length ?? 0),
+        )
 
       setIsNextImageShow((prev) => !prev)
     }, 10000)
 
     return () => clearTimeout(interval)
-  }, [backgroundImage1, backgroundImage2, screenshots.length, isNextImageShow])
+  }, [
+    backgroundImage1,
+    backgroundImage2,
+    anime.screenshots?.length,
+    isNextImageShow,
+  ])
 
   return (
-    <Link {...otherProps} className={cn(st.root, className)}>
+    <Link {...otherProps} href="/" className={cn(st.root, className)}>
       <div className={st.mainContent}>
         <PlaceholderImage
           className={st.poster}
           imageClassName={st.image}
-          src={poster ?? ""}
+          src={anime.poster ?? ""}
           width={182}
           height={252}
           alt=""
         />
         <Text size="32" weight="700">
-          {title}
+          {anime.labels?.ru ?? ""}
         </Text>
       </div>
 
@@ -60,19 +64,21 @@ const Season = (props: ISeasonProps) => {
         variant="big"
         className={st.score}
       >
-        {score.toFixed(1)}
+        {anime.score?.averageScore?.toFixed(1) ?? ""}
       </Badge>
 
       <Text className={st.genres} as="span" size="20" weight="700">
-        {genres.join(" | ")}
+        {anime.genres?.map((item) => item.name?.ru).join(" | ") ?? ""}
       </Text>
+
+      <span className={st.background} />
 
       <PlaceholderImage
         className={cn(st.backgroundImage, {
           [st.backgroundImage_hide]: isNextImageShow,
         })}
         imageClassName={st.image}
-        src={screenshots?.[backgroundImage1]}
+        src={anime.screenshots?.[backgroundImage1] ?? ""}
         width={1000}
         height={380}
         alt=""
@@ -82,7 +88,7 @@ const Season = (props: ISeasonProps) => {
           [st.backgroundImage_hide]: !isNextImageShow,
         })}
         imageClassName={st.image}
-        src={screenshots?.[backgroundImage2]}
+        src={anime.screenshots?.[backgroundImage2] ?? ""}
         width={1000}
         height={380}
         alt=""

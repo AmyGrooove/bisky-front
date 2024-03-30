@@ -1,4 +1,5 @@
 import { API_URL } from "@shared/constants"
+
 import { IFactModel } from "../types/IFactModel"
 
 const getOneRandomFact = async (): Promise<IFactModel> => {

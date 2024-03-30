@@ -1,5 +1,6 @@
-import { IGenreFullModel } from "@entities/Genre"
 import { LinkProps } from "next/link"
+
+import { IGenreFullModel } from "@entities/Genre"
 
 interface IGenreBlock extends LinkProps {
   genre: IGenreFullModel

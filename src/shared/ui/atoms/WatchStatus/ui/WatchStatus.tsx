@@ -13,7 +13,7 @@ const WatchStatus = (props: IWatchStatusProps) => {
   return (
     <button
       {...otherProps}
-      className={cn(className, st.root, st[`root_${status}`])}
+      className={cn(st.root, className, st[`root_${status}`])}
     >
       {cloneElement(getIconFromWatchStatus(status), { className: st.icon })}
     </button>

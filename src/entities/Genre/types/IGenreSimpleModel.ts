@@ -1,7 +1,7 @@
 import { IGenreModel } from "./IGenreModel"
 
 interface IGenreSimpleModel extends IGenreModel {
-  relatedWorks: string[]
+  relatedWorks?: string[]
 }
 
 export type { IGenreSimpleModel }
