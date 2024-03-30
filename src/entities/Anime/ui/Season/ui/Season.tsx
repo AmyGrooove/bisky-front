@@ -21,6 +21,8 @@ const Season = (props: ISeasonProps) => {
   const [backgroundImage2, setBackgroundImage2] = useState(1)
 
   useEffect(() => {
+    if (anime.screenshots?.length === 0) return
+
     const interval = setTimeout(() => {
       if (isNextImageShow)
         setBackgroundImage1(
@@ -78,8 +80,12 @@ const Season = (props: ISeasonProps) => {
           [st.backgroundImage_hide]: isNextImageShow,
         })}
         imageClassName={st.image}
-        src={anime.screenshots?.[backgroundImage1] ?? ""}
-        width={1000}
+        src={
+          (anime.screenshots?.length === 0
+            ? anime.poster
+            : anime.screenshots?.[backgroundImage1]) ?? ""
+        }
+        width={1080}
         height={380}
         alt=""
       />
@@ -89,7 +95,7 @@ const Season = (props: ISeasonProps) => {
         })}
         imageClassName={st.image}
         src={anime.screenshots?.[backgroundImage2] ?? ""}
-        width={1000}
+        width={1080}
         height={380}
         alt=""
       />
