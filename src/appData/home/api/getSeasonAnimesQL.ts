@@ -13,6 +13,7 @@ const getSeasonAnimesQL = async (): Promise<IAnimeFullModel[]> => {
       query: `{
         getAnimes(
           animeQuery: {
+            count: 15
             limit: { screenshotsCount: 5 }
             sort: { score_count: true, usersList_generalCount: true }
             filter: { dates_airedOn: { from: "${previousSeasonDate.getFullYear()}-${previousSeasonDate.getMonth()}-${previousSeasonDate.getDate()}" }, status: ongoing }
