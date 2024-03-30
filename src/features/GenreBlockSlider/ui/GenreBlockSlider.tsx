@@ -1,10 +1,11 @@
 "use client"
 
-import "keen-slider/keen-slider.min.css"
 import { useKeenSlider } from "keen-slider/react"
 
-import { IGenreBlockSliderProps } from "../types/IGenreBlockSliderProps"
 import { GenreBlock } from "@entities/Genre"
+import { cn } from "@shared/utils/functions"
+
+import { IGenreBlockSliderProps } from "../types/IGenreBlockSliderProps"
 
 const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
   const { items, className, ...otherProps } = props
@@ -17,12 +18,16 @@ const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
   })
 
   return (
-    <div {...otherProps} ref={sliderRef} className="keen-slider">
+    <div
+      {...otherProps}
+      ref={sliderRef}
+      className={cn("keen-slider", className)}
+    >
       {items.map((item) => (
         <GenreBlock
           key={item._id}
           genre={item}
-          href="#"
+          href="/"
           className="keen-slider__slide"
         />
       ))}

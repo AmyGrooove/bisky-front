@@ -12,7 +12,7 @@ const LinkLabel = (props: ILinkLabelProps) => {
   const { label, linkText, href, className, ...otherProps } = props
 
   return (
-    <div {...otherProps} className={cn(className, st.root)}>
+    <div {...otherProps} className={cn(st.root, className)}>
       <Text size="28" weight="700">
         {label}
       </Text>

@@ -14,18 +14,28 @@ type Story = StoryObj<typeof Season>
 export const Default: Story = {
   args: {
     href: "#",
-    title: "Невероятное приключение ДжоДжо: Рыцари звёздной пыли",
-    poster:
-      "https://sun9-38.userapi.com/impg/o2fsOfta4k2qhRiXZBTaO1oCG9sjk5nzflgfyg/x_osbMnSFzk.jpg?size=182x252&quality=96&sign=2381e0d1436d592963162509605295a0&type=album",
-    score: 7.2,
-    genres: ["ДжоДжо", "ДжоДжо", "ДжоДжо"],
-    screenshots: [
-      "https://shikimori.one/system/screenshots/original/2f8f1b9fd9596c173e94edb5c5721b0048f93bf0.jpg",
-      "https://shikimori.one/system/screenshots/original/6e398fea84ae6fb3a1650025aef1ce06afe635de.jpg",
-      "https://shikimori.one/system/screenshots/original/bc28b954e460241d2f03180ed29bcd5e83026658.jpg",
-      "https://shikimori.one/system/screenshots/original/ed6914eb5fb86b9bcf8ce8234ac17a473a40917e.jpg",
-      "https://shikimori.one/system/screenshots/original/fe55648b47fe346d29b91c0e05683e3b50209a30.jpg",
-      "https://shikimori.one/system/screenshots/original/2ecfbfffa3f021f2b6e3076d727ee2029ac1a77e.jpg",
-    ],
+    anime: {
+      _id: "65f0b12653206e63e8059e6c",
+      labels: {
+        en: "Boku no Kokoro no Yabai Yatsu Season 2",
+        ru: "Опасность в моём сердце 2",
+      },
+      genres: [
+        { name: { en: "Shounen", ru: "Сёнен" } },
+        { name: { en: "Comedy", ru: "Комедия" } },
+        { name: { en: "Romance", ru: "Романтика" } },
+        { name: { en: "School", ru: "Школа" } },
+      ],
+      poster:
+        "https://desu.shikimori.one/uploads/poster/animes/55690/49d51b1c556632d0214a49831575b5e0.jpeg",
+      score: { averageScore: 0 },
+      screenshots: [
+        "https://desu.shikimori.one/system/screenshots/original/becc5df7952dc5fa3cb54a496c27ee921fe1bdb9.jpg?1704562451",
+        "https://desu.shikimori.one/system/screenshots/original/7c5fec7d2b1f0f89dbd3fa94337922bd324b0614.jpg?1704562452",
+        "https://desu.shikimori.one/system/screenshots/original/7673de9fef685e9bc89258ebf60bac975d77b31b.jpg?1704562453",
+        "https://desu.shikimori.one/system/screenshots/original/47486c88704a31b7500c5c4b663eaddae5df3df3.jpg?1704562454",
+        "https://desu.shikimori.one/system/screenshots/original/933f48f49b04f36975ca65adadbc0c8cd700724c.jpg?1704562457",
+      ],
+    },
   },
 }

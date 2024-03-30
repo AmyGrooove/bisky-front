@@ -14,9 +14,9 @@ const Header = (props: IHeaderProps) => {
   const { className, ...otherProps } = props
 
   return (
-    <div {...otherProps} className={cn(className, st.root)}>
+    <div {...otherProps} className={cn(st.root, className)}>
       <div className={st.leftSide}>
-        <Link href="#" className={st.logoWrapper}>
+        <Link href="/" className={st.logoWrapper}>
           <LogoIcon className={st.logoIcon} />
           <Text size="44" weight="700" className={st.logoText}>
             Bisky

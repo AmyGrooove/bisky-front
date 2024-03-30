@@ -8,19 +8,20 @@
   height: 380px;
 
   border-radius: var(--big-radius);
-  background-color: rgba(
-    red($dark-400),
-    green($dark-400),
-    blue($dark-400),
-    0.6
-  );
   overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0px;
+  z-index: -1;
+
+  background-color: var(--dark-460);
 }
 
 .mainContent {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 0px 20px;
@@ -56,7 +57,7 @@
   position: absolute;
   inset: 0;
   opacity: 1;
-  z-index: -1;
+  z-index: -2;
   @include transition(opacity, 2s);
 
   &_hide {

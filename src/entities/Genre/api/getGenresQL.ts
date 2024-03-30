@@ -5,10 +5,7 @@ import { IGenreFullModel } from "../types/IGenreFullModel"
 const getGenresQL = async (): Promise<IGenreFullModel[]> => {
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
       query: `{
         getGenres(animeQuery: { count: 4 }) {

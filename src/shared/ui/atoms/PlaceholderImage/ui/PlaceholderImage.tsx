@@ -17,17 +17,20 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
   const [isClose, setIsClose] = useState(false)
 
   const MemoizedComponent = useMemo(
-    () => (
-      <Image
-        {...otherProps}
-        className={imageClassName}
-        priority
-        onError={() => setIsLoaded(false)}
-        onLoad={() => setIsLoaded(true)}
-        alt=""
-      />
-    ),
-    [otherProps],
+    () =>
+      otherProps.src !== "" ? (
+        <Image
+          {...otherProps}
+          className={imageClassName}
+          priority
+          onError={() => setIsLoaded(false)}
+          onLoad={() => setIsLoaded(true)}
+          alt=""
+        />
+      ) : (
+        <></>
+      ),
+    [],
   )
 
   useEffect(() => {
@@ -41,7 +44,7 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
 
   return (
     <div
-      className={cn(className, st.root)}
+      className={cn(st.root, className)}
       style={{
         width: `${otherProps.width}px`,
         height: `${otherProps.height}px`,

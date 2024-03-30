@@ -4,7 +4,8 @@ import { Ubuntu } from "next/font/google"
 import { META_DATA } from "@shared/constants/metaData"
 import "@shared/styles/global.scss"
 import { Header } from "@features/Header"
-import st from "@appStyles/mainLayout.module.scss"
+import st from "@appData/mainLayout.module.scss"
+import "keen-slider/keen-slider.min.css"
 
 const ubuntu = Ubuntu({
   weight: ["400", "700"],

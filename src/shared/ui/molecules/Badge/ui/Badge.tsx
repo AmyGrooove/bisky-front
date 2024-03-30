@@ -6,7 +6,7 @@ import { cn } from "@shared/utils/functions/cn"
 import { IBadgeProps } from "../types/IBadgeProps"
 import { getScoreStatus } from "../functions/getScoreStatus"
 
-import st from "./Badge.modules.scss"
+import st from "./Badge.module.scss"
 
 const Badge = (props: IBadgeProps) => {
   const {
@@ -22,7 +22,7 @@ const Badge = (props: IBadgeProps) => {
   return (
     <div
       {...otherProps}
-      className={cn(className, st.root, st[`root_${variant}`], {
+      className={cn(st.root, className, st[`root_${variant}`], {
         [st.root_icon]: !!leftIcon || !!rightIcon,
         [st[`root_${getScoreStatus(children!)}`]]: isScoreStatus && !!children,
       })}

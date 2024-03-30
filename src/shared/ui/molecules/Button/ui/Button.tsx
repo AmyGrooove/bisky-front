@@ -14,7 +14,7 @@ const Button = (props: IButtonProps) => {
   return (
     <button
       {...otherProps}
-      className={cn(className, st.root, {
+      className={cn(st.root, className, {
         [st.root_icon]: !!leftIcon || !!rightIcon,
       })}
     >

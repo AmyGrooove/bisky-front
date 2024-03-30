@@ -11,7 +11,7 @@ const LinkTabs = (props: ILinkTabsProps) => {
   const { items = [], className, ...otherProps } = props
 
   return (
-    <div {...otherProps} className={cn(className, st.root)}>
+    <div {...otherProps} className={cn(st.root, className)}>
       {items.map(
         ({ name, isActive = false, isDisabled = false, ...otherItemProps }) => (
           <Link

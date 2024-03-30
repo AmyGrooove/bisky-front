@@ -11,7 +11,7 @@ const CircleViews = (props: ICircleViewsProps) => {
   return (
     <div
       {...otherProps}
-      className={cn(className, st.root)}
+      className={cn(st.root, className)}
       style={{ background: getCircleGradient(otherProps) }}
     />
   )

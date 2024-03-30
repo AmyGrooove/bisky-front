@@ -21,7 +21,7 @@
       "@entities/*": ["src/entities/*"],
       "@features/*": ["src/features/*"],
       "@widgets/*": ["src/widgets/*"],
-      "@appStyles/*": ["src/appStyles/*"],
+      "@appData/*": ["src/appData/*"],
       "@/*": ["src/*"],
       "@public/*": ["public/*"]
     }

@@ -14,7 +14,7 @@ const InputField = (props: IInputFieldProps) => {
   } = props
 
   return (
-    <div className={cn(className, st.root, st[`root_${variant}`])}>
+    <div className={cn(st.root, className, st[`root_${variant}`])}>
       <input {...otherProps} className={st.input} />
       {isSearchIconOn && <SearchIcon className={st.icon} />}
     </div>
