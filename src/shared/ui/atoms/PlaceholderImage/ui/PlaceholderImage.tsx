@@ -30,7 +30,7 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
       ) : (
         <></>
       ),
-    [],
+    [otherProps.src],
   )
 
   useEffect(() => {

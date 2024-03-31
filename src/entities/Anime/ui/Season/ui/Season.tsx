@@ -45,7 +45,7 @@ const Season = (props: ISeasonProps) => {
   ])
 
   return (
-    <Link {...otherProps} href="/" className={cn(st.root, className)}>
+    <Link {...otherProps} href="#" className={cn(st.root, className)}>
       <div className={st.mainContent}>
         <PlaceholderImage
           className={st.poster}

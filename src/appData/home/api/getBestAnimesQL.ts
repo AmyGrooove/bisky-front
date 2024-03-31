@@ -1,11 +1,7 @@
 import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
 import { API_URL } from "@shared/constants"
 
-import { getPreviousSeasonDate } from "../functions/getPreviousSeasonDate"
-
-const getSeasonAnimesQL = async (): Promise<IAnimeFullModel[]> => {
-  const previousSeasonDate = getPreviousSeasonDate()
-
+const getBestAnimesQL = async (): Promise<IAnimeFullModel[]> => {
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -13,10 +9,8 @@ const getSeasonAnimesQL = async (): Promise<IAnimeFullModel[]> => {
       query: `{
         getAnimes(
           animeQuery: {
-            count: 15
-            limit: { screenshotsCount: 7 }
+            count: 48
             sort: { score_count: true, usersList_generalCount: true }
-            filter: { dates_airedOn: { from: "${previousSeasonDate.getFullYear()}-${previousSeasonDate.getMonth()}-${previousSeasonDate.getDate()}" }, status: ongoing }
           }
         ) {
           _id
@@ -24,17 +18,22 @@ const getSeasonAnimesQL = async (): Promise<IAnimeFullModel[]> => {
             en
             ru
           }
-          genres {
-            name {
-              en
-              ru
-            }
-          }
           poster
           score {
             averageScore
           }
-          screenshots
+          episodes {
+            airedCount
+          }
+          status
+          userData {
+            animeStatus
+            score
+          }
+          usersList {
+            generalCount
+            addedCount
+          }
         }
       }`,
     }),
@@ -42,10 +41,10 @@ const getSeasonAnimesQL = async (): Promise<IAnimeFullModel[]> => {
   })
 
   if (!result.ok) {
-    throw new Error(`Failed to get season animes: ${result.statusText}`)
+    throw new Error(`Failed to get best animes: ${result.statusText}`)
   }
 
   return (await result.json()).data.getAnimes
 }
 
-export { getSeasonAnimesQL }
+export { getBestAnimesQL }
