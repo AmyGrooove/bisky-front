@@ -1,4 +1,5 @@
 import { ILanguageModel } from "@shared/types/graphql/ILanguageModel"
+import { EWatchStatuses } from "@shared/types/enums/EWatchStatuses"
 
 import { EKind } from "../enums/EKind"
 import { EListStatus } from "../enums/EListStatus"
@@ -10,8 +11,8 @@ interface IAnimeModel {
   shikiId?: number
   labels?: { en?: string | null; ru?: string | null; synonyms?: string[] }
   poster?: string | null
-  kind?: EKind
-  status?: EStatus
+  kind?: keyof typeof EKind
+  status?: keyof typeof EStatus
   episodes?: {
     count?: number | null
     airedCount?: number
@@ -25,7 +26,7 @@ interface IAnimeModel {
     }[]
   }
   dates?: { airedOn?: Date | null; releasedOn?: Date | null }
-  rating?: ERating
+  rating?: keyof typeof ERating
   description?: ILanguageModel
   screenshots?: string[]
   videos?: { name?: string | null; url?: string }[]
@@ -39,8 +40,8 @@ interface IAnimeModel {
   }
   score?: { averageScore?: number; count?: number }
   userData?: {
-    animeStatus?: EListStatus
-    score?: number
+    animeStatus?: keyof typeof EWatchStatuses | null
+    score?: number | null
     watchedSeries?: number
   }
 }

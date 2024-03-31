@@ -1,25 +1,12 @@
 import { LinkProps } from "next/link"
 
-import { EWatchStatuses } from "@shared/types/enums/EWatchStatuses"
-import { EStatus } from "@shared/types/enums/EStatus"
+import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
 
 interface IAnimeCardProps extends LinkProps {
-  anime: {
-    poster: string | null
-    label: string
-    score: number
-    status: keyof typeof EStatus
-    inListCount: number
-    airedSeriesCount: number
-  }
-  userData: {
-    status: keyof typeof EWatchStatuses | null
-    score: number | null
+  anime: IAnimeFullModel
 
-    onClick?: () => void
-    userLogged?: boolean
-  }
-
+  isUserLogged?: boolean
+  onClick?: () => void
   className?: string
 }
 

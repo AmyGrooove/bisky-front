@@ -1,0 +1,39 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  position: relative;
+}
+
+.arrowWrapper {
+  position: absolute;
+  inset: 0px -44px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+
+  cursor: pointer;
+  user-select: none;
+
+  @include transition(opacity);
+
+  &:first-child {
+    rotate: 180deg;
+  }
+
+  &_disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}

@@ -15,17 +15,28 @@ export const Released: Story = {
   args: {
     href: "#",
     anime: {
+      _id: "65f0b12653206e63e8059e50",
+      labels: {
+        en: "Fullmetal Alchemist: Brotherhood",
+        ru: "Стальной алхимик: Братство",
+      },
       poster:
-        "https://sun9-38.userapi.com/impg/o2fsOfta4k2qhRiXZBTaO1oCG9sjk5nzflgfyg/x_osbMnSFzk.jpg?size=182x252&quality=96&sign=2381e0d1436d592963162509605295a0&type=album",
-      label: "Невероятное приключение ДжоДжо: Рыцари звёздной пыли",
-      score: 7.2,
+        "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
+      score: {
+        averageScore: 4,
+      },
+      episodes: {
+        airedCount: 63,
+      },
       status: "released",
-      inListCount: 1234,
-      airedSeriesCount: 4,
-    },
-    userData: {
-      status: null,
-      score: null,
+      userData: {
+        animeStatus: null,
+        score: null,
+      },
+      usersList: {
+        generalCount: 3,
+        addedCount: 3,
+      },
     },
   },
 }
@@ -34,17 +45,28 @@ export const Ongoing: Story = {
   args: {
     href: "#",
     anime: {
+      _id: "65f0b12653206e63e8059e50",
+      labels: {
+        en: "Fullmetal Alchemist: Brotherhood",
+        ru: "Стальной алхимик: Братство",
+      },
       poster:
-        "https://sun9-38.userapi.com/impg/o2fsOfta4k2qhRiXZBTaO1oCG9sjk5nzflgfyg/x_osbMnSFzk.jpg?size=182x252&quality=96&sign=2381e0d1436d592963162509605295a0&type=album",
-      label: "Невероятное приключение ДжоДжо: Рыцари звёздной пыли",
-      score: 7.2,
+        "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
+      score: {
+        averageScore: 4,
+      },
+      episodes: {
+        airedCount: 63,
+      },
       status: "ongoing",
-      inListCount: 1234,
-      airedSeriesCount: 4,
-    },
-    userData: {
-      status: null,
-      score: null,
+      userData: {
+        animeStatus: null,
+        score: null,
+      },
+      usersList: {
+        generalCount: 3,
+        addedCount: 3,
+      },
     },
   },
 }
@@ -53,17 +75,28 @@ export const Anons: Story = {
   args: {
     href: "#",
     anime: {
+      _id: "65f0b12653206e63e8059e50",
+      labels: {
+        en: "Fullmetal Alchemist: Brotherhood",
+        ru: "Стальной алхимик: Братство",
+      },
       poster:
-        "https://sun9-38.userapi.com/impg/o2fsOfta4k2qhRiXZBTaO1oCG9sjk5nzflgfyg/x_osbMnSFzk.jpg?size=182x252&quality=96&sign=2381e0d1436d592963162509605295a0&type=album",
-      label: "Невероятное приключение ДжоДжо: Рыцари звёздной пыли",
-      score: 7.2,
+        "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
+      score: {
+        averageScore: 4,
+      },
+      episodes: {
+        airedCount: 63,
+      },
       status: "anons",
-      inListCount: 1234,
-      airedSeriesCount: 4,
-    },
-    userData: {
-      status: null,
-      score: null,
+      userData: {
+        animeStatus: null,
+        score: null,
+      },
+      usersList: {
+        generalCount: 3,
+        addedCount: 3,
+      },
     },
   },
 }
@@ -72,20 +105,31 @@ export const UserLogged: Story = {
   args: {
     href: "#",
     anime: {
+      _id: "65f0b12653206e63e8059e50",
+      labels: {
+        en: "Fullmetal Alchemist: Brotherhood",
+        ru: "Стальной алхимик: Братство",
+      },
       poster:
-        "https://sun9-38.userapi.com/impg/o2fsOfta4k2qhRiXZBTaO1oCG9sjk5nzflgfyg/x_osbMnSFzk.jpg?size=182x252&quality=96&sign=2381e0d1436d592963162509605295a0&type=album",
-      label: "Невероятное приключение ДжоДжо: Рыцари звёздной пыли",
-      score: 7.2,
-      status: "ongoing",
-      inListCount: 1234,
-      airedSeriesCount: 4,
+        "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
+      score: {
+        averageScore: 4,
+      },
+      episodes: {
+        airedCount: 63,
+      },
+      status: "released",
+      userData: {
+        animeStatus: null,
+        score: null,
+      },
+      usersList: {
+        generalCount: 3,
+        addedCount: 3,
+      },
     },
-    userData: {
-      onClick: () => console.log("added"),
-      userLogged: true,
-      status: null,
-      score: null,
-    },
+    onClick: () => console.log("added"),
+    isUserLogged: true,
   },
 }
 
@@ -93,19 +137,30 @@ export const UserData: Story = {
   args: {
     href: "#",
     anime: {
+      _id: "65f0b12653206e63e8059e50",
+      labels: {
+        en: "Fullmetal Alchemist: Brotherhood",
+        ru: "Стальной алхимик: Братство",
+      },
       poster:
-        "https://sun9-38.userapi.com/impg/o2fsOfta4k2qhRiXZBTaO1oCG9sjk5nzflgfyg/x_osbMnSFzk.jpg?size=182x252&quality=96&sign=2381e0d1436d592963162509605295a0&type=album",
-      label: "Невероятное приключение ДжоДжо: Рыцари звёздной пыли",
-      score: 7.2,
-      status: "ongoing",
-      inListCount: 1234,
-      airedSeriesCount: 4,
+        "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
+      score: {
+        averageScore: 4,
+      },
+      episodes: {
+        airedCount: 63,
+      },
+      status: "released",
+      userData: {
+        animeStatus: "added",
+        score: 3,
+      },
+      usersList: {
+        generalCount: 3,
+        addedCount: 3,
+      },
     },
-    userData: {
-      onClick: () => console.log("added"),
-      userLogged: true,
-      status: "complete",
-      score: 7,
-    },
+    onClick: () => console.log("added"),
+    isUserLogged: true,
   },
 }

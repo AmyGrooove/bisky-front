@@ -27,7 +27,7 @@ const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
         <GenreBlock
           key={item._id}
           genre={item}
-          href="/"
+          href="#"
           className="keen-slider__slide"
         />
       ))}

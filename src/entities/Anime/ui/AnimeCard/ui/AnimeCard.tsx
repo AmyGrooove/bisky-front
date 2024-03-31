@@ -12,7 +12,13 @@ import { IAnimeCardProps } from "../types/IAnimeCardProps"
 import st from "./AnimeCard.module.scss"
 
 const AnimeCard = (props: IAnimeCardProps) => {
-  const { anime, userData, className, ...otherProps } = props
+  const {
+    anime,
+    isUserLogged = false,
+    onClick,
+    className,
+    ...otherProps
+  } = props
 
   return (
     <Link {...otherProps} className={cn(st.root, className)}>
@@ -20,13 +26,13 @@ const AnimeCard = (props: IAnimeCardProps) => {
         className={st.poster}
         imageClassName={st.posterImage}
         src={anime.poster ?? ""}
-        width={182}
-        height={252}
+        width={160}
+        height={256}
         alt=""
       />
 
       <Text weight="700" className={st.title}>
-        {anime.label}
+        {anime.labels?.ru ?? ""}
       </Text>
 
       <div className={st.badges}>
@@ -36,7 +42,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
               leftIcon={<EyeIcon />}
               className={cn(st.badge, st.badge_inListCount)}
             >
-              {String(anime.inListCount)}
+              {String(anime.usersList?.addedCount)}
             </Badge>
             <Badge className={cn(st.badge, st.badge_anons)}>анонс</Badge>
           </>
@@ -46,34 +52,34 @@ const AnimeCard = (props: IAnimeCardProps) => {
             isScoreStatus
             className={st.badge}
           >
-            {anime.score.toFixed(1)}
+            {anime.score?.averageScore?.toFixed(1)}
           </Badge>
         )}
         {anime.status === "ongoing" && (
           <Badge className={cn(st.badge, st.badge_ongoing)}>
-            {String(anime.airedSeriesCount) + " серия"}
+            {String(anime.episodes?.airedCount) + " серия"}
           </Badge>
         )}
       </div>
 
-      {userData.userLogged && (
+      {isUserLogged && (
         <div className={st.userData}>
           <WatchStatus
-            onClick={userData.onClick}
+            onClick={onClick}
             disabled={
-              userData.userLogged &&
-              userData.status !== "added" &&
-              !!userData.status
+              isUserLogged &&
+              anime.userData?.animeStatus !== "added" &&
+              !!anime.userData?.animeStatus
             }
-            status={userData.status ?? "setWatch"}
+            status={anime.userData?.animeStatus ?? "setWatch"}
           />
-          {userData.score && (
+          {anime.userData?.score && (
             <Badge
               leftIcon={<StarIcon variant="filled" />}
               isScoreStatus
               className={st.userScore}
             >
-              {userData.score.toFixed(0)}
+              {anime.userData?.score.toFixed(0)}
             </Badge>
           )}
         </div>

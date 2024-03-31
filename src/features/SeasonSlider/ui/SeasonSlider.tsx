@@ -4,19 +4,55 @@ import { useKeenSlider } from "keen-slider/react"
 
 import { Season } from "@entities/Anime"
 import { cn } from "@shared/utils/functions"
+import { ArrowIcon } from "@shared/icons"
 
 import { ISeasonSliderProps } from "../types/ISeasonSliderProps"
-import { ArrowIcon } from "@shared/icons"
+
 import st from "./SeasonSlider.module.scss"
 
 const SeasonSlider = (props: ISeasonSliderProps) => {
   const { items, className, ...otherProps } = props
 
-  const [sliderRef, instanceRef] = useKeenSlider({
-    slides: { origin: "center", spacing: 20 },
-    loop: true,
-    drag: true,
-  })
+  const [sliderRef, instanceRef] = useKeenSlider(
+    {
+      slides: { origin: "center", spacing: 20 },
+      loop: true,
+      drag: true,
+    },
+    [
+      (slider) => {
+        let timeout: ReturnType<typeof setTimeout>
+        let mouseOver = false
+
+        const clearNextTimeout = () => clearTimeout(timeout)
+
+        const nextTimeout = () => {
+          clearTimeout(timeout)
+          if (mouseOver) return
+
+          timeout = setTimeout(() => slider.next(), 12000)
+        }
+
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true
+            clearNextTimeout()
+          })
+
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false
+            nextTimeout()
+          })
+
+          nextTimeout()
+        })
+
+        slider.on("dragStarted", clearNextTimeout)
+        slider.on("animationEnded", nextTimeout)
+        slider.on("updated", nextTimeout)
+      },
+    ],
+  )
 
   return (
     <div className={cn(st.root, className)}>
@@ -30,12 +66,12 @@ const SeasonSlider = (props: ISeasonSliderProps) => {
           className={st.arrow}
         />
       </div>
-      <div {...otherProps} ref={sliderRef} className={"keen-slider"}>
+      <div {...otherProps} ref={sliderRef} className="keen-slider">
         {items.map((item) => (
           <Season
             key={item._id}
             anime={item}
-            href="/"
+            href="#"
             className="keen-slider__slide"
           />
         ))}
