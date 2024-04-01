@@ -31,9 +31,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
         alt=""
       />
 
-      <Text weight="700" className={st.title}>
-        {anime.labels?.ru ?? ""}
-      </Text>
+      <Text className={st.title}>{anime.labels?.ru ?? ""}</Text>
 
       <div className={st.badges}>
         {anime.status === "anons" ? (
