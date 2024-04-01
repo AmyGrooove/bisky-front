@@ -2,10 +2,10 @@
 
 import Image from "next/image"
 
-import st from "@appData/home/styles/homeError.module.scss"
+import st from "@appData/mainLayout/styles/mainLayoutGlobalError.module.scss"
 import { Text } from "@shared/ui/atoms/Text"
 
-const HomeError = () => {
+const HomeGlobalError = () => {
   return (
     <div className={st.root}>
       <div className={st.errorBlock}>
@@ -24,4 +24,4 @@ const HomeError = () => {
   )
 }
 
-export default HomeError
+export default HomeGlobalError

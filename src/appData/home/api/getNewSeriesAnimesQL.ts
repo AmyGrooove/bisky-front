@@ -34,7 +34,7 @@ const getNewSeriesAnimesQL = async (): Promise<IAnimeFullModel[]> => {
         }
       }`,
     }),
-    next: { tags: ["reviews"] },
+    next: { revalidate: 60 },
   })
 
   if (!result.ok) {

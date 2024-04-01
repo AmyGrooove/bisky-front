@@ -14,7 +14,7 @@ import { IAnimeCardSliderItems } from "../types/IAnimeCardSliderItems"
 import st from "./AnimeCardSlider.module.scss"
 
 const AnimeCardSlider = (props: IAnimeCardSliderProps) => {
-  const { items, className, isTwoRows = false, ...otherProps } = props
+  const { items, isTwoRows = false, className, ...otherProps } = props
 
   const [currentSlide, setCurrentSlide] = useState(0)
 

@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "keen-slider": "^6.8.6",
-    "next": "14.2.0-canary.50",
+    "next": "14.2.0-canary.51",
+    "next-auth": "^4.24.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

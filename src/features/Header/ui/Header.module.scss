@@ -32,13 +32,13 @@
 }
 
 .searchButton {
-  width: 140px;
+  width: 140px !important;
   justify-content: space-between;
 
-  background-color: var(--dark-100);
+  background-color: var(--dark-100) !important;
 
   &:hover {
-    background-color: var(--dark-200);
+    background-color: var(--dark-200) !important;
   }
 }
 
@@ -51,4 +51,8 @@
   height: 24px;
 
   fill: var(--light-400);
+}
+
+.avatar {
+  border-radius: var(--full-radius);
 }
