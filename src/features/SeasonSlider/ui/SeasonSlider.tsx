@@ -55,7 +55,7 @@ const SeasonSlider = (props: ISeasonSliderProps) => {
   )
 
   return (
-    <div className={cn(st.root, className)}>
+    <div {...otherProps} className={cn(st.root, className)}>
       <div className={st.arrowWrapper}>
         <ArrowIcon
           onClick={() => instanceRef.current?.prev()}
@@ -66,7 +66,7 @@ const SeasonSlider = (props: ISeasonSliderProps) => {
           className={st.arrow}
         />
       </div>
-      <div {...otherProps} ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className="keen-slider">
         {items.map((item) => (
           <Season
             key={item._id}
