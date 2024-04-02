@@ -13,7 +13,7 @@ const loginUser = async (props: ILoginUser): Promise<true> => {
       Accept: "application/json",
     },
     body: JSON.stringify(props),
-    next: { tags: ["reviews"] },
+    next: { revalidate: 30 },
   })
 
   if (!result.ok) throw new Error(`Failed to login user: ${result.statusText}`)

@@ -3,12 +3,9 @@ import { Metadata } from "next"
 import { APP_URL } from "./envVariables"
 
 const META_DATA: Metadata = {
-  title: {
-    template: "%s | Bisky",
-    default: "Bisky",
-  },
+  title: { template: "%s | Bisky", default: "Bisky — Смотреть Аниме" },
   description:
-    "Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве",
+    "Bisky — Смотреть Аниме. Большая база лучших аниме с русской озвучкой в хорошем качестве",
   keywords: ["аниме", "смотреть", "япония", "манга", "сериалы", "фильмы"],
   metadataBase: new URL(APP_URL),
   alternates: { canonical: "/" },
@@ -16,14 +13,14 @@ const META_DATA: Metadata = {
   openGraph: {
     type: "website",
     url: APP_URL,
-    siteName: "Bisky",
+    siteName: "Bisky — Смотреть Аниме",
     locale: "ru-RU",
     title: "Bisky",
     description:
-      "Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве",
+      "Bisky — Смотреть Аниме. Большая база лучших аниме с русской озвучкой в хорошем качестве",
     images: [
       {
-        url: `${APP_URL}/favicons/favicon-128x128.png`,
+        url: `${APP_URL}/images/openGraph.png`,
         width: 512,
         height: 512,
         alt: "Bisky",

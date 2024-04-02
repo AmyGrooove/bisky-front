@@ -14,7 +14,7 @@ const registerUser = async (props: IRegisterUser): Promise<true> => {
       Accept: "application/json",
     },
     body: JSON.stringify(props),
-    next: { tags: ["reviews"] },
+    next: { revalidate: 30 },
   })
 
   if (!result.ok)

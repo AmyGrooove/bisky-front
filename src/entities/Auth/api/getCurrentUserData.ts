@@ -12,7 +12,7 @@ const getCurrentUserData = async (): Promise<ICurrentUserDataModel> => {
       Accept: "application/json",
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
-    next: { tags: ["reviews"] },
+    next: { revalidate: 30 },
   })
 
   if (!result.ok)

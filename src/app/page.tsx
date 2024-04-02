@@ -3,10 +3,13 @@ import st from "@appData/home/styles/home.module.scss"
 import { getOneRandomFact, FactBlock } from "@entities/Fact"
 import { getGenresQL } from "@entities/Genre"
 import { SeasonSlider } from "@features/SeasonSlider"
-import { getBestAnimesQL, getSeasonAnimesQL } from "@appData/home"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { GenreBlockSlider } from "@features/GenreBlockSlider"
-import { getNewSeriesAnimesQL } from "@appData/home/api/getNewSeriesAnimesQL"
+import {
+  getSeasonAnimesQL,
+  getBestAnimesQL,
+  getNewSeriesAnimesQL,
+} from "@entities/Anime"
 
 const Home = async () => {
   const seasonsAnimes = await getSeasonAnimesQL()

@@ -25,7 +25,7 @@ const getGenresQL = async (): Promise<IGenreFullModel[]> => {
         }
       }`,
     }),
-    next: { tags: ["reviews"] },
+    next: { revalidate: 30 },
   })
 
   if (!result.ok) {
