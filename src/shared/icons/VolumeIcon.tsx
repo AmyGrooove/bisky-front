@@ -1,6 +1,6 @@
-import { SVGProps } from "react"
+import { IIconProps } from "./types/IIconProps"
 
-interface IVolumeIconProps extends SVGProps<SVGSVGElement> {
+interface IVolumeIconProps extends IIconProps {
   variant: "off" | "on"
 }
 
@@ -8,7 +8,7 @@ const VolumeIcon = (props: IVolumeIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 50"
-    fill="currentColor"
+    fill={props.isDefaultFill ?? true ? "var(--light-100)" : "currentColor"}
     {...props}
   >
     <path

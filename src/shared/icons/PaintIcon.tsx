@@ -1,10 +1,10 @@
-import { SVGProps } from "react"
+import { IIconProps } from "./types/IIconProps"
 
-const PaintIcon = (props: SVGProps<SVGSVGElement>) => (
+const PaintIcon = (props: IIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 50"
-    fill="currentColor"
+    fill={props.isDefaultFill ?? true ? "var(--light-100)" : "currentColor"}
     {...props}
   >
     <path d="M49.5121 0.505027C50.0458 1.05737 50.1541 1.91203 49.7758 2.58803L36.9731 25.4646L25.3844 13.4764L47.4985 0.232064C48.1518 -0.159306 48.9781 -0.0473082 49.5121 0.505027Z" />

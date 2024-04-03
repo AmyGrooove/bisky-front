@@ -6,6 +6,7 @@ interface IBadgeProps extends HTMLAttributes<HTMLDivElement> {
   rightIcon?: ReactElement
   leftIcon?: ReactElement
   isScoreStatus?: boolean
+  isDefaultTextColor?: boolean
 }
 
 export type { IBadgeProps }

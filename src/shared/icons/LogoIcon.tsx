@@ -1,6 +1,6 @@
-import { SVGProps } from "react"
+import { IIconProps } from "./types/IIconProps"
 
-const LogoIcon = (props: SVGProps<SVGSVGElement>) => (
+const LogoIcon = (props: IIconProps) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" {...props}>
     <path
       d="M24.86 29.3804C34.94 29.3804 43.34 34.0667 43.34 39.6902C43.34 45.3137 34.94 50 24.86 50C14.78 50 6.38 45.3137 6.38 39.6902C6.38 34.0667 14.78 29.3804 24.86 29.3804Z"

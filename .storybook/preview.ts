@@ -10,6 +10,7 @@ const preview: Preview = {
   parameters: {
     docs: { theme: biskyTheme },
     actions: { argTypesRegex: "^on[A-Z].*" },
+    layout: "centered",
     controls: {
       matchers: { color: /(background|color)$/i, date: /Date$/ },
     },

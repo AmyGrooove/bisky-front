@@ -32,21 +32,15 @@ const AnimeLayout = async (props: IAnimeLayoutProps) => {
     children,
   } = props
 
-  let animeData: IAnimeFullModel
   try {
-    animeData = await getOneAnimeQL(animeId)
+    await getOneAnimeQL(animeId)
   } catch (error) {
     console.error(error)
 
     notFound()
   }
 
-  return (
-    <>
-      {children}
-      {JSON.stringify(animeData)}
-    </>
-  )
+  return <>{children}</>
 }
 
 export default AnimeLayout

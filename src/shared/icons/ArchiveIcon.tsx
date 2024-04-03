@@ -1,10 +1,10 @@
-import { SVGProps } from "react"
+import { IIconProps } from "./types/IIconProps"
 
-const ArchiveIcon = (props: SVGProps<SVGSVGElement>) => (
+const ArchiveIcon = (props: IIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 50"
-    fill="currentColor"
+    fill={props.isDefaultFill ?? true ? "var(--light-100)" : "currentColor"}
     {...props}
   >
     <path d="M15 25C15 23.3431 16.1193 22 17.5 22H32.5C33.8808 22 35 23.3431 35 25C35 26.6569 33.8808 28 32.5 28H17.5C16.1193 28 15 26.6569 15 25Z" />

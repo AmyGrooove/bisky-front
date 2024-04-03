@@ -16,6 +16,7 @@ const Badge = (props: IBadgeProps) => {
     className,
     isScoreStatus = false,
     variant = "small",
+    isDefaultTextColor = true,
     ...otherProps
   } = props
 
@@ -29,7 +30,11 @@ const Badge = (props: IBadgeProps) => {
     >
       {leftIcon && cloneElement(leftIcon, { className: st.icon })}
       {children && (
-        <Text size={variant === "small" ? "16" : "20"} weight="700">
+        <Text
+          isDefaultColor={isDefaultTextColor}
+          size={variant === "small" ? "16" : "20"}
+          weight="700"
+        >
           {children}
         </Text>
       )}

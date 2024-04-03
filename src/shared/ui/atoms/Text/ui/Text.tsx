@@ -11,6 +11,7 @@ const Text = (props: ITextProps) => {
     weight = "400",
     className,
     as: Element = "div",
+    isDefaultColor = true,
     ...otherProps
   } = props
 
@@ -22,9 +23,10 @@ const Text = (props: ITextProps) => {
         st.root,
         st[`size_${size}`],
         st[`weight_${weight}`],
+        { [st.root_defaultColor]: isDefaultColor },
       )}
     >
-      {children ?? ""}
+      {String(children)}
     </Element>
   )
 }

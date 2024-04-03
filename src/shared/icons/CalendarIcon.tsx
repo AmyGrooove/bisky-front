@@ -1,10 +1,10 @@
-import { SVGProps } from "react"
+import { IIconProps } from "./types/IIconProps"
 
-const CalendarIcon = (props: SVGProps<SVGSVGElement>) => (
+const CalendarIcon = (props: IIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 50"
-    fill="currentColor"
+    fill={props.isDefaultFill ?? true ? "var(--light-100)" : "currentColor"}
     {...props}
   >
     <path d="M12.5 22.5C12.5 21.1193 13.6193 20 15 20C16.3807 20 17.5 21.1193 17.5 22.5C17.5 23.8807 16.3807 25 15 25C13.6193 25 12.5 23.8807 12.5 22.5Z" />

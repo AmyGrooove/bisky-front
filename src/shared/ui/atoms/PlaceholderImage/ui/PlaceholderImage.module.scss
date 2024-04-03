@@ -5,22 +5,6 @@
   display: flex;
 
   overflow: hidden;
-
-  &_skeleton {
-    animation: 1s shine linear infinite;
-  }
-}
-
-@keyframes shine {
-  from {
-    background-color: #251928;
-  }
-  50% {
-    background-color: #2b1f2e;
-  }
-  to {
-    background-color: #251928;
-  }
 }
 
 .blurImage {

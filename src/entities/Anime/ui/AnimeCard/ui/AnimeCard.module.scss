@@ -5,6 +5,8 @@
   flex-direction: column;
   gap: 4px;
   width: 160px;
+
+  position: relative;
 }
 
 .poster {
@@ -53,8 +55,8 @@
   align-items: center;
 
   position: absolute;
-  top: 232px;
-  left: 24px;
+  top: 216px;
+  left: 8px;
 }
 
 .userScore {

@@ -1,10 +1,10 @@
-import { SVGProps } from "react"
+import { IIconProps } from "./types/IIconProps"
 
-const ReloadIcon = (props: SVGProps<SVGSVGElement>) => (
+const ReloadIcon = (props: IIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 50"
-    fill="currentColor"
+    fill={props.isDefaultFill ?? true ? "var(--light-100)" : "currentColor"}
     {...props}
   >
     <path d="M4.32671 15.8213C5.43729 14.395 7.65903 14.0266 9.28911 14.9984C10.9192 15.97 11.3404 17.9141 10.2298 19.3403C8.22836 21.9109 7.14286 24.9428 7.14286 28.125C7.14286 36.7544 15.1378 43.75 25 43.75C34.8621 43.75 42.8571 36.7544 42.8571 28.125C42.8571 19.4956 34.8621 12.5 25 12.5C23.0276 12.5 21.4286 11.1009 21.4286 9.375C21.4286 7.64906 23.0276 6.25 25 6.25C38.8071 6.25 50 16.0438 50 28.125C50 40.2062 38.8071 50 25 50C11.1929 50 0 40.2062 0 28.125C0 23.6775 1.52379 19.4213 4.32671 15.8213Z" />

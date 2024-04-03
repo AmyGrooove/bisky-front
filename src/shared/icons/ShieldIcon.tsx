@@ -1,6 +1,6 @@
-import { SVGProps } from "react"
+import { IIconProps } from "./types/IIconProps"
 
-const ShieldIcon = (props: SVGProps<SVGSVGElement>) => (
+const ShieldIcon = (props: IIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 50 50"

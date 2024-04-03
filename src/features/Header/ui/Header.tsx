@@ -13,6 +13,7 @@ import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 import { IHeaderProps } from "../types/IHeaderProps"
 
 import st from "./Header.module.scss"
+import { Skeleton } from "@shared/ui/atoms/Skeleton"
 
 const Header = (props: IHeaderProps) => {
   const { className, ...otherProps } = props
@@ -38,14 +39,15 @@ const Header = (props: IHeaderProps) => {
         >
           Поиск
         </Button>
-        {session || status === "loading" ? (
+        {status === "loading" ? (
+          <Skeleton className={st.avatar} />
+        ) : session ? (
           <PlaceholderImage
             width={40}
             height={40}
             src={session?.avatar ?? ""}
             alt=""
             className={st.avatar}
-            isSkeleton={status === "loading"}
             onClick={() => signOut({ redirect: false })}
           />
         ) : (

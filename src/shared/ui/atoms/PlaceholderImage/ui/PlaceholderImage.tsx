@@ -11,7 +11,7 @@ import { IPlaceholderImageProps } from "../types/IPlaceholderImageProps"
 import st from "./PlaceholderImage.module.scss"
 
 const PlaceholderImage = (props: IPlaceholderImageProps) => {
-  const { className, imageClassName, isSkeleton = false, ...otherProps } = props
+  const { className, imageClassName, ...otherProps } = props
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [isClose, setIsClose] = useState(false)
@@ -44,25 +44,21 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
 
   return (
     <div
-      className={cn(st.root, className, { [st.root_skeleton]: isSkeleton })}
+      className={cn(st.root, className)}
       style={{
         width: `${otherProps.width}px`,
         height: `${otherProps.height}px`,
       }}
     >
-      {!isSkeleton && (
-        <>
-          {!isClose && (
-            <div
-              {...otherProps}
-              className={cn(st.blurImage, { [st.blurImage_hide]: isLoaded })}
-            >
-              <LogoIcon className={st.icon} />
-            </div>
-          )}
-          {MemoizedComponent}
-        </>
+      {!isClose && (
+        <div
+          {...otherProps}
+          className={cn(st.blurImage, { [st.blurImage_hide]: isLoaded })}
+        >
+          <LogoIcon className={st.icon} />
+        </div>
       )}
+      {MemoizedComponent}
     </div>
   )
 }

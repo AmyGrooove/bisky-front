@@ -5,3 +5,7 @@
 
 @include defineFontSize((12, 16, 20, 24, 28, 32, 44));
 @include defineFontWeight((400, 700));
+
+.root_defaultColor {
+  color: var(--light-100);
+}

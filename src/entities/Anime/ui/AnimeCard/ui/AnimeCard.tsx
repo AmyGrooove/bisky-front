@@ -21,7 +21,11 @@ const AnimeCard = (props: IAnimeCardProps) => {
   } = props
 
   return (
-    <Link {...otherProps} className={cn(st.root, className)}>
+    <Link
+      {...otherProps}
+      href={`anime/${anime._id ?? ""}`}
+      className={cn(st.root, className)}
+    >
       <PlaceholderImage
         className={st.poster}
         imageClassName={st.posterImage}
