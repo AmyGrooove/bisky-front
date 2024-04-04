@@ -1,9 +1,10 @@
 import { HTMLAttributes } from "react"
 
 import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
+import { IAnimeSimpleModel } from "@entities/Anime"
 
 interface IAnimeCardSliderProps extends HTMLAttributes<HTMLDivElement> {
-  items: IAnimeFullModel[]
+  items: (IAnimeFullModel | IAnimeSimpleModel)[]
 
   isTwoRows?: boolean
 }

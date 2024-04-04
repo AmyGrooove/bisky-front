@@ -23,7 +23,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
   return (
     <Link
       {...otherProps}
-      href={`anime/${anime._id ?? ""}`}
+      href={`/anime/${anime._id ?? ""}`}
       className={cn(st.root, className)}
     >
       <PlaceholderImage
@@ -85,6 +85,10 @@ const AnimeCard = (props: IAnimeCardProps) => {
             </Badge>
           )}
         </div>
+      )}
+
+      {anime.relatedName && (
+        <Text className={st.relatedName}>{anime.relatedName}</Text>
       )}
     </Link>
   )

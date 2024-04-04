@@ -17,7 +17,7 @@ const Text = (props: ITextProps) => {
 
   return (
     <Element
-      {...otherProps}
+      {...(otherProps as any)}
       className={cn(
         className,
         st.root,

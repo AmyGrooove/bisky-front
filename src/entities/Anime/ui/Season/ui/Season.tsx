@@ -63,7 +63,6 @@ const Season = (props: ISeasonProps) => {
           {anime.labels?.ru ?? ""}
         </Text>
       </div>
-
       <Badge
         leftIcon={<StarIcon variant="filled" className={st.ratingIcon} />}
         isScoreStatus
@@ -72,13 +71,10 @@ const Season = (props: ISeasonProps) => {
       >
         {anime.score?.averageScore?.toFixed(1) ?? ""}
       </Badge>
-
       <Text className={st.genres} as="span" size="20" weight="700">
         {anime.genres?.map((item) => item.name?.ru).join(" | ") ?? ""}
       </Text>
-
       <span className={st.background} />
-
       <PlaceholderImage
         className={cn(st.backgroundImage, {
           [st.backgroundImage_hide]: isNextImageShow,

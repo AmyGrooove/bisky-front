@@ -9,5 +9,11 @@
 }
 
 .animeHeader {
-  margin-top: 20px;
+  margin: 20px 0px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }

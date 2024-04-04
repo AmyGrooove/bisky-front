@@ -1,0 +1,77 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.sliderWrapper {
+  position: relative;
+
+  border-radius: var(--big-radius);
+  cursor: grab;
+}
+
+.arrowWrapper {
+  position: absolute;
+  inset: 0px -44px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  width: 36px;
+  height: 36px;
+
+  cursor: pointer;
+  user-select: none;
+
+  @include transition(opacity);
+
+  &:first-child {
+    rotate: 180deg;
+  }
+
+  &_disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.videoWrapper {
+  position: relative;
+
+  cursor: pointer;
+  border-radius: var(--big-radius);
+  background-color: var(--dark-460);
+
+  &:hover .videoTitle {
+    border-color: var(--bisky-300);
+  }
+}
+
+.video {
+  border: 6px solid transparent;
+  border-radius: var(--big-radius);
+}
+
+.videoTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  z-index: 2;
+  inset: 0px;
+
+  text-align: center;
+  background-color: var(--dark-460);
+
+  border: 6px solid transparent;
+  border-radius: var(--big-radius);
+
+  @include transition(border-color);
+}

@@ -91,14 +91,14 @@
 }
 
 .button {
-  background-color: transparent;
+  background-color: transparent !important  ;
   opacity: 0.8;
 
   &:hover {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
   &:active {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 }

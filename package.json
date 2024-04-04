@@ -5,14 +5,15 @@
     "dev": "next dev -p 3030",
     "build": "next build",
     "start": "next start",
-    "lint:fix": "next lint --fix",
+    "lint:fix": "tsc && next lint --fix",
     "storybook": "storybook dev -p 6060"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.35",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "keen-slider": "^6.8.6",
-    "next": "14.2.0-canary.55",
+    "next": "14.2.0-canary.56",
     "next-auth": "^4.24.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -26,19 +27,19 @@
     "@storybook/blocks": "^8.0.5",
     "@storybook/nextjs": "^8.0.5",
     "@storybook/react": "^8.0.5",
-    "@types/node": "^20.12.3",
+    "@types/node": "^20.12.4",
     "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.23",
+    "@types/react-dom": "^18.2.24",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.4",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.8.0",
     "prettier": "^3.2.5",
-    "sass": "^1.72.0",
+    "sass": "^1.74.1",
     "storybook": "^8.0.5",
     "stylelint": "^16.3.1",
     "stylelint-config-standard-scss": "^13.1.0",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.4"
   }
 }

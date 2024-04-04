@@ -25,11 +25,11 @@ const Home = async () => {
       </div>
       <div className={st.row}>
         <LinkLabel label="Новые серии" linkText="Смотреть все" href="#" />
-        <AnimeCardSlider items={newSeriesAnimes} className={st.sliders} />
+        <AnimeCardSlider items={newSeriesAnimes} />
       </div>
       <div className={st.row}>
         <LinkLabel label="Самое популярное" linkText="Смотреть все" href="#" />
-        <AnimeCardSlider items={bestAnimes} className={st.sliders} isTwoRows />
+        <AnimeCardSlider items={bestAnimes} isTwoRows />
       </div>
       <div className={st.row}>
         <LinkLabel label="Жанры" linkText="Смотреть все" href="#" />

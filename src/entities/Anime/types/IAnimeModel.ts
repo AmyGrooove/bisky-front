@@ -44,6 +44,8 @@ interface IAnimeModel {
     score?: number | null
     watchedSeries?: number
   }
+
+  relatedName?: string
 }
 
 export type { IAnimeModel }

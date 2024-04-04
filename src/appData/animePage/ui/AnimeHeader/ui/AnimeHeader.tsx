@@ -11,6 +11,7 @@ import {
 } from "@entities/Anime"
 
 import { IAnimeHeaderProps } from "../types/IAnimeHeaderProps"
+import { getSeasonName } from "../functions/getSeasonName"
 
 import st from "./AnimeHeader.module.scss"
 
@@ -66,13 +67,14 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
               size="20"
               weight="700"
               className={cn(st[`status_${animeData.status}`])}
+              isDefaultColor={false}
             >
               {getNormalStatus(animeData.status ?? "anons")}
             </Text>
           </div>
           <div className={st.additionalRow}>
             <CalendarIcon className={st.icon} />
-            <Text size="20">{animeData.dates?.airedOn ?? ""}</Text>
+            <Text size="20">{getSeasonName(animeData.dates?.airedOn)}</Text>
           </div>
         </div>
       </div>

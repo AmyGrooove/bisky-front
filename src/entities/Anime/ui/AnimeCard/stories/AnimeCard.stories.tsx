@@ -13,7 +13,6 @@ type Story = StoryObj<typeof AnimeCard>
 
 export const Released: Story = {
   args: {
-    href: "#",
     anime: {
       _id: "65f0b12653206e63e8059e50",
       labels: {
@@ -43,7 +42,6 @@ export const Released: Story = {
 
 export const Ongoing: Story = {
   args: {
-    href: "#",
     anime: {
       _id: "65f0b12653206e63e8059e50",
       labels: {
@@ -73,7 +71,6 @@ export const Ongoing: Story = {
 
 export const Anons: Story = {
   args: {
-    href: "#",
     anime: {
       _id: "65f0b12653206e63e8059e50",
       labels: {
@@ -103,7 +100,6 @@ export const Anons: Story = {
 
 export const UserLogged: Story = {
   args: {
-    href: "#",
     anime: {
       _id: "65f0b12653206e63e8059e50",
       labels: {
@@ -135,7 +131,6 @@ export const UserLogged: Story = {
 
 export const UserData: Story = {
   args: {
-    href: "#",
     anime: {
       _id: "65f0b12653206e63e8059e50",
       labels: {

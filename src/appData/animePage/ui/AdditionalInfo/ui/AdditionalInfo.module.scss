@@ -1,0 +1,114 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.score {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.scoreCount {
+  opacity: 0.6;
+}
+
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoRow {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.leftText {
+  max-width: 600px;
+}
+
+.leftIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.rightSide {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.rightIcon {
+  width: 20px;
+  height: 20px;
+
+  &_added {
+    fill: var(--bisky-100);
+  }
+
+  &_watching {
+    fill: var(--blue);
+  }
+
+  &_completed {
+    fill: var(--green);
+  }
+
+  &_dropped {
+    fill: var(--bisky-400);
+  }
+}
+
+.listWrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.listData {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.listRow {
+  display: flex;
+  gap: 8px;
+}
+
+.list {
+  &_added {
+    color: var(--bisky-100);
+  }
+
+  &_watching {
+    color: var(--blue);
+  }
+
+  &_completed {
+    color: var(--green);
+  }
+
+  &_dropped {
+    color: var(--bisky-400);
+  }
+
+  &_general {
+    opacity: 0.8;
+  }
+}
+
+.circle {
+  width: 150px !important;
+  height: 150px !important;
+}

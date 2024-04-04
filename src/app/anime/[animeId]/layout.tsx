@@ -1,8 +1,8 @@
-import { Metadata, ResolvingMetadata } from "next"
+import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { IAnimeLayoutProps } from "@appData/animePage"
-import { IAnimeFullModel, getOneAnimeQL } from "@entities/Anime"
+import { getOneAnimeQL } from "@entities/Anime"
 import { APP_URL } from "@shared/constants/envVariables"
 
 export async function generateMetadata(
