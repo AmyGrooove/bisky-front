@@ -39,6 +39,7 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
         src={animeData.poster ?? ""}
         alt=""
         className={st.poster}
+        imageClassName={st.posterImage}
       />
       <div className={st.infoWrapper}>
         <div className={st.titleWrapper}>

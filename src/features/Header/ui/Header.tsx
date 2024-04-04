@@ -9,11 +9,11 @@ import { cn } from "@shared/utils/functions"
 import { LinkTabs } from "@shared/ui/molecules/LinkTabs"
 import { Button } from "@shared/ui/molecules/Button"
 import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
+import { Skeleton } from "@shared/ui/atoms/Skeleton"
 
 import { IHeaderProps } from "../types/IHeaderProps"
 
 import st from "./Header.module.scss"
-import { Skeleton } from "@shared/ui/atoms/Skeleton"
 
 const Header = (props: IHeaderProps) => {
   const { className, ...otherProps } = props

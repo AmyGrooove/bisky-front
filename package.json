@@ -9,6 +9,8 @@
     "storybook": "storybook dev -p 6060"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
     "keen-slider": "^6.8.6",
     "next": "14.2.0-canary.55",
     "next-auth": "^4.24.7",

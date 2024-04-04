@@ -27,7 +27,12 @@
 .poster {
   max-width: 200px;
   width: 100% !important;
+
   border-radius: var(--big-radius);
+}
+
+.posterImage {
+  object-fit: cover;
 }
 
 .infoWrapper {
