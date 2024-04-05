@@ -13,7 +13,7 @@
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "keen-slider": "^6.8.6",
-    "next": "14.2.0-canary.56",
+    "next": "14.2.0-canary.58",
     "next-auth": "^4.24.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
