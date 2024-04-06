@@ -11,10 +11,10 @@
   cursor: pointer;
   border-radius: var(--small-radius);
 
-  @include transition((background-color, transform), (0.25s, 0.1s));
+  @include transition((background-color, scale), (0.25s, 0.1s));
 
   &:active {
-    transform: scale(0.9);
+    scale: 0.9;
   }
 
   &_complete {
@@ -39,7 +39,7 @@
     cursor: default;
 
     &:active {
-      transform: scale(1);
+      scale: 1;
     }
   }
 }

@@ -9,7 +9,7 @@ const refreshTokens = async (): Promise<true> => {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + localStorage.getItem("refresh-token"),
+      Authorization: "Bearer " + (cookies().get("refresh-token")?.value ?? ""),
     },
     next: { revalidate: 30 },
   })

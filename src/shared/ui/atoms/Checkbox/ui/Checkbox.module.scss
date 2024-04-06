@@ -14,12 +14,12 @@
   border: 4px solid var(--bisky-300);
 
   @include transition(
-    (background-color, border-color, transform),
+    (background-color, border-color, scale),
     (0.25s, 0.25s, 0.1s)
   );
 
   &:active {
-    transform: scale(0.9);
+    scale: 0.9;
   }
 
   &:has(.input:checked) {

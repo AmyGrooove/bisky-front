@@ -1,0 +1,10 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
+  width: 340px;
+}

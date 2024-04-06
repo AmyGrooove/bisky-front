@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { InputField } from "../ui/InputField"
 
 const meta: Meta<typeof InputField> = {
-  title: "shared/atoms/InputField",
+  title: "shared/molecules/InputField",
   component: InputField,
   tags: ["autodocs"],
 }
@@ -31,4 +31,8 @@ export const Disabled: Story = {
 
 export const DisabledIcon: Story = {
   args: { placeholder: "placeholder", disabled: true, isSearchIconOn: true },
+}
+
+export const WithLabel: Story = {
+  args: { label: "Label" },
 }

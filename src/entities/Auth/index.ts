@@ -1,2 +1,1 @@
-export { authOptions } from "./static/authOptions"
-export { registerUser } from "./api/registerUser"
+export { createNewUser } from "./api/createNewUser"

@@ -35,6 +35,16 @@ body {
   padding: 0;
 
   background-color: var(--dark-400);
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: px;
+    background-color: var(--dark-100);
+    border-radius: var(--big-radius);
+  }
 }
 
 p,

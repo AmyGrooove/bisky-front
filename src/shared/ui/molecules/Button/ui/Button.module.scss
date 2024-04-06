@@ -13,7 +13,7 @@
   border: none;
   cursor: pointer;
 
-  @include transition((background-color, transform), (0.25s, 0.1s));
+  @include transition((background-color, scale), (0.25s, 0.1s));
 
   &_icon {
     padding: 0px 10px;
@@ -25,7 +25,7 @@
 
   &:active {
     background-color: var(--bisky-400);
-    transform: scale(0.9);
+    scale: 0.9;
   }
 
   &:disabled {
@@ -33,7 +33,7 @@
     cursor: default;
 
     &:active {
-      transform: scale(1);
+      scale: 1;
     }
   }
 }

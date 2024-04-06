@@ -1,0 +1,89 @@
+@import "@shared/styles/reusable.scss";
+
+.labelWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.inputWrapper {
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "";
+
+    margin: 0px 12px;
+    display: flex;
+    width: calc(100% - 24px);
+    height: 1px;
+
+    background-color: var(--dark-200);
+
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.inputButton {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  rotate: 180deg;
+
+  user-select: none;
+  cursor: pointer;
+
+  @include transition((scale, opacity));
+
+  &:active {
+    scale: 0.9;
+  }
+
+  &_hide {
+    cursor: default;
+    opacity: 0;
+  }
+}
+
+.otherWays {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+.waysButton {
+  width: 32px;
+  height: 32px;
+
+  user-select: none;
+  cursor: pointer;
+
+  @include transition(scale);
+
+  &:active {
+    scale: 0.9;
+  }
+
+  &_disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.changeModalLabel {
+  color: var(--bisky-100);
+  cursor: pointer;
+  user-select: none;
+
+  @include transition(scale);
+
+  &:active {
+    scale: 0.9;
+  }
+}

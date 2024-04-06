@@ -6,6 +6,8 @@
   width: 300px;
   height: 40px;
 
+  position: relative;
+
   border-radius: var(--small-radius);
 
   &_dark {
@@ -19,6 +21,10 @@
     &:has(.input:focus) .icon {
       fill: var(--light-100);
     }
+
+    .label {
+      color: var(--light-400);
+    }
   }
 
   &_light {
@@ -31,6 +37,11 @@
 
     &:has(.input:focus) .icon {
       fill: var(--dark-100);
+    }
+
+    .label {
+      opacity: 0.8;
+      color: var(--dark-400);
     }
   }
 
@@ -50,6 +61,10 @@
       fill: var(--gray);
     }
   }
+
+  &_label {
+    height: 54px;
+  }
 }
 
 .input {
@@ -66,6 +81,15 @@
   &::placeholder {
     color: var(--light-400);
   }
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    padding: 22px 12px 8px 12px;
+
+    ~ .label {
+      scale: 0.5832;
+    }
+  }
 }
 
 .icon {
@@ -77,4 +101,16 @@
   fill: var(--light-400);
 
   @include transition(fill);
+}
+
+.label {
+  position: absolute;
+  width: 100%;
+
+  left: 12px;
+  transform-origin: 0 -28px;
+
+  pointer-events: none;
+
+  @include transition(scale);
 }

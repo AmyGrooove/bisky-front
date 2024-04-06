@@ -21,11 +21,15 @@ const Modal = (props: IModalProps) => {
     setTimeout(() => {
       setModal(null)
       document.body.style.overflow = ""
+      document.body.style.marginRight = ""
     }, 100)
   }
 
   useEffect(() => {
-    if (document && isModalOpened) document.body.style.overflow = "hidden"
+    if (document && isModalOpened) {
+      document.body.style.overflow = "hidden"
+      document.body.style.marginRight = "12px"
+    }
   }, [isModalOpened])
 
   return (

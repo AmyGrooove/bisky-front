@@ -1,0 +1,86 @@
+@import "@shared/styles/reusable.scss";
+
+.labelWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.backIcon {
+  position: absolute;
+  left: 0px;
+
+  height: 32px;
+  width: 32px;
+  padding: 6px;
+
+  opacity: 0.6;
+  rotate: 180deg;
+
+  user-select: none;
+  cursor: pointer;
+
+  @include transition(scale);
+
+  &:active {
+    scale: 0.9;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "";
+
+    margin: 0px 12px;
+    display: flex;
+    width: calc(100% - 24px);
+    height: 1px;
+
+    background-color: var(--dark-200);
+
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.input {
+  &_login {
+    border-radius: var(--big-radius) var(--big-radius) 0px 0px !important;
+  }
+
+  &_email {
+    border-radius: 0px !important;
+  }
+
+  &_password {
+    border-radius: 0px 0px var(--big-radius) var(--big-radius) !important;
+  }
+}
+
+.inputButton {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  rotate: 180deg;
+
+  user-select: none;
+  cursor: pointer;
+
+  @include transition((scale, opacity));
+
+  &:active {
+    scale: 0.9;
+  }
+
+  &_hide {
+    cursor: default;
+    opacity: 0;
+  }
+}

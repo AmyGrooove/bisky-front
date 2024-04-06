@@ -16,7 +16,7 @@ import { ModalContext } from "@appData/mainLayout/ui/ModalProvider"
 import { IHeaderProps } from "../types/IHeaderProps"
 
 import st from "./Header.module.scss"
-import { LoginForm } from "./LoginForm/LoginForm"
+import { AuthBlock } from "./AuthBlock/AuthBlock"
 
 const Header = (props: IHeaderProps) => {
   const { className, ...otherProps } = props
@@ -59,7 +59,7 @@ const Header = (props: IHeaderProps) => {
           ) : (
             <Button
               onClick={
-                () => setModal(<LoginForm />)
+                () => setModal(<AuthBlock />)
                 // signIn("credentials", {
                 //   username: "AmyGrooove",
                 //   password: "AmyGrooove",
