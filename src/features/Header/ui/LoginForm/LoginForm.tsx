@@ -1,7 +1,7 @@
 import { Modal } from "@shared/ui/atoms/Modal"
+import { Text } from "@shared/ui/atoms/Text"
 
 import st from "./LoginForm.module.scss"
-import { Text } from "@shared/ui/atoms/Text"
 
 const LoginForm = () => {
   return (
