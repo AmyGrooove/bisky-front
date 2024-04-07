@@ -18,7 +18,7 @@ const getCurrentUserData = async (): Promise<ICurrentUserDataModel> => {
   if (!result.ok)
     throw new Error(`Failed to get currentUserData: ${result.statusText}`)
 
-  return await result.json()
+  return result.json()
 }
 
 export { getCurrentUserData }

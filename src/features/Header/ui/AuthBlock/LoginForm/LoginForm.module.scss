@@ -92,3 +92,68 @@
     scale: 0.9;
   }
 }
+
+.logoIcon {
+  width: 64px;
+  height: 64px;
+
+  fill: var(--bisky-100);
+  opacity: 0.8;
+  filter: drop-shadow(0px 0px 20px var(--bisky-140));
+  animation: unset;
+
+  &_loading {
+    animation: loading ease-in-out infinite 1s;
+  }
+
+  &_error {
+    animation: error ease-in-out 0.4s;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.errorText {
+  color: var(--red);
+}
+
+@keyframes loading {
+  from {
+    opacity: 0.8;
+    filter: drop-shadow(0px 0px 20px var(--bisky-140));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0px 0px 20px var(--bisky-100));
+  }
+  to {
+    opacity: 0.8;
+    filter: drop-shadow(0px 0px 20px var(--bisky-140));
+  }
+}
+
+@keyframes error {
+  from {
+    fill: var(--red);
+    transform: translateX(8px);
+  }
+  25% {
+    fill: var(--red);
+    transform: translateX(-8px);
+  }
+  50% {
+    fill: var(--red);
+    transform: translateX(8px);
+  }
+  75% {
+    transform: translateX(-8px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}

@@ -5,12 +5,10 @@ import { NEXT_AUTH_SECRET } from "@shared/constants/envVariables"
 
 import { logoutUser } from "../api/logoutUser"
 import { loginUser } from "../api/loginUser"
-import { getCurrentUserData } from "../api/getCurrentUserData"
 import { refreshTokens } from "../api/refreshTokens"
 
 const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
-  pages: { signIn: "/?modal=auth" },
   secret: NEXT_AUTH_SECRET,
   events: {
     signOut: async () => {
@@ -28,9 +26,7 @@ const authOptions: NextAuthOptions = {
         if (!credentials?.username || !credentials?.password) return null
 
         try {
-          await loginUser(credentials)
-
-          return getCurrentUserData()
+          return loginUser(credentials)
         } catch (error) {
           console.error(error)
 

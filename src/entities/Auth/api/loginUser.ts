@@ -4,14 +4,12 @@ import { API_URL } from "@shared/constants"
 import { IS_DEVELOPMENT } from "@shared/constants/envVariables"
 
 import { ILoginUser } from "../types/ILoginUser"
+import { ICurrentUserDataModel } from "../types/ICurrentUserDataModel"
 
-const loginUser = async (props: ILoginUser): Promise<true> => {
+const loginUser = async (props: ILoginUser): Promise<ICurrentUserDataModel> => {
   const result = await fetch(API_URL + "/api/auth/login", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(props),
     next: { revalidate: 30 },
   })
@@ -38,7 +36,7 @@ const loginUser = async (props: ILoginUser): Promise<true> => {
     sameSite: "lax",
   })
 
-  return true
+  return parsedResult
 }
 
 export { loginUser }

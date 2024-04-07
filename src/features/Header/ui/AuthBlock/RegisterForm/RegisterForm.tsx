@@ -1,6 +1,7 @@
 import { signIn } from "next-auth/react"
+import { useState } from "react"
 
-import { ArrowIcon, BackIcon } from "@shared/icons"
+import { ArrowIcon, BackIcon, LogoIcon } from "@shared/icons"
 import { Text } from "@shared/ui/atoms/Text"
 import { InputField } from "@shared/ui/molecules/InputField"
 import { cn } from "@shared/utils/functions"
@@ -23,16 +24,29 @@ const RegisterForm = (props: IRegisterFormProps) => {
 
   const isCanGoLogin = login.length >= 3 && password.length >= 6
 
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
+
   const callCreateNewUser = async () => {
-    await createNewUser({ username: login, password, email })
+    setIsError(false)
+    setIsLoading(true)
 
-    const result = await signIn("credentials", {
-      redirect: false,
-      username: login,
-      password,
-    })
+    try {
+      await createNewUser({ username: login, password, email })
 
-    if (result?.status === 200) closeModal()
+      const result = await signIn("credentials", {
+        redirect: false,
+        username: login,
+        password,
+      })
+
+      if (result?.status === 200) closeModal()
+      else throw new Error(result?.error ?? "")
+    } catch (error) {
+      setIsError(true)
+    }
+
+    setIsLoading(false)
   }
 
   return (
@@ -42,6 +56,20 @@ const RegisterForm = (props: IRegisterFormProps) => {
         <Text size="28" weight="700">
           Регистрация
         </Text>
+      </div>
+      <div className={st.logoWrapper}>
+        <LogoIcon
+          className={cn(st.logoIcon, {
+            [st.logoIcon_loading]: isLoading,
+            [st.logoIcon_error]: isError,
+          })}
+          isDefaultFill={false}
+        />
+        {isError && (
+          <Text className={st.errorText} isDefaultColor>
+            Логин/почта занята
+          </Text>
+        )}
       </div>
       <div>
         <div className={st.inputWrapper}>

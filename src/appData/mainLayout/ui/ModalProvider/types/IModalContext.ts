@@ -1,8 +1,8 @@
 import { ReactNode } from "react"
 
 interface IModalContext {
-  setModal: (value: ReactNode | null) => void
-  isModalOpened: boolean
+  setModal: (value: ReactNode) => void
+  closeModal: () => void
 }
 
 export type { IModalContext }

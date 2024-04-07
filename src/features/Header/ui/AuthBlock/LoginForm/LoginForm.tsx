@@ -1,6 +1,7 @@
 import { signIn } from "next-auth/react"
+import { useState } from "react"
 
-import { ArrowIcon, BackIcon } from "@shared/icons"
+import { ArrowIcon, BackIcon, LogoIcon } from "@shared/icons"
 import { Text } from "@shared/ui/atoms/Text"
 import { InputField } from "@shared/ui/molecules/InputField"
 import { cn } from "@shared/utils/functions"
@@ -12,9 +13,15 @@ const LoginForm = (props: ILoginFormProps) => {
   const { changeAuthForm, login, setLogin, password, setPassword, closeModal } =
     props
 
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
+
   const isCanGoLogin = login.length >= 3 && password.length >= 6
 
   const callLoginUser = async () => {
+    setIsError(false)
+    setIsLoading(true)
+
     const result = await signIn("credentials", {
       redirect: false,
       username: login,
@@ -22,6 +29,9 @@ const LoginForm = (props: ILoginFormProps) => {
     })
 
     if (result?.status === 200) closeModal()
+    else setIsError(true)
+
+    setIsLoading(false)
   }
 
   return (
@@ -31,6 +41,20 @@ const LoginForm = (props: ILoginFormProps) => {
         <Text size="28" weight="700">
           Авторизация
         </Text>
+      </div>
+      <div className={st.logoWrapper}>
+        <LogoIcon
+          className={cn(st.logoIcon, {
+            [st.logoIcon_loading]: isLoading,
+            [st.logoIcon_error]: isError,
+          })}
+          isDefaultFill={false}
+        />
+        {isError && (
+          <Text className={st.errorText} isDefaultColor>
+            Неверный логин/пароль
+          </Text>
+        )}
       </div>
       <div>
         <div className={st.inputWrapper}>
