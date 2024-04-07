@@ -52,6 +52,7 @@ const authOptions: NextAuthOptions = {
       session.role = token.role
       session.lastOnlineDate = token.lastOnlineDate
       session.user = undefined
+      session.accessToken = token.accessToken
 
       return session
     },

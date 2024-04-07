@@ -10,10 +10,7 @@ export { EListStatus } from "./enums/EListStatus"
 export { ERating } from "./enums/ERating"
 export { EStatus } from "./enums/EStatus"
 
-export { getBestAnimesQL } from "./api/getBestAnimesQL"
-export { getNewSeriesAnimesQL } from "./api/getNewSeriesAnimesQL"
 export { getOneAnimeQL } from "./api/getOneAnimeQL"
-export { getSeasonAnimesQL } from "./api/getSeasonAnimesQL"
 export { getAllAnimesId } from "./api/getAllAnimesId"
 
 export { getNormalKind } from "./functions/getNormalKind"

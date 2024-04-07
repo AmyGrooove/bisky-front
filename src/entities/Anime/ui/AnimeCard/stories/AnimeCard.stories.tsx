@@ -125,7 +125,6 @@ export const UserLogged: Story = {
       },
     },
     onClick: () => console.log("added"),
-    isUserLogged: true,
   },
 }
 
@@ -156,6 +155,5 @@ export const UserData: Story = {
       },
     },
     onClick: () => console.log("added"),
-    isUserLogged: true,
   },
 }

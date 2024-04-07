@@ -4,9 +4,11 @@ import { API_URL } from "@shared/constants"
 import { IS_DEVELOPMENT } from "@shared/constants/envVariables"
 
 import { ILoginUser } from "../types/ILoginUser"
-import { ICurrentUserDataModel } from "../types/ICurrentUserDataModel"
+import { IUserPublicDataWithTokens } from "../types/IUserPublicDataWithTokens"
 
-const loginUser = async (props: ILoginUser): Promise<ICurrentUserDataModel> => {
+const loginUser = async (
+  props: ILoginUser,
+): Promise<IUserPublicDataWithTokens> => {
   const result = await fetch(API_URL + "/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },

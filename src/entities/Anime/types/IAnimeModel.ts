@@ -42,7 +42,7 @@ interface IAnimeModel {
   userData?: {
     animeStatus?: keyof typeof EWatchStatuses | null
     score?: number | null
-    watchedSeries?: number
+    watchedSeries?: number | null
   }
 
   relatedName?: string

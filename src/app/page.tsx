@@ -5,11 +5,11 @@ import { getGenresQL } from "@entities/Genre"
 import { SeasonSlider } from "@features/SeasonSlider"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { GenreBlockSlider } from "@features/GenreBlockSlider"
-import {
-  getSeasonAnimesQL,
-  getBestAnimesQL,
-  getNewSeriesAnimesQL,
-} from "@entities/Anime"
+import {} from "@entities/Anime"
+import { UserAnimeSlider } from "@appData/home"
+import { getBestAnimesQL } from "@entities/Anime/api/getBestAnimesQL"
+import { getNewSeriesAnimesQL } from "@entities/Anime/api/getNewSeriesAnimesQL"
+import { getSeasonAnimesQL } from "@entities/Anime/api/getSeasonAnimesQL"
 
 const Home = async () => {
   const seasonsAnimes = await getSeasonAnimesQL()
@@ -23,6 +23,7 @@ const Home = async () => {
       <div className={st.seasonWrapper}>
         <SeasonSlider items={seasonsAnimes} className={st.sliders} />
       </div>
+      <UserAnimeSlider />
       <div className={st.row}>
         <LinkLabel label="Новые серии" linkText="Смотреть все" href="#" />
         <AnimeCardSlider items={newSeriesAnimes} />

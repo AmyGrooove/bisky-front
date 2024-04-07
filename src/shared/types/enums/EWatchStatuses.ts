@@ -1,5 +1,5 @@
 enum EWatchStatuses {
-  complete = "complete",
+  completed = "completed",
   added = "added",
   watching = "watching",
   dropped = "dropped",

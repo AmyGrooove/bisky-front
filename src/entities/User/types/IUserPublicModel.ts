@@ -1,6 +1,6 @@
 import { ERole } from "../enums/ERole"
 
-interface ICurrentUserDataModel {
+interface IUserPublicModel {
   _id: string
   username: string
   email: string
@@ -9,4 +9,4 @@ interface ICurrentUserDataModel {
   lastOnlineDate: Date
 }
 
-export type { ICurrentUserDataModel }
+export type { IUserPublicModel }

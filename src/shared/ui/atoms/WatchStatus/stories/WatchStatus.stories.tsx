@@ -12,7 +12,7 @@ export default meta
 type Story = StoryObj<typeof WatchStatus>
 
 export const Complete: Story = {
-  args: { status: "complete" },
+  args: { status: "completed" },
 }
 
 export const SetWatch: Story = {
@@ -32,5 +32,5 @@ export const Dropped: Story = {
 }
 
 export const Disabled: Story = {
-  args: { status: "complete", disabled: true },
+  args: { status: "completed", disabled: true },
 }

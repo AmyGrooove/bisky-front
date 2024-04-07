@@ -6,7 +6,6 @@ import { IAnimeSimpleModel } from "@entities/Anime"
 interface IAnimeCardProps extends Omit<LinkProps, "href"> {
   anime: IAnimeFullModel | IAnimeSimpleModel
 
-  isUserLogged?: boolean
   onClick?: () => void
   className?: string
 }

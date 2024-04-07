@@ -5,7 +5,7 @@ const getIconFromWatchStatus = (
   status: keyof typeof EWatchStatuses | "setWatch",
 ) =>
   ({
-    [EWatchStatuses.complete]: <CheckIcon />,
+    [EWatchStatuses.completed]: <CheckIcon />,
     [EWatchStatuses.setWatch]: <StarIcon variant="unFilled" />,
     [EWatchStatuses.added]: <StarIcon variant="filled" />,
     [EWatchStatuses.watching]: <PlayIcon />,

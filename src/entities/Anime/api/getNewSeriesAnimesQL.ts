@@ -1,10 +1,16 @@
+import { cookies } from "next/headers"
+
 import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
 import { API_URL } from "@shared/constants"
 
 const getNewSeriesAnimesQL = async (): Promise<IAnimeFullModel[]> => {
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+    },
     body: JSON.stringify({
       query: `{
         getAnimes(

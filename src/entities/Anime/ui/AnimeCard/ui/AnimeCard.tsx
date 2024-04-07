@@ -12,13 +12,7 @@ import { IAnimeCardProps } from "../types/IAnimeCardProps"
 import st from "./AnimeCard.module.scss"
 
 const AnimeCard = (props: IAnimeCardProps) => {
-  const {
-    anime,
-    isUserLogged = false,
-    onClick,
-    className,
-    ...otherProps
-  } = props
+  const { anime, onClick, className, ...otherProps } = props
 
   return (
     <Link
@@ -64,12 +58,11 @@ const AnimeCard = (props: IAnimeCardProps) => {
         )}
       </div>
 
-      {isUserLogged && (
+      {anime.userData?.animeStatus && (
         <div className={st.userData}>
           <WatchStatus
             onClick={onClick}
             disabled={
-              isUserLogged &&
               anime.userData?.animeStatus !== "added" &&
               !!anime.userData?.animeStatus
             }
