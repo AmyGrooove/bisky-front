@@ -29,6 +29,8 @@ import { StarIcon } from "./StarIcon"
 import { TrashIcon } from "./TrashIcon"
 import { VkIcon } from "./VkIcon"
 import { VolumeIcon } from "./VolumeIcon"
+import { ProfileIcon } from "./ProfileIcon"
+import { ExitIcon } from "./ExitIcon"
 
 export {
   ArchiveIcon,
@@ -62,4 +64,6 @@ export {
   TrashIcon,
   VkIcon,
   VolumeIcon,
+  ProfileIcon,
+  ExitIcon,
 }

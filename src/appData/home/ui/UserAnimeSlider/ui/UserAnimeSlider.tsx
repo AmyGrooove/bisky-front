@@ -16,7 +16,7 @@ import st from "./UserAnimeSlider.module.scss"
 const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
   const { className, ...otherProps } = props
 
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
   const [isLoading, setIsLoading] = useState(true)
   const [userData, setUserData] = useState<IUserPublicFullModel | null>(null)
@@ -38,7 +38,7 @@ const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
     }
   }, [session])
 
-  return isLoading || status === "loading" ? (
+  return isLoading ? (
     <div {...otherProps} className={cn(st.row, className)}>
       <Skeleton className={st.rowLabel} />
       <div className={st.rowSlider}>

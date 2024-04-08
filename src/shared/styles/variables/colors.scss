@@ -23,6 +23,7 @@ $gray: #777777;
 $orange: #ef8d50;
 $lime: #3bb33b;
 $red: #ff0000;
+$red-200: #7a0000;
 
 .colors {
   --bisky-100: #{$bisky-100};
@@ -50,4 +51,5 @@ $red: #ff0000;
   --orange: #{$orange};
   --lime: #{$lime};
   --red: #{$red};
+  --red-200: #{$red-200};
 }
