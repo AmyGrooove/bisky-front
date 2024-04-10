@@ -11,6 +11,7 @@ const getUserPublicDataQL = async (
     _id = null,
     username = null,
     animeListStatus = null,
+    certainAnimeId = null,
   } = props ?? {}
 
   const result = await fetch(API_URL + "/graphql", {
@@ -23,7 +24,7 @@ const getUserPublicDataQL = async (
     body: JSON.stringify({
       query: `{
         getUserPublicData(
-          animeQuery: { sort: { episodes_lastEpisodeAiredDate: true } }
+          animeQuery: { filter: { _id_ID: ${certainAnimeId ? `["${certainAnimeId}"]` : null} },sort: { episodes_lastEpisodeAiredDate: true } }
           userQuery: { filter: { _id_ID: ${_id ? `"${_id}"` : null}, username: ${username ? `"${username}"` : null} }, animeListStatus: ${animeListStatus} }
         ) {
           animeEstimates {

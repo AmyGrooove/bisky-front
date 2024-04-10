@@ -1,10 +1,15 @@
 import { ILanguageModel } from "@shared/types/graphql/ILanguageModel"
-import { EWatchStatuses } from "@shared/types/enums/EWatchStatuses"
+import { EListStatus } from "@entities/AnimeEstimate"
 
 import { EKind } from "../enums/EKind"
-import { EListStatus } from "../enums/EListStatus"
 import { ERating } from "../enums/ERating"
 import { EStatus } from "../enums/EStatus"
+
+interface IUserAnimeDataModel {
+  animeStatus?: keyof typeof EListStatus | null
+  score?: number | null
+  watchedSeries?: number | null
+}
 
 interface IAnimeModel {
   _id?: string
@@ -39,13 +44,9 @@ interface IAnimeModel {
     droppedCount?: number
   }
   score?: { averageScore?: number; count?: number }
-  userData?: {
-    animeStatus?: keyof typeof EWatchStatuses | null
-    score?: number | null
-    watchedSeries?: number | null
-  }
+  userData?: IUserAnimeDataModel
 
   relatedName?: string
 }
 
-export type { IAnimeModel }
+export type { IAnimeModel, IUserAnimeDataModel }

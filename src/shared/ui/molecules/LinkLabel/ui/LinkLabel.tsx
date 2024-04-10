@@ -17,7 +17,7 @@ const LinkLabel = (props: ILinkLabelProps) => {
         {label}
       </Text>
       <Link href={href} className={st.link}>
-        <Text size="20" className={st.linkText}>
+        <Text size="20" className={st.linkText} isDefaultColor={false}>
           {linkText}
         </Text>
         <ArrowIcon className={st.icon} />

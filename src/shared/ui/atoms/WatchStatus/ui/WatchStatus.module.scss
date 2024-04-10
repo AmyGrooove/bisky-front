@@ -34,6 +34,10 @@
     background-color: var(--dark-100);
   }
 
+  &_cancel {
+    background-color: var(--gray);
+  }
+
   &:disabled:active {
     scale: 1;
   }

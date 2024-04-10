@@ -1,3 +1,7 @@
+"use server"
+
+import { cookies } from "next/headers"
+
 import { API_URL } from "@shared/constants"
 
 import { IAnimeFullModel } from "../types/IAnimeFullModel"
@@ -5,7 +9,11 @@ import { IAnimeFullModel } from "../types/IAnimeFullModel"
 const getOneAnimeQL = async (animeId: string): Promise<IAnimeFullModel> => {
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+    },
     body: JSON.stringify({
       query: `{
         getAnimes(animeQuery: { filter: { _id_ID: "${animeId}" } }) {

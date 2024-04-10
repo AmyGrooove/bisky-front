@@ -1,14 +1,17 @@
-import { EListStatus, IAnimeSimpleModel } from "@entities/Anime"
+import { IAnimeSimpleModel } from "@entities/Anime"
+import { EListStatus } from "@entities/AnimeEstimate"
 
 import { IUserPublicModel } from "./IUserPublicModel"
 
-interface IUserPublicFullModel extends IUserPublicModel {
-  animeEstimates: {
-    base: IAnimeSimpleModel
-    score: number
-    status: EListStatus
-    watchedSeries: number
-  }[]
+interface IAnimeEstimatesModel {
+  base: IAnimeSimpleModel
+  score: number
+  status: EListStatus
+  watchedSeries: number
 }
 
-export type { IUserPublicFullModel }
+interface IUserPublicFullModel extends IUserPublicModel {
+  animeEstimates: IAnimeEstimatesModel[]
+}
+
+export type { IUserPublicFullModel, IAnimeEstimatesModel }

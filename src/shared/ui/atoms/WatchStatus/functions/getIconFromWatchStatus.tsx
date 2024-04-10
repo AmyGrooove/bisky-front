@@ -1,15 +1,20 @@
-import { CheckIcon, PlayIcon, StarIcon, TrashIcon } from "@shared/icons"
-import { EWatchStatuses } from "@shared/types/enums/EWatchStatuses"
+import { EListStatus } from "@entities/AnimeEstimate"
+import {
+  CheckIcon,
+  CrossIcon,
+  PlayIcon,
+  StarIcon,
+  TrashIcon,
+} from "@shared/icons"
 
-const getIconFromWatchStatus = (
-  status: keyof typeof EWatchStatuses | "setWatch",
-) =>
+const getIconFromWatchStatus = (status: keyof typeof EListStatus) =>
   ({
-    [EWatchStatuses.completed]: <CheckIcon />,
-    [EWatchStatuses.setWatch]: <StarIcon variant="unFilled" />,
-    [EWatchStatuses.added]: <StarIcon variant="filled" />,
-    [EWatchStatuses.watching]: <PlayIcon />,
-    [EWatchStatuses.dropped]: <TrashIcon />,
+    [EListStatus.completed]: <CheckIcon />,
+    [EListStatus.setWatch]: <StarIcon variant="unFilled" />,
+    [EListStatus.added]: <StarIcon variant="filled" />,
+    [EListStatus.watching]: <PlayIcon />,
+    [EListStatus.dropped]: <TrashIcon />,
+    [EListStatus.cancel]: <CrossIcon />,
   })[status]
 
 export { getIconFromWatchStatus }

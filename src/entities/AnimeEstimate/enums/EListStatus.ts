@@ -1,8 +1,10 @@
 enum EListStatus {
+  completed = "completed",
   added = "added",
   watching = "watching",
-  completed = "completed",
   dropped = "dropped",
+  setWatch = "setWatch",
+  cancel = "cancel",
 }
 
 export { EListStatus }

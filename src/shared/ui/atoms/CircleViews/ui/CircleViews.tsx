@@ -7,18 +7,32 @@ import { Skeleton } from "../../Skeleton"
 import st from "./CircleViews.module.scss"
 
 const CircleViews = (props: ICircleViewsProps) => {
-  const { className, ...otherProps } = props
+  const {
+    className,
+    addedCount,
+    completeCount,
+    watchingCount,
+    droppedCount,
+    ...otherProps
+  } = props
 
-  return otherProps.addedCount === 0 &&
-    otherProps.completeCount === 0 &&
-    otherProps.watchingCount === 0 &&
-    otherProps.droppedCount === 0 ? (
+  return addedCount === 0 &&
+    completeCount === 0 &&
+    watchingCount === 0 &&
+    droppedCount === 0 ? (
     <Skeleton className={cn(st.root, className)} />
   ) : (
     <div
       {...otherProps}
       className={cn(st.root, className)}
-      style={{ background: getCircleGradient(otherProps) }}
+      style={{
+        background: getCircleGradient({
+          addedCount,
+          completeCount,
+          watchingCount,
+          droppedCount,
+        }),
+      }}
     />
   )
 }

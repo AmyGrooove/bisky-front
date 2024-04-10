@@ -14,6 +14,7 @@ import { IAnimeHeaderProps } from "../types/IAnimeHeaderProps"
 import { getSeasonName } from "../functions/getSeasonName"
 
 import st from "./AnimeHeader.module.scss"
+import { UserData } from "./UserData/UserData"
 
 const AnimeHeader = (props: IAnimeHeaderProps) => {
   const { animeData, className, ...otherProps } = props
@@ -25,7 +26,9 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
           src={
             animeData.screenshots?.[
               getRandomInt(animeData.screenshots.length - 1)
-            ] ?? ""
+            ] ??
+            animeData.poster ??
+            ""
           }
           width={1440}
           height={400}
@@ -55,27 +58,30 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
           </div>
           <Button className={st.button} leftIcon={<InfoIcon />} />
         </div>
-        <div className={st.additionalInfo}>
-          <div className={st.additionalRow}>
-            <PlayerIcon className={st.icon} />
-            <Text size="20">{`${animeData.episodes?.airedCount} эп. по ~ ${animeData.episodes?.averageDuration} мин.`}</Text>
+        <div className={st.footer}>
+          <div className={st.additionalInfo}>
+            <div className={st.additionalRow}>
+              <PlayerIcon className={st.icon} />
+              <Text size="20">{`${animeData.episodes?.airedCount !== 0 ? `${animeData.episodes?.airedCount} эп. по ~ ` : ""}${animeData.episodes?.averageDuration} мин`}</Text>
+            </div>
+            <div className={st.additionalRow}>
+              <ClockIcon className={st.icon} />
+              <Text size="20">{`${getNormalKind(animeData.kind ?? "none")},`}</Text>
+              <Text
+                size="20"
+                weight="700"
+                className={cn(st[`status_${animeData.status}`])}
+                isDefaultColor={false}
+              >
+                {getNormalStatus(animeData.status ?? "anons")}
+              </Text>
+            </div>
+            <div className={st.additionalRow}>
+              <CalendarIcon className={st.icon} />
+              <Text size="20">{getSeasonName(animeData.dates?.airedOn)}</Text>
+            </div>
           </div>
-          <div className={st.additionalRow}>
-            <ClockIcon className={st.icon} />
-            <Text size="20">{`${getNormalKind(animeData.kind ?? "none")},`}</Text>
-            <Text
-              size="20"
-              weight="700"
-              className={cn(st[`status_${animeData.status}`])}
-              isDefaultColor={false}
-            >
-              {getNormalStatus(animeData.status ?? "anons")}
-            </Text>
-          </div>
-          <div className={st.additionalRow}>
-            <CalendarIcon className={st.icon} />
-            <Text size="20">{getSeasonName(animeData.dates?.airedOn)}</Text>
-          </div>
+          <UserData _id={animeData._id} />
         </div>
       </div>
     </div>

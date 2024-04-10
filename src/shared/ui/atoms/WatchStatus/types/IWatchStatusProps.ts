@@ -1,9 +1,9 @@
 import { ButtonHTMLAttributes } from "react"
 
-import { EWatchStatuses } from "@shared/types/enums/EWatchStatuses"
+import { EListStatus } from "@entities/AnimeEstimate"
 
 interface IWatchStatusProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  status: keyof typeof EWatchStatuses | "setWatch"
+  status: keyof typeof EListStatus
 }
 
 export type { IWatchStatusProps }
