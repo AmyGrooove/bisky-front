@@ -1,36 +1,32 @@
-const META_DATA = {
-  // metadataBase: "",
+import { Metadata } from "next"
 
-  title: "Bisky — Смотреть Аниме онлайн",
+import { APP_URL } from "./envVariables"
+
+const META_DATA: Metadata = {
+  title: {
+    template: "%s | Bisky",
+    default: "Bisky",
+  },
   description:
     "Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве",
-
-  robots: "all",
-  themeColor: "#dd5480",
-  manifest: "/manifest.json",
-
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/favicons/favicon-apple.png",
-    other: [
-      {
-        type: "image/svg+xml",
-        url: "/favicons/favicon.svg",
-      },
-    ],
-  },
+  keywords: ["аниме", "смотреть", "япония", "манга", "сериалы", "фильмы"],
+  metadataBase: new URL(APP_URL),
+  alternates: { canonical: "/" },
 
   openGraph: {
-    title: "Bisky — Смотреть Аниме онлайн",
+    type: "website",
+    url: APP_URL,
+    siteName: "Bisky",
+    locale: "ru-RU",
+    title: "Bisky",
     description:
       "Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве",
-    siteName: "Bisky",
-    url: "https://bisky.one/",
     images: [
       {
-        url: "/favicons/favicon-128x128.png",
-        width: 128,
-        height: 128,
+        url: `${APP_URL}/favicons/favicon-128x128.png`,
+        width: 512,
+        height: 512,
+        alt: "Bisky",
       },
     ],
   },

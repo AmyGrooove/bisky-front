@@ -1,0 +1,56 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  cursor: pointer;
+  border-radius: var(--small-radius);
+  background-color: var(--dark-100);
+  border: 4px solid var(--bisky-300);
+
+  @include transition(
+    (background-color, border-color, transform),
+    (0.25s, 0.25s, 0.1s)
+  );
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:has(.input:checked) {
+    border-color: var(--bisky-200);
+    background-color: var(--bisky-200);
+
+    .icon {
+      opacity: 1;
+    }
+  }
+
+  &:has(.input:disabled) {
+    background-color: var(--gray);
+    border-color: var(--light-400);
+    cursor: default;
+
+    &:has(.input:checked) {
+      background-color: var(--light-400);
+    }
+
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  opacity: 0;
+
+  @include transition(opacity);
+}

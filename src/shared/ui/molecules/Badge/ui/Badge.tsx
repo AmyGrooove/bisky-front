@@ -4,23 +4,36 @@ import { Text } from "@shared/ui/atoms/Text/ui/Text"
 import { cn } from "@shared/utils/functions/cn"
 
 import { IBadgeProps } from "../types/IBadgeProps"
+import { getScoreStatus } from "../functions/getScoreStatus"
 
-import st from "./Badge.modules.scss"
+import st from "./Badge.module.scss"
 
 const Badge = (props: IBadgeProps) => {
-  const { className, text, iconLeft, iconRight } = props
-
-  const isIconButton = !text && (iconRight || iconLeft)
+  const {
+    children,
+    leftIcon,
+    rightIcon,
+    className,
+    isScoreStatus = false,
+    variant = "small",
+    ...otherProps
+  } = props
 
   return (
-    <div className={cn(st.badge, className, isIconButton && st.badge_icon)}>
-      {iconLeft && cloneElement(iconLeft)}
-      {text && (
-        <Text size="20" weight="700">
-          {text}
+    <div
+      {...otherProps}
+      className={cn(st.root, className, st[`root_${variant}`], {
+        [st.root_icon]: !!leftIcon || !!rightIcon,
+        [st[`root_${getScoreStatus(children!)}`]]: isScoreStatus && !!children,
+      })}
+    >
+      {leftIcon && cloneElement(leftIcon, { className: st.icon })}
+      {children && (
+        <Text size={variant === "small" ? "16" : "20"} weight="700">
+          {children}
         </Text>
       )}
-      {iconRight && cloneElement(iconRight)}
+      {rightIcon && cloneElement(rightIcon, { className: st.icon })}
     </div>
   )
 }

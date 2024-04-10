@@ -17,6 +17,11 @@
     "baseUrl": ".",
     "plugins": [{ "name": "next" }],
     "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@entities/*": ["src/entities/*"],
+      "@features/*": ["src/features/*"],
+      "@widgets/*": ["src/widgets/*"],
+      "@appData/*": ["src/appData/*"],
       "@/*": ["src/*"],
       "public/*": ["public/*"],
       "@shared/*": ["src/shared/*"],

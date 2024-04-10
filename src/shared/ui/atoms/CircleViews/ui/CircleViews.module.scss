@@ -1,0 +1,14 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  width: 200px;
+  height: 200px;
+  padding: 30px;
+
+  border-radius: var(--full-radius);
+  box-sizing: border-box;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}

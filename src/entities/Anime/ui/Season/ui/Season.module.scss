@@ -1,0 +1,68 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 1080px;
+  height: 380px;
+
+  border-radius: var(--big-radius);
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0px;
+  z-index: -1;
+
+  background-color: var(--dark-460);
+}
+
+.mainContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0px 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.poster {
+  min-width: 182px;
+  height: 252px;
+  object-fit: cover;
+  border-radius: var(--big-radius);
+}
+
+.score {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  align-self: end;
+}
+
+.genres {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  opacity: 0.8;
+}
+
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  z-index: -2;
+  @include transition(opacity, 2s);
+
+  &_hide {
+    opacity: 0;
+  }
+}
+
+.image {
+  object-fit: cover;
+}

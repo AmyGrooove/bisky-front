@@ -8,27 +8,29 @@ import { IButtonProps } from "../types/IButtonProps"
 import st from "./Button.module.scss"
 
 const Button = (props: IButtonProps) => {
-  const { children, iconLeft, iconRight } = props
-
-  const isIconButton = !children && (iconRight || iconLeft)
-  const isTextAndIconButton = children && (iconRight || iconLeft)
+  const { children, leftIcon, rightIcon, className, textProps, ...otherProps } =
+    props
 
   return (
     <button
-      {...props}
-      className={cn(
-        st.button,
-        isIconButton && st.button_icon,
-        isTextAndIconButton && st.button_text_icon,
-      )}
+      {...otherProps}
+      className={cn(st.root, className, {
+        [st.root_icon]: !!leftIcon || !!rightIcon,
+      })}
     >
-      {iconLeft && cloneElement(iconLeft)}
+      {leftIcon &&
+        cloneElement(leftIcon, {
+          className: cn(st.icon, { [st.icon_only]: !children }),
+        })}
       {children && (
-        <Text size="20" weight="400">
+        <Text weight="700" {...textProps}>
           {children}
         </Text>
       )}
-      {iconRight && cloneElement(iconRight)}
+      {rightIcon &&
+        cloneElement(rightIcon, {
+          className: cn(st.icon, { [st.icon_only]: !children }),
+        })}
     </button>
   )
 }

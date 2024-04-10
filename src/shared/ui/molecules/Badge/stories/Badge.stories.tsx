@@ -5,7 +5,7 @@ import { Badge } from "../ui/Badge"
 import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof Badge> = {
-  title: "molecules/Badge",
+  title: "shared/molecules/Badge",
   component: Badge,
   tags: ["autodocs"],
 }
@@ -13,20 +13,42 @@ const meta: Meta<typeof Badge> = {
 export default meta
 type Story = StoryObj<typeof Badge>
 
-export const IconRight: Story = {
+export const Small: Story = {
+  args: { children: "Badge", style: { backgroundColor: "purple" } },
+}
+
+export const Medium: Story = {
   args: {
-    text: "Badge",
-    iconRight: <ClockIcon width="15px" height="15px" />,
+    children: "Badge",
+    style: { backgroundColor: "purple" },
+    variant: "medium",
   },
 }
 
-export const IconLeft: Story = {
+export const Big: Story = {
   args: {
-    text: "Badge",
-    iconLeft: <ClockIcon width="15px" height="15px" />,
+    children: "Badge",
+    style: { backgroundColor: "purple" },
+    variant: "big",
   },
 }
 
-export const Icon: Story = {
-  args: { iconLeft: <ClockIcon width="15px" height="15px" /> },
+export const RightIcon: Story = {
+  args: {
+    children: "Badge",
+    rightIcon: <ClockIcon />,
+    style: { backgroundColor: "purple" },
+  },
+}
+
+export const LeftIcon: Story = {
+  args: {
+    children: "Badge",
+    leftIcon: <ClockIcon />,
+    style: { backgroundColor: "purple" },
+  },
+}
+
+export const OnlyIcon: Story = {
+  args: { leftIcon: <ClockIcon />, style: { backgroundColor: "purple" } },
 }

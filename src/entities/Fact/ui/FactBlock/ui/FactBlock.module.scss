@@ -1,0 +1,16 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 12px 20px;
+
+  background-color: var(--dark-200);
+  border-radius: var(--big-radius);
+}
+
+.image {
+  position: relative;
+  top: 12px;
+}

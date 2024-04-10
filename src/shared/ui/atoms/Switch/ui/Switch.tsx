@@ -1,15 +1,15 @@
-import { cn } from "@/shared/utils/functions/cn"
+import { cn } from "@shared/utils/functions/cn"
 
 import { ISwitchProps } from "../types/ISwitchProps"
 
 import st from "./Switch.module.scss"
 
 const Switch = (props: ISwitchProps) => {
-  const { className, ...inputProps } = props
+  const { className, ...otherProps } = props
 
   return (
-    <label className={cn(st.toggle_wrapper, className)}>
-      <input {...inputProps} type="checkbox" className={st.toggle} />
+    <label className={cn(st.root, className)}>
+      <input {...otherProps} type="checkbox" className={st.input} hidden />
     </label>
   )
 }

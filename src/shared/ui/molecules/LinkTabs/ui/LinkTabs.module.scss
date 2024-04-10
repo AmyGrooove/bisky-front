@@ -1,0 +1,34 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  gap: 32px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+
+  border-bottom: 4px solid transparent;
+
+  @include transition(border-color);
+
+  &:hover,
+  &_active {
+    border-color: var(--bisky-100);
+  }
+
+  &_disabled {
+    opacity: 0.6;
+
+    &:hover {
+      border-color: transparent;
+    }
+
+    &.item_active {
+      border-color: var(--gray);
+    }
+  }
+}

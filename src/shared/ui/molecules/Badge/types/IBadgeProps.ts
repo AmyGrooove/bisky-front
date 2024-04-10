@@ -1,10 +1,11 @@
-import { ReactElement } from "react"
+import { HTMLAttributes, ReactElement } from "react"
 
-interface IBadgeProps {
-  className?: string
-  text?: string
-  iconRight?: ReactElement
-  iconLeft?: ReactElement
+interface IBadgeProps extends HTMLAttributes<HTMLDivElement> {
+  variant?: "big" | "medium" | "small"
+  children?: string
+  rightIcon?: ReactElement
+  leftIcon?: ReactElement
+  isScoreStatus?: boolean
 }
 
 export type { IBadgeProps }

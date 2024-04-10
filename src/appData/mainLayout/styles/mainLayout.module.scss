@@ -1,0 +1,13 @@
+@import "@shared/styles/reusable.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.generalSection {
+  margin: 20px;
+  width: calc(100% - 40px);
+}
