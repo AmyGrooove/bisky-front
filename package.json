@@ -9,7 +9,7 @@
     "storybook": "storybook dev -p 6060"
   },
   "dependencies": {
-    "@fancyapps/ui": "^5.0.35",
+    "@fancyapps/ui": "^5.0.36",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "keen-slider": "^6.8.6",
@@ -27,8 +27,8 @@
     "@storybook/blocks": "^8.0.6",
     "@storybook/nextjs": "^8.0.6",
     "@storybook/react": "^8.0.6",
-    "@types/node": "^20.12.5",
-    "@types/react": "^18.2.74",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.4",
@@ -40,6 +40,7 @@
     "storybook": "^8.0.6",
     "stylelint": "^16.3.1",
     "stylelint-config-standard-scss": "^13.1.0",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.6.0"
   }
 }

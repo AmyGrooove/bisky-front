@@ -5,7 +5,6 @@ import { useState } from "react"
 import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
-import { Fancybox } from "@shared/utils/lib"
 import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 import { ArrowIcon } from "@shared/icons"
 import { Text } from "@shared/ui/atoms/Text"

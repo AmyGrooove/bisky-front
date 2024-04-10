@@ -3,7 +3,6 @@
 import {
   cloneElement,
   forwardRef,
-  RefObject,
   useImperativeHandle,
   useRef,
   useState,
@@ -15,7 +14,6 @@ import { useClickOutside } from "@shared/utils/hooks"
 import { IDropdownProps } from "../types/IDropdownProps"
 
 import st from "./Dropdown.module.scss"
-import { IDropdownRef } from "../types/IDropdownRef"
 
 const Dropdown = forwardRef(function Dropdown(props: IDropdownProps) {
   const {
@@ -67,9 +65,3 @@ const Dropdown = forwardRef(function Dropdown(props: IDropdownProps) {
 })
 
 export { Dropdown }
-function useImperativeHandler(
-  dropdownRef: RefObject<HTMLDivElement>,
-  closeMenu: () => void,
-) {
-  throw new Error("Function not implemented.")
-}

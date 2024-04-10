@@ -1,20 +1,16 @@
 @import "@shared/styles/reusable.scss";
 
 .root {
-  &_completed {
-    background-color: var(--green) !important;
+  &_low {
+    background-color: var(--red) !important;
   }
 
-  &_added {
-    background-color: var(--bisky-200) !important;
+  &_normal {
+    background-color: var(--gray) !important;
   }
 
-  &_watching {
-    background-color: var(--blue) !important;
-  }
-
-  &_dropped {
-    background-color: var(--bisky-400) !important;
+  &_high {
+    background-color: var(--lime) !important;
   }
 }
 
@@ -39,4 +35,64 @@
   border: 4px solid var(--dark-300);
   background-color: var(--dark-200);
   border-radius: var(--small-radius);
+}
+
+.starWrapper {
+  display: flex;
+
+  transform: rotate(180deg);
+  gap: 4px;
+}
+
+.starIconWrapper {
+  position: relative;
+
+  cursor: pointer;
+  transform: rotate(180deg);
+
+  &:hover {
+    > .starNumber {
+      opacity: 1;
+    }
+
+    .starIcon {
+      fill: var(--bisky-100);
+    }
+
+    ~ .starIconWrapper .starIcon {
+      fill: var(--bisky-100);
+    }
+  }
+
+  &_filled > .starIcon {
+    fill: var(--bisky-400);
+  }
+
+  @include transition(scale, 0.1s);
+
+  &:active,
+  &:active .starNumber {
+    scale: 0.9;
+  }
+}
+
+.starIcon {
+  width: 32px;
+  height: 32px;
+
+  fill: var(--light-400);
+
+  @include transition(fill);
+}
+
+.starNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0px;
+
+  opacity: 0;
+
+  @include transition(opacity);
 }

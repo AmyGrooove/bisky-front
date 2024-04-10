@@ -1,4 +1,4 @@
-import { HTMLAttributes, MutableRefObject } from "react"
+import { HTMLAttributes } from "react"
 
 interface ITextProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
   children: string | number | Date

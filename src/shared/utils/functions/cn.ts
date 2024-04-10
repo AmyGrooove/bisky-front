@@ -4,7 +4,7 @@ const cn = (...args: (string | undefined | Record<string, boolean>)[]) =>
     .map((item) =>
       typeof item === "string"
         ? item
-        : !!item
+        : item
           ? Object.keys(item).filter((key) => item[key])
           : [],
     )

@@ -1,6 +1,3 @@
-import NextAuth from "next-auth"
-import { JWT } from "next-auth/jwt"
-
 import { IUserPublicDataWithTokens } from "../types/IUserPublicDataWithTokens"
 
 declare module "next-auth" {

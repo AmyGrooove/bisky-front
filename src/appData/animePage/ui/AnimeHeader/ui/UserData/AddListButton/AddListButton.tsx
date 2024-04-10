@@ -8,6 +8,7 @@ import {
   addUpdateAnimeFromList,
   EListStatus,
   removeAnimeFromList,
+  updateAnimeScoreInList,
 } from "@entities/AnimeEstimate"
 
 import { IAddListButtonProps } from "../../../types/IAddListButtonProps"
@@ -37,6 +38,14 @@ const AddListButton = (props: IAddListButtonProps) => {
         animeId: _id ?? "",
         animeStatus: value,
       })
+
+    if (value === "added")
+      await updateAnimeScoreInList({
+        accessToken: session?.accessToken ?? "",
+        animeId: _id ?? "",
+        animeScore: null,
+      })
+
     await updateUserData()
   }
 
