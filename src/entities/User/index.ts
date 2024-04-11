@@ -1,7 +1,4 @@
-export type { IUserPublicModel } from "./types/IUserPublicModel"
-export type {
-  IUserPublicFullModel,
-  IAnimeEstimatesModel,
-} from "./types/IUserPublicFullModel"
+export type { IUserPublicModel } from "./types/IUserPublicModel/IUserPublicModel"
+export type { IUserPublicFullModel } from "./types/IUserPublicModel/IUserPublicFullModel"
 
-export { getUserPublicDataQL } from "./api/getUserPublicDataQL"
+export { ERole } from "./enums/ERole"

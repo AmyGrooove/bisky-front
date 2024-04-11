@@ -1,7 +1,9 @@
+"use server"
+
 import { cookies } from "next/headers"
 
-import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
 import { API_URL } from "@shared/constants"
+import { IAnimeFullModel } from "@entities/Anime"
 
 const getBestAnimesQL = async (): Promise<IAnimeFullModel[]> => {
   const result = await fetch(API_URL + "/graphql", {
@@ -12,38 +14,41 @@ const getBestAnimesQL = async (): Promise<IAnimeFullModel[]> => {
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
-      query: `{
-        getAnimes(
-          animeQuery: {
-            count: 48
-            sort: { score_count: true, usersList_generalCount: true }
-          }
-        ) {
-          _id
-          labels {
-            en
-            ru
-          }
-          poster
-          score {
-            averageScore
-          }
-          episodes {
-            airedCount
-          }
-          status
-          userData {
-            animeStatus
-            score
-          }
-          usersList {
-            generalCount
-            addedCount
+      query: `  
+        query ($animeQuery: GeneralAnimeQuery) {
+          getAnimes(animeQuery: $animeQuery) {
+            _id
+            labels {
+              en
+              ru
+            }
+            poster
+            score {
+              averageScore
+            }
+            episodes {
+              airedCount
+            }
+            status
+            userData {
+              animeStatus
+              score
+            }
+            usersList {
+              generalCount
+              addedCount
+            }
           }
         }
-      }`,
+      `,
+      variables: {
+        animeQuery: {
+          count: 48,
+          sort: { score_count: true, usersList_generalCount: true },
+        },
+      },
     }),
-    next: { revalidate: 60 },
+    next: { revalidate: 60, tags: ["mainAnime"] },
   })
 
   if (!result.ok) {

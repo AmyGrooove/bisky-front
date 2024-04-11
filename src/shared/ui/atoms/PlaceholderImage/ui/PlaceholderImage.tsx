@@ -11,16 +11,19 @@ import { IPlaceholderImageProps } from "../types/IPlaceholderImageProps"
 import st from "./PlaceholderImage.module.scss"
 
 const PlaceholderImage = (props: IPlaceholderImageProps) => {
-  const { className, imageClassName, ...otherProps } = props
+  const { src, width, height, className, imageClassName, ...otherProps } = props
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [isClose, setIsClose] = useState(false)
 
   const MemoizedComponent = useMemo(
     () =>
-      otherProps.src !== "" ? (
+      src !== null && src !== "" ? (
         <Image
           {...otherProps}
+          width={width}
+          height={height}
+          src={src}
           className={imageClassName}
           priority
           onError={() => setIsLoaded(false)}
@@ -31,25 +34,22 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
       ) : (
         <></>
       ),
-    [otherProps.src],
+    [src],
   )
 
   useEffect(() => {
     setIsLoaded(false)
-  }, [otherProps.src])
+  }, [src])
 
   useEffect(() => {
-    if (isLoaded && otherProps.src !== "")
+    if (isLoaded && src !== "" && src !== null)
       setTimeout(() => setIsClose(true), 500)
   }, [isLoaded])
 
   return (
     <div
       className={cn(st.root, className)}
-      style={{
-        width: `${otherProps.width}px`,
-        height: `${otherProps.height}px`,
-      }}
+      style={{ width: `${width}px`, height: `${height}px` }}
     >
       {!isClose && (
         <div

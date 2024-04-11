@@ -1,5 +1,5 @@
-import st from "@appData/home/styles/homeLoading.module.scss"
-import { Skeleton } from "@shared/ui/atoms/Skeleton"
+import { Skeleton } from "@shared/ui/atoms"
+import { homeLoadingStyles as st } from "@appData/home"
 
 const HomeLoading = () => (
   <div className={st.root}>

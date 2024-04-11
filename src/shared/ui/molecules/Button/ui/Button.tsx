@@ -1,6 +1,6 @@
 import { cloneElement } from "react"
 
-import { Text } from "@shared/ui/atoms/Text/ui/Text"
+import { Text } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions/cn"
 
 import { IButtonProps } from "../types/IButtonProps"

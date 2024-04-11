@@ -1,35 +1,19 @@
 "use client"
 
-import { useKeenSlider } from "keen-slider/react"
-import { useMemo, useState } from "react"
-
 import { AnimeCard } from "@entities/Anime"
 import { cn } from "@shared/utils/functions"
 import { ArrowIcon } from "@shared/icons"
 
 import { IAnimeCardSliderProps } from "../types/IAnimeCardSliderProps"
-import { divideArray } from "../functions/divideArray"
-import { IAnimeCardSliderItems } from "../types/IAnimeCardSliderItems"
 
 import st from "./AnimeCardSlider.module.scss"
+import { useAnimeCardSlider } from "./useAnimeCardSlider"
 
 const AnimeCardSlider = (props: IAnimeCardSliderProps) => {
   const { items, isTwoRows = false, className, ...otherProps } = props
 
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const [sliderRef, instanceRef] = useKeenSlider({
-    slides: { perView: 6, spacing: 24 },
-    drag: true,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel)
-    },
-  })
-
-  const sliderItems: IAnimeCardSliderItems[] = useMemo(
-    () => (isTwoRows ? divideArray(items) : []),
-    [items],
-  )
+  const { instanceRef, currentSlide, sliderRef, sliderItems } =
+    useAnimeCardSlider(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

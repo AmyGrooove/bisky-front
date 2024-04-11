@@ -1,7 +1,7 @@
 import Image from "next/image"
 
-import { Text } from "@shared/ui/atoms/Text"
 import { cn } from "@shared/utils/functions"
+import { Text } from "@shared/ui/atoms"
 
 import { IFactBlockProps } from "../types/IFactBlockProps"
 

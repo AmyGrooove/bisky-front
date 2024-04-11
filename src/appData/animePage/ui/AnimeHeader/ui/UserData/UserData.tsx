@@ -1,11 +1,7 @@
 "use client"
 
-import { useSession } from "next-auth/react"
-import { useEffect, useState } from "react"
-
-import { Skeleton } from "@shared/ui/atoms/Skeleton"
+import { Skeleton } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
-import { getUserPublicDataQL, IAnimeEstimatesModel } from "@entities/User"
 import { EListStatus } from "@entities/AnimeEstimate"
 
 import { IUserDataProps } from "../../types/IUserDataProps"
@@ -13,38 +9,13 @@ import { IUserDataProps } from "../../types/IUserDataProps"
 import st from "./UserData.module.scss"
 import { AddListButton } from "./AddListButton/AddListButton"
 import { SetScoreButton } from "./SetScoreButton/SetScoreButton"
+import { useUserData } from "./useUserData"
 
 const UserData = (props: IUserDataProps) => {
   const { _id, className, ...otherProps } = props
 
-  const { data: session } = useSession()
-
-  const [isLoading, setIsLoading] = useState(true)
-  const [userAnimeData, setUserAnimeData] =
-    useState<IAnimeEstimatesModel | null>(null)
-
-  const updateUserData = async () => {
-    setIsLoading(true)
-
-    if (session)
-      getUserPublicDataQL({
-        accessToken: session.accessToken,
-        certainAnimeId: _id,
-        _id: session?._id ?? null,
-      })
-        .then((response) =>
-          setUserAnimeData(response?.animeEstimates[0] ?? null),
-        )
-        .finally(() => setIsLoading(false))
-    else {
-      setUserAnimeData(null)
-      setIsLoading(false)
-    }
-  }
-
-  useEffect(() => {
-    updateUserData()
-  }, [session])
+  const { isLoading, session, userAnimeData, updateUserData } =
+    useUserData(props)
 
   return isLoading ? (
     <Skeleton className={cn(st.loading, className)} />

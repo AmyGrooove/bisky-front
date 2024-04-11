@@ -1,6 +1,6 @@
 import { cn } from "@shared/utils/functions"
 import { SearchIcon } from "@/shared/icons"
-import { Text } from "@shared/ui/atoms/Text"
+import { Text } from "@shared/ui/atoms"
 
 import { IInputFieldProps } from "../types/IInputFieldProps"
 

@@ -2,8 +2,8 @@
 
 import Image from "next/image"
 
-import st from "@appData/home/styles/homeError.module.scss"
-import { Text } from "@shared/ui/atoms/Text"
+import { Text } from "@shared/ui/atoms"
+import { homeErrorStyles as st } from "@appData/home"
 
 const HomeError = () => (
   <div className={st.root}>

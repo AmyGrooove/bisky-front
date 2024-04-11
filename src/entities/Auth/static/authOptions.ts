@@ -1,11 +1,9 @@
 import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
-import { NEXT_AUTH_SECRET } from "@shared/constants/envVariables"
+import { NEXT_AUTH_SECRET } from "@shared/constants"
 
-import { logoutUser } from "../api/logoutUser"
-import { loginUser } from "../api/loginUser"
-import { refreshTokens } from "../api/refreshTokens"
+import { logoutUser, loginUser, refreshTokens } from "../api"
 
 const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },

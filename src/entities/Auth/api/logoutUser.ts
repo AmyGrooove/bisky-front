@@ -1,3 +1,5 @@
+"use server"
+
 import { cookies } from "next/headers"
 
 import { API_URL } from "@shared/constants"
@@ -10,7 +12,6 @@ const logoutUser = async (): Promise<true> => {
       Accept: "application/json",
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
-    next: { revalidate: 30 },
   })
 
   if (!result.ok) throw new Error(`Failed to logout user: ${result.statusText}`)

@@ -1,31 +1,35 @@
-import { API_URL } from "@shared/constants"
+"use server"
 
-import { IGenreFullModel } from "../types/IGenreFullModel"
+import { API_URL } from "@shared/constants"
+import { IGenreFullModel } from "@entities/Genre"
 
 const getGenresQL = async (): Promise<IGenreFullModel[]> => {
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
-      query: `{
-        getGenres(animeQuery: { count: 4 }) {
-          _id
-          description {
-            en
-            ru
-          }
-          name {
-            en
-            ru
-          }
-          relatedWorks {
+      query: `
+        query ($animeQuery: GeneralAnimeQuery) {
+          getGenres(animeQuery: $animeQuery) {
             _id
-            poster
+            description {
+              en
+              ru
+            }
+            name {
+              en
+              ru
+            }
+            relatedWorks {
+              _id
+              poster
+            }
           }
         }
-      }`,
+      `,
+      variables: { animeQuery: { count: 4 } },
     }),
-    next: { revalidate: 30 },
+    next: { revalidate: 1800, tags: ["mainGenres"] },
   })
 
   if (!result.ok) {

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { Text } from "@shared/ui/atoms/Text"
+import { Text } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
 
 import { IOversizeTextProps } from "../types/IOversizeTextProps"

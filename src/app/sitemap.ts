@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next"
 
-import { API_URL, APP_URL } from "@shared/constants/envVariables"
-import { getAllAnimesId } from "@entities/Anime"
+import { APP_URL, API_URL } from "@shared/constants"
+import { getAllAnimesId } from "@entities/Anime/api"
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => [
   {

@@ -1,5 +1,5 @@
-import st from "@appData/animePage/styles/animePageLoading.module.scss"
-import { Skeleton } from "@shared/ui/atoms/Skeleton"
+import { animePageLoadingStyles as st } from "@appData/animePage"
+import { Skeleton } from "@shared/ui/atoms"
 
 const LoadingAnime = () => (
   <>

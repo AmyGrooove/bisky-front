@@ -1,3 +1,3 @@
-export type { IFranchiseFullModel } from "./types/IFranchiseFullModel"
-export type { IFranchiseModel } from "./types/IFranchiseModel"
-export type { IFranchiseSimpleModel } from "./types/IFranchiseSimpleModel"
+export type { IFranchiseFullModel } from "./types/IFranchiseModel/IFranchiseFullModel"
+export type { IFranchiseModel } from "./types/IFranchiseModel/IFranchiseModel"
+export type { IFranchiseSimpleModel } from "./types/IFranchiseModel/IFranchiseSimpleModel"

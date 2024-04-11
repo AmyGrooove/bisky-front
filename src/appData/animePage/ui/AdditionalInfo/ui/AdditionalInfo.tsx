@@ -1,5 +1,3 @@
-import { Text } from "@shared/ui/atoms/Text"
-import { Badge } from "@shared/ui/molecules/Badge"
 import {
   CheckIcon,
   MaskIcon,
@@ -9,7 +7,8 @@ import {
   TrashIcon,
 } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
-import { CircleViews } from "@shared/ui/atoms/CircleViews"
+import { CircleViews, Text } from "@shared/ui/atoms"
+import { Badge } from "@shared/ui/molecules"
 
 import { IAdditionalInfoProps } from "../types/IAdditionalInfoProps"
 
@@ -30,7 +29,7 @@ const AdditionalInfo = (props: IAdditionalInfoProps) => {
             isScoreStatus
             leftIcon={<StarIcon variant="filled" />}
           >
-            {String(animeData.score?.averageScore)}
+            {String(animeData.score?.averageScore?.toFixed(2))}
           </Badge>
           <Text
             className={st.scoreCount}

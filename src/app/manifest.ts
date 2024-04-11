@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next"
 
-import { APP_URL } from "@shared/constants/envVariables"
+import { APP_URL } from "@shared/constants"
 
 const manifest = (): MetadataRoute.Manifest => ({
   name: "Bisky",

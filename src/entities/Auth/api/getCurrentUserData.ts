@@ -1,3 +1,5 @@
+"use server"
+
 import { cookies } from "next/headers"
 
 import { API_URL } from "@shared/constants"
@@ -11,7 +13,6 @@ const getCurrentUserData = async (): Promise<IUserPublicModel> => {
       Accept: "application/json",
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
-    next: { revalidate: 30 },
   })
 
   if (!result.ok)

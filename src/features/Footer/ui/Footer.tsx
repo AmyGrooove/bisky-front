@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-import { Text } from "@shared/ui/atoms/Text"
 import { cn } from "@shared/utils/functions"
+import { Text } from "@shared/ui/atoms"
 
 import { IFooterProps } from "../types/IFooterProps"
 

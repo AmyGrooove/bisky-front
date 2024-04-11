@@ -1,9 +1,7 @@
-import { useSession } from "next-auth/react"
-
 import { CheckIcon, PlayIcon, StarIcon, TrashIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
-import { Button } from "@shared/ui/molecules/Button"
-import { addUpdateAnimeFromList } from "@entities/AnimeEstimate"
+import { Button } from "@shared/ui/molecules"
+import { addUpdateAnimeFromList } from "@entities/AnimeEstimate/api"
 
 import st from "../AddListButton.module.scss"
 import { IAddListButtonProps } from "../../../../types/IAddListButtonProps"
@@ -11,11 +9,8 @@ import { IAddListButtonProps } from "../../../../types/IAddListButtonProps"
 const ListButtonSwitch = (props: IAddListButtonProps) => {
   const { animeStatus, updateUserData, _id } = props
 
-  const { data: session } = useSession()
-
   const addAnimeInList = async () => {
     await addUpdateAnimeFromList({
-      accessToken: session?.accessToken ?? "",
       animeId: _id ?? "",
       animeStatus: "added",
     })

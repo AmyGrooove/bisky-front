@@ -13,7 +13,6 @@ type Story = StoryObj<typeof GenreBlock>
 
 export const Default: Story = {
   args: {
-    href: "#",
     genre: {
       _id: "65f0ae0553206e63e8039413",
       description: { en: null, ru: null },

@@ -1,15 +1,15 @@
 import { LinkLabel } from "@shared/ui/molecules/LinkLabel"
-import st from "@appData/home/styles/home.module.scss"
 import { getOneRandomFact, FactBlock } from "@entities/Fact"
 import { getGenresQL } from "@entities/Genre"
 import { SeasonSlider } from "@features/SeasonSlider"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { GenreBlockSlider } from "@features/GenreBlockSlider"
-import {} from "@entities/Anime"
-import { UserAnimeSlider } from "@appData/home"
-import { getBestAnimesQL } from "@entities/Anime/api/getBestAnimesQL"
-import { getNewSeriesAnimesQL } from "@entities/Anime/api/getNewSeriesAnimesQL"
-import { getSeasonAnimesQL } from "@entities/Anime/api/getSeasonAnimesQL"
+import { UserAnimeSlider, homeStyles as st } from "@appData/home"
+import {
+  getSeasonAnimesQL,
+  getNewSeriesAnimesQL,
+  getBestAnimesQL,
+} from "@entities/Anime/api"
 
 const Home = async () => {
   const seasonsAnimes = await getSeasonAnimesQL()

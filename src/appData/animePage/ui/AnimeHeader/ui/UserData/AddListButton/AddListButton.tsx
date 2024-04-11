@@ -1,53 +1,18 @@
-import { useSession } from "next-auth/react"
-import { useRef } from "react"
-
-import { Dropdown, IDropdownRef } from "@shared/ui/atoms/Dropdown"
+import { Dropdown } from "@shared/ui/atoms/Dropdown"
 import { WatchStatus } from "@shared/ui/atoms/WatchStatus"
 import { Text } from "@shared/ui/atoms/Text"
-import {
-  addUpdateAnimeFromList,
-  EListStatus,
-  removeAnimeFromList,
-  updateAnimeScoreInList,
-} from "@entities/AnimeEstimate"
 
 import { IAddListButtonProps } from "../../../types/IAddListButtonProps"
 import { watchStatuses } from "../../../static/watchStatuses"
 
 import st from "./AddListButton.module.scss"
 import { ListButtonSwitch } from "./ListButtonSwitch/ListButtonSwitch"
+import { useAddListButton } from "./useAddListButton"
 
 const AddListButton = (props: IAddListButtonProps) => {
-  const { animeStatus, _id, updateUserData } = props
+  const { animeStatus } = props
 
-  const { data: session } = useSession()
-
-  const addListButtonsRef = useRef<IDropdownRef>(null)
-
-  const updateListStatus = async (value: EListStatus) => {
-    addListButtonsRef.current?.closeMenu()
-
-    if (value === "cancel")
-      await removeAnimeFromList({
-        accessToken: session?.accessToken ?? "",
-        animeId: _id ?? "",
-      })
-    else
-      await addUpdateAnimeFromList({
-        accessToken: session?.accessToken ?? "",
-        animeId: _id ?? "",
-        animeStatus: value,
-      })
-
-    if (value === "added")
-      await updateAnimeScoreInList({
-        accessToken: session?.accessToken ?? "",
-        animeId: _id ?? "",
-        animeScore: null,
-      })
-
-    await updateUserData()
-  }
+  const { addListButtonsRef, updateListStatus } = useAddListButton(props)
 
   return (
     <Dropdown

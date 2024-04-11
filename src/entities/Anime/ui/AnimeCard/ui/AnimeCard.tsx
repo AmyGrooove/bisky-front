@@ -1,11 +1,9 @@
 import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
-import { Text } from "@shared/ui/atoms/Text"
-import { Badge } from "@shared/ui/molecules/Badge"
 import { EyeIcon, StarIcon } from "@shared/icons"
-import { WatchStatus } from "@shared/ui/atoms/WatchStatus"
-import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
+import { PlaceholderImage, Text, WatchStatus } from "@shared/ui/atoms"
+import { Badge } from "@shared/ui/molecules"
 
 import { IAnimeCardProps } from "../types/IAnimeCardProps"
 
@@ -17,19 +15,21 @@ const AnimeCard = (props: IAnimeCardProps) => {
   return (
     <Link
       {...otherProps}
-      href={`/anime/${anime._id ?? ""}`}
+      href={`/anime/${anime._id}`}
       className={cn(st.root, className)}
     >
       <PlaceholderImage
         className={st.poster}
         imageClassName={st.posterImage}
-        src={anime.poster ?? ""}
+        src={anime.poster ?? null}
         width={160}
         height={256}
         alt=""
       />
 
-      <Text className={st.title}>{anime.labels?.ru ?? ""}</Text>
+      <Text className={st.title}>
+        {anime.labels?.ru ?? anime.labels?.en ?? ""}
+      </Text>
 
       <div className={st.badges}>
         {anime.status === "anons" ? (
@@ -48,7 +48,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
             isScoreStatus
             className={st.badge}
           >
-            {anime.score?.averageScore?.toFixed(1)}
+            {anime.score?.averageScore.toFixed(1)}
           </Badge>
         )}
         {anime.status === "ongoing" && (

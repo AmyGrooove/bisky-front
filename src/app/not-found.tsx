@@ -1,9 +1,9 @@
 import Image from "next/image"
 
-import st from "@appData/home/styles/homeNotFound.module.scss"
-import { Text } from "@shared/ui/atoms/Text"
+import { Text } from "@shared/ui/atoms"
+import { mainLayoutNotFoundStyles as st } from "@appData/mainLayout"
 
-const HomeNotFound = () => (
+const MainNotFound = () => (
   <div className={st.root}>
     <div className={st.errorBlock}>
       <div className={st.title}>
@@ -20,4 +20,4 @@ const HomeNotFound = () => (
   </div>
 )
 
-export default HomeNotFound
+export default MainNotFound

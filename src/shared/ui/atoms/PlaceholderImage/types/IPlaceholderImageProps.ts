@@ -1,6 +1,7 @@
 import { ImageProps } from "next/image"
 
-interface IPlaceholderImageProps extends ImageProps {
+interface IPlaceholderImageProps extends Omit<ImageProps, "src"> {
+  src: string | null
   imageClassName?: string
 }
 

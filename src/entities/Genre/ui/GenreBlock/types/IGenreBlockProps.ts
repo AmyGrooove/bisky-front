@@ -2,7 +2,7 @@ import { LinkProps } from "next/link"
 
 import { IGenreFullModel } from "@entities/Genre"
 
-interface IGenreBlock extends LinkProps {
+interface IGenreBlock extends Omit<LinkProps, "href"> {
   genre: IGenreFullModel
 
   className?: string

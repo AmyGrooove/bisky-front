@@ -1,7 +1,8 @@
+"use server"
+
 import { cookies } from "next/headers"
 
-import { API_URL } from "@shared/constants"
-import { IS_DEVELOPMENT } from "@shared/constants/envVariables"
+import { API_URL, IS_DEVELOPMENT } from "@shared/constants"
 
 const refreshTokens = async (): Promise<true> => {
   const result = await fetch(API_URL + "/api/auth/refresh", {
@@ -11,7 +12,6 @@ const refreshTokens = async (): Promise<true> => {
       Accept: "application/json",
       Authorization: "Bearer " + (cookies().get("refresh-token")?.value ?? ""),
     },
-    next: { revalidate: 30 },
   })
 
   if (!result.ok) throw new Error(`Failed to logout user: ${result.statusText}`)

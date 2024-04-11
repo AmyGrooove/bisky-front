@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { Text } from "@shared/ui/atoms/Text"
+import { Text } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
 
 import { ILinkTabsProps } from "../types/ILinkTabsProps"

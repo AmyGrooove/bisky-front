@@ -5,9 +5,8 @@ import { useState } from "react"
 import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
-import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 import { ArrowIcon } from "@shared/icons"
-import { Text } from "@shared/ui/atoms/Text"
+import { Text, PlaceholderImage } from "@shared/ui/atoms"
 
 import { IVideoSliderProps } from "../types/IVideoSliderProps"
 

@@ -1,14 +1,14 @@
 import {
   AdditionalInfo,
   AnimeHeader,
+  IAnimePageProps,
   ScreenshotSlider,
   VideoSlider,
+  animePageStyles as st,
 } from "@appData/animePage"
-import st from "@appData/animePage/styles/animePage.module.scss"
-import { IAnimePageProps } from "@appData/animePage/types/IAnimePageProps"
-import { getOneAnimeQL } from "@entities/Anime"
+import { getOneAnimeQL } from "@entities/Anime/api"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
-import { Text } from "@shared/ui/atoms/Text"
+import { Text } from "@shared/ui/atoms"
 import { OversizeText } from "@shared/ui/molecules/OversizeText"
 
 const AnimePage = async (props: IAnimePageProps) => {
@@ -16,7 +16,7 @@ const AnimePage = async (props: IAnimePageProps) => {
     params: { animeId },
   } = props
 
-  const animeData = await getOneAnimeQL(animeId)
+  const animeData = await getOneAnimeQL({ animeId })
 
   return (
     <div className={st.root}>
@@ -42,8 +42,8 @@ const AnimePage = async (props: IAnimePageProps) => {
               animeData.related
                 ?.filter((item) => !!item.base)
                 .map((item) => ({
-                  relatedName: item.relation?.ru ?? "",
                   ...item.base!,
+                  relatedName: item.relation?.ru ?? "",
                 })) ?? []
             }
             className={st.sliders}

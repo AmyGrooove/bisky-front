@@ -1,9 +1,8 @@
-import { IAnimeSimpleModel } from "@entities/Anime"
-import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
+import { IAnimeFullModel, IAnimeSimpleModel } from "@entities/Anime"
 
 interface IAnimeCardSliderItems {
-  field1: IAnimeFullModel | IAnimeSimpleModel
-  field2: IAnimeFullModel | IAnimeSimpleModel | null
+  field1: Partial<IAnimeFullModel | IAnimeSimpleModel>
+  field2: Partial<IAnimeFullModel | IAnimeSimpleModel> | null
 }
 
 export type { IAnimeCardSliderItems }

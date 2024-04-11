@@ -18,23 +18,31 @@ export const Released: Story = {
       labels: {
         en: "Fullmetal Alchemist: Brotherhood",
         ru: "Стальной алхимик: Братство",
+        synonyms: [],
       },
       poster:
         "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
-      score: {
-        averageScore: 4,
-      },
+      score: { averageScore: 4, count: 0 },
       episodes: {
         airedCount: 63,
+        count: null,
+        nextEpisodeAiredDate: null,
+        lastEpisodeAiredDate: null,
+        averageDuration: 0,
+        singleEpisodes: [],
       },
       status: "released",
       userData: {
         animeStatus: null,
         score: null,
+        watchedSeries: 0,
       },
       usersList: {
         generalCount: 3,
         addedCount: 3,
+        watchingCount: 0,
+        completedCount: 0,
+        droppedCount: 0,
       },
     },
   },
@@ -47,23 +55,31 @@ export const Ongoing: Story = {
       labels: {
         en: "Fullmetal Alchemist: Brotherhood",
         ru: "Стальной алхимик: Братство",
+        synonyms: [],
       },
       poster:
         "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
-      score: {
-        averageScore: 4,
-      },
+      score: { averageScore: 4, count: 0 },
       episodes: {
         airedCount: 63,
+        count: null,
+        nextEpisodeAiredDate: null,
+        lastEpisodeAiredDate: null,
+        averageDuration: 0,
+        singleEpisodes: [],
       },
       status: "ongoing",
       userData: {
         animeStatus: null,
         score: null,
+        watchedSeries: 0,
       },
       usersList: {
         generalCount: 3,
         addedCount: 3,
+        watchingCount: 0,
+        completedCount: 0,
+        droppedCount: 0,
       },
     },
   },
@@ -76,23 +92,31 @@ export const Anons: Story = {
       labels: {
         en: "Fullmetal Alchemist: Brotherhood",
         ru: "Стальной алхимик: Братство",
+        synonyms: [],
       },
       poster:
         "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
-      score: {
-        averageScore: 4,
-      },
+      score: { averageScore: 4, count: 0 },
       episodes: {
         airedCount: 63,
+        count: null,
+        nextEpisodeAiredDate: null,
+        lastEpisodeAiredDate: null,
+        averageDuration: 0,
+        singleEpisodes: [],
       },
       status: "anons",
       userData: {
         animeStatus: null,
         score: null,
+        watchedSeries: 0,
       },
       usersList: {
         generalCount: 3,
         addedCount: 3,
+        watchingCount: 0,
+        completedCount: 0,
+        droppedCount: 0,
       },
     },
   },
@@ -105,23 +129,31 @@ export const UserLogged: Story = {
       labels: {
         en: "Fullmetal Alchemist: Brotherhood",
         ru: "Стальной алхимик: Братство",
+        synonyms: [],
       },
       poster:
         "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
-      score: {
-        averageScore: 4,
-      },
+      score: { averageScore: 4, count: 0 },
       episodes: {
         airedCount: 63,
+        count: null,
+        nextEpisodeAiredDate: null,
+        lastEpisodeAiredDate: null,
+        averageDuration: 0,
+        singleEpisodes: [],
       },
       status: "released",
       userData: {
         animeStatus: null,
         score: null,
+        watchedSeries: 0,
       },
       usersList: {
         generalCount: 3,
         addedCount: 3,
+        watchingCount: 0,
+        completedCount: 0,
+        droppedCount: 0,
       },
     },
     onClick: () => console.log("added"),
@@ -135,23 +167,31 @@ export const UserData: Story = {
       labels: {
         en: "Fullmetal Alchemist: Brotherhood",
         ru: "Стальной алхимик: Братство",
+        synonyms: [],
       },
       poster:
         "https://desu.shikimori.one/uploads/poster/animes/5114/40c4cba552dc60ebf02f8fc373b9a503.jpeg",
-      score: {
-        averageScore: 4,
-      },
+      score: { averageScore: 4, count: 0 },
       episodes: {
         airedCount: 63,
+        count: null,
+        nextEpisodeAiredDate: null,
+        lastEpisodeAiredDate: null,
+        averageDuration: 0,
+        singleEpisodes: [],
       },
       status: "released",
       userData: {
         animeStatus: "added",
         score: 3,
+        watchedSeries: 0,
       },
       usersList: {
         generalCount: 3,
         addedCount: 3,
+        watchingCount: 0,
+        completedCount: 0,
+        droppedCount: 0,
       },
     },
     onClick: () => console.log("added"),

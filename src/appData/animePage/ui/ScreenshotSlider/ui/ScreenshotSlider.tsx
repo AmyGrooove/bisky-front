@@ -5,9 +5,8 @@ import { useState } from "react"
 
 import { cn } from "@shared/utils/functions"
 import { Fancybox } from "@shared/utils/lib"
-import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 import { ArrowIcon } from "@shared/icons"
-import { Text } from "@shared/ui/atoms/Text"
+import { PlaceholderImage, Text } from "@shared/ui/atoms"
 
 import { IScreenshotSliderProps } from "../types/IScreenshotSliderProps"
 

@@ -4,19 +4,17 @@ import Link from "next/link"
 import { useSession } from "next-auth/react"
 import { useContext } from "react"
 
-import { Text } from "@shared/ui/atoms/Text"
 import { LogoIcon, SearchIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
-import { LinkTabs } from "@shared/ui/molecules/LinkTabs"
-import { Button } from "@shared/ui/molecules/Button"
-import { Skeleton } from "@shared/ui/atoms/Skeleton"
-import { ModalContext } from "@appData/mainLayout/ui/ModalProvider"
+import { ProfileMenu } from "@widgets/ProfileMenu"
+import { AuthBlock } from "@widgets/AuthBlock"
+import { Skeleton, Text } from "@shared/ui/atoms"
+import { LinkTabs, Button } from "@shared/ui/molecules"
+import { ModalContext } from "@widgets/ModalProvider"
 
 import { IHeaderProps } from "../types/IHeaderProps"
 
 import st from "./Header.module.scss"
-import { AuthBlock } from "./AuthBlock/AuthBlock"
-import { ProfileMenu } from "./ProfileMenu"
 
 const Header = (props: IHeaderProps) => {
   const { className, ...otherProps } = props

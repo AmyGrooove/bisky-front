@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { IAnimeLayoutProps } from "@appData/animePage"
-import { getOneAnimeQL } from "@entities/Anime"
-import { APP_URL } from "@shared/constants/envVariables"
+import { getOneAnimeQL } from "@entities/Anime/api"
+import { APP_URL } from "@shared/constants"
 
 export async function generateMetadata(
   props: IAnimeLayoutProps,
@@ -12,7 +12,7 @@ export async function generateMetadata(
     params: { animeId },
   } = props
 
-  const animeData = await getOneAnimeQL(animeId)
+  const animeData = await getOneAnimeQL({ animeId })
 
   return {
     title: animeData.labels?.ru ?? "",
@@ -33,7 +33,7 @@ const AnimeLayout = async (props: IAnimeLayoutProps) => {
   } = props
 
   try {
-    await getOneAnimeQL(animeId)
+    await getOneAnimeQL({ animeId })
   } catch (error) {
     console.error(error)
 

@@ -1,8 +1,8 @@
 import { LinkProps } from "next/link"
 
-import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
+import { IAnimeFullModel } from "@entities/Anime"
 
-interface ISeasonProps extends LinkProps {
+interface ISeasonProps extends Omit<LinkProps, "href"> {
   anime: Partial<IAnimeFullModel>
 
   className?: string

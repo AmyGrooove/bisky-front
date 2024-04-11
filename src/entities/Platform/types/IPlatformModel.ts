@@ -1,4 +1,4 @@
-import { ILanguageModel } from "@shared/types/graphql/ILanguageModel"
+import { ILanguageModel } from "@shared/types"
 
 interface IPlatformModel {
   _id: string

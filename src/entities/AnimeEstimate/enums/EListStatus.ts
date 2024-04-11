@@ -3,6 +3,7 @@ enum EListStatus {
   added = "added",
   watching = "watching",
   dropped = "dropped",
+
   setWatch = "setWatch",
   cancel = "cancel",
 }

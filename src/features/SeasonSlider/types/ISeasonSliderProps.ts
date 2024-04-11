@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react"
 
-import { IAnimeFullModel } from "@entities/Anime/types/IAnimeFullModel"
+import { IAnimeFullModel } from "@entities/Anime"
 
 interface ISeasonSliderProps extends HTMLAttributes<HTMLDivElement> {
   items: IAnimeFullModel[]

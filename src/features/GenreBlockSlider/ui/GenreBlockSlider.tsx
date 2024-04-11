@@ -1,8 +1,5 @@
 "use client"
 
-import { useKeenSlider } from "keen-slider/react"
-import { useState } from "react"
-
 import { GenreBlock } from "@entities/Genre"
 import { cn } from "@shared/utils/functions"
 import { ArrowIcon } from "@shared/icons"
@@ -10,21 +7,12 @@ import { ArrowIcon } from "@shared/icons"
 import { IGenreBlockSliderProps } from "../types/IGenreBlockSliderProps"
 
 import st from "./GenreBlockSlider.module.scss"
+import { useGenreBlockSlider } from "./useGenreBlockSlider"
 
 const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
   const { items, className, ...otherProps } = props
 
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const [sliderRef, instanceRef] = useKeenSlider({
-    slides: {
-      perView: 3,
-      spacing: 24,
-    },
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel)
-    },
-  })
+  const { instanceRef, sliderRef, currentSlide } = useGenreBlockSlider()
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>
@@ -47,7 +35,6 @@ const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
           <GenreBlock
             key={item._id}
             genre={item}
-            href="#"
             className="keen-slider__slide"
           />
         ))}

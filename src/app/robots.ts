@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next"
 
-import { APP_URL, IS_DEVELOPMENT } from "@shared/constants/envVariables"
+import { IS_DEVELOPMENT, APP_URL } from "@shared/constants"
 
 const robots = (): MetadataRoute.Robots =>
   IS_DEVELOPMENT
