@@ -1,5 +1,3 @@
-"use client"
-
 import { Skeleton } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
 import { EListStatus } from "@entities/AnimeEstimate"

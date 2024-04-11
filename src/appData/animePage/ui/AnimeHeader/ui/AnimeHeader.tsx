@@ -1,3 +1,5 @@
+"use client"
+
 import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 import { Text } from "@shared/ui/atoms/Text"
 import { Badge } from "@shared/ui/molecules/Badge"
@@ -15,21 +17,28 @@ import { getSeasonName } from "../functions/getSeasonName"
 
 import st from "./AnimeHeader.module.scss"
 import { UserData } from "./UserData/UserData"
+import { useContext, useMemo } from "react"
+import { ModalContext } from "@widgets/ModalProvider"
+import { AnimeInfo } from "./AnimeInfo/AnimeInfo"
 
 const AnimeHeader = (props: IAnimeHeaderProps) => {
   const { animeData, className, ...otherProps } = props
+
+  const { setModal } = useContext(ModalContext)
+
+  const randomBackgroundSrc = useMemo(
+    () =>
+      animeData.screenshots?.[getRandomInt(animeData.screenshots.length - 1)] ??
+      animeData.poster ??
+      "",
+    [animeData],
+  )
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>
       <div className={st.background}>
         <PlaceholderImage
-          src={
-            animeData.screenshots?.[
-              getRandomInt(animeData.screenshots.length - 1)
-            ] ??
-            animeData.poster ??
-            ""
-          }
+          src={randomBackgroundSrc}
           width={1440}
           height={400}
           alt=""
@@ -56,7 +65,11 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
               {getNormalRating(animeData.rating ?? "none")}
             </Badge>
           </div>
-          <Button className={st.button} leftIcon={<InfoIcon />} />
+          <Button
+            onClick={() => setModal(<AnimeInfo animeData={animeData} />)}
+            className={st.button}
+            leftIcon={<InfoIcon />}
+          />
         </div>
         <div className={st.footer}>
           <div className={st.additionalInfo}>

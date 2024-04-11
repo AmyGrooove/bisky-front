@@ -9,6 +9,7 @@ import {
 import { getOneAnimeQL } from "@entities/Anime/api"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { Text } from "@shared/ui/atoms"
+import { LinkLabel } from "@shared/ui/molecules"
 import { OversizeText } from "@shared/ui/molecules/OversizeText"
 
 const AnimePage = async (props: IAnimePageProps) => {
@@ -34,9 +35,13 @@ const AnimePage = async (props: IAnimePageProps) => {
       />
       {animeData.related?.filter((item) => !!item.base).length !== 0 && (
         <div className={st.row}>
-          <Text size="28" weight="700">
-            Связанное
-          </Text>
+          {animeData.franchise ? (
+            <LinkLabel label="Связанное" linkText="Франшиза" href="#" />
+          ) : (
+            <Text size="28" weight="700">
+              Связанное
+            </Text>
+          )}
           <AnimeCardSlider
             items={
               animeData.related

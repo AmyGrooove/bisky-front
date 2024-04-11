@@ -17,6 +17,8 @@ import st from "./AdditionalInfo.module.scss"
 const AdditionalInfo = (props: IAdditionalInfoProps) => {
   const { animeData, className, ...otherProps } = props
 
+  console.log(animeData.usersList)
+
   return (
     <div {...otherProps} className={cn(st.root, className)}>
       <div className={st.leftSide}>

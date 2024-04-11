@@ -56,7 +56,7 @@ const getSeasonAnimesQL = async (): Promise<IAnimeFullModel[]> => {
           sort: { score_count: true, usersList_generalCount: true },
           filter: {
             dates_airedOn: {
-              from: `${previousSeasonDate.getFullYear()}-${previousSeasonDate.getMonth()}-${previousSeasonDate.getDate()}`,
+              from: `${previousSeasonDate.getFullYear()}-${previousSeasonDate.getMonth() + 1}-${previousSeasonDate.getDate()}`,
             },
             status: "ongoing",
           },
