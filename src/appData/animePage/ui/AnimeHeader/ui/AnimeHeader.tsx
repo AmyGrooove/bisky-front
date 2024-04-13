@@ -1,5 +1,7 @@
 "use client"
 
+import { useContext, useMemo } from "react"
+
 import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 import { Text } from "@shared/ui/atoms/Text"
 import { Badge } from "@shared/ui/molecules/Badge"
@@ -11,14 +13,13 @@ import {
   getNormalRating,
   getNormalStatus,
 } from "@entities/Anime"
+import { ModalContext } from "@widgets/ModalProvider"
 
 import { IAnimeHeaderProps } from "../types/IAnimeHeaderProps"
 import { getSeasonName } from "../functions/getSeasonName"
 
 import st from "./AnimeHeader.module.scss"
 import { UserData } from "./UserData/UserData"
-import { useContext, useMemo } from "react"
-import { ModalContext } from "@widgets/ModalProvider"
 import { AnimeInfo } from "./AnimeInfo/AnimeInfo"
 
 const AnimeHeader = (props: IAnimeHeaderProps) => {

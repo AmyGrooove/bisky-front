@@ -1,8 +1,10 @@
 import { Text } from "@shared/ui/atoms"
-import { IAnimeInfoProps } from "../../types/IAnimeInfoProps"
-import st from "./AnimeInfo.module.scss"
 import { cn } from "@shared/utils/functions"
 import { getNormalDate } from "@shared/utils/functions/getNormalDate"
+
+import { IAnimeInfoProps } from "../../types/IAnimeInfoProps"
+
+import st from "./AnimeInfo.module.scss"
 
 const AnimeInfo = (props: IAnimeInfoProps) => {
   const { animeData } = props

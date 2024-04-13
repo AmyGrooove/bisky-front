@@ -4,14 +4,12 @@
   "scripts": {
     "dev": "next dev -p 3030",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3030",
     "lint:fix": "tsc && next lint --fix",
     "storybook": "storybook dev -p 6060"
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
-    "@vercel/analytics": "^1.2.2",
-    "@vercel/speed-insights": "^1.0.10",
     "keen-slider": "^6.8.6",
     "next": "^14.2.0",
     "next-auth": "^4.24.7",

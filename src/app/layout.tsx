@@ -1,6 +1,5 @@
 import { Ubuntu } from "next/font/google"
 import { Viewport } from "next"
-import { Analytics } from "@vercel/analytics/react"
 
 import { META_DATA } from "@shared/constants"
 import "@shared/styles/global.scss"
@@ -31,7 +30,6 @@ const MainLayout = (props: IMainLayoutProps) => {
         <meta name="theme-color" content="#dd5480" />
       </head>
       <body className={ubuntu.className}>
-        <Analytics />
         <Providers>
           <Header className={st.generalSection} />
           <main className={st.main}>{children}</main>

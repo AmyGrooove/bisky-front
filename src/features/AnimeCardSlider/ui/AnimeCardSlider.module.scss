@@ -17,6 +17,7 @@
 .cardColumn {
   display: flex;
   flex-direction: column;
+  min-width: 160px;
   gap: 24px;
 }
 

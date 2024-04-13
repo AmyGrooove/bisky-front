@@ -1,7 +1,6 @@
 "use client"
 
 import { SessionProvider } from "next-auth/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { ModalProvider } from "@widgets/ModalProvider"
 
@@ -16,7 +15,6 @@ const Providers = (props: IProvidersProps) => {
       <ModalProvider>
         {children}
         <Analytics />
-        <SpeedInsights />
       </ModalProvider>
     </SessionProvider>
   )

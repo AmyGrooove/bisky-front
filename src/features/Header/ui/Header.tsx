@@ -38,7 +38,7 @@ const Header = (props: IHeaderProps) => {
               Bisky
             </Text>
           </Link>
-          <LinkTabs items={[{ name: "Каталог", href: "#" }]} />
+          <LinkTabs items={[{ name: "Каталог", href: "/catalog" }]} />
         </div>
         <div className={st.rightSide}>
           <Button
