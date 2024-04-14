@@ -12,3 +12,8 @@ export { EStatus } from "./enums/EStatus"
 export { getNormalKind } from "./functions/getNormalKind"
 export { getNormalRating } from "./functions/getNormalRating"
 export { getNormalStatus } from "./functions/getNormalStatus"
+
+export { bestAnimesQuery } from "./graphQL/bestAnimesQuery"
+export { newSeriesAnimesQuery } from "./graphQL/newSeriesAnimesQuery"
+export { oneAnimeQuery } from "./graphQL/oneAnimeQuery"
+export { seasonAnimesQuery } from "./graphQL/seasonAnimesQuery"

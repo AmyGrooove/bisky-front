@@ -1,4 +1,4 @@
-export { getGenresQL } from "./api/getGenresQL"
+export { homeGenresQuery } from "./graphQL/homeGenresQuery"
 
 export type { IGenreFullModel } from "./types/IGenreModel/IGenreFullModel"
 export type { IGenreModel } from "./types/IGenreModel/IGenreModel"

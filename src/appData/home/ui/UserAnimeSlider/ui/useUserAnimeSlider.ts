@@ -2,7 +2,7 @@ import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 
 import { IAnimeEstimatesFullModel } from "@entities/AnimeEstimate"
-import { getUserPublicDataQL } from "@entities/User/api"
+import { getCurrentUserAnimeData } from "@appData/home/api"
 
 const useUserAnimeSlider = () => {
   const { data: session } = useSession()
@@ -16,9 +16,7 @@ const useUserAnimeSlider = () => {
     setIsLoading(true)
 
     if (session)
-      getUserPublicDataQL({
-        animeListStatus: "watching",
-      })
+      getCurrentUserAnimeData()
         .then((response) => setUserAnimeData(response?.animeEstimates ?? null))
         .finally(() => setIsLoading(false))
     else {

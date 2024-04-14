@@ -1,5 +1,1 @@
-export { getBestAnimesQL } from "./getBestAnimesQL"
-export { getNewSeriesAnimesQL } from "./getNewSeriesAnimesQL"
-export { getSeasonAnimesQL } from "./getSeasonAnimesQL"
-export { getOneAnimeQL } from "./getOneAnimeQL/getOneAnimeQL"
 export { getAllAnimesId } from "./getAllAnimesId"

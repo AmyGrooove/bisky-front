@@ -1,6 +1,5 @@
 import { Text } from "@shared/ui/atoms"
-import { cn } from "@shared/utils/functions"
-import { getNormalDate } from "@shared/utils/functions/getNormalDate"
+import { cn, getNormalDate } from "@shared/utils/functions"
 
 import { IAnimeInfoProps } from "../../types/IAnimeInfoProps"
 

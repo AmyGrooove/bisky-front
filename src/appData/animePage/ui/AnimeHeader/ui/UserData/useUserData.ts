@@ -2,7 +2,7 @@ import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 
 import { IAnimeEstimatesModel } from "@entities/AnimeEstimate"
-import { getUserPublicDataQL } from "@entities/User/api"
+import { getCurrentUserAnimeEstimateData } from "@appData/animePage/api"
 
 import { IUserDataProps } from "../../types/IUserDataProps"
 
@@ -19,10 +19,7 @@ const useUserData = (props: IUserDataProps) => {
     setIsLoading(true)
 
     if (session)
-      getUserPublicDataQL({
-        certainAnimeId: _id,
-        _id: session?._id ?? null,
-      })
+      getCurrentUserAnimeEstimateData({ animeId: _id, userId: session?._id })
         .then((response) =>
           setUserAnimeData(response?.animeEstimates[0] ?? null),
         )

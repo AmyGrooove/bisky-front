@@ -6,7 +6,7 @@ import {
   VideoSlider,
   animePageStyles as st,
 } from "@appData/animePage"
-import { getOneAnimeQL } from "@entities/Anime/api"
+import { getCurrentAnimeData } from "@appData/animePage/api"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { Text } from "@shared/ui/atoms"
 import { LinkLabel } from "@shared/ui/molecules"
@@ -17,7 +17,7 @@ const AnimePage = async (props: IAnimePageProps) => {
     params: { animeId },
   } = props
 
-  const animeData = await getOneAnimeQL({ animeId })
+  const animeData = await getCurrentAnimeData({ animeId })
 
   return (
     <div className={st.root}>

@@ -41,12 +41,12 @@ const LoadingAnime = () => (
       <div className={st.row}>
         <Skeleton className={st.rowLabel} />
         <div className={st.rowSlider}>
-          <Skeleton className={st.rowCard} />
-          <Skeleton className={st.rowCard} />
-          <Skeleton className={st.rowCard} />
-          <Skeleton className={st.rowCard} />
-          <Skeleton className={st.rowCard} />
-          <Skeleton className={st.rowCard} />
+          <Skeleton templates="posterCard" />
+          <Skeleton templates="posterCard" />
+          <Skeleton templates="posterCard" />
+          <Skeleton templates="posterCard" />
+          <Skeleton templates="posterCard" />
+          <Skeleton templates="posterCard" />
         </div>
       </div>
       <div className={st.row}>

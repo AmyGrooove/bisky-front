@@ -4,7 +4,6 @@ import { useRef, useEffect } from "react"
 import { Fancybox as NativeFancybox } from "@fancyapps/ui"
 
 import "@fancyapps/ui/dist/fancybox/fancybox.css"
-import { cn } from "@shared/utils/functions"
 
 const Fancybox = (props: any) => {
   const containerRef = useRef(null)
@@ -24,7 +23,7 @@ const Fancybox = (props: any) => {
   })
 
   return (
-    <div ref={containerRef} className={cn(props.className)}>
+    <div ref={containerRef} className={props.className}>
       {props.children}
     </div>
   )

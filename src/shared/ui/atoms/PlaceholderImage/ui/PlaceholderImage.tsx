@@ -29,7 +29,6 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
           onError={() => setIsLoaded(false)}
           onLoad={() => setIsLoaded(true)}
           alt=""
-          data-fancybox="gallery"
         />
       ) : (
         <></>

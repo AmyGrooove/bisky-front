@@ -2,6 +2,7 @@
 
 import { useKeenSlider } from "keen-slider/react"
 import { useState } from "react"
+import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
 import { Fancybox } from "@shared/utils/lib"
@@ -52,14 +53,15 @@ const ScreenshotSlider = (props: IScreenshotSliderProps) => {
         <Fancybox options={{ Carousel: { infinite: false } }}>
           <div ref={sliderRef} className="keen-slider">
             {items.map((item) => (
-              <PlaceholderImage
-                key={item}
-                src={item}
-                alt=""
-                width={528}
-                height={290}
-                className={cn(st.image, "keen-slider__slide")}
-              />
+              <Link key={item} href={item} data-fancybox="gallery">
+                <PlaceholderImage
+                  src={item}
+                  alt=""
+                  width={528}
+                  height={290}
+                  className={cn(st.image, "keen-slider__slide")}
+                />
+              </Link>
             ))}
           </div>
         </Fancybox>

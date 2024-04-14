@@ -19,12 +19,12 @@ const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
     <div {...otherProps} className={cn(st.row, className)}>
       <Skeleton className={st.rowLabel} />
       <div className={st.rowSlider}>
-        <Skeleton className={st.rowCard} />
-        <Skeleton className={st.rowCard} />
-        <Skeleton className={st.rowCard} />
-        <Skeleton className={st.rowCard} />
-        <Skeleton className={st.rowCard} />
-        <Skeleton className={st.rowCard} />
+        <Skeleton templates="posterCard" />
+        <Skeleton templates="posterCard" />
+        <Skeleton templates="posterCard" />
+        <Skeleton templates="posterCard" />
+        <Skeleton templates="posterCard" />
+        <Skeleton templates="posterCard" />
       </div>
     </div>
   ) : userAnimeData && userAnimeData.length !== 0 ? (
