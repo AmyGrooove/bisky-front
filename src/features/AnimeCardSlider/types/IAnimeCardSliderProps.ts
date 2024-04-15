@@ -6,6 +6,7 @@ interface IAnimeCardSliderProps extends HTMLAttributes<HTMLDivElement> {
   items: Partial<IAnimeFullModel | IAnimeSimpleModel>[]
 
   isTwoRows?: boolean
+  isCatalogSliderOn?: boolean
 }
 
 export type { IAnimeCardSliderProps }

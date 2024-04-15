@@ -4,4 +4,4 @@ export type { IUserPublicFullModel } from "./types/IUserPublicModel/IUserPublicF
 export { ERole } from "./enums/ERole"
 
 export { currentUserAnimesQuery } from "./graphQL/currentUserAnimesQuery"
-export { currentUserAnimeEstimateQuery } from "./graphQL/currentUserAnimeEstimateQuery"
+export { currentUserAnimeEstimateQuery } from "./graphQL/currentUserAnimeEstimateQuery/currentUserAnimeEstimateQuery"

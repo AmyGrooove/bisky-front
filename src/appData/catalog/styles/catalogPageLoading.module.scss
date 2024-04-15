@@ -1,0 +1,22 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  max-width: var(--lg);
+  width: 100%;
+
+  display: flex;
+  gap: 24px;
+}
+
+.animesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  width: 712px;
+}
+
+.filterBar {
+  width: 344px;
+  height: 600px;
+}

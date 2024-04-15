@@ -20,9 +20,7 @@ const getCurrentUserAnimeData =
             ${currentUserAnimesQuery.query}
           }
       `,
-        variables: {
-          ...currentUserAnimesQuery.variables,
-        },
+        variables: { ...currentUserAnimesQuery.variables },
       }),
       next: { revalidate: 0, tags: ["userData"] },
     })

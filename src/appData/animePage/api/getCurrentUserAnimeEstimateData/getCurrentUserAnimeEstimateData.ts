@@ -26,9 +26,7 @@ const getCurrentUserAnimeEstimateData = async (
             ${currentUserAnimeEstimateQuery.query}
           }
       `,
-      variables: {
-        ...currentUserAnimeEstimateQuery.variables(props),
-      },
+      variables: { ...currentUserAnimeEstimateQuery.variables(props) },
     }),
     next: { revalidate: 0, tags: ["userData"] },
   })

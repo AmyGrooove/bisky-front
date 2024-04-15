@@ -17,16 +17,28 @@ const Home = async () => {
       </div>
       <UserAnimeSlider />
       <div className={st.row}>
-        <LinkLabel label="Новые серии" linkText="Смотреть все" href="#" />
-        <AnimeCardSlider items={homeData.newSeriesAnimes} />
+        <LinkLabel
+          label="Новые серии"
+          linkText="Смотреть все"
+          href="/catalog"
+        />
+        <AnimeCardSlider items={homeData.newSeriesAnimes} isCatalogSliderOn />
       </div>
       <div className={st.row}>
-        <LinkLabel label="Самое популярное" linkText="Смотреть все" href="#" />
-        <AnimeCardSlider items={homeData.bestAnimes} isTwoRows />
+        <LinkLabel
+          label="Самое популярное"
+          linkText="Смотреть все"
+          href="/catalog"
+        />
+        <AnimeCardSlider
+          items={homeData.bestAnimes}
+          isTwoRows
+          isCatalogSliderOn
+        />
       </div>
       <div className={st.row}>
-        <LinkLabel label="Жанры" linkText="Смотреть все" href="#" />
-        <GenreBlockSlider items={homeData.homeGenres} />
+        <LinkLabel label="Жанры" linkText="Смотреть все" href="/catalog" />
+        <GenreBlockSlider items={homeData.homeGenres} isCatalogSliderOn />
       </div>
       <FactBlock fact={fact} />
     </div>

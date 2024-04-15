@@ -1,17 +1,24 @@
 import { cn } from "@shared/utils/functions"
 import { CheckIcon } from "@shared/icons"
+import { Text } from "@shared/ui/atoms"
 
 import { ICheckboxProps } from "../types/ICheckboxProps"
 
 import st from "./Checkbox.module.scss"
 
 const Checkbox = (props: ICheckboxProps) => {
-  const { className, ...otherProps } = props
+  const { className, isDash = false, ...otherProps } = props
 
   return (
     <label className={cn(st.root, className)}>
       <input {...otherProps} type="checkbox" className={st.input} hidden />
-      <CheckIcon className={st.icon} />
+      {isDash ? (
+        <Text weight="700" className={st.icon}>
+          —
+        </Text>
+      ) : (
+        <CheckIcon className={st.icon} />
+      )}
     </label>
   )
 }

@@ -1,8 +1,10 @@
+$minimum-radius: 8px;
 $small-radius: 12px;
 $big-radius: 20px;
 $full-radius: 100px;
 
 .borders {
+  --minimum-radius: #{$minimum-radius};
   --small-radius: #{$small-radius};
   --big-radius: #{$big-radius};
   --full-radius: #{$full-radius};

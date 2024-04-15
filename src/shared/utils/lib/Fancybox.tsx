@@ -6,7 +6,7 @@ import { Fancybox as NativeFancybox } from "@fancyapps/ui"
 import "@fancyapps/ui/dist/fancybox/fancybox.css"
 
 const Fancybox = (props: any) => {
-  const containerRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const container = containerRef.current

@@ -1,8 +1,11 @@
 "use client"
 
+import Link from "next/link"
+
 import { AnimeCard } from "@entities/Anime"
 import { cn } from "@shared/utils/functions"
-import { ArrowIcon } from "@shared/icons"
+import { ArrowIcon, BackIcon } from "@shared/icons"
+import { Text } from "@shared/ui/atoms"
 
 import { IAnimeCardSliderProps } from "../types/IAnimeCardSliderProps"
 
@@ -10,7 +13,13 @@ import st from "./AnimeCardSlider.module.scss"
 import { useAnimeCardSlider } from "./useAnimeCardSlider"
 
 const AnimeCardSlider = (props: IAnimeCardSliderProps) => {
-  const { items, isTwoRows = false, className, ...otherProps } = props
+  const {
+    items,
+    isTwoRows = false,
+    isCatalogSliderOn = false,
+    className,
+    ...otherProps
+  } = props
 
   const { instanceRef, currentSlide, sliderRef, sliderItems } =
     useAnimeCardSlider(props)
@@ -53,6 +62,19 @@ const AnimeCardSlider = (props: IAnimeCardSliderProps) => {
                 className="keen-slider__slide"
               />
             ))}
+        {isCatalogSliderOn && (
+          <Link
+            href="/catalog"
+            className={cn(st.catalogSlide, "keen-slider__slide", {
+              [st.catalogSlide_twoRows]: isTwoRows,
+            })}
+          >
+            <BackIcon className={st.catalogIcon} />
+            <Text weight="700" size="20">
+              В каталог
+            </Text>
+          </Link>
+        )}
       </div>
     </div>
   )

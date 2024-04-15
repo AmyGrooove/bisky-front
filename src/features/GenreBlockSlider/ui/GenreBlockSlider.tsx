@@ -1,8 +1,11 @@
 "use client"
 
+import Link from "next/link"
+
 import { GenreBlock } from "@entities/Genre"
 import { cn } from "@shared/utils/functions"
-import { ArrowIcon } from "@shared/icons"
+import { ArrowIcon, BackIcon } from "@shared/icons"
+import { Text } from "@shared/ui/atoms"
 
 import { IGenreBlockSliderProps } from "../types/IGenreBlockSliderProps"
 
@@ -10,7 +13,7 @@ import st from "./GenreBlockSlider.module.scss"
 import { useGenreBlockSlider } from "./useGenreBlockSlider"
 
 const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
-  const { items, className, ...otherProps } = props
+  const { items, isCatalogSliderOn = false, className, ...otherProps } = props
 
   const { instanceRef, sliderRef, currentSlide } = useGenreBlockSlider()
 
@@ -38,6 +41,17 @@ const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
             className="keen-slider__slide"
           />
         ))}
+        {isCatalogSliderOn && (
+          <Link
+            href="/catalog"
+            className={cn(st.catalogSlide, "keen-slider__slide")}
+          >
+            <BackIcon className={st.catalogIcon} />
+            <Text weight="700" size="20">
+              В каталог
+            </Text>
+          </Link>
+        )}
       </div>
     </div>
   )

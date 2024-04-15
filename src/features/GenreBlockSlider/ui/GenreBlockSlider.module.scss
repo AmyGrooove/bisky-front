@@ -32,3 +32,25 @@
     cursor: default;
   }
 }
+
+.catalogSlide {
+  width: 344px;
+  height: 160px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  cursor: pointer;
+  border-radius: var(--big-radius);
+  background-color: var(--bisky-400);
+}
+
+.catalogIcon {
+  width: 64px;
+  height: 64px;
+
+  rotate: (180deg);
+}

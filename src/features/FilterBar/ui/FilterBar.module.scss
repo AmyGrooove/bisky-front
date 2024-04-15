@@ -1,0 +1,13 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  width: 344px;
+  height: 800px;
+
+  background-color: var(--dark-300);
+  border-radius: var(--big-radius);
+
+  position: sticky;
+  top: 120px;
+  right: 0px;
+}

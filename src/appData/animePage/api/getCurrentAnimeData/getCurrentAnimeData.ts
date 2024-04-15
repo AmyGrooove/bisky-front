@@ -23,9 +23,7 @@ const getCurrentAnimeData = async (
             ${oneAnimeQuery.query}
           }
       `,
-      variables: {
-        ...oneAnimeQuery.variables(props.animeId),
-      },
+      variables: { ...oneAnimeQuery.variables(props.animeId) },
     }),
     next: { revalidate: 30, tags: ["oneAnime"] },
   })
