@@ -31,6 +31,7 @@ const filterStateReducer = (
 
       return {
         ...state,
+        page: 1,
         [filterType]: {
           ...state[filterType],
           ...Object.assign({}, ...newFilters),

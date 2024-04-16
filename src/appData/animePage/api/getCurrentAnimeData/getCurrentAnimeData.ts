@@ -18,10 +18,10 @@ const getCurrentAnimeData = async (
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
-      query: `  
-          query (${oneAnimeQuery.label}) {
-            ${oneAnimeQuery.query}
-          }
+      query: `
+        query (${oneAnimeQuery.label}) {
+          ${oneAnimeQuery.query}
+        }
       `,
       variables: { ...oneAnimeQuery.variables(props.animeId) },
     }),

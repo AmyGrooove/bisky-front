@@ -20,10 +20,10 @@ const getCatalogAnimes = async (
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
-      query: `  
-          query (${catalogAnimesQuery.label}) {
-            ${catalogAnimesQuery.query}
-          }
+      query: `
+        query (${catalogAnimesQuery.label}) {
+          ${catalogAnimesQuery.query}
+        }
       `,
       variables: { ...catalogAnimesQuery.variables(props) },
     }),

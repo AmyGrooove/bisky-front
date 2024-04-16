@@ -2,7 +2,8 @@
 
 .root {
   width: 344px;
-  height: 800px;
+  height: fit-content;
+  padding: 12px;
 
   background-color: var(--dark-300);
   border-radius: var(--big-radius);
@@ -10,4 +11,9 @@
   position: sticky;
   top: 120px;
   right: 0px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }

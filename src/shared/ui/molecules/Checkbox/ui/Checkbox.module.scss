@@ -44,6 +44,17 @@
       transform: none;
     }
   }
+
+  &_offDisable:has(.input:disabled) {
+    cursor: unset;
+    background-color: var(--dark-100);
+    border-color: var(--bisky-300);
+
+    &:has(.input:checked) {
+      border-color: var(--bisky-200);
+      background-color: var(--bisky-200);
+    }
+  }
 }
 
 .icon {

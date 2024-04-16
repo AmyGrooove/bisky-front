@@ -7,11 +7,11 @@ const getNormalKind = (kind: keyof typeof EKind) =>
     ova: "OVA",
     ona: "ONA",
     special: "спец-выпуск",
-    music: "музыка",
+    music: "прочее",
     tv_special: "спец-выпуск",
-    none: "null",
-    pv: "промо",
-    cm: "промо",
+    none: "прочее",
+    pv: "прочее",
+    cm: "прочее",
   })[kind]
 
 export { getNormalKind }

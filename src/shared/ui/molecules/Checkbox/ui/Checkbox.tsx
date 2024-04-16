@@ -7,10 +7,19 @@ import { ICheckboxProps } from "../types/ICheckboxProps"
 import st from "./Checkbox.module.scss"
 
 const Checkbox = (props: ICheckboxProps) => {
-  const { className, isDash = false, ...otherProps } = props
+  const {
+    className,
+    isDash = false,
+    isOffDisableStyles = false,
+    ...otherProps
+  } = props
 
   return (
-    <label className={cn(st.root, className)}>
+    <label
+      className={cn(st.root, className, {
+        [st.root_offDisable]: isOffDisableStyles,
+      })}
+    >
       <input {...otherProps} type="checkbox" className={st.input} hidden />
       {isDash ? (
         <Text weight="700" className={st.icon}>

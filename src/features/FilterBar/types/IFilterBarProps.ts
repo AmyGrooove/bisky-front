@@ -4,7 +4,7 @@ import { IFilterState } from "@appData/catalog"
 import { ICatalogAnimesVariables } from "@entities/Anime"
 
 interface IFilterBarProps extends HTMLAttributes<HTMLDivElement> {
-  dispatchFilter: Dispatch<IFilterState>
+  updateFilters: Dispatch<IFilterState>
   filterState: ICatalogAnimesVariables
 }
 

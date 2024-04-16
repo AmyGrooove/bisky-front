@@ -9,7 +9,7 @@ import { AnimeCard } from "@entities/Anime"
 import { FilterBar } from "@features/FilterBar"
 
 const CatalogPage = () => {
-  const { animesData, isLoading, dispatchFilter, filterState } =
+  const { animesData, isLoading, updateFilters, filterState } =
     useCatalogFilter()
 
   return (
@@ -24,7 +24,7 @@ const CatalogPage = () => {
           <AnimesCatalogLoading />
         </div>
       )}
-      <FilterBar dispatchFilter={dispatchFilter} filterState={filterState} />
+      <FilterBar updateFilters={updateFilters} filterState={filterState} />
     </div>
   )
 }

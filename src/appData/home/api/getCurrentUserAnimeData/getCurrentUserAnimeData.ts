@@ -15,11 +15,11 @@ const getCurrentUserAnimeData =
         Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
       },
       body: JSON.stringify({
-        query: `  
+        query: `
           query (${currentUserAnimesQuery.label}) {
             ${currentUserAnimesQuery.query}
           }
-      `,
+        `,
         variables: { ...currentUserAnimesQuery.variables },
       }),
       next: { revalidate: 0, tags: ["userData"] },

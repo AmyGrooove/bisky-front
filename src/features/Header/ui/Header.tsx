@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useSession } from "next-auth/react"
 import { useContext } from "react"
+import { usePathname } from "next/navigation"
 
 import { LogoIcon, SearchIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
@@ -19,6 +20,7 @@ import st from "./Header.module.scss"
 const Header = (props: IHeaderProps) => {
   const { className, ...otherProps } = props
 
+  const pathname = usePathname()
   const { data: session, status } = useSession()
 
   const { setModal } = useContext(ModalContext)
@@ -38,7 +40,15 @@ const Header = (props: IHeaderProps) => {
               Bisky
             </Text>
           </Link>
-          <LinkTabs items={[{ name: "Каталог", href: "/catalog" }]} />
+          <LinkTabs
+            items={[
+              {
+                name: "Каталог",
+                href: "/catalog",
+                isActive: pathname.includes("/catalog"),
+              },
+            ]}
+          />
         </div>
         <div className={st.rightSide}>
           <Button

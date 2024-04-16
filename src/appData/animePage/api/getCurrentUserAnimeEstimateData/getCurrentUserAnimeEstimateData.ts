@@ -21,10 +21,10 @@ const getCurrentUserAnimeEstimateData = async (
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
-      query: `  
-          query (${currentUserAnimeEstimateQuery.label}) {
-            ${currentUserAnimeEstimateQuery.query}
-          }
+      query: `
+        query (${currentUserAnimeEstimateQuery.label}) {
+          ${currentUserAnimeEstimateQuery.query}
+        }
       `,
       variables: { ...currentUserAnimeEstimateQuery.variables(props) },
     }),

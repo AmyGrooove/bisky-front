@@ -21,7 +21,7 @@ const getHomeData = async (): Promise<IGetHomeDataResponse> => {
       Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
-      query: `  
+      query: `
         query (${seasonAnimesQuery.label}, ${bestAnimesQuery.label}, ${newSeriesAnimesQuery.label}, ${homeGenresQuery.label}) {
           ${seasonAnimesQuery.query}
           ${bestAnimesQuery.query}
