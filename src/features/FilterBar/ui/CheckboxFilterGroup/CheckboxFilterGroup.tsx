@@ -1,4 +1,3 @@
-import { ArrowIcon } from "@shared/icons"
 import { Text } from "@shared/ui/atoms"
 import { Checkbox } from "@shared/ui/molecules"
 import { cn } from "@shared/utils/functions"
@@ -9,58 +8,40 @@ import st from "./CheckboxFilterGroup.module.scss"
 import { useCheckboxFilterGroup } from "./useCheckboxFilterGroup"
 
 const CheckboxFilterGroup = (props: ICheckboxFilterGroupProps) => {
-  const { label, items, className, ...otherProps } = props
+  const { items, className, ...otherProps } = props
 
-  const { mainClick, excludeButton, openItems, setOpenItems } =
-    useCheckboxFilterGroup()
+  const { mainClick, excludeButton } = useCheckboxFilterGroup()
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>
-      <div
-        className={st.collapse}
-        onClick={() => setOpenItems((prevState) => !prevState)}
-      >
-        <Text weight="700" size="20">
-          {label}
-        </Text>
-        <ArrowIcon
-          className={cn(st.collapseIcon, {
-            [st.collapseIcon_opened]: openItems,
+      {items.map((item) => (
+        <div
+          key={item.label}
+          className={cn(st.item, {
+            [st.item_checked]: item.isChecked,
+            [st.item_exclude]: item.isExclude,
           })}
-        />
-      </div>
-      {openItems && (
-        <div className={st.itemsWrapper}>
-          {items.map((item) => (
-            <div
-              key={item.label}
-              className={cn(st.item, {
-                [st.item_checked]: item.isChecked,
-                [st.item_exclude]: item.isExclude,
-              })}
-              onClick={() => mainClick(item)}
-            >
-              <div className={st.itemLeft}>
-                <Checkbox
-                  isOffDisableStyles
-                  disabled
-                  isDash={item.isExclude}
-                  checked={item.isChecked || item.isExclude}
-                  onChange={() => {}}
-                />
-                <Text>{item.label}</Text>
-              </div>
-              <Text
-                className={st.excludeButton}
-                isDefaultColor={false}
-                onClick={(event) => excludeButton(event, item)}
-              >
-                {item.isExclude ? "добавить" : "исключить"}
-              </Text>
-            </div>
-          ))}
+          onClick={() => mainClick(item)}
+        >
+          <div className={st.itemLeft}>
+            <Checkbox
+              isOffDisableStyles
+              disabled
+              isDash={item.isExclude}
+              checked={item.isChecked || item.isExclude}
+              onChange={() => {}}
+            />
+            <Text>{item.label}</Text>
+          </div>
+          <Text
+            className={st.excludeButton}
+            isDefaultColor={false}
+            onClick={(event) => excludeButton(event, item)}
+          >
+            {item.isExclude ? "добавить" : "исключить"}
+          </Text>
         </div>
-      )}
+      ))}
     </div>
   )
 }

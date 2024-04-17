@@ -1,4 +1,5 @@
 import { RefObject, useEffect, useState } from "react"
+
 import { debounce } from "../functions"
 
 const useIsVisible = (ref: RefObject<any>) => {

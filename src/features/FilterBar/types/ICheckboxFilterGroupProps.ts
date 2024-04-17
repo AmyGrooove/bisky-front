@@ -11,7 +11,6 @@ interface ICheckboxFilterGroupItem {
 }
 
 interface ICheckboxFilterGroupProps extends HTMLAttributes<HTMLDivElement> {
-  label: string
   items: ICheckboxFilterGroupItem[]
 }
 

@@ -1,10 +1,8 @@
-import { MouseEvent, useState } from "react"
+import { MouseEvent } from "react"
 
 import { ICheckboxFilterGroupItem } from "@features/FilterBar/types/ICheckboxFilterGroupProps"
 
 const useCheckboxFilterGroup = () => {
-  const [openItems, setOpenItems] = useState(false)
-
   const mainClick = (item: ICheckboxFilterGroupItem) => {
     if (item.isExclude) item.deleteExcludeItem()
     else if (item.isChecked) item.deleteIncludeItem()
@@ -26,7 +24,7 @@ const useCheckboxFilterGroup = () => {
     }
   }
 
-  return { mainClick, excludeButton, openItems, setOpenItems }
+  return { mainClick, excludeButton }
 }
 
 export { useCheckboxFilterGroup }

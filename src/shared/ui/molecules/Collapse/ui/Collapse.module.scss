@@ -1,0 +1,30 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.collapse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  user-select: none;
+  cursor: pointer;
+}
+
+.collapseIcon {
+  width: 20px;
+  height: 20px;
+
+  rotate: -90deg;
+
+  @include transition(rotate);
+
+  &_opened {
+    rotate: 90deg;
+  }
+}

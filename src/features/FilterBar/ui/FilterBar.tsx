@@ -1,3 +1,5 @@
+import { Collapse } from "@shared/ui/molecules"
+
 import { kindCheckboxFilterItems } from "../static/kindCheckboxFilterItems"
 import { ratingCheckboxFilterItems } from "../static/ratingCheckboxFilterItems"
 import { statusCheckboxFilterItems } from "../static/statusCheckboxFilterItems"
@@ -11,18 +13,21 @@ const FilterBar = (props: IFilterBarProps) => {
 
   return (
     <div className={st.root}>
-      <CheckboxFilterGroup
-        label="Статус"
-        items={statusCheckboxFilterItems(filterState, updateFilters)}
-      />
-      <CheckboxFilterGroup
-        label="Тип"
-        items={kindCheckboxFilterItems(filterState, updateFilters)}
-      />
-      <CheckboxFilterGroup
-        label="Возрастные ограничения"
-        items={ratingCheckboxFilterItems(filterState, updateFilters)}
-      />
+      <Collapse label="Статус" isDefaultOpened>
+        <CheckboxFilterGroup
+          items={statusCheckboxFilterItems(filterState, updateFilters)}
+        />
+      </Collapse>
+      <Collapse label="Тип">
+        <CheckboxFilterGroup
+          items={kindCheckboxFilterItems(filterState, updateFilters)}
+        />
+      </Collapse>
+      <Collapse label="Возрастные ограничения">
+        <CheckboxFilterGroup
+          items={ratingCheckboxFilterItems(filterState, updateFilters)}
+        />
+      </Collapse>
     </div>
   )
 }
