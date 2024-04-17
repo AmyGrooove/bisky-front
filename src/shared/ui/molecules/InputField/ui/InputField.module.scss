@@ -82,8 +82,8 @@
     color: var(--light-400);
   }
 
-  &:focus,
-  &:not(:placeholder-shown) {
+  &_label:focus,
+  &_label:not(:placeholder-shown) {
     padding: 22px 12px 8px 12px;
 
     ~ .label {

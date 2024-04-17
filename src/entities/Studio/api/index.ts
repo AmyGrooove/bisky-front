@@ -1,0 +1,1 @@
+export { getAllStudiosIdAndNames } from "./getAllStudiosIdAndNames"

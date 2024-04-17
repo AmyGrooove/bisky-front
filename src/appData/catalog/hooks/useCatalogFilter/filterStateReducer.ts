@@ -57,6 +57,28 @@ const filterStateReducer = (
       }
     }
 
+    case "reset": {
+      return {
+        ...state,
+        page: 1,
+        dates_airedOn: { from: 1000, to: 3000 },
+        filterInclude: {
+          genres_ID: [],
+          kind: [],
+          rating: [],
+          status: [],
+          studios_ID: [],
+        },
+        filterExclude: {
+          genres_ID: [],
+          kind: [],
+          rating: [],
+          status: [],
+          studios_ID: [],
+        },
+      }
+    }
+
     default:
       return state
   }

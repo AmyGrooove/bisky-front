@@ -3,7 +3,7 @@
 .root {
   width: 344px;
   height: fit-content;
-  padding: 12px;
+  padding: 12px 0px 66px 16px;
 
   background-color: var(--dark-300);
   border-radius: var(--big-radius);
@@ -15,5 +15,36 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.mainWrapper {
+  width: 100%;
+  height: fit-content;
+  max-height: 900px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   align-items: center;
+
+  padding-right: 4px;
+  scrollbar-gutter: stable;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dark-100);
+    border-radius: var(--big-radius);
+  }
+}
+
+.resetButton {
+  position: absolute;
+  bottom: 12px;
+  justify-content: center;
+  width: calc(100% - 32px);
 }

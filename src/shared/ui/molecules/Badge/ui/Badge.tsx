@@ -34,6 +34,7 @@ const Badge = (props: IBadgeProps) => {
           isDefaultColor={isDefaultTextColor}
           size={variant === "small" ? "16" : "20"}
           weight="700"
+          className={st.text}
         >
           {children}
         </Text>

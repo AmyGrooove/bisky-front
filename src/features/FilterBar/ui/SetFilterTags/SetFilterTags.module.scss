@@ -1,0 +1,70 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  padding: 4px;
+  background-color: var(--dark-200);
+  border-radius: var(--small-radius);
+}
+
+.itemsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+
+  max-height: 200px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--dark-100);
+    border-radius: var(--big-radius);
+  }
+}
+
+.item {
+  cursor: pointer;
+  background-color: var(--bisky-300);
+
+  max-width: 180px;
+
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--bisky-200);
+  }
+
+  &:active {
+    background-color: var(--bisky-400);
+  }
+
+  &_selected {
+    background-color: var(--bisky-200);
+    max-width: unset;
+
+    &:hover {
+      background-color: var(--bisky-100);
+    }
+
+    &:active {
+      background-color: var(--bisky-400);
+    }
+  }
+}
+
+.input {
+  width: 100%;
+}
+
+.skeletonItem {
+  width: 70px;
+  height: 20px;
+}

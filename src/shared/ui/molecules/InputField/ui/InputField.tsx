@@ -12,6 +12,7 @@ const InputField = (props: IInputFieldProps) => {
     isSearchIconOn = false,
     className,
     label,
+    placeholder,
     ...otherProps
   } = props
 
@@ -21,7 +22,11 @@ const InputField = (props: IInputFieldProps) => {
         [st.root_label]: !!label,
       })}
     >
-      <input {...otherProps} className={st.input} placeholder="" />
+      <input
+        {...otherProps}
+        className={cn(st.input, { [st.input_label]: !!label })}
+        placeholder={placeholder ?? ""}
+      />
       {label && (
         <Text size="20" className={st.label} isDefaultColor={false}>
           {label}

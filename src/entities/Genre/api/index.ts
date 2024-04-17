@@ -1,0 +1,1 @@
+export { getAllGenresIdAndNames } from "./getAllGenresIdAndNames"

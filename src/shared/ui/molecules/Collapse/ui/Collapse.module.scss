@@ -22,8 +22,6 @@
 
   rotate: -90deg;
 
-  @include transition(rotate);
-
   &_opened {
     rotate: 90deg;
   }

@@ -21,6 +21,7 @@ enum EFilterActions {
   changeSort = "changeSort",
   changePage = "changePage",
   changeDate = "changeDate",
+  reset = "reset",
 }
 
 interface IFilterState {
