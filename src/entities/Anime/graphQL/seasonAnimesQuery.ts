@@ -42,6 +42,7 @@ const seasonAnimesQuery = {
         },
         status: "ongoing",
       },
+      isPaginationOff: true,
     },
   },
 }

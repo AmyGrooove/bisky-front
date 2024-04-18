@@ -29,6 +29,7 @@ const newSeriesAnimesQuery = {
     newSeriesAnimesVariables: {
       count: 24,
       sort: { episodes_lastEpisodeAiredDate: true },
+      isPaginationOff: true,
     },
   },
 }

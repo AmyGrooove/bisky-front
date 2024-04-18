@@ -40,8 +40,10 @@ const catalogAnimesQuery = {
           from: (dates_airedOn.from ?? 1800) + "-01-01",
           to: (dates_airedOn.to ?? 2100) + "-01-01",
         },
-        genres_ID:
-          filterInclude.genres_ID.length !== 0 ? filterInclude.genres_ID : null,
+        genres_ID_ONLY:
+          filterInclude.genres_ID_ONLY.length !== 0
+            ? filterInclude.genres_ID_ONLY
+            : null,
         kind:
           filterInclude.kind.length !== 0
             ? filterInclude.kind
@@ -67,9 +69,9 @@ const catalogAnimesQuery = {
                   (item) => !filterExclude.status.includes(item),
                 )
               : null,
-        studios_ID:
-          filterInclude.studios_ID.length !== 0
-            ? filterInclude.studios_ID
+        studios_ID_ONLY:
+          filterInclude.studios_ID_ONLY.length !== 0
+            ? filterInclude.studios_ID_ONLY
             : null,
       },
       sort: {

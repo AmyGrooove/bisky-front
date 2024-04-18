@@ -1,7 +1,7 @@
 const oneAnimeQuery = {
-  label: "$animeQuery: GeneralAnimeQuery",
+  label: "$animeQuery: GeneralAnimeQuery, $isWithoutRelations: Boolean",
   query: `
-    getAnimes(animeQuery: $animeQuery) {
+    getAnimes(animeQuery: $animeQuery, isWithoutRelations: $isWithoutRelations) {
       _id
       dates {
         releasedOn
@@ -116,7 +116,8 @@ const oneAnimeQuery = {
     }
   `,
   variables: (animeId: string) => ({
-    animeQuery: { filter: { _id_ID: [animeId] } },
+    animeQuery: { filter: { _id_ID: [animeId] }, isPaginationOff: true },
+    isWithoutRelations: false,
   }),
 }
 

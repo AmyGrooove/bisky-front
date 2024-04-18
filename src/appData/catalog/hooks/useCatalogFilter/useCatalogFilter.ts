@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useReducer, useState } from "react"
+import { useInView } from "react-intersection-observer"
 
 import { IAnimeFullModel } from "@entities/Anime"
 import { getCatalogAnimes } from "@appData/catalog/api"
@@ -16,21 +17,36 @@ const useCatalogFilter = () => {
     page: 1,
     dates_airedOn: { from: 1000, to: 3000 },
     filterInclude: {
-      genres_ID: [],
+      genres_ID_ONLY: [],
       kind: [],
       rating: [],
       status: [],
-      studios_ID: [],
+      studios_ID_ONLY: [],
     },
     filterExclude: {
-      genres_ID: [],
+      genres_ID_ONLY: [],
       kind: [],
       rating: [],
       status: [],
-      studios_ID: [],
+      studios_ID_ONLY: [],
     },
     sort: "scores",
   })
+
+  const [loadingBlockRef, isLoadingBlockInView] = useInView()
+
+  useEffect(() => {
+    if (isLoadingBlockInView && animesData.length !== 0) {
+      dispatchFilter({
+        type: "changePage",
+        todo: { page: filterState.page + 1 },
+      })
+
+      getCatalogAnimes({ ...filterState, page: filterState.page + 1 }).then(
+        (response) => setAnimesData((prevState) => [...prevState, ...response]),
+      )
+    }
+  }, [isLoadingBlockInView])
 
   useEffect(() => {
     setIsLoading(true)
@@ -45,6 +61,7 @@ const useCatalogFilter = () => {
     animesData,
     filterState,
     updateFilters: dispatchFilter,
+    loadingBlockRef,
   }
 }
 

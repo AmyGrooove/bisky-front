@@ -29,6 +29,7 @@ const bestAnimesQuery = {
     bestAnimesVariables: {
       count: 48,
       sort: { score_count: true, usersList_generalCount: true },
+      isPaginationOff: true,
     },
   },
 }

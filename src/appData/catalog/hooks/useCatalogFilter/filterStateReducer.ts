@@ -2,7 +2,12 @@ import { ICatalogAnimesVariables } from "@entities/Anime"
 
 import { IFilterState } from "./IFilterState"
 
-type filterKeys = "genres_ID" | "kind" | "rating" | "status" | "studios_ID"
+type filterKeys =
+  | "genres_ID_ONLY"
+  | "kind"
+  | "rating"
+  | "status"
+  | "studios_ID_ONLY"
 
 const filterStateReducer = (
   state: ICatalogAnimesVariables,
@@ -63,18 +68,18 @@ const filterStateReducer = (
         page: 1,
         dates_airedOn: { from: 1000, to: 3000 },
         filterInclude: {
-          genres_ID: [],
+          genres_ID_ONLY: [],
           kind: [],
           rating: [],
           status: [],
-          studios_ID: [],
+          studios_ID_ONLY: [],
         },
         filterExclude: {
-          genres_ID: [],
+          genres_ID_ONLY: [],
           kind: [],
           rating: [],
           status: [],
-          studios_ID: [],
+          studios_ID_ONLY: [],
         },
       }
     }

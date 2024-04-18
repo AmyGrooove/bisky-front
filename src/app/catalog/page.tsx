@@ -9,7 +9,7 @@ import { AnimeCard } from "@entities/Anime"
 import { FilterBar } from "@features/FilterBar"
 
 const CatalogPage = () => {
-  const { animesData, isLoading, updateFilters, filterState } =
+  const { animesData, isLoading, updateFilters, filterState, loadingBlockRef } =
     useCatalogFilter()
 
   return (
@@ -21,7 +21,9 @@ const CatalogPage = () => {
           {animesData.map((item) => (
             <AnimeCard key={item._id} anime={item} />
           ))}
-          <AnimesCatalogLoading />
+          <div ref={loadingBlockRef}>
+            <AnimesCatalogLoading />
+          </div>
         </div>
       )}
       <FilterBar updateFilters={updateFilters} filterState={filterState} />
