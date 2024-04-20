@@ -2,7 +2,7 @@ import { EKind, ERating, EStatus } from "@entities/Anime"
 
 interface IFilterType {
   page?: number
-  dates_airedOn?: { from?: number; to?: number }
+  dates_airedOn?: { from?: number | null; to?: number | null }
   filter?: {
     genres_ID_ONLY?: string[]
     kind?: (keyof typeof EKind)[]

@@ -6,8 +6,29 @@
   gap: 4px;
   min-width: 160px;
   max-width: 160px;
-
   position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    z-index: -1;
+    opacity: 0.6;
+
+    border-radius: var(--big-radius);
+
+    @include transition(background-color);
+  }
+
+  &:hover {
+    &::after {
+      background-color: var(--bisky-400);
+    }
+
+    .poster {
+      border-color: var(--bisky-400);
+    }
+  }
 }
 
 .poster {
@@ -15,6 +36,9 @@
   width: 100%;
 
   border-radius: var(--big-radius);
+  border: 2px solid transparent;
+
+  @include transition(border-color);
 }
 
 .posterImage {

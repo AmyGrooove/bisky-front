@@ -44,7 +44,7 @@ const AnimeCardSlider = (props: IAnimeCardSliderProps) => {
           />
         </div>
       )}
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className={cn(st.slider, "keen-slider")}>
         {isTwoRows
           ? sliderItems.map((item) => (
               <div

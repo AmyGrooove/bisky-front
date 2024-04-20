@@ -9,6 +9,13 @@
 
   border-radius: var(--big-radius);
   overflow: hidden;
+  border: 2px solid transparent;
+
+  @include transition(border-color);
+
+  &:hover {
+    border-color: var(--bisky-400);
+  }
 }
 
 .background {

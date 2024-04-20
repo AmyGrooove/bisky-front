@@ -11,7 +11,27 @@
 
 .animesWrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
   width: 712px;
+}
+
+.zeroResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+
+  height: fit-content;
+
+  background-color: var(--dark-200);
+  border-radius: var(--big-radius);
+}
+
+.image {
+  position: relative;
+  top: 12px;
 }

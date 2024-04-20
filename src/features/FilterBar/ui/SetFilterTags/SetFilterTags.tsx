@@ -1,23 +1,18 @@
-import { useState } from "react"
-
-import { ISetFilterTagsProps } from "@features/FilterBar/types/ISetFilterTagsProps"
 import { Badge, InputField } from "@shared/ui/molecules"
 import { cn } from "@shared/utils/functions"
 import { Skeleton } from "@shared/ui/atoms"
 import { CrossIcon } from "@shared/icons"
 
+import { ISetFilterTagsProps } from "../../types/ISetFilterTagsProps"
+
 import st from "./SetFilterTags.module.scss"
+import { useSetFilterTags } from "./useSetFilterTags"
 
 const SetFilterTags = (props: ISetFilterTagsProps) => {
-  const { className, items, isLoading = false, name, ...otherProps } = props
+  const { className, isLoading = false, name, ...otherProps } = props
 
-  const [searchInput, setSearchInput] = useState("")
-
-  const filteredItems = items.filter(
-    (item) => !item.isSelected && new RegExp(searchInput, "i").test(item.label),
-  )
-
-  const filteredSelectedItems = items.filter((item) => item.isSelected)
+  const { searchInput, setSearchInput, filteredSelectedItems, filteredItems } =
+    useSetFilterTags(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

@@ -34,7 +34,7 @@ const filterStateReducer = (
               ],
             }))
 
-      return {
+      const newState = {
         ...state,
         page: 1,
         [filterType]: {
@@ -42,6 +42,14 @@ const filterStateReducer = (
           ...Object.assign({}, ...newFilters),
         },
       }
+
+      const isFilterNotUsed =
+        Object.values(newState.filterInclude).every(
+          (item) => item.length === 0,
+        ) &&
+        Object.values(newState.filterExclude).every((item) => item.length === 0)
+
+      return { ...newState, isFilterNotUsed }
     }
 
     case "changeSort": {
@@ -53,13 +61,19 @@ const filterStateReducer = (
     }
 
     case "changeDate": {
-      return {
+      const newState = {
         ...state,
         dates_airedOn: {
-          from: action.todo.dates_airedOn?.from ?? state.dates_airedOn.from,
-          to: action.todo.dates_airedOn?.to ?? state.dates_airedOn.to,
+          from: action.todo.dates_airedOn?.from ?? null,
+          to: action.todo.dates_airedOn?.to ?? null,
         },
       }
+
+      const isFilterNotUsed =
+        newState.dates_airedOn.from === null &&
+        newState.dates_airedOn.to === null
+
+      return { ...newState, isFilterNotUsed }
     }
 
     case "reset": {
@@ -81,6 +95,7 @@ const filterStateReducer = (
           status: [],
           studios_ID_ONLY: [],
         },
+        isFilterNotUsed: true,
       }
     }
 

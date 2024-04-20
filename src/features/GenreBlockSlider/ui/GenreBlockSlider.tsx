@@ -33,7 +33,7 @@ const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
           })}
         />
       </div>
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className={cn(st.slider, "keen-slider")}>
         {items.map((item) => (
           <GenreBlock
             key={item._id}

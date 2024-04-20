@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer"
 
 import { IAnimeFullModel } from "@entities/Anime"
 import { getCatalogAnimes } from "@appData/catalog/api"
+import { filterStateDefaultValue } from "@appData/catalog"
 
 import { filterStateReducer } from "./filterStateReducer"
 
@@ -13,27 +14,20 @@ const useCatalogFilter = () => {
 
   const [isLoading, setIsLoading] = useState(true)
 
-  const [filterState, dispatchFilter] = useReducer(filterStateReducer, {
-    page: 1,
-    dates_airedOn: { from: 1000, to: 3000 },
-    filterInclude: {
-      genres_ID_ONLY: [],
-      kind: [],
-      rating: [],
-      status: [],
-      studios_ID_ONLY: [],
-    },
-    filterExclude: {
-      genres_ID_ONLY: [],
-      kind: [],
-      rating: [],
-      status: [],
-      studios_ID_ONLY: [],
-    },
-    sort: "scores",
-  })
+  const [filterState, dispatchFilter] = useReducer(
+    filterStateReducer,
+    filterStateDefaultValue,
+  )
 
   const [loadingBlockRef, isLoadingBlockInView] = useInView()
+
+  const fetchNewAnimesData = (isDefault = false) => {
+    setIsLoading(true)
+
+    getCatalogAnimes(isDefault ? filterStateDefaultValue : filterState)
+      .then((response) => setAnimesData(response))
+      .finally(() => setIsLoading(false))
+  }
 
   useEffect(() => {
     if (isLoadingBlockInView && animesData.length !== 0) {
@@ -49,12 +43,8 @@ const useCatalogFilter = () => {
   }, [isLoadingBlockInView])
 
   useEffect(() => {
-    setIsLoading(true)
-
-    getCatalogAnimes(filterState)
-      .then((response) => setAnimesData(response))
-      .finally(() => setIsLoading(false))
-  }, [filterState.filterExclude, filterState.filterInclude])
+    fetchNewAnimesData()
+  }, [])
 
   return {
     isLoading,
@@ -62,6 +52,7 @@ const useCatalogFilter = () => {
     filterState,
     updateFilters: dispatchFilter,
     loadingBlockRef,
+    fetchNewAnimesData,
   }
 }
 

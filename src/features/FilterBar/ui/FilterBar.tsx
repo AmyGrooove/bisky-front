@@ -1,4 +1,6 @@
 import { Button, Collapse } from "@shared/ui/molecules"
+import { Spinner } from "@shared/ui/atoms"
+import { cn } from "@shared/utils/functions"
 
 import { kindCheckboxFilterItems } from "../static/kindCheckboxFilterItems"
 import { ratingCheckboxFilterItems } from "../static/ratingCheckboxFilterItems"
@@ -11,21 +13,35 @@ import { CheckboxFilterGroup } from "./CheckboxFilterGroup/CheckboxFilterGroup"
 import st from "./FilterBar.module.scss"
 import { SetFilterTags } from "./SetFilterTags/SetFilterTags"
 import { useFilterBar } from "./useFilterBar"
+import { DatesBetweenSelector } from "./DatesBetweenSelector/DatesBetweenSelector"
+// import { RadioSortGroup } from "./RadioSortGroup/RadioSortGroup"
 
 const FilterBar = (props: IFilterBarProps) => {
-  const { updateFilters, filterState } = props
+  const {
+    updateFilters,
+    filterState,
+    fetchNewAnimesData,
+    isAnimeFetching = false,
+  } = props
 
   const { studiosData, genresData, isLoading } = useFilterBar()
 
   return (
-    <div className={st.root}>
+    <div
+      className={cn(st.root, {
+        [st.root_cleanButtonOn]: !filterState.isFilterNotUsed,
+      })}
+    >
       <div className={st.mainWrapper}>
+        {/* <Collapse label="Сортировка" isDefaultOpened>
+          <RadioSortGroup />
+        </Collapse> */}
         <Collapse label="Статус" isDefaultOpened>
           <CheckboxFilterGroup
             items={statusCheckboxFilterItems(filterState, updateFilters)}
           />
         </Collapse>
-        <Collapse label="Тип" isDefaultOpened>
+        <Collapse label="Тип">
           <CheckboxFilterGroup
             items={kindCheckboxFilterItems(filterState, updateFilters)}
           />
@@ -33,6 +49,18 @@ const FilterBar = (props: IFilterBarProps) => {
         <Collapse label="Возрастные ограничения">
           <CheckboxFilterGroup
             items={ratingCheckboxFilterItems(filterState, updateFilters)}
+          />
+        </Collapse>
+        <Collapse label="Года выхода">
+          <DatesBetweenSelector
+            changeDates={(from, to) =>
+              updateFilters({
+                type: "changeDate",
+                todo: { dates_airedOn: { from, to } },
+              })
+            }
+            from={filterState.dates_airedOn.from}
+            to={filterState.dates_airedOn.to}
           />
         </Collapse>
         <Collapse label="Жанры">
@@ -59,12 +87,29 @@ const FilterBar = (props: IFilterBarProps) => {
         </Collapse>
       </div>
 
-      <Button
-        onClick={() => updateFilters({ type: "reset", todo: {} })}
-        className={st.resetButton}
-      >
-        Очистить фильтры
-      </Button>
+      <div className={st.buttonsWrapper}>
+        {!filterState.isFilterNotUsed && (
+          <Button
+            disabled={isAnimeFetching}
+            onClick={() => {
+              updateFilters({ type: "reset", todo: {} })
+              fetchNewAnimesData(true)
+            }}
+            leftIcon={isAnimeFetching ? <Spinner color="gray" /> : <></>}
+            className={st.resetButton}
+          >
+            {isAnimeFetching ? "" : "Очистить фильтры"}
+          </Button>
+        )}
+        <Button
+          disabled={filterState.isFilterNotUsed || isAnimeFetching}
+          onClick={() => fetchNewAnimesData()}
+          leftIcon={isAnimeFetching ? <Spinner /> : <></>}
+          className={cn(st.resetButton, st.resetButton_submit)}
+        >
+          {isAnimeFetching ? "" : "Применить фильтры"}
+        </Button>
+      </div>
     </div>
   )
 }

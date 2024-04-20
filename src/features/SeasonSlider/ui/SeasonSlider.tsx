@@ -26,7 +26,7 @@ const SeasonSlider = (props: ISeasonSliderProps) => {
           className={st.arrow}
         />
       </div>
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className={cn(st.slider, "keen-slider")}>
         {items.map((item) => (
           <Season
             key={item._id + "Season"}

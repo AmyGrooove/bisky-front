@@ -2,7 +2,7 @@ import { EStatus, ERating, EKind } from "@entities/Anime"
 
 interface ICatalogAnimesVariables {
   page: number
-  dates_airedOn: { from: number; to: number }
+  dates_airedOn: { from: number | null; to: number | null }
   filterInclude: {
     genres_ID_ONLY: string[]
     kind: (keyof typeof EKind)[]
@@ -18,6 +18,7 @@ interface ICatalogAnimesVariables {
     studios_ID_ONLY: string[]
   }
   sort: "scores" | "dates"
+  isFilterNotUsed: boolean
 }
 
 export type { ICatalogAnimesVariables }

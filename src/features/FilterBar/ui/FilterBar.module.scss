@@ -3,7 +3,7 @@
 .root {
   width: 344px;
   height: fit-content;
-  padding: 12px 0px 66px 16px;
+  padding: 12px 0px 68px 16px;
 
   background-color: var(--dark-300);
   border-radius: var(--big-radius);
@@ -15,12 +15,16 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  &_cleanButtonOn {
+    padding: 12px 0px 112px 16px;
+  }
 }
 
 .mainWrapper {
   width: 100%;
   height: fit-content;
-  max-height: 900px;
+  max-height: 600px;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -42,9 +46,25 @@
   }
 }
 
-.resetButton {
+.buttonsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   position: absolute;
   bottom: 12px;
+}
+
+.resetButton {
+  width: calc(100% - 32px) !important;
   justify-content: center;
-  width: calc(100% - 32px);
+  background-color: var(--dark-100) !important;
+
+  &_submit {
+    background-color: var(--bisky-300) !important;
+
+    &:disabled {
+      background-color: var(--light-400) !important;
+    }
+  }
 }

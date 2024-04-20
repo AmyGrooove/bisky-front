@@ -7,3 +7,5 @@ export { useCatalogFilter } from "./hooks/useCatalogFilter/useCatalogFilter"
 export type { IFilterState } from "./hooks/useCatalogFilter/IFilterState"
 
 export { AnimesCatalogLoading } from "./ui/AnimesCatalogLoading"
+
+export { filterStateDefaultValue } from "./static/filterStateDefaultValue"
