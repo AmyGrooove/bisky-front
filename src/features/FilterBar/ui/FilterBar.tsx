@@ -8,13 +8,14 @@ import { statusCheckboxFilterItems } from "../static/statusCheckboxFilterItems"
 import { IFilterBarProps } from "../types/IFilterBarProps"
 import { studioSetFilterTagsItems } from "../static/studioSetFilterTagsItems"
 import { genresSetFilterTagsItems } from "../static/genresSetFilterTagsItems"
+import { sortRadioboxItems } from "../static/sortRadioboxItems"
 
 import { CheckboxFilterGroup } from "./CheckboxFilterGroup/CheckboxFilterGroup"
 import st from "./FilterBar.module.scss"
 import { SetFilterTags } from "./SetFilterTags/SetFilterTags"
 import { useFilterBar } from "./useFilterBar"
 import { DatesBetweenSelector } from "./DatesBetweenSelector/DatesBetweenSelector"
-// import { RadioSortGroup } from "./RadioSortGroup/RadioSortGroup"
+import { RadioSortGroup } from "./RadioSortGroup/RadioSortGroup"
 
 const FilterBar = (props: IFilterBarProps) => {
   const {
@@ -33,9 +34,12 @@ const FilterBar = (props: IFilterBarProps) => {
       })}
     >
       <div className={st.mainWrapper}>
-        {/* <Collapse label="Сортировка" isDefaultOpened>
-          <RadioSortGroup />
-        </Collapse> */}
+        <Collapse label="Сортировка" isDefaultOpened>
+          <RadioSortGroup
+            items={sortRadioboxItems(updateFilters)}
+            checkedItem={filterState.sort}
+          />
+        </Collapse>
         <Collapse label="Статус" isDefaultOpened>
           <CheckboxFilterGroup
             items={statusCheckboxFilterItems(filterState, updateFilters)}

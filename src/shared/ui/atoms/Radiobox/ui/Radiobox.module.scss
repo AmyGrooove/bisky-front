@@ -36,7 +36,7 @@
     @include transition(background-color);
   }
 
-  &:has(.input:checked)::after {
+  &:has(.input:checked) {
     border-color: var(--bisky-200);
 
     &::after {
@@ -50,10 +50,10 @@
     cursor: default;
 
     &:has(.input:checked) {
-      border-color: var(--bisky-200);
+      border-color: var(--light-400);
 
       &::after {
-        background-color: var(--bisky-200);
+        background-color: var(--light-400);
       }
     }
 

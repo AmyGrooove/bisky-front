@@ -1,4 +1,27 @@
 @import "@shared/styles/reusable.scss";
 
 .root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding: 4px;
+  background-color: var(--dark-200);
+  border-radius: var(--small-radius);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--small-radius);
+
+  @include transition(background-color);
+
+  &_checked {
+    background-color: var(--bisky-420);
+  }
 }

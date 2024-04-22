@@ -1,5 +1,14 @@
 import { HTMLAttributes } from "react"
 
-interface IRadioSortGroupProps extends HTMLAttributes<HTMLDivElement> {}
+interface IRadioboxItem {
+  label: string
+  value: string
+  setSortValue: () => void
+}
+
+interface IRadioSortGroupProps extends HTMLAttributes<HTMLDivElement> {
+  items: IRadioboxItem[]
+  checkedItem: string
+}
 
 export type { IRadioSortGroupProps }

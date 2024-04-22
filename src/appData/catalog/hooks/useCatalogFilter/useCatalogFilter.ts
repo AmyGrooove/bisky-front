@@ -44,7 +44,7 @@ const useCatalogFilter = () => {
 
   useEffect(() => {
     fetchNewAnimesData()
-  }, [])
+  }, [filterState.sort])
 
   return {
     isLoading,
