@@ -5,7 +5,7 @@ import { cookies } from "next/headers"
 import { API_URL } from "@shared/constants"
 import { IUserPublicModel } from "@entities/User"
 
-const getCurrentUserData = async (): Promise<IUserPublicModel> => {
+const getWhoamiData = async (): Promise<IUserPublicModel> => {
   const result = await fetch(API_URL + "/api/auth/whoami", {
     method: "GET",
     headers: {
@@ -21,4 +21,4 @@ const getCurrentUserData = async (): Promise<IUserPublicModel> => {
   return result.json()
 }
 
-export { getCurrentUserData }
+export { getWhoamiData }

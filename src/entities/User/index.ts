@@ -5,3 +5,4 @@ export { ERole } from "./enums/ERole"
 
 export { currentUserAnimesQuery } from "./graphQL/currentUserAnimesQuery"
 export { currentUserAnimeEstimateQuery } from "./graphQL/currentUserAnimeEstimateQuery/currentUserAnimeEstimateQuery"
+export { currentUserDataQuery } from "./graphQL/currentUserDataQuery"
