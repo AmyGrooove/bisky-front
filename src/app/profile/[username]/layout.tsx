@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { APP_URL } from "@shared/constants"
-import { IProfileLayoutProps } from "@appData/profilePage"
-import { getCurrentUserData } from "@appData/profilePage/api"
+import { IProfileLayoutProps } from "@appData/profile"
+import { getCurrentUserData } from "@appData/profile/api"
 
 export async function generateMetadata(
   props: IProfileLayoutProps,

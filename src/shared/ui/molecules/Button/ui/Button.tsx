@@ -20,7 +20,9 @@ const Button = (props: IButtonProps) => {
     >
       {leftIcon &&
         cloneElement(leftIcon, {
-          className: cn(st.icon, { [st.icon_only]: !children }),
+          className: cn(st.icon, leftIcon.props.className, {
+            [st.icon_only]: !children,
+          }),
         })}
       {children && (
         <Text weight="700" {...textProps}>
@@ -29,7 +31,9 @@ const Button = (props: IButtonProps) => {
       )}
       {rightIcon &&
         cloneElement(rightIcon, {
-          className: cn(st.icon, { [st.icon_only]: !children }),
+          className: cn(st.icon, rightIcon.props.className, {
+            [st.icon_only]: !children,
+          }),
         })}
     </button>
   )

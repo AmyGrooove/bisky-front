@@ -38,6 +38,7 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
 
   useEffect(() => {
     setIsLoaded(false)
+    setIsClose(false)
   }, [src])
 
   useEffect(() => {

@@ -18,6 +18,7 @@ $light-100: #f8f8f8;
 $light-200: #eef0eb;
 $light-300: #e0e1dd;
 $light-400: #a4a4a4;
+$light-440: #a3a3a366;
 
 $blue: #4f91e8;
 $green: #4a884d;
@@ -48,6 +49,7 @@ $red-200: #7a0000;
   --light-200: #{$light-200};
   --light-300: #{$light-300};
   --light-400: #{$light-400};
+  --light-440: #{$light-440};
 
   --blue: #{$blue};
   --green: #{$green};

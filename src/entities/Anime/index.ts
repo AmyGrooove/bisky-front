@@ -1,5 +1,6 @@
 export { AnimeCard } from "./ui/AnimeCard"
 export { Season } from "./ui/Season"
+export { AnimeMiniInfo } from "./ui/AnimeMiniInfo"
 
 export type { IAnimeModel } from "./types/IAnimeModel/IAnimeModel"
 export type { IAnimeFullModel } from "./types/IAnimeModel/IAnimeFullModel"
@@ -12,9 +13,11 @@ export { EStatus } from "./enums/EStatus"
 export { getNormalKind } from "./functions/getNormalKind"
 export { getNormalRating } from "./functions/getNormalRating"
 export { getNormalStatus } from "./functions/getNormalStatus"
+export { getSeasonName } from "./functions/getSeasonName"
 
 export { bestAnimesQuery } from "./graphQL/bestAnimesQuery"
 export { newSeriesAnimesQuery } from "./graphQL/newSeriesAnimesQuery"
+export { fastFindAnimesQuery } from "./graphQL/fastFindAnimesQuery"
 export { oneAnimeQuery } from "./graphQL/oneAnimeQuery"
 export { seasonAnimesQuery } from "./graphQL/seasonAnimesQuery"
 export { catalogAnimesQuery } from "./graphQL/catalogAnimesQuery/catalogAnimesQuery"

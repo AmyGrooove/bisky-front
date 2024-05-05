@@ -6,6 +6,7 @@ enum EListStatus {
 
   setWatch = "setWatch",
   cancel = "cancel",
+  skipped = "skipped",
 }
 
 export { EListStatus }

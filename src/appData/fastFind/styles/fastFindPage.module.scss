@@ -1,0 +1,64 @@
+@import "@shared/styles/reusable.scss";
+
+@keyframes invoke {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.root {
+  max-width: var(--lg);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+
+.label {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 680px;
+
+  animation: invoke 0.2s ease-in-out;
+}
+
+.newListWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  background-color: var(--dark-200);
+  padding: 20px;
+  border-radius: var(--big-radius);
+
+  animation: invoke 0.2s ease-in-out;
+}
+
+.goNextOptions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.optionButton {
+  width: 200px !important;
+
+  justify-content: center;
+}

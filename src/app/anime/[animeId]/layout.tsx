@@ -1,9 +1,9 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-import { IAnimeLayoutProps } from "@appData/animePage"
+import { IAnimeLayoutProps } from "@appData/anime"
 import { APP_URL } from "@shared/constants"
-import { getCurrentAnimeData } from "@appData/animePage/api"
+import { getCurrentAnimeData } from "@appData/anime/api"
 
 export async function generateMetadata(
   props: IAnimeLayoutProps,
@@ -20,7 +20,7 @@ export async function generateMetadata(
     openGraph: {
       title: (animeData.labels?.ru ?? "") + " | Bisky — Смотреть Аниме",
       description: animeData.description?.ru ?? "",
-      url: `${APP_URL}/${animeData._id}`,
+      url: `${APP_URL}/anime/${animeData._id}`,
       images: animeData.screenshots,
     },
   }

@@ -3,8 +3,9 @@ import { getOneRandomFact, FactBlock } from "@entities/Fact"
 import { SeasonSlider } from "@features/SeasonSlider"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { GenreBlockSlider } from "@features/GenreBlockSlider"
-import { UserAnimeSlider, homeStyles as st } from "@appData/home"
+import { FastPageBlock, UserAnimeSlider, homeStyles as st } from "@appData/home"
 import { getHomeData } from "@appData/home/api"
+import { Text } from "@shared/ui/atoms"
 
 const Home = async () => {
   const homeData = await getHomeData()
@@ -24,6 +25,7 @@ const Home = async () => {
         />
         <AnimeCardSlider items={homeData.newSeriesAnimes} isCatalogSliderOn />
       </div>
+      <FastPageBlock />
       <div className={st.row}>
         <LinkLabel
           label="Самое популярное"
@@ -37,7 +39,9 @@ const Home = async () => {
         />
       </div>
       <div className={st.row}>
-        <LinkLabel label="Жанры" linkText="Смотреть все" href="/catalog" />
+        <Text size="28" weight="700">
+          Популярные жанры
+        </Text>
         <GenreBlockSlider items={homeData.homeGenres} isCatalogSliderOn />
       </div>
       <FactBlock fact={fact} />

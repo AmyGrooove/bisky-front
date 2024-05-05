@@ -37,7 +37,11 @@ const authOptions: NextAuthOptions = {
     async jwt({ token, user: response }) {
       if (response) return { ...token, ...(response as any) }
 
-      if (new Date(Number(token.exp) * 1000) < new Date()) await refreshTokens()
+      if (new Date(Number(token.exp) * 1000) < new Date()) {
+        const data = await refreshTokens()
+
+        return { ...token, ...data }
+      }
 
       return token
     },

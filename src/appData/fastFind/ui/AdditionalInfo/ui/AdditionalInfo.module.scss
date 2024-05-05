@@ -1,0 +1,67 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.subInfo {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infoText {
+  max-width: 400px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.status {
+  &_anons {
+    color: var(--orange);
+  }
+
+  &_ongoing {
+    color: var(--blue);
+  }
+
+  &_released {
+    color: var(--green);
+  }
+}
+
+.miniInfoButton {
+  background-color: transparent !important  ;
+  opacity: 0.8;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+
+  &:active {
+    background-color: transparent !important;
+  }
+}
+
+.rating {
+  opacity: 0.8;
+  color: var(--dark-400);
+  background-color: var(--light-100);
+}

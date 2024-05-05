@@ -15,6 +15,7 @@ const getIconFromWatchStatus = (status: keyof typeof EListStatus) =>
     [EListStatus.watching]: <PlayIcon />,
     [EListStatus.dropped]: <TrashIcon />,
     [EListStatus.cancel]: <CrossIcon />,
+    [EListStatus.skipped]: <CrossIcon />,
   })[status]
 
 export { getIconFromWatchStatus }

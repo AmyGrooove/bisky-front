@@ -2,11 +2,12 @@ import {
   AdditionalInfo,
   AnimeHeader,
   IAnimePageProps,
+  PlayerModule,
   ScreenshotSlider,
   VideoSlider,
   animePageStyles as st,
-} from "@appData/animePage"
-import { getCurrentAnimeData } from "@appData/animePage/api"
+} from "@appData/anime"
+import { getCurrentAnimeData } from "@appData/anime/api"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { Text } from "@shared/ui/atoms"
 import { LinkLabel } from "@shared/ui/molecules"
@@ -26,13 +27,7 @@ const AnimePage = async (props: IAnimePageProps) => {
       {animeData.description?.ru !== null && (
         <OversizeText size="16">{animeData.description?.ru ?? ""}</OversizeText>
       )}
-      <div
-        style={{
-          width: "100%",
-          height: "562px",
-          backgroundColor: "var(--dark-100)",
-        }}
-      />
+      <PlayerModule />
       {animeData.related?.filter((item) => !!item.base).length !== 0 && (
         <div className={st.row}>
           {animeData.franchise ? (

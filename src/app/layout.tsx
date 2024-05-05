@@ -2,9 +2,9 @@ import { Ubuntu } from "next/font/google"
 import { Viewport } from "next"
 
 import { META_DATA } from "@shared/constants"
-import "@shared/styles/global.scss"
 import { Header } from "@features/Header"
 import "keen-slider/keen-slider.min.css"
+import "@shared/styles/global.scss"
 import { Footer } from "@features/Footer"
 import {
   IMainLayoutProps,

@@ -1,5 +1,5 @@
-import { IProfilePageProps, profileStyles as st } from "@appData/profilePage"
-import { getCurrentUserData } from "@appData/profilePage/api"
+import { IProfilePageProps, profileStyles as st } from "@appData/profile"
+import { getCurrentUserData } from "@appData/profile/api"
 
 const ProfilePage = async (props: IProfilePageProps) => {
   const {

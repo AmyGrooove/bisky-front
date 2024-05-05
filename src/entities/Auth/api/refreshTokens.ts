@@ -4,7 +4,10 @@ import { cookies } from "next/headers"
 
 import { API_URL, IS_DEVELOPMENT } from "@shared/constants"
 
-const refreshTokens = async (): Promise<true> => {
+const refreshTokens = async (): Promise<{
+  accessToken: string
+  refreshToken: string
+}> => {
   const result = await fetch(API_URL + "/api/auth/refresh", {
     method: "PATCH",
     headers: {
@@ -36,7 +39,10 @@ const refreshTokens = async (): Promise<true> => {
     sameSite: "lax",
   })
 
-  return true
+  return {
+    accessToken: parsedResult.accessToken,
+    refreshToken: parsedResult.refreshToken,
+  }
 }
 
 export { refreshTokens }

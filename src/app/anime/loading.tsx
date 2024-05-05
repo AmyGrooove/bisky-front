@@ -1,4 +1,4 @@
-import { animePageLoadingStyles as st } from "@appData/animePage"
+import { animePageLoadingStyles as st } from "@appData/anime"
 import { Skeleton } from "@shared/ui/atoms"
 
 const LoadingAnime = () => (

@@ -1,3 +1,5 @@
 export { addUpdateAnimeFromList } from "./addUpdateAnimeFromList/addUpdateAnimeFromList"
 export { removeAnimeFromList } from "./removeAnimeFromList/removeAnimeFromList"
 export { updateAnimeScoreInList } from "./updateAnimeScoreInList/updateAnimeScoreInList"
+export { addAnimeInSkipList } from "./addAnimeInSkipList/addAnimeInSkipList"
+export { removeAnimeFromSkipList } from "./removeAnimeFromSkipList/removeAnimeFromSkipList"

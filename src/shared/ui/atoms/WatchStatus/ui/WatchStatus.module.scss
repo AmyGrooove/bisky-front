@@ -11,7 +11,7 @@
   cursor: pointer;
   border-radius: var(--small-radius);
 
-  @include transition((background-color, scale), (0.25s, 0.1s));
+  @include transition((background-color, scale, opacity), (0.25s, 0.1s, 0.25s));
 
   &:active {
     scale: 0.9;
@@ -38,8 +38,17 @@
     background-color: var(--gray);
   }
 
-  &:disabled:active {
-    scale: 1;
+  &_skipped {
+    background-color: var(--light-400);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+
+    &:active {
+      scale: 1;
+    }
   }
 }
 
