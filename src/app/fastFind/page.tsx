@@ -4,6 +4,7 @@ import Link from "next/link"
 
 import {
   AdditionalInfo,
+  ErrorPage,
   LeftSideLoading,
   SelectionBlock,
   useFastFindPage,
@@ -25,9 +26,12 @@ const FastFindPage = () => {
     setCurrentAnime,
     isChangingAnime,
     getNewAnimes,
+    isSessionValid,
   } = useFastFindPage()
 
-  return isLoading ? (
+  return !isSessionValid ? (
+    <ErrorPage />
+  ) : isLoading ? (
     <FastFindLoading />
   ) : fastFindCount === 0 && !isChangingAnime ? (
     <div className={st.root}>

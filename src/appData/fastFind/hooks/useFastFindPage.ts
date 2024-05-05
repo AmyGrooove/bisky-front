@@ -16,10 +16,8 @@ const useFastFindPage = () => {
   const [currentAnime, setCurrentAnime] = useState(0)
 
   const getNewAnimes = (isRefresh = false) => {
-    if (session === null) {
-      setAnimesData([])
-      throw new Error()
-    } else {
+    if (session === null) setAnimesData([])
+    else {
       setIsLoading(true)
       if (isRefresh) setCurrentAnime(0)
 
@@ -43,6 +41,7 @@ const useFastFindPage = () => {
     setCurrentAnime,
     setIsChangingAnime,
     isChangingAnime,
+    isSessionValid: session !== null,
   }
 }
 

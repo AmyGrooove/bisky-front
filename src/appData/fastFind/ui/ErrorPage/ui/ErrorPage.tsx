@@ -1,21 +1,12 @@
-"use client"
-
-import Image from "next/image"
-import { useContext } from "react"
-import { useSession } from "next-auth/react"
-import { redirect } from "next/navigation"
-
 import { Text } from "@shared/ui/atoms"
-import { fastFindErrorStyles as st } from "@appData/fastFind"
 import { AuthBlock } from "@widgets/AuthBlock"
 import { ModalContext } from "@widgets/ModalProvider"
+import Image from "next/image"
+import { useContext } from "react"
+import st from "./ErrorPage.module.scss"
 
-const FastFindError = () => {
-  const { data: session } = useSession()
-
+const ErrorPage = () => {
   const { setModal } = useContext(ModalContext)
-
-  if (session !== null) redirect("/fastFind")
 
   return (
     <div className={st.root}>
@@ -46,4 +37,4 @@ const FastFindError = () => {
   )
 }
 
-export default FastFindError
+export { ErrorPage }
