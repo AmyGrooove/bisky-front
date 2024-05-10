@@ -6,6 +6,12 @@
 
 .slider {
   cursor: grab;
+  border-radius: var(--small-radius);
+}
+
+.slide {
+  max-width: 1080px;
+  min-width: 1080px;
 }
 
 .arrowWrapper {

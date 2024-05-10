@@ -38,7 +38,7 @@ const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
           <GenreBlock
             key={item._id}
             genre={item}
-            className="keen-slider__slide"
+            className={cn(st.slide, "keen-slider__slide")}
           />
         ))}
         {isCatalogSliderOn && (

@@ -55,7 +55,12 @@ const Header = (props: IHeaderProps) => {
             rightIcon={<SearchIcon className={st.searchIcon} />}
             className={st.searchButton}
             onClick={() => setModal(<></>)}
-            textProps={{ weight: "400", size: "20", className: st.searchText }}
+            textProps={{
+              weight: "400",
+              size: "20",
+              isDefaultColor: false,
+              className: st.searchText,
+            }}
           >
             Поиск
           </Button>

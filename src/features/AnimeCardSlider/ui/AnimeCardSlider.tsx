@@ -21,25 +21,27 @@ const AnimeCardSlider = (props: IAnimeCardSliderProps) => {
     ...otherProps
   } = props
 
-  const { instanceRef, currentSlide, sliderRef, sliderItems } =
-    useAnimeCardSlider(props)
+  const { instanceRef, sliderRef, sliderItems } = useAnimeCardSlider(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>
-      {items.length > 6 && (
+      {instanceRef && (
         <div className={st.arrowWrapper}>
           <ArrowIcon
             onClick={() => instanceRef.current?.prev()}
             className={cn(st.arrow, {
-              [st.arrow_disabled]: currentSlide === 0,
+              [st.arrow_disabled]:
+                (instanceRef.current?.track.details.slides[1]?.portion ?? 1) ===
+                1,
             })}
           />
           <ArrowIcon
             onClick={() => instanceRef.current?.next()}
             className={cn(st.arrow, {
               [st.arrow_disabled]:
-                currentSlide ===
-                (instanceRef.current?.track.details.slides.length ?? 0) - 6,
+                (instanceRef.current?.track.details.slides[
+                  (instanceRef.current?.track.details.slides.length ?? 1) - 1
+                ].portion ?? 0) > 0,
             })}
           />
         </div>

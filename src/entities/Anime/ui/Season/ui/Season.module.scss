@@ -7,14 +7,19 @@
   width: 1080px;
   height: 380px;
 
+  box-sizing: border-box;
   border-radius: var(--big-radius);
   overflow: hidden;
   border: 2px solid transparent;
 
-  @include transition(border-color);
+  @include transition((border-color, opacity));
 
   &:hover {
     border-color: var(--bisky-400);
+  }
+
+  &_disabled {
+    opacity: 0.4;
   }
 }
 

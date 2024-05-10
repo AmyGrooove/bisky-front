@@ -43,7 +43,7 @@
 }
 
 .searchButton {
-  width: 140px !important;
+  width: 160px !important;
   justify-content: space-between;
 
   background-color: var(--dark-100) !important;
@@ -69,4 +69,10 @@
   height: 40px;
 
   border-radius: var(--full-radius);
+}
+
+@media screen and (max-width: $fullHD) {
+  .logoText {
+    font-size: 38px;
+  }
 }

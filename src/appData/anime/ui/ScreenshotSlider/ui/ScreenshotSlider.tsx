@@ -24,7 +24,7 @@ const ScreenshotSlider = (props: IScreenshotSliderProps) => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const [sliderRef, instanceRef] = useKeenSlider({
-    slides: { perView: 2, spacing: 24 },
+    slides: { perView: "auto", spacing: 24 },
     drag: true,
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel)

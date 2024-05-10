@@ -1,5 +1,9 @@
-$lg: 1080px;
+$HD: 1280px;
+$fullHD: 1920px;
+$QHD: 2560px;
 
-.containers {
-  --lg: #{$lg};
+.desktopContainers {
+  --HD: #{$HD};
+  --fullHD: #{$fullHD};
+  --QHD: #{$QHD};
 }

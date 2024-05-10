@@ -6,6 +6,12 @@
 
 .slider {
   cursor: grab;
+  border-radius: var(--small-radius);
+}
+
+.slide {
+  max-width: 344px;
+  min-width: 344px;
 }
 
 .arrowWrapper {
@@ -37,7 +43,8 @@
 }
 
 .catalogSlide {
-  width: 344px;
+  max-width: 344px;
+  min-width: 344px;
   height: 160px;
 
   display: flex;
@@ -48,12 +55,18 @@
 
   cursor: pointer;
   border-radius: var(--big-radius);
-  background-color: var(--bisky-400);
+  border: 2px solid var(--bisky-400);
+
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--bisky-400);
+  }
 }
 
 .catalogIcon {
-  width: 64px;
-  height: 64px;
+  width: 32px;
+  height: 32px;
 
   rotate: (180deg);
 }

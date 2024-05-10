@@ -19,12 +19,9 @@ const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
     <div {...otherProps} className={cn(st.row, className)}>
       <Skeleton className={st.rowLabel} />
       <div className={st.rowSlider}>
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
+        {[...Array(10)].map((_, index) => (
+          <Skeleton key={index + "userSlide"} templates="posterCard" />
+        ))}
       </div>
     </div>
   ) : userAnimeData && userAnimeData.length !== 0 ? (

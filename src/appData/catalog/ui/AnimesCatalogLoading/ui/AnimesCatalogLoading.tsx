@@ -16,6 +16,9 @@ const AnimesCatalogLoading = () => (
     <Skeleton templates="posterCard" />
     <Skeleton templates="posterCard" />
     <Skeleton templates="posterCard" />
+    <Skeleton templates="posterCard" />
+    <Skeleton templates="posterCard" />
+    <Skeleton templates="posterCard" />
   </div>
 )
 

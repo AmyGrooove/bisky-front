@@ -33,7 +33,7 @@ const catalogAnimesQuery = {
     const { page, dates_airedOn, filterInclude, filterExclude, sort } = props
 
     const newQuery = {
-      count: 32,
+      count: 35,
       page,
       filter: {
         dates_airedOn: {

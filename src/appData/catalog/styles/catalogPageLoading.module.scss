@@ -1,7 +1,7 @@
 @import "@shared/styles/reusable.scss";
 
 .root {
-  max-width: var(--lg);
+  max-width: var(--fullHD);
   width: 100%;
 
   display: flex;
@@ -13,10 +13,16 @@
   flex-wrap: wrap;
   gap: 24px;
 
-  width: 712px;
+  width: 100%;
 }
 
 .filterBar {
   width: 344px;
   height: 600px;
+}
+
+@media screen and (max-width: $fullHD) {
+  .root {
+    max-width: calc(var(--HD) - 16px);
+  }
 }

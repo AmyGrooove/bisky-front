@@ -17,6 +17,7 @@ const Home = async () => {
         <SeasonSlider items={homeData.seasonAnimes} className={st.sliders} />
       </div>
       <UserAnimeSlider />
+      <FastPageBlock />
       <div className={st.row}>
         <LinkLabel
           label="Новые серии"
@@ -25,7 +26,6 @@ const Home = async () => {
         />
         <AnimeCardSlider items={homeData.newSeriesAnimes} isCatalogSliderOn />
       </div>
-      <FastPageBlock />
       <div className={st.row}>
         <LinkLabel
           label="Самое популярное"

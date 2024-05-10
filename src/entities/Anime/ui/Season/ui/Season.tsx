@@ -13,7 +13,7 @@ import st from "./Season.module.scss"
 import { useSeason } from "./useSeason"
 
 const Season = (props: ISeasonProps) => {
-  const { anime, className, ...otherProps } = props
+  const { isDisabled = false, anime, className, ...otherProps } = props
 
   const { isNextImageShow, backgroundImage1, backgroundImage2 } =
     useSeason(props)
@@ -22,7 +22,7 @@ const Season = (props: ISeasonProps) => {
     <Link
       {...otherProps}
       href={`anime/${anime._id}`}
-      className={cn(st.root, className)}
+      className={cn(st.root, className, { [st.root_disabled]: isDisabled })}
     >
       <div className={st.mainContent}>
         <PlaceholderImage

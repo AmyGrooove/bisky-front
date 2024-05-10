@@ -30,7 +30,7 @@ const CatalogPage = () => {
           {animesData.map((item) => (
             <AnimeCard key={item._id} anime={item} />
           ))}
-          {animesData.length % 32 === 0 && animesData.length !== 0 && (
+          {animesData.length % 35 === 0 && animesData.length !== 0 && (
             <div ref={loadingBlockRef}>
               <AnimesCatalogLoading />
             </div>

@@ -48,6 +48,9 @@
   border-radius: var(--big-radius);
   background-color: var(--dark-460);
 
+  min-width: 516px;
+  max-width: 516px;
+
   &:hover .videoTitle {
     border-color: var(--bisky-300);
   }

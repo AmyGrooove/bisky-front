@@ -12,7 +12,7 @@ import { useSeasonSlider } from "./useSeasonSlider"
 const SeasonSlider = (props: ISeasonSliderProps) => {
   const { items, className, ...otherProps } = props
 
-  const { instanceRef, sliderRef } = useSeasonSlider()
+  const { instanceRef, sliderRef, currentSlide } = useSeasonSlider()
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>
@@ -27,11 +27,12 @@ const SeasonSlider = (props: ISeasonSliderProps) => {
         />
       </div>
       <div ref={sliderRef} className={cn(st.slider, "keen-slider")}>
-        {items.map((item) => (
+        {items.map((item, index) => (
           <Season
+            isDisabled={currentSlide !== index}
             key={item._id + "Season"}
             anime={item}
-            className="keen-slider__slide"
+            className={cn(st.slide, "keen-slider__slide")}
           />
         ))}
       </div>

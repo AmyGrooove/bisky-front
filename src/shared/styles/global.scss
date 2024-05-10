@@ -21,7 +21,7 @@ html {
   display: flex;
   min-height: 100%;
 
-  @extend .colors, .borders, .containers;
+  @extend .colors, .borders, .desktopContainers;
 }
 
 body {

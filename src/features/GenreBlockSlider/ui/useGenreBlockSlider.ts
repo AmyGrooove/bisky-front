@@ -6,7 +6,7 @@ const useGenreBlockSlider = () => {
 
   const [sliderRef, instanceRef] = useKeenSlider({
     slides: {
-      perView: 3,
+      perView: "auto",
       spacing: 24,
     },
     slideChanged(slider) {

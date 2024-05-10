@@ -1,11 +1,17 @@
 import { useKeenSlider } from "keen-slider/react"
+import { useState } from "react"
 
 const useSeasonSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
   const [sliderRef, instanceRef] = useKeenSlider(
     {
-      slides: { origin: "center", spacing: 20 },
+      slides: { perView: "auto", origin: "center", spacing: 20 },
       loop: true,
       drag: true,
+      slideChanged(slider) {
+        setCurrentSlide(slider.track.details.rel)
+      },
     },
     [
       (slider) => {
@@ -42,7 +48,7 @@ const useSeasonSlider = () => {
     ],
   )
 
-  return { sliderRef, instanceRef }
+  return { sliderRef, instanceRef, currentSlide }
 }
 
 export { useSeasonSlider }

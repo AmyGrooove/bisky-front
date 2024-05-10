@@ -3,53 +3,37 @@ import { homeLoadingStyles as st } from "@appData/home"
 
 const HomeLoading = () => (
   <div className={st.root}>
-    <Skeleton className={st.season} />
+    <div className={st.seasonSlider}>
+      <Skeleton className={st.season} />
+      <Skeleton className={st.season} />
+      <Skeleton className={st.season} />
+    </div>
     <div className={st.row}>
       <Skeleton className={st.rowLabel} />
       <div className={st.rowSlider}>
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
-        <Skeleton templates="posterCard" />
+        {[...Array(10)].map((_, index) => (
+          <Skeleton key={index + "newSeries"} templates="posterCard" />
+        ))}
+      </div>
+    </div>
+    <Skeleton className={st.fastFind} />
+    <div className={st.row}>
+      <Skeleton className={st.rowLabel} />
+      <div className={st.rowSlider}>
+        {[...Array(10)].map((_, index) => (
+          <div key={index + "best"} className={st.rowTwoColumn}>
+            <Skeleton templates="posterCard" />
+            <Skeleton templates="posterCard" />
+          </div>
+        ))}
       </div>
     </div>
     <div className={st.row}>
       <Skeleton className={st.rowLabel} />
       <div className={st.rowSlider}>
-        <div className={st.rowTwoColumn}>
-          <Skeleton templates="posterCard" />
-          <Skeleton templates="posterCard" />
-        </div>
-        <div className={st.rowTwoColumn}>
-          <Skeleton templates="posterCard" />
-          <Skeleton templates="posterCard" />
-        </div>
-        <div className={st.rowTwoColumn}>
-          <Skeleton templates="posterCard" />
-          <Skeleton templates="posterCard" />
-        </div>
-        <div className={st.rowTwoColumn}>
-          <Skeleton templates="posterCard" />
-          <Skeleton templates="posterCard" />
-        </div>
-        <div className={st.rowTwoColumn}>
-          <Skeleton templates="posterCard" />
-          <Skeleton templates="posterCard" />
-        </div>
-        <div className={st.rowTwoColumn}>
-          <Skeleton templates="posterCard" />
-          <Skeleton templates="posterCard" />
-        </div>
-      </div>
-    </div>
-    <div className={st.row}>
-      <Skeleton className={st.rowLabel} />
-      <div className={st.rowSlider}>
-        <Skeleton className={st.genreCard} />
-        <Skeleton className={st.genreCard} />
-        <Skeleton className={st.genreCard} />
+        {[...Array(5)].map((_, index) => (
+          <Skeleton key={index + "genre"} className={st.genreCard} />
+        ))}
       </div>
     </div>
     <Skeleton className={st.factCard} />

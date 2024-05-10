@@ -6,6 +6,7 @@
 
 .slider {
   cursor: grab;
+  border-radius: var(--small-radius);
 }
 
 .arrowWrapper {
@@ -44,7 +45,8 @@
 }
 
 .catalogSlide {
-  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
   height: 256px;
 
   display: flex;
@@ -55,7 +57,13 @@
 
   cursor: pointer;
   border-radius: var(--big-radius);
-  background-color: var(--bisky-400);
+  border: 2px solid var(--bisky-400);
+
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--bisky-400);
+  }
 
   &_twoRows {
     margin: auto 0px;
@@ -63,8 +71,8 @@
 }
 
 .catalogIcon {
-  width: 64px;
-  height: 64px;
+  width: 32px;
+  height: 32px;
 
   rotate: (180deg);
 }
