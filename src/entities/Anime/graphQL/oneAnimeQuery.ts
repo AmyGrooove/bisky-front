@@ -3,6 +3,7 @@ const oneAnimeQuery = {
   query: `
     getAnimes(animeQuery: $animeQuery, isWithoutRelations: $isWithoutRelations) {
       _id
+      shikiId
       dates {
         releasedOn
         airedOn

@@ -27,7 +27,7 @@ const AnimePage = async (props: IAnimePageProps) => {
       {animeData.description?.ru !== null && (
         <OversizeText size="16">{animeData.description?.ru ?? ""}</OversizeText>
       )}
-      <PlayerModule />
+      <PlayerModule animeShikiId={animeData.shikiId} />
       {animeData.related?.filter((item) => !!item.base).length !== 0 && (
         <div className={st.row}>
           {animeData.franchise ? (
