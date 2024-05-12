@@ -76,7 +76,7 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
           <div className={st.additionalInfo}>
             <div className={st.additionalRow}>
               <PlayerIcon className={st.icon} />
-              <Text size="20">{`${animeData.episodes?.airedCount !== 0 ? `${animeData.episodes?.airedCount} эп. по ~ ` : ""}${animeData.episodes?.averageDuration} мин`}</Text>
+              <Text size="20">{`${animeData.episodes?.airedCount !== 0 ? `${animeData.episodes?.airedCount} эп. по ~ ` : ""}${animeData.episodes?.duration} мин`}</Text>
             </div>
             <div className={st.additionalRow}>
               <ClockIcon className={st.icon} />

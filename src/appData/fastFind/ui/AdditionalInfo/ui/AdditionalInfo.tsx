@@ -34,7 +34,7 @@ const AdditionalInfo = (props: IAdditionalInfoProps) => {
       <div className={st.mainInfo}>
         <div className={st.row}>
           <PlayerIcon className={st.icon} />
-          <Text size="20">{`${currentAnime.episodes?.airedCount !== 0 ? `${currentAnime.episodes?.airedCount} эп. по ~ ` : ""}${currentAnime.episodes?.averageDuration} мин`}</Text>
+          <Text size="20">{`${currentAnime.episodes?.airedCount !== 0 ? `${currentAnime.episodes?.airedCount} эп. по ~ ` : ""}${currentAnime.episodes?.duration} мин`}</Text>
         </div>
         <div className={st.row}>
           <ClockIcon className={st.icon} />

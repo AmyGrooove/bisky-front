@@ -13,15 +13,10 @@ const fastFindAnimesQuery = {
       }
       episodes {
         airedCount
-        averageDuration
+        duration
         count
         lastEpisodeAiredDate
         nextEpisodeAiredDate
-        singleEpisodes {
-          airedOn
-          duration
-          name
-        }
       }
       genres {
         _id

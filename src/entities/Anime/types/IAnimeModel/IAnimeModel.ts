@@ -17,15 +17,10 @@ interface IAnimeModel {
   status: keyof typeof EStatus
   episodes: {
     count: number | null
-    airedCount: number
+    airedCount: number | null
     nextEpisodeAiredDate: Date | null
     lastEpisodeAiredDate: Date | null
-    averageDuration: number
-    singleEpisodes: {
-      name: string | null
-      airedOn: Date | null
-      duration: number
-    }[]
+    duration: number | null
   }
   dates: { airedOn: Date | null; releasedOn: Date | null }
   rating: keyof typeof ERating

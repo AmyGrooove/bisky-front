@@ -28,8 +28,7 @@ export const Released: Story = {
         count: null,
         nextEpisodeAiredDate: null,
         lastEpisodeAiredDate: null,
-        averageDuration: 0,
-        singleEpisodes: [],
+        duration: 0,
       },
       status: "released",
       userData: {
@@ -65,8 +64,7 @@ export const Ongoing: Story = {
         count: null,
         nextEpisodeAiredDate: null,
         lastEpisodeAiredDate: null,
-        averageDuration: 0,
-        singleEpisodes: [],
+        duration: 0,
       },
       status: "ongoing",
       userData: {
@@ -102,8 +100,7 @@ export const Anons: Story = {
         count: null,
         nextEpisodeAiredDate: null,
         lastEpisodeAiredDate: null,
-        averageDuration: 0,
-        singleEpisodes: [],
+        duration: 0,
       },
       status: "anons",
       userData: {
@@ -139,8 +136,7 @@ export const UserLogged: Story = {
         count: null,
         nextEpisodeAiredDate: null,
         lastEpisodeAiredDate: null,
-        averageDuration: 0,
-        singleEpisodes: [],
+        duration: 0,
       },
       status: "released",
       userData: {
@@ -177,8 +173,7 @@ export const UserData: Story = {
         count: null,
         nextEpisodeAiredDate: null,
         lastEpisodeAiredDate: null,
-        averageDuration: 0,
-        singleEpisodes: [],
+        duration: 0,
       },
       status: "released",
       userData: {

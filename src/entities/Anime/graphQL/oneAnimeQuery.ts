@@ -14,15 +14,10 @@ const oneAnimeQuery = {
       }
       episodes {
         airedCount
-        averageDuration
+        duration
         count
         lastEpisodeAiredDate
         nextEpisodeAiredDate
-        singleEpisodes {
-          airedOn
-          duration
-          name
-        }
       }
       franchise {
         _id
