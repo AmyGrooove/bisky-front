@@ -38,11 +38,10 @@ const CatalogPage = () => {
           {animesData.length === 0 && (
             <div className={st.zeroResult}>
               <Image
-                width={200}
-                height={168}
-                src="/images/biskyWarning.png"
+                width={118}
+                height={200}
+                src="/images/biskySmallCry.png"
                 alt=""
-                className={st.image}
               />
               <Text size="20">Ничего не найдено</Text>
             </div>

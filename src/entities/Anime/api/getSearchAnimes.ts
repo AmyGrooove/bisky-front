@@ -3,14 +3,10 @@
 import { cookies } from "next/headers"
 
 import { API_URL } from "@shared/constants"
-import {
-  catalogAnimesQuery,
-  IAnimeFullModel,
-  ICatalogAnimesVariables,
-} from "@entities/Anime"
+import { IAnimeFullModel, searchAnimesQuery } from "@entities/Anime"
 
 const getCatalogAnimes = async (
-  props: ICatalogAnimesVariables,
+  searchInput: string,
 ): Promise<IAnimeFullModel[]> => {
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
@@ -21,17 +17,17 @@ const getCatalogAnimes = async (
     },
     body: JSON.stringify({
       query: `
-        query (${catalogAnimesQuery.label}) {
-          ${catalogAnimesQuery.query}
+        query (${searchAnimesQuery.label}) {
+          ${searchAnimesQuery.query}
         }
       `,
-      variables: { ...catalogAnimesQuery.variables(props) },
+      variables: { ...searchAnimesQuery.variables(searchInput) },
     }),
-    next: { revalidate: 30, tags: ["catalogAnime"] },
+    next: { revalidate: 30, tags: ["searchAnimes"] },
   })
 
   if (!result.ok)
-    throw new Error(`Failed to get catalog anime: ${result.statusText}`)
+    throw new Error(`Failed to get search anime: ${result.statusText}`)
 
   return (await result.json()).data.getAnimes
 }

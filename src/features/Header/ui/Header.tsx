@@ -12,6 +12,7 @@ import { AuthBlock } from "@widgets/AuthBlock"
 import { Skeleton, Text } from "@shared/ui/atoms"
 import { LinkTabs, Button } from "@shared/ui/molecules"
 import { ModalContext } from "@widgets/ModalProvider"
+import { SearchBlock } from "@widgets/SearchBlock"
 
 import { IHeaderProps } from "../types/IHeaderProps"
 
@@ -54,7 +55,7 @@ const Header = (props: IHeaderProps) => {
           <Button
             rightIcon={<SearchIcon className={st.searchIcon} />}
             className={st.searchButton}
-            onClick={() => setModal(<></>)}
+            onClick={() => setModal(<SearchBlock />)}
             textProps={{
               weight: "400",
               size: "20",

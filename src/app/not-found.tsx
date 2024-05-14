@@ -15,7 +15,7 @@ const MainNotFound = () => (
         </Text>
       </div>
       <Text size="20">Страница не найдена</Text>
-      <Image width={170} height={220} src="/images/biskyError1.png" alt="" />
+      <Image width={170} height={220} src="/images/biskyTea.png" alt="" />
     </div>
   </div>
 )

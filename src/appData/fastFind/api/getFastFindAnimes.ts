@@ -24,9 +24,7 @@ const getFastFindAnimes = async (): Promise<IAnimeFullModel[]> => {
     next: { revalidate: 0, tags: ["fastFind"] },
   })
 
-  if (!result.ok) {
-    throw new Error(`Failed to get anime: ${result.statusText}`)
-  }
+  if (!result.ok) throw new Error(`Failed to get anime: ${result.statusText}`)
 
   return (await result.json()).data.getAnimes
 }

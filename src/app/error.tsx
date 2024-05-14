@@ -17,7 +17,7 @@ const HomeError = () => (
         </Text>
       </div>
       <Text size="20">Проблемы на сервере</Text>
-      <Image width={220} height={170} src="/images/biskyError2.png" alt="" />
+      <Image width={220} height={170} src="/images/biskyPleaseCry.png" alt="" />
     </div>
   </div>
 )

@@ -11,9 +11,7 @@ const getOneRandomFact = async (): Promise<IFactModel> => {
     next: { revalidate: 20, tags: ["mainFact"] },
   })
 
-  if (!result.ok) {
-    throw new Error(`Failed to get fact: ${result.statusText}`)
-  }
+  if (!result.ok) throw new Error(`Failed to get fact: ${result.statusText}`)
 
   return await result.json()
 }

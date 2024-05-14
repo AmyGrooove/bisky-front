@@ -1,0 +1,9 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  border-radius: var(--small-radius);
+  padding: 8px;
+  display: flex;
+  background-color: var(--dark-200);
+  border-color: 4px solid var(--dark-300);
+}

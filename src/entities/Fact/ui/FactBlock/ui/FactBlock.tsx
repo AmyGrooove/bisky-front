@@ -15,7 +15,7 @@ const FactBlock = (props: IFactBlockProps) => {
       <Image
         width={200}
         height={168}
-        src="/images/biskyTips.png"
+        src="/images/biskyLook.png"
         alt=""
         className={st.image}
       />

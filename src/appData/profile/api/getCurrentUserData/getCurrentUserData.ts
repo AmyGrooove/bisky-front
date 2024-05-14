@@ -28,9 +28,8 @@ const getCurrentUserData = async (
     next: { revalidate: 30, tags: ["userData"] },
   })
 
-  if (!result.ok) {
+  if (!result.ok)
     throw new Error(`Failed to get user data: ${result.statusText}`)
-  }
 
   return (await result.json()).data.getUserPublicData
 }

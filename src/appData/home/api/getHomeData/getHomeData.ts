@@ -39,9 +39,8 @@ const getHomeData = async (): Promise<IGetHomeDataResponse> => {
     next: { revalidate: 30, tags: ["homeData"] },
   })
 
-  if (!result.ok) {
+  if (!result.ok)
     throw new Error(`Failed to get home data: ${result.statusText}`)
-  }
 
   const parsedResult = await result.json()
 

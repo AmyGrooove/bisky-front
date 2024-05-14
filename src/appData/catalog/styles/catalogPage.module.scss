@@ -22,18 +22,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 32px;
+  gap: 12px;
+  padding: 24px;
 
   height: fit-content;
 
   background-color: var(--dark-200);
   border-radius: var(--big-radius);
-}
-
-.image {
-  position: relative;
-  top: 12px;
 }
 
 @media screen and (max-width: $fullHD) {

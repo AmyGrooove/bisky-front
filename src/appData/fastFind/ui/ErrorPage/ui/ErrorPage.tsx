@@ -33,7 +33,12 @@ const ErrorPage = () => {
             авторизация
           </Text>
         </div>
-        <Image width={220} height={170} src="/images/biskyError3.png" alt="" />
+        <Image
+          width={220}
+          height={170}
+          src="/images/biskyAttention.png"
+          alt=""
+        />
       </div>
     </div>
   )
