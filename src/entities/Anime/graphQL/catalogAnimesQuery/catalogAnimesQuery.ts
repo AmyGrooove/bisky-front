@@ -1,6 +1,6 @@
-import { EKind, ERating, EStatus } from "@entities/Anime"
-
 import { ICatalogAnimesVariables } from "./ICatalogAnimesVariables"
+
+const checkArray = (array: any[]) => (array.length === 0 ? null : array)
 
 const catalogAnimesQuery = {
   label: "$animeQuery: GeneralAnimeQuery",
@@ -35,44 +35,23 @@ const catalogAnimesQuery = {
     const newQuery = {
       count: 35,
       page,
+      filterExclude: {
+        kind: filterExclude.kind,
+        rating: filterExclude.rating,
+        status: filterExclude.status,
+        genres_ID_ONLY: filterExclude.genres_ID_ONLY,
+        studios_ID_ONLY: filterExclude.studios_ID_ONLY,
+      },
       filter: {
         dates_airedOn: {
           from: (dates_airedOn.from ?? 1800) + "-01-01",
           to: (dates_airedOn.to ?? 2100) + "-01-01",
         },
-        genres_ID_ONLY:
-          filterInclude.genres_ID_ONLY.length !== 0
-            ? filterInclude.genres_ID_ONLY
-            : null,
-        kind:
-          filterInclude.kind.length !== 0
-            ? filterInclude.kind
-            : filterExclude.kind.length !== 0
-              ? Object.values(EKind).filter(
-                  (item) => !filterExclude.kind.includes(item),
-                )
-              : null,
-        rating:
-          filterInclude.rating.length !== 0
-            ? filterInclude.rating
-            : filterExclude.rating.length !== 0
-              ? Object.values(ERating).filter(
-                  (item) => !filterExclude.rating.includes(item),
-                )
-              : null,
-
-        status:
-          filterInclude.status.length !== 0
-            ? filterInclude.status
-            : filterExclude.status.length !== 0
-              ? Object.values(EStatus).filter(
-                  (item) => !filterExclude.status.includes(item),
-                )
-              : null,
-        studios_ID_ONLY:
-          filterInclude.studios_ID_ONLY.length !== 0
-            ? filterInclude.studios_ID_ONLY
-            : null,
+        kind: checkArray(filterInclude.kind),
+        rating: checkArray(filterInclude.rating),
+        status: checkArray(filterInclude.status),
+        genres_ID_ONLY: checkArray(filterInclude.genres_ID_ONLY),
+        studios_ID_ONLY: checkArray(filterInclude.studios_ID_ONLY),
       },
       sort: {
         usersList_generalCount: sort === "scores" ? true : null,

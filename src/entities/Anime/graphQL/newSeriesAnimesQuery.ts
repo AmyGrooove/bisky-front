@@ -30,6 +30,11 @@ const newSeriesAnimesQuery = {
       count: 24,
       sort: { episodes_lastEpisodeAiredDate: true },
       isPaginationOff: true,
+      filterExclude: {
+        kind: ["special", "music", "tv_special", "none", "pv", "cm"],
+        rating: ["rx", "none", "g", "pg"],
+        genres_ID_ONLY: ["664125f3fab099cd5adf415f"],
+      },
     },
   },
 }
