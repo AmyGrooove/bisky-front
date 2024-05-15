@@ -1,4 +1,58 @@
 @import "@shared/styles/reusable.scss";
 
 .root {
+  width: 100%;
+  padding: 4px;
+  display: flex;
+  gap: 8px;
+}
+
+.posterImage {
+  object-fit: cover;
+}
+
+.poster {
+  border-radius: var(--small-radius);
+  min-width: 60px;
+  max-width: 60px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nothing {
+  height: 12px;
+}
+
+.label {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 36px;
+}
+
+.additionalInfo {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}
+
+.infoText {
+  text-transform: capitalize;
 }

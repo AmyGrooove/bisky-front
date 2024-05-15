@@ -1,7 +1,7 @@
 import { IAnimeFullModel } from "@entities/Anime"
 
 interface IResultRowProps {
-  anime: IAnimeFullModel
+  animeData: IAnimeFullModel
 }
 
 export type { IResultRowProps }

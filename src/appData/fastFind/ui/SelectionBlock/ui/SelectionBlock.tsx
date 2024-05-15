@@ -91,7 +91,7 @@ const SelectionBlock = (props: ISelectionBlockProps) => {
         </Button>
       </div>
       <Link
-        href={`anime/${currentAnime?._id}`}
+        href={`/anime/${currentAnime?._id}`}
         className={st.watchNowButton}
         target="_blank"
       >

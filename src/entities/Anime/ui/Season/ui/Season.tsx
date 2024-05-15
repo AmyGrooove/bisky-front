@@ -21,7 +21,7 @@ const Season = (props: ISeasonProps) => {
   return (
     <Link
       {...otherProps}
-      href={`anime/${anime._id}`}
+      href={`/anime/${anime._id}`}
       className={cn(st.root, className, { [st.root_disabled]: isDisabled })}
     >
       <div className={st.mainContent}>
