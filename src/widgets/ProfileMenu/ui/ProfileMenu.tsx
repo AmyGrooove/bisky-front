@@ -28,11 +28,13 @@ const ProfileMenu = (props: IProfileMenuProps) => {
       callComponent={
         <PlaceholderImage
           {...otherProps}
-          width={40}
-          height={40}
+          width={300}
+          height={300}
           src={user?.avatar ?? ""}
           alt=""
           className={cn(st.avatar, className)}
+          imageClassName={st.avatarImage}
+          quality={100}
         />
       }
     >

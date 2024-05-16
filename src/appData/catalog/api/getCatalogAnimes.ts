@@ -27,7 +27,7 @@ const getCatalogAnimes = async (
       `,
       variables: { ...catalogAnimesQuery.variables(props) },
     }),
-    next: { revalidate: 30, tags: ["catalogAnime"] },
+    next: { revalidate: 0, tags: ["catalogAnime"] },
   })
 
   if (!result.ok)

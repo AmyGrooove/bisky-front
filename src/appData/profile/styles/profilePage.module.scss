@@ -1,1 +1,18 @@
 @import "@shared/styles/reusable.scss";
+
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  max-width: calc(var(--fullHD) - 104px);
+  width: 100%;
+}
+
+@media screen and (max-width: $fullHD) {
+  .main {
+    max-width: calc(var(--HD) - 16px);
+  }
+}

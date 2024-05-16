@@ -5,3 +5,5 @@ export { profileStyles, profileLoadingStyles }
 
 export type { IProfileLayoutProps } from "./types/IProfileLayoutProps"
 export type { IProfilePageProps } from "./types/IProfilePageProps"
+
+export { ProfileHeader } from "./ui/ProfileHeader"

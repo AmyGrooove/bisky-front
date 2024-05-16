@@ -1,3 +1,5 @@
+import { EListStatus } from "@entities/AnimeEstimate"
+
 const currentUserAnimesQuery = {
   label: "$animeQuery: GeneralAnimeQuery, $userQuery: GeneralUserQuery",
   query: `
@@ -29,10 +31,10 @@ const currentUserAnimesQuery = {
       }
     }
   `,
-  variables: {
+  variables: (animeListStatus: keyof typeof EListStatus) => ({
     animeQuery: { sort: { episodes_lastEpisodeAiredDate: true } },
-    userQuery: { animeListStatus: "watching" },
-  },
+    userQuery: { animeListStatus },
+  }),
 }
 
 export { currentUserAnimesQuery }

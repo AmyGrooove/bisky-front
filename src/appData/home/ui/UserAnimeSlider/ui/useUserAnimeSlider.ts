@@ -16,7 +16,7 @@ const useUserAnimeSlider = () => {
     setIsLoading(true)
 
     if (session)
-      getCurrentUserAnimeData()
+      getCurrentUserAnimeData("watching")
         .then((response) => setUserAnimeData(response?.animeEstimates ?? null))
         .finally(() => setIsLoading(false))
     else {

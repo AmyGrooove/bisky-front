@@ -10,7 +10,7 @@ import { IAnimeCardProps } from "../types/IAnimeCardProps"
 import st from "./AnimeCard.module.scss"
 
 const AnimeCard = (props: IAnimeCardProps) => {
-  const { anime, onClick, className, ...otherProps } = props
+  const { anime, className, ...otherProps } = props
 
   return (
     <Link
@@ -61,11 +61,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
       {anime.userData?.animeStatus && (
         <div className={st.userData}>
           <WatchStatus
-            onClick={onClick}
-            disabled={
-              anime.userData?.animeStatus !== "added" &&
-              !!anime.userData?.animeStatus
-            }
+            disabled
             status={anime.userData?.animeStatus ?? "setWatch"}
           />
           {anime.userData?.score && (

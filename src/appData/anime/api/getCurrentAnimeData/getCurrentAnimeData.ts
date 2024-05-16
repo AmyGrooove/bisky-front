@@ -25,7 +25,7 @@ const getCurrentAnimeData = async (
       `,
       variables: { ...oneAnimeQuery.variables(props.animeId) },
     }),
-    next: { revalidate: 30, tags: ["oneAnime"] },
+    next: { revalidate: 0, tags: ["oneAnime"] },
   })
 
   if (!result.ok) throw new Error(`Failed to get anime: ${result.statusText}`)

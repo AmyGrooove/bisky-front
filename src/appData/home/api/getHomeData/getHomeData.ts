@@ -36,7 +36,7 @@ const getHomeData = async (): Promise<IGetHomeDataResponse> => {
         ...homeGenresQuery.variables,
       },
     }),
-    next: { revalidate: 30, tags: ["homeData"] },
+    next: { revalidate: 0, tags: ["homeData"] },
   })
 
   if (!result.ok)

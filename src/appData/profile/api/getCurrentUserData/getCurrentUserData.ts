@@ -1,7 +1,5 @@
 "use server"
 
-import { cookies } from "next/headers"
-
 import { API_URL } from "@shared/constants"
 import { currentUserDataQuery, IUserPublicFullModel } from "@entities/User"
 
@@ -12,11 +10,7 @@ const getCurrentUserData = async (
 ): Promise<IUserPublicFullModel> => {
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
-    },
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
       query: `
         query (${currentUserDataQuery.label}) {

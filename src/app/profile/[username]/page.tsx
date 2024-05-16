@@ -1,4 +1,8 @@
-import { IProfilePageProps, profileStyles as st } from "@appData/profile"
+import {
+  IProfilePageProps,
+  ProfileHeader,
+  profileStyles as st,
+} from "@appData/profile"
 import { getCurrentUserData } from "@appData/profile/api"
 
 const ProfilePage = async (props: IProfilePageProps) => {
@@ -8,7 +12,11 @@ const ProfilePage = async (props: IProfilePageProps) => {
 
   const userData = await getCurrentUserData({ username })
 
-  return <div className={st.root}></div>
+  return (
+    <div className={st.root}>
+      <ProfileHeader userData={userData} />
+    </div>
+  )
 }
 
 export default ProfilePage

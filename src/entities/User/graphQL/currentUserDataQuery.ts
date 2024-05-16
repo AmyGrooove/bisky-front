@@ -3,6 +3,15 @@ const currentUserDataQuery = {
   query: `
     getUserPublicData(userQuery: $userQuery) {
       username
+      userPersonalization {
+        badge
+        background
+      }
+      subscriptions {
+        _id
+        avatar
+        username
+      }
       role
       lastOnlineDate
       email

@@ -2,6 +2,8 @@
 
 .avatar {
   box-sizing: border-box;
+  width: 40px !important;
+  height: 40px !important;
 
   user-select: none;
   cursor: pointer;
@@ -17,6 +19,12 @@
   &:active {
     border-color: var(--bisky-200);
   }
+}
+
+.avatarImage {
+  object-fit: cover;
+  width: 40px !important;
+  height: 40px !important;
 }
 
 .menu {
