@@ -1,9 +1,12 @@
 @import "@shared/styles/reusable.scss";
 
 .root {
-  min-height: 562px;
   border: 0px;
-  border-radius: var(--small-radius);
+
+  &_defaultStyles {
+    border-radius: var(--small-radius);
+    min-height: 562px;
+  }
 }
 
 .playerSkeleton {

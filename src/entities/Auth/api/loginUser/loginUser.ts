@@ -25,7 +25,7 @@ const loginUser = async (
     value: parsedResult.accessToken,
     httpOnly: true,
     secure: !IS_DEVELOPMENT,
-    maxAge: 15552000,
+    maxAge: 300,
     sameSite: "lax",
   })
 
@@ -34,7 +34,7 @@ const loginUser = async (
     value: parsedResult.refreshToken,
     httpOnly: true,
     secure: !IS_DEVELOPMENT,
-    maxAge: 60,
+    maxAge: 15552000,
     sameSite: "lax",
   })
 

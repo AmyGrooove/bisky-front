@@ -12,6 +12,8 @@ import st from "./ProfileHeader.module.scss"
 const ProfileHeader = (props: IProfileHeaderProps) => {
   const { userData } = props
 
+  console.log(userData.avatar)
+
   return (
     <div className={st.root}>
       <PlaceholderImage
@@ -26,7 +28,12 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
         <div className={st.leftSide}>
           <div className={st.avatarWrapper}>
             <Fancybox options={{ Carousel: { infinite: false } }}>
-              <Link href={userData.avatar ?? ""} data-fancybox="gallery">
+              <a
+                href={userData.avatar ?? ""}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-fancybox="gallery"
+              >
                 <PlaceholderImage
                   width={300}
                   height={300}
@@ -36,8 +43,8 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
                   imageClassName={st.avatarImage}
                   quality={100}
                 />
-              </Link>
-              <Link
+              </a>
+              <a
                 href={userData.userPersonalization.background ?? ""}
                 data-fancybox="gallery"
               />

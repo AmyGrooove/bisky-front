@@ -33,7 +33,9 @@ const AnimeLayout = async (props: IAnimeLayoutProps) => {
   } = props
 
   try {
-    await getCurrentAnimeData({ animeId })
+    const animeData = await getCurrentAnimeData({ animeId })
+
+    if (!animeData) throw new Error()
   } catch (error) {
     console.error(error)
 

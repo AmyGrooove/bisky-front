@@ -58,7 +58,13 @@ const ScreenshotSlider = (props: IScreenshotSliderProps) => {
         <Fancybox options={{ Carousel: { infinite: false } }}>
           <div ref={sliderRef} className="keen-slider">
             {items.map((item) => (
-              <Link key={item} href={item} data-fancybox="gallery">
+              <a
+                key={item}
+                href={item}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-fancybox="gallery"
+              >
                 <PlaceholderImage
                   src={item}
                   alt=""
@@ -66,7 +72,7 @@ const ScreenshotSlider = (props: IScreenshotSliderProps) => {
                   height={screenshotsSize.height}
                   className={cn(st.image, "keen-slider__slide")}
                 />
-              </Link>
+              </a>
             ))}
           </div>
         </Fancybox>

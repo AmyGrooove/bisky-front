@@ -12,14 +12,15 @@ const Footer = (props: IFooterProps) => {
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>
-      <Link
+      <a
         href="https://hunterxhunter.fandom.com/ru/wiki/Бискет_Крюгер"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <Text weight="700" size="20">
           Bisky
         </Text>
-      </Link>
+      </a>
     </div>
   )
 }
