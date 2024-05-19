@@ -1,2 +1,2 @@
-export { getAllAnimesId } from "./getAllAnimesId"
+export { getAllAnimesIdAndUpdateDate } from "./getAllAnimesIdAndUpdateDate"
 export { getSearchAnimes } from "./getSearchAnimes"

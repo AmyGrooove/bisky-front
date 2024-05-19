@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import { cn } from "@shared/utils/functions"
 import { Text } from "@shared/ui/atoms"
 

@@ -2,7 +2,6 @@
 
 import { useKeenSlider } from "keen-slider/react"
 import { useState } from "react"
-import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
 import { Fancybox } from "@shared/utils/lib"

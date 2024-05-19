@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import { PlaceholderImage, Text } from "@shared/ui/atoms"
 import { Badge } from "@shared/ui/molecules"
 import { Fancybox } from "@shared/utils/lib"
