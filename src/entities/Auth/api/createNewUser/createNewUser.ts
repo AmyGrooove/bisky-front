@@ -26,7 +26,7 @@ const createNewUser = async (
     value: parsedResult.accessToken,
     httpOnly: true,
     secure: !IS_DEVELOPMENT,
-    maxAge: 300,
+    maxAge: 600,
     sameSite: "lax",
   })
 

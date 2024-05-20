@@ -5,6 +5,8 @@ import { NEXT_AUTH_SECRET } from "@shared/constants"
 
 import { logoutUser, loginUser, refreshTokens } from "../api"
 
+const timeBuffer = 10
+
 const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   secret: NEXT_AUTH_SECRET,
@@ -37,7 +39,9 @@ const authOptions: NextAuthOptions = {
     async jwt({ token, user: response }) {
       if (response) return { ...token, ...(response as any) }
 
-      if (new Date(Number(token.exp) * 1000) < new Date()) {
+      const nowUnix = Math.floor(new Date().getTime() / 1000)
+
+      if (nowUnix + timeBuffer < Number(token.exp)) {
         const data = await refreshTokens()
 
         return { ...token, ...data }
