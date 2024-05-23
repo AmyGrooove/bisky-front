@@ -1,14 +1,16 @@
-FROM node:20-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm install -g pnpm
-RUN pnpm install --unsafe-perm
+RUN pnpm install --prod
 
 COPY . .
 
+RUN pnpm run build
+
 EXPOSE 3030
 
-CMD ["sh", "-c", "pnpm run build && pnpm run start"]
+CMD ["sh", "-c", "pnpm run start"]
