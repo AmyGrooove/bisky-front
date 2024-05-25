@@ -1,7 +1,7 @@
 import {
   IProfilePageProps,
   ProfileHeader,
-  profileStyles as st,
+  profilePageStyles as st,
 } from "@appData/profile"
 import { getCurrentUserData } from "@appData/profile/api"
 

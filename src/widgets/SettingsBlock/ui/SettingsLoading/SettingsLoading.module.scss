@@ -1,0 +1,13 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.row {
+  height: 40px;
+  width: 100%;
+}

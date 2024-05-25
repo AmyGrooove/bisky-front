@@ -45,14 +45,17 @@ const Dropdown = forwardRef(function Dropdown(props: IDropdownProps) {
 
   return (
     <div ref={rootRef} {...otherProps} className={cn(st.root, className)}>
-      {cloneElement(callComponent, {
-        onClick: () =>
+      <div
+        onClick={() =>
           isDisabled
             ? {}
             : isDropdownOpened
               ? closeMenu()
-              : setIsDropdownOpened(true),
-      })}
+              : setIsDropdownOpened(true)
+        }
+      >
+        {cloneElement(callComponent)}
+      </div>
       {isDropdownOpened &&
         !isDisabled &&
         cloneElement(children, {

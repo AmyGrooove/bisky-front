@@ -4,7 +4,7 @@ import Image from "next/image"
 
 import {
   AnimesCatalogLoading,
-  catalogStyles as st,
+  catalogPageStyles as st,
   useCatalogFilter,
 } from "@appData/catalog"
 import { AnimeCard } from "@entities/Anime"

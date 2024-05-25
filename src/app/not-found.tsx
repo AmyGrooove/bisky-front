@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import { Text } from "@shared/ui/atoms"
-import { mainLayoutNotFoundStyles as st } from "@appData/mainLayout"
+import { mainNotFoundStyles as st } from "@appData/mainLayout"
 
 const MainNotFound = () => (
   <div className={st.root}>

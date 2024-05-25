@@ -10,8 +10,6 @@ import st from "./ProfileHeader.module.scss"
 const ProfileHeader = (props: IProfileHeaderProps) => {
   const { userData } = props
 
-  console.log(userData.avatar)
-
   return (
     <div className={st.root}>
       <PlaceholderImage
@@ -40,6 +38,7 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
                   className={st.avatar}
                   imageClassName={st.avatarImage}
                   quality={100}
+                  unoptimized
                 />
               </a>
               <a

@@ -1,16 +1,5 @@
 @import "@shared/styles/reusable.scss";
 
-@keyframes invoke {
-  from {
-    opacity: 0;
-    scale: 0.95;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-}
-
 .root {
   max-width: var(--fullHD);
   width: 100%;
@@ -34,7 +23,7 @@
   gap: 24px;
   min-width: 680px;
 
-  animation: invoke 0.2s ease-in-out;
+  animation: invokeAll 0.2s ease-in-out;
 }
 
 .newListWrapper {
@@ -48,7 +37,7 @@
   padding: 20px;
   border-radius: var(--big-radius);
 
-  animation: invoke 0.2s ease-in-out;
+  animation: invokeAll 0.2s ease-in-out;
 }
 
 .goNextOptions {

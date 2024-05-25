@@ -31,8 +31,11 @@ import { VkIcon } from "./VkIcon"
 import { VolumeIcon } from "./VolumeIcon"
 import { ProfileIcon } from "./ProfileIcon"
 import { ExitIcon } from "./ExitIcon"
+import { UploadIcon } from "./UploadIcon"
+import { ImgIcon } from "./ImgIcon"
 
 export {
+  UploadIcon,
   ArchiveIcon,
   ArrowIcon,
   BackIcon,
@@ -66,4 +69,5 @@ export {
   VolumeIcon,
   ProfileIcon,
   ExitIcon,
+  ImgIcon,
 }

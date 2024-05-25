@@ -1,16 +1,5 @@
 @import "@shared/styles/reusable.scss";
 
-@keyframes invoke {
-  from {
-    opacity: 0;
-    scale: 0.95;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-}
-
 .root {
   display: flex;
   flex-direction: column;
@@ -35,7 +24,7 @@
   overflow: auto;
   border-radius: var(--small-radius);
 
-  animation: invoke 0.2s ease-in-out;
+  animation: invokeAll 0.2s ease-in-out;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -55,7 +44,7 @@
   justify-content: center;
   gap: 12px;
 
-  animation: invoke 0.2s ease-in-out;
+  animation: invokeAll 0.2s ease-in-out;
 }
 
 .divider {

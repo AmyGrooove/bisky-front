@@ -1,7 +1,7 @@
 $minimum-radius: 8px;
 $small-radius: 12px;
 $big-radius: 20px;
-$full-radius: 100px;
+$full-radius: 100%;
 
 .borders {
   --minimum-radius: #{$minimum-radius};

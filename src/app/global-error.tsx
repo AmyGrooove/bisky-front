@@ -3,7 +3,7 @@
 import Image from "next/image"
 
 import { Text } from "@shared/ui/atoms"
-import { mainLayoutGlobalErrorStyles as st } from "@appData/mainLayout"
+import { mainGlobalErrorStyles as st } from "@appData/mainLayout"
 
 const MainGlobalError = () => (
   <div className={st.root}>

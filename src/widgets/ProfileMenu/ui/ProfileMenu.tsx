@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useContext, useRef } from "react"
 import { signOut, useSession } from "next-auth/react"
 import Link from "next/link"
 
@@ -10,6 +10,8 @@ import {
   PlaceholderImage,
   Text,
 } from "@shared/ui/atoms"
+import { ModalContext } from "@widgets/ModalProvider"
+import { SettingsBlock } from "@widgets/SettingsBlock"
 
 import { IProfileMenuProps } from "../types/IProfileMenuProps"
 
@@ -19,6 +21,8 @@ const ProfileMenu = (props: IProfileMenuProps) => {
   const { user, className, ...otherProps } = props
 
   const { data: session } = useSession()
+
+  const { setModal } = useContext(ModalContext)
 
   const dropdownRef = useRef<IDropdownRef>(null)
 
@@ -35,6 +39,7 @@ const ProfileMenu = (props: IProfileMenuProps) => {
           className={cn(st.avatar, className)}
           imageClassName={st.avatarImage}
           quality={100}
+          unoptimized
         />
       }
     >
@@ -51,7 +56,13 @@ const ProfileMenu = (props: IProfileMenuProps) => {
           <Text>Профиль</Text>
           <ProfileIcon className={st.icon} />
         </Link>
-        <div className={st.menuRow}>
+        <div
+          className={st.menuRow}
+          onClick={() => {
+            dropdownRef.current?.closeMenu()
+            setModal(<SettingsBlock />)
+          }}
+        >
           <Text>Настройки</Text>
           <SettingsIcon className={st.icon} />
         </div>

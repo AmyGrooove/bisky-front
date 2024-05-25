@@ -3,11 +3,15 @@ import { getOneRandomFact, FactBlock } from "@entities/Fact"
 import { SeasonSlider } from "@features/SeasonSlider"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { GenreBlockSlider } from "@features/GenreBlockSlider"
-import { FastPageBlock, UserAnimeSlider, homeStyles as st } from "@appData/home"
+import {
+  FastPageBlock,
+  UserAnimeSlider,
+  homePageStyles as st,
+} from "@appData/home"
 import { getHomeData } from "@appData/home/api"
 import { Text } from "@shared/ui/atoms"
 
-const Home = async () => {
+const HomePage = async () => {
   const homeData = await getHomeData()
   const fact = await getOneRandomFact()
 
@@ -49,4 +53,4 @@ const Home = async () => {
   )
 }
 
-export default Home
+export default HomePage

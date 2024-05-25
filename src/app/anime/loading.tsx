@@ -1,7 +1,7 @@
-import { animePageLoadingStyles as st } from "@appData/anime"
+import { animeLoadingStyles as st } from "@appData/anime"
 import { Skeleton } from "@shared/ui/atoms"
 
-const LoadingAnime = () => (
+const AnimeLoading = () => (
   <>
     <Skeleton className={st.background} />
     <div className={st.root}>
@@ -67,4 +67,4 @@ const LoadingAnime = () => (
   </>
 )
 
-export default LoadingAnime
+export default AnimeLoading

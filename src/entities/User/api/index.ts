@@ -1,0 +1,1 @@
+export { updateAvatar } from "./updateAvatar"

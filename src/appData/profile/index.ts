@@ -1,7 +1,7 @@
-import profileStyles from "./styles/profilePage.module.scss"
-import profileLoadingStyles from "./styles/profilePageLoading.module.scss"
+import profilePageStyles from "./styles/profilePage.module.scss"
+import profileLoadingStyles from "./styles/profileLoading.module.scss"
 
-export { profileStyles, profileLoadingStyles }
+export { profilePageStyles, profileLoadingStyles }
 
 export type { IProfileLayoutProps } from "./types/IProfileLayoutProps"
 export type { IProfilePageProps } from "./types/IProfilePageProps"
