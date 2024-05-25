@@ -48,6 +48,11 @@ const Header = (props: IHeaderProps) => {
                 href: "/catalog",
                 isActive: pathname.includes("/catalog"),
               },
+              {
+                name: "Быстрый поиск",
+                href: "/fastFind",
+                isActive: pathname.includes("/fastFind"),
+              },
             ]}
           />
         </div>

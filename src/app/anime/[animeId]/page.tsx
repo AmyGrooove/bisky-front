@@ -31,7 +31,11 @@ const AnimePage = async (props: IAnimePageProps) => {
       {animeData.related?.filter((item) => !!item.base).length !== 0 && (
         <div className={st.row}>
           {animeData.franchise ? (
-            <LinkLabel label="Связанное" linkText="Франшиза" href="#" />
+            <LinkLabel
+              label="Связанное"
+              linkText="Франшиза"
+              href={`/franchise/${animeData.franchise._id}`}
+            />
           ) : (
             <Text size="28" weight="700">
               Связанное

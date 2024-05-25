@@ -1,0 +1,16 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  max-width: calc(var(--HD) - 16px);
+  width: 100%;
+
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.genre {
+  width: 344px;
+  height: 160px;
+}

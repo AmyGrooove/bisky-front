@@ -40,7 +40,7 @@ const FastFindPage = () => {
           Список окончен. Начнем просмотр?
         </Text>
         <div className={st.goNextOptions}>
-          <Link href="#">
+          <Link href="/profile">
             <Button className={st.optionButton}>В профиль</Button>
           </Link>
           <Link href="#">

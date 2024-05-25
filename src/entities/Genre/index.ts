@@ -6,3 +6,5 @@ export type { IGenreSimpleModel } from "./types/IGenreModel/IGenreSimpleModel"
 export type { IGetAllGenresIdAndNamesResponse } from "./types/IGetAllGenresIdAndNamesResponse"
 
 export { GenreBlock } from "./ui/GenreBlock"
+
+export { allGenresQuery } from "./graphQL/allGenresQuery"

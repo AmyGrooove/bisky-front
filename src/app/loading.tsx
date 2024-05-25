@@ -16,7 +16,6 @@ const HomeLoading = () => (
         ))}
       </div>
     </div>
-    <Skeleton className={st.fastFind} />
     <div className={st.row}>
       <Skeleton className={st.rowLabel} />
       <div className={st.rowSlider}>

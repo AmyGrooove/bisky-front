@@ -8,4 +8,7 @@ export { AnimesCatalogLoading } from "./ui/AnimesCatalogLoading"
 
 export { filterStateDefaultValue } from "./static/filterStateDefaultValue"
 
+export { filterEnumValues } from "./functions/filterEnumValues"
+export { getParams } from "./functions/getParams"
+
 export { catalogPageStyles, catalogLoadingStyles }

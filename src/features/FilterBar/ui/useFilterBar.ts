@@ -16,14 +16,20 @@ const useFilterBar = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    getData()
+  }, [])
+
+  const getData = async () => {
     setIsLoading(true)
 
-    getAllStudiosIdAndNames().then((response) => setStudiosData(response))
+    const newStudiosData = await getAllStudiosIdAndNames()
+    const newGenresData = await getAllGenresIdAndNames()
 
-    getAllGenresIdAndNames()
-      .then((response) => setGenresData(response))
-      .finally(() => setIsLoading(false))
-  }, [])
+    setStudiosData(newStudiosData)
+    setGenresData(newGenresData)
+
+    setIsLoading(false)
+  }
 
   return { studiosData, genresData, isLoading }
 }

@@ -10,6 +10,18 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => [
     changeFrequency: "daily",
     priority: 1,
   },
+  {
+    url: `${APP_URL}/catalog`,
+    lastModified: new Date(),
+    changeFrequency: "daily",
+    priority: 0.9,
+  },
+  {
+    url: `${APP_URL}/genres`,
+    lastModified: new Date(),
+    changeFrequency: "yearly",
+    priority: 0.2,
+  },
   ...((await getAllAnimesIdAndUpdateDate()).map((item) => ({
     url: `${APP_URL}/anime/${item._id}`,
     lastModified: item.updateDate,

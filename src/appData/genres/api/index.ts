@@ -1,0 +1,1 @@
+export { getAllGenresData } from "./getAllGenresData"

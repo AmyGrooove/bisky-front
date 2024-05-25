@@ -12,7 +12,11 @@ const GenreBlock = (props: IGenreBlock) => {
   const { genre, className, ...otherProps } = props
 
   return (
-    <Link {...otherProps} href="#" className={cn(st.root, className)}>
+    <Link
+      {...otherProps}
+      href={`/catalog?genres=${genre._id}`}
+      className={cn(st.root, className)}
+    >
       <Text size="24" weight="700">
         {genre.name?.ru ?? ""}
       </Text>

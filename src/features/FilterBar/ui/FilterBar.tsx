@@ -97,7 +97,7 @@ const FilterBar = (props: IFilterBarProps) => {
             disabled={isAnimeFetching}
             onClick={() => {
               updateFilters({ type: "reset", todo: {} })
-              fetchNewAnimesData(true)
+              fetchNewAnimesData("default")
             }}
             leftIcon={isAnimeFetching ? <Spinner color="gray" /> : <></>}
             className={st.resetButton}

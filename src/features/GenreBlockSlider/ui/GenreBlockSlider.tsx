@@ -13,7 +13,7 @@ import st from "./GenreBlockSlider.module.scss"
 import { useGenreBlockSlider } from "./useGenreBlockSlider"
 
 const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
-  const { items, isCatalogSliderOn = false, className, ...otherProps } = props
+  const { items, className, ...otherProps } = props
 
   const { instanceRef, sliderRef, currentSlide } = useGenreBlockSlider()
 
@@ -41,17 +41,15 @@ const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
             className={cn(st.slide, "keen-slider__slide")}
           />
         ))}
-        {isCatalogSliderOn && (
-          <Link
-            href="/catalog"
-            className={cn(st.catalogSlide, "keen-slider__slide")}
-          >
-            <BackIcon className={st.catalogIcon} />
-            <Text weight="700" size="20">
-              В каталог
-            </Text>
-          </Link>
-        )}
+        <Link
+          href={`/genres`}
+          className={cn(st.catalogSlide, "keen-slider__slide")}
+        >
+          <BackIcon className={st.catalogIcon} />
+          <Text weight="700" size="20">
+            В каталог
+          </Text>
+        </Link>
       </div>
     </div>
   )

@@ -1,0 +1,13 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  max-width: var(--fullHD);
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: $fullHD) {
+  .root {
+    max-width: calc(var(--HD) - 16px);
+  }
+}

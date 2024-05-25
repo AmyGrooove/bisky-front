@@ -26,7 +26,11 @@ const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
     </div>
   ) : userAnimeData && userAnimeData.length !== 0 ? (
     <div {...otherProps} className={cn(st.root, className)}>
-      <LinkLabel label="Продолжить просмотр" linkText="В профиль" href="#" />
+      <LinkLabel
+        label="Продолжить просмотр"
+        linkText="В профиль"
+        href="/profile"
+      />
       <AnimeCardSlider items={userAnimeData.map((item) => item.base)} />
     </div>
   ) : (
