@@ -1,0 +1,1 @@
+export { getAllFranchiseIds } from "./getAllFranchiseIds"
