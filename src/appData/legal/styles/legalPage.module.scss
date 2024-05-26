@@ -1,0 +1,35 @@
+@import "@shared/styles/reusable.scss";
+
+.marginBottom {
+  margin-bottom: 8px;
+}
+
+.olSpace {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ulSpace {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blockquote {
+  padding: 16px;
+  background-color: var(--dark-100);
+  border-radius: var(--small-radius);
+  margin: 0px;
+}
+
+.link {
+  color: var(--bisky-100);
+
+  @include transition(color);
+
+  &:hover {
+    color: var(--bisky-200);
+    text-decoration: underline;
+  }
+}

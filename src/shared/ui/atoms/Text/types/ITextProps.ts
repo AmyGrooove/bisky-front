@@ -1,7 +1,7 @@
-import { HTMLAttributes } from "react"
+import { HTMLAttributes, ReactNode } from "react"
 
 interface ITextProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
-  children?: string | number | Date
+  children?: string | number | Date | ReactNode
   size?: "12" | "16" | "20" | "24" | "28" | "32" | "44"
   weight?: "400" | "700"
   as?: keyof JSX.IntrinsicElements

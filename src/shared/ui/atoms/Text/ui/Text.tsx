@@ -26,7 +26,7 @@ const Text = (props: ITextProps) => {
         { [st.root_defaultColor]: isDefaultColor },
       )}
     >
-      {children !== undefined ? String(children) : ""}
+      {children !== undefined ? children : ""}
     </Element>
   )
 }

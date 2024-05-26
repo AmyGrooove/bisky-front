@@ -2,11 +2,59 @@
 
 .root {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 80px;
   padding: 0px 20px;
 
   background-color: var(--dark-240);
   border-radius: var(--big-radius);
+}
+
+.innerWrapper {
+  max-width: calc(var(--fullHD) - 104px);
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subTitle {
+  opacity: 0.7;
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+
+  fill: var(--light-100);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legalWrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.legalLink {
+  color: var(--light-100);
+  opacity: 0.5;
+
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: $fullHD) {
+  .innerWrapper {
+    max-width: calc(var(--HD) - 16px);
+  }
 }

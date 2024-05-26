@@ -26,11 +26,9 @@ const AnimeCard = (props: IAnimeCardProps) => {
         height={256}
         alt=""
       />
-
       <Text className={st.title}>
         {anime.labels?.ru ?? anime.labels?.en ?? ""}
       </Text>
-
       <div className={st.badges}>
         {anime.status === "anons" ? (
           <>
@@ -57,7 +55,6 @@ const AnimeCard = (props: IAnimeCardProps) => {
           </Badge>
         )}
       </div>
-
       {anime.userData?.animeStatus && (
         <div className={st.userData}>
           <WatchStatus
@@ -75,7 +72,6 @@ const AnimeCard = (props: IAnimeCardProps) => {
           )}
         </div>
       )}
-
       {anime.relatedName && (
         <Text className={st.relatedName}>{anime.relatedName}</Text>
       )}

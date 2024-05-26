@@ -17,7 +17,7 @@ const GenreBlock = (props: IGenreBlock) => {
       href={`/catalog?genres=${genre._id}`}
       className={cn(st.root, className)}
     >
-      <Text size="24" weight="700">
+      <Text size="24" weight="700" className={st.label}>
         {genre.name?.ru ?? ""}
       </Text>
       <Text className={st.description}>{genre.description?.ru ?? ""}</Text>
@@ -27,7 +27,7 @@ const GenreBlock = (props: IGenreBlock) => {
             key={item._id + (genre.name?.en ?? "")}
             src={item.poster ?? ""}
             width={126}
-            height={202}
+            height={242}
             className={st.poster}
             imageClassName={st.posterImage}
             alt=""

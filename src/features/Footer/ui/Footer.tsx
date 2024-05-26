@@ -1,7 +1,11 @@
+import Link from "next/link"
+
 import { cn } from "@shared/utils/functions"
 import { Text } from "@shared/ui/atoms"
+import { LogoIcon } from "@shared/icons"
 
 import { IFooterProps } from "../types/IFooterProps"
+import { footerLinks } from "../static/footerLinks"
 
 import st from "./Footer.module.scss"
 
@@ -10,15 +14,31 @@ const Footer = (props: IFooterProps) => {
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>
-      <a
-        href="https://hunterxhunter.fandom.com/ru/wiki/Бискет_Крюгер"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Text weight="700" size="20">
-          Bisky
-        </Text>
-      </a>
+      <div className={st.innerWrapper}>
+        <div>
+          <Link
+            href="https://hunterxhunter.fandom.com/ru/wiki/Бискет_Крюгер"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={st.title}
+          >
+            <LogoIcon className={st.logo} isDefaultFill={false} />
+            <Text weight="700" size="20">
+              Bisky
+            </Text>
+          </Link>
+          <Text className={st.subTitle}>
+            © {new Date().getFullYear()} Bisky. Все права защищены.
+          </Text>
+        </div>
+        <div className={st.legalWrapper}>
+          {footerLinks.map((item) => (
+            <Link href={item.link} key={item.link} className={st.legalLink}>
+              <Text>{item.name}</Text>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

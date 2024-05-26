@@ -2,6 +2,7 @@
   @each $size in $sizes {
     .size_#{$size} {
       font-size: #{$size}px;
+      line-height: #{$size * 1.4}px;
     }
   }
 }

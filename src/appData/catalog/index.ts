@@ -11,4 +11,6 @@ export { filterStateDefaultValue } from "./static/filterStateDefaultValue"
 export { filterEnumValues } from "./functions/filterEnumValues"
 export { getParams } from "./functions/getParams"
 
+export type { ICatalogLayoutProps } from "./types/ICatalogLayoutProps"
+
 export { catalogPageStyles, catalogLoadingStyles }
