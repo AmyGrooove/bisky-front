@@ -1,7 +1,7 @@
 const currentUserDataQuery = {
-  label: "$userQuery: GeneralUserQuery",
+  label: "$userQuery: GeneralUserQuery, $animeQuery: GeneralAnimeQuery",
   query: `
-    getUserPublicData(userQuery: $userQuery) {
+    getUserPublicData(userQuery: $userQuery, animeQuery: $animeQuery) {
       username
       userPersonalization {
         badge
@@ -54,8 +54,14 @@ const currentUserDataQuery = {
       }
     }
   `,
-  variables: (username: string) => ({
+  variables: (username: string, page = 1) => ({
     userQuery: { filter: { username: username ?? null } },
+    animeQuery: {
+      isPaginationOff: false,
+      page: page,
+      count: 40,
+      sort: { usersList_generalCount: true },
+    },
   }),
 }
 

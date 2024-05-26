@@ -17,7 +17,9 @@ const getCurrentUserData = async (
           ${currentUserDataQuery.query}
         }
       `,
-      variables: { ...currentUserDataQuery.variables(props.username) },
+      variables: {
+        ...currentUserDataQuery.variables(props.username, props.page),
+      },
     }),
     next: { revalidate: 30, tags: ["userData"] },
   })

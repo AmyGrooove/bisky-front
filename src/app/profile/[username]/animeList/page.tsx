@@ -4,9 +4,8 @@ import { getCurrentUserData } from "@appData/profile/api"
 import {
   animeListPageStyles as st,
   IAnimeListPageProps,
-  getNormalWatchStatus,
+  UserAnimeList,
 } from "@appData/profile/subpages/animeList"
-import { AnimeCard } from "@entities/Anime"
 import { PlaceholderImage, Text } from "@shared/ui/atoms"
 import { AnimesListData } from "@shared/ui/molecules"
 
@@ -42,19 +41,7 @@ const AnimeListPage = async (props: IAnimeListPageProps) => {
           <AnimesListData animeList={userData.animeList} />
         </div>
       </div>
-      <div className={st.animes}>
-        {userData.animeEstimates.map((item) => (
-          <div key={item.base._id}>
-            <AnimeCard anime={item.base} />
-            <Text
-              isDefaultColor={false}
-              className={st["status_" + item.status]}
-            >
-              {getNormalWatchStatus(item.status)}
-            </Text>
-          </div>
-        ))}
-      </div>
+      <UserAnimeList username={userData.username} />
     </div>
   )
 }

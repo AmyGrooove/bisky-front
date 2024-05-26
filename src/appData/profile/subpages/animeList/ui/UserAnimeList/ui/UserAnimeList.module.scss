@@ -1,0 +1,53 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  &_added {
+    color: var(--bisky-100);
+  }
+
+  &_watching {
+    color: var(--blue);
+  }
+
+  &_completed {
+    color: var(--green);
+  }
+
+  &_dropped {
+    color: var(--bisky-400);
+  }
+}
+
+.animesWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+}
+
+.zeroResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+
+  height: fit-content;
+
+  background-color: var(--dark-200);
+  border-radius: var(--big-radius);
+}
