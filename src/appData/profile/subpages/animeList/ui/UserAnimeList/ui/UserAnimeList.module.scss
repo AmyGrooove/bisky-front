@@ -51,3 +51,14 @@
   background-color: var(--dark-200);
   border-radius: var(--big-radius);
 }
+
+.fastSelect {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+
+  border-radius: var(--big-radius);
+  background-color: var(--dark-200);
+}

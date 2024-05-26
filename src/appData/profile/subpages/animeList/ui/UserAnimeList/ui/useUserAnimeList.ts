@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
+import { useSession } from "next-auth/react"
 
 import { getCurrentUserData } from "@appData/profile/api"
 import { removeDuplicates } from "@shared/utils/functions"
@@ -9,6 +10,8 @@ import { IAnimeSimpleModelWithStatus } from "../types/IAnimeSimpleModelWithStatu
 
 const useUserAnimeList = (props: IUserAnimeListProps) => {
   const { username } = props
+
+  const { data: session } = useSession()
 
   const [isLoading, setIsLoading] = useState(true)
 
@@ -48,7 +51,7 @@ const useUserAnimeList = (props: IUserAnimeListProps) => {
     fetchNewAnimesData()
   }, [])
 
-  return { animesData, isLoading, loadingBlockRef }
+  return { animesData, isLoading, loadingBlockRef, session }
 }
 
 export { useUserAnimeList }

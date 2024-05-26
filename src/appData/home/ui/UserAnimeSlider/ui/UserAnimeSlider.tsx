@@ -13,7 +13,7 @@ import { useUserAnimeSlider } from "./useUserAnimeSlider"
 const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
   const { className, ...otherProps } = props
 
-  const { isLoading, userAnimeData } = useUserAnimeSlider()
+  const { isLoading, userAnimeData, username } = useUserAnimeSlider()
 
   return isLoading ? (
     <div {...otherProps} className={cn(st.row, className)}>
@@ -29,7 +29,7 @@ const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
       <LinkLabel
         label="Продолжить просмотр"
         linkText="В профиль"
-        href="/profile"
+        href={"/profile/" + username + "/animeList"}
       />
       <AnimeCardSlider items={userAnimeData.map((item) => item.base)} />
     </div>

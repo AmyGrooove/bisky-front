@@ -25,7 +25,7 @@ const useUserAnimeSlider = () => {
     }
   }, [session])
 
-  return { isLoading, userAnimeData }
+  return { isLoading, userAnimeData, username: session?.username }
 }
 
 export { useUserAnimeSlider }
