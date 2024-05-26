@@ -5,7 +5,7 @@ import { IUserPublicModel } from "./IUserPublicModel"
 interface IUserPublicFullModel extends IUserPublicModel {
   animeEstimates: IAnimeEstimatesFullModel[]
   skippedAnime: { animeId: string; updateDate: Date }[]
-  subscriptions: string[]
+  subscriptions: IUserPublicModel[]
   userPersonalization: { badge: string | null; background: string | null }
   favorites: { animeIds: string[] }
 }

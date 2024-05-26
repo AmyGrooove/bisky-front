@@ -2,12 +2,18 @@
 
 .root {
   display: flex;
+  justify-content: space-between;
+}
+
+.userAnimeList {
+  display: flex;
   gap: 8px;
   flex-direction: column;
 }
 
 .link {
   color: var(--light-100);
+  cursor: pointer;
 
   @include transition(color);
 

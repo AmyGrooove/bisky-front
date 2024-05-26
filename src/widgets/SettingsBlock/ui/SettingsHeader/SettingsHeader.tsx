@@ -1,5 +1,5 @@
 import { CropImage } from "@shared/ui/atoms"
-import { updateAvatar } from "@entities/User/api"
+import { updateAvatar, updateBackground } from "@entities/User/api"
 
 import { ISettingsHeaderProps } from "../../types/ISettingsHeaderProps"
 
@@ -14,6 +14,12 @@ const SettingsHeader = (props: ISettingsHeaderProps) => {
     setIsLoading(false)
   }
 
+  const uploadBackground = async (value: FormData) => {
+    setIsLoading(true)
+    await updateBackground(value)
+    setIsLoading(false)
+  }
+
   return (
     <div className={st.root}>
       <CropImage
@@ -21,6 +27,7 @@ const SettingsHeader = (props: ISettingsHeaderProps) => {
         width={600}
         height={120}
         className={st.background}
+        uploadFunction={uploadBackground}
         imageClassName={st.backgroundImage}
       />
       <CropImage

@@ -8,3 +8,4 @@ export type { IProfilePageProps } from "./types/IProfilePageProps"
 
 export { ProfileHeader } from "./ui/ProfileHeader"
 export { UserAnimeStats } from "./ui/UserAnimeStats"
+export { UsersSubscriptions } from "./ui/UsersSubscriptions"

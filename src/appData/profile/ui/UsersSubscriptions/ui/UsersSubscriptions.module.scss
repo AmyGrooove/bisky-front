@@ -1,0 +1,29 @@
+@import "@shared/styles/reusable.scss";
+
+.link {
+  color: var(--light-100);
+  cursor: pointer;
+
+  @include transition(color);
+
+  &:hover {
+    color: var(--bisky-100);
+  }
+}
+
+.avatar {
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: var(--full-radius);
+}
+
+.avatarImage {
+  width: 70px !important;
+  height: 70px !important;
+  object-fit: cover;
+}
+
+.subWrapper {
+  display: flex;
+  gap: 16px;
+}
