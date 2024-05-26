@@ -67,7 +67,10 @@ const LoginForm = (props: ILoginFormProps) => {
           />
         </div>
       </div>
-      <Text isDefaultColor={false} className={st.changeModalLabel}>
+      <Text
+        isDefaultColor={false}
+        className={cn(st.changeModalLabel, st.changeModalLabel_disabled)}
+      >
         Сбросить пароль
       </Text>
     </>

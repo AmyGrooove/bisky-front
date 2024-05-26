@@ -53,6 +53,18 @@
   }
 }
 
+.mail {
+  margin-left: 20px;
+  color: var(--bisky-100);
+
+  @include transition(color);
+
+  &:hover {
+    color: var(--bisky-200);
+    text-decoration: underline;
+  }
+}
+
 @media screen and (max-width: $fullHD) {
   .innerWrapper {
     max-width: calc(var(--HD) - 16px);

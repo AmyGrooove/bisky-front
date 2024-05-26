@@ -26,6 +26,9 @@ const Footer = (props: IFooterProps) => {
             <Text weight="700" size="20">
               Bisky
             </Text>
+            <Link href="mailto:help@bisky.one" className={st.mail}>
+              <Text isDefaultColor={false}>help@bisky.one</Text>
+            </Link>
           </Link>
           <Text className={st.subTitle}>
             © {new Date().getFullYear()} Bisky. Все права защищены.

@@ -26,10 +26,10 @@ const FastFindPage = () => {
     setCurrentAnime,
     isChangingAnime,
     getNewAnimes,
-    isSessionValid,
+    session,
   } = useFastFindPage()
 
-  return !isSessionValid ? (
+  return !session ? (
     <ErrorPage />
   ) : isLoading ? (
     <FastFindLoading />
@@ -40,10 +40,10 @@ const FastFindPage = () => {
           Список окончен. Начнем просмотр?
         </Text>
         <div className={st.goNextOptions}>
-          <Link href="/profile">
+          <Link href={"/profile" + (session?.username ?? "") + "/animeList"}>
             <Button className={st.optionButton}>В профиль</Button>
           </Link>
-          <Link href="#">
+          <Link href="/fastSelect">
             <Button className={st.optionButton} leftIcon={<KingIcon />}>
               Быстрый выбор
             </Button>

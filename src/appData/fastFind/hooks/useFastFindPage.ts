@@ -41,7 +41,7 @@ const useFastFindPage = () => {
     setCurrentAnime,
     setIsChangingAnime,
     isChangingAnime,
-    isSessionValid: session !== null,
+    session,
   }
 }
 
