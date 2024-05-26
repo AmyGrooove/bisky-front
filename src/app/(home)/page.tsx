@@ -3,7 +3,11 @@ import { getOneRandomFact, FactBlock } from "@entities/Fact"
 import { SeasonSlider } from "@features/SeasonSlider"
 import { AnimeCardSlider } from "@features/AnimeCardSlider"
 import { GenreBlockSlider } from "@features/GenreBlockSlider"
-import { UserAnimeSlider, homePageStyles as st } from "@appData/home"
+import {
+  FastPageBlock,
+  UserAnimeSlider,
+  homePageStyles as st,
+} from "@appData/home"
 import { getHomeData } from "@appData/home/api"
 
 const HomePage = async () => {
@@ -16,6 +20,7 @@ const HomePage = async () => {
         <SeasonSlider items={homeData.seasonAnimes} className={st.sliders} />
       </div>
       <UserAnimeSlider />
+      <FastPageBlock />
       <div className={st.row}>
         <LinkLabel
           label="Новые серии"

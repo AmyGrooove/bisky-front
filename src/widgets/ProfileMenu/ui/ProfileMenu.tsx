@@ -3,7 +3,7 @@ import { signOut, useSession } from "next-auth/react"
 import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
-import { ExitIcon, ProfileIcon, SettingsIcon } from "@shared/icons"
+import { ExitIcon, PlayIcon, ProfileIcon, SettingsIcon } from "@shared/icons"
 import {
   Dropdown,
   IDropdownRef,
@@ -55,6 +55,14 @@ const ProfileMenu = (props: IProfileMenuProps) => {
         >
           <Text>Профиль</Text>
           <ProfileIcon className={st.icon} />
+        </Link>
+        <Link
+          href={"/profile/" + session?.username + "/animeList"}
+          className={st.menuRow}
+          onClick={dropdownRef.current?.closeMenu}
+        >
+          <Text>Список Аниме</Text>
+          <PlayIcon className={st.icon} />
         </Link>
         <div
           className={st.menuRow}

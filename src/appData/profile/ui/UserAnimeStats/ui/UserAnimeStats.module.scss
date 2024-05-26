@@ -1,0 +1,17 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.link {
+  color: var(--light-100);
+
+  @include transition(color);
+
+  &:hover {
+    color: var(--bisky-100);
+  }
+}

@@ -53,6 +53,11 @@
   height: 192px;
 }
 
+.fastFind {
+  height: 80px;
+  width: 100%;
+}
+
 @media screen and (max-width: $fullHD) {
   .root {
     max-width: calc(var(--HD) - 16px);
