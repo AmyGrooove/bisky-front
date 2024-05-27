@@ -8,6 +8,11 @@
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.card {
+  height: 320px;
 }
 
 @media screen and (max-width: $fullHD) {

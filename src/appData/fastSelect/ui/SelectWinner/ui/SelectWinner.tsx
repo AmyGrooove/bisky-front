@@ -13,17 +13,6 @@ const SelectWinner = (props: ISelectWinnerProps) => {
   return (
     <div className={st.root}>
       <PlaceholderImage
-        fill
-        src={
-          animeData?.screenshots.length !== 0
-            ? animeData?.screenshots[0] ?? null
-            : animeData?.poster ?? null
-        }
-        alt=""
-        className={st.background}
-        imageClassName={st.backgroundImage}
-      />
-      <PlaceholderImage
         width={220}
         height={330}
         src={animeData?.poster ?? null}
@@ -37,6 +26,17 @@ const SelectWinner = (props: ISelectWinnerProps) => {
       <Link href={"/anime/" + animeData._id}>
         <Button className={st.choiceButton}>Начать просмотр</Button>
       </Link>
+      <PlaceholderImage
+        fill
+        src={
+          animeData?.screenshots.length !== 0
+            ? animeData?.screenshots[0] ?? null
+            : animeData?.poster ?? null
+        }
+        alt=""
+        className={st.background}
+        imageClassName={st.backgroundImage}
+      />
     </div>
   )
 }

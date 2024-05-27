@@ -13,7 +13,7 @@ import { fastFindPageStyles as st } from "@appData/fastFind"
 import { Text } from "@shared/ui/atoms"
 import { Button, OversizeText } from "@shared/ui/molecules"
 import { ScreenshotSlider } from "@appData/anime"
-import { HeartIcon, KingIcon } from "@shared/icons"
+import { HeartIcon, KingIcon, ProfileIcon } from "@shared/icons"
 
 import FastFindLoading from "./loading"
 
@@ -40,8 +40,10 @@ const FastFindPage = () => {
           Список окончен. Начнем просмотр?
         </Text>
         <div className={st.goNextOptions}>
-          <Link href={"/profile" + (session?.username ?? "") + "/animeList"}>
-            <Button className={st.optionButton}>В профиль</Button>
+          <Link href={"/profile/" + (session?.username ?? "") + "/animeList"}>
+            <Button className={st.optionButton} leftIcon={<ProfileIcon />}>
+              В профиль
+            </Button>
           </Link>
           <Link href="/fastSelect">
             <Button className={st.optionButton} leftIcon={<KingIcon />}>

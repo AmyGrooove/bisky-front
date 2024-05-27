@@ -38,7 +38,6 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
                   className={st.avatar}
                   imageClassName={st.avatarImage}
                   quality={100}
-                  unoptimized
                 />
               </a>
               <a

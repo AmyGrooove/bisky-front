@@ -28,7 +28,6 @@ const UsersSubscriptions = (props: IUsersSubscriptionsProps) => {
                 className={st.avatar}
                 imageClassName={st.avatarImage}
                 quality={100}
-                unoptimized
               />
             </Link>
           ))}

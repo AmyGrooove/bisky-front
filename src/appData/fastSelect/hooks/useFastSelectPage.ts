@@ -76,7 +76,7 @@ const useFastSelectPage = () => {
         .then((response) => {
           setAnimesData(response ?? [])
 
-          if (response?.length && response.length < 2) setIsError(true)
+          if (!response?.length || response?.length < 2) setIsError(true)
           else {
             setIsError(false)
 

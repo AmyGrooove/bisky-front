@@ -39,7 +39,6 @@ const ProfileMenu = (props: IProfileMenuProps) => {
           className={cn(st.avatar, className)}
           imageClassName={st.avatarImage}
           quality={100}
-          unoptimized
         />
       }
     >

@@ -21,17 +21,6 @@ const SelectElement = (props: ISelectElementProps) => {
         />
       </Link>
       <PlaceholderImage
-        fill
-        src={
-          animeData?.screenshots.length !== 0
-            ? animeData?.screenshots[0] ?? null
-            : animeData?.poster ?? null
-        }
-        alt=""
-        className={st.background}
-        imageClassName={st.backgroundImage}
-      />
-      <PlaceholderImage
         width={220}
         height={330}
         src={animeData?.poster ?? null}
@@ -45,6 +34,17 @@ const SelectElement = (props: ISelectElementProps) => {
       <Button onClick={onClick} className={st.choiceButton}>
         Выбрать
       </Button>
+      <PlaceholderImage
+        fill
+        src={
+          animeData?.screenshots.length !== 0
+            ? animeData?.screenshots[0] ?? null
+            : animeData?.poster ?? null
+        }
+        alt=""
+        className={st.background}
+        imageClassName={st.backgroundImage}
+      />
     </div>
   )
 }

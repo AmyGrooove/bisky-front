@@ -29,6 +29,7 @@ const ErrorPage = () => {
             size="20"
             onClick={() => setModal(<AuthBlock />)}
             className={st.authButton}
+            isDefaultColor={false}
           >
             авторизация
           </Text>
