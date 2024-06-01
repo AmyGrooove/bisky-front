@@ -16,25 +16,25 @@ export async function generateMetadata(
 
   return {
     title:
-      franchiseData.name.ru ??
-      franchiseData.name.en ??
-      franchiseData.shikiId ??
+      franchiseData?.name?.ru ??
+      franchiseData?.name?.en ??
+      franchiseData?.shikiId ??
       "",
     description:
-      franchiseData.name.ru ??
-      franchiseData.name.en ??
-      franchiseData.shikiId ??
+      franchiseData?.name?.ru ??
+      franchiseData?.name?.en ??
+      franchiseData?.shikiId ??
       "",
     openGraph: {
       title:
-        franchiseData.name.ru ??
-        franchiseData.name.en ??
-        franchiseData.shikiId ??
+        franchiseData?.name?.ru ??
+        franchiseData?.name?.en ??
+        franchiseData?.shikiId ??
         "",
       description:
-        franchiseData.name.ru ??
-        franchiseData.name.en ??
-        franchiseData.shikiId ??
+        franchiseData?.name?.ru ??
+        franchiseData?.name?.en ??
+        franchiseData?.shikiId ??
         "",
       url: `${APP_URL}/franchise`,
       images: `${APP_URL}/images/openGraph.png`,

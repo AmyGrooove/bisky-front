@@ -27,7 +27,8 @@ const getFastSelectAnimes = async (
     next: { revalidate: 0, tags: ["fastFind"] },
   })
 
-  if (!result.ok) throw new Error(`Failed to get anime: ${result.statusText}`)
+  if (!result.ok)
+    throw new Error(`Failed to get fastSelect anime: ${result.statusText}`)
 
   return (await result.json()).data.getUserPublicData.animeEstimates.map(
     (item: any) => item.base,

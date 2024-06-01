@@ -20,11 +20,11 @@ const GenreBlock = (props: IGenreBlock) => {
       <Text size="24" weight="700" className={st.label}>
         {genre.name?.ru ?? ""}
       </Text>
-      <Text className={st.description}>{genre.description?.ru ?? ""}</Text>
+      <Text className={st.description}>{genre?.description?.ru ?? ""}</Text>
       <div className={st.backgroundPosters}>
-        {genre.relatedWorks?.map((item) => (
+        {genre?.relatedWorks?.map((item) => (
           <PlaceholderImage
-            key={item._id + (genre.name?.en ?? "")}
+            key={item._id + (genre?.name?.en ?? "")}
             src={item.poster ?? ""}
             width={126}
             height={242}

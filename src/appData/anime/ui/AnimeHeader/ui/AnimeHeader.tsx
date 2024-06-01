@@ -59,9 +59,9 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
         <div className={st.titleWrapper}>
           <div className={st.titleInfo}>
             <Text size="32" weight="700">
-              {animeData.labels?.ru ?? ""}
+              {animeData?.labels?.ru ?? ""}
             </Text>
-            <Text size="20">{animeData.labels?.en ?? ""}</Text>
+            <Text size="20">{animeData?.labels?.en ?? ""}</Text>
             <Badge isDefaultTextColor={false} className={st.rating}>
               {getNormalRating(animeData.rating ?? "none")}
             </Badge>

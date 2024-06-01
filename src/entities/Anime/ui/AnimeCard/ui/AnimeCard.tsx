@@ -27,7 +27,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
         alt=""
       />
       <Text className={st.title}>
-        {anime.labels?.ru ?? anime.labels?.en ?? ""}
+        {anime?.labels?.ru ?? anime?.labels?.en ?? ""}
       </Text>
       <div className={st.badges}>
         {anime.status === "anons" ? (
@@ -72,8 +72,8 @@ const AnimeCard = (props: IAnimeCardProps) => {
           )}
         </div>
       )}
-      {anime.relatedName && (
-        <Text className={st.relatedName}>{anime.relatedName}</Text>
+      {anime?.relatedName && (
+        <Text className={st.relatedName}>{anime?.relatedName}</Text>
       )}
     </Link>
   )

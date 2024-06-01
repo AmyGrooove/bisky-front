@@ -28,7 +28,8 @@ const getCurrentAnimeData = async (
     next: { revalidate: 0, tags: ["oneAnime"] },
   })
 
-  if (!result.ok) throw new Error(`Failed to get anime: ${result.statusText}`)
+  if (!result.ok)
+    throw new Error(`Failed to get current anime: ${result.statusText}`)
 
   return (await result.json()).data.getAnimes[0]
 }

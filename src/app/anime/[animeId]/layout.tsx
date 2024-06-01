@@ -12,17 +12,24 @@ export async function generateMetadata(
     params: { animeId },
   } = props
 
-  const animeData = await getCurrentAnimeData({ animeId })
+  try {
+    const animeData = await getCurrentAnimeData({ animeId })
 
-  return {
-    title: animeData.labels?.ru ?? "",
-    description: animeData.description?.ru ?? "",
-    openGraph: {
-      title: (animeData.labels?.ru ?? "") + " | Bisky — Смотреть Аниме",
-      description: animeData.description?.ru ?? "",
-      url: `${APP_URL}/anime/${animeData._id}`,
-      images: animeData.screenshots,
-    },
+    return {
+      title: animeData?.labels?.ru ?? "",
+      description: animeData?.description?.ru ?? "",
+      openGraph: {
+        title:
+          (animeData?.labels?.ru ?? animeData?.labels?.en ?? "") +
+          " | Bisky — Смотреть Аниме",
+        description:
+          animeData?.description?.ru ?? animeData?.description?.en ?? "",
+        url: `${APP_URL}/anime/${animeData._id}`,
+        images: animeData?.screenshots,
+      },
+    }
+  } catch (error) {
+    return {}
   }
 }
 

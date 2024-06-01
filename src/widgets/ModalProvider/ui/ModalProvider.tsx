@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useEffect, useState } from "react"
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from "react"
 
 import { cn } from "@shared/utils/functions"
 import { CrossIcon } from "@shared/icons"
@@ -31,12 +37,22 @@ const ModalProvider = (props: IModalProviderProps) => {
     }, 100)
   }
 
+  const escClose = useCallback((event: KeyboardEvent) => {
+    if (event.key === "Escape") closeModal()
+  }, [])
+
   useEffect(() => {
     if (document && !!modal) {
       document.body.style.overflow = "hidden"
       document.body.style.marginRight = "12px"
     }
   }, [modal])
+
+  useEffect(() => {
+    document.addEventListener("keydown", escClose, false)
+
+    return () => document.removeEventListener("keydown", escClose, false)
+  }, [])
 
   return (
     <ModalContext.Provider

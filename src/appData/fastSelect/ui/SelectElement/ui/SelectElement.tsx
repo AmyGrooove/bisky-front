@@ -29,7 +29,7 @@ const SelectElement = (props: ISelectElementProps) => {
         imageClassName={st.posterImage}
       />
       <Text weight="700" size="20" className={st.label}>
-        {animeData?.labels.ru ?? animeData?.labels.en ?? ""}
+        {animeData?.labels?.ru ?? animeData?.labels?.en ?? ""}
       </Text>
       <Button onClick={onClick} className={st.choiceButton}>
         Выбрать

@@ -24,13 +24,15 @@ const AnimePage = async (props: IAnimePageProps) => {
     <div className={st.root}>
       <AnimeHeader animeData={animeData} className={st.animeHeader} />
       <AdditionalInfo animeData={animeData} />
-      {animeData.description?.ru !== null && (
-        <OversizeText size="16">{animeData.description?.ru ?? ""}</OversizeText>
+      {animeData?.description?.ru !== null && (
+        <OversizeText size="16">
+          {animeData?.description?.ru ?? ""}
+        </OversizeText>
       )}
-      <PlayerModule animeShikiId={animeData.shikiId} />
-      {animeData.related?.filter((item) => !!item.base).length !== 0 && (
+      <PlayerModule animeShikiId={animeData?.shikiId} />
+      {animeData?.related?.filter((item) => !!item.base).length !== 0 && (
         <div className={st.row}>
-          {animeData.franchise ? (
+          {animeData?.franchise ? (
             <LinkLabel
               label="Связанное"
               linkText="Франшиза"
@@ -43,7 +45,7 @@ const AnimePage = async (props: IAnimePageProps) => {
           )}
           <AnimeCardSlider
             items={
-              animeData.related
+              animeData?.related
                 ?.filter((item) => !!item.base)
                 .map((item) => ({
                   ...item.base!,
@@ -54,10 +56,10 @@ const AnimePage = async (props: IAnimePageProps) => {
           />
         </div>
       )}
-      {animeData.screenshots?.length !== 0 && (
+      {animeData?.screenshots?.length !== 0 && (
         <ScreenshotSlider items={animeData.screenshots ?? []} />
       )}
-      {animeData.videos?.length !== 0 && (
+      {animeData?.videos?.length !== 0 && (
         <VideoSlider items={animeData.videos ?? []} />
       )}
     </div>

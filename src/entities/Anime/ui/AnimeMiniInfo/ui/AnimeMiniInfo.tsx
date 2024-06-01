@@ -13,7 +13,7 @@ const AnimeMiniInfo = (props: IAnimeMiniInfoProps) => {
       <div className={cn(st.infoBlock, st.infoBlock_underline)}>
         <Text weight="700">Другие названия:</Text>
         <div className={st.labelsWrapper}>
-          {(animeData.labels?.synonyms ?? []).map((item) => (
+          {(animeData?.labels?.synonyms ?? []).map((item) => (
             <Text key={item} className={st.textUnderline}>
               {item}
             </Text>

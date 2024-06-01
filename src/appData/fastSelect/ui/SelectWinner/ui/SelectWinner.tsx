@@ -21,7 +21,7 @@ const SelectWinner = (props: ISelectWinnerProps) => {
         imageClassName={st.posterImage}
       />
       <Text weight="700" size="20" className={st.label}>
-        {animeData?.labels.ru ?? animeData?.labels.en ?? ""}
+        {animeData?.labels?.ru ?? animeData?.labels?.en ?? ""}
       </Text>
       <Link href={"/anime/" + animeData._id}>
         <Button className={st.choiceButton}>Начать просмотр</Button>

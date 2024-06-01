@@ -14,7 +14,7 @@ const FranchisePage = async (props: IFranchisePageProps) => {
 
   return (
     <div className={st.root}>
-      {franchiseData.relatedWorks.map((item) => (
+      {franchiseData?.relatedWorks.map((item) => (
         <AnimeCard key={item._id} anime={item} className={st.card} />
       ))}
     </div>

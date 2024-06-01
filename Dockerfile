@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM dockerhub.timeweb.cloud/library/node:20-alpine
 
 WORKDIR /app
 

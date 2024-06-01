@@ -34,7 +34,7 @@ const Season = (props: ISeasonProps) => {
           alt=""
         />
         <Text size="32" weight="700">
-          {anime.labels?.ru ?? anime.labels?.en ?? ""}
+          {anime?.labels?.ru ?? anime?.labels?.en ?? ""}
         </Text>
       </div>
       <Badge

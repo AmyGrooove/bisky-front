@@ -64,17 +64,17 @@ const FastFindPage = () => {
       ) : (
         <div className={st.leftSide}>
           <Text size="32" weight="700" className={st.label}>
-            {currentAnime.labels?.ru ?? ""}
+            {currentAnime?.labels?.ru ?? ""}
           </Text>
           <AdditionalInfo currentAnime={currentAnime} />
-          {currentAnime.description?.ru !== null && (
+          {currentAnime?.description?.ru !== null && (
             <OversizeText size="16">
-              {currentAnime.description?.ru ?? ""}
+              {currentAnime?.description?.ru ?? ""}
             </OversizeText>
           )}
-          {currentAnime.screenshots?.length !== 0 && (
+          {currentAnime?.screenshots?.length !== 0 && (
             <ScreenshotSlider
-              items={currentAnime.screenshots ?? []}
+              items={currentAnime?.screenshots ?? []}
               screenshotsSize={{ width: 400, height: 220 }}
             />
           )}

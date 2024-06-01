@@ -32,7 +32,7 @@ const ResultRow = (props: IResultRowProps) => {
       <div className={st.main}>
         <div className={st.nothing} />
         <Text weight="700" className={st.label}>
-          {animeData.labels.ru ?? animeData.labels.en ?? ""}
+          {animeData?.labels?.ru ?? animeData?.labels?.en ?? ""}
         </Text>
         <div className={st.additionalInfo}>
           <div className={st.info}>

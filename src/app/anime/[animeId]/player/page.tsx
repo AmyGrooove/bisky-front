@@ -19,7 +19,7 @@ const PlayerPage = async (props: IPlayerPageProps) => {
         <Skeleton className={st.loading} />
       </div>
       <PlayerModule
-        animeShikiId={animeData.shikiId}
+        animeShikiId={animeData?.shikiId}
         className={st.iframe}
         isDefaultStyles={false}
       />
