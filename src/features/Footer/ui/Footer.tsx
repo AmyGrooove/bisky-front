@@ -16,20 +16,22 @@ const Footer = (props: IFooterProps) => {
     <div {...otherProps} className={cn(st.root, className)}>
       <div className={st.innerWrapper}>
         <div>
-          <Link
-            href="https://hunterxhunter.fandom.com/ru/wiki/Бискет_Крюгер"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={st.title}
-          >
-            <LogoIcon className={st.logo} isDefaultFill={false} />
-            <Text weight="700" size="20">
-              Bisky
-            </Text>
+          <div className={st.title}>
+            <Link
+              href="https://hunterxhunter.fandom.com/ru/wiki/Бискет_Крюгер"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={st.title}
+            >
+              <LogoIcon className={st.logo} isDefaultFill={false} />
+              <Text weight="700" size="20">
+                Bisky
+              </Text>
+            </Link>
             <Link href="mailto:help@bisky.one" className={st.mail}>
               <Text isDefaultColor={false}>help@bisky.one</Text>
             </Link>
-          </Link>
+          </div>
           <Text className={st.subTitle}>
             © {new Date().getFullYear()} Bisky. Все права защищены.
           </Text>

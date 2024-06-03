@@ -16,7 +16,7 @@ const SetScoreButton = (props: ISetScoreButtonProps) => {
 
   return (
     <Dropdown
-      dropdownRef={addListButtonsRef}
+      ref={addListButtonsRef}
       callComponent={
         <div className={st.buttonWrapper}>
           <Button

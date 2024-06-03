@@ -12,16 +12,16 @@ import { cn } from "@shared/utils/functions"
 import { useClickOutside } from "@shared/utils/hooks"
 
 import { IDropdownProps } from "../types/IDropdownProps"
+import { IDropdownRef } from "../types/IDropdownRef"
 
 import st from "./Dropdown.module.scss"
 
-const Dropdown = forwardRef(function Dropdown(props: IDropdownProps) {
+const Dropdown = forwardRef<IDropdownRef, IDropdownProps>((props, ref) => {
   const {
     callComponent,
     children,
     className,
     isDisabled = false,
-    dropdownRef,
     ...otherProps
   } = props
 
@@ -39,7 +39,7 @@ const Dropdown = forwardRef(function Dropdown(props: IDropdownProps) {
     }, 100)
   }
 
-  useImperativeHandle(dropdownRef, () => ({ closeMenu }), [])
+  useImperativeHandle(ref, () => ({ closeMenu }), [])
 
   useClickOutside([rootRef], closeMenu)
 
@@ -66,5 +66,6 @@ const Dropdown = forwardRef(function Dropdown(props: IDropdownProps) {
     </div>
   )
 })
+Dropdown.displayName = "Dropdown"
 
 export { Dropdown }

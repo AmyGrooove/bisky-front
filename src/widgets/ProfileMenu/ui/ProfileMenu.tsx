@@ -28,7 +28,7 @@ const ProfileMenu = (props: IProfileMenuProps) => {
 
   return (
     <Dropdown
-      dropdownRef={dropdownRef}
+      ref={dropdownRef}
       callComponent={
         <PlaceholderImage
           {...otherProps}

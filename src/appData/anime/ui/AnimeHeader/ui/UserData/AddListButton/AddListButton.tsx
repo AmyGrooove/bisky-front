@@ -16,7 +16,7 @@ const AddListButton = (props: IAddListButtonProps) => {
 
   return (
     <Dropdown
-      dropdownRef={addListButtonsRef}
+      ref={addListButtonsRef}
       isDisabled={!animeStatus}
       callComponent={
         <div className={st.buttonWrapper}>

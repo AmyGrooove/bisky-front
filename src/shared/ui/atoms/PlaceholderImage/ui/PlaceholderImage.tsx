@@ -25,9 +25,9 @@ const PlaceholderImage = (props: IPlaceholderImageProps) => {
           height={height}
           src={src}
           className={imageClassName}
-          priority
           onError={() => setIsLoaded(false)}
           onLoad={() => setIsLoaded(true)}
+          loading="lazy"
           alt=""
         />
       ) : (
