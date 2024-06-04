@@ -1,6 +1,7 @@
-import { ClockIcon } from "@shared/icons"
+import React from "react"
+import { ClockIcon } from "../../../../src/shared/icons"
 
-import { Badge } from "../ui/Badge"
+import { Badge } from "../../../../src/shared/ui/molecules"
 
 import type { Meta, StoryObj } from "@storybook/react"
 

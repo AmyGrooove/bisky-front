@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { Spinner } from "../ui/Spinner"
+import { Spinner } from "../../../../src/shared/ui/atoms"
 
 const meta: Meta<typeof Spinner> = {
   title: "shared/atoms/Spinner",

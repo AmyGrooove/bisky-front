@@ -1,4 +1,4 @@
-import { GenreBlock } from "../ui/GenreBlock"
+import { GenreBlock } from "../../../../src/entities/Genre"
 
 import type { Meta, StoryObj } from "@storybook/react"
 

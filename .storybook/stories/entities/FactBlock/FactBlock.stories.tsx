@@ -1,4 +1,4 @@
-import { FactBlock } from "../ui/FactBlock"
+import { FactBlock } from "../../../../src/entities/Fact"
 
 import type { Meta, StoryObj } from "@storybook/react"
 

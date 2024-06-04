@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { WatchStatus } from "../ui/WatchStatus"
+import { WatchStatus } from "../../../../src/shared/ui/atoms"
 
 const meta: Meta<typeof WatchStatus> = {
   title: "shared/atoms/WatchStatus",

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { PlaceholderImage } from "../ui/PlaceholderImage"
+import { PlaceholderImage } from "../../../../src/shared/ui/atoms"
 
 const meta: Meta<typeof PlaceholderImage> = {
   title: "shared/atoms/PlaceholderImage",

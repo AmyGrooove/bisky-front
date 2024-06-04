@@ -1,4 +1,4 @@
-import { Text } from "../ui/Text"
+import { Text } from "../../../../src/shared/ui/atoms"
 
 import type { Meta, StoryObj } from "@storybook/react"
 

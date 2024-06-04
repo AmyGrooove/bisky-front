@@ -1,4 +1,4 @@
-import { CircleViews } from "../ui/CircleViews"
+import { CircleViews } from "../../../../src/shared/ui/atoms"
 
 import type { Meta, StoryObj } from "@storybook/react"
 

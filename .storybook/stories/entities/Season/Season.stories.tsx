@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { Season } from "../ui/Season"
+import { Season } from "../../../../src/entities/Anime"
 
 const meta: Meta<typeof Season> = {
   title: "entities/Anime/Season",

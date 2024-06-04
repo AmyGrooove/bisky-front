@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { AnimeCard } from "../ui/AnimeCard"
+import { AnimeCard } from "../../../../src/entities/Anime"
 
 const meta: Meta<typeof AnimeCard> = {
   title: "entities/Anime/AnimeCard",

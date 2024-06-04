@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { Switch } from "../ui/Switch"
+import { Switch } from "../../../../src/shared/ui/atoms"
 
 const meta: Meta<typeof Switch> = {
   title: "shared/atoms/Switch",

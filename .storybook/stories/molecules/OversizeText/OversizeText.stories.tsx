@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { OversizeText } from "../ui/OversizeText"
+import { OversizeText } from "../../../../src/shared/ui/molecules"
 
 const meta: Meta<typeof OversizeText> = {
   title: "shared/molecules/OversizeText",

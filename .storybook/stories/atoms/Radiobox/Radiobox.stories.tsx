@@ -1,6 +1,7 @@
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 
-import { Radiobox } from "../ui/Radiobox"
+import { Radiobox } from "../../../../src/shared/ui/atoms"
 
 const meta: Meta<typeof Radiobox> = {
   title: "shared/atoms/Radiobox",

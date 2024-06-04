@@ -1,4 +1,5 @@
-import { Dropdown } from "../ui/Dropdown"
+import React from "react"
+import { Dropdown } from "../../../../src/shared/ui/atoms"
 
 import type { Meta, StoryObj } from "@storybook/react"
 

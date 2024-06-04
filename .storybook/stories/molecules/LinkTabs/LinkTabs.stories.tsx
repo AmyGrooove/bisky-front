@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { LinkTabs } from "../ui/LinkTabs"
+import { LinkTabs } from "../../../../src/shared/ui/molecules"
 
 const meta: Meta<typeof LinkTabs> = {
   title: "shared/molecules/LinkTabs",

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { InputField } from "../ui/InputField"
+import { InputField } from "../../../../src/shared/ui/molecules"
 
 const meta: Meta<typeof InputField> = {
   title: "shared/molecules/InputField",
