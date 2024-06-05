@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { ArrowIcon, BackIcon, LogoIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
 import { IRegisterFormProps } from "@widgets/AuthBlock/types/IRegisterFormProps"
@@ -86,6 +88,12 @@ const RegisterForm = (props: IRegisterFormProps) => {
             onClick={() => (isCanGoLogin ? callCreateNewUser() : {})}
           />
         </div>
+        <Text as="p" size="12" className={st.linkWrapper}>
+          Продолжая регистрацию, вы принимаете нашу{" "}
+          <Link href="/privacy" className={st.link} target="_blank">
+            Политику конфиденциальности
+          </Link>
+        </Text>
       </div>
     </>
   )
