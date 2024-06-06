@@ -1,19 +1,23 @@
 "use client"
 
 import { useKeenSlider } from "keen-slider/react"
-import { useState } from "react"
-import Link from "next/link"
+import { useContext, useState } from "react"
 
 import { cn } from "@shared/utils/functions"
 import { ArrowIcon } from "@shared/icons"
 import { Text, PlaceholderImage } from "@shared/ui/atoms"
+import { ModalContext } from "@widgets/ModalProvider"
 
 import { IVideoSliderProps } from "../types/IVideoSliderProps"
+import { getVideoUrl } from "../functions/getVideoUrl"
 
 import st from "./VideoSlider.module.scss"
+import { VideoModal } from "./VideoModal/VideoModal"
 
 const VideoSlider = (props: IVideoSliderProps) => {
   const { items, className, ...otherProps } = props
+
+  const { setModal } = useContext(ModalContext)
 
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -51,23 +55,30 @@ const VideoSlider = (props: IVideoSliderProps) => {
         )}
         <div ref={sliderRef} className="keen-slider">
           {items.map((item) => (
-            <Link
+            <div
               key={item.url}
-              href={item.url ?? ""}
-              target="_blank"
               className={cn(st.videoWrapper, "keen-slider__slide")}
+              onClick={() =>
+                setModal(
+                  <VideoModal
+                    backUrl={getVideoUrl(item.url)}
+                    url={item.url}
+                    name={item.name}
+                  />,
+                )
+              }
             >
               <Text size="24" weight="700" className={st.videoTitle}>
                 {item.name ?? ""}
               </Text>
               <PlaceholderImage
-                src=""
+                src={getVideoUrl(item.url)}
                 alt=""
                 width={528}
                 height={290}
                 className={st.video}
               />
-            </Link>
+            </div>
           ))}
         </div>
       </div>
