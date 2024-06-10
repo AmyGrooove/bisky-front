@@ -23,11 +23,12 @@ const UsersSubscriptions = (props: IUsersSubscriptionsProps) => {
               <PlaceholderImage
                 width={300}
                 height={300}
-                src={item.avatar ?? ""}
+                src={item.avatar + "?" + Date.now().toString() ?? ""}
                 alt=""
                 className={st.avatar}
                 imageClassName={st.avatarImage}
                 quality={100}
+                unoptimized
               />
             </Link>
           ))}

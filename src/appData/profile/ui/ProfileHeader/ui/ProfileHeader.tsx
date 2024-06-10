@@ -19,13 +19,14 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
         alt=""
         className={st.background}
         imageClassName={st.backgroundImage}
+        unoptimized
       />
       <div className={st.main}>
         <div className={st.leftSide}>
           <div className={st.avatarWrapper}>
             <Fancybox options={{ Carousel: { infinite: false } }}>
               <a
-                href={userData.avatar ?? ""}
+                href={userData.avatar + "?" + Date.now().toString() ?? ""}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-fancybox="gallery"
@@ -38,6 +39,7 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
                   className={st.avatar}
                   imageClassName={st.avatarImage}
                   quality={100}
+                  unoptimized
                 />
               </a>
               <a

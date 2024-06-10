@@ -27,11 +27,12 @@ const AnimeListPage = async (props: IAnimeListPageProps) => {
             <PlaceholderImage
               width={300}
               height={300}
-              src={userData.avatar ?? ""}
+              src={userData.avatar + "?" + Date.now().toString() ?? ""}
               alt=""
               className={st.avatar}
               imageClassName={st.avatarImage}
               quality={100}
+              unoptimized
             />
             <Text weight="700" size="32">
               {userData.username}

@@ -34,7 +34,7 @@ const SettingsBlock = () => {
       ) : (
         <>
           <SettingsHeader
-            avatar={userData?.avatar ?? ""}
+            avatar={userData?.avatar + "?" + Date.now().toString() ?? ""}
             background={userData?.userPersonalization.background ?? ""}
             setIsLoading={setIsLoading}
           />

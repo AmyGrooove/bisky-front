@@ -24,7 +24,7 @@ const getFastSelectAnimes = async (
       `,
       variables: { ...fastSelectAnimesQuery.variables(username) },
     }),
-    next: { revalidate: 0, tags: ["fastFind"] },
+    next: { revalidate: 0, tags: ["fastSelect"] },
   })
 
   if (!result.ok)

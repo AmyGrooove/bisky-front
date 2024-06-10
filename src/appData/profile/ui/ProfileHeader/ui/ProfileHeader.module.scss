@@ -26,7 +26,7 @@
 
 .background {
   z-index: -1;
-  position: absolute;
+  position: absolute !important;
   left: 0px;
   right: 0px;
   width: 100% !important;

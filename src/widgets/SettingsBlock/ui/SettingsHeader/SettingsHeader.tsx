@@ -10,14 +10,12 @@ const SettingsHeader = (props: ISettingsHeaderProps) => {
 
   const uploadAvatar = async (value: FormData) => {
     setIsLoading(true)
-    await updateAvatar(value)
-    setIsLoading(false)
+    await updateAvatar(value).then(() => location.reload())
   }
 
   const uploadBackground = async (value: FormData) => {
     setIsLoading(true)
-    await updateBackground(value)
-    setIsLoading(false)
+    await updateBackground(value).then(() => location.reload())
   }
 
   return (
@@ -26,17 +24,17 @@ const SettingsHeader = (props: ISettingsHeaderProps) => {
         imgLink={background}
         width={600}
         height={120}
-        className={st.background}
         uploadFunction={uploadBackground}
         imageClassName={st.backgroundImage}
+        pointClassName={st.backgroundPoint}
+        aspect={4 / 1}
       />
       <CropImage
         imgLink={avatar}
         width={120}
         height={120}
-        className={st.avatar}
-        imageClassName={st.avatarImage}
         uploadFunction={uploadAvatar}
+        imageClassName={st.avatarImage}
         pointClassName={st.avatarPoint}
       />
     </div>

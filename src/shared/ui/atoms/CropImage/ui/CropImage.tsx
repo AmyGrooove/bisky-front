@@ -13,8 +13,15 @@ import st from "./CropImage.module.scss"
 import { useCropImage } from "./useCropImage"
 
 const CropImage = (props: ICropImageProps) => {
-  const { imgLink, width, height, className, imageClassName, pointClassName } =
-    props
+  const {
+    imgLink,
+    width,
+    height,
+    className,
+    imageClassName,
+    pointClassName,
+    aspect = 1,
+  } = props
 
   const {
     uploadImage,
@@ -30,17 +37,18 @@ const CropImage = (props: ICropImageProps) => {
 
   return (
     <div className={cn(st.root, className)}>
-      <label className={cn(st.uploadWrapper, imageClassName, pointClassName)}>
+      <label className={cn(st.uploadWrapper, imageClassName)}>
         <div className={st.uploadIconWrapper}>
           <UploadIcon className={st.uploadIcon} />
         </div>
         <PlaceholderImage
           width={width}
           height={height}
-          src={imgLink}
+          src={imgLink + "?" + Date.now().toString()}
           alt=""
           imageClassName={st.imageWrapper}
           quality={100}
+          unoptimized
         />
         <input
           type="file"
@@ -55,11 +63,11 @@ const CropImage = (props: ICropImageProps) => {
             image={imageSrc}
             crop={crop}
             zoom={zoom}
-            aspect={1}
+            aspect={aspect}
             onCropChange={setCrop}
             onZoomChange={setZoom}
             classes={{
-              cropAreaClassName: cn(st.cropBox, imageClassName),
+              cropAreaClassName: cn(st.cropBox, pointClassName),
               containerClassName: st.cropMain,
             }}
             onCropComplete={onCropComplete}

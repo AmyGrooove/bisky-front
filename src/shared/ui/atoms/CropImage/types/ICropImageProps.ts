@@ -3,6 +3,7 @@ interface ICropImageProps {
   width: number
   height: number
 
+  aspect?: number
   uploadFunction?: (file: FormData) => Promise<void>
   className?: string
   imageClassName?: string

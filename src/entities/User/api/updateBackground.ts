@@ -3,7 +3,6 @@
 import { cookies } from "next/headers"
 
 import { API_URL } from "@shared/constants"
-import { refreshTokens } from "@entities/Auth/api"
 
 const updateBackground = async (file: FormData) => {
   const result = await fetch(API_URL + `/api/user/background`, {
@@ -17,7 +16,7 @@ const updateBackground = async (file: FormData) => {
   if (!result.ok)
     throw new Error(`Failed to update background: ${result.statusText}`)
 
-  await refreshTokens()
+  cookies().delete("access-token")
 
   return true
 }

@@ -5,30 +5,26 @@
   height: 160px;
 }
 
-.background {
-  width: 100% !important;
-  border-radius: var(--big-radius);
-}
-
 .backgroundImage {
   border-radius: var(--big-radius);
   width: 100% !important;
 }
 
-.avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: var(--full-radius);
+.backgroundPoint {
+  border-radius: var(--big-radius);
 }
 
 .avatarImage {
   border-radius: var(--full-radius);
-  width: 120px;
-  height: 120px;
-}
+  width: 120px !important;
+  height: 120px !important;
 
-.avatarPoint {
+  position: relative;
   z-index: 1;
   bottom: 80px;
   left: 30px;
+}
+
+.avatarPoint {
+  border-radius: var(--full-radius);
 }

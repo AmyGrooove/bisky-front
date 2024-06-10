@@ -3,7 +3,6 @@
 import { cookies } from "next/headers"
 
 import { API_URL } from "@shared/constants"
-import { refreshTokens } from "@entities/Auth/api"
 
 const updateAvatar = async (file: FormData) => {
   const result = await fetch(API_URL + `/api/user/avatar`, {
@@ -17,7 +16,7 @@ const updateAvatar = async (file: FormData) => {
   if (!result.ok)
     throw new Error(`Failed to update avatar: ${result.statusText}`)
 
-  await refreshTokens()
+  cookies().delete("access-token")
 
   return true
 }
