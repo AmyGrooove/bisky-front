@@ -34,7 +34,7 @@ const ProfileMenu = (props: IProfileMenuProps) => {
           {...otherProps}
           width={300}
           height={300}
-          src={user?.avatar + "?" + Date.now().toString() ?? ""}
+          src={user?.avatar ? `${user.avatar}?${Date.now().toString()}` : ""}
           alt=""
           className={cn(st.avatar, className)}
           imageClassName={st.avatarImage}

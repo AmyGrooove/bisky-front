@@ -44,7 +44,7 @@ const CropImage = (props: ICropImageProps) => {
         <PlaceholderImage
           width={width}
           height={height}
-          src={imgLink + "?" + Date.now().toString()}
+          src={`${imgLink}?${Date.now().toString()}`}
           alt=""
           imageClassName={st.imageWrapper}
           quality={100}

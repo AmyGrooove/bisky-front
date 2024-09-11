@@ -26,7 +26,11 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
           <div className={st.avatarWrapper}>
             <Fancybox options={{ Carousel: { infinite: false } }}>
               <a
-                href={userData.avatar + "?" + Date.now().toString() ?? ""}
+                href={
+                  userData.avatar
+                    ? `${userData.avatar}?${Date.now().toString()}`
+                    : ""
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 data-fancybox="gallery"
