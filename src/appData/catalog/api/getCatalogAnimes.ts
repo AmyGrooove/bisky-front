@@ -12,6 +12,7 @@ import {
 const getCatalogAnimes = async (
   props: ICatalogAnimesVariables,
 ): Promise<IAnimeFullModel[]> => {
+  console.log(1)
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
     headers: {

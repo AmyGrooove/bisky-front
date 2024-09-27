@@ -1,8 +1,8 @@
 @import "@shared/styles/reusable.scss";
 
 .root {
-  min-width: 344px;
-  max-width: 344px;
+  width: 344px;
+  flex-shrink: 0;
   height: fit-content;
   padding: 12px 0px 68px 16px;
 
@@ -24,8 +24,7 @@
 
 .mainWrapper {
   width: 100%;
-  height: fit-content;
-  max-height: 600px;
+  max-height: 80vh;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -36,6 +35,8 @@
 
   padding-right: 4px;
   scrollbar-gutter: stable;
+
+  border-radius: var(--small-radius);
 
   &::-webkit-scrollbar {
     width: 12px;

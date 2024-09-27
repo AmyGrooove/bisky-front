@@ -1,0 +1,7 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  max-width: calc(var(--HD) - 16px);
+  width: 100%;
+  height: 100%;
+}

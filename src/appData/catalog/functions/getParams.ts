@@ -6,11 +6,11 @@ import { filterEnumValues } from "./filterEnumValues"
 
 const getParams = (searchParams: ReadonlyURLSearchParams) => {
   const dates_airedOn = {
-    from: searchParams.get("airedOn")
-      ? Number(searchParams.get("airedOn"))
+    from: searchParams.get("datesFrom")
+      ? Number(searchParams.get("datesFrom"))
       : null,
-    to: searchParams.get("airedOn")
-      ? Number(searchParams.get("airedOn"))
+    to: searchParams.get("datesTo")
+      ? Number(searchParams.get("datesTo"))
       : null,
   }
 

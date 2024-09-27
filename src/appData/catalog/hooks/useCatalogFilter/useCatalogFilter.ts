@@ -2,15 +2,17 @@
 
 import { useEffect, useReducer, useState } from "react"
 import { useInView } from "react-intersection-observer"
-import { useRouter, useSearchParams } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 import { IAnimeFullModel } from "@entities/Anime"
 import { getCatalogAnimes } from "@appData/catalog/api"
 import { filterStateDefaultValue, getParams } from "@appData/catalog"
+import { createQueryString } from "@shared/utils/functions"
 
 import { filterStateReducer } from "./filterStateReducer"
 
 const useCatalogFilter = () => {
+  const pathname = usePathname()
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -48,8 +50,6 @@ const useCatalogFilter = () => {
         todo: { dates_airedOn: queryObject.dates_airedOn },
       })
 
-      router.replace("/catalog")
-
       getCatalogAnimes({ ...filterState, ...queryObject })
         .then((response) => setAnimesData(response))
         .finally(() => setIsLoading(false))
@@ -63,6 +63,40 @@ const useCatalogFilter = () => {
   }
 
   useEffect(() => {
+    fetchNewAnimesData("params")
+  }, [])
+
+  useEffect(() => {
+    if (isLoading || filterState.sort === searchParams.get("sort")) return
+
+    fetchNewAnimesData()
+  }, [filterState.sort])
+
+  useEffect(() => {
+    if (isLoading) return
+
+    const query = {
+      datesFrom: filterState.dates_airedOn.from,
+      datesTo: filterState.dates_airedOn.to,
+      genres: filterState.filterInclude.genres_ID_ONLY.join(","),
+      kind: filterState.filterInclude.kind.join(","),
+      rating: filterState.filterInclude.rating.join(","),
+      status: filterState.filterInclude.status.join(","),
+      studios: filterState.filterInclude.studios_ID_ONLY.join(","),
+      genresNot: filterState.filterExclude.genres_ID_ONLY.join(","),
+      kindNot: filterState.filterExclude.kind.join(","),
+      ratingNot: filterState.filterExclude.rating.join(","),
+      statusNot: filterState.filterExclude.status.join(","),
+      studiosNot: filterState.filterExclude.studios_ID_ONLY.join(","),
+      sort: filterState.sort,
+    }
+
+    const newParams = createQueryString(query)
+
+    router.push(`${pathname}?${newParams}`)
+  }, [filterState])
+
+  useEffect(() => {
     if (isLoadingBlockInView && animesData.length !== 0) {
       dispatchFilter({
         type: "changePage",
@@ -74,10 +108,6 @@ const useCatalogFilter = () => {
       )
     }
   }, [isLoadingBlockInView])
-
-  useEffect(() => {
-    fetchNewAnimesData("params")
-  }, [filterState.sort])
 
   return {
     isLoading,

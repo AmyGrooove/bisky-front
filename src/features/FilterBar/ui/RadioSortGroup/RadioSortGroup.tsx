@@ -12,7 +12,11 @@ const RadioSortGroup = (props: IRadioSortGroupProps) => {
     <div {...otherProps} className={cn(st.root, className)}>
       {items.map((item) => (
         <div className={st.item} key={item.value} onClick={item.setSortValue}>
-          <Radiobox value={item.value} checked={item.value === checkedItem} />
+          <Radiobox
+            value={item.value}
+            checked={item.value === checkedItem}
+            onChange={() => {}}
+          />
           <Text>{item.label}</Text>
         </div>
       ))}

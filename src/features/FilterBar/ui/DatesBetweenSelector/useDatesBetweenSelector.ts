@@ -1,7 +1,7 @@
 import { IDatesBetweenSelectorProps } from "@features/FilterBar/types/IDatesBetweenSelectorProps"
 
 const useDatesBetweenSelector = (props: IDatesBetweenSelectorProps) => {
-  const { changeDates, from, to } = props
+  const { changeDates, from, to, className, ...otherProps } = props
 
   const setDate = (value: string, isFrom = true) => {
     if (!/^(\d{1,4})?$/g.test(value)) return
@@ -10,7 +10,7 @@ const useDatesBetweenSelector = (props: IDatesBetweenSelectorProps) => {
     else changeDates(from, value !== "" ? Number(value) : null)
   }
 
-  return { setDate }
+  return { setDate, from, to, className, ...otherProps }
 }
 
 export { useDatesBetweenSelector }

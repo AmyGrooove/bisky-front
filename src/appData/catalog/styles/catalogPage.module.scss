@@ -29,6 +29,8 @@
 
   background-color: var(--dark-200);
   border-radius: var(--big-radius);
+
+  animation: invokeAll 0.2s ease-in-out;
 }
 
 @media screen and (max-width: $fullHD) {
