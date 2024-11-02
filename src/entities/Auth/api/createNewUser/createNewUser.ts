@@ -10,6 +10,8 @@ import { ICreateNewUserProps } from "./ICreateNewUserProps"
 const createNewUser = async (
   props: ICreateNewUserProps,
 ): Promise<IUserPublicDataWithTokens> => {
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + "/api/auth/register", {
     method: "PUT",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -21,7 +23,7 @@ const createNewUser = async (
 
   const parsedResult = await result.json()
 
-  cookies().set({
+  cookieStore.set({
     name: "access-token",
     value: parsedResult.accessToken,
     httpOnly: true,
@@ -30,7 +32,7 @@ const createNewUser = async (
     sameSite: "lax",
   })
 
-  cookies().set({
+  cookieStore.set({
     name: "refresh-token",
     value: parsedResult.refreshToken,
     httpOnly: true,

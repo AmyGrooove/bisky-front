@@ -9,12 +9,14 @@ import { IAddUpdateAnimeFromListProps } from "./IAddUpdateAnimeFromListProps"
 const addUpdateAnimeFromList = async (props: IAddUpdateAnimeFromListProps) => {
   const { animeStatus, animeId } = props
 
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + `/api/user/${animeId}/status`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+      Authorization: "Bearer " + (cookieStore.get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({ status: animeStatus }),
   })

@@ -13,12 +13,14 @@ import { homeGenresQuery } from "@entities/Genre"
 import { IGetHomeDataResponse } from "./IGetHomeDataResponse"
 
 const getHomeData = async (): Promise<IGetHomeDataResponse> => {
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+      Authorization: "Bearer " + (cookieStore.get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
       query: `

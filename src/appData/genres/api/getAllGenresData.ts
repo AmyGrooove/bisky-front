@@ -6,12 +6,14 @@ import { API_URL } from "@shared/constants"
 import { allGenresQuery, IGenreFullModel } from "@entities/Genre"
 
 const getAllGenresData = async (): Promise<IGenreFullModel[]> => {
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+      Authorization: "Bearer " + (cookieStore.get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
       query: `

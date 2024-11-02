@@ -10,6 +10,8 @@ import { ILoginUserProps } from "./ILoginUserProps"
 const loginUser = async (
   props: ILoginUserProps,
 ): Promise<IUserPublicDataWithTokens> => {
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + "/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -20,7 +22,7 @@ const loginUser = async (
 
   const parsedResult = await result.json()
 
-  cookies().set({
+  cookieStore.set({
     name: "access-token",
     value: parsedResult.accessToken,
     httpOnly: true,
@@ -29,7 +31,7 @@ const loginUser = async (
     sameSite: "lax",
   })
 
-  cookies().set({
+  cookieStore.set({
     name: "refresh-token",
     value: parsedResult.refreshToken,
     httpOnly: true,

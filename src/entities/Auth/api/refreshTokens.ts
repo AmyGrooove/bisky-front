@@ -8,12 +8,15 @@ const refreshTokens = async (): Promise<{
   accessToken: string
   refreshToken: string
 }> => {
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + "/api/auth/refresh", {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("refresh-token")?.value ?? ""),
+      Authorization:
+        "Bearer " + (cookieStore.get("refresh-token")?.value ?? ""),
     },
   })
 
@@ -21,7 +24,7 @@ const refreshTokens = async (): Promise<{
 
   const parsedResult = await result.json()
 
-  cookies().set({
+  cookieStore.set({
     name: "access-token",
     value: parsedResult.accessToken,
     httpOnly: true,
@@ -30,7 +33,7 @@ const refreshTokens = async (): Promise<{
     sameSite: "lax",
   })
 
-  cookies().set({
+  cookieStore.set({
     name: "refresh-token",
     value: parsedResult.refreshToken,
     httpOnly: true,

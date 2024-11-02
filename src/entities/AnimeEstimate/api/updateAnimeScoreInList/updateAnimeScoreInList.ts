@@ -9,12 +9,14 @@ import { IUpdateAnimeScoreInListProps } from "./IUpdateAnimeScoreInListProps"
 const updateAnimeScoreInList = async (props: IUpdateAnimeScoreInListProps) => {
   const { animeId, animeScore } = props
 
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + `/api/user/${animeId}/score`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+      Authorization: "Bearer " + (cookieStore.get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({ score: animeScore }),
   })

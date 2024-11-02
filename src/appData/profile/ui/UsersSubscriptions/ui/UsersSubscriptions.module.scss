@@ -1,4 +1,4 @@
-@import "@shared/styles/reusable.scss";
+@use "@shared/styles/reusable.scss" as *;
 
 .link {
   color: var(--light-100);

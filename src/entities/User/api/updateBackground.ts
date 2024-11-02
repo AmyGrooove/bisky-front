@@ -5,10 +5,12 @@ import { cookies } from "next/headers"
 import { API_URL } from "@shared/constants"
 
 const updateBackground = async (file: FormData) => {
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + `/api/user/background`, {
     method: "PATCH",
     headers: {
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+      Authorization: "Bearer " + (cookieStore.get("access-token")?.value ?? ""),
     },
     body: file,
   })
@@ -16,7 +18,7 @@ const updateBackground = async (file: FormData) => {
   if (!result.ok)
     throw new Error(`Failed to update background: ${result.statusText}`)
 
-  cookies().delete("access-token")
+  cookieStore.delete("access-token")
 
   return true
 }

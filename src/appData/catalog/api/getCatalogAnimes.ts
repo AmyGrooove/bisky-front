@@ -12,13 +12,14 @@ import {
 const getCatalogAnimes = async (
   props: ICatalogAnimesVariables,
 ): Promise<IAnimeFullModel[]> => {
-  console.log(1)
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+      Authorization: "Bearer " + (cookieStore.get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
       query: `

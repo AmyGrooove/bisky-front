@@ -1,6 +1,6 @@
-@import "./mixins/transition.scss";
+@forward "./mixins/transition";
 
-@import "./variables/borders.scss";
-@import "./variables/colors.scss";
-@import "./variables/containers.scss";
-@import "./variables/animation.scss";
+@forward "./variables/borders";
+@forward "./variables/colors";
+@forward "./variables/containers";
+@forward "./variables/animation";

@@ -9,12 +9,14 @@ import { fastSelectAnimesQuery } from "@entities/User"
 const getFastSelectAnimes = async (
   username: string,
 ): Promise<IAnimeSimpleModel[]> => {
+  const cookieStore = cookies()
+
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: "Bearer " + (cookies().get("access-token")?.value ?? ""),
+      Authorization: "Bearer " + (cookieStore.get("access-token")?.value ?? ""),
     },
     body: JSON.stringify({
       query: `
