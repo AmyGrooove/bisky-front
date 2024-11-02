@@ -28,6 +28,7 @@ export async function generateMetadata(
         images: animeData?.screenshots,
       },
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return {}
   }

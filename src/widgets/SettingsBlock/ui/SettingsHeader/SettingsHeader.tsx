@@ -1,22 +1,13 @@
 import { CropImage } from "@shared/ui/atoms"
-import { updateAvatar, updateBackground } from "@entities/User/api"
 
 import { ISettingsHeaderProps } from "../../types/ISettingsHeaderProps"
 
 import st from "./SettingsHeader.module.scss"
+import { useSettingsHeader } from "./useSettingsHeader"
 
 const SettingsHeader = (props: ISettingsHeaderProps) => {
-  const { avatar, background, setIsLoading } = props
-
-  const uploadAvatar = async (value: FormData) => {
-    setIsLoading(true)
-    await updateAvatar(value).then(() => location.reload())
-  }
-
-  const uploadBackground = async (value: FormData) => {
-    setIsLoading(true)
-    await updateBackground(value).then(() => location.reload())
-  }
+  const { background, uploadBackground, uploadAvatar, avatar } =
+    useSettingsHeader(props)
 
   return (
     <div className={st.root}>

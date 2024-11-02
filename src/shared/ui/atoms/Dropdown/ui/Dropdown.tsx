@@ -1,47 +1,28 @@
 "use client"
 
-import {
-  cloneElement,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from "react"
+import { cloneElement, forwardRef } from "react"
 
 import { cn } from "@shared/utils/functions"
-import { useClickOutside } from "@shared/utils/hooks"
 
 import { IDropdownProps } from "../types/IDropdownProps"
 import { IDropdownRef } from "../types/IDropdownRef"
 
 import st from "./Dropdown.module.scss"
+import { useDropdown } from "./useDropdown"
 
 const Dropdown = forwardRef<IDropdownRef, IDropdownProps>((props, ref) => {
   const {
+    rootRef,
+    otherProps,
+    className,
+    isDisabled,
+    isDropdownOpened,
+    closeMenu,
+    setIsDropdownOpened,
     callComponent,
     children,
-    className,
-    isDisabled = false,
-    ...otherProps
-  } = props
-
-  const [isDropdownOpened, setIsDropdownOpened] = useState(false)
-  const [isDropdownClosing, setIsDropdownClosing] = useState(false)
-
-  const rootRef = useRef<HTMLDivElement>(null)
-
-  const closeMenu = () => {
-    setIsDropdownClosing(true)
-
-    setTimeout(() => {
-      setIsDropdownOpened(false)
-      setIsDropdownClosing(false)
-    }, 100)
-  }
-
-  useImperativeHandle(ref, () => ({ closeMenu }), [])
-
-  useClickOutside([rootRef], closeMenu)
+    isDropdownClosing,
+  } = useDropdown(props, ref)
 
   return (
     <div ref={rootRef} {...otherProps} className={cn(st.root, className)}>

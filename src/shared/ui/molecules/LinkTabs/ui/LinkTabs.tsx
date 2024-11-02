@@ -6,9 +6,10 @@ import { cn } from "@shared/utils/functions"
 import { ILinkTabsProps } from "../types/ILinkTabsProps"
 
 import st from "./LinkTabs.module.scss"
+import { useLinkTabs } from "./useLinkTabs"
 
 const LinkTabs = (props: ILinkTabsProps) => {
-  const { items = [], className, ...otherProps } = props
+  const { items, className, otherProps } = useLinkTabs(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

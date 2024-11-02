@@ -2,10 +2,20 @@ import { signIn } from "next-auth/react"
 import { useState } from "react"
 
 import { createNewUser } from "@entities/Auth/api"
-import { IRegisterFormProps } from "@widgets/AuthBlock/types/IRegisterFormProps"
+
+import { IRegisterFormProps } from "../../types/IRegisterFormProps"
 
 const useRegisterForm = (props: IRegisterFormProps) => {
-  const { login, password, email, closeModal } = props
+  const {
+    changeAuthForm,
+    login,
+    setLogin,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    closeModal,
+  } = props
 
   const isCanGoLogin = login.length >= 3 && password.length >= 6
 
@@ -27,6 +37,7 @@ const useRegisterForm = (props: IRegisterFormProps) => {
 
       if (result?.status === 200) closeModal()
       else throw new Error(result?.error ?? "")
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setIsError(true)
     }
@@ -34,7 +45,19 @@ const useRegisterForm = (props: IRegisterFormProps) => {
     setIsLoading(false)
   }
 
-  return { isLoading, isError, isCanGoLogin, callCreateNewUser }
+  return {
+    isLoading,
+    isError,
+    isCanGoLogin,
+    callCreateNewUser,
+    changeAuthForm,
+    setLogin,
+    setEmail,
+    setPassword,
+    login,
+    email,
+    password,
+  }
 }
 
 export { useRegisterForm }

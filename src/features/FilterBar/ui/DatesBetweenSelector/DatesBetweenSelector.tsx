@@ -8,7 +8,7 @@ import st from "./DatesBetweenSelector.module.scss"
 import { useDatesBetweenSelector } from "./useDatesBetweenSelector"
 
 const DatesBetweenSelector = (props: IDatesBetweenSelectorProps) => {
-  const { setDate, from, to, className, ...otherProps } =
+  const { setDate, from, to, className, otherProps } =
     useDatesBetweenSelector(props)
 
   return (

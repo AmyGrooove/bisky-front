@@ -7,6 +7,7 @@ import { IBadgeProps } from "../types/IBadgeProps"
 import { getScoreStatus } from "../functions/getScoreStatus"
 
 import st from "./Badge.module.scss"
+import { useBadge } from "./useBadge"
 
 const Badge = (props: IBadgeProps) => {
   const {
@@ -14,11 +15,11 @@ const Badge = (props: IBadgeProps) => {
     leftIcon,
     rightIcon,
     className,
-    isScoreStatus = false,
-    variant = "small",
-    isDefaultTextColor = true,
-    ...otherProps
-  } = props
+    isScoreStatus,
+    variant,
+    isDefaultTextColor,
+    otherProps,
+  } = useBadge(props)
 
   return (
     <div

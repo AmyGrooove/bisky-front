@@ -6,9 +6,10 @@ import { IWatchStatusProps } from "../types/IWatchStatusProps"
 import { getIconFromWatchStatus } from "../functions/getIconFromWatchStatus"
 
 import st from "./WatchStatus.module.scss"
+import { useWatchStatus } from "./useWatchStatus"
 
 const WatchStatus = (props: IWatchStatusProps) => {
-  const { status, className, ...otherProps } = props
+  const { status, className, otherProps } = useWatchStatus(props)
 
   return (
     <button

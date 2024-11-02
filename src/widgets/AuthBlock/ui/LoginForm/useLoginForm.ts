@@ -1,10 +1,11 @@
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 
-import { ILoginFormProps } from "@widgets/AuthBlock/types/ILoginFormProps"
+import { ILoginFormProps } from "../../types/ILoginFormProps"
 
 const useLoginForm = (props: ILoginFormProps) => {
-  const { login, password, closeModal } = props
+  const { login, password, closeModal, changeAuthForm, setLogin, setPassword } =
+    props
 
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
@@ -27,7 +28,17 @@ const useLoginForm = (props: ILoginFormProps) => {
     setIsLoading(false)
   }
 
-  return { isLoading, isError, isCanGoLogin, callLoginUser }
+  return {
+    isLoading,
+    isError,
+    isCanGoLogin,
+    callLoginUser,
+    changeAuthForm,
+    login,
+    setLogin,
+    password,
+    setPassword,
+  }
 }
 
 export { useLoginForm }

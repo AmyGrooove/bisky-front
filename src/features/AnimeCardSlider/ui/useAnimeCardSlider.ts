@@ -6,7 +6,13 @@ import { divideArray } from "../functions/divideArray"
 import { IAnimeCardSliderItems } from "../types/IAnimeCardSliderItems"
 
 const useAnimeCardSlider = (props: IAnimeCardSliderProps) => {
-  const { isTwoRows, items } = props
+  const {
+    items,
+    isTwoRows = false,
+    isCatalogSliderOn = false,
+    className,
+    ...otherProps
+  } = props
 
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -24,6 +30,11 @@ const useAnimeCardSlider = (props: IAnimeCardSliderProps) => {
   )
 
   return {
+    items,
+    isTwoRows,
+    isCatalogSliderOn,
+    className,
+    otherProps,
     instanceRef,
     sliderRef,
     sliderItems,

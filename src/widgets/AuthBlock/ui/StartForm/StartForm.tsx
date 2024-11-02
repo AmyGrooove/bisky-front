@@ -1,19 +1,15 @@
-import { useEffect } from "react"
-
 import { cn } from "@shared/utils/functions"
 import { BackIcon, GoogleIcon, ShikimoriIcon, VkIcon } from "@shared/icons"
 import { InputField } from "@shared/ui/molecules"
-import { IStartFormProps } from "@widgets/AuthBlock/types/IStartFormProps"
 import { Text } from "@shared/ui/atoms"
 
+import { IStartFormProps } from "../../types/IStartFormProps"
+
 import st from "./StartForm.module.scss"
+import { useStartForm } from "./useStartForm"
 
 const StartForm = (props: IStartFormProps) => {
-  const { changeAuthForm, login, setLogin, setPassword } = props
-
-  useEffect(() => {
-    setPassword("")
-  }, [])
+  const { changeAuthForm, login, setLogin } = useStartForm(props)
 
   return (
     <>

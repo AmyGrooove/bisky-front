@@ -19,13 +19,14 @@ import { RadioSortGroup } from "./RadioSortGroup/RadioSortGroup"
 
 const FilterBar = (props: IFilterBarProps) => {
   const {
+    studiosData,
+    genresData,
+    isLoading,
     updateFilters,
     filterState,
     fetchNewAnimesData,
-    isAnimeFetching = false,
-  } = props
-
-  const { studiosData, genresData, isLoading } = useFilterBar()
+    isAnimeFetching,
+  } = useFilterBar(props)
 
   return (
     <div

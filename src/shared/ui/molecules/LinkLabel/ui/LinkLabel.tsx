@@ -7,9 +7,10 @@ import { ArrowIcon } from "@shared/icons"
 import { ILinkLabelProps } from "../types/ILinkLabelProps"
 
 import st from "./LinkLabel.module.scss"
+import { useLinkLabel } from "./useLinkLabel"
 
 const LinkLabel = (props: ILinkLabelProps) => {
-  const { label, linkText, href, className, ...otherProps } = props
+  const { label, linkText, href, className, otherProps } = useLinkLabel(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

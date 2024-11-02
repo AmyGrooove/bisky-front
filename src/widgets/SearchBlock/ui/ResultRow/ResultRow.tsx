@@ -1,7 +1,5 @@
 import Link from "next/link"
-import { useContext } from "react"
 
-import { ModalContext } from "@widgets/ModalProvider"
 import { PlaceholderImage, Text } from "@shared/ui/atoms"
 import { CalendarIcon, ClockIcon } from "@shared/icons"
 import { getNormalKind, getSeasonName } from "@entities/Anime"
@@ -9,11 +7,10 @@ import { getNormalKind, getSeasonName } from "@entities/Anime"
 import { IResultRowProps } from "../../types/IResultRowProps"
 
 import st from "./ResultRow.module.scss"
+import { useResultRow } from "./useResultRow"
 
 const ResultRow = (props: IResultRowProps) => {
-  const { animeData } = props
-
-  const { closeModal } = useContext(ModalContext)
+  const { animeData, closeModal } = useResultRow(props)
 
   return (
     <Link

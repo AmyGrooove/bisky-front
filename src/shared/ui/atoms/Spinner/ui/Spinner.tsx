@@ -3,9 +3,10 @@ import { cn } from "@shared/utils/functions"
 import { ISpinnerProps } from "../types/ISpinnerProps"
 
 import st from "./Spinner.module.scss"
+import { useSpinner } from "./useSpinner"
 
 const Spinner = (props: ISpinnerProps) => {
-  const { color = "bisky", className, ...otherProps } = props
+  const { color, className, ...otherProps } = useSpinner(props)
 
   return (
     <div

@@ -9,10 +9,16 @@ import st from "./SetFilterTags.module.scss"
 import { useSetFilterTags } from "./useSetFilterTags"
 
 const SetFilterTags = (props: ISetFilterTagsProps) => {
-  const { className, isLoading = false, name, ...otherProps } = props
-
-  const { searchInput, setSearchInput, filteredSelectedItems, filteredItems } =
-    useSetFilterTags(props)
+  const {
+    searchInput,
+    setSearchInput,
+    filteredSelectedItems,
+    filteredItems,
+    className,
+    isLoading,
+    name,
+    otherProps,
+  } = useSetFilterTags(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

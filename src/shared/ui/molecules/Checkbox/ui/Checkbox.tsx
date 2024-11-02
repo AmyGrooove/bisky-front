@@ -5,14 +5,11 @@ import { Text } from "@shared/ui/atoms"
 import { ICheckboxProps } from "../types/ICheckboxProps"
 
 import st from "./Checkbox.module.scss"
+import { useCheckbox } from "./useCheckbox"
 
 const Checkbox = (props: ICheckboxProps) => {
-  const {
-    className,
-    isDash = false,
-    isOffDisableStyles = false,
-    ...otherProps
-  } = props
+  const { className, isDash, isOffDisableStyles, otherProps } =
+    useCheckbox(props)
 
   return (
     <label

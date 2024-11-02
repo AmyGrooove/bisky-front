@@ -1,30 +1,19 @@
-import { useContext, useRef } from "react"
-import { signOut, useSession } from "next-auth/react"
+import { signOut } from "next-auth/react"
 import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
 import { ExitIcon, PlayIcon, ProfileIcon, SettingsIcon } from "@shared/icons"
-import {
-  Dropdown,
-  IDropdownRef,
-  PlaceholderImage,
-  Text,
-} from "@shared/ui/atoms"
-import { ModalContext } from "@widgets/ModalProvider"
+import { Dropdown, PlaceholderImage, Text } from "@shared/ui/atoms"
 import { SettingsBlock } from "@widgets/SettingsBlock"
 
 import { IProfileMenuProps } from "../types/IProfileMenuProps"
 
 import st from "./ProfileMenu.module.scss"
+import { useProfileMenu } from "./useProfileMenu"
 
 const ProfileMenu = (props: IProfileMenuProps) => {
-  const { user, className, ...otherProps } = props
-
-  const { data: session } = useSession()
-
-  const { setModal } = useContext(ModalContext)
-
-  const dropdownRef = useRef<IDropdownRef>(null)
+  const { dropdownRef, otherProps, user, className, session, setModal } =
+    useProfileMenu(props)
 
   return (
     <Dropdown

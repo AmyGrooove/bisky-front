@@ -8,9 +8,10 @@ import { IFooterProps } from "../types/IFooterProps"
 import { footerLinks } from "../static/footerLinks"
 
 import st from "./Footer.module.scss"
+import { useFooter } from "./useFooter"
 
 const Footer = (props: IFooterProps) => {
-  const { className, ...otherProps } = props
+  const { className, otherProps } = useFooter(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

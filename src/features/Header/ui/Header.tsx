@@ -1,9 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { useSession } from "next-auth/react"
-import { useContext } from "react"
-import { usePathname } from "next/navigation"
 
 import { LogoIcon, SearchIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
@@ -11,20 +8,16 @@ import { ProfileMenu } from "@widgets/ProfileMenu"
 import { AuthBlock } from "@widgets/AuthBlock"
 import { Skeleton, Text } from "@shared/ui/atoms"
 import { LinkTabs, Button } from "@shared/ui/molecules"
-import { ModalContext } from "@widgets/ModalProvider"
 import { SearchBlock } from "@widgets/SearchBlock"
 
 import { IHeaderProps } from "../types/IHeaderProps"
 
 import st from "./Header.module.scss"
+import { useHeader } from "./useHeader"
 
 const Header = (props: IHeaderProps) => {
-  const { className, ...otherProps } = props
-
-  const pathname = usePathname()
-  const { data: session, status } = useSession()
-
-  const { setModal } = useContext(ModalContext)
+  const { pathname, className, otherProps, setModal, session, status } =
+    useHeader(props)
 
   return (
     <>

@@ -1,50 +1,23 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
-import Image from "next/image"
-
 import { cn } from "@shared/utils/functions"
 import { LogoIcon } from "@shared/icons"
 
 import { IPlaceholderImageProps } from "../types/IPlaceholderImageProps"
 
 import st from "./PlaceholderImage.module.scss"
+import { usePlaceholderImage } from "./usePlaceholderImage"
 
 const PlaceholderImage = (props: IPlaceholderImageProps) => {
-  const { src, width, height, className, imageClassName, ...otherProps } = props
-
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [isClose, setIsClose] = useState(false)
-
-  const MemoizedComponent = useMemo(
-    () =>
-      src !== null && src !== "" ? (
-        <Image
-          {...otherProps}
-          width={width}
-          height={height}
-          src={src}
-          className={imageClassName}
-          onError={() => setIsLoaded(false)}
-          onLoad={() => setIsLoaded(true)}
-          loading="lazy"
-          alt=""
-        />
-      ) : (
-        <></>
-      ),
-    [src],
-  )
-
-  useEffect(() => {
-    setIsLoaded(false)
-    setIsClose(false)
-  }, [src])
-
-  useEffect(() => {
-    if (isLoaded && src !== "" && src !== null)
-      setTimeout(() => setIsClose(true), 500)
-  }, [isLoaded])
+  const {
+    className,
+    width,
+    height,
+    isClose,
+    otherProps,
+    isLoaded,
+    MemoizedComponent,
+  } = usePlaceholderImage(props)
 
   return (
     <div

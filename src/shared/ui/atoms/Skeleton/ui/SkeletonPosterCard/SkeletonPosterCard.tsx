@@ -4,9 +4,10 @@ import { ISkeletonProps } from "../../types/ISkeletonProps"
 import { Skeleton } from "../Skeleton"
 
 import st from "./SkeletonPosterCard.module.scss"
+import { useSkeletonPosterCard } from "./useSkeletonPosterCard"
 
 const SkeletonPosterCard = (props: ISkeletonProps) => {
-  const { className, ...otherProps } = props
+  const { className, otherProps } = useSkeletonPosterCard(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

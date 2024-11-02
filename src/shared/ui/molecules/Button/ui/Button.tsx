@@ -6,10 +6,11 @@ import { cn } from "@shared/utils/functions/cn"
 import { IButtonProps } from "../types/IButtonProps"
 
 import st from "./Button.module.scss"
+import { useButton } from "./useButton"
 
 const Button = (props: IButtonProps) => {
-  const { children, leftIcon, rightIcon, className, textProps, ...otherProps } =
-    props
+  const { children, leftIcon, rightIcon, className, textProps, otherProps } =
+    useButton(props)
 
   return (
     <button

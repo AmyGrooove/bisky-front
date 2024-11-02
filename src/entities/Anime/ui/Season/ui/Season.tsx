@@ -13,10 +13,15 @@ import st from "./Season.module.scss"
 import { useSeason } from "./useSeason"
 
 const Season = (props: ISeasonProps) => {
-  const { isDisabled = false, anime, className, ...otherProps } = props
-
-  const { isNextImageShow, backgroundImage1, backgroundImage2 } =
-    useSeason(props)
+  const {
+    isNextImageShow,
+    backgroundImage1,
+    backgroundImage2,
+    isDisabled,
+    anime,
+    className,
+    otherProps,
+  } = useSeason(props)
 
   return (
     <Link

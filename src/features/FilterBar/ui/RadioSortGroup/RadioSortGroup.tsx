@@ -4,9 +4,10 @@ import { Radiobox, Text } from "@shared/ui/atoms"
 import { IRadioSortGroupProps } from "../../types/IRadioSortGroupProps"
 
 import st from "./RadioSortGroup.module.scss"
+import { useRadioSortGroup } from "./useRadioSortGroup"
 
 const RadioSortGroup = (props: IRadioSortGroupProps) => {
-  const { items, checkedItem, className, ...otherProps } = props
+  const { items, checkedItem, className, otherProps } = useRadioSortGroup(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

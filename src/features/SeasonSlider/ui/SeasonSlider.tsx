@@ -10,9 +10,8 @@ import st from "./SeasonSlider.module.scss"
 import { useSeasonSlider } from "./useSeasonSlider"
 
 const SeasonSlider = (props: ISeasonSliderProps) => {
-  const { items, className, ...otherProps } = props
-
-  const { instanceRef, sliderRef, currentSlide } = useSeasonSlider()
+  const { sliderRef, instanceRef, currentSlide, items, className, otherProps } =
+    useSeasonSlider(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

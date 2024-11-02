@@ -5,6 +5,7 @@ import { ICircleViewsProps } from "../types/ICircleViewsProps"
 import { Skeleton } from "../../Skeleton"
 
 import st from "./CircleViews.module.scss"
+import { useCircleViews } from "./useCircleViews"
 
 const CircleViews = (props: ICircleViewsProps) => {
   const {
@@ -13,8 +14,8 @@ const CircleViews = (props: ICircleViewsProps) => {
     completeCount,
     watchingCount,
     droppedCount,
-    ...otherProps
-  } = props
+    otherProps,
+  } = useCircleViews(props)
 
   return addedCount === 0 &&
     completeCount === 0 &&

@@ -1,18 +1,16 @@
 "use client"
 
-import { useState } from "react"
-
 import { Text } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
 
 import { IOversizeTextProps } from "../types/IOversizeTextProps"
 
 import st from "./OversizeText.module.scss"
+import { useOversizeText } from "./useOversizeText"
 
 const OversizeText = (props: IOversizeTextProps) => {
-  const { children, className, ...otherProps } = props
-
-  const [isOpen, setIsOpen] = useState(false)
+  const { children, className, otherProps, isOpen, setIsOpen } =
+    useOversizeText(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

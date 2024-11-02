@@ -1,7 +1,11 @@
 import { useKeenSlider } from "keen-slider/react"
 import { useState } from "react"
 
-const useSeasonSlider = () => {
+import { ISeasonSliderProps } from "../types/ISeasonSliderProps"
+
+const useSeasonSlider = (props: ISeasonSliderProps) => {
+  const { items, className, ...otherProps } = props
+
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const [sliderRef, instanceRef] = useKeenSlider(
@@ -48,7 +52,7 @@ const useSeasonSlider = () => {
     ],
   )
 
-  return { sliderRef, instanceRef, currentSlide }
+  return { sliderRef, instanceRef, currentSlide, items, className, otherProps }
 }
 
 export { useSeasonSlider }

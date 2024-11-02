@@ -4,7 +4,11 @@ import { IAnimeFullModel } from "@entities/Anime"
 import { getSearchAnimes } from "@entities/Anime/api"
 import { useDebounce } from "@shared/utils/hooks"
 
-const useSearchBlock = () => {
+import { ISearchBlockProps } from "../types/ISearchBlockProps"
+
+const useSearchBlock = (props: ISearchBlockProps) => {
+  const { className, ...otherProps } = props
+
   const [isLoading, setIsLoading] = useState(false)
 
   const [searchInput, setSearchInput] = useState("")
@@ -26,7 +30,14 @@ const useSearchBlock = () => {
     if (debouncedSearchInput) fetchSearchAnimesData()
   }, [debouncedSearchInput])
 
-  return { searchInput, changeInput, isLoading, searchResults }
+  return {
+    searchInput,
+    changeInput,
+    isLoading,
+    searchResults,
+    className,
+    otherProps,
+  }
 }
 
 export { useSearchBlock }

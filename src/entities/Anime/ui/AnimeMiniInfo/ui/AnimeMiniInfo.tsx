@@ -4,9 +4,10 @@ import { cn, getNormalDate } from "@shared/utils/functions"
 import { IAnimeMiniInfoProps } from "../types/IAnimeMiniInfoProps"
 
 import st from "./AnimeMiniInfo.module.scss"
+import { useAnimeMiniInfo } from "./useAnimeMiniInfo"
 
 const AnimeMiniInfo = (props: IAnimeMiniInfoProps) => {
-  const { animeData } = props
+  const { animeData } = useAnimeMiniInfo(props)
 
   return (
     <div className={st.root}>

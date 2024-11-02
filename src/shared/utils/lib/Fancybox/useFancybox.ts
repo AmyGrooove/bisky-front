@@ -1,11 +1,7 @@
-"use client"
-
 import { useRef, useEffect } from "react"
 import { Fancybox as NativeFancybox } from "@fancyapps/ui"
 
-import "@fancyapps/ui/dist/fancybox/fancybox.css"
-
-const Fancybox = (props: any) => {
+const useFancybox = (props: any) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -22,11 +18,7 @@ const Fancybox = (props: any) => {
     }
   })
 
-  return (
-    <div ref={containerRef} className={props.className}>
-      {props.children}
-    </div>
-  )
+  return { containerRef }
 }
 
-export { Fancybox }
+export { useFancybox }

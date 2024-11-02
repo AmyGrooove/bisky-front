@@ -5,7 +5,16 @@ import { getAllGenresIdAndNames } from "@entities/Genre/api"
 import { IGetAllStudiosIdAndNamesResponse } from "@entities/Studio"
 import { getAllStudiosIdAndNames } from "@entities/Studio/api"
 
-const useFilterBar = () => {
+import { IFilterBarProps } from "../types/IFilterBarProps"
+
+const useFilterBar = (props: IFilterBarProps) => {
+  const {
+    updateFilters,
+    filterState,
+    fetchNewAnimesData,
+    isAnimeFetching = false,
+  } = props
+
   const [studiosData, setStudiosData] = useState<
     IGetAllStudiosIdAndNamesResponse[]
   >([])
@@ -31,7 +40,15 @@ const useFilterBar = () => {
     setIsLoading(false)
   }
 
-  return { studiosData, genresData, isLoading }
+  return {
+    studiosData,
+    genresData,
+    isLoading,
+    updateFilters,
+    filterState,
+    fetchNewAnimesData,
+    isAnimeFetching,
+  }
 }
 
 export { useFilterBar }

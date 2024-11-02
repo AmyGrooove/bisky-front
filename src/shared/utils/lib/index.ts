@@ -1,1 +1,1 @@
-export { Fancybox } from "./Fancybox"
+export { Fancybox } from "./Fancybox/Fancybox"

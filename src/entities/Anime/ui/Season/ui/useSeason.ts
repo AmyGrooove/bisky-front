@@ -3,9 +3,9 @@ import { useState, useEffect } from "react"
 import { ISeasonProps } from "../types/ISeasonProps"
 
 const useSeason = (props: ISeasonProps) => {
-  const {
-    anime: { screenshots },
-  } = props
+  const { isDisabled = false, anime, className, ...otherProps } = props
+
+  const { screenshots } = anime
 
   const [isNextImageShow, setIsNextImageShow] = useState(false)
   const [backgroundImage1, setBackgroundImage1] = useState(0)
@@ -26,7 +26,15 @@ const useSeason = (props: ISeasonProps) => {
     return () => clearTimeout(interval)
   }, [backgroundImage1, backgroundImage2, screenshots?.length, isNextImageShow])
 
-  return { isNextImageShow, backgroundImage1, backgroundImage2 }
+  return {
+    isNextImageShow,
+    backgroundImage1,
+    backgroundImage2,
+    isDisabled,
+    anime,
+    className,
+    otherProps,
+  }
 }
 
 export { useSeason }

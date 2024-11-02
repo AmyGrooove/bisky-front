@@ -6,9 +6,10 @@ import { Text } from "@shared/ui/atoms"
 import { IFactBlockProps } from "../types/IFactBlockProps"
 
 import st from "./FactBlock.module.scss"
+import { useFactBlock } from "./useFactBlock"
 
 const FactBlock = (props: IFactBlockProps) => {
-  const { fact, className, ...otherProps } = props
+  const { fact, className, otherProps } = useFactBlock(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

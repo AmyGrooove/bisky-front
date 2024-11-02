@@ -15,14 +15,15 @@ import { useAnimeCardSlider } from "./useAnimeCardSlider"
 const AnimeCardSlider = (props: IAnimeCardSliderProps) => {
   const {
     items,
-    isTwoRows = false,
-    isCatalogSliderOn = false,
+    isTwoRows,
+    isCatalogSliderOn,
     className,
-    ...otherProps
-  } = props
-
-  const { instanceRef, sliderRef, sliderItems, currentSlide } =
-    useAnimeCardSlider(props)
+    otherProps,
+    instanceRef,
+    sliderRef,
+    sliderItems,
+    currentSlide,
+  } = useAnimeCardSlider(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

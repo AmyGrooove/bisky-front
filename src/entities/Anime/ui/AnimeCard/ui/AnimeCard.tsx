@@ -8,9 +8,10 @@ import { Badge } from "@shared/ui/molecules"
 import { IAnimeCardProps } from "../types/IAnimeCardProps"
 
 import st from "./AnimeCard.module.scss"
+import { useAnimeCard } from "./useAnimeCard"
 
 const AnimeCard = (props: IAnimeCardProps) => {
-  const { anime, className, ...otherProps } = props
+  const { anime, className, otherProps } = useAnimeCard(props)
 
   return (
     <Link

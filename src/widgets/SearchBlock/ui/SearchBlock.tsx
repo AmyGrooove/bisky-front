@@ -13,10 +13,14 @@ import { ResultRowLoading } from "./ResultRowLoading/ResultRowLoading"
 import { useSearchBlock } from "./useSearchBlock"
 
 const SearchBlock = (props: ISearchBlockProps) => {
-  const { className, ...otherProps } = props
-
-  const { searchInput, changeInput, isLoading, searchResults } =
-    useSearchBlock()
+  const {
+    searchInput,
+    changeInput,
+    isLoading,
+    searchResults,
+    className,
+    otherProps,
+  } = useSearchBlock(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

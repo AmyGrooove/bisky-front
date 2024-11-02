@@ -4,7 +4,16 @@ import { Area } from "react-easy-crop"
 import { ICropImageProps } from "../types/ICropImageProps"
 
 const useCropImage = (props: ICropImageProps) => {
-  const { uploadFunction } = props
+  const {
+    uploadFunction,
+    imgLink,
+    width,
+    height,
+    className,
+    imageClassName,
+    pointClassName,
+    aspect = 1,
+  } = props
 
   const [imageSrc, setImageSrc] = useState<string | null>(null)
 
@@ -85,6 +94,13 @@ const useCropImage = (props: ICropImageProps) => {
     onCropComplete,
     changeImageInServer,
     resetImg,
+    imgLink,
+    width,
+    height,
+    className,
+    imageClassName,
+    pointClassName,
+    aspect,
   }
 }
 

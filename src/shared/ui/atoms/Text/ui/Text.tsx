@@ -3,17 +3,18 @@ import { cn } from "@shared/utils/functions"
 import { ITextProps } from "../types/ITextProps"
 
 import st from "./Text.module.scss"
+import { useText } from "./useText"
 
 const Text = (props: ITextProps) => {
   const {
     children,
-    size = "16",
-    weight = "400",
+    size,
+    weight,
     className,
-    as: Element = "div",
-    isDefaultColor = true,
-    ...otherProps
-  } = props
+    Element,
+    isDefaultColor,
+    otherProps,
+  } = useText(props)
 
   return (
     <Element

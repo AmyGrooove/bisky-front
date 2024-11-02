@@ -8,9 +8,8 @@ import st from "./CheckboxFilterGroup.module.scss"
 import { useCheckboxFilterGroup } from "./useCheckboxFilterGroup"
 
 const CheckboxFilterGroup = (props: ICheckboxFilterGroupProps) => {
-  const { items, className, ...otherProps } = props
-
-  const { mainClick, excludeButton } = useCheckboxFilterGroup()
+  const { mainClick, excludeButton, items, className, otherProps } =
+    useCheckboxFilterGroup(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

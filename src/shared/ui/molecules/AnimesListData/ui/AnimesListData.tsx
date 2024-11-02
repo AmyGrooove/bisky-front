@@ -5,9 +5,10 @@ import { StarIcon, PlayIcon, CheckIcon, TrashIcon } from "@shared/icons"
 import { IAnimesListDataProps } from "../types/IAnimesListDataProps"
 
 import st from "./AnimesListData.module.scss"
+import { useAnimesListData } from "./useAnimesListData"
 
 const AnimesListData = (props: IAnimesListDataProps) => {
-  const { animeList } = props
+  const { animeList } = useAnimesListData(props)
 
   return (
     <div className={st.root}>

@@ -1,17 +1,25 @@
 import { ArrowIcon, BackIcon, LogoIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
-import { ILoginFormProps } from "@widgets/AuthBlock/types/ILoginFormProps"
 import { Text } from "@shared/ui/atoms"
 import { InputField } from "@shared/ui/molecules"
+
+import { ILoginFormProps } from "../../types/ILoginFormProps"
 
 import st from "./LoginForm.module.scss"
 import { useLoginForm } from "./useLoginForm"
 
 const LoginForm = (props: ILoginFormProps) => {
-  const { changeAuthForm, login, setLogin, password, setPassword } = props
-
-  const { isLoading, isError, isCanGoLogin, callLoginUser } =
-    useLoginForm(props)
+  const {
+    isLoading,
+    isError,
+    isCanGoLogin,
+    callLoginUser,
+    changeAuthForm,
+    login,
+    setLogin,
+    password,
+    setPassword,
+  } = useLoginForm(props)
 
   return (
     <>

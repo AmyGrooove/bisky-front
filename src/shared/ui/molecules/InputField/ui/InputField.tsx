@@ -5,16 +5,11 @@ import { Text } from "@shared/ui/atoms"
 import { IInputFieldProps } from "../types/IInputFieldProps"
 
 import st from "./InputField.module.scss"
+import { useInputField } from "./useInputField"
 
 const InputField = (props: IInputFieldProps) => {
-  const {
-    variant = "dark",
-    isSearchIconOn = false,
-    className,
-    label,
-    placeholder,
-    ...otherProps
-  } = props
+  const { variant, isSearchIconOn, className, label, placeholder, otherProps } =
+    useInputField(props)
 
   return (
     <div

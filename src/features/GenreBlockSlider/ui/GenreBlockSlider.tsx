@@ -13,9 +13,8 @@ import st from "./GenreBlockSlider.module.scss"
 import { useGenreBlockSlider } from "./useGenreBlockSlider"
 
 const GenreBlockSlider = (props: IGenreBlockSliderProps) => {
-  const { items, className, ...otherProps } = props
-
-  const { instanceRef, sliderRef, currentSlide } = useGenreBlockSlider()
+  const { currentSlide, sliderRef, instanceRef, items, className, otherProps } =
+    useGenreBlockSlider(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

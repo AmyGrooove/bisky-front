@@ -14,16 +14,6 @@ import { useCropImage } from "./useCropImage"
 
 const CropImage = (props: ICropImageProps) => {
   const {
-    imgLink,
-    width,
-    height,
-    className,
-    imageClassName,
-    pointClassName,
-    aspect = 1,
-  } = props
-
-  const {
     uploadImage,
     imageSrc,
     crop,
@@ -33,6 +23,13 @@ const CropImage = (props: ICropImageProps) => {
     onCropComplete,
     changeImageInServer,
     resetImg,
+    imgLink,
+    width,
+    height,
+    className,
+    imageClassName,
+    pointClassName,
+    aspect,
   } = useCropImage(props)
 
   return (

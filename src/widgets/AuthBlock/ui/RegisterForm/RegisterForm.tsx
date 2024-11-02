@@ -2,26 +2,28 @@ import Link from "next/link"
 
 import { ArrowIcon, BackIcon, LogoIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
-import { IRegisterFormProps } from "@widgets/AuthBlock/types/IRegisterFormProps"
 import { Text } from "@shared/ui/atoms"
 import { InputField } from "@shared/ui/molecules"
+
+import { IRegisterFormProps } from "../../types/IRegisterFormProps"
 
 import { useRegisterForm } from "./useRegisterForm"
 import st from "./RegisterForm.module.scss"
 
 const RegisterForm = (props: IRegisterFormProps) => {
   const {
+    isLoading,
+    isError,
+    isCanGoLogin,
+    callCreateNewUser,
     changeAuthForm,
-    login,
     setLogin,
-    email,
     setEmail,
-    password,
     setPassword,
-  } = props
-
-  const { isLoading, isError, isCanGoLogin, callCreateNewUser } =
-    useRegisterForm(props)
+    login,
+    email,
+    password,
+  } = useRegisterForm(props)
 
   return (
     <>

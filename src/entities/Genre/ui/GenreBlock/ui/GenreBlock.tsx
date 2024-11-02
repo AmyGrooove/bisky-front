@@ -4,12 +4,13 @@ import { Text } from "@shared/ui/atoms/Text"
 import { cn } from "@shared/utils/functions"
 import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 
-import { IGenreBlock } from "../types/IGenreBlockProps"
+import { IGenreBlockProps } from "../types/IGenreBlockProps"
 
 import st from "./GenreBlock.module.scss"
+import { useGenreBlock } from "./useGenreBlock"
 
-const GenreBlock = (props: IGenreBlock) => {
-  const { genre, className, ...otherProps } = props
+const GenreBlock = (props: IGenreBlockProps) => {
+  const { genre, className, otherProps } = useGenreBlock(props)
 
   return (
     <Link
