@@ -10,9 +10,10 @@ import { cn } from "@shared/utils/functions"
 import { IStatusIconProps } from "../../types/IStatusIconProps"
 
 import st from "./StatusIcon.module.scss"
+import { useStatusIcon } from "./useStatusIcon"
 
 const StatusIcon = (props: IStatusIconProps) => {
-  const { selectedStatus } = props
+  const { selectedStatus } = useStatusIcon(props)
 
   return {
     none: <></>,

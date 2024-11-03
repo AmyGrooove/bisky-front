@@ -6,9 +6,10 @@ import { Button } from "@shared/ui/molecules"
 import { ISelectWinnerProps } from "../types/ISelectWinnerProps"
 
 import st from "./SelectWinner.module.scss"
+import { useSelectWinner } from "./useSelectWinner"
 
 const SelectWinner = (props: ISelectWinnerProps) => {
-  const { animeData } = props
+  const { animeData } = useSelectWinner(props)
 
   return (
     <div className={st.root}>
@@ -30,8 +31,8 @@ const SelectWinner = (props: ISelectWinnerProps) => {
         fill
         src={
           animeData?.screenshots.length !== 0
-            ? animeData?.screenshots[0] ?? null
-            : animeData?.poster ?? null
+            ? (animeData?.screenshots[0] ?? null)
+            : (animeData?.poster ?? null)
         }
         alt=""
         className={st.background}

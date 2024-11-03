@@ -10,10 +10,15 @@ import { SetScoreButton } from "./SetScoreButton/SetScoreButton"
 import { useUserData } from "./useUserData"
 
 const UserData = (props: IUserDataProps) => {
-  const { _id, className, ...otherProps } = props
-
-  const { isLoading, session, userAnimeData, updateUserData } =
-    useUserData(props)
+  const {
+    isLoading,
+    session,
+    userAnimeData,
+    updateUserData,
+    className,
+    otherProps,
+    _id,
+  } = useUserData(props)
 
   return isLoading ? (
     <Skeleton className={cn(st.loading, className)} />

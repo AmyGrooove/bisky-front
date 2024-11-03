@@ -1,14 +1,13 @@
 import Image from "next/image"
-import { useContext } from "react"
 
 import { Text } from "@shared/ui/atoms"
 import { AuthBlock } from "@widgets/AuthBlock"
-import { ModalContext } from "@widgets/ModalProvider"
 
 import st from "./ErrorPage.module.scss"
+import { useErrorPage } from "./useErrorPage"
 
 const ErrorPage = () => {
-  const { setModal } = useContext(ModalContext)
+  const { setModal } = useErrorPage()
 
   return (
     <div className={st.root}>

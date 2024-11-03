@@ -7,9 +7,10 @@ import { IUserAnimeStatsProps } from "../types/IUserAnimeStatsProps"
 import { UsersSubscriptions } from "../../UsersSubscriptions"
 
 import st from "./UserAnimeStats.module.scss"
+import { useUserAnimeStats } from "./useUserAnimeStats"
 
 const UserAnimeStats = (props: IUserAnimeStatsProps) => {
-  const { userData } = props
+  const { userData } = useUserAnimeStats(props)
 
   return (
     <div className={st.root}>

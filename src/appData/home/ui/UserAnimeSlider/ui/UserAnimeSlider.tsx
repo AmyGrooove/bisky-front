@@ -11,9 +11,8 @@ import st from "./UserAnimeSlider.module.scss"
 import { useUserAnimeSlider } from "./useUserAnimeSlider"
 
 const UserAnimeSlider = (props: IUserAnimeSliderProps) => {
-  const { className, ...otherProps } = props
-
-  const { isLoading, userAnimeData, username } = useUserAnimeSlider()
+  const { isLoading, userAnimeData, username, className, otherProps } =
+    useUserAnimeSlider(props)
 
   return isLoading ? (
     <div {...otherProps} className={cn(st.row, className)}>

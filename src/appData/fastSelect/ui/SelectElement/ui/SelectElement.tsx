@@ -8,9 +8,10 @@ import { InfoIcon } from "@shared/icons"
 import { ISelectElementProps } from "../types/ISelectElementProps"
 
 import st from "./SelectElement.module.scss"
+import { useSelectElement } from "./useSelectElement"
 
 const SelectElement = (props: ISelectElementProps) => {
-  const { side, animeData, onClick } = props
+  const { side, animeData, onClick } = useSelectElement(props)
 
   return (
     <div className={cn(st.root, st["root_" + side])}>
@@ -38,8 +39,8 @@ const SelectElement = (props: ISelectElementProps) => {
         fill
         src={
           animeData?.screenshots.length !== 0
-            ? animeData?.screenshots[0] ?? null
-            : animeData?.poster ?? null
+            ? (animeData?.screenshots[0] ?? null)
+            : (animeData?.poster ?? null)
         }
         alt=""
         className={st.background}

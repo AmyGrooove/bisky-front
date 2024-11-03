@@ -10,9 +10,8 @@ import st from "./SetScoreButton.module.scss"
 import { useSetScoreButton } from "./useSetScoreButton"
 
 const SetScoreButton = (props: ISetScoreButtonProps) => {
-  const { animeScore } = props
-
-  const { addListButtonsRef, updateListStatus } = useSetScoreButton(props)
+  const { addListButtonsRef, updateListStatus, animeScore } =
+    useSetScoreButton(props)
 
   return (
     <Dropdown

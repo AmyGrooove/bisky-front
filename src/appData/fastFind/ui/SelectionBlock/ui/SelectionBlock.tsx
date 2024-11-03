@@ -16,10 +16,15 @@ import { StatusIcon } from "./StatusIcon/StatusIcon"
 import { useSelectionBlock } from "./useSelectionBlock"
 
 const SelectionBlock = (props: ISelectionBlockProps) => {
-  const { isChangingAnime, currentAnime, fastFindCount } = props
-
-  const { chooseStatus, posterStatus, previousAnimeStatuses, goBack } =
-    useSelectionBlock(props)
+  const {
+    chooseStatus,
+    posterStatus,
+    previousAnimeStatuses,
+    goBack,
+    isChangingAnime,
+    currentAnime,
+    fastFindCount,
+  } = useSelectionBlock(props)
 
   return (
     <div className={st.root}>

@@ -11,7 +11,7 @@ import { IDropdownRef } from "@shared/ui/atoms"
 import { IAddListButtonProps } from "../../../types/IAddListButtonProps"
 
 const useAddListButton = (props: IAddListButtonProps) => {
-  const { _id, updateUserData } = props
+  const { _id, updateUserData, animeStatus } = props
 
   const addListButtonsRef = useRef<IDropdownRef>(null)
 
@@ -28,7 +28,7 @@ const useAddListButton = (props: IAddListButtonProps) => {
     await updateUserData()
   }
 
-  return { addListButtonsRef, updateListStatus }
+  return { addListButtonsRef, updateListStatus, animeStatus }
 }
 
 export { useAddListButton }

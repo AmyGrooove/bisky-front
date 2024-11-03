@@ -10,9 +10,8 @@ import { ListButtonSwitch } from "./ListButtonSwitch/ListButtonSwitch"
 import { useAddListButton } from "./useAddListButton"
 
 const AddListButton = (props: IAddListButtonProps) => {
-  const { animeStatus } = props
-
-  const { addListButtonsRef, updateListStatus } = useAddListButton(props)
+  const { addListButtonsRef, updateListStatus, animeStatus } =
+    useAddListButton(props)
 
   return (
     <Dropdown

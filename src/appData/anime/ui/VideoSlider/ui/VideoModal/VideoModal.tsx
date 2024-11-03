@@ -9,9 +9,10 @@ import {
 import { IVideoModalProps } from "../../types/IVideoModalProps"
 
 import st from "./VideoModal.module.scss"
+import { useVideoModal } from "./useVideoModal"
 
 const VideoModal = (props: IVideoModalProps) => {
-  const { name, url, backUrl } = props
+  const { name, url, backUrl } = useVideoModal(props)
 
   return (
     <MediaPlayer title={name ?? ""} src={url} className={st.root}>

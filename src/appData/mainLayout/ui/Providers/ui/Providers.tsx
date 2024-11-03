@@ -7,8 +7,10 @@ import { ModalProvider } from "@widgets/ModalProvider"
 import { IProvidersProps } from "../types/IProvidersProps"
 import { Analytics } from "../../Analytics"
 
+import { useProviders } from "./useProviders"
+
 const Providers = (props: IProvidersProps) => {
-  const { children } = props
+  const { children } = useProviders(props)
 
   return (
     <SessionProvider>

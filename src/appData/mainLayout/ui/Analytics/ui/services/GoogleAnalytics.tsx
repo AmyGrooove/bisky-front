@@ -1,7 +1,8 @@
 "use client"
+
 import Script from "next/script"
 
-const GOOGLE_ANALYTICS_ID = "G-HVWD016914"
+import { GOOGLE_ANALYTICS_ID } from "../../constants/analyticsIDs"
 
 const GoogleAnalytics = () => (
   <>

@@ -92,7 +92,15 @@ const useSelectionBlock = (props: ISelectionBlockProps) => {
     }, 300)
   }
 
-  return { chooseStatus, posterStatus, previousAnimeStatuses, goBack }
+  return {
+    chooseStatus,
+    posterStatus,
+    previousAnimeStatuses,
+    goBack,
+    isChangingAnime,
+    currentAnime,
+    fastFindCount,
+  }
 }
 
 export { useSelectionBlock }

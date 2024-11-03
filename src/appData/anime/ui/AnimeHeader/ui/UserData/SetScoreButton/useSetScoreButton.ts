@@ -23,7 +23,7 @@ const useSetScoreButton = (props: ISetScoreButtonProps) => {
     await updateUserData()
   }
 
-  return { updateListStatus, addListButtonsRef }
+  return { updateListStatus, addListButtonsRef, animeScore }
 }
 
 export { useSetScoreButton }

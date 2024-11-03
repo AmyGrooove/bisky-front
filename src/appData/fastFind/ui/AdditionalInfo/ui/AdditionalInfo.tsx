@@ -1,5 +1,3 @@
-import { useContext } from "react"
-
 import {
   CalendarIcon,
   ClockIcon,
@@ -18,16 +16,14 @@ import {
 } from "@entities/Anime"
 import { cn } from "@shared/utils/functions"
 import { Badge, Button } from "@shared/ui/molecules"
-import { ModalContext } from "@widgets/ModalProvider"
 
 import { IAdditionalInfoProps } from "../types/IAdditionalInfoProps"
 
 import st from "./AdditionalInfo.module.scss"
+import { useAdditionalInfo } from "./useAdditionalInfo"
 
 const AdditionalInfo = (props: IAdditionalInfoProps) => {
-  const { currentAnime } = props
-
-  const { setModal } = useContext(ModalContext)
+  const { currentAnime, setModal } = useAdditionalInfo(props)
 
   return (
     <div className={st.root}>

@@ -5,9 +5,10 @@ import { PlaceholderImage, Text } from "@shared/ui/atoms"
 import { IUsersSubscriptionsProps } from "../types/IUsersSubscriptionsProps"
 
 import st from "./UsersSubscriptions.module.scss"
+import { useUsersSubscriptions } from "./useUsersSubscriptions"
 
 const UsersSubscriptions = (props: IUsersSubscriptionsProps) => {
-  const { userData } = props
+  const { userData } = useUsersSubscriptions(props)
 
   return (
     <div className={st.rightSide}>

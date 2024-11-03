@@ -6,9 +6,10 @@ import { AnimesListData, Badge } from "@shared/ui/molecules"
 import { IAdditionalInfoProps } from "../types/IAdditionalInfoProps"
 
 import st from "./AdditionalInfo.module.scss"
+import { useAdditionalInfo } from "./useAdditionalInfo"
 
 const AdditionalInfo = (props: IAdditionalInfoProps) => {
-  const { animeData, className, ...otherProps } = props
+  const { animeData, className, otherProps } = useAdditionalInfo(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

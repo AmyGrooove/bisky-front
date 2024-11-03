@@ -6,9 +6,10 @@ import { IProfileHeaderProps } from "../types/IProfileHeaderProps"
 import { formatLastOnline } from "../functions/formatLastOnline"
 
 import st from "./ProfileHeader.module.scss"
+import { useProfileHeader } from "./useProfileHeader"
 
 const ProfileHeader = (props: IProfileHeaderProps) => {
-  const { userData } = props
+  const { userData } = useProfileHeader(props)
 
   return (
     <div className={st.root}>

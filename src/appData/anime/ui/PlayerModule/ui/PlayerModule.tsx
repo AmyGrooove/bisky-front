@@ -3,14 +3,11 @@ import { cn } from "@shared/utils/functions"
 import { IPlayerModuleProps } from "../types/IPlayerModuleProps"
 
 import st from "./PlayerModule.module.scss"
+import { usePlayerModule } from "./usePlayerModule"
 
-const PlayerModule = async (props: IPlayerModuleProps) => {
-  const {
-    animeShikiId,
-    isDefaultStyles = true,
-    className,
-    ...otherProps
-  } = props
+const PlayerModule = (props: IPlayerModuleProps) => {
+  const { animeShikiId, isDefaultStyles, className, otherProps } =
+    usePlayerModule(props)
 
   return (
     <iframe

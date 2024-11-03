@@ -1,22 +1,14 @@
 import { CheckIcon, PlayIcon, StarIcon, TrashIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
 import { Button } from "@shared/ui/molecules"
-import { addUpdateAnimeFromList } from "@entities/AnimeEstimate/api"
 
 import st from "../AddListButton.module.scss"
 import { IAddListButtonProps } from "../../../../types/IAddListButtonProps"
 
+import { useListButtonSwitch } from "./useListButtonSwitch"
+
 const ListButtonSwitch = (props: IAddListButtonProps) => {
-  const { animeStatus, updateUserData, _id } = props
-
-  const addAnimeInList = async () => {
-    await addUpdateAnimeFromList({
-      animeId: _id ?? "",
-      animeStatus: "added",
-    })
-
-    await updateUserData()
-  }
+  const { animeStatus, addAnimeInList } = useListButtonSwitch(props)
 
   return (
     {

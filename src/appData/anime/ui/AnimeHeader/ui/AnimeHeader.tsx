@@ -1,13 +1,11 @@
 "use client"
 
-import { useContext, useMemo } from "react"
-
 import { PlaceholderImage } from "@shared/ui/atoms/PlaceholderImage"
 import { Text } from "@shared/ui/atoms/Text"
 import { Badge } from "@shared/ui/molecules/Badge"
 import { Button } from "@shared/ui/molecules/Button"
 import { InfoIcon, PlayerIcon, ClockIcon, CalendarIcon } from "@shared/icons"
-import { cn, getRandomInt } from "@shared/utils/functions"
+import { cn } from "@shared/utils/functions"
 import {
   AnimeMiniInfo,
   getNormalKind,
@@ -15,25 +13,16 @@ import {
   getNormalStatus,
   getSeasonName,
 } from "@entities/Anime"
-import { ModalContext } from "@widgets/ModalProvider"
 
 import { IAnimeHeaderProps } from "../types/IAnimeHeaderProps"
 
 import st from "./AnimeHeader.module.scss"
 import { UserData } from "./UserData/UserData"
+import { useAnimeHeader } from "./useAnimeHeader"
 
 const AnimeHeader = (props: IAnimeHeaderProps) => {
-  const { animeData, className, ...otherProps } = props
-
-  const { setModal } = useContext(ModalContext)
-
-  const randomBackgroundSrc = useMemo(
-    () =>
-      animeData.screenshots?.[getRandomInt(animeData.screenshots.length - 1)] ??
-      animeData.poster ??
-      "",
-    [animeData],
-  )
+  const { animeData, className, otherProps, randomBackgroundSrc, setModal } =
+    useAnimeHeader(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

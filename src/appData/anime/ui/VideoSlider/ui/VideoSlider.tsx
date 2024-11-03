@@ -1,33 +1,26 @@
 "use client"
 
-import { useKeenSlider } from "keen-slider/react"
-import { useContext, useState } from "react"
-
 import { cn } from "@shared/utils/functions"
 import { ArrowIcon } from "@shared/icons"
 import { Text, PlaceholderImage } from "@shared/ui/atoms"
-import { ModalContext } from "@widgets/ModalProvider"
 
 import { IVideoSliderProps } from "../types/IVideoSliderProps"
 import { getVideoUrl } from "../functions/getVideoUrl"
 
 import st from "./VideoSlider.module.scss"
 import { VideoModal } from "./VideoModal/VideoModal"
+import { useVideoSlider } from "./useVideoSlider"
 
 const VideoSlider = (props: IVideoSliderProps) => {
-  const { items, className, ...otherProps } = props
-
-  const { setModal } = useContext(ModalContext)
-
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const [sliderRef, instanceRef] = useKeenSlider({
-    slides: { perView: "auto", spacing: 24 },
-    drag: true,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel)
-    },
-  })
+  const {
+    items,
+    className,
+    otherProps,
+    instanceRef,
+    currentSlide,
+    sliderRef,
+    setModal,
+  } = useVideoSlider(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

@@ -2,7 +2,7 @@
 
 import Script from "next/script"
 
-const YANDEX_METRIKA_ID = 93051932
+import { YANDEX_METRIKA_ID } from "../../constants/analyticsIDs"
 
 const YandexMetrika = () => (
   <Script id="yandex-metrika">
