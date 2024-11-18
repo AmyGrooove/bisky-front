@@ -18,6 +18,7 @@ const UserData = (props: IUserDataProps) => {
     className,
     otherProps,
     _id,
+    animeStatus,
   } = useUserData(props)
 
   return isLoading ? (
@@ -32,7 +33,8 @@ const UserData = (props: IUserDataProps) => {
         />
       )}
       <AddListButton
-        animeStatus={userAnimeData?.status ?? null}
+        animeStatus={animeStatus}
+        userAnimeStatus={userAnimeData?.status ?? null}
         _id={_id ?? null}
         updateUserData={updateUserData}
       />

@@ -1,0 +1,9 @@
+@use "@shared/styles/reusable.scss" as *;
+
+.root {
+  border-radius: var(--small-radius);
+}
+
+.clickStatus {
+  opacity: 0 !important;
+}

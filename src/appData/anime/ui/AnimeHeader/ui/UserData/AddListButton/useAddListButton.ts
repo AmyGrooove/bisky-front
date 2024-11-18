@@ -1,34 +1,27 @@
 import { useRef } from "react"
 
-import { EListStatus } from "@entities/AnimeEstimate"
-import {
-  removeAnimeFromList,
-  addUpdateAnimeFromList,
-  updateAnimeScoreInList,
-} from "@entities/AnimeEstimate/api"
 import { IDropdownRef } from "@shared/ui/atoms"
 
 import { IAddListButtonProps } from "../../../types/IAddListButtonProps"
 
 const useAddListButton = (props: IAddListButtonProps) => {
-  const { _id, updateUserData, animeStatus } = props
+  const { _id, updateUserData, userAnimeStatus, animeStatus } = props
 
   const addListButtonsRef = useRef<IDropdownRef>(null)
 
-  const updateListStatus = async (value: EListStatus) => {
+  const updateListStatus = async () => {
     addListButtonsRef.current?.closeMenu()
-
-    if (value === "cancel") await removeAnimeFromList({ animeId: _id ?? "" })
-    else
-      await addUpdateAnimeFromList({ animeId: _id ?? "", animeStatus: value })
-
-    if (value === "added")
-      await updateAnimeScoreInList({ animeId: _id ?? "", animeScore: null })
 
     await updateUserData()
   }
 
-  return { addListButtonsRef, updateListStatus, animeStatus }
+  return {
+    addListButtonsRef,
+    userAnimeStatus,
+    _id,
+    updateListStatus,
+    animeStatus,
+  }
 }
 
 export { useAddListButton }

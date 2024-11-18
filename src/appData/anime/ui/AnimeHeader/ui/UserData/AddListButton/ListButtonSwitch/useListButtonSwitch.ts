@@ -3,7 +3,7 @@ import { addUpdateAnimeFromList } from "@entities/AnimeEstimate/api"
 import { IAddListButtonProps } from "../../../../types/IAddListButtonProps"
 
 const useListButtonSwitch = (props: IAddListButtonProps) => {
-  const { animeStatus, updateUserData, _id } = props
+  const { userAnimeStatus, updateUserData, _id } = props
 
   const addAnimeInList = async () => {
     await addUpdateAnimeFromList({
@@ -14,7 +14,7 @@ const useListButtonSwitch = (props: IAddListButtonProps) => {
     await updateUserData()
   }
 
-  return { animeStatus, addAnimeInList }
+  return { userAnimeStatus, addAnimeInList }
 }
 
 export { useListButtonSwitch }

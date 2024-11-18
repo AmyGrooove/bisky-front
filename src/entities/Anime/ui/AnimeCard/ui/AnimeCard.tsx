@@ -2,16 +2,17 @@ import Link from "next/link"
 
 import { cn } from "@shared/utils/functions"
 import { EyeIcon, StarIcon } from "@shared/icons"
-import { PlaceholderImage, Text, WatchStatus } from "@shared/ui/atoms"
+import { PlaceholderImage, Text } from "@shared/ui/atoms"
 import { Badge } from "@shared/ui/molecules"
 
 import { IAnimeCardProps } from "../types/IAnimeCardProps"
 
 import st from "./AnimeCard.module.scss"
 import { useAnimeCard } from "./useAnimeCard"
+import { CardUserStatus } from "./CardUserStatus/CardUserStatus"
 
 const AnimeCard = (props: IAnimeCardProps) => {
-  const { anime, className, otherProps } = useAnimeCard(props)
+  const { anime, className, otherProps, session } = useAnimeCard(props)
 
   return (
     <Link
@@ -56,11 +57,14 @@ const AnimeCard = (props: IAnimeCardProps) => {
           </Badge>
         )}
       </div>
-      {anime.userData?.animeStatus && (
+      {session && (
         <div className={st.userData}>
-          <WatchStatus
-            disabled
-            status={anime.userData?.animeStatus ?? "setWatch"}
+          <CardUserStatus
+            _id={anime._id}
+            userStatus={anime.userData?.animeStatus}
+            className={cn({
+              [st.transparentStatus]: !anime.userData?.animeStatus,
+            })}
           />
           {anime.userData?.score && (
             <Badge

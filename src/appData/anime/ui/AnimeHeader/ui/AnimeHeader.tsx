@@ -84,7 +84,7 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
               <Text size="20">{getSeasonName(animeData.dates?.airedOn)}</Text>
             </div>
           </div>
-          <UserData _id={animeData._id} />
+          <UserData _id={animeData._id} animeStatus={animeData.status} />
         </div>
       </div>
     </div>

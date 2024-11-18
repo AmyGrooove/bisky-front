@@ -2,7 +2,7 @@
   "name": "bisky-front",
   "version": "2.4.0",
   "scripts": {
-    "dev": "next dev -p 3030",
+    "dev": "next dev -p 3030 --turbo",
     "build": "next build",
     "start": "next start -p 3030",
     "lint:fix": "tsc && next lint --fix",

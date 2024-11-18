@@ -7,7 +7,7 @@ import { getCurrentUserAnimeEstimateData } from "@appData/anime/api"
 import { IUserDataProps } from "../../types/IUserDataProps"
 
 const useUserData = (props: IUserDataProps) => {
-  const { _id, className, ...otherProps } = props
+  const { _id, className, animeStatus = "released", ...otherProps } = props
 
   const { data: session } = useSession()
 
@@ -42,6 +42,7 @@ const useUserData = (props: IUserDataProps) => {
     className,
     otherProps,
     _id,
+    animeStatus,
   }
 }
 

@@ -1,26 +1,30 @@
 import { Dropdown } from "@shared/ui/atoms/Dropdown"
-import { WatchStatus } from "@shared/ui/atoms/WatchStatus"
 import { Text } from "@shared/ui/atoms/Text"
+import { AddInListMenu } from "@entities/AnimeEstimate"
 
 import { IAddListButtonProps } from "../../../types/IAddListButtonProps"
-import { watchStatuses } from "../../../static/watchStatuses"
 
 import st from "./AddListButton.module.scss"
 import { ListButtonSwitch } from "./ListButtonSwitch/ListButtonSwitch"
 import { useAddListButton } from "./useAddListButton"
 
 const AddListButton = (props: IAddListButtonProps) => {
-  const { addListButtonsRef, updateListStatus, animeStatus } =
-    useAddListButton(props)
+  const {
+    addListButtonsRef,
+    userAnimeStatus,
+    _id,
+    updateListStatus,
+    animeStatus,
+  } = useAddListButton(props)
 
   return (
     <Dropdown
       ref={addListButtonsRef}
-      isDisabled={!animeStatus}
+      isDisabled={!userAnimeStatus}
       callComponent={
         <div className={st.buttonWrapper}>
           <ListButtonSwitch {...props} />
-          {animeStatus && (
+          {userAnimeStatus && (
             <Text weight="700" size="12">
               Изменить
             </Text>
@@ -29,15 +33,12 @@ const AddListButton = (props: IAddListButtonProps) => {
       }
     >
       <div className={st.menu}>
-        {watchStatuses
-          .filter((item) => item !== animeStatus)
-          .map((item) => (
-            <WatchStatus
-              key={item}
-              status={item}
-              onClick={() => updateListStatus(item)}
-            />
-          ))}
+        <AddInListMenu
+          animeStatus={animeStatus}
+          _id={_id}
+          currentUserStatus={userAnimeStatus}
+          onChange={updateListStatus}
+        />
       </div>
     </Dropdown>
   )

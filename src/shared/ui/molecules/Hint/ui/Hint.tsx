@@ -1,5 +1,7 @@
 "use client"
 
+import { createPortal } from "react-dom"
+
 import { cn } from "@shared/utils/functions"
 import { Text } from "@shared/ui/atoms"
 
@@ -20,6 +22,9 @@ const Hint = (props: IHintProps) => {
     isClosing,
     showHint,
     hideHint,
+    isText,
+    cancelHideHint,
+    hintClassName,
   } = useHint(props)
 
   return (
@@ -32,20 +37,26 @@ const Hint = (props: IHintProps) => {
       >
         {children}
       </div>
-      {isVisible && (
-        <div
-          {...getFloatingProps()}
-          className={cn(st.root, { [st.root_closing]: isClosing })}
-          ref={refs.setFloating}
-          style={floatingStyles}
-        >
-          {typeof hintElement === "string" ? (
-            <Text className={st.text}>{hintElement}</Text>
-          ) : (
-            hintElement
-          )}
-        </div>
-      )}
+      {isVisible &&
+        createPortal(
+          <div
+            {...getFloatingProps()}
+            className={cn(st.root, hintClassName, {
+              [st.root_closing]: isClosing,
+            })}
+            ref={refs.setFloating}
+            style={floatingStyles}
+            onMouseEnter={isText ? () => {} : cancelHideHint}
+            onMouseLeave={isText ? () => {} : hideHint}
+          >
+            {isText ? (
+              <Text className={st.text}>{hintElement}</Text>
+            ) : (
+              hintElement
+            )}
+          </div>,
+          document.body,
+        )}
     </>
   )
 }

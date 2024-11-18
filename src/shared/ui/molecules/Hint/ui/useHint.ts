@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import {
   autoUpdate,
   flip,
@@ -11,14 +11,16 @@ import {
 import { IHintProps } from "../types/IHintProps"
 
 const useHint = (props: IHintProps) => {
-  const { children, hintElement } = props
+  const { children, hintElement, hintClassName } = props
 
   const [isVisible, setIsVisible] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
 
+  const hideHintTimer = useRef<NodeJS.Timeout | null>(null)
+  const closingTimer = useRef<NodeJS.Timeout | null>(null)
+
   const { refs, context, floatingStyles } = useFloating({
     open: isVisible,
-    onOpenChange: setIsVisible,
     whileElementsMounted: autoUpdate,
     placement: "top",
     middleware: [
@@ -36,16 +38,36 @@ const useHint = (props: IHintProps) => {
 
   const { getReferenceProps, getFloatingProps } = useInteractions([hover])
 
-  const showHint = () => setIsVisible(true)
+  const isText = typeof hintElement === "string"
 
-  const hideHint = () => {
-    setIsClosing(true)
+  const cancelHideHint = () => {
+    if (hideHintTimer.current) {
+      clearTimeout(hideHintTimer.current)
+      hideHintTimer.current = null
+    }
 
-    setTimeout(() => {
-      setIsVisible(false)
-      setIsClosing(false)
-    }, 100)
+    if (closingTimer.current) {
+      clearTimeout(closingTimer.current)
+      closingTimer.current = null
+    }
   }
+
+  const showHint = () => {
+    cancelHideHint()
+
+    setIsVisible(true)
+    setIsClosing(false)
+  }
+
+  const hideHint = () =>
+    (hideHintTimer.current = setTimeout(() => {
+      setIsClosing(true)
+
+      closingTimer.current = setTimeout(() => {
+        setIsVisible(false)
+        setIsClosing(false)
+      }, 200)
+    }, 50))
 
   return {
     children,
@@ -58,6 +80,9 @@ const useHint = (props: IHintProps) => {
     isVisible,
     hideHint,
     showHint,
+    isText,
+    cancelHideHint,
+    hintClassName,
   }
 }
 

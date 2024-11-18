@@ -1,3 +1,5 @@
+@use "@shared/styles/reusable.scss" as *;
+
 .root {
   max-width: calc(var(--HD) - 16px);
   width: 100%;
