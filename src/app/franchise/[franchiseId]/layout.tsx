@@ -8,9 +8,7 @@ import { getCurrentFranchiseData } from "@appData/franchise/api"
 export async function generateMetadata(
   props: IFranchiseLayoutProps,
 ): Promise<Metadata> {
-  const {
-    params: { franchiseId },
-  } = props
+  const { franchiseId } = await props.params
 
   const franchiseData = await getCurrentFranchiseData({ franchiseId })
 
@@ -43,10 +41,8 @@ export async function generateMetadata(
 }
 
 const FranchiseLayout = async (props: IFranchiseLayoutProps) => {
-  const {
-    params: { franchiseId },
-    children,
-  } = props
+  const { children } = props
+  const { franchiseId } = await props.params
 
   try {
     const franchiseData = await getCurrentFranchiseData({ franchiseId })

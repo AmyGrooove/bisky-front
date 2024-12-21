@@ -1,73 +1,36 @@
-import { ArchiveIcon } from "./ArchiveIcon"
-import { ArrowIcon } from "./ArrowIcon"
-import { BackIcon } from "./BackIcon"
-import { CalendarIcon } from "./CalendarIcon"
-import { CheckIcon } from "./CheckIcon"
-import { ClockIcon } from "./ClockIcon"
-import { CrossIcon } from "./CrossIcon"
-import { EyeIcon } from "./EyeIcon"
-import { FullSizeIcon } from "./FullSizeIcon"
-import { GoogleIcon } from "./GoogleIcon"
-import { HeartIcon } from "./HeartIcon"
-import { HomeIcon } from "./HomeIcon"
-import { InfoIcon } from "./InfoIcon"
-import { KingIcon } from "./KingIcon"
-import { LockIcon } from "./LockIcon"
-import { LogoIcon } from "./LogoIcon"
-import { MaskIcon } from "./MaskIcon"
-import { PaintIcon } from "./PaintIcon"
-import { ParametersIcon } from "./ParametersIcon"
-import { PauseIcon } from "./PauseIcon"
-import { PlayerIcon } from "./PlayerIcon"
-import { PlayIcon } from "./PlayIcon"
-import { ReloadIcon } from "./ReloadIcon"
-import { SearchIcon } from "./SearchIcon"
-import { SettingsIcon } from "./SettingsIcon"
-import { ShieldIcon } from "./ShieldIcon"
-import { ShikimoriIcon } from "./ShikimoriIcon"
-import { StarIcon } from "./StarIcon"
-import { TrashIcon } from "./TrashIcon"
-import { VkIcon } from "./VkIcon"
-import { VolumeIcon } from "./VolumeIcon"
-import { ProfileIcon } from "./ProfileIcon"
-import { ExitIcon } from "./ExitIcon"
-import { UploadIcon } from "./UploadIcon"
-import { ImgIcon } from "./ImgIcon"
-
-export {
-  UploadIcon,
-  ArchiveIcon,
-  ArrowIcon,
-  BackIcon,
-  CalendarIcon,
-  CheckIcon,
-  ClockIcon,
-  CrossIcon,
-  EyeIcon,
-  FullSizeIcon,
-  GoogleIcon,
-  HeartIcon,
-  HomeIcon,
-  InfoIcon,
-  KingIcon,
-  LockIcon,
-  LogoIcon,
-  MaskIcon,
-  PaintIcon,
-  ParametersIcon,
-  PauseIcon,
-  PlayerIcon,
-  PlayIcon,
-  ReloadIcon,
-  SearchIcon,
-  SettingsIcon,
-  ShieldIcon,
-  ShikimoriIcon,
-  StarIcon,
-  TrashIcon,
-  VkIcon,
-  VolumeIcon,
-  ProfileIcon,
-  ExitIcon,
-  ImgIcon,
-}
+export { ArchiveIcon } from "./ArchiveIcon"
+export { ArrowIcon } from "./ArrowIcon"
+export { BackIcon } from "./BackIcon"
+export { CalendarIcon } from "./CalendarIcon"
+export { CheckIcon } from "./CheckIcon"
+export { ClockIcon } from "./ClockIcon"
+export { CrossIcon } from "./CrossIcon"
+export { EyeIcon } from "./EyeIcon"
+export { FullSizeIcon } from "./FullSizeIcon"
+export { GoogleIcon } from "./GoogleIcon"
+export { HeartIcon } from "./HeartIcon"
+export { HomeIcon } from "./HomeIcon"
+export { InfoIcon } from "./InfoIcon"
+export { KingIcon } from "./KingIcon"
+export { LockIcon } from "./LockIcon"
+export { LogoIcon } from "./LogoIcon"
+export { MaskIcon } from "./MaskIcon"
+export { PaintIcon } from "./PaintIcon"
+export { ParametersIcon } from "./ParametersIcon"
+export { PauseIcon } from "./PauseIcon"
+export { PlayerIcon } from "./PlayerIcon"
+export { PlayIcon } from "./PlayIcon"
+export { ReloadIcon } from "./ReloadIcon"
+export { SearchIcon } from "./SearchIcon"
+export { SettingsIcon } from "./SettingsIcon"
+export { ShieldIcon } from "./ShieldIcon"
+export { ShikimoriIcon } from "./ShikimoriIcon"
+export { StarIcon } from "./StarIcon"
+export { TrashIcon } from "./TrashIcon"
+export { VkIcon } from "./VkIcon"
+export { VolumeIcon } from "./VolumeIcon"
+export { ProfileIcon } from "./ProfileIcon"
+export { ExitIcon } from "./ExitIcon"
+export { UploadIcon } from "./UploadIcon"
+export { ImgIcon } from "./ImgIcon"
+export type { IIconProps } from "./types/IIconProps"

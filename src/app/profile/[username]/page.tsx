@@ -7,9 +7,7 @@ import {
 import { getCurrentUserData } from "@appData/profile/api"
 
 const ProfilePage = async (props: IProfilePageProps) => {
-  const {
-    params: { username },
-  } = props
+  const { username } = await props.params
 
   const userData = await getCurrentUserData({ username })
 

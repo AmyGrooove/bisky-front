@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 interface IAnimeListLayoutProps {
-  params: { username: string }
+  params: Promise<{ username: string }>
   children: ReactNode
 }
 

@@ -17,13 +17,21 @@ type Story = StoryObj<typeof Button>
 export const Default: Story = { args: { children: "Button" } }
 
 export const RightIcon: Story = {
-  args: { children: "Button", rightIcon: <ClockIcon /> },
+  args: {
+    children: "Button",
+    renderRightIcon: (iconProps) => <ClockIcon {...iconProps} />,
+  },
 }
 
 export const LeftIcon: Story = {
-  args: { children: "Button", leftIcon: <ClockIcon /> },
+  args: {
+    children: "Button",
+    renderLeftIcon: (iconProps) => <ClockIcon {...iconProps} />,
+  },
 }
 
-export const OnlyIcon: Story = { args: { leftIcon: <ClockIcon /> } }
+export const OnlyIcon: Story = {
+  args: { renderLeftIcon: (iconProps) => <ClockIcon {...iconProps} /> },
+}
 
 export const Disabled: Story = { args: { children: "Button", disabled: true } }

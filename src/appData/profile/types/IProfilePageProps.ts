@@ -1,5 +1,5 @@
 interface IProfilePageProps {
-  params: { username: string }
+  params: Promise<{ username: string }>
 }
 
 export type { IProfilePageProps }

@@ -4,7 +4,7 @@ import { IDropdownRef } from "./IDropdownRef"
 
 interface IDropdownProps extends HTMLAttributes<HTMLDivElement> {
   callComponent: ReactElement
-  children: ReactElement
+  children: ReactElement<any>
 
   isDisabled?: boolean
   dropdownRef?: RefObject<IDropdownRef>

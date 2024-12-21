@@ -13,7 +13,7 @@ import { homeGenresQuery } from "@entities/Genre"
 import { IGetHomeDataResponse } from "./IGetHomeDataResponse"
 
 const getHomeData = async (): Promise<IGetHomeDataResponse> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",

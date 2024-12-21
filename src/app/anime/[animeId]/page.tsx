@@ -14,9 +14,7 @@ import { LinkLabel } from "@shared/ui/molecules"
 import { OversizeText } from "@shared/ui/molecules/OversizeText"
 
 const AnimePage = async (props: IAnimePageProps) => {
-  const {
-    params: { animeId },
-  } = props
+  const { animeId } = await props.params
 
   const animeData = await getCurrentAnimeData({ animeId })
 

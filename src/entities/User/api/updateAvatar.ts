@@ -5,7 +5,7 @@ import { cookies } from "next/headers"
 import { API_URL } from "@shared/constants"
 
 const updateAvatar = async (file: FormData) => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + `/api/user/avatar`, {
     method: "PATCH",

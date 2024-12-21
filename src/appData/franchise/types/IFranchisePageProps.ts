@@ -1,5 +1,5 @@
 interface IFranchisePageProps {
-  params: { franchiseId: string }
+  params: Promise<{ franchiseId: string }>
 }
 
 export type { IFranchisePageProps }

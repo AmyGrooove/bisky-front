@@ -14,7 +14,7 @@ const ListButtonSwitch = (props: IAddListButtonProps) => {
     {
       completed: (
         <Button
-          rightIcon={<CheckIcon />}
+          renderRightIcon={(iconProps) => <CheckIcon {...iconProps} />}
           className={cn(st.root, st[`root_${userAnimeStatus}`])}
         >
           Просмотрено
@@ -22,7 +22,9 @@ const ListButtonSwitch = (props: IAddListButtonProps) => {
       ),
       added: (
         <Button
-          rightIcon={<StarIcon variant="filled" />}
+          renderRightIcon={(iconProps) => (
+            <StarIcon {...iconProps} variant="filled" />
+          )}
           className={cn(st.root, st[`root_${userAnimeStatus}`])}
         >
           Добавлен
@@ -30,7 +32,7 @@ const ListButtonSwitch = (props: IAddListButtonProps) => {
       ),
       watching: (
         <Button
-          rightIcon={<PlayIcon />}
+          renderRightIcon={(iconProps) => <PlayIcon {...iconProps} />}
           className={cn(st.root, st[`root_${userAnimeStatus}`])}
         >
           Смотрю
@@ -38,7 +40,7 @@ const ListButtonSwitch = (props: IAddListButtonProps) => {
       ),
       dropped: (
         <Button
-          rightIcon={<TrashIcon />}
+          renderRightIcon={(iconProps) => <TrashIcon {...iconProps} />}
           className={cn(st.root, st[`root_${userAnimeStatus}`])}
         >
           Брошено

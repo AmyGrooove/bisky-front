@@ -11,7 +11,7 @@ const removeAnimeFromSkipList = async (
 ) => {
   const { animeId } = props
 
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + `/api/user/skipList`, {
     method: "DELETE",

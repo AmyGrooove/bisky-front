@@ -10,7 +10,7 @@ import { ICreateNewUserProps } from "./ICreateNewUserProps"
 const createNewUser = async (
   props: ICreateNewUserProps,
 ): Promise<IUserPublicDataWithTokens> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/api/auth/register", {
     method: "PUT",

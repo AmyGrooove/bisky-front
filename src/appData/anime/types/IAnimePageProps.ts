@@ -1,5 +1,5 @@
 interface IAnimePageProps {
-  params: { animeId: string }
+  params: Promise<{ animeId: string }>
 }
 
 export type { IAnimePageProps }

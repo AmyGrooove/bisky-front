@@ -17,7 +17,7 @@ const SelectElement = (props: ISelectElementProps) => {
     <div className={cn(st.root, st["root_" + side])}>
       <Link href={"/anime/" + animeData?._id} target="_blank">
         <Button
-          leftIcon={<InfoIcon />}
+          renderLeftIcon={(iconProps) => <InfoIcon {...iconProps} />}
           className={cn(st.infoButton, st["infoButton_" + side])}
         />
       </Link>

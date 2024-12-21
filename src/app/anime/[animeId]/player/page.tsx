@@ -7,9 +7,7 @@ import {
 import { Skeleton } from "@shared/ui/atoms"
 
 const PlayerPage = async (props: IPlayerPageProps) => {
-  const {
-    params: { animeId },
-  } = props
+  const { animeId } = await props.params
 
   const animeData = await getCurrentAnimeData({ animeId })
 

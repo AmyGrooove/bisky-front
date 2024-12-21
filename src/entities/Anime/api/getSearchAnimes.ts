@@ -8,7 +8,7 @@ import { IAnimeFullModel, searchAnimesQuery } from "@entities/Anime"
 const getSearchAnimes = async (
   searchInput: string,
 ): Promise<IAnimeFullModel[]> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",

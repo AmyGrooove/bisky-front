@@ -10,7 +10,7 @@ import { IGetCurrentAnimeDataProps } from "./IGetCurrentAnimeDataProps"
 const getCurrentAnimeData = async (
   props: IGetCurrentAnimeDataProps,
 ): Promise<IAnimeFullModel> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",

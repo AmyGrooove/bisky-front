@@ -4,11 +4,13 @@ import { NextRequest } from "next/server"
 import { authOptions } from "@entities/Auth/static/authOptions"
 
 interface RouteHandlerContext {
-  params: { nextauth: string[] }
+  params: Promise<{ nextauth: string[] }>
 }
 
 const handler = async (req: NextRequest, context: RouteHandlerContext) => {
-  return NextAuth(req, context, authOptions)
+  const resolvedContext = { params: await context.params }
+
+  return NextAuth(req, resolvedContext, authOptions)
 }
 
 export { handler as GET, handler as POST }

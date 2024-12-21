@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from "react"
+import { HTMLAttributes, JSX, ReactNode } from "react"
 
 interface ITextProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
   children?: string | number | Date | ReactNode

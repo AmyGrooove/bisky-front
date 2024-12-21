@@ -58,7 +58,7 @@ const AnimeHeader = (props: IAnimeHeaderProps) => {
           <Button
             onClick={() => setModal(<AnimeMiniInfo animeData={animeData} />)}
             className={st.button}
-            leftIcon={<InfoIcon />}
+            renderLeftIcon={(iconProps) => <InfoIcon {...iconProps} />}
           />
         </div>
         <div className={st.footer}>

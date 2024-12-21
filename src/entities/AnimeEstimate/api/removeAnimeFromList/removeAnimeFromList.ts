@@ -9,7 +9,7 @@ import { IRemoveAnimeFromListProps } from "./IRemoveAnimeFromListProps"
 const removeAnimeFromList = async (props: IRemoveAnimeFromListProps) => {
   const { animeId } = props
 
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + `/api/user/${animeId}/status`, {
     method: "DELETE",

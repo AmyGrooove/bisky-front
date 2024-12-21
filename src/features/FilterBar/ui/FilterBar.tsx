@@ -1,3 +1,5 @@
+import { HTMLAttributes } from "react"
+
 import { Button, Collapse } from "@shared/ui/molecules"
 import { Spinner } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
@@ -91,7 +93,6 @@ const FilterBar = (props: IFilterBarProps) => {
           />
         </Collapse>
       </div>
-
       <div className={st.buttonsWrapper}>
         {!filterState.isFilterNotUsed && (
           <Button
@@ -100,7 +101,16 @@ const FilterBar = (props: IFilterBarProps) => {
               updateFilters({ type: "reset", todo: {} })
               fetchNewAnimesData("default")
             }}
-            leftIcon={isAnimeFetching ? <Spinner color="gray" /> : <></>}
+            renderLeftIcon={
+              isAnimeFetching
+                ? (iconProps) => (
+                    <Spinner
+                      {...(iconProps as HTMLAttributes<HTMLDivElement>)}
+                      color="gray"
+                    />
+                  )
+                : undefined
+            }
             className={st.resetButton}
           >
             {isAnimeFetching ? "" : "Очистить фильтры"}
@@ -109,7 +119,16 @@ const FilterBar = (props: IFilterBarProps) => {
         <Button
           disabled={filterState.isFilterNotUsed || isAnimeFetching}
           onClick={() => fetchNewAnimesData()}
-          leftIcon={isAnimeFetching ? <Spinner /> : <></>}
+          renderLeftIcon={
+            isAnimeFetching
+              ? (iconProps) => (
+                  <Spinner
+                    {...(iconProps as HTMLAttributes<HTMLDivElement>)}
+                    color="gray"
+                  />
+                )
+              : undefined
+          }
           className={cn(st.resetButton, st.resetButton_submit)}
         >
           {isAnimeFetching ? "" : "Применить фильтры"}

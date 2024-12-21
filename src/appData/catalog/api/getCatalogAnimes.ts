@@ -12,7 +12,7 @@ import {
 const getCatalogAnimes = async (
   props: ICatalogAnimesVariables,
 ): Promise<IAnimeFullModel[]> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",

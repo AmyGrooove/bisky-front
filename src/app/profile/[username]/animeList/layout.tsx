@@ -8,9 +8,7 @@ import { IAnimeListLayoutProps } from "@appData/profile/subpages/animeList"
 export async function generateMetadata(
   props: IAnimeListLayoutProps,
 ): Promise<Metadata> {
-  const {
-    params: { username },
-  } = props
+  const { username } = await props.params
 
   const userData = await getCurrentUserData({ username })
 
@@ -26,10 +24,8 @@ export async function generateMetadata(
 }
 
 const AnimeListLayout = async (props: IAnimeListLayoutProps) => {
-  const {
-    params: { username },
-    children,
-  } = props
+  const { username } = await props.params
+  const { children } = props
 
   try {
     await getCurrentUserData({ username })

@@ -1,5 +1,5 @@
 interface IPlayerPageProps {
-  params: { animeId: string }
+  params: Promise<{ animeId: string }>
 }
 
 export type { IPlayerPageProps }

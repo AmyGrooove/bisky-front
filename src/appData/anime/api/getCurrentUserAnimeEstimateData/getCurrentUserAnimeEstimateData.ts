@@ -13,7 +13,7 @@ import { IGetCurrentUserAnimeEstimateDataProps } from "./IGetCurrentUserAnimeDat
 const getCurrentUserAnimeEstimateData = async (
   props: IGetCurrentUserAnimeEstimateDataProps,
 ): Promise<IUserPublicFullModel | null> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",

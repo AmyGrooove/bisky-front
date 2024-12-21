@@ -38,7 +38,7 @@ const SetFilterTags = (props: ISetFilterTagsProps) => {
               onClick={() =>
                 item.isSelected ? item.deleteIncludeItem() : item.includeItem()
               }
-              rightIcon={<CrossIcon />}
+              renderRightIcon={(iconProps) => <CrossIcon {...iconProps} />}
             >
               {item.label}
             </Badge>

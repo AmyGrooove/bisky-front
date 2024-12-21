@@ -37,7 +37,7 @@ export const Big: Story = {
 export const RightIcon: Story = {
   args: {
     children: "Badge",
-    rightIcon: <ClockIcon />,
+    renderRightIcon: (iconProps) => <ClockIcon {...iconProps} />,
     style: { backgroundColor: "purple" },
   },
 }
@@ -45,11 +45,14 @@ export const RightIcon: Story = {
 export const LeftIcon: Story = {
   args: {
     children: "Badge",
-    leftIcon: <ClockIcon />,
+    renderLeftIcon: (iconProps) => <ClockIcon {...iconProps} />,
     style: { backgroundColor: "purple" },
   },
 }
 
 export const OnlyIcon: Story = {
-  args: { leftIcon: <ClockIcon />, style: { backgroundColor: "purple" } },
+  args: {
+    renderLeftIcon: (iconProps) => <ClockIcon {...iconProps} />,
+    style: { backgroundColor: "purple" },
+  },
 }

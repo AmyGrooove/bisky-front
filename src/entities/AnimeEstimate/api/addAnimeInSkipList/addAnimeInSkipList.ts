@@ -9,7 +9,7 @@ import { IAddAnimeInSkipListProps } from "./IAddAnimeInSkipListProps"
 const addAnimeInSkipList = async (props: IAddAnimeInSkipListProps) => {
   const { animeId } = props
 
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + `/api/user/skipList`, {
     method: "PATCH",

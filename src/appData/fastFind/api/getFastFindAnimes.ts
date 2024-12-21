@@ -6,7 +6,7 @@ import { API_URL } from "@shared/constants"
 import { fastFindAnimesQuery, IAnimeFullModel } from "@entities/Anime"
 
 const getFastFindAnimes = async (): Promise<IAnimeFullModel[]> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",

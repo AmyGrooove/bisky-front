@@ -9,7 +9,7 @@ import { EListStatus } from "@entities/AnimeEstimate"
 const getCurrentUserAnimeData = async (
   animeListStatus: keyof typeof EListStatus,
 ): Promise<IUserPublicFullModel | null> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/graphql", {
     method: "POST",

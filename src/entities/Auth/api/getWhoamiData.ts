@@ -6,7 +6,7 @@ import { API_URL } from "@shared/constants"
 import { IUserPublicModel } from "@entities/User"
 
 const getWhoamiData = async (): Promise<IUserPublicModel> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/api/auth/whoami", {
     method: "GET",

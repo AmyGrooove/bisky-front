@@ -29,7 +29,9 @@ const UserAnimeList = (props: IUserAnimeListProps) => {
             Начать смотреть новое аниме из списка
           </Text>
           <Link href="/fastSelect">
-            <Button leftIcon={<KingIcon />}>Быстрый выбор</Button>
+            <Button renderLeftIcon={(iconProps) => <KingIcon {...iconProps} />}>
+              Быстрый выбор
+            </Button>
           </Link>
         </div>
       )}

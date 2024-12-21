@@ -8,7 +8,7 @@ const refreshTokens = async (): Promise<{
   accessToken: string
   refreshToken: string
 }> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/api/auth/refresh", {
     method: "PATCH",

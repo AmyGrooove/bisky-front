@@ -21,7 +21,9 @@ const AdditionalInfo = (props: IAdditionalInfoProps) => {
           <Badge
             variant="big"
             isScoreStatus
-            leftIcon={<StarIcon variant="filled" />}
+            renderLeftIcon={(iconProps) => (
+              <StarIcon {...iconProps} variant="filled" />
+            )}
           >
             {String(animeData.score?.averageScore?.toFixed(2))}
           </Badge>

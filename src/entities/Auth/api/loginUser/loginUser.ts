@@ -10,7 +10,7 @@ import { ILoginUserProps } from "./ILoginUserProps"
 const loginUser = async (
   props: ILoginUserProps,
 ): Promise<IUserPublicDataWithTokens> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/api/auth/login", {
     method: "POST",

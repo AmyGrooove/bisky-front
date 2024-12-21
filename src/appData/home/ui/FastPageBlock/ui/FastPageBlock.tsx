@@ -12,7 +12,9 @@ const FastPageBlock = () => (
       Быстро найти новые аниме
     </Text>
     <Link href="/fastFind">
-      <Button leftIcon={<HeartIcon />}>Быстрый поиск</Button>
+      <Button renderLeftIcon={(iconProps) => <HeartIcon {...iconProps} />}>
+        Быстрый поиск
+      </Button>
     </Link>
   </div>
 )

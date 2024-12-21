@@ -70,7 +70,7 @@ const AdditionalInfo = (props: IAdditionalInfoProps) => {
         <Button
           onClick={() => setModal(<AnimeMiniInfo animeData={currentAnime} />)}
           className={st.miniInfoButton}
-          leftIcon={<InfoIcon />}
+          renderLeftIcon={(iconProps) => <InfoIcon {...iconProps} />}
         />
       </div>
     </div>

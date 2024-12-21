@@ -5,7 +5,7 @@ import { cookies } from "next/headers"
 import { API_URL } from "@shared/constants"
 
 const logoutUser = async (): Promise<true> => {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   const result = await fetch(API_URL + "/api/auth/logout", {
     method: "PATCH",

@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 interface IFranchiseLayoutProps {
-  params: { franchiseId: string }
+  params: Promise<{ franchiseId: string }>
   children: ReactNode
 }
 

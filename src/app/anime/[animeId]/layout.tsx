@@ -8,9 +8,7 @@ import { getCurrentAnimeData } from "@appData/anime/api"
 export async function generateMetadata(
   props: IAnimeLayoutProps,
 ): Promise<Metadata> {
-  const {
-    params: { animeId },
-  } = props
+  const { animeId } = await props.params
 
   try {
     const animeData = await getCurrentAnimeData({ animeId })
@@ -35,10 +33,8 @@ export async function generateMetadata(
 }
 
 const AnimeLayout = async (props: IAnimeLayoutProps) => {
-  const {
-    params: { animeId },
-    children,
-  } = props
+  const { children } = props
+  const { animeId } = await props.params
 
   try {
     const animeData = await getCurrentAnimeData({ animeId })

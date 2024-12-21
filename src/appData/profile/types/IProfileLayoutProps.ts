@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 interface IProfileLayoutProps {
-  params: { username: string }
+  params: Promise<{ username: string }>
   children: ReactNode
 }
 

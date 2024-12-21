@@ -6,9 +6,7 @@ import { getCurrentFranchiseData } from "@appData/franchise/api"
 import { AnimeCard } from "@entities/Anime"
 
 const FranchisePage = async (props: IFranchisePageProps) => {
-  const {
-    params: { franchiseId },
-  } = props
+  const { franchiseId } = await props.params
 
   const franchiseData = await getCurrentFranchiseData({ franchiseId })
 

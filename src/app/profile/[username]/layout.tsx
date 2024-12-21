@@ -8,9 +8,7 @@ import { getCurrentUserData } from "@appData/profile/api"
 export async function generateMetadata(
   props: IProfileLayoutProps,
 ): Promise<Metadata> {
-  const {
-    params: { username },
-  } = props
+  const { username } = await props.params
 
   const userData = await getCurrentUserData({ username })
 
@@ -25,10 +23,8 @@ export async function generateMetadata(
 }
 
 const ProfileLayout = async (props: IProfileLayoutProps) => {
-  const {
-    params: { username },
-    children,
-  } = props
+  const { children } = props
+  const { username } = await props.params
 
   try {
     await getCurrentUserData({ username })

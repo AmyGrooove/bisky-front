@@ -1,5 +1,3 @@
-import { cloneElement } from "react"
-
 import { Text } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions/cn"
 
@@ -9,32 +7,34 @@ import st from "./Button.module.scss"
 import { useButton } from "./useButton"
 
 const Button = (props: IButtonProps) => {
-  const { children, leftIcon, rightIcon, className, textProps, otherProps } =
-    useButton(props)
+  const {
+    children,
+    renderLeftIcon,
+    renderRightIcon,
+    className,
+    textProps,
+    otherProps,
+  } = useButton(props)
 
   return (
     <button
       {...otherProps}
       className={cn(st.root, className, {
-        [st.root_icon]: !!leftIcon || !!rightIcon,
+        [st.root_icon]: !!renderLeftIcon || !!renderRightIcon,
       })}
     >
-      {leftIcon &&
-        cloneElement(leftIcon, {
-          className: cn(st.icon, leftIcon.props.className, {
-            [st.icon_only]: !children,
-          }),
+      {renderLeftIcon &&
+        renderLeftIcon({
+          className: cn(st.icon, { [st.icon_only]: !children }),
         })}
       {children && (
         <Text weight="700" {...textProps}>
           {children}
         </Text>
       )}
-      {rightIcon &&
-        cloneElement(rightIcon, {
-          className: cn(st.icon, rightIcon.props.className, {
-            [st.icon_only]: !children,
-          }),
+      {renderRightIcon &&
+        renderRightIcon({
+          className: cn(st.icon, { [st.icon_only]: !children }),
         })}
     </button>
   )

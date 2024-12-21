@@ -10,9 +10,7 @@ import { PlaceholderImage, Text } from "@shared/ui/atoms"
 import { AnimesListData } from "@shared/ui/molecules"
 
 const AnimeListPage = async (props: IAnimeListPageProps) => {
-  const {
-    params: { username },
-  } = props
+  const { username } = await props.params
 
   const userData = await getCurrentUserData({ username })
 

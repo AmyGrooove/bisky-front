@@ -10,7 +10,7 @@ const Spinner = (props: ISpinnerProps) => {
 
   return (
     <div
-      {...otherProps}
+      {...otherProps.otherProps}
       className={cn(st.root, className, st[`root_${color}`])}
     />
   )

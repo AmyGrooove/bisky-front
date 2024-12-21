@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 interface IAnimeLayoutProps {
-  params: { animeId: string }
+  params: Promise<{ animeId: string }>
   children: ReactNode
 }
 
