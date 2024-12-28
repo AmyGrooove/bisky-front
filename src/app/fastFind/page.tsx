@@ -41,27 +41,18 @@ const FastFindPage = () => {
         </Text>
         <div className={st.goNextOptions}>
           <Link href={"/profile/" + (session?.username ?? "") + "/animeList"}>
-            <Button
-              className={st.optionButton}
-              renderLeftIcon={(iconProps) => <ProfileIcon {...iconProps} />}
-            >
+            <Button className={st.optionButton} leftIcon={<ProfileIcon />}>
               В профиль
             </Button>
           </Link>
           <Link href="/fastSelect">
-            <Button
-              className={st.optionButton}
-              renderLeftIcon={(iconProps) => <KingIcon {...iconProps} />}
-            >
+            <Button className={st.optionButton} leftIcon={<KingIcon />}>
               Быстрый выбор
             </Button>
           </Link>
         </div>
         <Text size="28">или</Text>
-        <Button
-          onClick={() => getNewAnimes(true)}
-          renderLeftIcon={(iconProps) => <HeartIcon {...iconProps} />}
-        >
+        <Button onClick={() => getNewAnimes(true)} leftIcon={<HeartIcon />}>
           Новый список
         </Button>
       </div>

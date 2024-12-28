@@ -34,7 +34,6 @@ const AnimeListPage = async (props: IAnimeListPageProps) => {
               className={st.avatar}
               imageClassName={st.avatarImage}
               quality={100}
-              unoptimized
             />
             <Text weight="700" size="32">
               {userData.username}

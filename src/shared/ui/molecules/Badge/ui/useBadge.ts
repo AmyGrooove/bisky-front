@@ -3,8 +3,8 @@ import { IBadgeProps } from "../types/IBadgeProps"
 const useBadge = (props: IBadgeProps) => {
   const {
     children,
-    renderLeftIcon,
-    renderRightIcon,
+    leftIcon,
+    rightIcon,
     className,
     isScoreStatus = false,
     variant = "small",
@@ -14,8 +14,8 @@ const useBadge = (props: IBadgeProps) => {
 
   return {
     children,
-    renderLeftIcon,
-    renderRightIcon,
+    leftIcon,
+    rightIcon,
     className,
     isScoreStatus,
     variant,

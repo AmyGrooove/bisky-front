@@ -20,7 +20,6 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
         alt=""
         className={st.background}
         imageClassName={st.backgroundImage}
-        unoptimized
       />
       <div className={st.main}>
         <div className={st.leftSide}>
@@ -44,7 +43,6 @@ const ProfileHeader = (props: IProfileHeaderProps) => {
                   className={st.avatar}
                   imageClassName={st.avatarImage}
                   quality={100}
-                  unoptimized
                 />
               </a>
               <a

@@ -1,12 +1,10 @@
-import { HTMLAttributes, ReactNode } from "react"
-
-import { IIconProps } from "@shared/icons"
+import { HTMLAttributes, ReactElement } from "react"
 
 interface IBadgeProps extends HTMLAttributes<HTMLDivElement> {
   variant?: "big" | "medium" | "small"
   children?: string
-  renderRightIcon?: (props: IIconProps) => ReactNode
-  renderLeftIcon?: (props: IIconProps) => ReactNode
+  rightIcon?: ReactElement<HTMLElement>
+  leftIcon?: ReactElement<HTMLElement>
   isScoreStatus?: boolean
   isDefaultTextColor?: boolean
 }

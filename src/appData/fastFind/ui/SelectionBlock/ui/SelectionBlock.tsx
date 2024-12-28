@@ -63,7 +63,7 @@ const SelectionBlock = (props: ISelectionBlockProps) => {
         <Button
           onClick={goBack}
           disabled={fastFindCount === maxFastFind || isChangingAnime}
-          renderLeftIcon={(iconProps) => <BackIcon {...iconProps} />}
+          leftIcon={<BackIcon />}
           className={st.selectButton}
           textProps={{ className: st.selectText }}
         />
@@ -71,27 +71,22 @@ const SelectionBlock = (props: ISelectionBlockProps) => {
           disabled={isChangingAnime}
           onClick={() => chooseStatus("skipped")}
           className={cn(st.selectButton, st.selectButton_main)}
-          renderLeftIcon={(iconProps) => (
+          leftIcon={
             <CrossIcon
-              {...iconProps}
               className={cn(
                 st.mainSelectButtonIcon,
                 st.mainSelectButtonIcon_negative,
               )}
             />
-          )}
+          }
         />
         <Button
           disabled={isChangingAnime}
           onClick={() => chooseStatus("added")}
           className={cn(st.selectButton, st.selectButton_main)}
-          renderLeftIcon={(iconProps) => (
-            <StarIcon
-              {...iconProps}
-              variant="filled"
-              className={st.mainSelectButtonIcon}
-            />
-          )}
+          leftIcon={
+            <StarIcon variant="filled" className={st.mainSelectButtonIcon} />
+          }
         />
         <Button
           className={cn(st.selectButton, st.selectButton_noActive)}

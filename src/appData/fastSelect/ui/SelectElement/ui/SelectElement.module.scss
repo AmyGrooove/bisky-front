@@ -43,6 +43,7 @@
   position: absolute;
   top: 20px;
   z-index: 1;
+  opacity: 0.6;
 
   &_left {
     left: 20px;
@@ -50,6 +51,10 @@
 
   &_right {
     right: 20px;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }
 

@@ -65,7 +65,7 @@ const FastSelectPage = () => {
           </Text>
         )}
         <Button
-          renderLeftIcon={(iconProps) => <BackIcon {...iconProps} />}
+          leftIcon={<BackIcon />}
           onClick={goBack}
           disabled={nextArrayNumber === 2}
         />

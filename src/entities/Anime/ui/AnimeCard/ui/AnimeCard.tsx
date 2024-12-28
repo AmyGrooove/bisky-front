@@ -37,7 +37,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
         {anime.status === "anons" ? (
           <>
             <Badge
-              renderLeftIcon={(iconProps) => <EyeIcon {...iconProps} />}
+              leftIcon={<EyeIcon />}
               className={cn(st.badge, st.badge_inListCount)}
             >
               {String(anime.usersList?.addedCount)}
@@ -46,9 +46,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
           </>
         ) : (
           <Badge
-            renderLeftIcon={(iconProps) => (
-              <StarIcon {...iconProps} variant="filled" />
-            )}
+            leftIcon={<StarIcon variant="filled" />}
             isScoreStatus
             className={st.badge}
           >
@@ -72,9 +70,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
           />
           {anime.userData?.score && (
             <Badge
-              renderLeftIcon={(iconProps) => (
-                <StarIcon {...iconProps} variant="filled" />
-              )}
+              leftIcon={<StarIcon variant="filled" />}
               isScoreStatus
               className={st.userScore}
             >

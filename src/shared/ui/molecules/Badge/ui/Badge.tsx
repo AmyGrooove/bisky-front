@@ -1,3 +1,5 @@
+import { cloneElement } from "react"
+
 import { Text } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions/cn"
 
@@ -10,8 +12,8 @@ import { useBadge } from "./useBadge"
 const Badge = (props: IBadgeProps) => {
   const {
     children,
-    renderLeftIcon,
-    renderRightIcon,
+    leftIcon,
+    rightIcon,
     className,
     isScoreStatus,
     variant,
@@ -23,11 +25,11 @@ const Badge = (props: IBadgeProps) => {
     <div
       {...otherProps}
       className={cn(st.root, className, st[`root_${variant}`], {
-        [st.root_icon]: !!renderLeftIcon || !!renderRightIcon,
+        [st.root_icon]: !!leftIcon || !!rightIcon,
         [st[`root_${getScoreStatus(children!)}`]]: isScoreStatus && !!children,
       })}
     >
-      {renderLeftIcon && renderLeftIcon({ className: st.icon })}
+      {leftIcon && cloneElement(leftIcon, { className: st.icon })}
       {children && (
         <Text
           isDefaultColor={isDefaultTextColor}
@@ -38,7 +40,7 @@ const Badge = (props: IBadgeProps) => {
           {children}
         </Text>
       )}
-      {renderRightIcon && renderRightIcon({ className: st.icon })}
+      {rightIcon && cloneElement(rightIcon, { className: st.icon })}
     </div>
   )
 }

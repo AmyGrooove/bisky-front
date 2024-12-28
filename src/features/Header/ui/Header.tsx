@@ -56,9 +56,7 @@ const Header = (props: IHeaderProps) => {
         </div>
         <div className={st.rightSide}>
           <Button
-            renderRightIcon={(iconProps) => (
-              <SearchIcon {...iconProps} className={st.searchIcon} />
-            )}
+            rightIcon={<SearchIcon className={st.searchIcon} />}
             className={st.searchButton}
             onClick={() => setModal(<SearchBlock />)}
             textProps={{

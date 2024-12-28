@@ -43,9 +43,7 @@ const Season = (props: ISeasonProps) => {
         </Text>
       </div>
       <Badge
-        renderLeftIcon={(iconProps) => (
-          <StarIcon {...iconProps} variant="filled" className={st.ratingIcon} />
-        )}
+        leftIcon={<StarIcon variant="filled" className={st.ratingIcon} />}
         isScoreStatus
         variant="big"
         className={st.score}

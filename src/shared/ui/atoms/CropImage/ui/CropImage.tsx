@@ -45,7 +45,6 @@ const CropImage = (props: ICropImageProps) => {
           alt=""
           imageClassName={st.imageWrapper}
           quality={100}
-          unoptimized
         />
         <input
           type="file"

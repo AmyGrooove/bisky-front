@@ -19,9 +19,7 @@ const SetScoreButton = (props: ISetScoreButtonProps) => {
       callComponent={
         <div className={st.buttonWrapper}>
           <Button
-            renderRightIcon={(iconProps) => (
-              <StarIcon {...iconProps} variant="filled" />
-            )}
+            rightIcon={<StarIcon variant="filled" />}
             className={cn(
               st.root,
               st[`root_${animeScore ? getScoreStatus(animeScore) : 0}`],
