@@ -1,5 +1,7 @@
 "use client"
 
+import { closeModal } from "@widgets/ModalProvider"
+
 import st from "./AuthBlock.module.scss"
 import { StartForm } from "./StartForm/StartForm"
 import { LoginForm } from "./LoginForm/LoginForm"
@@ -14,7 +16,6 @@ const AuthBlock = () => {
     login,
     setLogin,
     password,
-    closeModal,
     email,
     setEmail,
   } = useAuthBlock()

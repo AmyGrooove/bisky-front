@@ -3,6 +3,7 @@
 import { cn } from "@shared/utils/functions"
 import { ArrowIcon } from "@shared/icons"
 import { Text, PlaceholderImage } from "@shared/ui/atoms"
+import { setModal } from "@widgets/ModalProvider"
 
 import { IVideoSliderProps } from "../types/IVideoSliderProps"
 import { getVideoUrl } from "../functions/getVideoUrl"
@@ -12,15 +13,8 @@ import { VideoModal } from "./VideoModal/VideoModal"
 import { useVideoSlider } from "./useVideoSlider"
 
 const VideoSlider = (props: IVideoSliderProps) => {
-  const {
-    items,
-    className,
-    otherProps,
-    instanceRef,
-    currentSlide,
-    sliderRef,
-    setModal,
-  } = useVideoSlider(props)
+  const { items, className, otherProps, instanceRef, currentSlide, sliderRef } =
+    useVideoSlider(props)
 
   return (
     <div {...otherProps} className={cn(st.root, className)}>

@@ -9,6 +9,7 @@ import { AuthBlock } from "@widgets/AuthBlock"
 import { Skeleton, Text } from "@shared/ui/atoms"
 import { LinkTabs, Button } from "@shared/ui/molecules"
 import { SearchBlock } from "@widgets/SearchBlock"
+import { setModal } from "@widgets/ModalProvider"
 
 import { IHeaderProps } from "../types/IHeaderProps"
 
@@ -16,8 +17,7 @@ import st from "./Header.module.scss"
 import { useHeader } from "./useHeader"
 
 const Header = (props: IHeaderProps) => {
-  const { pathname, className, otherProps, setModal, session, status } =
-    useHeader(props)
+  const { pathname, className, otherProps, session, status } = useHeader(props)
 
   return (
     <>

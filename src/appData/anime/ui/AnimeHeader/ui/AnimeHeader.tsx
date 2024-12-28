@@ -13,6 +13,7 @@ import {
   getNormalStatus,
   getSeasonName,
 } from "@entities/Anime"
+import { setModal } from "@widgets/ModalProvider"
 
 import { IAnimeHeaderProps } from "../types/IAnimeHeaderProps"
 
@@ -21,7 +22,7 @@ import { UserData } from "./UserData/UserData"
 import { useAnimeHeader } from "./useAnimeHeader"
 
 const AnimeHeader = (props: IAnimeHeaderProps) => {
-  const { animeData, className, otherProps, randomBackgroundSrc, setModal } =
+  const { animeData, className, otherProps, randomBackgroundSrc } =
     useAnimeHeader(props)
 
   return (

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { PlaceholderImage, Text } from "@shared/ui/atoms"
 import { CalendarIcon, ClockIcon } from "@shared/icons"
 import { getNormalKind, getSeasonName } from "@entities/Anime"
+import { closeModal } from "@widgets/ModalProvider"
 
 import { IResultRowProps } from "../../types/IResultRowProps"
 
@@ -10,12 +11,12 @@ import st from "./ResultRow.module.scss"
 import { useResultRow } from "./useResultRow"
 
 const ResultRow = (props: IResultRowProps) => {
-  const { animeData, closeModal } = useResultRow(props)
+  const { animeData } = useResultRow(props)
 
   return (
     <Link
       href={`/anime/${animeData?._id}`}
-      onClick={closeModal}
+      onClick={() => closeModal()}
       className={st.root}
     >
       <PlaceholderImage

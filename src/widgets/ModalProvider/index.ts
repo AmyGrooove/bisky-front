@@ -1,2 +1,2 @@
 export { ModalProvider } from "./ui/ModalProvider"
-export { ModalContext } from "./ui/useModalProvider"
+export { setModal, closeModal } from "./state/modalState"

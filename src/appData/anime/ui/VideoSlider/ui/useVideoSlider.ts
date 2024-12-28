@@ -1,14 +1,10 @@
 import { useKeenSlider } from "keen-slider/react"
-import { useContext, useState } from "react"
-
-import { ModalContext } from "@widgets/ModalProvider"
+import { useState } from "react"
 
 import { IVideoSliderProps } from "../types/IVideoSliderProps"
 
 const useVideoSlider = (props: IVideoSliderProps) => {
   const { items, className, ...otherProps } = props
-
-  const { setModal } = useContext(ModalContext)
 
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -27,7 +23,6 @@ const useVideoSlider = (props: IVideoSliderProps) => {
     instanceRef,
     currentSlide,
     sliderRef,
-    setModal,
   }
 }
 

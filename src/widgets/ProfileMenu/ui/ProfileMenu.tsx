@@ -5,6 +5,7 @@ import { cn } from "@shared/utils/functions"
 import { ExitIcon, PlayIcon, ProfileIcon, SettingsIcon } from "@shared/icons"
 import { Dropdown, PlaceholderImage, Text } from "@shared/ui/atoms"
 import { SettingsBlock } from "@widgets/SettingsBlock"
+import { setModal } from "@widgets/ModalProvider"
 
 import { IProfileMenuProps } from "../types/IProfileMenuProps"
 
@@ -12,7 +13,7 @@ import st from "./ProfileMenu.module.scss"
 import { useProfileMenu } from "./useProfileMenu"
 
 const ProfileMenu = (props: IProfileMenuProps) => {
-  const { dropdownRef, otherProps, user, className, session, setModal } =
+  const { dropdownRef, otherProps, user, className, session } =
     useProfileMenu(props)
 
   return (

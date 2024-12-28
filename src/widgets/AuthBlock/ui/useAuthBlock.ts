@@ -1,11 +1,7 @@
-import { useState, useContext } from "react"
-
-import { ModalContext } from "@widgets/ModalProvider"
+import { useState } from "react"
 
 const useAuthBlock = () => {
   const [authForm, setAuthForm] = useState(0)
-
-  const { closeModal } = useContext(ModalContext)
 
   const [login, setLogin] = useState("")
   const [password, setPassword] = useState("")
@@ -18,7 +14,6 @@ const useAuthBlock = () => {
     login,
     setLogin,
     password,
-    closeModal,
     email,
     setEmail,
   }

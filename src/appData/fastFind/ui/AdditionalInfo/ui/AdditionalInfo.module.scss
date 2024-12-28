@@ -6,7 +6,7 @@
 
 .subInfo {
   display: flex;
-  gap: 4px;
+  gap: 16px;
   align-items: center;
 }
 
@@ -46,15 +46,10 @@
 }
 
 .miniInfoButton {
-  background-color: transparent !important  ;
-  opacity: 0.8;
+  opacity: 0.6;
 
   &:hover {
-    background-color: transparent !important;
-  }
-
-  &:active {
-    background-color: transparent !important;
+    opacity: 1;
   }
 }
 

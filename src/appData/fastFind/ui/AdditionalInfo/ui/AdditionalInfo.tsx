@@ -16,6 +16,7 @@ import {
 } from "@entities/Anime"
 import { cn } from "@shared/utils/functions"
 import { Badge, Button } from "@shared/ui/molecules"
+import { setModal } from "@widgets/ModalProvider"
 
 import { IAdditionalInfoProps } from "../types/IAdditionalInfoProps"
 
@@ -23,7 +24,7 @@ import st from "./AdditionalInfo.module.scss"
 import { useAdditionalInfo } from "./useAdditionalInfo"
 
 const AdditionalInfo = (props: IAdditionalInfoProps) => {
-  const { currentAnime, setModal } = useAdditionalInfo(props)
+  const { currentAnime } = useAdditionalInfo(props)
 
   return (
     <div className={st.root}>

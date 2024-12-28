@@ -1,23 +1,13 @@
-import {
-  useState,
-  ReactNode,
-  useCallback,
-  useEffect,
-  createContext,
-} from "react"
+import { useState, useCallback, useEffect } from "react"
+import { useUnit } from "effector-react"
 
 import { IModalProviderProps } from "../types/IModalProviderProps"
-import { IModalContext } from "../types/IModalContext"
-
-const ModalContext = createContext<IModalContext>({
-  setModal: () => {},
-  closeModal: () => {},
-})
+import { $modal, setModal } from "../state/modalState"
 
 const useModalProvider = (props: IModalProviderProps) => {
   const { children } = props
 
-  const [modal, setModal] = useState<ReactNode | null>(null)
+  const modal = useUnit($modal)
 
   const [isModalClosing, setIsModalClosing] = useState(false)
 
@@ -52,4 +42,4 @@ const useModalProvider = (props: IModalProviderProps) => {
   return { closeModal, setModal, modal, isModalClosing, children }
 }
 
-export { useModalProvider, ModalContext }
+export { useModalProvider }
