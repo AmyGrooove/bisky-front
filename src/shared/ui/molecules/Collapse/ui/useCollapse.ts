@@ -8,6 +8,7 @@ const useCollapse = (props: ICollapseProps) => {
     label,
     isDefaultOpened = false,
     className,
+    isLabelHighlighted = false,
     ...otherProps
   } = props
 
@@ -20,6 +21,7 @@ const useCollapse = (props: ICollapseProps) => {
     otherProps,
     setIsCollapseOpened,
     isCollapseOpened,
+    isLabelHighlighted,
   }
 }
 

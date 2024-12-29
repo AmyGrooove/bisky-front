@@ -17,6 +17,7 @@ const Collapse = (props: ICollapseProps) => {
     otherProps,
     setIsCollapseOpened,
     isCollapseOpened,
+    isLabelHighlighted,
   } = useCollapse(props)
 
   return (
@@ -25,7 +26,13 @@ const Collapse = (props: ICollapseProps) => {
         className={st.collapse}
         onClick={() => setIsCollapseOpened((prevState) => !prevState)}
       >
-        <Text weight="700" size="20">
+        <Text
+          weight="700"
+          size="20"
+          className={cn(st.label, {
+            [st.label_highlighted]: isLabelHighlighted,
+          })}
+        >
           {label}
         </Text>
         <ArrowIcon

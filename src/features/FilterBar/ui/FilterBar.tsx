@@ -2,12 +2,7 @@ import { Button, Collapse } from "@shared/ui/molecules"
 import { Spinner } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
 
-import { kindCheckboxFilterItems } from "../static/kindCheckboxFilterItems"
-import { ratingCheckboxFilterItems } from "../static/ratingCheckboxFilterItems"
-import { statusCheckboxFilterItems } from "../static/statusCheckboxFilterItems"
 import { IFilterBarProps } from "../types/IFilterBarProps"
-import { studioSetFilterTagsItems } from "../static/studioSetFilterTagsItems"
-import { genresSetFilterTagsItems } from "../static/genresSetFilterTagsItems"
 import { sortRadioboxItems } from "../static/sortRadioboxItems"
 
 import { CheckboxFilterGroup } from "./CheckboxFilterGroup/CheckboxFilterGroup"
@@ -19,13 +14,21 @@ import { RadioSortGroup } from "./RadioSortGroup/RadioSortGroup"
 
 const FilterBar = (props: IFilterBarProps) => {
   const {
-    studiosData,
-    genresData,
     isLoading,
     updateFilters,
     filterState,
     fetchNewAnimesData,
     isAnimeFetching,
+    statusItems,
+    isStatusItemsIncludes,
+    kindItems,
+    isKindItemsIncludes,
+    ratingItems,
+    isRatingItemsIncludes,
+    genresItems,
+    isGenresItemsIncludes,
+    studioItems,
+    isStudioItemsIncludes,
   } = useFilterBar(props)
 
   return (
@@ -41,20 +44,21 @@ const FilterBar = (props: IFilterBarProps) => {
             checkedItem={filterState.sort}
           />
         </Collapse>
-        <Collapse label="Статус" isDefaultOpened>
-          <CheckboxFilterGroup
-            items={statusCheckboxFilterItems(filterState, updateFilters)}
-          />
+        <Collapse
+          label="Статус"
+          isDefaultOpened
+          isLabelHighlighted={isStatusItemsIncludes}
+        >
+          <CheckboxFilterGroup items={statusItems} />
         </Collapse>
-        <Collapse label="Тип">
-          <CheckboxFilterGroup
-            items={kindCheckboxFilterItems(filterState, updateFilters)}
-          />
+        <Collapse label="Тип" isLabelHighlighted={isKindItemsIncludes}>
+          <CheckboxFilterGroup items={kindItems} />
         </Collapse>
-        <Collapse label="Возрастные ограничения">
-          <CheckboxFilterGroup
-            items={ratingCheckboxFilterItems(filterState, updateFilters)}
-          />
+        <Collapse
+          label="Возрастные ограничения"
+          isLabelHighlighted={isRatingItemsIncludes}
+        >
+          <CheckboxFilterGroup items={ratingItems} />
         </Collapse>
         <Collapse label="Года выхода">
           <DatesBetweenSelector
@@ -68,26 +72,18 @@ const FilterBar = (props: IFilterBarProps) => {
             to={filterState.dates_airedOn.to}
           />
         </Collapse>
-        <Collapse label="Жанры">
+        <Collapse label="Жанры" isLabelHighlighted={isGenresItemsIncludes}>
           <SetFilterTags
             isLoading={isLoading}
             name="Genres"
-            items={genresSetFilterTagsItems(
-              genresData,
-              filterState,
-              updateFilters,
-            )}
+            items={genresItems}
           />
         </Collapse>
-        <Collapse label="Студия">
+        <Collapse label="Студия" isLabelHighlighted={isStudioItemsIncludes}>
           <SetFilterTags
             isLoading={isLoading}
             name="Studios"
-            items={studioSetFilterTagsItems(
-              studiosData,
-              filterState,
-              updateFilters,
-            )}
+            items={studioItems}
           />
         </Collapse>
       </div>
@@ -99,7 +95,7 @@ const FilterBar = (props: IFilterBarProps) => {
               updateFilters({ type: "reset", todo: {} })
               fetchNewAnimesData("default")
             }}
-            leftIcon={isAnimeFetching ? <Spinner color="gray" /> : <></>}
+            leftIcon={isAnimeFetching ? <Spinner color="gray" /> : undefined}
             className={st.resetButton}
           >
             {isAnimeFetching ? "" : "Очистить фильтры"}
