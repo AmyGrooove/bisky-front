@@ -1,12 +1,13 @@
 import { Skeleton } from "@shared/ui/atoms"
 
 import st from "./ResultRowLoading.module.scss"
+import { Fragment } from "react"
 
 const ResultRowLoading = () => (
   <div className={st.root}>
     {[...Array(5)].map((_, index) => (
-      <>
-        <div key={index} className={st.row}>
+      <Fragment key={index}>
+        <div className={st.row}>
           <Skeleton className={st.poster} />
           <div className={st.main}>
             <div className={st.nothing} />
@@ -21,7 +22,7 @@ const ResultRowLoading = () => (
           </div>
         </div>
         <div className={st.divider} />
-      </>
+      </Fragment>
     ))}
   </div>
 )

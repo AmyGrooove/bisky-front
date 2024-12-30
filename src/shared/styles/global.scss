@@ -12,6 +12,34 @@
   &::before {
     box-sizing: border-box;
   }
+
+  &::-webkit-scrollbar {
+    border-radius: var(--small-radius);
+    width: 12px;
+    height: 12px;
+
+    &-track {
+      margin: 4px 0px;
+      border-radius: var(--small-radius);
+    }
+
+    &-thumb {
+      border-radius: var(--small-radius);
+      background-color: var(--dark-160);
+      background-clip: content-box;
+
+      border-left: 2px solid transparent;
+      border-right: 2px solid transparent;
+
+      &:hover {
+        background-color: var(--dark-100);
+      }
+    }
+
+    &-corner {
+      border-radius: var(--small-radius);
+    }
+  }
 }
 
 html {
@@ -33,16 +61,6 @@ body {
   padding: 0;
 
   background-color: var(--dark-400);
-
-  &::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    width: px;
-    background-color: var(--dark-100);
-    border-radius: var(--big-radius);
-  }
 }
 
 p,

@@ -1,8 +1,17 @@
+@use "@shared/styles/reusable.scss" as *;
+
 .root {
   width: 100%;
   padding: 4px;
   display: flex;
   gap: 8px;
+  border-radius: var(--small-radius);
+
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--dark-100);
+  }
 }
 
 .posterImage {

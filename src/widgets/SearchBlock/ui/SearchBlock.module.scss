@@ -25,15 +25,6 @@
   border-radius: var(--small-radius);
 
   animation: invokeAll 0.2s ease-in-out;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--dark-100);
-    border-radius: var(--big-radius);
-  }
 }
 
 .zeroResult {

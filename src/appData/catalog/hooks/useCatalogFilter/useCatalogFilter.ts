@@ -19,6 +19,7 @@ const useCatalogFilter = () => {
   const [animesData, setAnimesData] = useState<IAnimeFullModel[]>([])
 
   const [isLoading, setIsLoading] = useState(true)
+  const [isChangingPage, setIsChangingPage] = useState(false)
 
   const [filterState, dispatchFilter] = useReducer(
     filterStateReducer,
@@ -73,7 +74,7 @@ const useCatalogFilter = () => {
   }, [filterState.sort])
 
   useEffect(() => {
-    if (isLoading) return
+    if (isLoading || isChangingPage) return
 
     const query = {
       datesFrom: filterState.dates_airedOn.from,
@@ -98,14 +99,18 @@ const useCatalogFilter = () => {
 
   useEffect(() => {
     if (isLoadingBlockInView && animesData.length !== 0) {
+      setIsChangingPage(true)
+
       dispatchFilter({
         type: "changePage",
         todo: { page: filterState.page + 1 },
       })
 
-      getCatalogAnimes({ ...filterState, page: filterState.page + 1 }).then(
-        (response) => setAnimesData((prevState) => [...prevState, ...response]),
-      )
+      getCatalogAnimes({ ...filterState, page: filterState.page + 1 })
+        .then((response) =>
+          setAnimesData((prevState) => [...prevState, ...response]),
+        )
+        .finally(() => setIsChangingPage(false))
     }
   }, [isLoadingBlockInView])
 
