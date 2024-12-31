@@ -43,13 +43,7 @@ const filterStateReducer = (
         },
       }
 
-      const isFilterNotUsed =
-        Object.values(newState.filterInclude).every(
-          (item) => item.length === 0,
-        ) &&
-        Object.values(newState.filterExclude).every((item) => item.length === 0)
-
-      return { ...newState, isFilterNotUsed }
+      return { ...newState }
     }
 
     case "changeSort": {
@@ -69,11 +63,7 @@ const filterStateReducer = (
         },
       }
 
-      const isFilterNotUsed =
-        newState.dates_airedOn.from === null &&
-        newState.dates_airedOn.to === null
-
-      return { ...newState, isFilterNotUsed }
+      return { ...newState }
     }
 
     case "reset": {

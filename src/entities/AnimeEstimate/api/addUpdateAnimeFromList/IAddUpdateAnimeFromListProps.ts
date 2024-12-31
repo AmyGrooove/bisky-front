@@ -1,8 +1,8 @@
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 interface IAddUpdateAnimeFromListProps {
   animeId: string
-  animeStatus: keyof typeof EListStatus
+  animeStatus: TListStatus
 }
 
 export type { IAddUpdateAnimeFromListProps }

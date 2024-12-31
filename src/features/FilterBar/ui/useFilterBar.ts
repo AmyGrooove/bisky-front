@@ -82,6 +82,22 @@ const useFilterBar = (props: IFilterBarProps) => {
     [studioItems],
   )
 
+  const isFilterUsed = useMemo(
+    () =>
+      isStatusItemsIncludes ||
+      isKindItemsIncludes ||
+      isRatingItemsIncludes ||
+      isGenresItemsIncludes ||
+      isStudioItemsIncludes,
+    [
+      isStatusItemsIncludes,
+      isKindItemsIncludes,
+      isRatingItemsIncludes,
+      isGenresItemsIncludes,
+      isStudioItemsIncludes,
+    ],
+  )
+
   const getData = async () => {
     setIsLoading(true)
 
@@ -114,6 +130,7 @@ const useFilterBar = (props: IFilterBarProps) => {
     isGenresItemsIncludes,
     studioItems,
     isStudioItemsIncludes,
+    isFilterUsed,
   }
 }
 

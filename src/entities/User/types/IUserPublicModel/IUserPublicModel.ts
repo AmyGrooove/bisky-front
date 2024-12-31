@@ -1,11 +1,11 @@
-import { ERole } from "@entities/User"
+import { TRole } from "@entities/User"
 
 interface IUserPublicModel {
   _id: string
   username: string
   email: string
   avatar: string | null
-  role: keyof typeof ERole
+  role: TRole
   lastOnlineDate: Date
   animeList: {
     generalCount: number

@@ -1,8 +1,8 @@
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
-const getNormalWatchStatus = (status: keyof typeof EListStatus | null) =>
+const getNormalWatchStatus = (status: TListStatus | null) =>
   status
-    ? {
+    ? ({
         completed: "Просмотрен",
         added: "Добавлен",
         watching: "Смотрю",
@@ -10,7 +10,7 @@ const getNormalWatchStatus = (status: keyof typeof EListStatus | null) =>
         setWatch: "",
         cancel: "",
         skipped: "",
-      }[status] ?? ""
+      }[status] ?? "")
     : ""
 
 export { getNormalWatchStatus }

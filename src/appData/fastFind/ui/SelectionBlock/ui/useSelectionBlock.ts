@@ -8,7 +8,7 @@ import {
   removeAnimeFromSkipList,
 } from "@entities/AnimeEstimate/api"
 
-import { EFastFindStatuses } from "../types/EFastFindStatuses"
+import { TFastFindStatuses } from "../types/TFastFindStatuses"
 import { ISelectionBlockProps } from "../types/ISelectionBlockProps"
 
 const useSelectionBlock = (props: ISelectionBlockProps) => {
@@ -20,16 +20,15 @@ const useSelectionBlock = (props: ISelectionBlockProps) => {
     currentAnime,
   } = props
 
-  const [posterStatus, setPosterStatus] =
-    useState<keyof typeof EFastFindStatuses>("none")
+  const [posterStatus, setPosterStatus] = useState<TFastFindStatuses>("none")
 
   const [previousAnimeStatuses, setPreviousAnimeStatuses] = useState<
-    (keyof typeof EFastFindStatuses)[]
+    TFastFindStatuses[]
   >([])
 
   const addAnime = async (
-    status: keyof typeof EFastFindStatuses,
-    prevStatus: keyof typeof EFastFindStatuses | null = null,
+    status: TFastFindStatuses,
+    prevStatus: TFastFindStatuses | null = null,
   ) => {
     if (status === "none") return
 
@@ -49,7 +48,7 @@ const useSelectionBlock = (props: ISelectionBlockProps) => {
       })
   }
 
-  const chooseStatus = (status: keyof typeof EFastFindStatuses) => {
+  const chooseStatus = (status: TFastFindStatuses) => {
     if (isChangingAnime) return
 
     setPosterStatus(status)

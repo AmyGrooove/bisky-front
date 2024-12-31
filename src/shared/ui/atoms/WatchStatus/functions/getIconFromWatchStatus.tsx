@@ -1,4 +1,4 @@
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 import {
   CheckIcon,
   CrossIcon,
@@ -7,15 +7,15 @@ import {
   TrashIcon,
 } from "@shared/icons"
 
-const getIconFromWatchStatus = (status: keyof typeof EListStatus) =>
+const getIconFromWatchStatus = (status: TListStatus) =>
   ({
-    [EListStatus.completed]: <CheckIcon />,
-    [EListStatus.setWatch]: <StarIcon variant="unFilled" />,
-    [EListStatus.added]: <StarIcon variant="filled" />,
-    [EListStatus.watching]: <PlayIcon />,
-    [EListStatus.dropped]: <TrashIcon />,
-    [EListStatus.cancel]: <CrossIcon />,
-    [EListStatus.skipped]: <CrossIcon />,
+    completed: <CheckIcon />,
+    setWatch: <StarIcon variant="unFilled" />,
+    added: <StarIcon variant="filled" />,
+    watching: <PlayIcon />,
+    dropped: <TrashIcon />,
+    cancel: <CrossIcon />,
+    skipped: <CrossIcon />,
   })[status]
 
 export { getIconFromWatchStatus }

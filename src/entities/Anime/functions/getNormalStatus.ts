@@ -1,6 +1,6 @@
-import { EStatus } from "../enums/EStatus"
+import { TStatus } from "../types/TStatus"
 
-const getNormalStatus = (status: keyof typeof EStatus) =>
+const getNormalStatus = (status: TStatus) =>
   ({
     anons: "анонсировано",
     ongoing: "выходит",

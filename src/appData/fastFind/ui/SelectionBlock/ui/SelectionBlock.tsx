@@ -4,12 +4,12 @@ import { PlaceholderImage, WatchStatus } from "@shared/ui/atoms"
 import { Button } from "@shared/ui/molecules"
 import { BackIcon, CrossIcon, StarIcon } from "@shared/icons"
 import { cn } from "@shared/utils/functions"
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 import { maxFastFind } from "@appData/fastFind"
 
 import { watchStatuses } from "../static/watchStatuses"
 import { ISelectionBlockProps } from "../types/ISelectionBlockProps"
-import { EFastFindStatuses } from "../types/EFastFindStatuses"
+import { TFastFindStatuses } from "../types/TFastFindStatuses"
 
 import st from "./SelectionBlock.module.scss"
 import { StatusIcon } from "./StatusIcon/StatusIcon"
@@ -34,7 +34,7 @@ const SelectionBlock = (props: ISelectionBlockProps) => {
             disabled={isChangingAnime}
             key={item}
             status={item}
-            onClick={() => chooseStatus(item as keyof typeof EFastFindStatuses)}
+            onClick={() => chooseStatus(item as TFastFindStatuses)}
           />
         ))}
       </div>
@@ -51,9 +51,7 @@ const SelectionBlock = (props: ISelectionBlockProps) => {
         {!!previousAnimeStatuses[maxFastFind - fastFindCount] && (
           <WatchStatus
             status={
-              previousAnimeStatuses[
-                maxFastFind - fastFindCount
-              ] as keyof typeof EListStatus
+              previousAnimeStatuses[maxFastFind - fastFindCount] as TListStatus
             }
             className={st.addedStatus}
           />

@@ -9,20 +9,16 @@
   gap: 24px;
 }
 
-.header {
+.userData {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
   gap: 8px;
   width: 80%;
   background-color: var(--dark-300);
   padding: 20px;
   border-radius: var(--big-radius);
-}
-
-.userData {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .username {
@@ -31,7 +27,7 @@
   justify-content: center;
   gap: 24px;
   border-radius: var(--big-radius);
-  padding: 8px;
+  padding: 8px 16px;
 
   @include transition(background-color);
 

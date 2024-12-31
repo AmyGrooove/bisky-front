@@ -1,17 +1,17 @@
 import { useState } from "react"
 
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 import { ICardUserStatusProps } from "../../types/ICardUserStatusProps"
 
 const useCardUserStatus = (props: ICardUserStatusProps) => {
   const { userStatus = null, _id, className } = props
 
-  const [currentStatus, setCurrentStatus] = useState<keyof typeof EListStatus>(
+  const [currentStatus, setCurrentStatus] = useState<TListStatus>(
     userStatus ?? "setWatch",
   )
 
-  const changeStatus = (newStatus?: keyof typeof EListStatus) => {
+  const changeStatus = (newStatus?: TListStatus) => {
     if (newStatus)
       setCurrentStatus(newStatus === "cancel" ? "setWatch" : newStatus)
   }

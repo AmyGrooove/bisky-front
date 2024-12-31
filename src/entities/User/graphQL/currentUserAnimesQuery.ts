@@ -1,4 +1,4 @@
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 const currentUserAnimesQuery = {
   label: "$animeQuery: GeneralAnimeQuery, $userQuery: GeneralUserQuery",
@@ -31,7 +31,7 @@ const currentUserAnimesQuery = {
       }
     }
   `,
-  variables: (animeListStatus: keyof typeof EListStatus) => ({
+  variables: (animeListStatus: TListStatus) => ({
     animeQuery: { sort: { episodes_lastEpisodeAiredDate: true } },
     userQuery: { animeListStatus },
   }),

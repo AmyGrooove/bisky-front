@@ -1,11 +1,11 @@
-import { EStatus } from "@entities/Anime"
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TStatus } from "@entities/Anime"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 interface IAddListButtonProps {
-  userAnimeStatus: keyof typeof EListStatus | null
+  userAnimeStatus: TListStatus | null
   _id: string | null
   updateUserData: () => Promise<void>
-  animeStatus: keyof typeof EStatus
+  animeStatus: TStatus
 }
 
 export type { IAddListButtonProps }

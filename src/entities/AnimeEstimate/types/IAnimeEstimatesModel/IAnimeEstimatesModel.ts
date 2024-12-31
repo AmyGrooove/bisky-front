@@ -1,8 +1,8 @@
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 interface IAnimeEstimatesModel {
   score: number | null
-  status: keyof typeof EListStatus | null
+  status: TListStatus | null
   watchedSeries: number | null
 }
 

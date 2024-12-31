@@ -1,8 +1,8 @@
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 interface ICardUserStatusProps {
   _id?: string | undefined
-  userStatus?: keyof typeof EListStatus | null
+  userStatus?: TListStatus | null
   className?: string
 }
 

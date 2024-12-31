@@ -54,8 +54,15 @@ const currentUserDataQuery = {
       }
     }
   `,
-  variables: (username: string, page = 1) => ({
-    userQuery: { filter: { username: username ?? null } },
+  variables: (
+    username: string,
+    page = 1,
+    animeStatus?: "added" | "completed" | "dropped" | "watching",
+  ) => ({
+    userQuery: {
+      filter: { username: username ?? null },
+      animeListStatus: animeStatus ?? null,
+    },
     animeQuery: {
       isPaginationOff: false,
       page: page,

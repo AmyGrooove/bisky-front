@@ -1,6 +1,6 @@
-import { EKind } from "../enums/EKind"
+import { TKind } from "../types/TKind"
 
-const getNormalKind = (kind: keyof typeof EKind) =>
+const getNormalKind = (kind: TKind) =>
   ({
     tv: "сериал",
     movie: "фильм",

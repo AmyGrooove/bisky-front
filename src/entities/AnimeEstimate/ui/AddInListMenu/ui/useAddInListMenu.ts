@@ -5,7 +5,7 @@ import {
   removeAnimeFromList,
   updateAnimeScoreInList,
 } from "@entities/AnimeEstimate/api"
-import { EListStatus } from "@entities/AnimeEstimate/enums/EListStatus"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 import { IAddInListMenuProps } from "../types/IAddInListMenuProps"
 import { watchStatuses } from "../static/watchStatuses"
@@ -25,7 +25,7 @@ const useAddInListMenu = (props: IAddInListMenuProps) => {
     .filter((item) => !(currentUserStatus === "setWatch" && item === "cancel"))
 
   const updateListStatus = async (
-    value: EListStatus,
+    value: TListStatus,
     event: MouseEvent<HTMLButtonElement>,
   ) => {
     event.stopPropagation()

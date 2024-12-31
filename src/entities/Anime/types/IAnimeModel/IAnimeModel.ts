@@ -1,10 +1,10 @@
-import { EListStatus } from "@entities/AnimeEstimate"
-import { EKind, ERating, EStatus } from "@entities/Anime"
+import { TListStatus } from "@entities/AnimeEstimate"
+import { TKind, TRating, TStatus } from "@entities/Anime"
 import { ILanguageModel } from "@shared/types"
 
 interface IAnimeUserDataModel {
   score: number | null
-  animeStatus: keyof typeof EListStatus | null
+  animeStatus: TListStatus | null
   watchedSeries: number | null
 }
 
@@ -13,8 +13,8 @@ interface IAnimeModel {
   shikiId: number
   labels: { en: string | null; ru: string | null; synonyms: string[] }
   poster: string | null
-  kind: keyof typeof EKind
-  status: keyof typeof EStatus
+  kind: TKind
+  status: TStatus
   episodes: {
     count: number | null
     airedCount: number | null
@@ -23,7 +23,7 @@ interface IAnimeModel {
     duration: number | null
   }
   dates: { airedOn: Date | null; releasedOn: Date | null }
-  rating: keyof typeof ERating
+  rating: TRating
   description: ILanguageModel
   screenshots: string[]
   videos: { name: string | null; url: string }[]

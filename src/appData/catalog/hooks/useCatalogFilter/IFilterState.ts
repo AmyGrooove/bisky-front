@@ -1,32 +1,31 @@
-import { EKind, ERating, EStatus } from "@entities/Anime"
+import { TKind, TRating, TStatus } from "@entities/Anime"
 
 interface IFilterType {
   page?: number
   dates_airedOn?: { from?: number | null; to?: number | null }
   filter?: {
     genres_ID_ONLY?: string[]
-    kind?: (keyof typeof EKind)[]
-    rating?: (keyof typeof ERating)[]
-    status?: (keyof typeof EStatus)[]
+    kind?: TKind[]
+    rating?: TRating[]
+    status?: TStatus[]
     studios_ID_ONLY?: string[]
   }
   sort?: "scores" | "dates"
 }
 
-enum EFilterActions {
-  addFilter = "addFilter",
-  excludeFilter = "excludeFilter",
-  deleteAddFilter = "deleteAddFilter",
-  deleteExcludeFilter = "deleteExcludeFilter",
-  changeSort = "changeSort",
-  changePage = "changePage",
-  changeDate = "changeDate",
-  reset = "reset",
-}
+type TFilterActions =
+  | "addFilter"
+  | "excludeFilter"
+  | "deleteAddFilter"
+  | "deleteExcludeFilter"
+  | "changeSort"
+  | "changePage"
+  | "changeDate"
+  | "reset"
 
 interface IFilterState {
-  type: keyof typeof EFilterActions
+  type: TFilterActions
   todo: IFilterType
 }
 
-export type { IFilterState, IFilterType, EFilterActions }
+export type { IFilterState, IFilterType }
