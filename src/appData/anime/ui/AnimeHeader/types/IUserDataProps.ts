@@ -1,10 +1,10 @@
 import { HTMLAttributes } from "react"
 
-import { EStatus } from "@entities/Anime"
+import { TStatus } from "@entities/Anime"
 
 interface IUserDataProps extends HTMLAttributes<HTMLDivElement> {
   _id?: string
-  animeStatus?: keyof typeof EStatus
+  animeStatus?: TStatus
 }
 
 export type { IUserDataProps }

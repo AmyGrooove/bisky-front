@@ -1,7 +1,8 @@
+import { Fragment } from "react"
+
 import { Skeleton } from "@shared/ui/atoms"
 
 import st from "./ResultRowLoading.module.scss"
-import { Fragment } from "react"
 
 const ResultRowLoading = () => (
   <div className={st.root}>

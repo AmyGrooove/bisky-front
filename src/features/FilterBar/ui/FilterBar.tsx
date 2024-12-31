@@ -29,14 +29,11 @@ const FilterBar = (props: IFilterBarProps) => {
     isGenresItemsIncludes,
     studioItems,
     isStudioItemsIncludes,
+    isFilterUsed,
   } = useFilterBar(props)
 
   return (
-    <div
-      className={cn(st.root, {
-        [st.root_cleanButtonOn]: !filterState.isFilterNotUsed,
-      })}
-    >
+    <div className={cn(st.root, { [st.root_cleanButtonOn]: isFilterUsed })}>
       <div className={st.mainWrapper}>
         <Collapse label="Сортировка" isDefaultOpened>
           <RadioSortGroup
@@ -88,7 +85,7 @@ const FilterBar = (props: IFilterBarProps) => {
         </Collapse>
       </div>
       <div className={st.buttonsWrapper}>
-        {!filterState.isFilterNotUsed && (
+        {isFilterUsed && (
           <Button
             disabled={isAnimeFetching}
             onClick={() => {
@@ -102,7 +99,7 @@ const FilterBar = (props: IFilterBarProps) => {
           </Button>
         )}
         <Button
-          disabled={filterState.isFilterNotUsed || isAnimeFetching}
+          disabled={!isFilterUsed || isAnimeFetching}
           onClick={() => fetchNewAnimesData()}
           leftIcon={isAnimeFetching ? <Spinner color="gray" /> : undefined}
           className={cn(st.resetButton, st.resetButton_submit)}

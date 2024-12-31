@@ -4,10 +4,10 @@ import { cookies } from "next/headers"
 
 import { API_URL } from "@shared/constants"
 import { currentUserAnimesQuery, IUserPublicFullModel } from "@entities/User"
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 const getCurrentUserAnimeData = async (
-  animeListStatus: keyof typeof EListStatus,
+  animeListStatus: TListStatus,
 ): Promise<IUserPublicFullModel | null> => {
   const cookieStore = await cookies()
 

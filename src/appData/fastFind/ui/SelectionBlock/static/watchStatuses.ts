@@ -1,9 +1,9 @@
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TWatchStatuses } from "@entities/AnimeEstimate"
 
-const watchStatuses = [
-  EListStatus.dropped,
-  EListStatus.watching,
-  EListStatus.completed,
+const watchStatuses: Exclude<TWatchStatuses, "cancel" | "added">[] = [
+  "dropped",
+  "watching",
+  "completed",
 ]
 
 export { watchStatuses }

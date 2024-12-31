@@ -1,4 +1,5 @@
-export { EListStatus } from "./enums/EListStatus"
+export type { TListStatus } from "./types/TListStatus"
+export type { TWatchStatuses } from "./types/TWatchStatuses"
 
 export type { IAnimeEstimatesModel } from "./types/IAnimeEstimatesModel/IAnimeEstimatesModel"
 export type { IAnimeEstimatesFullModel } from "./types/IAnimeEstimatesModel/IAnimeEstimatesFullModel"

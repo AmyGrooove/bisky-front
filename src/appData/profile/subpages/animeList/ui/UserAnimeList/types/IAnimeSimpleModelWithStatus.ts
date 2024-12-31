@@ -1,8 +1,8 @@
 import { IAnimeSimpleModel } from "@entities/Anime"
-import { EListStatus } from "@entities/AnimeEstimate"
+import { TListStatus } from "@entities/AnimeEstimate"
 
 interface IAnimeSimpleModelWithStatus extends IAnimeSimpleModel {
-  userStatus: keyof typeof EListStatus | null
+  userStatus: TListStatus | null
 }
 
 export type { IAnimeSimpleModelWithStatus }

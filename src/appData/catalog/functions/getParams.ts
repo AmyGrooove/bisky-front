@@ -1,6 +1,6 @@
 import { ReadonlyURLSearchParams } from "next/navigation"
 
-import { EKind, ERating, EStatus } from "@entities/Anime"
+import { TKind, TRating, TStatus } from "@entities/Anime"
 
 import { filterEnumValues } from "./filterEnumValues"
 
@@ -16,22 +16,31 @@ const getParams = (searchParams: ReadonlyURLSearchParams) => {
 
   const filterInclude = {
     genres_ID_ONLY: searchParams.get("genres")?.split(",") ?? [],
-    kind: filterEnumValues(searchParams.get("kind")?.split(","), EKind),
-    rating: filterEnumValues(searchParams.get("rating")?.split(","), ERating),
-    status: filterEnumValues(searchParams.get("status")?.split(","), EStatus),
+    kind: filterEnumValues<TKind>(searchParams.get("kind")?.split(","), "kind"),
+    rating: filterEnumValues<TRating>(
+      searchParams.get("rating")?.split(","),
+      "rating",
+    ),
+    status: filterEnumValues<TStatus>(
+      searchParams.get("status")?.split(","),
+      "status",
+    ),
     studios_ID_ONLY: searchParams.get("studios")?.split(",") ?? [],
   }
 
   const filterExclude = {
     genres_ID_ONLY: searchParams.get("genresNot")?.split(",") ?? [],
-    kind: filterEnumValues(searchParams.get("kindNot")?.split(","), EKind),
-    rating: filterEnumValues(
-      searchParams.get("ratingNot")?.split(","),
-      ERating,
+    kind: filterEnumValues<TKind>(
+      searchParams.get("kindNot")?.split(","),
+      "kind",
     ),
-    status: filterEnumValues(
+    rating: filterEnumValues<TRating>(
+      searchParams.get("ratingNot")?.split(","),
+      "rating",
+    ),
+    status: filterEnumValues<TStatus>(
       searchParams.get("statusNot")?.split(","),
-      EStatus,
+      "status",
     ),
     studios_ID_ONLY: searchParams.get("studiosNot")?.split(",") ?? [],
   }

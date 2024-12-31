@@ -1,7 +1,7 @@
-import { EFastFindStatuses } from "./EFastFindStatuses"
+import { TFastFindStatuses } from "./TFastFindStatuses"
 
 interface IStatusIconProps {
-  selectedStatus: keyof typeof EFastFindStatuses
+  selectedStatus: TFastFindStatuses
 }
 
 export type { IStatusIconProps }

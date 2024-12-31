@@ -18,7 +18,6 @@ const filterStateDefaultValue: ICatalogAnimesVariables = {
     studios_ID_ONLY: [],
   },
   sort: "scores",
-  isFilterNotUsed: true,
 }
 
 export { filterStateDefaultValue }

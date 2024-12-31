@@ -1,6 +1,5 @@
 import { Skeleton } from "@shared/ui/atoms"
 import { cn } from "@shared/utils/functions"
-import { EListStatus } from "@entities/AnimeEstimate"
 
 import { IUserDataProps } from "../../types/IUserDataProps"
 
@@ -25,7 +24,7 @@ const UserData = (props: IUserDataProps) => {
     <Skeleton className={cn(st.loading, className)} />
   ) : session ? (
     <div {...otherProps} className={cn(st.root, className)}>
-      {userAnimeData?.status && userAnimeData.status !== EListStatus.added && (
+      {userAnimeData?.status && userAnimeData.status !== "added" && (
         <SetScoreButton
           animeScore={userAnimeData?.score}
           _id={_id ?? null}

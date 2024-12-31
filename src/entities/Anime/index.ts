@@ -6,9 +6,9 @@ export type { IAnimeModel } from "./types/IAnimeModel/IAnimeModel"
 export type { IAnimeFullModel } from "./types/IAnimeModel/IAnimeFullModel"
 export type { IAnimeSimpleModel } from "./types/IAnimeModel/IAnimeSimpleModel"
 
-export { EKind } from "./enums/EKind"
-export { ERating } from "./enums/ERating"
-export { EStatus } from "./enums/EStatus"
+export type { TKind } from "./types/TKind"
+export type { TRating } from "./types/TRating"
+export type { TStatus } from "./types/TStatus"
 
 export { getNormalKind } from "./functions/getNormalKind"
 export { getNormalRating } from "./functions/getNormalRating"

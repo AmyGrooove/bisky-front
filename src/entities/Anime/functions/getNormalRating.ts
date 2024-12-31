@@ -1,6 +1,6 @@
-import { ERating } from "../enums/ERating"
+import { TRating } from "../types/TRating"
 
-const getNormalRating = (rating: keyof typeof ERating) =>
+const getNormalRating = (rating: TRating) =>
   ({
     g: "0+",
     pg: "6+",
