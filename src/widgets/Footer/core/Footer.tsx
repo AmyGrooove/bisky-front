@@ -1,8 +1,11 @@
-import st from './Footer.module.scss'
-import { legal } from '../static/legal'
-import { Text } from '@shared/ui/atoms'
 import Link from 'next/link'
+
+import { Text } from '@shared/ui/atoms'
 import { LogoIcon } from '@shared/icons'
+
+import { legal } from '../static/legal'
+
+import st from './Footer.module.scss'
 
 const Footer = () => {
   return (

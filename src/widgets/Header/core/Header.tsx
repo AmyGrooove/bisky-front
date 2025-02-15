@@ -1,6 +1,7 @@
-import st from './Header.module.scss'
 import { PlaceholderImage, Text } from '@shared/ui/atoms'
 import { LogoIcon, SearchIcon } from '@shared/icons'
+
+import st from './Header.module.scss'
 
 const Header = () => {
   return (

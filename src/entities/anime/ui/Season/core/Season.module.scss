@@ -1,0 +1,109 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.main {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.genres {
+  opacity: 0.8;
+  position: absolute;
+}
+
+.score {
+  position: absolute;
+}
+
+.root {
+  border: 2px solid transparent;
+  border-radius: var(--radius-20);
+  box-sizing: border-box;
+  display: flex;
+  height: 380px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 1080px;
+
+  @extend %invoke, %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((border-color, scale), (250ms, 100ms));
+
+  &:hover {
+    border-color: var(--bisky-400);
+  }
+
+  &_small {
+    height: 180px;
+    padding: 28px 12px;
+    width: 380px;
+
+    .main {
+      gap: 12px;
+    }
+
+    .poster {
+      border-radius: var(--radius-12);
+    }
+
+    .genres {
+      bottom: 8px;
+      right: 8px;
+      width: 356px;
+    }
+
+    .score {
+      right: 8px;
+      top: 8px;
+    }
+  }
+
+  &_big {
+    height: 380px;
+    padding: 48px 20px;
+    width: 1080px;
+
+    .main {
+      gap: 20px;
+    }
+
+    .poster {
+      border-radius: var(--radius-20);
+    }
+
+    .genres {
+      bottom: 20px;
+      left: 20px;
+      width: 1040px;
+    }
+
+    .score {
+      right: 20px;
+      top: 20px;
+    }
+  }
+}
+
+.label {
+  width: 100%;
+}
+
+.background {
+  background-color: var(--black-70);
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.backgroundImage {
+  inset: 0;
+  opacity: 1;
+  position: absolute;
+  z-index: -2;
+  @include transition(opacity, 2s);
+
+  &_hide {
+    opacity: 0;
+  }
+}
