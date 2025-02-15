@@ -1,0 +1,41 @@
+{
+  "name": "bisky-front",
+  "version": "3.0.0",
+  "scripts": {
+    "dev": "next dev -p 3030 --turbo",
+    "build": "next build",
+    "start": "next start -p 3030",
+    "lint:fix": "tsc && next lint --fix && stylelint \"src/**/*.{css,scss}\" --fix"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
+    "@floating-ui/react": "^0.27.3",
+    "@vidstack/react": "^1.12.12",
+    "keen-slider": "^6.8.6",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-easy-crop": "^5.2.0",
+    "react-intersection-observer": "^9.15.1",
+    "sass": "^1.83.4",
+    "sharp": "^0.33.5",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.1.6",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-storybook": "^0.11.2",
+    "prettier": "^3.4.2",
+    "stylelint": "^16.14.1",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "typescript-eslint": "^8.23.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.2.1"
+  }
+}
