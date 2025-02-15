@@ -1,0 +1,8 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.typeIcon {
+  fill: var(--bisky-100);
+  height: 140px;
+  rotate: 15deg;
+  width: 140px;
+}

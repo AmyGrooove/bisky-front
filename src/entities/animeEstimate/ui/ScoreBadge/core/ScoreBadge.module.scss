@@ -1,0 +1,5 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  @include score-color(background-color);
+}

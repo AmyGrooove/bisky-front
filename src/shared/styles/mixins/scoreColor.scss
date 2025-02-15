@@ -1,0 +1,13 @@
+@mixin score-color($property) {
+  &_lowScore {
+    #{$property}: var(--red);
+  }
+
+  &_mediumScore {
+    #{$property}: var(--orange);
+  }
+
+  &_highScore {
+    #{$property}: var(--lime);
+  }
+}

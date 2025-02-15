@@ -1,0 +1,88 @@
+@use './reusable';
+
+* {
+  box-sizing: border-box;
+  letter-spacing: 1px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+
+  &::-webkit-scrollbar {
+    border-radius: var(--radius-12);
+    height: 12px;
+    width: 12px;
+
+    &-track {
+      border-radius: var(--radius-12);
+      margin: 4px 0;
+    }
+
+    &-thumb {
+      background-clip: content-box;
+      background-color: var(--dark-160);
+      border-left: 2px solid transparent;
+      border-radius: var(--radius-12);
+      border-right: 2px solid transparent;
+
+      &:hover {
+        background-color: var(--dark-100);
+      }
+    }
+
+    &-corner {
+      border-radius: var(--radius-12);
+    }
+  }
+}
+
+html {
+  display: flex;
+  min-height: 100%;
+
+  @extend %colors, %border-radiuses, %containers;
+}
+
+body {
+  background-color: var(--dark-400);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
