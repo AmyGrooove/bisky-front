@@ -1,3 +1,0 @@
-const PLACEHOLDER_DELAY = 500
-
-export { PLACEHOLDER_DELAY }
