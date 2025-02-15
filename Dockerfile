@@ -8,9 +8,8 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 COPY . .
-
 RUN pnpm run build
 
-EXPOSE 3030
+EXPOSE 3000
 
-CMD ["sh", "-c", "pnpm run start"]
+CMD ["pnpm", "run", "start"]
