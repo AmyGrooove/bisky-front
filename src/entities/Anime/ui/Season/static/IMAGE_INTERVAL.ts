@@ -1,0 +1,3 @@
+const IMAGE_INTERVAL = 10000
+
+export { IMAGE_INTERVAL }

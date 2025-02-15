@@ -1,9 +1,9 @@
-$HD: 1280px;
-$fullHD: 1920px;
-$QHD: 2560px;
+$hd: 1280px;
+$full-hd: 1920px;
+$qhd: 2560px;
 
-.desktopContainers {
-  --HD: #{$HD};
-  --fullHD: #{$fullHD};
-  --QHD: #{$QHD};
+%containers {
+  --hd: #{$hd};
+  --full-hd: #{$full-hd};
+  --qhd: #{$qhd};
 }

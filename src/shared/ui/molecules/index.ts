@@ -1,10 +1,8 @@
-export { Badge, getScoreStatus } from "./Badge"
-export { Button } from "./Button"
-export { InputField } from "./InputField"
-export { LinkLabel } from "./LinkLabel"
-export { LinkTabs } from "./LinkTabs"
-export { OversizeText } from "./OversizeText"
-export { Checkbox } from "./Checkbox"
-export { Collapse } from "./Collapse"
-export { AnimesListData } from "./AnimesListData"
-export { Hint } from "./Hint"
+export { Button } from './Button'
+export { BigButton } from './BigButton'
+export { Badge, type TBadgeProps } from './Badge'
+export { Label } from './Label'
+export { GlassButton } from './GlassButton'
+export { SectionLabel } from './SectionLabel'
+export { SectionSelector, type ITabItem } from './SectionSelector'
+export { Hint } from './Hint'

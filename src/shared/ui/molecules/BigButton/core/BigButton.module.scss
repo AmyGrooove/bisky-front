@@ -1,0 +1,60 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  background-color: var(--bisky-300);
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  padding: 8px 0;
+  @extend %invoke, %press, %no-select;
+  @include effect(back-shadow);
+  @include transition(
+    (background-color, filter, opacity, scale),
+    (250ms, 250ms, 250ms, 100ms)
+  );
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+
+    &:hover {
+      filter: none;
+    }
+  }
+
+  &_small {
+    border-radius: var(--radius-12);
+    min-height: 62px;
+    width: 120px;
+
+    .icon {
+      height: 28px;
+      width: 28px;
+    }
+  }
+
+  &_big {
+    border-radius: var(--radius-20);
+    min-height: 80px;
+    width: 180px;
+
+    .icon {
+      height: 36px;
+      width: 36px;
+    }
+  }
+}
+
+.iconWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}

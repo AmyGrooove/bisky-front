@@ -1,4 +1,4 @@
-@use "sass:list";
+@use 'sass:list';
 
 @mixin transition($prop, $time: 250ms, $easing: ease-in-out, $delay: 0s) {
   $transition: ();

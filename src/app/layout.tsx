@@ -1,27 +1,23 @@
-import { Ubuntu } from "next/font/google"
-import { Viewport } from "next"
+import { Viewport } from 'next'
+import { Ubuntu } from 'next/font/google'
 
-import { META_DATA } from "@shared/constants"
-import { Header } from "@features/Header"
-import "keen-slider/keen-slider.min.css"
-import "@shared/styles/global.scss"
-import { Footer } from "@features/Footer"
-import {
-  IMainLayoutProps,
-  Providers,
-  mainLayoutStyles as st,
-} from "@appData/mainLayout"
+import { META_DATA } from '@shared/static'
+import { IDefaultPageProps } from '@shared/types'
+
+import 'keen-slider/keen-slider.min.css'
+import '@shared/styles/global.scss'
+import st from './RootLayout.module.scss'
 
 const ubuntu = Ubuntu({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  display: "swap",
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
 })
 
 export const metadata = META_DATA
 export const viewport: Viewport = {}
 
-const MainLayout = (props: IMainLayoutProps) => {
+const RootLayout = (props: IDefaultPageProps) => {
   const { children } = props
 
   return (
@@ -30,14 +26,10 @@ const MainLayout = (props: IMainLayoutProps) => {
         <meta name="theme-color" content="#dd5480" />
       </head>
       <body className={ubuntu.className}>
-        <Providers>
-          <Header className={st.generalSection} />
-          <main className={st.main}>{children}</main>
-          <Footer className={st.generalSection} />
-        </Providers>
+        <main className={st.main}>{children}</main>
       </body>
     </html>
   )
 }
 
-export default MainLayout
+export default RootLayout

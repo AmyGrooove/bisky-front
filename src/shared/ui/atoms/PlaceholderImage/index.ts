@@ -1,1 +1,1 @@
-export { PlaceholderImage } from "./ui/PlaceholderImage"
+export { PlaceholderImage } from './core/PlaceholderImage'

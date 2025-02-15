@@ -1,2 +1,6 @@
-export type { ITokensModel } from "./types/ITokensModel"
-export type { IUserPublicDataWithTokens } from "./types/IUserPublicDataWithTokens"
+export { changePassword } from './api/changePassword'
+export { getWhoami } from './api/getWhoami'
+export { loginByID } from './api/loginByID'
+export { loginByPassword } from './api/loginByPassword'
+export { requestReset } from './api/requestReset'
+export { verifyReset } from './api/verifyReset'

@@ -1,9 +1,9 @@
-export type { IUserPublicModel } from "./types/IUserPublicModel/IUserPublicModel"
-export type { IUserPublicFullModel } from "./types/IUserPublicModel/IUserPublicFullModel"
+export { setAvatar } from './api/setAvatar'
+export { subscribeToUser } from './api/subscribeToUser'
+export { unsubscribeFromUser } from './api/unsubscribeFromUser'
+export { updateUsername } from './api/updateUsername'
+export { updateEmail } from './api/updateEmail'
+export { getUserID } from './api/getUserID'
 
-export type { TRole } from "./types/TRole"
-
-export { currentUserAnimesQuery } from "./graphQL/currentUserAnimesQuery"
-export { currentUserAnimeEstimateQuery } from "./graphQL/currentUserAnimeEstimateQuery/currentUserAnimeEstimateQuery"
-export { currentUserDataQuery } from "./graphQL/currentUserDataQuery"
-export { fastSelectAnimesQuery } from "./graphQL/fastSelectAnimesQuery"
+export type { IUser } from './types/IUser'
+export type { TRoles } from './types/TRoles'

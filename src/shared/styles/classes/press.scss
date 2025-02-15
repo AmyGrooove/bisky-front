@@ -1,0 +1,15 @@
+@use '../mixins/transition' as *;
+
+%press {
+  @include transition(scale, 0.1s);
+
+  &:active {
+    cursor: pointer;
+    scale: 0.93;
+  }
+
+  &:disabled:active {
+    cursor: default;
+    scale: 1;
+  }
+}

@@ -1,3 +1,3 @@
-type TStatus = "anons" | "ongoing" | "released"
+type TStatus = 'anons' | 'ongoing' | 'released'
 
 export type { TStatus }

@@ -1,11 +1,9 @@
-import { LinkProps } from "next/link"
+import { getHomePageData } from '@entities/blocks'
 
-import { IAnimeFullModel } from "@entities/Anime"
+interface ISeasonProps {
+  data: Awaited<ReturnType<typeof getHomePageData>>['seasonalAnimes'][number]
 
-interface ISeasonProps extends Omit<LinkProps, "href"> {
-  anime: Partial<IAnimeFullModel>
-
-  isDisabled?: boolean
+  variant?: 'big' | 'small'
   className?: string
 }
 

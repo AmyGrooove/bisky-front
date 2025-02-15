@@ -1,1 +1,0 @@
-export { getFastFindAnimes } from "./getFastFindAnimes"

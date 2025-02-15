@@ -1,10 +1,14 @@
-import { ReactElement } from "react"
+import { Placement } from '@floating-ui/react'
+import { ReactElement, ReactNode } from 'react'
 
 interface IHintProps {
-  children: ReactElement
-  hintElement: string | ReactElement
+  hintChildren: string | ReactElement<HTMLDivElement> | null
+  children: ReactNode
 
-  hintClassName?: string
+  margin?: number
+  position?: Placement
+  className?: string
+  hintChildrenClassName?: string
 }
 
 export type { IHintProps }

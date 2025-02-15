@@ -1,0 +1,56 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  border-radius: var(--radius-20);
+  padding: 0px 20px;
+  background-color: var(--dark-240);
+  @extend %invoke;
+  @include effect(background-blur-shadow);
+}
+
+.leftSide {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+  fill: var(--light-100);
+}
+
+.mail {
+  color: var(--bisky-100);
+}
+
+.privateText {
+  color: var(--light-400);
+}
+
+.legalWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.legalLink {
+  color: var(--light-400);
+}

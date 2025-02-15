@@ -1,1 +1,0 @@
-export { getCatalogAnimes } from "./getCatalogAnimes"

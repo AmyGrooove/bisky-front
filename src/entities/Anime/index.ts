@@ -1,25 +1,12 @@
-export { AnimeCard } from "./ui/AnimeCard"
-export { Season } from "./ui/Season"
-export { AnimeMiniInfo } from "./ui/AnimeMiniInfo"
+export { getAnimeFullInfo } from './api/getAnimeFullInfo'
+export { getAnimeMiniInfo } from './api/getAnimeMiniInfo'
+export { getAnimesFastFind } from './api/getAnimesFastFind'
+export { getAnimesFastSelect } from './api/getAnimesFastSelect'
+export { getAnimesFastStar } from './api/getAnimesFastStar'
 
-export type { IAnimeModel } from "./types/IAnimeModel/IAnimeModel"
-export type { IAnimeFullModel } from "./types/IAnimeModel/IAnimeFullModel"
-export type { IAnimeSimpleModel } from "./types/IAnimeModel/IAnimeSimpleModel"
+export type { IAnime } from './types/IAnime'
+export type { TKind } from './types/TKind'
+export type { TRating } from './types/TRating'
+export type { TStatus } from './types/TStatus'
 
-export type { TKind } from "./types/TKind"
-export type { TRating } from "./types/TRating"
-export type { TStatus } from "./types/TStatus"
-
-export { getNormalKind } from "./functions/getNormalKind"
-export { getNormalRating } from "./functions/getNormalRating"
-export { getNormalStatus } from "./functions/getNormalStatus"
-export { getSeasonName } from "./functions/getSeasonName"
-
-export { bestAnimesQuery } from "./graphQL/bestAnimesQuery"
-export { newSeriesAnimesQuery } from "./graphQL/newSeriesAnimesQuery"
-export { fastFindAnimesQuery } from "./graphQL/fastFindAnimesQuery"
-export { oneAnimeQuery } from "./graphQL/oneAnimeQuery"
-export { seasonAnimesQuery } from "./graphQL/seasonAnimesQuery"
-export { searchAnimesQuery } from "./graphQL/searchAnimesQuery"
-export { catalogAnimesQuery } from "./graphQL/catalogAnimesQuery/catalogAnimesQuery"
-export type { ICatalogAnimesVariables } from "./graphQL/catalogAnimesQuery/ICatalogAnimesVariables"
+export { Season } from './ui/Season'

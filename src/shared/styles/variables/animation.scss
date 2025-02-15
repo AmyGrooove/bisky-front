@@ -1,76 +1,66 @@
-@keyframes invokeModal {
-  from {
-    scale: 0.85;
-    opacity: 0;
-  }
-  to {
-    scale: 1;
-    opacity: 1;
-  }
-}
-
-@keyframes closeModal {
-  from {
-    scale: 1;
-    opacity: 1;
-  }
-  to {
-    scale: 0.85;
-    opacity: 0;
-  }
-}
-
-@keyframes invokeBackground {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.6;
-  }
-}
-
-@keyframes closeBackground {
-  from {
-    opacity: 0.6;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes invokeAll {
+@keyframes invoke {
   from {
     opacity: 0;
     scale: 0.95;
   }
+
   to {
     opacity: 1;
     scale: 1;
   }
 }
 
-@keyframes invokeHint {
+@keyframes disappear {
   from {
-    opacity: 0;
-  }
-  to {
     opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 0.95;
   }
 }
 
-@keyframes closeHint {
+@keyframes invoke-modal {
+  from {
+    opacity: 0;
+    scale: 0.85;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes close-modal {
   from {
     opacity: 1;
+    scale: 1;
   }
+
+  to {
+    opacity: 0;
+    scale: 0.85;
+  }
+}
+
+@keyframes invoke-background {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.6;
+  }
+}
+
+@keyframes close-background {
+  from {
+    opacity: 0.6;
+  }
+
   to {
     opacity: 0;
   }

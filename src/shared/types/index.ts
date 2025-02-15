@@ -1,1 +1,2 @@
-export type { ILanguageModel } from "./graphql/ILanguageModel"
+export type { IDefaultPageProps } from './IDefaultPageProps'
+export type { IIconProps } from './IIconProps'

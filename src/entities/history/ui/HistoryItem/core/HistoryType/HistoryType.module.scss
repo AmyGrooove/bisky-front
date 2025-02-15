@@ -1,0 +1,32 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.leftSide {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+
+  &_column {
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+.poster {
+  border-radius: var(--radius-12);
+}
+
+.rowText {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.columnText {
+  display: flex;
+  flex-direction: column;
+}
+
+.score {
+  @include score-color(color);
+}

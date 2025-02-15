@@ -1,1 +1,1 @@
-export { Season } from "./ui/Season"
+export { Season } from './core/Season'
