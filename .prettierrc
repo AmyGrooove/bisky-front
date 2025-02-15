@@ -13,8 +13,7 @@
   "requirePragma": false,
   "semi": false,
   "singleAttributePerLine": false,
-  "singleQuote": false,
+  "singleQuote": true,
   "tabWidth": 2,
-  "trailingComma": "all",
-  "useTabs": false
+  "trailingComma": "all"
 }

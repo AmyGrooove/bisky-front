@@ -1,8 +1,8 @@
-@use "./reusable.scss";
+@use './reusable';
 
 * {
-  letter-spacing: 1px;
   box-sizing: border-box;
+  letter-spacing: 1px;
 
   &:focus {
     outline: none;
@@ -14,21 +14,20 @@
   }
 
   &::-webkit-scrollbar {
-    border-radius: var(--small-radius);
-    width: 12px;
+    border-radius: var(--radius-12);
     height: 12px;
+    width: 12px;
 
     &-track {
-      margin: 4px 0px;
-      border-radius: var(--small-radius);
+      border-radius: var(--radius-12);
+      margin: 4px 0;
     }
 
     &-thumb {
-      border-radius: var(--small-radius);
-      background-color: var(--dark-160);
       background-clip: content-box;
-
+      background-color: var(--dark-160);
       border-left: 2px solid transparent;
+      border-radius: var(--radius-12);
       border-right: 2px solid transparent;
 
       &:hover {
@@ -37,7 +36,7 @@
     }
 
     &-corner {
-      border-radius: var(--small-radius);
+      border-radius: var(--radius-12);
     }
   }
 }
@@ -46,21 +45,18 @@ html {
   display: flex;
   min-height: 100%;
 
-  @extend .colors, .borders, .desktopContainers;
+  @extend %colors, %border-radiuses, %containers;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 100%;
-
-  overflow-x: hidden;
-
-  margin: 0;
-  padding: 0;
-
   background-color: var(--dark-400);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  padding: 0;
 }
 
 p,
@@ -87,6 +83,6 @@ ul {
 }
 
 ol {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }

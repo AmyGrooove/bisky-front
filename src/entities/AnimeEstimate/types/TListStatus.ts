@@ -1,10 +1,3 @@
-type TListStatus =
-  | "completed"
-  | "added"
-  | "watching"
-  | "dropped"
-  | "setWatch"
-  | "cancel"
-  | "skipped"
+type TListStatus = 'added' | 'watching' | 'completed' | 'dropped'
 
 export type { TListStatus }

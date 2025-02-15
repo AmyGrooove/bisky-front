@@ -1,19 +1,19 @@
-import { IIconProps } from "./types/IIconProps"
+import { IIconProps } from '@shared/types'
 
 const CheckIcon = (props: IIconProps) => {
-  const { isDefaultFill, ...otherProps } = props
+  const { isCustomColor = false, ...otherProps } = props
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 50 50"
-      fill={isDefaultFill ?? true ? "var(--light-100)" : "currentColor"}
+      viewBox="0 0 48 48"
+      fill={!isCustomColor ? 'var(--light-100)' : 'currentColor'}
       {...otherProps}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M49.1386 8.85952C50.2871 10.0056 50.2871 11.8637 49.1386 13.0097L21.8065 40.2809C19.5093 42.5732 15.7848 42.5729 13.4876 40.2809L0.861442 27.6829C-0.287147 26.5369 -0.287147 24.6787 0.861442 23.5327C2.01006 22.3867 3.8723 22.3867 5.02092 23.5327L17.6471 36.1308L44.9792 8.85952C46.1277 7.71349 47.9901 7.71349 49.1386 8.85952Z"
+        d="M41.4142 10.5858C42.1953 11.3668 42.1953 12.6332 41.4142 13.4142L19.4142 35.4142C18.6332 36.1953 17.3668 36.1953 16.5858 35.4142L6.58579 25.4142C5.80474 24.6332 5.80474 23.3668 6.58579 22.5858C7.36683 21.8047 8.63317 21.8047 9.41421 22.5858L18 31.1716L38.5858 10.5858C39.3668 9.80474 40.6332 9.80474 41.4142 10.5858Z"
       />
     </svg>
   )

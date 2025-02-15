@@ -1,7 +1,8 @@
-import { HTMLAttributes } from "react"
-
-interface ISkeletonProps extends HTMLAttributes<HTMLDivElement> {
-  templates?: "none" | "posterCard"
+interface ISkeletonProps {
+  templates?: 'none'
+  width?: number
+  height?: number
+  className?: string
 }
 
 export type { ISkeletonProps }

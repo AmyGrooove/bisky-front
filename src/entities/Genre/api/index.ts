@@ -1,1 +1,0 @@
-export { getAllGenresIdAndNames } from "./getAllGenresIdAndNames"

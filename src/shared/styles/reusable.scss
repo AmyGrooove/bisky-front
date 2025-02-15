@@ -1,6 +1,13 @@
-@forward "./mixins/transition";
+@forward './mixins/transition';
+@forward './mixins/effect';
+@forward './mixins/scoreColor';
 
-@forward "./variables/borders";
-@forward "./variables/colors";
-@forward "./variables/containers";
-@forward "./variables/animation";
+@forward './variables/borderRadiuses';
+@forward './variables/colors';
+@forward './variables/containers';
+@forward './variables/animation';
+
+@forward './classes/invoke';
+@forward './classes/disappear';
+@forward './classes/press';
+@forward './classes/noSelect';

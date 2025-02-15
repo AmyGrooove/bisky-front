@@ -1,0 +1,34 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.icon {
+  fill: var(--bisky-100);
+}
+
+.root {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+  width: 100%;
+
+  &_small .icon {
+    height: 16px;
+    width: 16px;
+  }
+
+  &_big .icon {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.linkWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  @extend %no-select;
+}
+
+.linkText {
+  color: var(--bisky-100);
+}

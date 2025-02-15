@@ -1,14 +1,14 @@
-const cn = (...args: (string | undefined | Record<string, boolean>)[]) =>
+const cn = (...args: (string | undefined | null | Record<string, boolean>)[]) =>
   args
-    .filter((item) => item !== undefined)
+    .filter((item) => item !== undefined && item !== null)
     .map((item) =>
-      typeof item === "string"
+      typeof item === 'string'
         ? item
         : item
           ? Object.keys(item).filter((key) => item[key])
           : [],
     )
     .flat()
-    .join(" ")
+    .join(' ')
 
 export { cn }

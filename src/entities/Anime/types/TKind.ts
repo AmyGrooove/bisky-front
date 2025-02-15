@@ -1,13 +1,3 @@
-type TKind =
-  | "tv"
-  | "movie"
-  | "ova"
-  | "ona"
-  | "special"
-  | "music"
-  | "tv_special"
-  | "none"
-  | "pv"
-  | "cm"
+type TKind = 'tv' | 'movie' | 'ova' | 'ona' | 'special'
 
 export type { TKind }

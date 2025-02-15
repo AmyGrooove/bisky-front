@@ -1,11 +1,14 @@
-import { HTMLAttributes, JSX, ReactNode } from "react"
+import { CSSProperties } from 'react'
 
-interface ITextProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
-  children?: string | number | Date | ReactNode
-  size?: "12" | "16" | "20" | "24" | "28" | "32" | "44"
-  weight?: "400" | "700"
-  as?: keyof JSX.IntrinsicElements
-  isDefaultColor?: boolean
+interface ITextProps {
+  children: string
+
+  style?: CSSProperties
+  size?: '12' | '16' | '20' | '24' | '32' | '40'
+  weight?: '400' | '700'
+  isCustomColor?: boolean
+  className?: string
+  maxLines?: number
 }
 
 export type { ITextProps }

@@ -1,1 +1,0 @@
-export { getAllGenresData } from "./getAllGenresData"

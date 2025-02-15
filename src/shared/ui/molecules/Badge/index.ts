@@ -1,2 +1,2 @@
-export { Badge } from "./ui/Badge"
-export { getScoreStatus } from "./functions/getScoreStatus"
+export { Badge } from './core/Badge'
+export type { TBadgeProps } from './types/TBadgeProps'

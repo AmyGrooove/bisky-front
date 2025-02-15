@@ -1,5 +1,3 @@
-export type { IFranchiseFullModel } from "./types/IFranchiseModel/IFranchiseFullModel"
-export type { IFranchiseModel } from "./types/IFranchiseModel/IFranchiseModel"
-export type { IFranchiseSimpleModel } from "./types/IFranchiseModel/IFranchiseSimpleModel"
+export { getAnimesByFranchise } from './api/getAnimesByFranchise'
 
-export { oneFranchiseQuery } from "./graphQL/oneFranchiseQuery"
+export type { IFranchise } from './types/IFranchise'

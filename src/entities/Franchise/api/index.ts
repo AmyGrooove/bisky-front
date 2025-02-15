@@ -1,1 +1,0 @@
-export { getAllFranchiseIds } from "./getAllFranchiseIds"

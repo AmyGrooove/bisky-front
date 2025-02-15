@@ -1,1 +1,1 @@
-export { Skeleton } from "./ui/Skeleton"
+export { Skeleton } from './core/Skeleton'
