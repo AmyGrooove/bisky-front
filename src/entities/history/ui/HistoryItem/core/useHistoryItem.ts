@@ -1,5 +1,3 @@
-import { useMemo } from 'react'
-
 import { normalizeDate } from '@shared/utils/functions'
 
 import { IHistoryItemProps } from '../types/IHistoryItemProps'
@@ -16,15 +14,8 @@ const useHistoryItem = (props: IHistoryItemProps) => {
 
   const updateDate = normalizeDate(updatedOn)
 
-  const LeftSide = useMemo(
-    () => HistoryType(type, historyData, variant),
-    [type, historyData],
-  )
-
-  const RightIcon = useMemo(
-    () => HistoryTypeIcon(type, historyData),
-    [type, historyData],
-  )
+  const LeftSide = HistoryType(type, historyData, variant)
+  const RightIcon = HistoryTypeIcon(type, historyData)
 
   return { className, updateDate, LeftSide, RightIcon }
 }

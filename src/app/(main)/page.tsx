@@ -1,11 +1,7 @@
-import { Bar } from '@widgets/Bar'
+'use client'
 
 const MainPage = () => {
-  return (
-    <>
-      <Bar />
-    </>
-  )
+  return <></>
 }
 
 export default MainPage

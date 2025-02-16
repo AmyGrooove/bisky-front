@@ -8,7 +8,6 @@ import { ISectionSelectorProps } from '../types/ISectionSelectorProps'
 import { useSectionSelector } from './useSectionSelector'
 import st from './SectionSelector.module.scss'
 
-
 const SectionSelector = (props: ISectionSelectorProps) => {
   const {
     className,
