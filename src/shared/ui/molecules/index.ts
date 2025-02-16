@@ -1,8 +1,0 @@
-export { Button } from './Button'
-export { BigButton } from './BigButton'
-export { Badge, type TBadgeProps } from './Badge'
-export { Label } from './Label'
-export { GlassButton } from './GlassButton'
-export { SectionLabel } from './SectionLabel'
-export { SectionSelector, type ITabItem } from './SectionSelector'
-export { Hint } from './Hint'

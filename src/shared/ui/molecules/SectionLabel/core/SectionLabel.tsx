@@ -1,7 +1,7 @@
 import { cloneElement } from 'react'
 
 import { cn } from '@shared/utils/functions'
-import { Text } from '@shared/ui/atoms'
+import { Text } from '@shared/ui/atoms/Text'
 import { ChevronLeftIcon } from '@shared/icons'
 
 import { ISectionLabelProps } from '../types/ISectionLabelProps'

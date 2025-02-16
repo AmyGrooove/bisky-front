@@ -1,4 +1,4 @@
-import { getProfileHistory } from '@entities/profile'
+import { getProfileHistory } from '@entities/profile/api'
 import { TResponse } from '@shared/types'
 
 interface IHistoryItemProps {

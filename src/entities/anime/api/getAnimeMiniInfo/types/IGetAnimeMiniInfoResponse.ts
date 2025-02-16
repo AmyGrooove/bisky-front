@@ -1,4 +1,4 @@
-import { IAnime } from '@entities/anime'
+import { IAnime } from '@entities/anime/types'
 
 interface IGetAnimeMiniInfoResponse
   extends Pick<

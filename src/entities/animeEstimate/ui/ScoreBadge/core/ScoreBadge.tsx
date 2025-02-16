@@ -1,6 +1,6 @@
-import { Badge } from '@shared/ui/molecules'
 import { StarIcon } from '@shared/icons'
 import { cn } from '@shared/utils/functions'
+import { Badge } from '@shared/ui/molecules/Badge'
 
 import { TScoreBadge } from '../types/TScoreBadge'
 

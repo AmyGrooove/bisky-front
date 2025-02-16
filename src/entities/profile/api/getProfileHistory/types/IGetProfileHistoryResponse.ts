@@ -1,4 +1,4 @@
-import { IHistory } from '@entities/history'
+import { IHistory } from '@entities/history/types'
 
 interface IGetProfileHistoryResponse
   extends Pick<IHistory, 'type' | 'historyData' | 'updatedOn'> {}

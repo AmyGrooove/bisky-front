@@ -1,0 +1,82 @@
+@use '@shared/styles/reusable.scss' as *;
+
+@keyframes invoke-modal {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes close-modal {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.root {
+  align-items: center;
+  animation: invoke-modal 0.1s ease-in-out;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+
+  &_closing {
+    animation: close-modal 0.1s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.background {
+  background-color: var(--dark-460);
+  inset: 0;
+  position: absolute;
+  @include effect(background-blur);
+}
+
+.closeIcon {
+  cursor: pointer;
+  height: 64px;
+  opacity: 0.6;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 64px;
+  z-index: 1;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((opacity, scale), (250ms, 100ms));
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.modal {
+  background-color: var(--dark-200);
+  border-radius: var(--radius-20);
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  @extend %invoke;
+  @include effect(back-shadow);
+}
+
+.closeButton {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}

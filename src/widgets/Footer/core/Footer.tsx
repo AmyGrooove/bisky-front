@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import { Text } from '@shared/ui/atoms'
 import { LogoIcon } from '@shared/icons'
+import { Text } from '@shared/ui/atoms/Text'
 
 import { legal } from '../static/legal'
 

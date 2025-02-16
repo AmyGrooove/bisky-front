@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Text } from '@shared/ui/atoms'
+import { Text } from '@shared/ui/atoms/Text'
 import { LogoIcon, SearchIcon } from '@shared/icons'
 
 import st from './Header.module.scss'

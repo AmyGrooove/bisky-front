@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation'
 
-import { useSession } from '@entities/auth'
+import { useSession } from '@entities/auth/hooks'
 
 const useBar = () => {
   const pathname = usePathname()

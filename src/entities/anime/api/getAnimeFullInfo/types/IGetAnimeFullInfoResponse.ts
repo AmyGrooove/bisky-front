@@ -1,5 +1,5 @@
-import { IAnime } from '@entities/anime'
-import { TListStatus } from '@entities/animeEstimate'
+import { IAnime } from '@entities/anime/types'
+import { TListStatus } from '@entities/animeEstimate/types'
 
 interface IRelatedAnime extends Pick<IAnime, 'poster' | '_id'> {
   relation: string

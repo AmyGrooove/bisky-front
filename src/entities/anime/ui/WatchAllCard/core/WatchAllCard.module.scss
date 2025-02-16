@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   @extend %invoke, %press, %no-select;
-  @include effect(back-shadow);
+  @include effect(background-blur-shadow);
   @include transition((background-color, scale), (250ms, 100ms));
 
   &:hover {

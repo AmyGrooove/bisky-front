@@ -1,4 +1,4 @@
-import { getScoreColor } from '@entities/animeEstimate'
+import { getScoreColor } from '@entities/animeEstimate/utils'
 
 import { TScoreBadge } from '../types/TScoreBadge'
 

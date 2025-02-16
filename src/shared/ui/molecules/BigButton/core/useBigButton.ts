@@ -9,9 +9,19 @@ const useBigButton = (props: IBigButtonProps) => {
     variant = 'small',
     isDisabled = false,
     iconText = null,
+    isCustomColor = false,
   } = props
 
-  return { onClick, children, icon, className, variant, isDisabled, iconText }
+  return {
+    onClick,
+    children,
+    icon,
+    className,
+    variant,
+    isDisabled,
+    iconText,
+    isCustomColor,
+  }
 }
 
 export { useBigButton }

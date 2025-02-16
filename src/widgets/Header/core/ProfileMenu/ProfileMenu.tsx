@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { cloneElement } from 'react'
 
-import { PlaceholderImage, Text } from '@shared/ui/atoms'
 import { cn } from '@shared/utils/functions'
 import { CopyIcon, HourglassIcon } from '@shared/icons'
+import { Text } from '@shared/ui/atoms/Text'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 
 import { profileMenuLinks } from '../../static/profileMenuLinks'
 

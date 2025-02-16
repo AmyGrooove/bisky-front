@@ -1,4 +1,4 @@
-import { IUser } from '@entities/user'
+import { IUser } from '@entities/user/types'
 
 interface IGetWhoamiResponse
   extends Pick<

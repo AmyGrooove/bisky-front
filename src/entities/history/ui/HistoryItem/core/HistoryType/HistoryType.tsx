@@ -1,13 +1,14 @@
 import Link from 'next/link'
 
-import { getScoreColor } from '@entities/animeEstimate'
-import { PlaceholderImage, Text } from '@shared/ui/atoms'
-import { THistoryTypes } from '@entities/history'
-import { Hint } from '@shared/ui/molecules'
 import { cn } from '@shared/utils/functions'
+import { getScoreColor } from '@entities/animeEstimate/utils'
+import { THistoryTypes } from '@entities/history/types'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
+import { Hint } from '@shared/ui/molecules/Hint'
+import { Text } from '@shared/ui/atoms/Text'
 
-import { IHistoryItemProps } from '../../types/IHistoryItemProps'
 import { animeListText } from '../../utils/animeListText'
+import { IHistoryItemProps } from '../../types/IHistoryItemProps'
 
 import st from './HistoryType.module.scss'
 

@@ -2,7 +2,6 @@
 
 .root {
   align-items: center;
-  background-color: var(--bisky-300);
   border: 0;
   cursor: pointer;
   display: flex;
@@ -26,6 +25,10 @@
     &:hover {
       filter: none;
     }
+  }
+
+  &_defaultColor {
+    background-color: var(--bisky-300);
   }
 
   &_small {

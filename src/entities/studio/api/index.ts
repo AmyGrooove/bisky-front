@@ -1,0 +1,1 @@
+export { getAnimesByStudio } from './getAnimesByStudio'

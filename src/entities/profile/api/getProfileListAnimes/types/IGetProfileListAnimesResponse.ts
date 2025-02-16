@@ -1,9 +1,10 @@
-import { IAnime } from '@entities/anime'
-import { TListStatus } from '@entities/animeEstimate'
+import { IAnime } from '@entities/anime/types'
+import { TListStatus } from '@entities/animeEstimate/types'
 
 interface IGetProfileListAnimesResponse extends Pick<IAnime, 'poster' | '_id'> {
   label: string
   score: number
+  currentUserScore: number | null
   guestListStatus: TListStatus | null
 }
 

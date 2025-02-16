@@ -1,12 +1,12 @@
-import { IAnime } from '@entities/anime'
-import { TListStatus } from '@entities/animeEstimate'
-import { IStudio } from '@entities/studio'
+import { IAnime } from '@entities/anime/types'
+import { TListStatus } from '@entities/animeEstimate/types'
+import { IStudio } from '@entities/studio/types'
 
 interface IAnimeData
   extends Pick<IAnime, 'poster' | 'status' | 'episodes' | '_id'> {
   label: string
   score: number
-  userListStatus: TListStatus | null
+  guestListStatus: TListStatus | null
 }
 
 interface IGetAnimesByStudioResponse {

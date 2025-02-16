@@ -1,4 +1,4 @@
-import { getHomePageData } from '@entities/blocks'
+import { getHomePageData } from '@entities/blocks/api'
 import { TResponse } from '@shared/types'
 
 interface ISeasonProps {

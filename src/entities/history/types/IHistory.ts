@@ -1,4 +1,4 @@
-import { TListStatus } from '@entities/animeEstimate'
+import { TListStatus } from '@entities/animeEstimate/types'
 
 import { THistoryTypes } from './THistoryTypes'
 

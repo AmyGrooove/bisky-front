@@ -1,0 +1,1 @@
+export { getAnimesByFranchise } from './getAnimesByFranchise'
