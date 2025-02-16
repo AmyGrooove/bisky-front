@@ -13,44 +13,65 @@
   @include effect(background-blur-shadow);
 }
 
-.leftSide {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.mainInfo {
+.logoWrapper {
   align-items: center;
   display: flex;
-  gap: 20px;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
 
-.logoWrapper {
+.logo {
+  height: 48px;
+  width: 48px;
+}
+
+.logoText {
+  color: var(--bisky-100);
+}
+
+.rightSide {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+}
+
+.searchButton {
+  align-items: center;
+  background-color: var(--dark-100);
+  border-radius: var(--radius-12);
+  cursor: pointer;
+  display: flex;
+  gap: 32px;
+  height: 40px;
+  padding: 8px;
+  @extend %invoke, %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((filter, scale), (250ms, 100ms));
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.searchText {
   align-items: center;
   display: flex;
   gap: 4px;
 }
 
-.logo {
-  fill: var(--light-100);
+.searchIcon {
   height: 16px;
   width: 16px;
 }
 
-.mail {
-  color: var(--bisky-100);
-}
-
-.privateText {
-  color: var(--light-400);
-}
-
-.legalWrapper {
+.hotKey {
   align-items: center;
+  background-color: var(--dark-200);
+  border-radius: var(--radius-8);
   display: flex;
-  gap: 16px;
-}
-
-.legalLink {
-  color: var(--light-400);
+  height: 24px;
+  padding: 0 4px;
 }

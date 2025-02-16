@@ -1,4 +1,5 @@
 import { IAnime } from '@entities/anime'
+import { TResponse } from '@shared/types'
 
 import { getBlockRow } from '../../getBlockRow'
 
@@ -13,7 +14,7 @@ interface IAnimeSeasonData
 
 interface IGetHomePageDataResponse {
   seasonalAnimes: IAnimeSeasonData[]
-  rowsAnime: Awaited<ReturnType<typeof getBlockRow>>
+  rowsAnime: TResponse<typeof getBlockRow>
 }
 
 export type { IGetHomePageDataResponse }

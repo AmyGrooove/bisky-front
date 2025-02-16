@@ -11,6 +11,7 @@ const deleteAnimeEstimate = async (
     method: 'DELETE',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok)

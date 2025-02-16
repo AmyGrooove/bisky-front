@@ -1,10 +1,11 @@
 import { THomeRowDataType } from '@entities/blocks'
 import { getAnimesByGenre } from '@entities/genre'
+import { TResponse } from '@shared/types'
 
 interface IGetBlockRowResponse {
   dataType: THomeRowDataType
 
-  genreData?: Awaited<ReturnType<typeof getAnimesByGenre>>
+  genreData?: TResponse<typeof getAnimesByGenre>
 }
 
 export type { IGetBlockRowResponse }

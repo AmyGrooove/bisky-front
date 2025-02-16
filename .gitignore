@@ -5,3 +5,4 @@ build
 .env
 tsconfig.tsbuildinfo
 next-env.d.ts
+certificates

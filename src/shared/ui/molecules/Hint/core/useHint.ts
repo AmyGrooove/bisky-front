@@ -6,7 +6,8 @@ import {
   useHover,
   useInteractions,
 } from '@floating-ui/react'
-import { useState } from 'react'
+
+import { useTransitionClose } from '@shared/utils/hooks'
 
 import { IHintProps } from '../types/IHintProps'
 
@@ -20,29 +21,14 @@ const useHint = (props: IHintProps) => {
     hintChildrenClassName,
   } = props
 
-  const [isHintOpen, setIsHintOpen] = useState(false)
-  const [isHintClosing, setIsHintClosing] = useState(false)
-
-  const toggleHint = (isOpen: boolean) => {
-    if (hintChildren === null) return
-
-    if (isOpen) {
-      setIsHintOpen(true)
-      return
-    }
-
-    setIsHintClosing(true)
-
-    setTimeout(() => {
-      setIsHintOpen(false)
-      setIsHintClosing(false)
-    }, 100)
-  }
+  const { isOpen, isClosing, toggle } = useTransitionClose({
+    isToggleDisabled: hintChildren === null,
+  })
 
   const { refs, floatingStyles, context } = useFloating({
     placement: position,
-    open: isHintOpen,
-    onOpenChange: toggleHint,
+    open: isOpen,
+    onOpenChange: toggle,
     middleware: [flip(), shift(), offset(margin)],
   })
 
@@ -54,8 +40,8 @@ const useHint = (props: IHintProps) => {
     children,
     hintChildren,
     refs,
-    isHintOpen,
-    isHintClosing,
+    isOpen,
+    isClosing,
     floatingStyles,
     getReferenceProps,
     getFloatingProps,

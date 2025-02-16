@@ -1,19 +1,27 @@
-import { PlaceholderImage, Text } from '@shared/ui/atoms'
+'use client'
+
+import Link from 'next/link'
+
+import { Text } from '@shared/ui/atoms'
 import { LogoIcon, SearchIcon } from '@shared/icons'
 
 import st from './Header.module.scss'
+import { useHeader } from './useHeader'
+import { ProfileMenu } from './ProfileMenu/ProfileMenu'
 
 const Header = () => {
+  useHeader()
+
   return (
     <div className={st.root}>
-      <div className={st.logoWrapper}>
-        <LogoIcon className={st.logo} isCustomColor />
-        <Text weight="700" size="20">
+      <Link href="/" className={st.logoWrapper}>
+        <LogoIcon className={st.logo} />
+        <Text weight="700" size="40" isCustomColor className={st.logoText}>
           Bisky
         </Text>
-      </div>
+      </Link>
       <div className={st.rightSide}>
-        <button className={st.searchButton}>
+        <Link href="/search" className={st.searchButton}>
           <div className={st.searchText}>
             <SearchIcon className={st.searchIcon} />
             <Text weight="700">Поиск...</Text>
@@ -21,8 +29,8 @@ const Header = () => {
           <Text className={st.hotKey} weight="700">
             Ctrl + K
           </Text>
-        </button>
-        <PlaceholderImage src="" width={40} height={40} className={st.avatar} />
+        </Link>
+        <ProfileMenu />
       </div>
     </div>
   )

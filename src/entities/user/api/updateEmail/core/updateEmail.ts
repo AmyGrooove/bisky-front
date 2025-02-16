@@ -9,6 +9,7 @@ const updateEmail = async (body: IUpdateEmailRequest): Promise<true> => {
     method: 'PATCH',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`updateEmail: ${response.statusText}`)
