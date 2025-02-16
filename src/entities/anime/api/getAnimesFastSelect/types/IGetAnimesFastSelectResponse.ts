@@ -1,4 +1,4 @@
-import { IAnime } from '@entities/anime'
+import { IAnime } from '@entities/anime/types'
 
 interface IGetAnimesFastSelectResponse extends Pick<IAnime, 'poster' | '_id'> {
   label: string

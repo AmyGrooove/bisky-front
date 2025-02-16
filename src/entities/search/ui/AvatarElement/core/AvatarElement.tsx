@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
 import { cn } from '@shared/utils/functions'
-import { PlaceholderImage, Text } from '@shared/ui/atoms'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
+import { Text } from '@shared/ui/atoms/Text'
 
 import { IAvatarElementProps } from '../types/IAvatarElementProps'
 

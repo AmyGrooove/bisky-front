@@ -1,0 +1,104 @@
+@use '@shared/styles/reusable.scss' as *;
+
+@keyframes card-invoke {
+  0% {
+    transform: translateY(var(--modal-height, 1000px));
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes card-close {
+  0% {
+    transform: translateY(var(--start-offset, 0));
+  }
+
+  50% {
+    transform: translateY(calc(var(--start-offset, 0px) - 20px));
+  }
+
+  100% {
+    transform: translateY(var(--modal-height, 1000px));
+  }
+}
+
+.background {
+  background-color: var(--dark-460);
+  inset: 0;
+  position: absolute;
+  @include transition(opacity);
+  @include effect(background-blur);
+}
+
+.modal {
+  align-items: center;
+  animation: card-invoke 0.2s ease-in-out;
+  background-color: var(--dark-200);
+  border-radius: var(--radius-20) var(--radius-20) 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px 40px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  @include effect(back-shadow);
+
+  &::after {
+    background-color: var(--dark-200);
+    bottom: -1000px;
+    content: '';
+    height: 1000px;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.root {
+  align-items: flex-end;
+  display: flex;
+  inset: 0;
+  position: fixed;
+  width: calc(100% + 16px);
+  z-index: 100;
+
+  &_closing {
+    .modal {
+      animation: card-close 0.2s ease-in-out;
+      transform: translateY(var(--modal-height, 1000px));
+    }
+
+    .background {
+      opacity: 0;
+    }
+  }
+}
+
+.divider {
+  cursor: grab;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 24px;
+  width: 100%;
+
+  &::after {
+    background-color: var(--dark-100);
+    border-radius: var(--radius-20);
+    content: '';
+    display: flex;
+    height: 4px;
+    width: 100px;
+  }
+}
+
+.closeButton {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}

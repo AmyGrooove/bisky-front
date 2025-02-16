@@ -1,8 +1,9 @@
 import Link from 'next/link'
 
-import { PlaceholderImage, Text } from '@shared/ui/atoms'
 import { cn } from '@shared/utils/functions'
-import { ScoreBadge } from '@entities/animeEstimate'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
+import { Text } from '@shared/ui/atoms/Text'
+import { ScoreBadge } from '@entities/animeEstimate/ui/ScoreBadge'
 
 import { ISeasonProps } from '../types/ISeasonProps'
 

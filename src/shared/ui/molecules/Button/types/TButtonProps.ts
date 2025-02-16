@@ -4,6 +4,7 @@ interface IButtonPropsBase {
   onClick: MouseEventHandler<HTMLButtonElement>
 
   isDisabled?: boolean
+  isCustomColor?: boolean
   variant?: 'small' | 'big'
   className?: string
 }

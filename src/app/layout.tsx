@@ -2,10 +2,11 @@ import { Viewport } from 'next'
 import { Ubuntu } from 'next/font/google'
 
 import { META_DATA } from '@shared/static'
-import { IDefaultPageProps } from '@shared/types'
-
 import 'keen-slider/keen-slider.min.css'
 import '@shared/styles/global.scss'
+import { ModalWrapper } from '@widgets/ModalWrapper'
+import { IDefaultPageProps } from '@shared/types'
+
 import st from './RootLayout.module.scss'
 
 const ubuntu = Ubuntu({
@@ -26,6 +27,7 @@ const RootLayout = (props: IDefaultPageProps) => {
         <meta name="theme-color" content="#dd5480" />
       </head>
       <body className={ubuntu.className}>
+        <ModalWrapper />
         <main className={st.main}>{children}</main>
       </body>
     </html>

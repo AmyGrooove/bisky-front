@@ -1,0 +1,101 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.relation {
+  color: var(--light-400);
+}
+
+.hoverBackground {
+  background-color: var(--black-70);
+  border-radius: var(--radius-20);
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  @include transition(opacity);
+}
+
+.hoverLabel {
+  align-items: center;
+  background-color: var(--dark-240);
+  border-radius: 0 0 var(--radius-20) var(--radius-20);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  padding: 8px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  @include effect(background-blur-shadow);
+  @include transition(opacity);
+}
+
+.scoreBadge {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1;
+  @include transition(opacity);
+}
+
+.currentUserScoreBadge {
+  width: fit-content;
+}
+
+.addButton {
+  left: 8px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  z-index: 1;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &_big {
+    height: 320px;
+    width: 200px;
+
+    .scoreBadge {
+      opacity: 0;
+    }
+
+    &:has(.relation) {
+      margin-bottom: 22px;
+
+      .relation {
+        bottom: -22px;
+        position: absolute;
+      }
+    }
+
+    &:has(.currentUserScoreBadge) {
+      margin-bottom: 28px;
+
+      .currentUserScoreBadge {
+        bottom: -28px;
+        position: absolute;
+      }
+    }
+
+    &:hover {
+      .scoreBadge,
+      .hoverBackground,
+      .hoverLabel,
+      .addButton {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_small {
+    width: 120px;
+  }
+}
+
+.poster {
+  border-radius: var(--radius-20);
+}

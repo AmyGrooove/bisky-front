@@ -1,5 +1,5 @@
 import { API_URL } from '@shared/static'
-import { TListStatus } from '@entities/animeEstimate'
+import { TListStatus } from '@entities/animeEstimate/types'
 
 import { IGetProfileListAnimesResponse } from '../types/IGetProfileListAnimesResponse'
 

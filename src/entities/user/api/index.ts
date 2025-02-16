@@ -1,0 +1,6 @@
+export { setAvatar } from './setAvatar'
+export { subscribeToUser } from './subscribeToUser'
+export { unsubscribeFromUser } from './unsubscribeFromUser'
+export { updateUsername } from './updateUsername'
+export { updateEmail } from './updateEmail'
+export { getUserID } from './getUserID'

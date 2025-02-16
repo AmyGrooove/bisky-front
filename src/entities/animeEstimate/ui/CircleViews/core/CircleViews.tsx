@@ -1,5 +1,6 @@
 import { cn } from '@shared/utils/functions'
-import { Skeleton, Text } from '@shared/ui/atoms'
+import { Skeleton } from '@shared/ui/atoms/Skeleton'
+import { Text } from '@shared/ui/atoms/Text'
 
 import { ICircleViewsProps } from '../types/ICircleViewsProps'
 

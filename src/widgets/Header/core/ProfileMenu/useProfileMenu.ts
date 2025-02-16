@@ -8,7 +8,7 @@ import {
   shift,
 } from '@floating-ui/react'
 
-import { useSession } from '@entities/auth'
+import { useSession } from '@entities/auth/hooks'
 import { useTransitionClose } from '@shared/utils/hooks'
 
 const useProfileMenu = () => {

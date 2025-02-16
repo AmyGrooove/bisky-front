@@ -8,9 +8,18 @@ const useButton = (props: TButtonProps) => {
     className = null,
     variant = 'small',
     isDisabled = false,
+    isCustomColor = false,
   } = props
 
-  return { onClick, children, icon, className, variant, isDisabled }
+  return {
+    onClick,
+    children,
+    icon,
+    className,
+    variant,
+    isDisabled,
+    isCustomColor,
+  }
 }
 
 export { useButton }

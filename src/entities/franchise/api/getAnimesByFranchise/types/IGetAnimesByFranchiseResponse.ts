@@ -1,12 +1,12 @@
-import { IAnime } from '@entities/anime'
-import { TListStatus } from '@entities/animeEstimate'
-import { IFranchise } from '@entities/franchise'
+import { IAnime } from '@entities/anime/types'
+import { TListStatus } from '@entities/animeEstimate/types'
+import { IFranchise } from '@entities/franchise/types'
 
 interface IAnimeData
   extends Pick<IAnime, 'poster' | 'status' | 'episodes' | '_id'> {
   label: string
   score: number
-  userListStatus: TListStatus | null
+  guestListStatus: TListStatus | null
 }
 
 interface IGetAnimesByFranchiseResponse {

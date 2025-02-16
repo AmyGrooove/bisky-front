@@ -9,6 +9,7 @@ interface IBigButtonProps {
   variant?: 'small' | 'big'
   iconText?: string
   className?: string
+  isCustomColor?: boolean
 }
 
 export type { IBigButtonProps }

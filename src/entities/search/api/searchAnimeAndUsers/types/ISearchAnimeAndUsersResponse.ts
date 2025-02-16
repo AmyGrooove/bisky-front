@@ -1,5 +1,5 @@
-import { IAnime } from '@entities/anime'
-import { IUser } from '@entities/user'
+import { IAnime } from '@entities/anime/types'
+import { IUser } from '@entities/user/types'
 
 interface IUserData extends Pick<IUser, 'username' | 'avatar'> {}
 

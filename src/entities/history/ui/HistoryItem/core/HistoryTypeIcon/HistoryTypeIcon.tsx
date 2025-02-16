@@ -1,4 +1,3 @@
-import { THistoryTypes } from '@entities/history'
 import {
   CheckIcon,
   DonutIcon,
@@ -10,7 +9,8 @@ import {
   StarOffIcon,
   TrashIcon,
 } from '@shared/icons'
-import { TListStatus } from '@entities/animeEstimate'
+import { TListStatus } from '@entities/animeEstimate/types'
+import { THistoryTypes } from '@entities/history/types'
 
 import { IHistoryItemProps } from '../../types/IHistoryItemProps'
 

@@ -1,8 +1,12 @@
+$mobile: 768px;
+$tablet: 1024px;
 $hd: 1280px;
 $full-hd: 1920px;
 $qhd: 2560px;
 
 %containers {
+  --mobile: #{$mobile};
+  --tablet: #{$tablet};
   --hd: #{$hd};
   --full-hd: #{$full-hd};
   --qhd: #{$qhd};

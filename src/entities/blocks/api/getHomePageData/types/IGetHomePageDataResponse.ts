@@ -1,4 +1,4 @@
-import { IAnime } from '@entities/anime'
+import { IAnime } from '@entities/anime/types'
 import { TResponse } from '@shared/types'
 
 import { getBlockRow } from '../../getBlockRow'

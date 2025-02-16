@@ -1,0 +1,5 @@
+export { getAnimeFullInfo } from './getAnimeFullInfo'
+export { getAnimeMiniInfo } from './getAnimeMiniInfo'
+export { getAnimesFastFind } from './getAnimesFastFind'
+export { getAnimesFastSelect } from './getAnimesFastSelect'
+export { getAnimesFastStar } from './getAnimesFastStar'
