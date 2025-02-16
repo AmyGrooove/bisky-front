@@ -10,3 +10,4 @@ export type { TRating } from './types/TRating'
 export type { TStatus } from './types/TStatus'
 
 export { Season } from './ui/Season'
+export { WatchAllCard } from './ui/WatchAllCard'

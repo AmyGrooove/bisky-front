@@ -1,0 +1,38 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  background-color: var(--dark-240);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @extend %invoke, %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((background-color, scale), (250ms, 100ms));
+
+  &:hover {
+    background-color: var(--dark-200);
+  }
+
+  &_big {
+    border-radius: var(--radius-20);
+    height: 320px;
+    width: 200px;
+
+    .icon {
+      height: 36px;
+      width: 36px;
+    }
+  }
+
+  &_small {
+    border-radius: var(--radius-12);
+    height: 190px;
+    width: 120px;
+
+    .icon {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

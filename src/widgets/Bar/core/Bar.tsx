@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { cloneElement } from 'react'
 
@@ -9,7 +7,6 @@ import { barLinks } from '../static/barLinks'
 
 import st from './Bar.module.scss'
 import { useBar } from './useBar'
-
 
 const Bar = () => {
   const { username, checkIsActive } = useBar()
