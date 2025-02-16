@@ -9,7 +9,6 @@
   justify-content: space-between;
   padding: 0 20px;
   width: 100%;
-  @extend %invoke;
   @include effect(background-blur-shadow);
 }
 
