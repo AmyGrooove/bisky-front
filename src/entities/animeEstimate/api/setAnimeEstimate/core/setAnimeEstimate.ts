@@ -11,6 +11,7 @@ const setAnimeEstimate = async (
     method: 'POST',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`setAnimeEstimate: ${response.statusText}`)

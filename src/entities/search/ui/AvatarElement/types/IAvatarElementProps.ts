@@ -1,7 +1,8 @@
 import { searchAnimeAndUsers } from '@entities/search'
+import { TResponse } from '@shared/types'
 
 interface IAvatarElementProps {
-  data: Awaited<ReturnType<typeof searchAnimeAndUsers>>['users'][number]
+  data: TResponse<typeof searchAnimeAndUsers>['users'][number]
 
   variant?: 'big' | 'small'
   className?: string

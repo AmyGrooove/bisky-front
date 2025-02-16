@@ -9,6 +9,7 @@ const loginByID = async (body: ILoginByIDRequest): Promise<true> => {
     method: 'POST',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`loginByID: ${response.statusText}`)

@@ -6,14 +6,13 @@ import { IHintProps } from '../types/IHintProps'
 import { useHint } from './useHint'
 import st from './Hint.module.scss'
 
-
 const Hint = (props: IHintProps) => {
   const {
     children,
     hintChildren,
     refs,
-    isHintOpen,
-    isHintClosing,
+    isOpen,
+    isClosing,
     floatingStyles,
     getReferenceProps,
     getFloatingProps,
@@ -23,7 +22,7 @@ const Hint = (props: IHintProps) => {
 
   return (
     <div {...getReferenceProps()} ref={refs.setReference} className={className}>
-      {isHintOpen && hintChildren && (
+      {isOpen && hintChildren && (
         <>
           {typeof hintChildren === 'string' ? (
             <Text
@@ -31,7 +30,7 @@ const Hint = (props: IHintProps) => {
               ref={refs.setFloating}
               style={{ ...floatingStyles }}
               className={cn(st.hintWrapper, {
-                [st.hintWrapper_hide]: isHintClosing,
+                [st.hintWrapper_hide]: isClosing,
               })}
             >
               {hintChildren}
@@ -42,7 +41,7 @@ const Hint = (props: IHintProps) => {
               ref={refs.setFloating}
               style={{ ...floatingStyles }}
               className={cn(st.hintWrapper, hintChildrenClassName, {
-                [st.hintWrapper_hide]: isHintClosing,
+                [st.hintWrapper_hide]: isClosing,
               })}
             >
               {hintChildren}

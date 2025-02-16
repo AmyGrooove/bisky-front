@@ -9,6 +9,7 @@ const addAnimeToSkip = async (body: IAddAnimeToSkipRequest): Promise<true> => {
     method: 'POST',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`addAnimeToSkip: ${response.statusText}`)

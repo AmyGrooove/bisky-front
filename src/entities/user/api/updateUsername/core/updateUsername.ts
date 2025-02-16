@@ -9,6 +9,7 @@ const updateUsername = async (body: IUpdateUsernameRequest): Promise<true> => {
     method: 'PATCH',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`updateUsername: ${response.statusText}`)

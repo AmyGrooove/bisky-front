@@ -14,6 +14,7 @@ const getAnimesByGenre = async (
   const response = await fetch(url, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`getAnimesByGenre: ${response.statusText}`)

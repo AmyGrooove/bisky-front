@@ -1,7 +1,8 @@
 import { getProfileHistory } from '@entities/profile'
+import { TResponse } from '@shared/types'
 
 interface IHistoryItemProps {
-  data: Awaited<ReturnType<typeof getProfileHistory>>[number]
+  data: TResponse<typeof getProfileHistory>[number]
 
   variant?: 'big' | 'small'
   className?: string

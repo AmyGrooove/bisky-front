@@ -1,5 +1,3 @@
-'use client'
-
 import { Header } from '@widgets/Header'
 
 const MainPage = () => {

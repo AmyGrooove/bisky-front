@@ -11,6 +11,7 @@ const setAnimeFavorite = async (
     method: 'PUT',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`setAnimeFavorite: ${response.statusText}`)

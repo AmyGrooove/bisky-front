@@ -11,6 +11,7 @@ const unsubscribeFromUser = async (
     method: 'PATCH',
     body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok)

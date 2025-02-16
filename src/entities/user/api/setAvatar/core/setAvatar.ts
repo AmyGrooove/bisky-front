@@ -7,6 +7,7 @@ const setAvatar = async (file: FormData): Promise<true> => {
     method: 'PATCH',
     body: file,
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    credentials: 'include',
   })
 
   if (!response.ok) throw new Error(`setAvatar: ${response.statusText}`)
