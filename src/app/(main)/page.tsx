@@ -1,9 +1,9 @@
-import { Header } from '@widgets/Header'
+import { Bar } from '@widgets/Bar'
 
 const MainPage = () => {
   return (
     <>
-      <Header />
+      <Bar />
     </>
   )
 }

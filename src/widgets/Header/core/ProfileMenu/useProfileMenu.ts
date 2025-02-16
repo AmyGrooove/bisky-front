@@ -13,6 +13,7 @@ import { useTransitionClose } from '@shared/utils/hooks'
 
 const useProfileMenu = () => {
   const { user } = useSession()
+  const { avatar = null, username = '', isTemporary = true } = user ?? {}
 
   const { isOpen, isClosing, toggle } = useTransitionClose()
 
@@ -31,8 +32,6 @@ const useProfileMenu = () => {
     click,
     dismiss,
   ])
-
-  const { avatar = null, username = '', isTemporary = true } = user ?? {}
 
   const copyUsername = async () => {
     await navigator.clipboard.writeText(username)
