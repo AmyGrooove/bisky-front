@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { useUnit } from 'effector-react'
 

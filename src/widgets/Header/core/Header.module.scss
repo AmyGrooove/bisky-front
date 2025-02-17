@@ -10,6 +10,15 @@
   padding: 0 20px;
   width: 100%;
   @include effect(background-blur-shadow);
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--dark-200);
+  }
+
+  @include media-query(tablet) {
+    display: none;
+  }
 }
 
 .logoWrapper {
@@ -55,13 +64,18 @@
   }
 }
 
-.searchText {
+.searchLabel {
   align-items: center;
   display: flex;
   gap: 4px;
 }
 
+.searchText {
+  color: var(--light-400);
+}
+
 .searchIcon {
+  fill: var(--light-400);
   height: 16px;
   width: 16px;
 }
@@ -70,6 +84,7 @@
   align-items: center;
   background-color: var(--dark-200);
   border-radius: var(--radius-8);
+  color: var(--light-400);
   display: flex;
   height: 24px;
   padding: 0 4px;

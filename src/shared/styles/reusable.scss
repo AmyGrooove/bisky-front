@@ -2,10 +2,10 @@
 @forward './mixins/effect';
 @forward './mixins/scoreColor';
 @forward './mixins/estimateColor';
+@forward './mixins/mediaQuery';
 
 @forward './variables/borderRadiuses';
 @forward './variables/colors';
-@forward './variables/containers';
 @forward './variables/animation';
 
 @forward './classes/invoke';

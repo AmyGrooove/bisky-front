@@ -10,6 +10,15 @@
   padding: 0 20px;
   width: 100%;
   @include effect(background-blur-shadow);
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--dark-200);
+  }
+
+  @include media-query(tablet) {
+    display: none;
+  }
 }
 
 .leftSide {
@@ -38,6 +47,12 @@
 
 .mail {
   color: var(--bisky-100);
+  @extend %press;
+  @include transition((filter, scale), (250ms, 100ms));
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
 
 .privateText {
@@ -52,4 +67,10 @@
 
 .legalLink {
   color: var(--light-400);
+  @extend %press;
+  @include transition((filter, scale), (250ms, 100ms));
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
