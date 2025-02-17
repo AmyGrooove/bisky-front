@@ -5,6 +5,7 @@ import { cn } from '@shared/utils/functions'
 import { CopyIcon, HourglassIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
+import { Skeleton } from '@shared/ui/atoms/Skeleton'
 
 import { profileMenuLinks } from '../../static/profileMenuLinks'
 
@@ -23,6 +24,7 @@ const ProfileMenu = () => {
     isClosing,
     isTemporary,
     copyUsername,
+    isLoading,
   } = useProfileMenu()
 
   return (
@@ -32,12 +34,16 @@ const ProfileMenu = () => {
         className={cn(st.avatarButton, { [st.avatarButton_opened]: isOpen })}
         {...getReferenceProps()}
       >
-        <PlaceholderImage
-          src={avatar}
-          width={40}
-          height={40}
-          className={st.avatar}
-        />
+        {isLoading ? (
+          <Skeleton className={st.avatar} width={40} height={40} />
+        ) : (
+          <PlaceholderImage
+            src={avatar}
+            width={40}
+            height={40}
+            className={st.avatar}
+          />
+        )}
       </button>
       {isOpen && (
         <div

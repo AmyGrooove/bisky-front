@@ -6,6 +6,9 @@ import 'keen-slider/keen-slider.min.css'
 import '@shared/styles/global.scss'
 import { ModalWrapper } from '@widgets/ModalWrapper'
 import { IDefaultPageProps } from '@shared/types'
+import { Header } from '@widgets/Header'
+import { Footer } from '@widgets/Footer'
+import { Bar } from '@widgets/Bar'
 
 import st from './RootLayout.module.scss'
 
@@ -28,7 +31,12 @@ const RootLayout = (props: IDefaultPageProps) => {
       </head>
       <body className={ubuntu.className}>
         <ModalWrapper />
-        <main className={st.main}>{children}</main>
+        <main className={st.main}>
+          <Header />
+          {children}
+          <Footer />
+          <Bar />
+        </main>
       </body>
     </html>
   )

@@ -12,7 +12,7 @@ import { useSession } from '@entities/auth/hooks'
 import { useTransitionClose } from '@shared/utils/hooks'
 
 const useProfileMenu = () => {
-  const { user } = useSession()
+  const { user, isLoading } = useSession()
   const { avatar = null, username = '', isTemporary = true } = user ?? {}
 
   const { isOpen, isClosing, toggle } = useTransitionClose()
@@ -48,6 +48,7 @@ const useProfileMenu = () => {
     isClosing,
     isTemporary,
     copyUsername,
+    isLoading,
   }
 }
 

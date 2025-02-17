@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 
 import { Text } from '@shared/ui/atoms/Text'
@@ -20,11 +22,13 @@ const Header = () => {
       </Link>
       <div className={st.rightSide}>
         <Link href="/search" className={st.searchButton}>
-          <div className={st.searchText}>
-            <SearchIcon className={st.searchIcon} />
-            <Text weight="700">Поиск...</Text>
+          <div className={st.searchLabel}>
+            <SearchIcon className={st.searchIcon} isCustomColor />
+            <Text className={st.searchText} isCustomColor>
+              Поиск...
+            </Text>
           </div>
-          <Text className={st.hotKey} weight="700">
+          <Text className={st.hotKey} weight="700" isCustomColor>
             Ctrl + K
           </Text>
         </Link>
