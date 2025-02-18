@@ -35,14 +35,9 @@ const ProfileMenu = () => {
         {...getReferenceProps()}
       >
         {isLoading ? (
-          <Skeleton className={st.avatar} width={40} height={40} />
+          <Skeleton className={st.avatarSkeleton} />
         ) : (
-          <PlaceholderImage
-            src={avatar}
-            width={40}
-            height={40}
-            className={st.avatar}
-          />
+          <PlaceholderImage src={avatar} className={st.avatar} />
         )}
       </button>
       {isOpen && (

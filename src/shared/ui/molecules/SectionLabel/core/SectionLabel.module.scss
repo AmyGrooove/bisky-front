@@ -40,3 +40,7 @@
   height: 32px;
   width: 32px;
 }
+
+.children {
+  @include text-style(24);
+}

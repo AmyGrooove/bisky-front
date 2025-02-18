@@ -10,12 +10,12 @@ import st from './WatchAllCard.module.scss'
 import { useWatchAllCard } from './useWatchAllCard'
 
 const WatchAllCard = (props: IWatchAllCardProps) => {
-  const { href, variant, className } = useWatchAllCard(props)
+  const { href, className } = useWatchAllCard(props)
 
   return (
-    <Link href={href} className={cn(st.root, className, st[`root_${variant}`])}>
+    <Link href={href} className={cn(st.root, className)}>
       <MoveRightIcon className={st.icon} />
-      <Text weight="700" size={variant === 'big' ? '20' : '12'}>
+      <Text weight="700" className={st.text}>
         Смотреть все
       </Text>
     </Link>

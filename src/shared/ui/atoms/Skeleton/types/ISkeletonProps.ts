@@ -1,7 +1,5 @@
 interface ISkeletonProps {
-  templates?: 'none'
-  width?: number
-  height?: number
+  templates?: 'season' | 'none'
   className?: string
 }
 

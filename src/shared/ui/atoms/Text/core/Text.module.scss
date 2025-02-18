@@ -1,7 +1,6 @@
-@use '../styles/defineFontSize.scss' as *;
+@use '@shared/styles/reusable.scss' as *;
 @use '../styles/defineFontWeight.scss' as *;
 
-@include define-font-size((12, 16, 20, 24, 32, 40));
 @include define-font-weight((400, 700));
 
 .root_defaultColor {

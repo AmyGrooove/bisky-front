@@ -14,12 +14,12 @@ const Footer = () => {
         <div className={st.mainInfo}>
           <div className={st.logoWrapper}>
             <LogoIcon className={st.logo} isCustomColor />
-            <Text weight="700" size="20">
+            <Text weight="700" className={st.logoText}>
               Bisky
             </Text>
           </div>
           <Link href="mailto:help@bisky.one">
-            <Text size="20" isCustomColor className={st.mail}>
+            <Text isCustomColor className={st.mail}>
               help@bisky.one
             </Text>
           </Link>

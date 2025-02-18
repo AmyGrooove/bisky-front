@@ -9,12 +9,11 @@ const useHistoryItem = (props: IHistoryItemProps) => {
   const {
     data: { updatedOn, historyData, type },
     className,
-    variant = 'big',
   } = props
 
   const updateDate = normalizeDate(updatedOn)
 
-  const LeftSide = HistoryType(type, historyData, variant)
+  const LeftSide = HistoryType(type, historyData)
   const RightIcon = HistoryTypeIcon(type, historyData)
 
   return { className, updateDate, LeftSide, RightIcon }

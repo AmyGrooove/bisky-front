@@ -15,7 +15,6 @@ import st from './HistoryType.module.scss'
 const HistoryType = (
   type: THistoryTypes,
   historyData: IHistoryItemProps['data']['historyData'],
-  variant: 'big' | 'small',
 ) => {
   const {
     fastFindSkippedCount = null,
@@ -27,8 +26,6 @@ const HistoryType = (
     poster = null,
     label = null,
   } = historyData
-
-  const defaultSize = variant === 'big' ? '16' : '12'
 
   const isFastFind = type === 'fastFind'
 
@@ -45,30 +42,25 @@ const HistoryType = (
           {
             animeScore: (
               <>
-                <PlaceholderImage
-                  src={poster}
-                  width={40}
-                  height={64}
-                  className={st.poster}
-                />
+                <PlaceholderImage src={poster} className={st.poster} />
                 {animeEstimateScore ? (
                   <div className={st.rowText}>
-                    <Text size={defaultSize} weight="700">
+                    <Text className={st.text} weight="700">
                       Оценил аниме на
                     </Text>
                     <Text
-                      size={defaultSize}
                       weight="700"
                       isCustomColor
-                      className={
-                        st[`score_${getScoreColor(animeEstimateScore)}`]
-                      }
+                      className={cn(
+                        st.text,
+                        st[`score_${getScoreColor(animeEstimateScore)}`],
+                      )}
                     >
                       {String(animeEstimateScore)}
                     </Text>
                   </div>
                 ) : (
-                  <Text size={defaultSize} weight="700">
+                  <Text className={st.text} weight="700">
                     Удалил оценку у аниме
                   </Text>
                 )}
@@ -76,32 +68,27 @@ const HistoryType = (
             ),
             animeList: (
               <>
-                <PlaceholderImage
-                  src={poster}
-                  width={40}
-                  height={64}
-                  className={st.poster}
-                />
-                <Text size={defaultSize} weight="700">
+                <PlaceholderImage src={poster} className={st.poster} />
+                <Text className={st.text} weight="700">
                   {animeListText(animeEstimateListStatus)}
                 </Text>
               </>
             ),
             fastFind: (
               <>
-                <Text size={defaultSize} weight="700">
+                <Text className={st.text} weight="700">
                   Добавил аниме через быстрый поиск
                 </Text>
                 <div className={st.columnText}>
                   <div className={st.rowText}>
-                    <Text size={defaultSize}>В свой список:</Text>
-                    <Text size={defaultSize} weight="700">
+                    <Text className={st.text}>В свой список:</Text>
+                    <Text className={st.text} weight="700">
                       {String(fastFindAddedCount)}
                     </Text>
                   </div>
                   <div className={st.rowText}>
-                    <Text size={defaultSize}>В список исключаемых:</Text>
-                    <Text size={defaultSize} weight="700">
+                    <Text className={st.text}>В список исключаемых:</Text>
+                    <Text className={st.text} weight="700">
                       {String(fastFindSkippedCount)}
                     </Text>
                   </div>
@@ -110,18 +97,13 @@ const HistoryType = (
             ),
             animeFavorite: (
               <>
-                <PlaceholderImage
-                  src={poster}
-                  width={40}
-                  height={64}
-                  className={st.poster}
-                />
+                <PlaceholderImage src={poster} className={st.poster} />
                 {animeEstimateIsFavorite ? (
-                  <Text size={defaultSize} weight="700">
+                  <Text className={st.text} weight="700">
                     Добавил аниме в избранное
                   </Text>
                 ) : (
-                  <Text size={defaultSize} weight="700">
+                  <Text className={st.text} weight="700">
                     Удалил аниме из избранного
                   </Text>
                 )}

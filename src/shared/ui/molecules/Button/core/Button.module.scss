@@ -7,7 +7,7 @@
   display: flex;
   gap: 4px;
   justify-content: center;
-  @extend %invoke, %press, %no-select;
+  @extend %invoke-scale, %press, %no-select;
   @include effect(back-shadow);
   @include transition(
     (background-color, filter, opacity, scale),
@@ -31,6 +31,22 @@
     background-color: var(--bisky-300);
   }
 
+  &_big {
+    border-radius: var(--radius-12);
+    min-height: 34px;
+    min-width: 34px;
+    padding: 8px;
+
+    .icon {
+      height: 16px;
+      width: 16px;
+    }
+
+    .children {
+      @include text-style(16);
+    }
+  }
+
   &_small {
     border-radius: var(--radius-8);
     min-height: 24px;
@@ -41,17 +57,9 @@
       height: 12px;
       width: 12px;
     }
-  }
 
-  &_big {
-    border-radius: var(--radius-12);
-    min-height: 34px;
-    min-width: 34px;
-    padding: 8px;
-
-    .icon {
-      height: 16px;
-      width: 16px;
+    .children {
+      @include text-style(12);
     }
   }
 }

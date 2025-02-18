@@ -5,7 +5,6 @@
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
-  @extend %invoke;
 }
 
 .blurImage {

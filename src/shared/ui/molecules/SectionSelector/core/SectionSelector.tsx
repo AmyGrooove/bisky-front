@@ -43,7 +43,12 @@ const SectionSelector = (props: ISectionSelectorProps) => {
           }}
         >
           {item.icon && cloneElement(item.icon, { className: st.icon })}
-          <Text size={elementsVariant === 'row' ? '16' : '12'} weight="700">
+          <Text
+            className={cn(st.children, {
+              [st.children_row]: elementsVariant === 'row',
+            })}
+            weight="700"
+          >
             {item.children}
           </Text>
         </div>

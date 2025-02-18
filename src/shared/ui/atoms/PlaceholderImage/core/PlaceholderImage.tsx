@@ -15,19 +15,16 @@ const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
   (props, ref) => {
     const {
       className,
-      width,
-      height,
       isPlaceholderHidden,
       isLoaded,
       src,
       alt,
       handleLoad,
       handleError,
-      containerStyle,
     } = usePlaceholderImage(props)
 
     return (
-      <div ref={ref} className={cn(st.root, className)} style={containerStyle}>
+      <div ref={ref} className={cn(st.root, className)}>
         {!isPlaceholderHidden && (
           <div className={cn(st.blurImage, { [st.blurImage_hide]: isLoaded })}>
             <LogoIcon className={st.icon} />
@@ -36,13 +33,12 @@ const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
         {src ? (
           <Image
             className={st.image}
-            width={width}
-            height={height}
             src={src}
             alt={alt}
             onLoad={handleLoad}
             onError={handleError}
             loading="lazy"
+            fill
           />
         ) : null}
       </div>

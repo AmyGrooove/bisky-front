@@ -16,7 +16,7 @@ const Header = () => {
     <div className={st.root}>
       <Link href="/" className={st.logoWrapper}>
         <LogoIcon className={st.logo} />
-        <Text weight="700" size="40" isCustomColor className={st.logoText}>
+        <Text weight="700" isCustomColor className={st.logoText}>
           Bisky
         </Text>
       </Link>

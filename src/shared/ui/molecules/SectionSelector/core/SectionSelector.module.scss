@@ -8,7 +8,7 @@
   padding: 8px;
   position: relative;
 
-  @extend %invoke;
+  @extend %invoke-scale;
   @include transition((scale), (100ms));
 
   &_vertical {
@@ -50,4 +50,12 @@
 .icon {
   height: 16px;
   width: 16px;
+}
+
+.children {
+  @include text-style(12);
+
+  &_row {
+    @include text-style(16);
+  }
 }

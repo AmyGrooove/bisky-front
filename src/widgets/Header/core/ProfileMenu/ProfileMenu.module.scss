@@ -1,5 +1,16 @@
 @use '@shared/styles/reusable.scss' as *;
 
+.avatar {
+  height: 40px;
+  width: 40px;
+  @extend %invoke;
+}
+
+.avatarSkeleton {
+  height: 40px;
+  width: 40px;
+}
+
 .avatarButton {
   background-color: transparent;
   border: 0;
@@ -8,7 +19,7 @@
   cursor: pointer;
   overflow: hidden;
   padding: 0;
-  @extend %invoke, %press, %no-select;
+  @extend %invoke-scale, %press, %no-select;
   @include effect(back-shadow);
   @include transition((border, scale), (250ms, 100ms));
 
@@ -108,7 +119,7 @@
   padding: 8px;
   width: 200px;
   z-index: 10;
-  @extend %invoke;
+  @extend %invoke-scale;
   @include effect(back-shadow);
 
   &_hide {

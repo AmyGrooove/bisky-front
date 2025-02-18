@@ -19,7 +19,7 @@ const SectionLabel = (props: ISectionLabelProps) => {
       </button>
       <div className={st.labelWrapper}>
         {icon && cloneElement(icon, { className: st.icon })}
-        <Text weight="700" size="24">
+        <Text weight="700" className={st.children}>
           {children}
         </Text>
       </div>

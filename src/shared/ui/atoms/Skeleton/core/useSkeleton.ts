@@ -1,9 +1,9 @@
 import { ISkeletonProps } from '../types/ISkeletonProps'
 
 const useSkeleton = (props: ISkeletonProps) => {
-  const { className, templates = 'none', width, height } = props
+  const { className, templates = 'none' } = props
 
-  return { className, templates, width, height }
+  return { className, templates }
 }
 
 export { useSkeleton }

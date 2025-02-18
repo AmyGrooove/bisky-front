@@ -12,7 +12,7 @@ const HistoryItem = (props: IHistoryItemProps) => {
   return (
     <div className={cn(st.root, className)}>
       {LeftSide}
-      <Text className={st.updateDate} size="12" weight="700">
+      <Text className={st.updateDate} weight="700">
         {updateDate}
       </Text>
       <div className={st.iconWrapper}>{RightIcon}</div>

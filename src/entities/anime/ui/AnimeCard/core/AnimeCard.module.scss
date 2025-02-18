@@ -2,10 +2,15 @@
 
 .relation {
   color: var(--light-400);
+  @include text-style(16);
+}
+
+.label {
+  @include text-style(12);
 }
 
 .hoverBackground {
-  background-color: var(--black-70);
+  background-color: var(--black-60);
   border-radius: var(--radius-20);
   height: 100%;
   opacity: 0;
@@ -53,49 +58,93 @@
 .root {
   display: flex;
   flex-direction: column;
+  height: 320px;
   position: relative;
+  width: 200px;
 
-  &_big {
-    height: 320px;
-    width: 200px;
+  .scoreBadge {
+    opacity: 0;
+  }
 
-    .scoreBadge {
-      opacity: 0;
-    }
+  &:has(.relation) {
+    margin-bottom: 22px;
 
-    &:has(.relation) {
-      margin-bottom: 22px;
-
-      .relation {
-        bottom: -22px;
-        position: absolute;
-      }
-    }
-
-    &:has(.currentUserScoreBadge) {
-      margin-bottom: 28px;
-
-      .currentUserScoreBadge {
-        bottom: -28px;
-        position: absolute;
-      }
-    }
-
-    &:hover {
-      .scoreBadge,
-      .hoverBackground,
-      .hoverLabel,
-      .addButton {
-        opacity: 1;
-      }
+    .relation {
+      bottom: -22px;
+      position: absolute;
     }
   }
 
-  &_small {
-    width: 120px;
+  &:has(.currentUserScoreBadge) {
+    margin-bottom: 28px;
+
+    .currentUserScoreBadge {
+      bottom: -28px;
+      position: absolute;
+    }
+  }
+
+  &:hover {
+    .scoreBadge,
+    .hoverBackground,
+    .hoverLabel,
+    .addButton {
+      opacity: 1;
+    }
   }
 }
 
 .poster {
   border-radius: var(--radius-20);
+  height: 320px;
+  width: 200px;
+}
+
+@include media-query(tablet, true) {
+  .label {
+    display: none;
+  }
+
+  .scoreBadge_small {
+    display: none;
+  }
+
+  .currentUserScoreBadge_small {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .poster {
+    height: 190px;
+    width: 120px;
+  }
+
+  .root {
+    width: 120px;
+  }
+
+  .relation {
+    @include text-style(12);
+  }
+
+  .hoverBackground {
+    display: none;
+  }
+
+  .hoverLabel {
+    display: none;
+  }
+
+  .scoreBadge_big {
+    display: none;
+  }
+
+  .currentUserScoreBadge_big {
+    display: none;
+  }
+
+  .addButton {
+    display: none;
+  }
 }

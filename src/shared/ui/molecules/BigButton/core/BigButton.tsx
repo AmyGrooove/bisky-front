@@ -31,12 +31,12 @@ const BigButton = (props: IBigButtonProps) => {
       <div className={st.iconWrapper}>
         {cloneElement(icon, { className: st.icon })}
         {iconText && (
-          <Text weight="700" size={variant === 'small' ? '24' : '32'}>
+          <Text weight="700" className={st.iconText}>
             {iconText}
           </Text>
         )}
       </div>
-      <Text weight="700" size={variant === 'small' ? '12' : '20'}>
+      <Text weight="700" className={st.children}>
         {children}
       </Text>
     </button>

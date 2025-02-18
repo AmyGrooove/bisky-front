@@ -4,7 +4,6 @@ interface ICircleViewsProps {
   droppedCount: number
   watchingCount: number
 
-  variant?: 'big' | 'small'
   className?: string
 }
 

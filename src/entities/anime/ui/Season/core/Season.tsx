@@ -13,70 +13,59 @@ import st from './Season.module.scss'
 const Season = (props: ISeasonProps) => {
   const {
     data,
-    variant,
     className,
     animeLink,
     isNextImageShow,
     backgroundImage2,
-    isBigVariant,
     firstBackgroundSrc,
-    backgroundWidth,
-    backgroundHeight,
     genreRow,
+    isNotActive,
   } = useSeason(props)
 
   return (
     <Link
       href={animeLink}
-      className={cn(st.root, className, st[`root_${variant}`])}
+      className={cn(st.root, className, {
+        [st.root_notActive]: isNotActive,
+      })}
     >
       <div className={st.main}>
-        <PlaceholderImage
-          className={st.poster}
-          src={data.poster}
-          width={isBigVariant ? 180 : 80}
-          height={isBigVariant ? 250 : 120}
-        />
-        <Text
-          weight="700"
-          size={isBigVariant ? '32' : '16'}
-          className={st.label}
-        >
+        <PlaceholderImage className={st.poster} src={data.poster} />
+        <Text weight="700" className={st.label}>
           {data.label}
         </Text>
       </div>
-      <ScoreBadge score={data.score} className={st.score} variant={variant} />
-      <Text
-        className={st.genres}
-        size={isBigVariant ? '20' : '12'}
-        weight="700"
-        maxLines={1}
-      >
+      <Text className={st.genres} weight="700" maxLines={1}>
         {genreRow}
       </Text>
       <span className={st.background} />
       <div
-        className={cn(st.backgroundImage, {
-          [st.backgroundImage_hide]: isNextImageShow,
+        className={cn(st.backWrapper, {
+          [st.backWrapper_hide]: isNextImageShow,
         })}
       >
-        <PlaceholderImage
-          src={firstBackgroundSrc}
-          width={backgroundWidth}
-          height={backgroundHeight}
-        />
+        <PlaceholderImage src={firstBackgroundSrc} className={st.backImage} />
       </div>
       <div
-        className={cn(st.backgroundImage, {
-          [st.backgroundImage_hide]: !isNextImageShow,
+        className={cn(st.backWrapper, {
+          [st.backWrapper_hide]: !isNextImageShow,
         })}
       >
         <PlaceholderImage
           src={data.screenshots?.[backgroundImage2] ?? null}
-          width={backgroundWidth}
-          height={backgroundHeight}
+          className={st.backImage}
         />
       </div>
+      <ScoreBadge
+        score={data.score}
+        className={cn(st.score, st.score_big)}
+        variant="big"
+      />
+      <ScoreBadge
+        score={data.score}
+        className={cn(st.score, st.score_small)}
+        variant="small"
+      />
     </Link>
   )
 }

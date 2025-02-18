@@ -71,7 +71,7 @@
   padding: 20px;
   position: relative;
   z-index: 1;
-  @extend %invoke;
+  @extend %invoke-scale;
   @include effect(back-shadow);
 }
 
@@ -79,4 +79,10 @@
   background-color: transparent;
   border: 0;
   padding: 0;
+}
+
+@include media-query(tablet) {
+  .root {
+    display: none;
+  }
 }

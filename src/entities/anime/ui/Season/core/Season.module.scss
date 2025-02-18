@@ -1,20 +1,5 @@
 @use '@shared/styles/reusable.scss' as *;
 
-.main {
-  align-items: center;
-  display: flex;
-  gap: 20px;
-}
-
-.genres {
-  opacity: 0.8;
-  position: absolute;
-}
-
-.score {
-  position: absolute;
-}
-
 .root {
   border: 2px solid transparent;
   border-radius: var(--radius-20);
@@ -23,80 +8,71 @@
   height: 380px;
   justify-content: center;
   overflow: hidden;
+  padding: 48px 20px;
   position: relative;
   width: 1080px;
-
-  @extend %invoke, %press, %no-select;
+  @extend %no-select;
   @include effect(back-shadow);
-  @include transition((border-color, scale), (250ms, 100ms));
+  @include transition((border-color, opacity, scale), (250ms, 250ms, 100ms));
 
   &:hover {
     border-color: var(--bisky-400);
   }
 
-  &_small {
-    height: 180px;
-    padding: 28px 12px;
-    width: 380px;
-
-    .main {
-      gap: 12px;
-    }
-
-    .poster {
-      border-radius: var(--radius-12);
-    }
-
-    .genres {
-      bottom: 8px;
-      right: 8px;
-      width: 356px;
-    }
-
-    .score {
-      right: 8px;
-      top: 8px;
-    }
+  &_notActive {
+    opacity: 0.4;
   }
+}
+
+.poster {
+  border-radius: var(--radius-20);
+  height: 250px;
+  width: 180px;
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.genres {
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.8;
+  position: absolute;
+  width: 1040px;
+  @include text-style(20);
+}
+
+.score {
+  position: absolute;
 
   &_big {
-    height: 380px;
-    padding: 48px 20px;
-    width: 1080px;
+    right: 20px;
+    top: 20px;
+  }
 
-    .main {
-      gap: 20px;
-    }
-
-    .poster {
-      border-radius: var(--radius-20);
-    }
-
-    .genres {
-      bottom: 20px;
-      left: 20px;
-      width: 1040px;
-    }
-
-    .score {
-      right: 20px;
-      top: 20px;
-    }
+  &_small {
+    right: 8px;
+    top: 8px;
   }
 }
 
 .label {
   width: 100%;
+  @include text-style(32);
 }
 
 .background {
-  background-color: var(--black-70);
+  background-color: var(--black-60);
   inset: 0;
   position: absolute;
   z-index: -1;
 }
 
-.backgroundImage {
+.backWrapper {
   inset: 0;
   opacity: 1;
   position: absolute;
@@ -105,5 +81,54 @@
 
   &_hide {
     opacity: 0;
+  }
+}
+
+.backImage {
+  height: 380px;
+  width: 1080px;
+}
+
+@include media-query(tablet, true) {
+  .score_small {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    height: 180px;
+    padding: 28px 12px;
+    width: 380px;
+  }
+
+  .poster {
+    border-radius: var(--radius-12);
+    height: 120px;
+    width: 80px;
+  }
+
+  .main {
+    gap: 12px;
+  }
+
+  .genres {
+    bottom: 8px;
+    right: 8px;
+    width: 356px;
+    @include text-style(12);
+  }
+
+  .score_big {
+    display: none;
+  }
+
+  .label {
+    @include text-style(16);
+  }
+
+  .backImage {
+    height: 180px;
+    width: 380px;
   }
 }

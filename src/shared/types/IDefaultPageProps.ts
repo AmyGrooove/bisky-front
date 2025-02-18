@@ -1,5 +1,7 @@
+import { ReactNode } from 'react'
+
 interface IDefaultPageProps {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export type { IDefaultPageProps }

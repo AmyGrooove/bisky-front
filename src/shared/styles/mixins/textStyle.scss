@@ -1,0 +1,21 @@
+@use 'sass:list';
+@use 'sass:map';
+
+@mixin text-style($size: 16) {
+  $sizes: (12, 16, 20, 24, 32, 40);
+  $line-heights: (
+    12: 14px,
+    16: 18px,
+    20: 23px,
+    24: 28px,
+    32: 37px,
+    40: 51px,
+  );
+
+  @if not list.index($sizes, $size) {
+    @error "Invalid size: #{$size}. Allowed sizes: #{$sizes}";
+  }
+
+  font-size: #{$size}px;
+  line-height: map.get($line-heights, $size);
+}

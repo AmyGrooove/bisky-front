@@ -8,18 +8,17 @@ import st from './CircleViews.module.scss'
 import { useCircleViews } from './useCircleViews'
 
 const CircleViews = (props: ICircleViewsProps) => {
-  const { isEmpty, variant, className, circleGradient, sumCount } =
-    useCircleViews(props)
+  const { isEmpty, className, circleGradient, sumCount } = useCircleViews(props)
 
   return (
-    <div className={cn(st.root, className, st[`root_${variant}`])}>
+    <div className={cn(st.root, className)}>
       {isEmpty ? (
         <Skeleton className={st.circle} />
       ) : (
         <div className={st.circle} style={{ background: circleGradient }} />
       )}
       <div className={st.sumCount}>
-        <Text size={variant === 'big' ? '40' : '24'} weight="700">
+        <Text className={st.sumCount} weight="700">
           {String(sumCount)}
         </Text>
       </div>

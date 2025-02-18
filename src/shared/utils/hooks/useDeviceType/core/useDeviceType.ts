@@ -1,15 +1,18 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { MOBILE_BREAKPOINT } from '../static/MOBILE_BREAKPOINT'
 
 const useDeviceType = () => {
+  const isLoading = useRef(true)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const updateDeviceType = () =>
+    const updateDeviceType = () => {
+      isLoading.current = false
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    }
 
     updateDeviceType()
 
@@ -17,7 +20,7 @@ const useDeviceType = () => {
     return () => window.removeEventListener('resize', updateDeviceType)
   }, [])
 
-  return { isMobile, isDesktop: !isMobile }
+  return { isMobile, isDesktop: !isMobile, isLoading: isLoading.current }
 }
 
 export { useDeviceType }

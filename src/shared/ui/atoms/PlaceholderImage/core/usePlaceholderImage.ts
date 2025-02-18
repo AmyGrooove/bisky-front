@@ -1,10 +1,10 @@
-import { CSSProperties, useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
 import { PLACEHOLDER_DELAY } from '../static/PLACEHOLDER_DELAY'
 
 const usePlaceholderImage = (props: IPlaceholderImageProps) => {
-  const { src, width, height, className = null, alt = '' } = props
+  const { src, className = null, alt = '' } = props
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [isPlaceholderHidden, setIsPlaceholderHidden] = useState(false)
@@ -16,11 +16,6 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
   const handleError = useCallback(() => {
     setIsLoaded(false)
   }, [])
-
-  const containerStyle: CSSProperties = {
-    width: `${width}px`,
-    height: `${height}px`,
-  }
 
   useEffect(() => {
     setIsLoaded(false)
@@ -40,15 +35,12 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
 
   return {
     className,
-    width,
-    height,
     isPlaceholderHidden,
     isLoaded,
     src,
     alt,
     handleLoad,
     handleError,
-    containerStyle,
   }
 }
 

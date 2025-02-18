@@ -29,7 +29,7 @@ const Button = (props: TButtonProps) => {
     >
       {icon && cloneElement(icon, { className: st.icon })}
       {children && (
-        <Text weight="700" size={variant === 'small' ? '12' : '16'}>
+        <Text weight="700" className={st.children}>
           {children}
         </Text>
       )}

@@ -9,6 +9,7 @@ import { IDefaultPageProps } from '@shared/types'
 import { Header } from '@widgets/Header'
 import { Footer } from '@widgets/Footer'
 import { Bar } from '@widgets/Bar'
+import { MiniLogo } from '@widgets/MiniLogo'
 
 import st from './RootLayout.module.scss'
 
@@ -32,6 +33,7 @@ const RootLayout = (props: IDefaultPageProps) => {
       <body className={ubuntu.className}>
         <ModalWrapper />
         <main className={st.main}>
+          <MiniLogo />
           <Header />
           {children}
           <Footer />
