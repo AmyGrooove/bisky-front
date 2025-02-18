@@ -15,10 +15,6 @@
   &:hover {
     background-color: var(--dark-200);
   }
-
-  @include media-query(tablet) {
-    display: none;
-  }
 }
 
 .leftSide {
@@ -45,10 +41,15 @@
   width: 16px;
 }
 
+.logoText {
+  @include text-style(20);
+}
+
 .mail {
   color: var(--bisky-100);
   @extend %press;
   @include transition((filter, scale), (250ms, 100ms));
+  @include text-style(20);
 
   &:hover {
     filter: brightness(1.1);
@@ -72,5 +73,11 @@
 
   &:hover {
     filter: brightness(1.1);
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    display: none;
   }
 }

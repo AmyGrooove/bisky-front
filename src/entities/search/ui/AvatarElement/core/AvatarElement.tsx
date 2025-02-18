@@ -17,15 +17,8 @@ const AvatarElement = (props: IAvatarElementProps) => {
       href={userHref}
       className={cn(st.root, className, st[`root_${variant}`])}
     >
-      <PlaceholderImage
-        src={data.avatar}
-        width={60}
-        height={60}
-        className={st.avatar}
-      />
-      <Text size="16" weight="700">
-        {data.username}
-      </Text>
+      <PlaceholderImage src={data.avatar} className={st.avatar} />
+      <Text weight="700">{data.username}</Text>
     </Link>
   )
 }

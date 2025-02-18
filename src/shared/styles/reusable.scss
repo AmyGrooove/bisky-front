@@ -1,14 +1,15 @@
-@forward './mixins/transition';
-@forward './mixins/effect';
-@forward './mixins/scoreColor';
-@forward './mixins/estimateColor';
-@forward './mixins/mediaQuery';
-
-@forward './variables/borderRadiuses';
-@forward './variables/colors';
-@forward './variables/animation';
-
+@forward './classes/invokeScale';
 @forward './classes/invoke';
 @forward './classes/disappear';
 @forward './classes/press';
 @forward './classes/noSelect';
+
+@forward './mixins/transition';
+@forward './mixins/effect';
+@forward './mixins/scoreColor';
+@forward './mixins/estimateColor';
+@forward './mixins/textStyle';
+@forward './mixins/mediaQuery';
+
+@forward './variables/borderRadiuses';
+@forward './variables/colors';

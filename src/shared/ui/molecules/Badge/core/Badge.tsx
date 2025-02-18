@@ -20,16 +20,13 @@ const Badge = (props: TBadgeProps) => {
       <div className={st.iconWrapper}>
         {icon && cloneElement(icon, { className: st.icon })}
         {children && (
-          <Text
-            weight={iconText ? '400' : '700'}
-            size={variant === 'small' ? '12' : '16'}
-          >
+          <Text className={st.children} weight={iconText ? '400' : '700'}>
             {children}
           </Text>
         )}
       </div>
       {iconText && (
-        <Text weight="700" size={variant === 'small' ? '12' : '16'}>
+        <Text weight="700" className={st.iconText}>
           {iconText}
         </Text>
       )}

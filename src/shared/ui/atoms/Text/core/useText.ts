@@ -5,7 +5,6 @@ import { ITextProps } from '../types/ITextProps'
 const useText = (props: ITextProps) => {
   const {
     children,
-    size = '16',
     weight = '400',
     isCustomColor = false,
     className = null,
@@ -25,7 +24,6 @@ const useText = (props: ITextProps) => {
 
   return {
     children,
-    size,
     weight,
     isCustomColor,
     className,

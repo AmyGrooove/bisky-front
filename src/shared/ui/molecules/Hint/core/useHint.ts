@@ -7,7 +7,7 @@ import {
   useInteractions,
 } from '@floating-ui/react'
 
-import { useTransitionClose } from '@shared/utils/hooks'
+import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 
 import { IHintProps } from '../types/IHintProps'
 

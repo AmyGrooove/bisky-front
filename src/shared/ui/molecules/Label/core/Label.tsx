@@ -14,16 +14,12 @@ const Label = (props: ILabelProps) => {
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
-      <Text weight="700" size={variant === 'small' ? '20' : '32'}>
+      <Text weight="700" className={st.children}>
         {children}
       </Text>
       {linkText && href && (
         <Link href={href} className={st.linkWrapper}>
-          <Text
-            size={variant === 'small' ? '16' : '20'}
-            isCustomColor
-            className={st.linkText}
-          >
+          <Text isCustomColor className={st.linkText}>
             {linkText}
           </Text>
           <ChevronRightIcon className={st.icon} />

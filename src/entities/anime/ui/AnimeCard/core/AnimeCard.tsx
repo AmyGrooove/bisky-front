@@ -14,9 +14,7 @@ import { useAnimeCard } from './useAnimeCard'
 const AnimeCard = (props: IAnimeCardProps) => {
   const {
     className,
-    variant,
     animeHref,
-    isBigVariant,
     poster,
     label,
     relation,
@@ -26,55 +24,56 @@ const AnimeCard = (props: IAnimeCardProps) => {
   } = useAnimeCard(props)
 
   return (
-    <Link
-      href={animeHref}
-      className={cn(st.root, className, st[`root_${variant}`])}
-    >
-      <PlaceholderImage
-        className={st.poster}
-        src={poster}
-        width={isBigVariant ? 200 : 120}
-        height={isBigVariant ? 320 : 190}
-      />
-      {isBigVariant && (
-        <>
-          <div className={st.hoverBackground} />
-          <div className={st.hoverLabel}>
-            <Text size="16" weight="700">
-              {label}
-            </Text>
-          </div>
-          <AddInListButton _id={_id} className={st.addButton} />
-        </>
-      )}
+    <Link href={animeHref} className={cn(st.root, className)}>
+      <PlaceholderImage className={st.poster} src={poster} />
+      <div className={st.hoverBackground} />
+      <div className={st.hoverLabel}>
+        <Text weight="700">{label}</Text>
+      </div>
+      <AddInListButton _id={_id} className={st.addButton} />
 
-      {!isBigVariant && (
-        <>
-          <Text maxLines={1} size="12" weight="700">
-            {label}
-          </Text>
-        </>
-      )}
+      <Text maxLines={1} weight="700" className={st.label}>
+        {label}
+      </Text>
 
       {relation && (
-        <Text
-          maxLines={1}
-          size={isBigVariant ? '16' : '12'}
-          isCustomColor
-          className={st.relation}
-        >
+        <Text maxLines={1} isCustomColor className={st.relation}>
           {relation}
         </Text>
       )}
       {score && (
-        <ScoreBadge variant={variant} score={score} className={st.scoreBadge} />
+        <>
+          <ScoreBadge
+            variant="big"
+            score={score}
+            className={cn(st.scoreBadge, st.scoreBadge_big)}
+          />
+          <ScoreBadge
+            variant="small"
+            score={score}
+            className={cn(st.scoreBadge, st.scoreBadge_small)}
+          />
+        </>
       )}
       {currentUserScore && (
-        <ScoreBadge
-          variant={variant}
-          score={currentUserScore}
-          className={st.currentUserScoreBadge}
-        />
+        <>
+          <ScoreBadge
+            variant="big"
+            score={currentUserScore}
+            className={cn(
+              st.currentUserScoreBadge,
+              st.currentUserScoreBadge_big,
+            )}
+          />
+          <ScoreBadge
+            variant="small"
+            score={currentUserScore}
+            className={cn(
+              st.currentUserScoreBadge,
+              st.currentUserScoreBadge_small,
+            )}
+          />
+        </>
       )}
     </Link>
   )

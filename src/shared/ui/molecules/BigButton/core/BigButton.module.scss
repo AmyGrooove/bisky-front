@@ -9,7 +9,7 @@
   gap: 4px;
   justify-content: center;
   padding: 8px 0;
-  @extend %invoke, %press, %no-select;
+  @extend %invoke-scale, %press, %no-select;
   @include effect(back-shadow);
   @include transition(
     (background-color, filter, opacity, scale),
@@ -33,6 +33,25 @@
     background-color: var(--bisky-300);
   }
 
+  &_big {
+    border-radius: var(--radius-20);
+    min-height: 80px;
+    width: 180px;
+
+    .icon {
+      height: 36px;
+      width: 36px;
+    }
+
+    .iconText {
+      @include text-style(32);
+    }
+
+    .children {
+      @include text-style(20);
+    }
+  }
+
   &_small {
     border-radius: var(--radius-12);
     min-height: 62px;
@@ -42,16 +61,13 @@
       height: 28px;
       width: 28px;
     }
-  }
 
-  &_big {
-    border-radius: var(--radius-20);
-    min-height: 80px;
-    width: 180px;
+    .iconText {
+      @include text-style(24);
+    }
 
-    .icon {
-      height: 36px;
-      width: 36px;
+    .children {
+      @include text-style(12);
     }
   }
 }

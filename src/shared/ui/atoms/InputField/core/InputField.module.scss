@@ -34,7 +34,7 @@
   background-color: var(--dark-100);
   border-radius: var(--radius-12);
   position: relative;
-  @extend %invoke, %no-select;
+  @extend %invoke-scale, %no-select;
   @include effect(back-shadow);
 
   &:has(.icon) .input {

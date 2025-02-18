@@ -6,15 +6,11 @@ import st from './Skeleton.module.scss'
 import { useSkeleton } from './useSkeleton'
 
 const Skeleton = (props: ISkeletonProps) => {
-  const { className, templates, width, height } = useSkeleton(props)
+  const { className, templates } = useSkeleton(props)
 
   return {
-    none: (
-      <div
-        className={cn(st.root, className)}
-        style={{ width: `${width}px`, height: `${height}px` }}
-      />
-    ),
+    season: <div className={cn(st.root, st.root_season, className)} />,
+    none: <div className={cn(st.root, className)} />,
   }[templates]
 }
 

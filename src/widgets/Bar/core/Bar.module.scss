@@ -4,16 +4,16 @@
   align-items: center;
   background-color: var(--dark-240);
   border-radius: var(--radius-20);
+  bottom: 36px;
   display: flex;
   height: 56px;
   justify-content: space-between;
+  left: 36px;
   padding: 0 20px;
-  width: 100%;
+  position: fixed;
+  right: 36px;
+  width: calc(100% - 72px);
   @include effect(background-blur-shadow);
-
-  @include media-query(tablet, true) {
-    display: none;
-  }
 }
 
 .linkIcon {
@@ -25,5 +25,11 @@
   &_active {
     fill: var(--bisky-100);
     opacity: 0.8;
+  }
+}
+
+@include media-query(tablet, true) {
+  .root {
+    display: none;
   }
 }

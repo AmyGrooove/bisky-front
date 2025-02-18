@@ -19,6 +19,7 @@
   padding: 12px 24px;
   z-index: 1;
   @include effect(background-blur-shadow);
+  @include text-style(12);
 }
 
 .iconWrapper {

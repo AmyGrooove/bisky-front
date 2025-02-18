@@ -1,0 +1,62 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  position: relative;
+  width: calc(100% + 40px);
+  @extend %invoke-scale;
+}
+
+.slider {
+  border-radius: var(--small-radius);
+  cursor: grab;
+}
+
+.slide {
+  max-width: 1080px;
+  min-width: 1080px;
+}
+
+.arrow {
+  background-color: transparent;
+  border: 0;
+  bottom: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  @extend %invoke-scale, %press, %no-select;
+  @include transition((filter, scale), (250ms, 100ms));
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &_left {
+    left: 0;
+  }
+
+  &_right {
+    right: 0;
+  }
+}
+
+.arrowIcon {
+  height: 48px;
+  width: 48px;
+}
+
+.season {
+  display: flex;
+  gap: 24px;
+}
+
+@include media-query(tablet) {
+  .slide {
+    max-width: 380px;
+    min-width: 380px;
+  }
+
+  .arrow {
+    display: none;
+  }
+}

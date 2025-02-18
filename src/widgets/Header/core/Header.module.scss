@@ -15,10 +15,6 @@
   &:hover {
     background-color: var(--dark-200);
   }
-
-  @include media-query(tablet) {
-    display: none;
-  }
 }
 
 .logoWrapper {
@@ -38,6 +34,7 @@
 
 .logoText {
   color: var(--bisky-100);
+  @include text-style(40);
 }
 
 .rightSide {
@@ -55,7 +52,7 @@
   gap: 32px;
   height: 40px;
   padding: 8px;
-  @extend %invoke, %press, %no-select;
+  @extend %press, %no-select;
   @include effect(back-shadow);
   @include transition((filter, scale), (250ms, 100ms));
 
@@ -88,4 +85,10 @@
   display: flex;
   height: 24px;
   padding: 0 4px;
+}
+
+@include media-query(tablet) {
+  .root {
+    display: none;
+  }
 }

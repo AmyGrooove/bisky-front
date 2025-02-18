@@ -1,3 +1,5 @@
+@use '@shared/styles/reusable.scss' as *;
+
 @keyframes shine {
   0% {
     background-color: #251928;
@@ -15,4 +17,16 @@
 .root {
   animation: 1s shine linear infinite;
   border-radius: var(--radius-20);
+
+  &_season {
+    height: 380px;
+    width: 1080px;
+  }
+}
+
+@include media-query(tablet) {
+  .root_season {
+    height: 180px;
+    width: 380px;
+  }
 }

@@ -7,7 +7,6 @@ const useCircleViews = (props: ICircleViewsProps) => {
     completeCount = 0,
     watchingCount = 0,
     droppedCount = 0,
-    variant = 'big',
     className,
   } = props
 
@@ -28,7 +27,6 @@ const useCircleViews = (props: ICircleViewsProps) => {
 
   return {
     isEmpty,
-    variant,
     className,
     circleGradient,
     sumCount,

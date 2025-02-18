@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { useSwipeToClose } from '../../hook/useSwipeToClose'
-import { IModalProps } from '../../types/IModalProps'
+import { IModalSolutionProps } from '../../types/IModalSolutionProps'
+import { useSwipeToClose } from '../../hooks/useSwipeToClose'
 
-const useMobileModal = (props: IModalProps) => {
+const useMobileModal = (props: IModalSolutionProps) => {
   const { children, closeFunction, isModalClosing } = props
 
   const modalRef = useRef<HTMLDivElement | null>(null)
@@ -32,6 +32,14 @@ const useMobileModal = (props: IModalProps) => {
 
   useEffect(() => {
     if (modalRef.current) setModalHeight(modalRef.current.offsetHeight)
+  }, [isOpen])
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+
+    return () => {
+      document.body.style.overflow = ''
+    }
   }, [isOpen])
 
   return {

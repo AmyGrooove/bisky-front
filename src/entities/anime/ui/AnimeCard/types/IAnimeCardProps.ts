@@ -14,7 +14,6 @@ interface IAnimeCardProps {
   data: IAnimeData
 
   className?: string
-  variant?: 'big' | 'small'
 }
 
 export type { IAnimeCardProps }

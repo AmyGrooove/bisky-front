@@ -11,7 +11,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
-  @extend %invoke, %press, %no-select;
+  @extend %invoke-scale, %press, %no-select;
   @include effect(back-shadow);
   @include transition((filter, opacity, scale), (250ms, 250ms, 100ms));
 
@@ -28,6 +28,21 @@
     }
   }
 
+  &_big {
+    border-radius: var(--radius-20);
+    height: 100px;
+    width: 100px;
+
+    .icon {
+      height: 60px;
+      width: 60px;
+    }
+
+    .children {
+      @include text-style(40);
+    }
+  }
+
   &_small {
     border-radius: var(--radius-12);
     height: 48px;
@@ -37,16 +52,9 @@
       height: 32px;
       width: 32px;
     }
-  }
 
-  &_big {
-    border-radius: var(--radius-20);
-    height: 100px;
-    width: 100px;
-
-    .icon {
-      height: 60px;
-      width: 60px;
+    .children {
+      @include text-style(24);
     }
   }
 }

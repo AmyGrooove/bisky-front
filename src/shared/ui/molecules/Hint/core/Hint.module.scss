@@ -7,7 +7,7 @@
   padding: 8px 12px;
   position: absolute;
   z-index: 10;
-  @extend %invoke, %no-select;
+  @extend %invoke-scale, %no-select;
   @include effect(background-blur-shadow);
 
   &_hide {
