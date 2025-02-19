@@ -3,12 +3,12 @@
 import { Season } from '@entities/anime/ui/Season'
 import { cn, getEmptyArray } from '@shared/utils/functions'
 import { ChevronLeftIcon, ChevronRightIcon } from '@shared/icons'
+import { Skeleton } from '@shared/ui/atoms/Skeleton'
 
 import { ISeasonalCarouselProps } from '../../types/ISeasonalCarouselProps'
 
 import st from './SeasonalCarousel.module.scss'
 import { useSeasonalCarousel } from './useSeasonalCarousel'
-import { Skeleton } from '@shared/ui/atoms/Skeleton'
 
 const SeasonalCarousel = (props: ISeasonalCarouselProps) => {
   const { data, sliderRef, currentSlide, instanceRef, isSliderLoading } =
@@ -16,7 +16,7 @@ const SeasonalCarousel = (props: ISeasonalCarouselProps) => {
 
   if (isSliderLoading)
     return (
-      <div className={st.season}>
+      <div className={st.skeleton}>
         {getEmptyArray(3).map((_, index) => (
           <Skeleton key={index} templates="season" />
         ))}

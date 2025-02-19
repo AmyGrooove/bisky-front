@@ -13,7 +13,7 @@ const useBar = () => {
 
     if (value === '/') return pathname === '/'
 
-    return pathname.includes(value)
+    return pathname === value
   }
 
   return { username, checkIsActive }

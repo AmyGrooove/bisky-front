@@ -7,7 +7,6 @@
 }
 
 .slider {
-  border-radius: var(--small-radius);
   cursor: grab;
 }
 
@@ -45,15 +44,19 @@
   width: 48px;
 }
 
-.season {
+.skeleton {
   display: flex;
   gap: 24px;
 }
 
 @include media-query(tablet) {
+  .slider {
+    padding: 0 20px;
+  }
+
   .slide {
-    max-width: 380px;
-    min-width: 380px;
+    max-width: calc(100% - 0px);
+    min-width: calc(100% - 0px);
   }
 
   .arrow {

@@ -1,5 +1,5 @@
 interface ISkeletonProps {
-  templates?: 'season' | 'none'
+  templates?: 'season' | 'animeCard' | 'label' | 'none'
   className?: string
 }
 

@@ -11,6 +11,16 @@ const MainLoading = () => {
           <Skeleton key={index} templates="season" />
         ))}
       </div>
+      {getEmptyArray(2).map((_, index) => (
+        <div key={index} className={st.row}>
+          <Skeleton templates="label" />
+          <div className={st.animeCards}>
+            {getEmptyArray(10).map((_, index) => (
+              <Skeleton key={index} templates="animeCard" />
+            ))}
+          </div>
+        </div>
+      ))}
     </>
   )
 }

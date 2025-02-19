@@ -10,6 +10,8 @@ const Skeleton = (props: ISkeletonProps) => {
 
   return {
     season: <div className={cn(st.root, st.root_season, className)} />,
+    animeCard: <div className={cn(st.root, st.root_animeCard, className)} />,
+    label: <div className={cn(st.root, st.root_label, className)} />,
     none: <div className={cn(st.root, className)} />,
   }[templates]
 }

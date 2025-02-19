@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 import { ScoreBadge } from '@entities/animeEstimate/ui/ScoreBadge'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
@@ -41,7 +41,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
           {relation}
         </Text>
       )}
-      {score && (
+      {!isNil(score) && (
         <>
           <ScoreBadge
             variant="big"
@@ -55,7 +55,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
           />
         </>
       )}
-      {currentUserScore && (
+      {!isNil(currentUserScore) && (
         <>
           <ScoreBadge
             variant="big"

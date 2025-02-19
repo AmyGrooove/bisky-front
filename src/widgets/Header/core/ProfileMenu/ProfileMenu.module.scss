@@ -118,7 +118,6 @@
   border-radius: var(--radius-12);
   padding: 8px;
   width: 200px;
-  z-index: 10;
   @extend %invoke-scale;
   @include effect(back-shadow);
 

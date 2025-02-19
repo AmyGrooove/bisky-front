@@ -46,7 +46,12 @@
   align-items: center;
   display: flex;
   gap: 4px;
-  @extend %no-select;
+  @extend %no-select, %press;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
 
 .linkText {

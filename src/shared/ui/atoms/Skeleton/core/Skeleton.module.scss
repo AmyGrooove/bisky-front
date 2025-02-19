@@ -22,11 +22,33 @@
     height: 380px;
     width: 1080px;
   }
+
+  &_animeCard {
+    height: 320px;
+    width: 200px;
+  }
+
+  &_label {
+    height: 37px;
+    width: 400px;
+  }
 }
 
 @include media-query(tablet) {
-  .root_season {
-    height: 180px;
-    width: 380px;
+  .root {
+    &_season {
+      height: 180px;
+      width: 380px;
+    }
+
+    &_animeCard {
+      height: 190px;
+      width: 120px;
+    }
+
+    &_label {
+      height: 23px;
+      width: 100px;
+    }
   }
 }
