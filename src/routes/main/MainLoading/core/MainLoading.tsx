@@ -15,7 +15,7 @@ const MainLoading = () => {
         <div key={index} className={st.row}>
           <Skeleton templates="label" />
           <div className={st.animeCards}>
-            {getEmptyArray(10).map((_, index) => (
+            {getEmptyArray(12).map((_, index) => (
               <Skeleton key={index} templates="animeCard" />
             ))}
           </div>

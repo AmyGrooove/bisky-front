@@ -30,7 +30,11 @@ const Season = (props: ISeasonProps) => {
       })}
     >
       <div className={st.main}>
-        <PlaceholderImage className={st.poster} src={data.poster} />
+        <PlaceholderImage
+          className={st.poster}
+          src={data.poster}
+          sizes={[180, 80]}
+        />
         <Text weight="700" className={st.label}>
           {data.label}
         </Text>
@@ -44,7 +48,11 @@ const Season = (props: ISeasonProps) => {
           [st.backWrapper_hide]: isNextImageShow,
         })}
       >
-        <PlaceholderImage src={firstBackgroundSrc} className={st.backImage} />
+        <PlaceholderImage
+          src={firstBackgroundSrc}
+          className={st.backImage}
+          sizes={[1080, 380]}
+        />
       </div>
       <div
         className={cn(st.backWrapper, {
@@ -52,6 +60,7 @@ const Season = (props: ISeasonProps) => {
         })}
       >
         <PlaceholderImage
+          sizes={[1080, 380]}
           src={data.screenshots?.[backgroundImage2] ?? null}
           className={st.backImage}
         />

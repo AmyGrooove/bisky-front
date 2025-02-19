@@ -4,7 +4,7 @@ import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
 import { PLACEHOLDER_DELAY } from '../static/PLACEHOLDER_DELAY'
 
 const usePlaceholderImage = (props: IPlaceholderImageProps) => {
-  const { src, className = null, alt = '' } = props
+  const { src, className = null, alt = '', sizes } = props
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [isPlaceholderHidden, setIsPlaceholderHidden] = useState(false)
@@ -41,6 +41,7 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
     alt,
     handleLoad,
     handleError,
+    sizes,
   }
 }
 

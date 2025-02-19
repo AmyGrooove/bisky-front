@@ -14,7 +14,7 @@ const Label = (props: ILabelProps) => {
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
-      <Text weight="700" className={st.children}>
+      <Text weight="700" className={st.children} maxLines={1}>
         {children}
       </Text>
       {linkText && href && (

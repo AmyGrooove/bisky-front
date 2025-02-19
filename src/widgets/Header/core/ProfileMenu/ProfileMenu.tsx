@@ -37,7 +37,11 @@ const ProfileMenu = () => {
         {isLoading ? (
           <Skeleton className={st.avatarSkeleton} />
         ) : (
-          <PlaceholderImage src={avatar} className={st.avatar} />
+          <PlaceholderImage
+            src={avatar}
+            className={st.avatar}
+            sizes={[40, 40]}
+          />
         )}
       </button>
       {isOpen && (

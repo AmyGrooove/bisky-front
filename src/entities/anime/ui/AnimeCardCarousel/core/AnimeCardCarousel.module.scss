@@ -13,13 +13,12 @@
 }
 
 .slide {
-  height: fit-content;
+  height: 320px;
   max-width: 200px;
   min-width: 200px;
 }
 
 .slideEmpty {
-  height: fit-content;
   max-width: 40px;
   min-width: 40px;
 }
@@ -78,6 +77,7 @@
 
 @include media-query(tablet) {
   .slide {
+    height: 204px;
     max-width: 120px;
     min-width: 120px;
   }

@@ -14,7 +14,7 @@ interface IAnimeSeasonData
 
 interface IGetHomePageDataResponse {
   seasonalAnimes: IAnimeSeasonData[]
-  rowsAnime: TResponse<typeof getBlockRow>
+  rowsAnime: TResponse<typeof getBlockRow>[]
 }
 
 export type { IGetHomePageDataResponse }

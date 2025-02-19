@@ -4,7 +4,7 @@ import { IGetBlockRowResponse } from '../types/IGetBlockRowResponse'
 
 const getBlockRow = async (
   excludedGenreIDs: string[] = [],
-): Promise<IGetBlockRowResponse[]> => {
+): Promise<IGetBlockRowResponse> => {
   const url = new URL(`/blocks/row`, API_URL)
   excludedGenreIDs.forEach((id) =>
     url.searchParams.append('excludedGenreIDs', id),
