@@ -9,7 +9,7 @@
   height: 320px;
   justify-content: center;
   width: 200px;
-  @extend %invoke-scale, %press, %no-select;
+  @extend %no-select;
   @include effect(background-blur-shadow);
   @include transition((background-color, scale), (250ms, 100ms));
 

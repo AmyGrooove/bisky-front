@@ -11,11 +11,16 @@ const useSeasonalCarousel = (props: ISeasonalCarouselProps) => {
 
   const [sliderRef, instanceRef] = useKeenSlider(
     {
-      slides: { perView: 'auto', origin: 'center', spacing: 20 },
+      slides: { perView: 'auto', origin: 'center', spacing: 24 },
       loop: true,
       drag: true,
       slideChanged(slider) {
         setCurrentSlide(slider.track.details.rel)
+      },
+      breakpoints: {
+        '(max-width: 1024px)': {
+          slides: { perView: 'auto', spacing: 8 },
+        },
       },
     },
     [

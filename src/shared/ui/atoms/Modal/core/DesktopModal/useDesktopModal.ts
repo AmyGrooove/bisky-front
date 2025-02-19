@@ -11,17 +11,17 @@ const useDesktopModal = (props: IModalSolutionProps) => {
     if (isOpen) {
       const scrollBarWidth =
         window.innerWidth - document.documentElement.clientWidth
-      document.body.style.overflow = 'hidden'
-      document.body.style.marginRight =
+      document.documentElement.style.overflow = 'hidden'
+      document.documentElement.style.marginRight =
         scrollBarWidth > 0 ? `${scrollBarWidth}px` : ''
     } else {
-      document.body.style.overflow = ''
-      document.body.style.marginRight = ''
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.marginRight = ''
     }
 
     return () => {
-      document.body.style.overflow = ''
-      document.body.style.marginRight = ''
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.marginRight = ''
     }
   }, [isOpen])
 
