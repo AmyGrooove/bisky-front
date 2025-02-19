@@ -25,7 +25,7 @@ const AnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
   if (isSliderLoading)
     return (
       <div className={st.skeleton}>
-        {getEmptyArray(10).map((_, index) => (
+        {getEmptyArray(12).map((_, index) => (
           <Skeleton key={index} templates="animeCard" />
         ))}
       </div>

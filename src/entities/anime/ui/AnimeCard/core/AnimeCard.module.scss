@@ -37,11 +37,9 @@
 }
 
 .scoreBadge {
-  opacity: 0;
   position: absolute;
   right: 8px;
   top: 8px;
-  visibility: hidden;
   z-index: 1;
   @include transition(opacity);
 }
@@ -85,7 +83,6 @@
   }
 
   &:hover {
-    .scoreBadge,
     .hoverBackground,
     .hoverLabel,
     .addButton {

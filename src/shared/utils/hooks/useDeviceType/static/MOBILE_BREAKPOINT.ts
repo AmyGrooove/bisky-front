@@ -1,3 +1,0 @@
-const MOBILE_BREAKPOINT = 1024
-
-export { MOBILE_BREAKPOINT }

@@ -42,7 +42,11 @@ const HistoryType = (
           {
             animeScore: (
               <>
-                <PlaceholderImage src={poster} className={st.poster} />
+                <PlaceholderImage
+                  src={poster}
+                  className={st.poster}
+                  sizes={[64, 64]}
+                />
                 {animeEstimateScore ? (
                   <div className={st.rowText}>
                     <Text className={st.text} weight="700">
@@ -68,7 +72,11 @@ const HistoryType = (
             ),
             animeList: (
               <>
-                <PlaceholderImage src={poster} className={st.poster} />
+                <PlaceholderImage
+                  src={poster}
+                  className={st.poster}
+                  sizes={[64, 64]}
+                />
                 <Text className={st.text} weight="700">
                   {animeListText(animeEstimateListStatus)}
                 </Text>
@@ -97,7 +105,11 @@ const HistoryType = (
             ),
             animeFavorite: (
               <>
-                <PlaceholderImage src={poster} className={st.poster} />
+                <PlaceholderImage
+                  src={poster}
+                  className={st.poster}
+                  sizes={[64, 64]}
+                />
                 {animeEstimateIsFavorite ? (
                   <Text className={st.text} weight="700">
                     Добавил аниме в избранное

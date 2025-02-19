@@ -21,6 +21,7 @@ const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
       alt,
       handleLoad,
       handleError,
+      sizes,
     } = usePlaceholderImage(props)
 
     return (
@@ -39,6 +40,7 @@ const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
             onError={handleError}
             loading="lazy"
             fill
+            sizes={`(max-width: 1024px) ${sizes[1]}px, ${sizes[0]}px`}
           />
         ) : null}
       </div>
