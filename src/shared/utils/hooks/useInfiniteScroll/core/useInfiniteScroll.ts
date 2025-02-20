@@ -1,24 +1,14 @@
-import { RefObject, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 
-const useInfiniteScroll = (
-  callback: () => void,
-  triggerRef: RefObject<Element | null>,
-  options: IntersectionObserverInit = { threshold: 1.0 },
-) => {
+const useInfiniteScroll = (callback: () => void) => {
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: false })
+
   useEffect(() => {
-    const currentElement = triggerRef.current
-    if (!currentElement) return
+    if (inView) callback()
+  }, [inView, callback])
 
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) callback()
-    }, options)
-
-    observer.observe(currentElement)
-
-    return () => {
-      observer.unobserve(currentElement)
-    }
-  }, [callback, triggerRef, options])
+  return ref
 }
 
 export { useInfiniteScroll }

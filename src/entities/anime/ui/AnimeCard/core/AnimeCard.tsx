@@ -25,7 +25,13 @@ const AnimeCard = (props: IAnimeCardProps) => {
 
   return (
     <Link href={animeHref} className={cn(st.root, className)}>
-      <PlaceholderImage className={st.poster} src={poster} sizes={[200, 120]} />
+      <div className={st.posterWrapper}>
+        <PlaceholderImage
+          className={st.poster}
+          src={poster}
+          sizes={[200, 120]}
+        />
+      </div>
       <div className={st.hoverBackground} />
       <div className={st.hoverLabel}>
         <Text weight="700">{label}</Text>

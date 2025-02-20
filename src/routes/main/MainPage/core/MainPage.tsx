@@ -5,6 +5,7 @@ import { getExcludeGenreIDs } from '../utils/getExcludeGenreIDs'
 import { SeasonalCarousel } from './SeasonalCarousel/SeasonalCarousel'
 import { BlockRow } from './BlockRow/BlockRow'
 import { InfiniteRows } from './InfiniteRows/InfiniteRows'
+import st from './MainPage.module.scss'
 
 const MainPage = async () => {
   const { seasonalAnimes, rowsAnime } = await getHomePageData()
@@ -18,6 +19,7 @@ const MainPage = async () => {
         <BlockRow {...row} key={index} />
       ))}
       <InfiniteRows excludeGenreIDs={excludeGenreIDs} />
+      <div className={st.barMargin} />
     </>
   )
 }

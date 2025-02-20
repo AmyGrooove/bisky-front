@@ -89,6 +89,10 @@
       opacity: 1;
       visibility: visible;
     }
+
+    .poster {
+      scale: 1.2;
+    }
   }
 }
 
@@ -96,11 +100,17 @@
   border-radius: var(--radius-20);
   height: 320px;
   width: 200px;
+  @include transition(scale);
+}
+
+.posterWrapper {
+  border-radius: var(--radius-20);
+  overflow: hidden;
 }
 
 @include media-query(tablet, true) {
   .label {
-    display: none;
+    display: none !important;
   }
 
   .scoreBadge_small {
@@ -121,6 +131,10 @@
   .root {
     height: unset;
     width: 120px;
+
+    &:hover .poster {
+      scale: 1;
+    }
   }
 
   .relation {
