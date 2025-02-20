@@ -1,7 +1,7 @@
 @use '@shared/styles/reusable.scss' as *;
 
 .barMargin {
+  flex-shrink: 0;
   height: 120px;
   width: 100%;
-  flex-shrink: 0;
 }

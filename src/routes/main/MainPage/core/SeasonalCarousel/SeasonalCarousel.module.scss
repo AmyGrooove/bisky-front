@@ -6,13 +6,26 @@
   @extend %invoke-scale;
 }
 
+.sliderWrapper {
+  overflow: hidden;
+}
+
 .slider {
   cursor: grab;
+  display: flex;
+  margin-left: -24px;
+  user-select: none;
 }
 
 .slide {
-  max-width: 1080px;
-  min-width: 1080px;
+  flex: 0 0 auto;
+  margin-left: 24px;
+  opacity: 0.4;
+  width: 1080px;
+
+  &_active {
+    opacity: 1;
+  }
 }
 
 .arrow {
@@ -46,17 +59,31 @@
 
 .skeleton {
   display: flex;
+  flex-shrink: 0;
   gap: 24px;
+  height: 380px;
+  justify-content: center;
+  overflow: hidden;
+  width: calc(100% + 40px);
 }
 
 @include media-query(tablet) {
   .slider {
-    padding: 0 20px;
+    margin-left: unset;
   }
 
   .slide {
-    max-width: calc(100% - 0px);
-    min-width: calc(100% - 0px);
+    margin-left: 8px;
+    width: calc(100% - 40px);
+  }
+
+  .skeleton {
+    height: 180px;
+    width: 100%;
+  }
+
+  .skeletonSlide:not(:first-child) {
+    display: none;
   }
 
   .arrow {

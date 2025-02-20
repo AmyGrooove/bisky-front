@@ -1,7 +1,7 @@
 @use 'sass:list';
 
-$effect-types: 'back-shadow', 'frame-blur', 'background-blur',
-  'background-blur-shadow';
+$effect-types:
+  'back-shadow', 'frame-blur', 'background-blur', 'background-blur-shadow';
 
 @function is-valid-effect($type) {
   @return list.index($effect-types, $type) != null;
