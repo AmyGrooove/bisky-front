@@ -16,6 +16,7 @@
   gap: 16px;
   padding: 32px;
   width: 300px;
+  @extend %invoke-scale;
 }
 
 .label {
@@ -46,4 +47,9 @@
 
 .button {
   width: 100%;
+}
+
+.empty {
+  height: 92px;
+  flex-shrink: 0;
 }
