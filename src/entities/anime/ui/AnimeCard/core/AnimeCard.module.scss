@@ -57,6 +57,13 @@
   z-index: 1;
 }
 
+.poster {
+  border-radius: var(--radius-20);
+  height: 320px;
+  width: 200px;
+  @include transition(scale);
+}
+
 .root {
   display: flex;
   flex-direction: column;
@@ -94,13 +101,6 @@
       scale: 1.2;
     }
   }
-}
-
-.poster {
-  border-radius: var(--radius-20);
-  height: 320px;
-  width: 200px;
-  @include transition(scale);
 }
 
 .posterWrapper {

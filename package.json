@@ -12,7 +12,8 @@
     "@floating-ui/react": "^0.27.4",
     "effector": "^23.3.0",
     "effector-react": "^23.3.0",
-    "keen-slider": "^6.8.6",
+    "embla-carousel-autoplay": "^8.5.2",
+    "embla-carousel-react": "^8.5.2",
     "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -20,18 +21,21 @@
     "sass": "^1.85.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "@types/node": "^22.13.4",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "eslint": "^8.57.1",
+    "eslint": "^9.20.1",
     "eslint-config-next": "^15.1.7",
+    "eslint-config-prettier": "^10.0.1",
     "prettier": "^3.5.1",
     "stylelint": "^16.14.1",
-    "stylelint-config-prettier-scss": "^1.0.0",
-    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.3",
     "stylelint-scss": "^6.11.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [

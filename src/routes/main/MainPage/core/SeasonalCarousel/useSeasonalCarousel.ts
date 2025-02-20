@@ -1,68 +1,48 @@
-import { useEffect, useState } from 'react'
-import { useKeenSlider } from 'keen-slider/react'
-
+import { useCallback, useEffect, useState } from 'react'
 import { ISeasonalCarouselProps } from '../../types/ISeasonalCarouselProps'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 
 const useSeasonalCarousel = (props: ISeasonalCarouselProps) => {
   const { data } = props
 
   const [isSliderLoading, setIsSliderLoading] = useState(true)
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
-  const [sliderRef, instanceRef] = useKeenSlider(
-    {
-      slides: { perView: 'auto', origin: 'center', spacing: 24 },
-      loop: true,
-      drag: true,
-      slideChanged(slider) {
-        setCurrentSlide(slider.track.details.rel)
-      },
-      breakpoints: {
-        '(max-width: 1024px)': {
-          slides: { perView: 'auto', spacing: 8 },
-        },
-      },
-    },
-    [
-      (slider) => {
-        let timeout: ReturnType<typeof setTimeout>
-        let mouseOver = false
-
-        const clearNextTimeout = () => clearTimeout(timeout)
-
-        const nextTimeout = () => {
-          clearTimeout(timeout)
-          if (mouseOver) return
-
-          timeout = setTimeout(() => slider.next(), 12000)
-        }
-
-        slider.on('created', () => {
-          slider.container.addEventListener('mouseover', () => {
-            mouseOver = true
-            clearNextTimeout()
-          })
-
-          slider.container.addEventListener('mouseout', () => {
-            mouseOver = false
-            nextTimeout()
-          })
-
-          nextTimeout()
-        })
-
-        slider.on('dragStarted', clearNextTimeout)
-        slider.on('animationEnded', nextTimeout)
-        slider.on('updated', nextTimeout)
-      },
-    ],
+  const [sliderRef, sliderApi] = useEmblaCarousel(
+    { loop: true, align: 'center' },
+    [Autoplay({ delay: 10000, stopOnInteraction: false })],
   )
+
+  const scrollPrev = useCallback(() => {
+    if (sliderApi) sliderApi.scrollPrev()
+  }, [sliderApi])
+
+  const scrollNext = useCallback(() => {
+    if (sliderApi) sliderApi.scrollNext()
+  }, [sliderApi])
+
+  useEffect(() => {
+    if (!sliderApi) return
+
+    const onSelect = () => setSelectedIndex(sliderApi.selectedScrollSnap())
+    onSelect()
+
+    sliderApi.on('select', onSelect)
+  }, [sliderApi])
 
   useEffect(() => {
     setIsSliderLoading(false)
-  }, [instanceRef])
+  }, [sliderApi])
 
-  return { data, sliderRef, currentSlide, instanceRef, isSliderLoading }
+  return {
+    data,
+    sliderRef,
+    selectedIndex,
+    scrollPrev,
+    scrollNext,
+    isSliderLoading,
+  }
 }
 
 export { useSeasonalCarousel }

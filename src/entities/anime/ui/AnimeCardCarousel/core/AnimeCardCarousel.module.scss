@@ -7,20 +7,28 @@
   @extend %invoke-scale;
 }
 
+.sliderWrapper {
+  overflow: hidden;
+}
+
 .slider {
   cursor: grab;
+  display: flex;
+  margin-left: -24px;
   padding-left: 20px;
+  user-select: none;
 }
 
 .slide {
+  flex: 0 0 auto;
   height: 320px;
-  max-width: 200px;
-  min-width: 200px;
+  margin-left: 24px;
+  width: 200px;
 }
 
 .slideEmpty {
-  max-width: 40px;
-  min-width: 40px;
+  flex-shrink: 0;
+  width: 40px;
 }
 
 .arrow {
@@ -76,10 +84,22 @@
 }
 
 @include media-query(tablet) {
+  .slider {
+    margin-left: unset;
+  }
+
   .slide {
     height: 204px;
-    max-width: 120px;
-    min-width: 120px;
+    margin-left: 8px;
+    width: 120px;
+
+    &:first-child {
+      margin-left: unset;
+    }
+  }
+
+  .slideEmpty {
+    width: 20px;
   }
 
   .arrow {

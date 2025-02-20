@@ -1,41 +1,52 @@
-import { useEffect, useState } from 'react'
-import { useKeenSlider } from 'keen-slider/react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { IAnimeCardCarouselProps } from '../types/IAnimeCardCarouselProps'
+import useEmblaCarousel from 'embla-carousel-react'
 
 const useAnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
   const { data, watchAllHref } = props
 
   const [isSliderLoading, setIsSliderLoading] = useState(true)
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isLastSlide, setIsLastSlide] = useState(false)
+  const [isCanScrollPrev, setIsCanScrollPrev] = useState(false)
+  const [isCanScrollNext, setIsCanScrollNext] = useState(false)
 
-  const [sliderRef, instanceRef] = useKeenSlider({
-    slides: { perView: 'auto', spacing: 24 },
-    drag: true,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel)
-      setIsLastSlide(slider.track.details.maxIdx === slider.track.details.rel)
-    },
-    breakpoints: {
-      '(max-width: 1024px)': {
-        slides: { perView: 'auto', spacing: 8 },
-      },
-    },
+  const [sliderRef, sliderApi] = useEmblaCarousel({
+    dragFree: true,
   })
+
+  const scrollPrev = useCallback(() => {
+    if (sliderApi) sliderApi.scrollPrev()
+  }, [sliderApi])
+
+  const scrollNext = useCallback(() => {
+    if (sliderApi) sliderApi.scrollNext()
+  }, [sliderApi])
+
+  useEffect(() => {
+    if (!sliderApi) return
+
+    const onSelect = () => {
+      setIsCanScrollPrev(sliderApi.canScrollPrev())
+      setIsCanScrollNext(sliderApi.canScrollNext())
+    }
+
+    onSelect()
+    sliderApi.on('select', onSelect)
+  }, [sliderApi])
 
   useEffect(() => {
     setIsSliderLoading(false)
-  }, [instanceRef])
+  }, [sliderApi])
 
   return {
     data,
     sliderRef,
-    currentSlide,
-    instanceRef,
     isSliderLoading,
-    isLastSlide,
     watchAllHref,
+    scrollPrev,
+    scrollNext,
+    isCanScrollPrev,
+    isCanScrollNext,
   }
 }
 

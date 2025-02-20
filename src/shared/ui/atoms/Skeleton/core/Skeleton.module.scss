@@ -17,6 +17,7 @@
 .root {
   animation: 1s shine linear infinite;
   border-radius: var(--radius-20);
+  flex-shrink: 0;
 
   &_season {
     height: 380px;
@@ -38,11 +39,12 @@
   .root {
     &_season {
       height: 180px;
-      width: 380px;
+      width: 100%;
     }
 
     &_animeCard {
       height: 190px;
+      margin-bottom: 14px;
       width: 120px;
     }
 

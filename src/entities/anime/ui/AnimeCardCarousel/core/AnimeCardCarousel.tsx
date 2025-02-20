@@ -15,11 +15,12 @@ const AnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
   const {
     data,
     sliderRef,
-    currentSlide,
-    instanceRef,
+    scrollPrev,
+    scrollNext,
     isSliderLoading,
-    isLastSlide,
     watchAllHref,
+    isCanScrollPrev,
+    isCanScrollNext,
   } = useAnimeCardCarousel(props)
 
   if (isSliderLoading)
@@ -34,36 +35,31 @@ const AnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
   return (
     <div className={st.root}>
       <button
-        onClick={() => instanceRef.current?.prev()}
+        onClick={scrollPrev}
         className={cn(st.arrow, st.arrow_left, {
-          [st.arrow_active]: currentSlide !== 0,
+          [st.arrow_active]: isCanScrollPrev,
         })}
       >
         <ChevronLeftIcon className={st.arrowIcon} />
       </button>
       <button
-        onClick={() => instanceRef.current?.next()}
+        onClick={scrollNext}
         className={cn(st.arrow, st.arrow_right, {
-          [st.arrow_active]: !isLastSlide,
+          [st.arrow_active]: isCanScrollNext,
         })}
       >
         <ChevronRightIcon className={st.arrowIcon} />
       </button>
-      <div ref={sliderRef} className={cn(st.slider, 'keen-slider')}>
-        {data.map((item) => (
-          <AnimeCard
-            key={item._id}
-            data={item}
-            className={cn(st.slide, 'keen-slider__slide')}
-          />
-        ))}
-        {watchAllHref && (
-          <WatchAllCard
-            href={watchAllHref}
-            className={cn(st.slide, 'keen-slider__slide')}
-          />
-        )}
-        <div className={cn(st.slideEmpty, 'keen-slider__slide')} />
+      <div ref={sliderRef} className={st.sliderWrapper}>
+        <div className={st.slider}>
+          {data.map((item) => (
+            <AnimeCard key={item._id} data={item} className={st.slide} />
+          ))}
+          {watchAllHref && (
+            <WatchAllCard href={watchAllHref} className={st.slide} />
+          )}
+          <div className={st.slideEmpty} />
+        </div>
       </div>
     </div>
   )
