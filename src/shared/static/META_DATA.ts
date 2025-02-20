@@ -9,6 +9,11 @@ const META_DATA: Metadata = {
   keywords: ['аниме', 'смотреть', 'япония', 'манга', 'сериалы', 'фильмы'],
   metadataBase: new URL(APP_URL),
   alternates: { canonical: '/' },
+  icons: {
+    icon: '/favicons/favicon.ico',
+    shortcut: '/favicons/favicon-32x32.png',
+    apple: '/favicons/apple-touch-icon.png',
+  },
 
   openGraph: {
     type: 'website',
