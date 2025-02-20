@@ -1,4 +1,4 @@
-@use './reusable';
+@use './reusable' as *;
 
 * {
   box-sizing: border-box;
@@ -83,4 +83,10 @@ ul {
 ol {
   margin: 0;
   padding: 0;
+}
+
+@include media-query(tablet) {
+  *::-webkit-scrollbar {
+    display: none;
+  }
 }
