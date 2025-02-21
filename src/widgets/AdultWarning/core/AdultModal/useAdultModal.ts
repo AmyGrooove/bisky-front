@@ -1,11 +1,13 @@
 import { LOCAL_STORAGE_KEYS } from '@shared/static'
+import { useNavigationFallback } from '@shared/utils/hooks/useNavigationFallback'
 import { closeModal } from '@widgets/ModalWrapper'
-import { redirect } from 'next/navigation'
 
 const useAdultModal = () => {
+  const goBack = useNavigationFallback()
+
   const noClick = async () => {
     setTimeout(closeModal, 200)
-    redirect('/')
+    goBack()
   }
 
   const yesClick = () => {

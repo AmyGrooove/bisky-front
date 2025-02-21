@@ -1,9 +1,9 @@
-import { useRouter } from 'next/navigation'
+import { useNavigationFallback } from '@shared/utils/hooks/useNavigationFallback'
 
 const useBackButton = () => {
-  const { back } = useRouter()
+  const goBack = useNavigationFallback()
 
-  return { back }
+  return { goBack }
 }
 
 export { useBackButton }
