@@ -36,7 +36,7 @@ const AdultModal = () => {
           onClick={yesClick}
           variant="big"
         >
-          Да (ಠ⌣ಠ)
+          Да (*^_^*)
         </Button>
       </div>
     </div>

@@ -2,13 +2,13 @@
 
 import { ChevronLeftIcon } from '@shared/icons'
 import st from './BackButton.module.scss'
-import { useRouter } from 'next/navigation'
+import { useBackButton } from './useBackButton'
 
 const BackButton = () => {
-  const { back } = useRouter()
+  const { goBack } = useBackButton()
 
   return (
-    <button className={st.root} onClick={back}>
+    <button className={st.root} onClick={goBack}>
       <ChevronLeftIcon className={st.icon} />
     </button>
   )
