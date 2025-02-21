@@ -7,9 +7,10 @@ const useBadge = (props: TBadgeProps) => {
     className = null,
     iconText = null,
     variant = 'small',
+    isCustomColor = false,
   } = props
 
-  return { children, icon, className, iconText, variant }
+  return { children, icon, className, iconText, variant, isCustomColor }
 }
 
 export { useBadge }

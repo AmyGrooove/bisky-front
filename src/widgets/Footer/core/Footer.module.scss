@@ -5,6 +5,7 @@
   background-color: var(--dark-240);
   border-radius: var(--radius-20);
   display: flex;
+  flex-shrink: 0;
   height: 80px;
   justify-content: space-between;
   padding: 0 20px;

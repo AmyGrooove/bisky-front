@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IVerifyResetRequest } from '../types/IVerifyResetRequest'
 
 const verifyReset = async (body: IVerifyResetRequest): Promise<true> => {
-  const url = new URL(`/auth/verifyReset`, API_URL)
+  const url = new URL(`/auth/verifyReset`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'POST',

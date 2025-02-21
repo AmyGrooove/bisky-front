@@ -2,7 +2,6 @@
 
 .root {
   align-items: center;
-  background-color: var(--bisky-300);
   border-radius: var(--radius-20);
   display: flex;
   gap: 4px;
@@ -46,6 +45,10 @@
   &_onlyIcon {
     justify-content: center;
     padding: 0;
+  }
+
+  &_defaultColor {
+    background-color: var(--bisky-300);
   }
 }
 

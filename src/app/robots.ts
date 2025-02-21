@@ -1,16 +1,16 @@
 import { MetadataRoute } from 'next'
 
-import { IS_DEVELOPMENT, APP_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 const robots = (): MetadataRoute.Robots =>
-  IS_DEVELOPMENT
+  ENV.IS_DEVELOPMENT
     ? {
         rules: [
           { userAgent: '*', disallow: '/' },
           { userAgent: 'Googlebot', disallow: '/' },
           { userAgent: 'Yandex', disallow: '/' },
         ],
-        sitemap: `${APP_URL}/sitemap.xml`,
+        sitemap: `${ENV.APP_URL}/sitemap.xml`,
       }
     : {
         rules: [
@@ -18,7 +18,7 @@ const robots = (): MetadataRoute.Robots =>
           { userAgent: 'Googlebot', allow: '/' },
           { userAgent: 'Yandex', allow: '/' },
         ],
-        sitemap: `${APP_URL}/sitemap.xml`,
+        sitemap: `${ENV.APP_URL}/sitemap.xml`,
       }
 
 export default robots

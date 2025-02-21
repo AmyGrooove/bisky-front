@@ -1,0 +1,5 @@
+export { getNormalEpisodeInfo } from './getNormalEpisodeInfo'
+export { getNormalKind } from './getNormalKind'
+export { getNormalRating } from './getNormalRating'
+export { getNormalStatus } from './getNormalStatus'
+export { getSeasonYear } from './getSeasonYear'

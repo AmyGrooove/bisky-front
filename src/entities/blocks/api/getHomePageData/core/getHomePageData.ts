@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetHomePageDataResponse } from '../types/IGetHomePageDataResponse'
 
 const getHomePageData = async (): Promise<IGetHomePageDataResponse> => {
-  const url = new URL(`/blocks`, API_URL)
+  const url = new URL(`/blocks`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',

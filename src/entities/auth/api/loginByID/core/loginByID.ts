@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { ILoginByIDRequest } from '../types/ILoginByIDRequest'
 
 const loginByID = async (body: ILoginByIDRequest): Promise<true> => {
-  const url = new URL(`/auth/loginByID`, API_URL)
+  const url = new URL(`/auth/loginByID`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'POST',

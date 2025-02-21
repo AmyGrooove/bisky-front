@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IRequestResetRequest } from '../types/IRequestResetRequest'
 
 const requestReset = async (body: IRequestResetRequest): Promise<true> => {
-  const url = new URL(`/auth/requestReset`, API_URL)
+  const url = new URL(`/auth/requestReset`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'POST',

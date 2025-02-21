@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IAddAnimeToSkipRequest } from '../types/IAddAnimeToSkipRequest'
 
 const addAnimeToSkip = async (body: IAddAnimeToSkipRequest): Promise<true> => {
-  const url = new URL(`/animeEstimate/skipList`, API_URL)
+  const url = new URL(`/animeEstimate/skipList`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'POST',

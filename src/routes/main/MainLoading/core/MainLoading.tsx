@@ -3,7 +3,7 @@ import { getEmptyArray } from '@shared/utils/functions'
 
 import st from './MainLoading.module.scss'
 
-const MainLoading = () => {
+const MainLoading = async () => {
   return (
     <>
       <div className={st.season}>

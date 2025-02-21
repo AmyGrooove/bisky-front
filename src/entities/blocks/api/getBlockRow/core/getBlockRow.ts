@@ -1,11 +1,11 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetBlockRowResponse } from '../types/IGetBlockRowResponse'
 
 const getBlockRow = async (
   excludedGenreIDs: string[] = [],
 ): Promise<IGetBlockRowResponse> => {
-  const url = new URL(`/blocks/row`, API_URL)
+  const url = new URL(`/blocks/row`, ENV.API_URL)
   excludedGenreIDs.forEach((id) =>
     url.searchParams.append('excludedGenreIDs', id),
   )
