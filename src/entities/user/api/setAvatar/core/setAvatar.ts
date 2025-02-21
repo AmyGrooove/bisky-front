@@ -1,7 +1,7 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 const setAvatar = async (file: FormData): Promise<true> => {
-  const url = new URL(`/account/avatar`, API_URL)
+  const url = new URL(`/account/avatar`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'PATCH',

@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetProfileResponse } from '../types/IGetProfileResponse'
 
 const getProfile = async (username: string): Promise<IGetProfileResponse> => {
-  const url = new URL(`/profile/${username}`, API_URL)
+  const url = new URL(`/profile/${username}`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',

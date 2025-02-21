@@ -8,10 +8,14 @@ const useDelayedClick = (callback: () => void, delay = 250) => {
   const handleDelayedClick = useCallback(() => {
     setIsPressed(true)
 
-    setTimeout(() => {
-      callback()
-      setIsPressed(false)
-    }, delay)
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        callback()
+        setIsPressed(false)
+
+        resolve()
+      }, delay)
+    })
   }, [callback, delay])
 
   return { isPressed, handleDelayedClick }

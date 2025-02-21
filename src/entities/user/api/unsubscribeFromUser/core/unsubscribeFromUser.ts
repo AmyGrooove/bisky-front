@@ -1,11 +1,11 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IUnsubscribeFromUserRequest } from '../types/IUnsubscribeFromUserRequest'
 
 const unsubscribeFromUser = async (
   body: IUnsubscribeFromUserRequest,
 ): Promise<true> => {
-  const url = new URL(`/account/unsubscribeFromUser`, API_URL)
+  const url = new URL(`/account/unsubscribeFromUser`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'PATCH',

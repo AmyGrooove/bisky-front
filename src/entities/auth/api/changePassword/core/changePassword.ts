@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IChangePasswordRequest } from '../types/IChangePasswordRequest'
 
 const changePassword = async (body: IChangePasswordRequest): Promise<true> => {
-  const url = new URL(`/auth/changePassword`, API_URL)
+  const url = new URL(`/auth/changePassword`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'PATCH',

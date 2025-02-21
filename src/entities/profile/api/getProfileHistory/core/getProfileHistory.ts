@@ -1,4 +1,4 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetProfileHistoryResponse } from '../types/IGetProfileHistoryResponse'
 
@@ -7,7 +7,7 @@ const getProfileHistory = async (
   page = 1,
   count = 40,
 ): Promise<IGetProfileHistoryResponse[]> => {
-  const url = new URL(`/profile/${username}/history`, API_URL)
+  const url = new URL(`/profile/${username}/history`, ENV.API_URL)
   url.searchParams.append('page', String(page))
   url.searchParams.append('count', String(count))
 

@@ -1,7 +1,7 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 const getUserID = async (): Promise<string> => {
-  const url = new URL('/account/getUserID', API_URL)
+  const url = new URL('/account/getUserID', ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',

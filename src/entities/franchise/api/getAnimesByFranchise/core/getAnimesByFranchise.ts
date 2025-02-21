@@ -1,4 +1,4 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetAnimesByFranchiseResponse } from '../types/IGetAnimesByFranchiseResponse'
 
@@ -7,7 +7,7 @@ const getAnimesByFranchise = async (
   page = 1,
   count = 40,
 ): Promise<IGetAnimesByFranchiseResponse> => {
-  const url = new URL(`/franchise/${franchiseID}/animes`, API_URL)
+  const url = new URL(`/franchise/${franchiseID}/animes`, ENV.API_URL)
   url.searchParams.append('page', String(page))
   url.searchParams.append('count', String(count))
 

@@ -1,0 +1,43 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  left: 8px;
+  padding: 0px;
+  position: absolute;
+  top: 8px;
+  z-index: 1;
+  @extend %invoke-scale, %press, %no-select;
+  @include transition((filter, scale), (250ms, 100ms));
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &_left {
+    left: 0;
+  }
+
+  &_right {
+    right: 0;
+  }
+}
+
+.icon {
+  height: 32px;
+  width: 32px;
+}
+
+@include media-query(tablet, true) {
+  .root {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    display: flex;
+  }
+}

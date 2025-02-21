@@ -9,9 +9,14 @@ const Skeleton = (props: ISkeletonProps) => {
   const { className, templates } = useSkeleton(props)
 
   return {
-    season: <div className={cn(st.root, st.root_season, className)} />,
-    animeCard: <div className={cn(st.root, st.root_animeCard, className)} />,
-    label: <div className={cn(st.root, st.root_label, className)} />,
+    season: <div className={cn(st.root, st[`root_${templates}`], className)} />,
+    animeCard: (
+      <div className={cn(st.root, st[`root_${templates}`], className)} />
+    ),
+    label: <div className={cn(st.root, st[`root_${templates}`], className)} />,
+    animeHeader: (
+      <div className={cn(st.root, st[`root_${templates}`], className)} />
+    ),
     none: <div className={cn(st.root, className)} />,
   }[templates]
 }

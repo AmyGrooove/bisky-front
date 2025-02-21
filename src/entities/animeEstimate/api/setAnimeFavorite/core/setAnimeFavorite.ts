@@ -1,11 +1,11 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { ISetAnimeFavoriteRequest } from '../types/ISetAnimeFavoriteRequest'
 
 const setAnimeFavorite = async (
   body: ISetAnimeFavoriteRequest,
 ): Promise<true> => {
-  const url = new URL(`/animeEstimate/favorite`, API_URL)
+  const url = new URL(`/animeEstimate/favorite`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'PUT',

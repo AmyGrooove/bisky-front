@@ -1,11 +1,11 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetAnimeFullInfoResponse } from '../types/IGetAnimeFullInfoResponse'
 
 const getAnimeFullInfo = async (
   animeID: string,
 ): Promise<IGetAnimeFullInfoResponse> => {
-  const url = new URL(`/anime/fullInfo/${animeID}`, API_URL)
+  const url = new URL(`/anime/fullInfo/${animeID}`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',

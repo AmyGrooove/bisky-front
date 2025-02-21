@@ -1,4 +1,4 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 import { TListStatus } from '@entities/animeEstimate/types'
 
 import { IGetProfileListAnimesResponse } from '../types/IGetProfileListAnimesResponse'
@@ -10,7 +10,7 @@ const getProfileListAnimes = async (
   page = 1,
   count = 20,
 ): Promise<IGetProfileListAnimesResponse> => {
-  const url = new URL(`/profile/${username}/list/${listStatus}`, API_URL)
+  const url = new URL(`/profile/${username}/list/${listStatus}`, ENV.API_URL)
   url.searchParams.append('searchValue', String(searchValue))
   url.searchParams.append('page', String(page))
   url.searchParams.append('count', String(count))

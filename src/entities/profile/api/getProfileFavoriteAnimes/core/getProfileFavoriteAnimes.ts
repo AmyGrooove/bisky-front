@@ -1,4 +1,4 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetProfileFavoriteAnimesResponse } from '../types/IGetProfileFavoriteAnimesResponse'
 
@@ -7,7 +7,7 @@ const getProfileFavoriteAnimes = async (
   page = 1,
   count = 20,
 ): Promise<IGetProfileFavoriteAnimesResponse[]> => {
-  const url = new URL(`/profile/${username}/favoriteAnimes`, API_URL)
+  const url = new URL(`/profile/${username}/favoriteAnimes`, ENV.API_URL)
   url.searchParams.append('page', String(page))
   url.searchParams.append('count', String(count))
 

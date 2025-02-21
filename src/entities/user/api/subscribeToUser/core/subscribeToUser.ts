@@ -1,11 +1,11 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { ISubscribeToUserRequest } from '../types/ISubscribeToUserRequest'
 
 const subscribeToUser = async (
   body: ISubscribeToUserRequest,
 ): Promise<true> => {
-  const url = new URL(`/account/subscribeToUser`, API_URL)
+  const url = new URL(`/account/subscribeToUser`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'PATCH',

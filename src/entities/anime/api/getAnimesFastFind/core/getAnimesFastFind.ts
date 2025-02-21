@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetAnimesFastFindResponse } from '../types/IGetAnimesFastFindResponse'
 
 const getAnimesFastFind = async (): Promise<IGetAnimesFastFindResponse[]> => {
-  const url = new URL(`/anime/fastFind`, API_URL)
+  const url = new URL(`/anime/fastFind`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',

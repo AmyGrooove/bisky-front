@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IUpdateEmailRequest } from '../types/IUpdateEmailRequest'
 
 const updateEmail = async (body: IUpdateEmailRequest): Promise<true> => {
-  const url = new URL(`/account/updateEmail`, API_URL)
+  const url = new URL(`/account/updateEmail`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'PATCH',

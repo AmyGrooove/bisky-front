@@ -33,6 +33,11 @@
     height: 37px;
     width: 400px;
   }
+
+  &_animeHeader {
+    height: 360px;
+    width: 100%;
+  }
 }
 
 @include media-query(tablet) {
@@ -51,6 +56,10 @@
     &_label {
       height: 23px;
       width: 100px;
+    }
+
+    &_animeHeader {
+      height: 270px;
     }
   }
 }

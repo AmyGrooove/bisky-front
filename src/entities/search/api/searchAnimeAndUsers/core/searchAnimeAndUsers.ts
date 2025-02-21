@@ -1,11 +1,11 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { ISearchAnimeAndUsersResponse } from '../types/ISearchAnimeAndUsersResponse'
 
 const searchAnimeAndUsers = async (
   searchValue: string,
 ): Promise<ISearchAnimeAndUsersResponse> => {
-  const url = new URL(`/search`, API_URL)
+  const url = new URL(`/search`, ENV.API_URL)
   url.searchParams.append('searchValue', String(searchValue))
 
   const response = await fetch(url, {

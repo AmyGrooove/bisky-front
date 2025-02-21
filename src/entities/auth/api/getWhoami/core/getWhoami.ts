@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { IGetWhoamiResponse } from '../types/IGetWhoamiResponse'
 
 const getWhoami = async (): Promise<IGetWhoamiResponse> => {
-  const url = new URL(`/auth/whoami`, API_URL)
+  const url = new URL(`/auth/whoami`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',

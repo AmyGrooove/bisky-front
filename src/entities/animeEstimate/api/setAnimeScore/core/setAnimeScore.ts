@@ -1,9 +1,9 @@
-import { API_URL } from '@shared/static'
+import { ENV } from '@shared/static'
 
 import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
 
 const setAnimeScore = async (body: ISetAnimeScoreRequest): Promise<true> => {
-  const url = new URL(`/animeEstimate/score`, API_URL)
+  const url = new URL(`/animeEstimate/score`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'PUT',

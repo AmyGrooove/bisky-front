@@ -9,12 +9,14 @@ import { useBadge } from './useBadge'
 import st from './Badge.module.scss'
 
 const Badge = (props: TBadgeProps) => {
-  const { children, icon, className, iconText, variant } = useBadge(props)
+  const { children, icon, className, iconText, variant, isCustomColor } =
+    useBadge(props)
 
   return (
     <div
       className={cn(st.root, className, st[`root_${variant}`], {
         [st.root_onlyIcon]: !children && !iconText,
+        [st.root_defaultColor]: !isCustomColor,
       })}
     >
       <div className={st.iconWrapper}>
