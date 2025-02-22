@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Ubuntu } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 
 import { Bar } from '@widgets/Bar'
 import { Footer } from '@widgets/Footer'
@@ -27,6 +28,7 @@ const RootLayout = async (props: IRootLayoutProps) => {
       </Head>
       <body className={ubuntu.className}>
         <ModalWrapper />
+        <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
         <main className={st.main}>
           <MiniLogo />
           <Header />
