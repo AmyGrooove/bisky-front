@@ -9,7 +9,6 @@ import { AddInListModal } from '../../AddInListModal'
 import st from './AddInListButton.module.scss'
 import { useAddInListButton } from './useAddInListButton'
 
-
 const AddInListButton = (props: IAddInListButtonProps) => {
   const { listIcon, _id, className, currentStatus, setCurrentStatus } =
     useAddInListButton(props)

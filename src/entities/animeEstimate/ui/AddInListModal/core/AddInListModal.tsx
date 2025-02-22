@@ -7,8 +7,6 @@ import { listStatusButtons } from '../static/listStatusButtons'
 import st from './AddInListModal.module.scss'
 import { useAddInListModal } from './useAddInListModal'
 
-
-
 const AddInListModal = (props: IAddInListModalProps) => {
   const { selectedListStatus, addAnimeInList } = useAddInListModal(props)
 

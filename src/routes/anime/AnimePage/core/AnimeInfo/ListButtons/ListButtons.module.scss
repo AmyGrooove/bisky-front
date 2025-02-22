@@ -1,0 +1,41 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  background-color: var(--dark-300);
+  border-radius: var(--radius-20);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  padding: 12px;
+}
+
+.button {
+  &_estimate {
+    @include estimate-color(background-color);
+
+    &_delete {
+      background-color: var(--bisky-300);
+    }
+  }
+
+  &_score {
+    @include score-color(background-color);
+  }
+
+  &_favorite_active {
+    background-color: var(--bisky-100);
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

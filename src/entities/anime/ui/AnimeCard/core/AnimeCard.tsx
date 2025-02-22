@@ -64,7 +64,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
       {!isNil(currentUserScore) && (
         <>
           <ScoreBadge
-            variant="big"
+            variant="medium"
             score={currentUserScore}
             className={cn(
               st.currentUserScoreBadge,

@@ -7,9 +7,9 @@ interface IRelatedAnime extends Pick<IAnime, 'poster' | '_id'> {
 }
 
 interface IUserEstimate {
-  listStatus: TListStatus
+  listStatus: TListStatus | null
   isFavorite: boolean
-  score: number
+  score: number | null
 }
 
 interface IListStatusCount {
