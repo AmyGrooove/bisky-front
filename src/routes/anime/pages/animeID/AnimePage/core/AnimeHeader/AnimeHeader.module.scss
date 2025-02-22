@@ -4,7 +4,9 @@
   align-items: center;
   border-radius: var(--radius-20);
   display: flex;
+  flex-shrink: 0;
   gap: 20px;
+  height: 360px;
   overflow: hidden;
   padding: 20px 24px;
   position: relative;
@@ -99,6 +101,7 @@
 @include media-query(tablet) {
   .root {
     flex-direction: column;
+    height: fit-content;
   }
 
   .label {

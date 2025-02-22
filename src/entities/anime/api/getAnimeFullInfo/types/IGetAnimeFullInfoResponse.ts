@@ -35,6 +35,7 @@ interface IGetAnimeFullInfoResponse
     | '_id'
     | 'genres'
     | 'studios'
+    | 'shikiID'
   > {
   score: number
   scoreCount: number
