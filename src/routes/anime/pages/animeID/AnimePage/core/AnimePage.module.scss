@@ -6,8 +6,29 @@
   width: 100%;
 }
 
+.animeRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
 @include media-query(tablet, true) {
+  .label_small {
+    display: none !important;
+  }
+
   .barMargin {
     display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .animeRow {
+    gap: 8px;
+  }
+
+  .label_big {
+    display: none !important;
   }
 }

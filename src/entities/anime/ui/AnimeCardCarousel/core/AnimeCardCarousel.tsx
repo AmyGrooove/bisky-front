@@ -21,6 +21,7 @@ const AnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
     watchAllHref,
     isCanScrollPrev,
     isCanScrollNext,
+    isDragEnabled,
   } = useAnimeCardCarousel(props)
 
   if (isSliderLoading)
@@ -34,24 +35,28 @@ const AnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
 
   return (
     <div className={st.root}>
-      <button
-        onClick={scrollPrev}
-        className={cn(st.arrow, st.arrow_left, {
-          [st.arrow_active]: isCanScrollPrev,
-        })}
-      >
-        <ChevronLeftIcon className={st.arrowIcon} />
-      </button>
-      <button
-        onClick={scrollNext}
-        className={cn(st.arrow, st.arrow_right, {
-          [st.arrow_active]: isCanScrollNext,
-        })}
-      >
-        <ChevronRightIcon className={st.arrowIcon} />
-      </button>
+      {isDragEnabled && (
+        <>
+          <button
+            onClick={scrollPrev}
+            className={cn(st.arrow, st.arrow_left, {
+              [st.arrow_active]: isCanScrollPrev,
+            })}
+          >
+            <ChevronLeftIcon className={st.arrowIcon} />
+          </button>
+          <button
+            onClick={scrollNext}
+            className={cn(st.arrow, st.arrow_right, {
+              [st.arrow_active]: isCanScrollNext,
+            })}
+          >
+            <ChevronRightIcon className={st.arrowIcon} />
+          </button>
+        </>
+      )}
       <div ref={sliderRef} className={st.sliderWrapper}>
-        <div className={st.slider}>
+        <div className={cn(st.slider, { [st.slider_drag]: isDragEnabled })}>
           {data.map((item) => (
             <AnimeCard key={item._id} data={item} className={st.slide} />
           ))}
