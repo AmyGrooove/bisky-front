@@ -1,0 +1,24 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.button {
+  width: 100%;
+
+  &_set {
+    background-color: var(--bisky-100);
+  }
+
+  &_delete {
+    background-color: var(--bisky-400);
+  }
+}

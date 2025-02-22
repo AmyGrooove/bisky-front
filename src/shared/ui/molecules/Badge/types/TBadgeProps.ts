@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 
 interface IBadgePropsBase {
   iconText?: string
-  variant?: 'small' | 'big'
+  variant?: 'small' | 'medium' | 'big'
   className?: string
   isCustomColor?: boolean
 }

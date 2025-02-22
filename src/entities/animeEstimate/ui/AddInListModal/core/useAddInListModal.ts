@@ -8,15 +8,14 @@ import {
 import { IAddInListModalProps } from '../types/IAddInListModalProps'
 
 const useAddInListModal = (props: IAddInListModalProps) => {
-  const { _id, selectedListStatus = null, setStatus } = props
+  const { _id, selectedListStatus, setStatus } = props
 
-  const addAnimeInList = (variant: TListStatus | null) => {
+  const addAnimeInList = async (variant: TListStatus | null) => {
     closeModal()
 
-    if (setStatus) setStatus(variant)
-
-    if (variant === null) deleteAnimeEstimate({ animeID: _id })
-    else setAnimeEstimate({ animeID: _id, estimateVariant: variant })
+    setStatus(variant)
+    if (variant === null) await deleteAnimeEstimate({ animeID: _id })
+    else await setAnimeEstimate({ animeID: _id, estimateVariant: variant })
   }
 
   return { selectedListStatus, addAnimeInList }

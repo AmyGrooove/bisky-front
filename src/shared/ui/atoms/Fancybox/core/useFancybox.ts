@@ -4,22 +4,24 @@ import { Fancybox as NativeFancybox } from '@fancyapps/ui'
 import { IFancyboxProps } from '../types/IFancyboxProps'
 
 const useFancybox = (props: IFancyboxProps) => {
-  const { delegate = '[data-fancybox]', options = {} } = props
+  const { children } = props
 
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const container = containerRef.current
 
-    NativeFancybox.bind(container, delegate, options)
+    NativeFancybox.bind(container, '[data-fancybox]', {
+      Carousel: { infinite: false },
+    })
 
     return () => {
       NativeFancybox.unbind(container)
       NativeFancybox.close()
     }
-  }, [delegate, options])
+  }, [])
 
-  return { containerRef }
+  return { containerRef, children }
 }
 
 export { useFancybox }

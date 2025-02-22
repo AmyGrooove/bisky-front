@@ -25,4 +25,15 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    ignores: [
+      'node_modules',
+      ' .vscode',
+      '.next',
+      'build',
+      '.env',
+      'tsconfig.tsbuildinfo',
+      'next-env.d.ts',
+    ],
+  },
 )

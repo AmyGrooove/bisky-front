@@ -11,6 +11,22 @@
   @include transition(background-color);
 
   &_big {
+    min-height: 32px;
+    min-width: 32px;
+    padding: 0 8px;
+
+    .icon {
+      height: 24px;
+      width: 24px;
+    }
+
+    .children,
+    .iconText {
+      @include text-style(20);
+    }
+  }
+
+  &_medium {
     min-height: 24px;
     min-width: 24px;
     padding: 0 8px;

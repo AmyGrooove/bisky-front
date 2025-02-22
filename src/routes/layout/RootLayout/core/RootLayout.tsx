@@ -11,7 +11,6 @@ import { IRootLayoutProps } from '../types/IRootLayoutProps'
 
 import st from './RootLayout.module.scss'
 
-
 const ubuntu = Ubuntu({
   weight: ['400', '700'],
   subsets: ['latin'],

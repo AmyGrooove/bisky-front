@@ -3,45 +3,40 @@ import { IAnimeSectionProps } from '../../types/IAnimeSectionProps'
 import { Text } from '@shared/ui/atoms/Text'
 import { CalendarIcon, ClockIcon, RadioIcon } from '@shared/icons'
 import st from './AnimeHeader.module.scss'
-import {
-  getNormalEpisodeInfo,
-  getNormalKind,
-  getNormalRating,
-  getNormalStatus,
-  getSeasonYear,
-} from '@entities/anime/utils/functions'
 import { cn, getRandomNumber, isNil } from '@shared/utils/functions'
 import { BackButton } from './BackButton/BackButton'
+import { useAnimeHeader } from './useAnimeHeader'
+import { Fancybox } from '@shared/ui/atoms/Fancybox'
 
 const AnimeHeader = (props: IAnimeSectionProps) => {
   const {
-    data: {
-      labels,
-      poster,
-      screenshots,
-      rating,
-      episodes,
-      kind,
-      status,
-      dates,
-    },
-  } = props
-
-  const label = labels.ru ?? labels.en ?? ''
-
-  const normalRating = getNormalRating(rating)
-  const normalKind = getNormalKind(kind)
-  const normalStatus = getNormalStatus(status)
-  const normalAiredDate = getSeasonYear(dates.airedOn, status === 'anons')
-
-  const episodeInfo = getNormalEpisodeInfo(
-    episodes.airedCount,
-    episodes.averageDuration,
-  )
+    poster,
+    screenshots,
+    label,
+    normalAiredDate,
+    normalKind,
+    normalRating,
+    normalStatus,
+    episodeInfo,
+    status,
+  } = useAnimeHeader(props)
 
   return (
     <div className={st.root}>
-      <PlaceholderImage src={poster} sizes={[200, 120]} className={st.poster} />
+      <Fancybox>
+        <a
+          href={poster ?? ''}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-fancybox="gallery"
+        >
+          <PlaceholderImage
+            src={poster}
+            sizes={[200, 120]}
+            className={st.poster}
+          />
+        </a>
+      </Fancybox>
       <div className={st.main}>
         <div className={st.labelWrapper}>
           <Text weight="700" className={st.label}>
