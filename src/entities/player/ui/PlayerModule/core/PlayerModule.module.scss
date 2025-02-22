@@ -1,0 +1,39 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  border-radius: var(--radius-20);
+  flex-shrink: 0;
+  height: 1000px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.kodik {
+  border: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+@include media-query(full-hd) {
+  .root {
+    height: 700px;
+  }
+}
+
+@include media-query(hd) {
+  .root {
+    height: 500px;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    height: 400px;
+  }
+}
+
+@include media-query(mobile) {
+  .root {
+    height: 300px;
+  }
+}
