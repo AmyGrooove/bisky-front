@@ -1,3 +1,3 @@
-import { AnimePage } from '@routes/anime/AnimePage'
+import { AnimePage } from '@routes/anime/pages/animeID/AnimePage'
 
 export default AnimePage

@@ -22,6 +22,7 @@ const SetScoreModal = (props: ISetScoreModalProps) => {
       />
       <div className={st.buttonsWrapper}>
         <Button
+          isCustomColor
           isDisabled={isDeleteButtonDisabled}
           onClick={() => setAnimeScoreClick(true)}
           variant="big"
@@ -30,6 +31,7 @@ const SetScoreModal = (props: ISetScoreModalProps) => {
           Удалить оценку
         </Button>
         <Button
+          isCustomColor
           onClick={() => setAnimeScoreClick()}
           variant="big"
           className={cn(st.button, st.button_set)}
