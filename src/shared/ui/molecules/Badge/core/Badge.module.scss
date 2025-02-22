@@ -68,6 +68,13 @@
   }
 }
 
+.iconText_custom,
+.children_custom,
+.icon_custom {
+  color: currentColor;
+  fill: currentColor;
+}
+
 .iconWrapper {
   align-items: center;
   display: flex;

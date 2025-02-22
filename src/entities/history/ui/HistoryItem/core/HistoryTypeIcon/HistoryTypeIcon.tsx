@@ -4,7 +4,7 @@ import {
   EyeIcon,
   EyeOffIcon,
   HeartIcon,
-  PlayIcon,
+  CirclePlayIcon,
   StarIcon,
   StarOffIcon,
   TrashIcon,
@@ -22,7 +22,7 @@ const AnimeListIcon = (listStatus: TListStatus | null) =>
       added: <EyeIcon className={st.typeIcon} />,
       completed: <CheckIcon className={st.typeIcon} />,
       dropped: <TrashIcon className={st.typeIcon} />,
-      watching: <PlayIcon className={st.typeIcon} />,
+      watching: <CirclePlayIcon className={st.typeIcon} />,
     }[listStatus]
   ) : (
     <EyeOffIcon className={st.typeIcon} />

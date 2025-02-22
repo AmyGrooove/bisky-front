@@ -9,8 +9,15 @@ import { useBadge } from './useBadge'
 import st from './Badge.module.scss'
 
 const Badge = (props: TBadgeProps) => {
-  const { children, icon, className, iconText, variant, isCustomColor } =
-    useBadge(props)
+  const {
+    children,
+    icon,
+    className,
+    iconText,
+    variant,
+    isCustomColor,
+    isCustomTextColor,
+  } = useBadge(props)
 
   return (
     <div
@@ -20,15 +27,28 @@ const Badge = (props: TBadgeProps) => {
       })}
     >
       <div className={st.iconWrapper}>
-        {icon && cloneElement(icon, { className: st.icon })}
+        {icon &&
+          cloneElement(icon, {
+            className: cn(st.icon, { [st.icon_custom]: isCustomTextColor }),
+          })}
         {children && (
-          <Text className={st.children} weight={iconText ? '400' : '700'}>
+          <Text
+            className={cn(st.children, {
+              [st.children_custom]: isCustomTextColor,
+            })}
+            weight={iconText ? '400' : '700'}
+          >
             {children}
           </Text>
         )}
       </div>
       {iconText && (
-        <Text weight="700" className={st.iconText}>
+        <Text
+          weight="700"
+          className={cn(st.iconText, {
+            [st.iconText_custom]: isCustomTextColor,
+          })}
+        >
           {iconText}
         </Text>
       )}

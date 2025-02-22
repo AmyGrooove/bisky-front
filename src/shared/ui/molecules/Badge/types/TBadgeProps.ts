@@ -5,6 +5,7 @@ interface IBadgePropsBase {
   variant?: 'small' | 'medium' | 'big'
   className?: string
   isCustomColor?: boolean
+  isCustomTextColor?: boolean
 }
 
 interface IBadgePropsWithChildren extends IBadgePropsBase {

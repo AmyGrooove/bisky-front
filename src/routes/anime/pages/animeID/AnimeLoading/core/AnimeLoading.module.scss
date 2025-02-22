@@ -1,0 +1,111 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.header {
+  height: 360px;
+  width: 100%;
+}
+
+.animeInfo {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.buttons {
+  height: 265px;
+  width: 120px;
+}
+
+.list {
+  height: 265px;
+  width: 340px;
+}
+
+.info {
+  height: 265px;
+  width: calc(100% - 500px);
+}
+
+.player {
+  height: 1000px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.cards {
+  display: flex;
+  gap: 24px;
+  width: 3000px;
+}
+
+.screenshot {
+  height: 220px;
+  width: 400px;
+}
+
+@include media-query(full-hd) {
+  .player {
+    height: 700px;
+  }
+}
+
+@include media-query(hd) {
+  .player {
+    height: 500px;
+  }
+}
+
+@include media-query(tablet) {
+  .animeHeader {
+    height: 270px;
+  }
+
+  .animeInfo {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .buttons {
+    height: 86px;
+    width: 100%;
+  }
+
+  .list {
+    height: 160px;
+    width: 100%;
+  }
+
+  .info {
+    height: 299px;
+    width: 100%;
+  }
+
+  .player {
+    height: 400px;
+  }
+
+  .cards {
+    gap: 8px;
+  }
+
+  .row {
+    gap: 8px;
+  }
+
+  .screenshot {
+    height: 165px;
+    width: 300px;
+  }
+}
+
+@include media-query(mobile) {
+  .player {
+    height: 300px;
+  }
+}
