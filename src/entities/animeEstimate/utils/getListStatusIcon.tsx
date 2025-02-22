@@ -2,8 +2,8 @@ import { TListStatus } from '@entities/animeEstimate/types'
 import {
   CassetteTapeIcon,
   CheckIcon,
+  CirclePlayIcon,
   EyeIcon,
-  PlayIcon,
   TrashIcon,
 } from '@shared/icons'
 
@@ -12,7 +12,7 @@ const getListStatusIcon = (value: TListStatus | null) => {
 
   return {
     added: <EyeIcon />,
-    watching: <PlayIcon />,
+    watching: <CirclePlayIcon />,
     completed: <CheckIcon />,
     dropped: <TrashIcon />,
   }[value]

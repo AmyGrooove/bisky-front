@@ -1,6 +1,7 @@
 @use '@shared/styles/reusable.scss' as *;
 
 .root {
+  flex-shrink: 0;
   height: 180px;
   position: relative;
   width: 180px;
@@ -8,7 +9,7 @@
 }
 
 .circle {
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-full) !important;
   height: 100%;
   mask:
     linear-gradient(#fff 0 0) content-box,

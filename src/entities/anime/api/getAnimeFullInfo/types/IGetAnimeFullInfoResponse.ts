@@ -41,7 +41,7 @@ interface IGetAnimeFullInfoResponse
   scoreCount: number
   related: IRelatedAnime[]
   userEstimate: IUserEstimate
-  listStatusCount: IListStatusCount
+  listStatusCounts: IListStatusCount
   estimateCount: number
 }
 

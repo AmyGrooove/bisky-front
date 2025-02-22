@@ -1,9 +1,9 @@
 import { TListStatus } from '@entities/animeEstimate/types'
 import {
   CheckIcon,
+  CirclePlayIcon,
   EyeIcon,
   EyeOffIcon,
-  PlayIcon,
   TrashIcon,
 } from '@shared/icons'
 
@@ -20,7 +20,7 @@ const listStatusButtons = (exclude: TListStatus | null) =>
       status: 'added' as TListStatus | null,
     },
     {
-      icon: <PlayIcon />,
+      icon: <CirclePlayIcon />,
       text: 'Смотрю',
       status: 'watching' as TListStatus | null,
     },

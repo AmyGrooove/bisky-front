@@ -5,13 +5,23 @@
   flex-shrink: 0;
   height: 1000px;
   overflow: hidden;
+  position: relative;
   width: 100%;
+  @extend %invoke-scale;
 }
 
 .kodik {
   border: 0px;
   height: 100%;
   width: 100%;
+  @extend %invoke;
+}
+
+.skeleton {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
 }
 
 @include media-query(full-hd) {
