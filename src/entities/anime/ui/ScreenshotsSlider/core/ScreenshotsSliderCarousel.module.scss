@@ -1,0 +1,156 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  @extend %invoke-scale;
+}
+
+.main {
+  left: -20px;
+  position: relative;
+  width: calc(100% + 40px);
+}
+
+.sliderWrapper {
+  overflow: hidden;
+}
+
+.slider {
+  cursor: grab;
+  display: flex;
+  margin-left: -24px;
+  padding-left: 24px;
+  user-select: none;
+}
+
+.slide {
+  flex: 0 0 auto;
+  height: 220px;
+  margin-left: 24px;
+  width: 400px;
+}
+
+.slideImg {
+  border-radius: var(--radius-20);
+  height: 220px;
+  width: 400px;
+}
+
+.slideEmpty {
+  flex-shrink: 0;
+  width: 40px;
+}
+
+.arrow {
+  background: transparent;
+  border: 0;
+  bottom: 0;
+  opacity: 0.2;
+  padding: 0px 12px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  @extend %invoke-scale;
+  @include transition((filter, opacity, background));
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &_left {
+    left: 0;
+  }
+
+  &_right {
+    right: 0;
+  }
+
+  &_active {
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: all;
+
+    &.arrow_left {
+      background: linear-gradient(to left, transparent, var(--dark-300));
+    }
+
+    &.arrow_right {
+      background: linear-gradient(to right, transparent, var(--dark-300));
+    }
+  }
+}
+
+.arrowIcon {
+  @extend %press, %no-select;
+
+  height: 48px;
+  width: 48px;
+}
+
+.skeleton {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+.skeletonCard {
+  height: 220px;
+  width: 400px;
+}
+
+@include media-query(tablet, true) {
+  .label_small {
+    display: none !important;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    gap: 8px;
+  }
+
+  .slider {
+    margin-left: unset;
+  }
+
+  .slide {
+    height: 165px;
+    margin-left: 8px;
+    width: 300px;
+
+    &:first-child {
+      margin-left: unset;
+    }
+  }
+
+  .slideImg {
+    height: 165px;
+    width: 300px;
+  }
+
+  .slideEmpty {
+    width: 20px;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .skeleton {
+    display: flex;
+    gap: 8px;
+  }
+
+  .skeletonCard {
+    height: 165px;
+    width: 300px;
+  }
+
+  .label_big {
+    display: none !important;
+  }
+}
