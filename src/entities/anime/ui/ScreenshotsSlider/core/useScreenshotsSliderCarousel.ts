@@ -12,8 +12,11 @@ const useScreenshotsSliderCarousel = (
   const [isCanScrollPrev, setIsCanScrollPrev] = useState(false)
   const [isCanScrollNext, setIsCanScrollNext] = useState(false)
 
+  const isDragEnabled = isCanScrollPrev || isCanScrollNext
+
   const [sliderRef, sliderApi] = useEmblaCarousel({
     dragFree: true,
+    watchDrag: isDragEnabled,
   })
 
   const scrollPrev = useCallback(() => {
@@ -48,6 +51,7 @@ const useScreenshotsSliderCarousel = (
     scrollNext,
     isCanScrollPrev,
     isCanScrollNext,
+    isDragEnabled,
   }
 }
 

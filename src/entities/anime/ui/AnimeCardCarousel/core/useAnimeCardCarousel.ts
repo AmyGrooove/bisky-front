@@ -10,8 +10,11 @@ const useAnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
   const [isCanScrollPrev, setIsCanScrollPrev] = useState(false)
   const [isCanScrollNext, setIsCanScrollNext] = useState(false)
 
+  const isDragEnabled = isCanScrollPrev || isCanScrollNext
+
   const [sliderRef, sliderApi] = useEmblaCarousel({
     dragFree: true,
+    watchDrag: isDragEnabled,
   })
 
   const scrollPrev = useCallback(() => {
@@ -47,6 +50,7 @@ const useAnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
     scrollNext,
     isCanScrollPrev,
     isCanScrollNext,
+    isDragEnabled,
   }
 }
 

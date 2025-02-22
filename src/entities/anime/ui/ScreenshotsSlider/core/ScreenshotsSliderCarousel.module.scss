@@ -19,11 +19,14 @@
 }
 
 .slider {
-  cursor: grab;
   display: flex;
   margin-left: -24px;
   padding-left: 24px;
   user-select: none;
+
+  &_drag {
+    cursor: grab;
+  }
 }
 
 .slide {

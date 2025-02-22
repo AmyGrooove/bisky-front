@@ -21,6 +21,7 @@ const ScreenshotsSliderCarousel = (props: IScreenshotsSliderCarouselProps) => {
     scrollNext,
     isCanScrollPrev,
     isCanScrollNext,
+    isDragEnabled,
   } = useScreenshotsSliderCarousel(props)
 
   return (
@@ -39,25 +40,31 @@ const ScreenshotsSliderCarousel = (props: IScreenshotsSliderCarouselProps) => {
         </div>
       ) : (
         <div className={st.main}>
-          <button
-            onClick={scrollPrev}
-            className={cn(st.arrow, st.arrow_left, {
-              [st.arrow_active]: isCanScrollPrev,
-            })}
-          >
-            <ChevronLeftIcon className={st.arrowIcon} />
-          </button>
-          <button
-            onClick={scrollNext}
-            className={cn(st.arrow, st.arrow_right, {
-              [st.arrow_active]: isCanScrollNext,
-            })}
-          >
-            <ChevronRightIcon className={st.arrowIcon} />
-          </button>
+          {isDragEnabled && (
+            <>
+              <button
+                onClick={scrollPrev}
+                className={cn(st.arrow, st.arrow_left, {
+                  [st.arrow_active]: isCanScrollPrev,
+                })}
+              >
+                <ChevronLeftIcon className={st.arrowIcon} />
+              </button>
+              <button
+                onClick={scrollNext}
+                className={cn(st.arrow, st.arrow_right, {
+                  [st.arrow_active]: isCanScrollNext,
+                })}
+              >
+                <ChevronRightIcon className={st.arrowIcon} />
+              </button>{' '}
+            </>
+          )}
           <Fancybox>
             <div ref={sliderRef} className={st.sliderWrapper}>
-              <div className={st.slider}>
+              <div
+                className={cn(st.slider, { [st.slider_drag]: isDragEnabled })}
+              >
                 {screenshots.map((item) => (
                   <a
                     key={item}
