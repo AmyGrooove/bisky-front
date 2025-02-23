@@ -11,6 +11,7 @@ import { ModalWrapper } from '@widgets/ModalWrapper'
 import { IRootLayoutProps } from '../types/IRootLayoutProps'
 
 import st from './RootLayout.module.scss'
+import { Auth } from './Auth/Auth'
 
 const ubuntu = Ubuntu({
   weight: ['400', '700'],
@@ -27,6 +28,7 @@ const RootLayout = async (props: IRootLayoutProps) => {
         <meta name="theme-color" content="#dd5480" />
       </Head>
       <body className={ubuntu.className}>
+        <Auth />
         <ModalWrapper />
         <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
         <main className={st.main}>
