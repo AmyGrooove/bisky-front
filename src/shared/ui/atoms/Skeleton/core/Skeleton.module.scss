@@ -38,6 +38,11 @@
     height: 360px;
     width: 100%;
   }
+
+  &_avatarElement {
+    height: 76px;
+    width: 100%;
+  }
 }
 
 @include media-query(tablet) {
@@ -60,6 +65,10 @@
 
     &_animeHeader {
       height: 270px;
+    }
+
+    &_avatarElement {
+      height: 60px;
     }
   }
 }

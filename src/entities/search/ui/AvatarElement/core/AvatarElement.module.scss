@@ -7,7 +7,6 @@
   gap: 8px;
   width: 100%;
   @extend %invoke-scale, %press;
-  @include effect(back-shadow);
   @include transition((filter, opacity, scale), (250ms, 250ms, 100ms));
 
   &_big {
@@ -24,4 +23,10 @@
   border-radius: var(--radius-full);
   height: 60px;
   width: 60px;
+}
+
+@include media-query(tablet, true) {
+  .root {
+    @include effect(back-shadow);
+  }
 }

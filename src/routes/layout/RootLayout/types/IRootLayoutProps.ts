@@ -1,5 +1,8 @@
-import { IDefaultPageProps } from '@shared/types'
+import { ReactNode } from 'react'
 
-interface IRootLayoutProps extends IDefaultPageProps {}
+interface IRootLayoutProps {
+  children: ReactNode
+  search: ReactNode
+}
 
 export type { IRootLayoutProps }
