@@ -3,7 +3,7 @@
 import { cn, isNil } from '@shared/utils/functions'
 import { useAllAnimesPage } from './useAllAnimesPage'
 import st from './AllAnimesPage.module.scss'
-import { Button } from '@shared/ui/molecules/Button'
+import Image from 'next/image'
 
 const AllAnimesPage = () => {
   const {
@@ -17,7 +17,7 @@ const AllAnimesPage = () => {
 
   return (
     <div className={st.root}>
-      {allAnimes.map(({ shikiID, poster }) => (
+      {allAnimes.map(({ shikiID, poster, status, label }) => (
         <div
           key={shikiID}
           onClick={() => addAnimeToDeleteList(shikiID)}
@@ -33,8 +33,18 @@ const AllAnimesPage = () => {
           {isNil(poster) ? (
             <div className={st.poster} />
           ) : (
-            <img src={poster} className={st.poster} />
+            <Image
+              width={200}
+              height={300}
+              alt={String(shikiID)}
+              src={poster}
+              className={st.poster}
+            />
           )}
+          <div className={st.animeInfo}>
+            <div className={cn(st.text, st[`text_${status}`])}>{status}</div>
+            <div className={st.text}>{label}</div>
+          </div>
         </div>
       ))}
       <div className={st.panel}>
@@ -44,7 +54,7 @@ const AllAnimesPage = () => {
         <div
           className={st.panelText}
         >{`trust count: ${animesToTrust.length}`}</div>
-        <Button onClick={validate}>VALIDATE</Button>
+        <button onClick={validate}>VALIDATE</button>
       </div>
     </div>
   )

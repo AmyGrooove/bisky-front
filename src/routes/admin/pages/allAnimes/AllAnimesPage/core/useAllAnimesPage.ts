@@ -2,11 +2,11 @@ import { TResponse } from '@shared/types'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 import { useEffect, useState } from 'react'
 import { ANIMES_COUNT } from '../static/ANIMES_COUNT'
-import { getAnimeSitemap } from '@entities/anime/api'
+import { getAnimesAdmin } from '@entities/anime/api'
 import { addAnimesToShikiBanList } from '@entities/parser/api'
 
 const useAllAnimesPage = () => {
-  const [allAnimes, setAllAnimes] = useState<TResponse<typeof getAnimeSitemap>>(
+  const [allAnimes, setAllAnimes] = useState<TResponse<typeof getAnimesAdmin>>(
     [],
   )
 
@@ -28,7 +28,7 @@ const useAllAnimesPage = () => {
   }
 
   const updateSitemap = async () => {
-    getAnimeSitemap().then((response) => {
+    getAnimesAdmin().then((response) => {
       const stored = localStorage.getItem('trustList')
       const trustAnimeIDs: string[] = stored ? JSON.parse(stored) : []
 

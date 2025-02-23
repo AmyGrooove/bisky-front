@@ -36,10 +36,24 @@
   }
 }
 
+.animeInfo {
+  background-color: var(--dark-300);
+  bottom: 5px;
+  left: 2px;
+  padding: 8px;
+  position: absolute;
+}
+
+.text {
+  color: var(--light-100);
+  @include status-color(color);
+}
+
 .poster {
   background-color: var(--bisky-400);
   border: 2px solid var(--bisky-200);
   height: 300px;
+  object-fit: cover;
   user-select: none;
   width: 200px;
 }
