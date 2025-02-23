@@ -6,7 +6,7 @@ const useSectionLabel = (props: ISectionLabelProps) => {
 
   const goBack = useNavigationFallback()
 
-  const onClickHandler = () => onClick ?? goBack
+  const onClickHandler = onClick ?? goBack
 
   return { children, className, onClickHandler, icon }
 }

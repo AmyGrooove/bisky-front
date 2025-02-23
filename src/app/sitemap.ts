@@ -1,4 +1,7 @@
 import { getAnimeSitemap } from '@entities/anime/api'
+import { getFranchiseSitemap } from '@entities/franchise/api'
+import { getGenreSitemap } from '@entities/genre/api'
+import { getStudioSitemap } from '@entities/studio/api'
 import { ENV } from '@shared/static'
 import { MetadataRoute } from 'next'
 
@@ -9,6 +12,21 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => [
     changeFrequency: 'daily',
     priority: 1,
   },
+  ...((await getGenreSitemap()).map((item) => ({
+    url: `${ENV.APP_URL}/genre/${item._id}`,
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  })) as MetadataRoute.Sitemap),
+  ...((await getStudioSitemap()).map((item) => ({
+    url: `${ENV.APP_URL}/studio/${item._id}`,
+    changeFrequency: 'weekly',
+    priority: 0.6,
+  })) as MetadataRoute.Sitemap),
+  ...((await getFranchiseSitemap()).map((item) => ({
+    url: `${ENV.APP_URL}/franchise/${item._id}`,
+    changeFrequency: 'weekly',
+    priority: 0.5,
+  })) as MetadataRoute.Sitemap),
   ...((await getAnimeSitemap()).map((item) => ({
     url: `${ENV.APP_URL}/anime/${item._id}`,
     lastModified: item.updatedOn,
