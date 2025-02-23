@@ -1,3 +1,5 @@
+'use client'
+
 import { getEstimateColor } from '@entities/animeEstimate/utils'
 import { Button } from '@shared/ui/molecules/Button'
 import { setModal } from '@widgets/ModalWrapper'
