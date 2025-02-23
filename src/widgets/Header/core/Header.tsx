@@ -3,11 +3,12 @@
 import Link from 'next/link'
 
 import { Text } from '@shared/ui/atoms/Text'
-import { LogoIcon, SearchIcon } from '@shared/icons'
+import { LogoIcon } from '@shared/icons'
 
 import st from './Header.module.scss'
 import { useHeader } from './useHeader'
 import { ProfileMenu } from './ProfileMenu/ProfileMenu'
+import { SearchButton } from './SearchButton/SearchButton'
 
 const Header = () => {
   useHeader()
@@ -21,17 +22,7 @@ const Header = () => {
         </Text>
       </Link>
       <div className={st.rightSide}>
-        <Link href="/search" className={st.searchButton}>
-          <div className={st.searchLabel}>
-            <SearchIcon className={st.searchIcon} isCustomColor />
-            <Text className={st.searchText} isCustomColor>
-              Поиск...
-            </Text>
-          </div>
-          <Text className={st.hotKey} weight="700" isCustomColor>
-            Ctrl + K
-          </Text>
-        </Link>
+        <SearchButton />
         <ProfileMenu />
       </div>
     </div>

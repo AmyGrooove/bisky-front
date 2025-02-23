@@ -17,6 +17,9 @@ const Skeleton = (props: ISkeletonProps) => {
     animeHeader: (
       <div className={cn(st.root, st[`root_${templates}`], className)} />
     ),
+    avatarElement: (
+      <div className={cn(st.root, st[`root_${templates}`], className)} />
+    ),
     none: <div className={cn(st.root, className)} />,
   }[templates]
 }
