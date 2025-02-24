@@ -8,25 +8,25 @@ const badgeItems = (
   dropped: number,
 ) => [
   {
-    icon: <EyeIcon />,
+    Icon: EyeIcon,
     estimateCount: added,
     estimateText: 'В списках',
     status: 'added' as TListStatus,
   },
   {
-    icon: <CirclePlayIcon />,
+    Icon: CirclePlayIcon,
     estimateCount: watching,
     estimateText: 'Смотрят',
     status: 'watching' as TListStatus,
   },
   {
-    icon: <CheckIcon />,
+    Icon: CheckIcon,
     estimateCount: completed,
     estimateText: 'Просмотрели',
     status: 'completed' as TListStatus,
   },
   {
-    icon: <TrashIcon />,
+    Icon: TrashIcon,
     estimateCount: dropped,
     estimateText: 'Бросили',
     status: 'dropped' as TListStatus,

@@ -1,6 +1,10 @@
+'use server'
+
 import { ENV } from '@shared/static'
 
 import { IGetAnimesFastSelectResponse } from '../types/IGetAnimesFastSelectResponse'
+import { getNormalCookieHeader } from '@shared/utils/functions'
+import { cookies } from 'next/headers'
 
 const getAnimesFastSelect = async (): Promise<
   IGetAnimesFastSelectResponse[]
@@ -9,8 +13,13 @@ const getAnimesFastSelect = async (): Promise<
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Cookie: await getNormalCookieHeader(cookies),
+    },
     credentials: 'include',
+    next: { tags: ['anime', 'fast'], revalidate: 300 },
   })
 
   if (!response.ok)

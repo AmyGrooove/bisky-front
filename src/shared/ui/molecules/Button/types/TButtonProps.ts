@@ -1,4 +1,5 @@
-import { MouseEventHandler, ReactElement } from 'react'
+import { IIconProps } from '@shared/types'
+import { MouseEventHandler, ReactNode } from 'react'
 
 interface IButtonPropsBase {
   onClick: MouseEventHandler<HTMLButtonElement>
@@ -12,11 +13,11 @@ interface IButtonPropsBase {
 interface IButtonPropsWithChildren extends IButtonPropsBase {
   children: string
 
-  icon?: ReactElement<HTMLElement>
+  Icon?: (props: IIconProps) => ReactNode
 }
 
 interface IButtonPropsWithIcon extends IButtonPropsBase {
-  icon: ReactElement<HTMLElement>
+  Icon: (props: IIconProps) => ReactNode
 
   children?: string
 }

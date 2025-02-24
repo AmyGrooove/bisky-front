@@ -1,8 +1,9 @@
-import { MouseEventHandler, ReactElement } from 'react'
+import { IIconProps } from '@shared/types'
+import { MouseEventHandler, ReactNode } from 'react'
 
 interface IGlassButtonProps {
   onClick: MouseEventHandler<HTMLButtonElement>
-  children: ReactElement<HTMLElement> | string
+  children: (props: IIconProps) => ReactNode | string
 
   iconClassName?: string
   isDisabled?: boolean

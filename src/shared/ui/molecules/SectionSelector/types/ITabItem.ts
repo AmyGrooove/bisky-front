@@ -1,9 +1,10 @@
-import { ReactElement } from 'react'
+import { IIconProps } from '@shared/types'
+import { ReactNode } from 'react'
 
 interface ITabItem {
   children: string
 
-  icon?: ReactElement<HTMLElement>
+  Icon?: (props: IIconProps) => ReactNode
 }
 
 export type { ITabItem }

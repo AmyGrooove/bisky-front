@@ -12,9 +12,15 @@ const requestReset = async (body: IRequestResetRequest): Promise<true> => {
     credentials: 'include',
   })
 
-  if (!response.ok) throw new Error(`requestReset: ${response.statusText}`)
+  await fetch(`/api/revalidate?tag=user`)
 
-  return response.json()
+  const result = await response.json()
+
+  if (!response.ok) {
+    throw new Error(`requestReset: ${result.message}`)
+  }
+
+  return result
 }
 
 export { requestReset }

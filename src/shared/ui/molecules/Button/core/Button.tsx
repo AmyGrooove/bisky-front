@@ -1,5 +1,3 @@
-import { cloneElement } from 'react'
-
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
 
@@ -12,7 +10,7 @@ const Button = (props: TButtonProps) => {
   const {
     children,
     onClick,
-    icon,
+    Icon,
     className,
     variant,
     isDisabled,
@@ -27,7 +25,7 @@ const Button = (props: TButtonProps) => {
       })}
       disabled={isDisabled}
     >
-      {icon && cloneElement(icon, { className: st.icon })}
+      {Icon && Icon({ className: st.icon })}
       {children && (
         <Text weight="700" className={st.children}>
           {children}

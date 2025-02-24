@@ -1,5 +1,3 @@
-import { cloneElement } from 'react'
-
 import { cn } from '@shared/utils/functions'
 
 import { IInputFieldProps } from '../types/IInputFieldProps'
@@ -8,7 +6,7 @@ import { useInputField } from './useInputField'
 import st from './InputField.module.scss'
 
 const InputField = (props: IInputFieldProps) => {
-  const { value, onChange, icon, className, placeholder, isDisabled } =
+  const { value, onChange, Icon, className, placeholder, isDisabled } =
     useInputField(props)
 
   return (
@@ -20,7 +18,7 @@ const InputField = (props: IInputFieldProps) => {
         className={st.input}
         disabled={isDisabled}
       />
-      {icon && cloneElement(icon, { className: st.icon })}
+      {Icon && Icon({ className: st.icon })}
     </div>
   )
 }

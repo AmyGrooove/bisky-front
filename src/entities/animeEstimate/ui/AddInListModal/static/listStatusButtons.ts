@@ -10,27 +10,27 @@ import {
 const listStatusButtons = (exclude: TListStatus | null) =>
   [
     {
-      icon: <EyeOffIcon />,
+      Icon: EyeOffIcon,
       text: 'Удалить',
       status: null as TListStatus | null,
     },
     {
-      icon: <EyeIcon />,
+      Icon: EyeIcon,
       text: 'В список',
       status: 'added' as TListStatus | null,
     },
     {
-      icon: <CirclePlayIcon />,
+      Icon: CirclePlayIcon,
       text: 'Смотрю',
       status: 'watching' as TListStatus | null,
     },
     {
-      icon: <CheckIcon />,
+      Icon: CheckIcon,
       text: 'Уже смотрел',
       status: 'completed' as TListStatus | null,
     },
     {
-      icon: <TrashIcon />,
+      Icon: TrashIcon,
       text: 'Бросил',
       status: 'dropped' as TListStatus | null,
     },

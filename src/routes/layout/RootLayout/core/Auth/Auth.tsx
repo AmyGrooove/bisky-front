@@ -1,15 +1,14 @@
 'use client'
 
 import { fetchSessionData } from '@entities/auth/hooks/useSession'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 const Auth = () => {
-  const isFetched = useRef(false)
-
   useEffect(() => {
-    if (isFetched.current) return
-
     fetchSessionData()
+
+    const intervalId = setInterval(fetchSessionData, 4 * 60 * 1000)
+    return () => clearInterval(intervalId)
   }, [])
 
   return null

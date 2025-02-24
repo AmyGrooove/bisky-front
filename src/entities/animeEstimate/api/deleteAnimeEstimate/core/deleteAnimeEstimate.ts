@@ -1,6 +1,8 @@
 import { ENV } from '@shared/static'
 
 import { IDeleteAnimeEstimateRequest } from '../types/IDeleteAnimeEstimateRequest'
+import { errorToast, successToast } from '@shared/utils/toast'
+import { EyeOffIcon } from '@shared/icons'
 
 const deleteAnimeEstimate = async (
   body: IDeleteAnimeEstimateRequest,
@@ -14,10 +16,26 @@ const deleteAnimeEstimate = async (
     credentials: 'include',
   })
 
-  if (!response.ok)
-    throw new Error(`deleteAnimeEstimate: ${response.statusText}`)
+  await fetch(`/api/revalidate?tag=anime&tag=user&tag=history&tag=fast`)
 
-  return response.json()
+  const result = await response.json()
+
+  if (!response.ok) {
+    if (!body.isFromSkipList)
+      errorToast({
+        message: `Не удалось изменить статус аниме в списке: ${result.message}`,
+      })
+
+    throw new Error(`deleteAnimeEstimate: ${result.message}`)
+  }
+
+  if (!body.isFromSkipList)
+    successToast({
+      message: 'Статус аниме в списке успешно изменен',
+      Icon: EyeOffIcon,
+    })
+
+  return result
 }
 
 export { deleteAnimeEstimate }

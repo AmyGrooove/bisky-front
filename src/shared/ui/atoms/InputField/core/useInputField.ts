@@ -4,13 +4,13 @@ const useInputField = (props: IInputFieldProps) => {
   const {
     value,
     onChange,
-    icon = null,
+    Icon = null,
     className = null,
     placeholder,
     isDisabled = false,
   } = props
 
-  return { value, onChange, icon, className, placeholder, isDisabled }
+  return { value, onChange, Icon, className, placeholder, isDisabled }
 }
 
 export { useInputField }

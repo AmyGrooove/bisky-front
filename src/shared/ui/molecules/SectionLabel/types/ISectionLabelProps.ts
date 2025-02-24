@@ -1,10 +1,11 @@
-import { MouseEventHandler, ReactElement } from 'react'
+import { IIconProps } from '@shared/types'
+import { MouseEventHandler, ReactNode } from 'react'
 
 interface ISectionLabelProps {
   children: string
 
   onClick?: MouseEventHandler<HTMLButtonElement>
-  icon?: ReactElement<HTMLElement>
+  Icon?: (props: IIconProps) => ReactNode
   className?: string
 }
 

@@ -1,6 +1,8 @@
 import { ENV } from '@shared/static'
 
 import { ISubscribeToUserRequest } from '../types/ISubscribeToUserRequest'
+import { errorToast, successToast } from '@shared/utils/toast'
+import { UserIcon } from '@shared/icons'
 
 const subscribeToUser = async (
   body: ISubscribeToUserRequest,
@@ -14,9 +16,21 @@ const subscribeToUser = async (
     credentials: 'include',
   })
 
-  if (!response.ok) throw new Error(`subscribeToUser: ${response.statusText}`)
+  await fetch(`/api/revalidate?tag=user`)
 
-  return response.json()
+  const result = await response.json()
+
+  if (!response.ok) {
+    errorToast({
+      message: `Не удалось подписаться на пользователя: ${result.message}`,
+    })
+
+    throw new Error(`subscribeToUser: ${result.message}`)
+  }
+
+  successToast({ message: 'Успешно подписан на пользователя', Icon: UserIcon })
+
+  return result
 }
 
 export { subscribeToUser }

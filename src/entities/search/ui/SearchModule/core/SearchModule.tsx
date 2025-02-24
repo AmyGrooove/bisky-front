@@ -52,7 +52,7 @@ const SearchModule = () => {
   return (
     <div className={st.root}>
       <InputField
-        icon={<SearchIcon />}
+        Icon={SearchIcon}
         className={st.input}
         value={searchValue}
         onChange={setSearchValue}
@@ -80,7 +80,7 @@ const SearchModule = () => {
               <BigButton
                 variant="big"
                 className={st.button}
-                icon={<DonutIcon />}
+                Icon={DonutIcon}
                 onClick={() => {}}
               >
                 Быстрый поиск
@@ -90,7 +90,7 @@ const SearchModule = () => {
               <BigButton
                 variant="big"
                 className={st.button}
-                icon={<CrownIcon />}
+                Icon={CrownIcon}
                 onClick={() => {}}
               >
                 Быстрый выбор
@@ -141,7 +141,7 @@ const SearchModule = () => {
               <BigButton
                 variant="big"
                 className={st.button}
-                icon={<DonutIcon />}
+                Icon={DonutIcon}
                 onClick={() => {}}
               >
                 Быстрый поиск
@@ -151,7 +151,7 @@ const SearchModule = () => {
               <BigButton
                 variant="big"
                 className={st.button}
-                icon={<CrownIcon />}
+                Icon={CrownIcon}
                 onClick={() => {}}
               >
                 Быстрый выбор

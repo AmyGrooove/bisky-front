@@ -12,7 +12,7 @@ import st from './AddInListButton.module.scss'
 import { useAddInListButton } from './useAddInListButton'
 
 const AddInListButton = (props: IAddInListButtonProps) => {
-  const { listIcon, _id, className, currentStatus, setCurrentStatus } =
+  const { ListIcon, _id, className, currentStatus, setCurrentStatus } =
     useAddInListButton(props)
 
   return (
@@ -29,7 +29,7 @@ const AddInListButton = (props: IAddInListButtonProps) => {
           />,
         )
       }}
-      icon={listIcon}
+      Icon={ListIcon}
       className={cn(className, st[`root_${getEstimateColor(currentStatus)}`])}
     />
   )

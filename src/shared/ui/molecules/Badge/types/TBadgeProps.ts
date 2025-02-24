@@ -1,4 +1,5 @@
-import { ReactElement } from 'react'
+import { IIconProps } from '@shared/types'
+import { ReactNode } from 'react'
 
 interface IBadgePropsBase {
   iconText?: string
@@ -11,11 +12,11 @@ interface IBadgePropsBase {
 interface IBadgePropsWithChildren extends IBadgePropsBase {
   children: string
 
-  icon?: ReactElement<HTMLElement>
+  Icon?: (props: IIconProps) => ReactNode
 }
 
 interface IBadgePropsWithIcon extends IBadgePropsBase {
-  icon: ReactElement<HTMLElement>
+  Icon: (props: IIconProps) => ReactNode
 
   children?: string
 }
