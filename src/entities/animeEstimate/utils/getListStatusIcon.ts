@@ -8,13 +8,13 @@ import {
 } from '@shared/icons'
 
 const getListStatusIcon = (value: TListStatus | null) => {
-  if (value === null) return <CassetteTapeIcon />
+  if (value === null) return CassetteTapeIcon
 
   return {
-    added: <EyeIcon />,
-    watching: <CirclePlayIcon />,
-    completed: <CheckIcon />,
-    dropped: <TrashIcon />,
+    added: EyeIcon,
+    watching: CirclePlayIcon,
+    completed: CheckIcon,
+    dropped: TrashIcon,
   }[value]
 }
 

@@ -1,5 +1,3 @@
-import { cloneElement } from 'react'
-
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
 
@@ -31,7 +29,7 @@ const SectionSelector = (props: ISectionSelectorProps) => {
           top: indicatorStyle.top,
         }}
       />
-      {items.map((item, index) => (
+      {items.map(({ Icon, children }, index) => (
         <div
           key={index}
           className={cn(st.tab, st[`tab_${elementsVariant}`], {
@@ -42,14 +40,14 @@ const SectionSelector = (props: ISectionSelectorProps) => {
             tabRefs.current[index] = el
           }}
         >
-          {item.icon && cloneElement(item.icon, { className: st.icon })}
+          {Icon && Icon({ className: st.icon })}
           <Text
             className={cn(st.children, {
               [st.children_row]: elementsVariant === 'row',
             })}
             weight="700"
           >
-            {item.children}
+            {children}
           </Text>
         </div>
       ))}

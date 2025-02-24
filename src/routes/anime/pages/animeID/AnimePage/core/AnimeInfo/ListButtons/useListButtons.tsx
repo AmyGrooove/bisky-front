@@ -37,11 +37,9 @@ const useListButtons = (props: IAnimeSectionProps) => {
   const estimateButton: ComponentProps<typeof BigButton> = useMemo(
     () => ({
       children: isNil(currentStatus) ? 'в список' : 'изменить',
-      icon: isNil(currentStatus) ? (
-        <CassetteTapeIcon />
-      ) : (
-        getListStatusIcon(currentStatus)
-      ),
+      Icon: isNil(currentStatus)
+        ? CassetteTapeIcon
+        : getListStatusIcon(currentStatus),
       onClick: (event) => {
         event.preventDefault()
         setModal(
@@ -63,7 +61,7 @@ const useListButtons = (props: IAnimeSectionProps) => {
   const scoreButton: ComponentProps<typeof BigButton> = useMemo(
     () => ({
       children: isNil(currentScore) ? 'оценить' : 'изменить',
-      icon: <StarIcon />,
+      Icon: StarIcon,
       iconText: isNil(currentScore) ? undefined : String(currentScore),
       onClick: (event) => {
         event.preventDefault()
@@ -86,7 +84,7 @@ const useListButtons = (props: IAnimeSectionProps) => {
   const favoriteButton: ComponentProps<typeof BigButton> = useMemo(
     () => ({
       children: !isInFavorite ? 'в избранное' : 'удалить',
-      icon: <HeartIcon />,
+      Icon: HeartIcon,
       onClick: async (event) => {
         event.preventDefault()
         await addAnimeInFavorite()

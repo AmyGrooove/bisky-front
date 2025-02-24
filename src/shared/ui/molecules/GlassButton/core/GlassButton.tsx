@@ -1,5 +1,3 @@
-import { cloneElement } from 'react'
-
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
 
@@ -23,7 +21,7 @@ const GlassButton = (props: IGlassButtonProps) => {
           {children}
         </Text>
       ) : (
-        cloneElement(children, { className: cn(st.icon, iconClassName) })
+        children({ className: cn(st.icon, iconClassName) })
       )}
     </button>
   )

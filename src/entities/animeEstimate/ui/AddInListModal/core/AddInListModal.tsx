@@ -12,16 +12,16 @@ const AddInListModal = (props: IAddInListModalProps) => {
 
   return (
     <div className={st.root}>
-      {listStatusButtons(selectedListStatus).map((item) => (
+      {listStatusButtons(selectedListStatus).map(({ text, Icon, status }) => (
         <BigButton
           variant="big"
-          key={item.text}
-          icon={item.icon}
-          className={st[`button_${getEstimateColor(item.status)}`]}
+          key={text}
+          Icon={Icon}
+          className={st[`button_${getEstimateColor(status)}`]}
           isCustomColor
-          onClick={() => addAnimeInList(item.status)}
+          onClick={() => addAnimeInList(status)}
         >
-          {item.text}
+          {text}
         </BigButton>
       ))}
     </div>

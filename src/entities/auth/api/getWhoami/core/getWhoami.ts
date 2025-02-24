@@ -7,8 +7,12 @@ const getWhoami = async (): Promise<IGetWhoamiResponse> => {
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
     credentials: 'include',
+    next: { tags: ['user'], revalidate: 60 },
   })
 
   if (!response.ok) throw new Error(`getWhoami: ${response.statusText}`)

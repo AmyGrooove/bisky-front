@@ -12,11 +12,11 @@ const useAddInListButton = (props: IAddInListButtonProps) => {
     selectedListStatus,
   )
 
-  const listIcon = getListStatusIcon(currentStatus)
+  const ListIcon = getListStatusIcon(currentStatus)
 
   return {
     selectedListStatus,
-    listIcon,
+    ListIcon,
     _id,
     className,
     currentStatus,

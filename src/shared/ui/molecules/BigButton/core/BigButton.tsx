@@ -1,5 +1,3 @@
-import { cloneElement } from 'react'
-
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
 
@@ -12,7 +10,7 @@ const BigButton = (props: IBigButtonProps) => {
   const {
     onClick,
     children,
-    icon,
+    Icon,
     className,
     variant,
     isDisabled,
@@ -29,7 +27,7 @@ const BigButton = (props: IBigButtonProps) => {
       disabled={isDisabled}
     >
       <div className={st.iconWrapper}>
-        {cloneElement(icon, { className: st.icon })}
+        {Icon({ className: st.icon })}
         {iconText && (
           <Text weight="700" className={st.iconText}>
             {iconText}

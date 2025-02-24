@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Ubuntu } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
+import { Toaster } from 'sonner'
 
 import { Bar } from '@widgets/Bar'
 import { Footer } from '@widgets/Footer'
@@ -28,6 +29,7 @@ const RootLayout = async (props: IRootLayoutProps) => {
         <meta name="theme-color" content="#dd5480" />
       </Head>
       <body className={ubuntu.className}>
+        <Toaster />
         <Auth />
         <ModalWrapper />
         <NextTopLoader color="var(--bisky-100)" showSpinner={false} />

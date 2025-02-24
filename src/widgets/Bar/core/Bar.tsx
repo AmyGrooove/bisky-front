@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { cloneElement } from 'react'
 
 import { cn } from '@shared/utils/functions'
 
@@ -15,11 +14,11 @@ const Bar = () => {
 
   return (
     <div className={st.root}>
-      {barLinks(username).map((link) => (
-        <Link key={link.href} href={link.href}>
-          {cloneElement(link.icon, {
+      {barLinks(username).map(({ href, Icon }) => (
+        <Link key={href} href={href}>
+          {Icon({
             className: cn(st.linkIcon, {
-              [st.linkIcon_active]: checkIsActive(link.href),
+              [st.linkIcon_active]: checkIsActive(href),
             }),
           })}
         </Link>

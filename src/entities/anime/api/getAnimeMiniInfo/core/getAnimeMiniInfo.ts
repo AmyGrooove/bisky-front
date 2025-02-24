@@ -1,6 +1,10 @@
+'use server'
+
 import { ENV } from '@shared/static'
 
 import { IGetAnimeMiniInfoResponse } from '../types/IGetAnimeMiniInfoResponse'
+import { getNormalCookieHeader } from '@shared/utils/functions'
+import { cookies } from 'next/headers'
 
 const getAnimeMiniInfo = async (
   animeID: string,
@@ -9,8 +13,13 @@ const getAnimeMiniInfo = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Cookie: await getNormalCookieHeader(cookies),
+    },
     credentials: 'include',
+    next: { tags: ['anime'], revalidate: 3000 },
   })
 
   if (!response.ok) throw new Error(`getAnimeMiniInfo: ${response.statusText}`)

@@ -13,7 +13,7 @@ const ScoreBadge = (props: TScoreBadge) => {
   return (
     <Badge
       {...otherProps}
-      icon={<StarIcon />}
+      Icon={StarIcon}
       className={cn(st[`root_${scoreColor}`], className)}
     >
       {String(score)}

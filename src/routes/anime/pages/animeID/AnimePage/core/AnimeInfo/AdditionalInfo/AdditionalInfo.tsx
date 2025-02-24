@@ -59,14 +59,18 @@ const AdditionalInfo = (props: IAnimeSectionProps) => {
             <Text className={st.rowText}>{normalAiredDate}</Text>
           </div>
         )}
-        <div className={st.row}>
-          <VenetianMaskIcon className={st.icon} />
-          <Text className={st.rowText}>{connectedGenres}</Text>
-        </div>
-        <div className={st.row}>
-          <BrushIcon className={st.icon} />
-          <Text className={st.rowText}>{connectedStudios}</Text>
-        </div>
+        {connectedGenres !== '' && (
+          <div className={st.row}>
+            <VenetianMaskIcon className={st.icon} />
+            <Text className={st.rowText}>{connectedGenres}</Text>
+          </div>
+        )}
+        {connectedStudios !== '' && (
+          <div className={st.row}>
+            <BrushIcon className={st.icon} />
+            <Text className={st.rowText}>{connectedStudios}</Text>
+          </div>
+        )}
       </div>
       <DescriptionWrapper description={description} />
     </div>

@@ -4,7 +4,7 @@ const useButton = (props: TButtonProps) => {
   const {
     onClick,
     children = null,
-    icon = null,
+    Icon = null,
     className = null,
     variant = 'small',
     isDisabled = false,
@@ -14,7 +14,7 @@ const useButton = (props: TButtonProps) => {
   return {
     onClick,
     children,
-    icon,
+    Icon,
     className,
     variant,
     isDisabled,

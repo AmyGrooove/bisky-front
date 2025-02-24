@@ -1,6 +1,10 @@
+'use server'
+
 import { ENV } from '@shared/static'
 
 import { IGetAnimesByFranchiseResponse } from '../types/IGetAnimesByFranchiseResponse'
+import { getNormalCookieHeader } from '@shared/utils/functions'
+import { cookies } from 'next/headers'
 
 const getAnimesByFranchise = async (
   franchiseID: string,
@@ -13,8 +17,13 @@ const getAnimesByFranchise = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Cookie: await getNormalCookieHeader(cookies),
+    },
     credentials: 'include',
+    next: { tags: ['anime', 'franchise'], revalidate: 300 },
   })
 
   if (!response.ok)

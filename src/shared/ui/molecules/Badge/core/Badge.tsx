@@ -1,5 +1,3 @@
-import { cloneElement } from 'react'
-
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
 
@@ -11,7 +9,7 @@ import st from './Badge.module.scss'
 const Badge = (props: TBadgeProps) => {
   const {
     children,
-    icon,
+    Icon,
     className,
     iconText,
     variant,
@@ -27,8 +25,8 @@ const Badge = (props: TBadgeProps) => {
       })}
     >
       <div className={st.iconWrapper}>
-        {icon &&
-          cloneElement(icon, {
+        {Icon &&
+          Icon({
             className: cn(st.icon, { [st.icon_custom]: isCustomTextColor }),
           })}
         {children && (

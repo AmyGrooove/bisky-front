@@ -1,0 +1,31 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  background-color: var(--dark-400);
+  border: 2px solid transparent;
+  border-radius: var(--radius-20);
+  display: flex;
+  gap: 8px;
+  padding: 20px;
+  width: 100%;
+  @include effect(back-shadow);
+  @extend %no-select;
+}
+
+.message {
+  width: 100%;
+}
+
+.icon {
+  fill: var(--light-100);
+  flex-shrink: 0;
+  height: 24px;
+  width: 24px;
+}
+
+@include media-query(tablet, true) {
+  .root {
+    width: 400px;
+  }
+}

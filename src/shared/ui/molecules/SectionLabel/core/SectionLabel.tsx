@@ -1,7 +1,5 @@
 'use client'
 
-import { cloneElement } from 'react'
-
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
 import { ChevronLeftIcon } from '@shared/icons'
@@ -12,7 +10,7 @@ import { useSectionLabel } from './useSectionLabel'
 import st from './SectionLabel.module.scss'
 
 const SectionLabel = (props: ISectionLabelProps) => {
-  const { children, className, onClickHandler, icon } = useSectionLabel(props)
+  const { children, className, onClickHandler, Icon } = useSectionLabel(props)
 
   return (
     <div className={cn(st.root, className)}>
@@ -20,7 +18,7 @@ const SectionLabel = (props: ISectionLabelProps) => {
         <ChevronLeftIcon className={st.backIcon} />
       </button>
       <div className={st.labelWrapper}>
-        {icon && cloneElement(icon, { className: st.icon })}
+        {Icon && Icon({ className: st.icon })}
         <Text weight="700" className={st.children}>
           {children}
         </Text>

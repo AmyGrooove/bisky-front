@@ -1,6 +1,8 @@
 import { ENV } from '@shared/static'
 
 import { IVerifyResetRequest } from '../types/IVerifyResetRequest'
+import { successToast } from '@shared/utils/toast'
+import { UserIcon } from '@shared/icons'
 
 const verifyReset = async (body: IVerifyResetRequest): Promise<true> => {
   const url = new URL(`/auth/verifyReset`, ENV.API_URL)
@@ -12,9 +14,17 @@ const verifyReset = async (body: IVerifyResetRequest): Promise<true> => {
     credentials: 'include',
   })
 
-  if (!response.ok) throw new Error(`verifyReset: ${response.statusText}`)
+  await fetch(`/api/revalidate?tag=user`)
 
-  return response.json()
+  const result = await response.json()
+
+  if (!response.ok) {
+    throw new Error(`verifyReset: ${result.message}`)
+  }
+
+  successToast({ message: 'Успешно сброшен', Icon: UserIcon })
+
+  return result
 }
 
 export { verifyReset }

@@ -1,4 +1,5 @@
-import { ReactElement } from 'react'
+import { IIconProps } from '@shared/types'
+import { ReactNode } from 'react'
 
 interface IInputFieldProps {
   value: string
@@ -6,7 +7,7 @@ interface IInputFieldProps {
 
   isDisabled?: boolean
   placeholder?: string
-  icon?: ReactElement<HTMLElement>
+  Icon?: (props: IIconProps) => ReactNode
   className?: string
 }
 

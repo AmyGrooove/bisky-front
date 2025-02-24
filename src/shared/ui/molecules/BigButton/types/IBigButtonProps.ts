@@ -1,9 +1,10 @@
-import { MouseEventHandler, ReactElement } from 'react'
+import { IIconProps } from '@shared/types'
+import { MouseEventHandler, ReactNode } from 'react'
 
 interface IBigButtonProps {
   onClick: MouseEventHandler<HTMLButtonElement>
   children: string
-  icon: ReactElement<HTMLElement>
+  Icon: (props: IIconProps) => ReactNode
 
   isDisabled?: boolean
   variant?: 'small' | 'big'

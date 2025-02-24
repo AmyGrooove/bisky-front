@@ -24,10 +24,10 @@ const ListStatus = (props: IAnimeSectionProps) => {
         />
         <div className={cn(st.badgeWrapper, st.badgeWrapper_desktop)}>
           {badgeElements.map(
-            ({ estimateCount, estimateText, icon, status }) => (
+            ({ estimateCount, estimateText, Icon, status }) => (
               <Badge
                 key={estimateText}
-                icon={icon}
+                Icon={Icon}
                 variant="big"
                 className={cn(st.badge, st[`badge_${status}`])}
                 isCustomColor
@@ -40,10 +40,10 @@ const ListStatus = (props: IAnimeSectionProps) => {
         </div>
         <div className={cn(st.badgeWrapper, st.badgeWrapper_mobile)}>
           {badgeElements.map(
-            ({ estimateCount, estimateText, icon, status }) => (
+            ({ estimateCount, estimateText, Icon, status }) => (
               <Badge
                 key={estimateText}
-                icon={icon}
+                Icon={Icon}
                 iconText={getSpacedNumber(estimateCount)}
                 variant="big"
                 className={cn(st.badge, st[`badge_${status}`])}

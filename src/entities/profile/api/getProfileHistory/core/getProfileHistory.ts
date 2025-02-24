@@ -1,6 +1,10 @@
+'use server'
+
 import { ENV } from '@shared/static'
 
 import { IGetProfileHistoryResponse } from '../types/IGetProfileHistoryResponse'
+import { getNormalCookieHeader } from '@shared/utils/functions'
+import { cookies } from 'next/headers'
 
 const getProfileHistory = async (
   username: string,
@@ -13,8 +17,13 @@ const getProfileHistory = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Cookie: await getNormalCookieHeader(cookies),
+    },
     credentials: 'include',
+    next: { tags: ['user', 'history'], revalidate: 300 },
   })
 
   if (!response.ok) throw new Error(`getProfileHistory: ${response.statusText}`)

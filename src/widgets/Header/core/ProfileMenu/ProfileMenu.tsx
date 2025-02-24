@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { cloneElement } from 'react'
 
 import { cn } from '@shared/utils/functions'
 import { CopyIcon, HourglassIcon } from '@shared/icons'
@@ -70,10 +69,10 @@ const ProfileMenu = () => {
             </Link>
           )}
           <div className={st.divider} />
-          {profileMenuLinks(username).map((link) => (
-            <Link key={link.href} href={link.href} className={st.linkRow}>
-              <Text weight="700">{link.name}</Text>
-              {cloneElement(link.icon, { className: st.linkIcon })}
+          {profileMenuLinks(username).map(({ href, name, Icon }) => (
+            <Link key={href} href={href} className={st.linkRow}>
+              <Text weight="700">{name}</Text>
+              {Icon({ className: st.linkIcon })}
             </Link>
           ))}
         </div>

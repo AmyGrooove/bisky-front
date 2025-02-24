@@ -3,7 +3,7 @@ import { TBadgeProps } from '../types/TBadgeProps'
 const useBadge = (props: TBadgeProps) => {
   const {
     children = null,
-    icon = null,
+    Icon = null,
     className = null,
     iconText = null,
     variant = 'small',
@@ -13,7 +13,7 @@ const useBadge = (props: TBadgeProps) => {
 
   return {
     children,
-    icon,
+    Icon,
     className,
     iconText,
     variant,
