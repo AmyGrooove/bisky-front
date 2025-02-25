@@ -10,6 +10,7 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",
     "@floating-ui/react": "^0.27.4",
+    "@tanstack/react-query": "^5.66.9",
     "effector": "^23.3.0",
     "effector-react": "^23.3.0",
     "embla-carousel-autoplay": "^8.5.2",
@@ -20,10 +21,12 @@
     "react-dom": "^19.0.0",
     "react-intersection-observer": "^9.15.1",
     "sass": "^1.85.0",
-    "sonner": "^2.0.1"
+    "sonner": "^2.0.1",
+    "use-debounce": "^10.0.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@tanstack/react-query-devtools": "^5.66.9",
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

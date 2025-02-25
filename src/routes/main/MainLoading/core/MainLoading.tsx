@@ -3,7 +3,7 @@ import { getEmptyArray } from '@shared/utils/functions'
 
 import st from './MainLoading.module.scss'
 
-const MainLoading = async () => {
+const MainLoading = () => {
   return (
     <>
       <div className={st.season}>
@@ -11,7 +11,7 @@ const MainLoading = async () => {
           <Skeleton key={index} templates="season" />
         ))}
       </div>
-      {getEmptyArray(2).map((_, index) => (
+      {getEmptyArray(4).map((_, index) => (
         <div key={index} className={st.row}>
           <Skeleton templates="label" />
           <div className={st.animeCards}>

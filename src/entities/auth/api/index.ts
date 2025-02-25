@@ -1,6 +1,0 @@
-export { changePassword } from './changePassword'
-export { getWhoami } from './getWhoami'
-export { loginByID } from './loginByID'
-export { loginByPassword } from './loginByPassword'
-export { requestReset } from './requestReset'
-export { verifyReset } from './verifyReset'

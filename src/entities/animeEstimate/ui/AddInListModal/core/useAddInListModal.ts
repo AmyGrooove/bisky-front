@@ -1,14 +1,15 @@
 import { TListStatus } from '@entities/animeEstimate/types'
 import { closeModal } from '@widgets/ModalWrapper'
-import {
-  deleteAnimeEstimate,
-  setAnimeEstimate,
-} from '@entities/animeEstimate/api'
 
 import { IAddInListModalProps } from '../types/IAddInListModalProps'
+import { useSetAnimeEstimate } from '@entities/animeEstimate/api/setAnimeEstimate'
+import { useDeleteAnimeEstimate } from '@entities/animeEstimate/api/deleteAnimeEstimate'
 
 const useAddInListModal = (props: IAddInListModalProps) => {
   const { _id, selectedListStatus, setStatus } = props
+
+  const { mutateAsync: setAnimeEstimate } = useSetAnimeEstimate()
+  const { mutateAsync: deleteAnimeEstimate } = useDeleteAnimeEstimate()
 
   const addAnimeInList = async (variant: TListStatus | null) => {
     closeModal()

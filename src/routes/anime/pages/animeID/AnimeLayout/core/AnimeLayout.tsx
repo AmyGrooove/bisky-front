@@ -1,4 +1,4 @@
-import { getAnimeFullInfo } from '@entities/anime/api'
+import { getAnimeFullInfo } from '@entities/anime/api/getAnimeFullInfo'
 import { IAnimeLayoutProps } from '../types/IAnimeLayoutProps'
 import { notFound } from 'next/navigation'
 

@@ -1,22 +1,39 @@
-import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
-import { IGenrePageProps } from '../types/IGenrePageProps'
-import { GenreHeader } from './GenreHeader/GenreHeader'
+'use client'
+
 import st from './GenrePage.module.scss'
-import { getAnimesByGenre } from '@entities/genre/api'
-import { AnimeCards } from './AnimeCards/AnimeCards'
+import { useGenrePage } from './useGenrePage'
+import { AnimeCard } from '@entities/anime/ui/AnimeCard'
+import { Skeleton } from '@shared/ui/atoms/Skeleton'
+import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
+import { getEmptyArray } from '@shared/utils/functions'
+import { GenreHeader } from './GenreHeader/GenreHeader'
 
-const GenrePage = async (props: IGenrePageProps) => {
-  const { genreID } = await props.params
-
-  const genreData = await getAnimesByGenre(genreID)
+const GenrePage = () => {
+  const {
+    animeCards,
+    isEnd,
+    genreName,
+    genreDescription,
+    loadingRef,
+    isLoading,
+  } = useGenrePage()
 
   return (
     <>
-      <SectionLabel className={st.sectionLabel}>
-        {genreData.genre.name}
-      </SectionLabel>
-      <GenreHeader data={genreData} />
-      <AnimeCards data={genreData} />
+      <SectionLabel className={st.sectionLabel}>{genreName}</SectionLabel>
+      <GenreHeader name={genreName} description={genreDescription} />
+      <div className={st.animes}>
+        {animeCards.map((anime) => (
+          <AnimeCard key={anime._id} data={anime} />
+        ))}
+        {(!isEnd || isLoading) && (
+          <div className={st.animes} ref={loadingRef}>
+            {getEmptyArray(12).map((_, index) => (
+              <Skeleton key={index} templates="animeCard" />
+            ))}
+          </div>
+        )}
+      </div>
       <div className={st.barMargin} />
     </>
   )

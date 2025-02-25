@@ -1,7 +1,7 @@
 import { createEffect, createStore } from 'effector'
 
 import { TResponse } from '@shared/types'
-import { getWhoami } from '@entities/auth/api'
+import { getWhoami } from '@entities/auth/api/getWhoami'
 
 const fetchSessionData = createEffect(getWhoami)
 

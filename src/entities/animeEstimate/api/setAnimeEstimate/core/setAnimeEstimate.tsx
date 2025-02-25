@@ -1,8 +1,6 @@
 import { ENV } from '@shared/static'
 
 import { ISetAnimeEstimateRequest } from '../types/ISetAnimeEstimateRequest'
-import { errorToast, successToast } from '@shared/utils/toast'
-import { CassetteTapeIcon } from '@shared/icons'
 
 const setAnimeEstimate = async (
   body: ISetAnimeEstimateRequest,
@@ -16,24 +14,9 @@ const setAnimeEstimate = async (
     credentials: 'include',
   })
 
-  await fetch(`/api/revalidate?tag=anime&tag=user&tag=history&tag=fast`)
-
   const result = await response.json()
 
-  if (!response.ok) {
-    if (!body.isFastFind)
-      errorToast({
-        message: `Не удалось изменить статус аниме в списке: ${result.message}`,
-      })
-
-    throw new Error(`setAnimeEstimate: ${result.message}`)
-  }
-
-  if (!body.isFastFind)
-    successToast({
-      message: 'Статус аниме в списке успешно изменен',
-      Icon: CassetteTapeIcon,
-    })
+  if (!response.ok) throw new Error(`setAnimeEstimate: ${result.message}`)
 
   return result
 }

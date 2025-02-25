@@ -1,11 +1,7 @@
-import { IGenreSectionProps } from '../../types/IGenreSectionProps'
+import { IGenreHeaderProps } from '../../types/IGenreHeaderProps'
 
-const useGenreHeader = (props: IGenreSectionProps) => {
-  const {
-    data: {
-      genre: { description, name },
-    },
-  } = props
+const useGenreHeader = (props: IGenreHeaderProps) => {
+  const { name, description } = props
 
   return { description, name }
 }

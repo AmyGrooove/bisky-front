@@ -1,4 +1,4 @@
-import { getAnimeFullInfo } from '@entities/anime/api'
+import { getAnimeFullInfo } from '@entities/anime/api/getAnimeFullInfo'
 import { TResponse } from '@shared/types'
 
 interface IAnimeSectionProps {

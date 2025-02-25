@@ -1,13 +1,9 @@
-import { IFranchiseSectionProps } from '../../types/IFranchiseSectionProps'
+import { IFranchiseHeaderProps } from '../../types/IFranchiseHeaderProps'
 
-const useFranchiseHeader = (props: IFranchiseSectionProps) => {
-  const {
-    data: {
-      franchise: { description, name, shikiID },
-    },
-  } = props
+const useFranchiseHeader = (props: IFranchiseHeaderProps) => {
+  const { name, description } = props
 
-  return { description, name, shikiID }
+  return { description, name }
 }
 
 export { useFranchiseHeader }

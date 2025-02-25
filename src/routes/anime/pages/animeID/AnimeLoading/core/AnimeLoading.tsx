@@ -2,7 +2,7 @@ import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import st from './AnimeLoading.module.scss'
 import { getEmptyArray } from '@shared/utils/functions'
 
-const AnimeLoading = async () => {
+const AnimeLoading = () => {
   return (
     <>
       <Skeleton className={st.header} />

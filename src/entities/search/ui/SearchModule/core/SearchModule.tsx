@@ -1,11 +1,9 @@
 'use client'
 
 import { InputField } from '@shared/ui/atoms/InputField'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react'
 import st from './SearchModule.module.scss'
 import { CrownIcon, DonutIcon, SearchIcon } from '@shared/icons'
-import { TResponse } from '@shared/types'
-import { searchAnimeAndUsers } from '@entities/search/api'
 import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
 import { BigButton } from '@shared/ui/molecules/BigButton'
@@ -15,39 +13,17 @@ import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { AvatarElement } from '../../AvatarElement'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 import { closeModal } from '@widgets/ModalWrapper'
+import { useSearchModule } from './useSearchModule'
 
 const SearchModule = () => {
-  const [searchValue, setSearchValue] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [hasSearched, setHasSearched] = useState(false)
-  const [data, setData] = useState<TResponse<typeof searchAnimeAndUsers>>({
-    users: [],
-    animes: [],
-  })
-
-  const getDataBySearchValue = async () => {
-    setIsLoading(true)
-    try {
-      const res = await searchAnimeAndUsers(searchValue)
-      setData(res)
-    } catch (_) {
-      setData({ users: [], animes: [] })
-    } finally {
-      setIsLoading(false)
-      setHasSearched(true)
-    }
-  }
-
-  useEffect(() => {
-    if (searchValue.trim() === '') {
-      setData({ users: [], animes: [] })
-      setHasSearched(false)
-      return
-    }
-
-    const handler = setTimeout(getDataBySearchValue, 300)
-    return () => clearTimeout(handler)
-  }, [searchValue])
+  const {
+    animes,
+    users,
+    isLoading,
+    setSearchValue,
+    searchValue,
+    debouncedSearchValue,
+  } = useSearchModule()
 
   return (
     <div className={st.root}>
@@ -98,7 +74,7 @@ const SearchModule = () => {
             </Link>
           </div>
         </div>
-      ) : isLoading || !hasSearched ? (
+      ) : isLoading || debouncedSearchValue !== searchValue ? (
         <div className={st.result}>
           <div className={st.users}>
             {getEmptyArray(3).map((_, index) => (
@@ -116,7 +92,7 @@ const SearchModule = () => {
             ))}
           </div>
         </div>
-      ) : hasSearched && data.animes.length === 0 && data.users.length === 0 ? (
+      ) : animes.length === 0 && users.length === 0 ? (
         <div className={st.info}>
           <div className={st.main}>
             <Text weight="700" className={st.mainText}>
@@ -162,7 +138,7 @@ const SearchModule = () => {
       ) : (
         <div className={st.result}>
           <div className={st.users} onClick={() => closeModal()}>
-            {data.users.map((userInfo) => (
+            {users.map((userInfo) => (
               <Fragment key={userInfo.username}>
                 <AvatarElement
                   variant="small"
@@ -179,7 +155,7 @@ const SearchModule = () => {
           </div>
           <div className={st.separator} />
           <div className={st.animes}>
-            {data.animes.map((animeInfo) => (
+            {animes.map((animeInfo) => (
               <div key={animeInfo._id} onClick={() => closeModal()}>
                 <AnimeCard data={animeInfo} />
               </div>

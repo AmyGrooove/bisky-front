@@ -1,19 +1,19 @@
-import { TResponse } from '@shared/types'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 import { useEffect, useState } from 'react'
-import { ANIMES_COUNT } from '../static/ANIMES_COUNT'
-import { getAnimesAdmin } from '@entities/anime/api'
-import { addAnimesToShikiBanList } from '@entities/parser/api'
+import { useGetAnimesAdmin } from '@entities/anime/api/getAnimesAdmin'
+import { useAddAnimesToShikiBanList } from '@entities/parser/api/addAnimesToShikiBanList'
 
 const useAllAnimesPage = () => {
-  const [allAnimes, setAllAnimes] = useState<TResponse<typeof getAnimesAdmin>>(
-    [],
-  )
+  const [excludedAnimeIDs, setExcludedAnimeIDs] = useState<string[]>([])
+
+  const { data: allAnimes = [], refetch } = useGetAnimesAdmin(excludedAnimeIDs)
+
+  const { mutateAsync: addAnimesToShikiBanList } = useAddAnimesToShikiBanList()
 
   const [animesToDelete, setAnimesToDelete] = useState<string[]>([])
   const [animesToTrust, setAnimesToTrust] = useState<string[]>([])
 
-  const validate = async () => {
+  const getAndUpdateTrustAnimes = () => {
     const stored = localStorage.getItem('trustList')
     const trustAnimeIDs: string[] = stored ? JSON.parse(stored) : []
     const updatedTrustAnimes = Array.from(
@@ -21,24 +21,17 @@ const useAllAnimesPage = () => {
     )
     localStorage.setItem('trustList', JSON.stringify(updatedTrustAnimes))
 
+    return updatedTrustAnimes
+  }
+
+  const validate = async () => {
+    const trustedAnimes = getAndUpdateTrustAnimes()
+    setExcludedAnimeIDs(trustedAnimes)
+
     await addAnimesToShikiBanList({ shikiIDList: animesToDelete })
     setAnimesToDelete([])
     setAnimesToTrust([])
-    await updateSitemap()
-  }
-
-  const updateSitemap = async () => {
-    getAnimesAdmin().then((response) => {
-      const stored = localStorage.getItem('trustList')
-      const trustAnimeIDs: string[] = stored ? JSON.parse(stored) : []
-
-      const newResponse = response.filter(
-        ({ shikiID }) => !trustAnimeIDs.includes(String(shikiID)),
-      )
-      newResponse.length = ANIMES_COUNT
-
-      setAllAnimes(newResponse)
-    })
+    await refetch()
   }
 
   const addAnimeToDeleteList = (shikiID: number) => {
@@ -66,7 +59,8 @@ const useAllAnimesPage = () => {
   })
 
   useEffect(() => {
-    updateSitemap()
+    const trustedAnimes = getAndUpdateTrustAnimes()
+    setExcludedAnimeIDs(trustedAnimes)
   }, [])
 
   return {

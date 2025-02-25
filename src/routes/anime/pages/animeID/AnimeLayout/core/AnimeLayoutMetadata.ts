@@ -1,7 +1,7 @@
-import { getAnimeFullInfo } from '@entities/anime/api'
 import { IAnimeLayoutProps } from '../types/IAnimeLayoutProps'
 import { Metadata } from 'next'
 import { ENV } from '@shared/static'
+import { getAnimeFullInfo } from '@entities/anime/api/getAnimeFullInfo'
 
 const AnimeLayoutMetadata = async (
   props: IAnimeLayoutProps,

@@ -1,26 +1,19 @@
-'use server'
-
 import { ENV } from '@shared/static'
 
 import { ISearchAnimeAndUsersResponse } from '../types/ISearchAnimeAndUsersResponse'
-import { getNormalCookieHeader } from '@shared/utils/functions'
-import { cookies } from 'next/headers'
 
 const searchAnimeAndUsers = async (
   searchValue: string,
+  signal?: AbortSignal,
 ): Promise<ISearchAnimeAndUsersResponse> => {
   const url = new URL(`/search`, ENV.API_URL)
   url.searchParams.append('searchValue', String(searchValue))
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Cookie: await getNormalCookieHeader(cookies),
-    },
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     credentials: 'include',
-    next: { tags: ['anime', 'user'], revalidate: 300 },
+    signal,
   })
 
   if (!response.ok)

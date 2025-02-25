@@ -2,7 +2,7 @@ import { ENV } from '@shared/static'
 
 import { IGetWhoamiResponse } from '../types/IGetWhoamiResponse'
 
-const getWhoami = async (): Promise<IGetWhoamiResponse> => {
+const getWhoami = async (signal?: AbortSignal): Promise<IGetWhoamiResponse> => {
   const url = new URL(`/auth/whoami`, ENV.API_URL)
 
   const response = await fetch(url, {
@@ -12,7 +12,8 @@ const getWhoami = async (): Promise<IGetWhoamiResponse> => {
       Accept: 'application/json',
     },
     credentials: 'include',
-    next: { tags: ['user'], revalidate: 60 },
+    cache: 'no-store',
+    signal,
   })
 
   if (!response.ok) throw new Error(`getWhoami: ${response.statusText}`)

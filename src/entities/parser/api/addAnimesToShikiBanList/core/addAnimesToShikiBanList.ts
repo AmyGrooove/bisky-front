@@ -14,13 +14,10 @@ const addAnimesToShikiBanList = async (
     credentials: 'include',
   })
 
-  await fetch(`/api/revalidate?tag=anime&tag=fast`)
-
   const result = await response.json()
 
-  if (!response.ok) {
+  if (!response.ok)
     throw new Error(`addAnimesToShikiBanList: ${result.message}`)
-  }
 
   return result
 }
