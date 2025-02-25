@@ -1,0 +1,12 @@
+import { useQuery } from '@tanstack/react-query'
+import { searchAnimeAndUsers } from './searchAnimeAndUsers'
+
+const useSearchAnimeAndUsers = (searchValue: string) => {
+  return useQuery({
+    queryKey: ['anime', 'search', searchValue],
+    queryFn: ({ signal }) => searchAnimeAndUsers(searchValue, signal),
+    enabled: searchValue !== '',
+  })
+}
+
+export { useSearchAnimeAndUsers }

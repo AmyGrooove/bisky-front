@@ -1,13 +1,10 @@
-'use server'
-
 import { ENV } from '@shared/static'
 
 import { IGetBlockRowResponse } from '../types/IGetBlockRowResponse'
-import { getNormalCookieHeader } from '@shared/utils/functions'
-import { cookies } from 'next/headers'
 
 const getBlockRow = async (
   excludedGenreIDs: string[] = [],
+  signal?: AbortSignal,
 ): Promise<IGetBlockRowResponse> => {
   const url = new URL(`/blocks/row`, ENV.API_URL)
   excludedGenreIDs.forEach((id) =>
@@ -16,13 +13,9 @@ const getBlockRow = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Cookie: await getNormalCookieHeader(cookies),
-    },
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     credentials: 'include',
-    next: { tags: ['anime', 'studio', 'genre', 'franchise'], revalidate: 300 },
+    signal,
   })
 
   if (!response.ok) throw new Error(`getBlockRow: ${response.statusText}`)

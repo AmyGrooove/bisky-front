@@ -1,7 +1,7 @@
 import { IFranchiseLayoutProps } from '../types/IFranchiseLayoutProps'
 import { Metadata } from 'next'
 import { ENV } from '@shared/static'
-import { getAnimesByFranchise } from '@entities/franchise/api'
+import { getAnimesByFranchise } from '@entities/franchise/api/getAnimesByFranchise'
 
 const FranchiseLayoutMetadata = async (
   props: IFranchiseLayoutProps,

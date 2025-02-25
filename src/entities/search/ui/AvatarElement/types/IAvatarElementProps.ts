@@ -1,4 +1,4 @@
-import { searchAnimeAndUsers } from '@entities/search/api'
+import { searchAnimeAndUsers } from '@entities/search/api/searchAnimeAndUsers'
 import { TResponse } from '@shared/types'
 
 interface IAvatarElementProps {

@@ -1,1 +1,0 @@
-export { addAnimesToShikiBanList } from './addAnimesToShikiBanList'

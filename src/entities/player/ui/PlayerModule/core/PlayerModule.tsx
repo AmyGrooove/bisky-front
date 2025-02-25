@@ -15,7 +15,6 @@ const PlayerModule = (props: IPlayerModuleProps) => {
         src={kodikHref}
         width="auto"
         height="auto"
-        allowFullScreen
         allow="autoplay *; fullscreen *"
       />
     </div>

@@ -1,10 +1,10 @@
 import { Text } from '@shared/ui/atoms/Text'
-import { IGenreSectionProps } from '../../types/IGenreSectionProps'
+import { IGenreHeaderProps } from '../../types/IGenreHeaderProps'
 import { useGenreHeader } from './useGenreHeader'
 import st from './GenreHeader.module.scss'
 import { cn, isNil } from '@shared/utils/functions'
 
-const GenreHeader = (props: IGenreSectionProps) => {
+const GenreHeader = (props: IGenreHeaderProps) => {
   const { description, name } = useGenreHeader(props)
 
   return (

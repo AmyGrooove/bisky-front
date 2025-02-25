@@ -1,11 +1,7 @@
-import { IStudioSectionProps } from '../../types/IStudioSectionProps'
+import { IStudioHeaderProps } from '../../types/IStudioHeaderProps'
 
-const useStudioHeader = (props: IStudioSectionProps) => {
-  const {
-    data: {
-      studio: { description, name },
-    },
-  } = props
+const useStudioHeader = (props: IStudioHeaderProps) => {
+  const { description, name } = props
 
   return { description, name }
 }

@@ -1,25 +1,17 @@
-'use server'
-
 import { ENV } from '@shared/static'
 
 import { IGetFranchiseSitemapResponse } from '../types/IGetFranchiseSitemapResponse'
-import { getNormalCookieHeader } from '@shared/utils/functions'
-import { cookies } from 'next/headers'
 
-const getFranchiseSitemap = async (): Promise<
-  IGetFranchiseSitemapResponse[]
-> => {
+const getFranchiseSitemap = async (
+  signal?: AbortSignal,
+): Promise<IGetFranchiseSitemapResponse[]> => {
   const url = new URL(`/franchise/sitemap`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Cookie: await getNormalCookieHeader(cookies),
-    },
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     credentials: 'include',
-    next: { tags: ['anime', 'franchise'], revalidate: 3000 },
+    signal,
   })
 
   if (!response.ok)

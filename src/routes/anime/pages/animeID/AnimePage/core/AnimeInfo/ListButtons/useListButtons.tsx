@@ -13,7 +13,7 @@ import { AddInListModal } from '@entities/animeEstimate/ui/AddInListModal'
 import { setModal } from '@widgets/ModalWrapper'
 import st from './ListButtons.module.scss'
 import { SetScoreModal } from '@entities/animeEstimate/ui/SetScoreModal'
-import { setAnimeFavorite } from '@entities/animeEstimate/api'
+import { useSetAnimeFavorite } from '@entities/animeEstimate/api/setAnimeFavorite'
 
 const useListButtons = (props: IAnimeSectionProps) => {
   const {
@@ -22,6 +22,8 @@ const useListButtons = (props: IAnimeSectionProps) => {
       userEstimate: { listStatus, score, isFavorite },
     },
   } = props
+
+  const { mutateAsync: setAnimeFavorite } = useSetAnimeFavorite()
 
   const [currentStatus, setCurrentStatus] = useState<TListStatus | null>(
     listStatus,

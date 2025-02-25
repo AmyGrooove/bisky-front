@@ -1,5 +1,5 @@
 import { THomeRowDataType } from '@entities/blocks/types'
-import { getAnimesByGenre } from '@entities/genre/api'
+import { getAnimesByGenre } from '@entities/genre/api/getAnimesByGenre'
 import { TResponse } from '@shared/types'
 
 interface IGetBlockRowResponse {

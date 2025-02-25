@@ -1,8 +1,6 @@
 import { ENV } from '@shared/static'
 
 import { ILoginByPasswordRequest } from '../types/ILoginByPasswordRequest'
-import { successToast } from '@shared/utils/toast'
-import { UserIcon } from '@shared/icons'
 
 const loginByPassword = async (
   body: ILoginByPasswordRequest,
@@ -16,15 +14,9 @@ const loginByPassword = async (
     credentials: 'include',
   })
 
-  await fetch(`/api/revalidate?tag=user`)
-
   const result = await response.json()
 
-  if (!response.ok) {
-    throw new Error(`loginByPassword: ${result.message}`)
-  }
-
-  successToast({ message: 'Успешно авторизован', Icon: UserIcon })
+  if (!response.ok) throw new Error(`loginByPassword: ${result.message}`)
 
   return result
 }

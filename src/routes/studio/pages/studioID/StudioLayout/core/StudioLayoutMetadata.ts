@@ -1,7 +1,7 @@
 import { IStudioLayoutProps } from '../types/IStudioLayoutProps'
 import { Metadata } from 'next'
 import { ENV } from '@shared/static'
-import { getAnimesByStudio } from '@entities/studio/api'
+import { getAnimesByStudio } from '@entities/studio/api/getAnimesByStudio'
 
 const StudioLayoutMetadata = async (
   props: IStudioLayoutProps,

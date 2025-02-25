@@ -1,7 +1,7 @@
-import { getAnimeSitemap } from '@entities/anime/api'
-import { getFranchiseSitemap } from '@entities/franchise/api'
-import { getGenreSitemap } from '@entities/genre/api'
-import { getStudioSitemap } from '@entities/studio/api'
+import { getAnimeSitemap } from '@entities/anime/api/getAnimeSitemap'
+import { getFranchiseSitemap } from '@entities/franchise/api/getFranchiseSitemap'
+import { getGenreSitemap } from '@entities/genre/api/getGenreSitemap'
+import { getStudioSitemap } from '@entities/studio/api/getStudioSitemap'
 import { ENV } from '@shared/static'
 import { MetadataRoute } from 'next'
 

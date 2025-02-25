@@ -1,23 +1,21 @@
-'use server'
-
 import { ENV } from '@shared/static'
 
 import { IGetAnimesAdminResponse } from '../types/IGetAnimesAdminResponse'
-import { getNormalCookieHeader } from '@shared/utils/functions'
-import { cookies } from 'next/headers'
 
-const getAnimesAdmin = async (): Promise<IGetAnimesAdminResponse[]> => {
+const getAnimesAdmin = async (
+  excludedAnimeIDs: string[] = [],
+  signal?: AbortSignal,
+): Promise<IGetAnimesAdminResponse[]> => {
   const url = new URL(`/anime/allAnimes`, ENV.API_URL)
+  excludedAnimeIDs.forEach((id) =>
+    url.searchParams.append('excludedAnimeIDs', id),
+  )
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Cookie: await getNormalCookieHeader(cookies),
-    },
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     credentials: 'include',
-    next: { tags: ['anime'], revalidate: 300 },
+    signal,
   })
 
   if (!response.ok) throw new Error(`getAnimesAdmin: ${response.statusText}`)

@@ -1,8 +1,6 @@
 import { ENV } from '@shared/static'
 
 import { ILoginByIDRequest } from '../types/ILoginByIDRequest'
-import { successToast } from '@shared/utils/toast'
-import { UserIcon } from '@shared/icons'
 
 const loginByID = async (body: ILoginByIDRequest): Promise<true> => {
   const url = new URL(`/auth/loginByID`, ENV.API_URL)
@@ -14,15 +12,9 @@ const loginByID = async (body: ILoginByIDRequest): Promise<true> => {
     credentials: 'include',
   })
 
-  await fetch(`/api/revalidate?tag=user`)
-
   const result = await response.json()
 
-  if (!response.ok) {
-    throw new Error(`loginByID: ${result.message}`)
-  }
-
-  successToast({ message: 'Успешно авторизован', Icon: UserIcon })
+  if (!response.ok) throw new Error(`loginByID: ${result.message}`)
 
   return result
 }

@@ -1,10 +1,10 @@
 import { Text } from '@shared/ui/atoms/Text'
-import { IStudioSectionProps } from '../../types/IStudioSectionProps'
+import { IStudioHeaderProps } from '../../types/IStudioHeaderProps'
 import { useStudioHeader } from './useStudioHeader'
 import st from './StudioHeader.module.scss'
 import { cn, isNil } from '@shared/utils/functions'
 
-const StudioHeader = (props: IStudioSectionProps) => {
+const StudioHeader = (props: IStudioHeaderProps) => {
   const { description, name } = useStudioHeader(props)
 
   return (

@@ -1,18 +1,14 @@
 import Head from 'next/head'
 import { Ubuntu } from 'next/font/google'
-import NextTopLoader from 'nextjs-toploader'
-import { Toaster } from 'sonner'
 
 import { Bar } from '@widgets/Bar'
 import { Footer } from '@widgets/Footer'
 import { Header } from '@widgets/Header'
 import { MiniLogo } from '@widgets/MiniLogo'
-import { ModalWrapper } from '@widgets/ModalWrapper'
-
 import { IRootLayoutProps } from '../types/IRootLayoutProps'
 
 import st from './RootLayout.module.scss'
-import { Auth } from './Auth/Auth'
+import { Providers } from './Providers/Providers'
 
 const ubuntu = Ubuntu({
   weight: ['400', '700'],
@@ -20,7 +16,7 @@ const ubuntu = Ubuntu({
   display: 'swap',
 })
 
-const RootLayout = async (props: IRootLayoutProps) => {
+const RootLayout = (props: IRootLayoutProps) => {
   const { children } = props
 
   return (
@@ -29,17 +25,15 @@ const RootLayout = async (props: IRootLayoutProps) => {
         <meta name="theme-color" content="#dd5480" />
       </Head>
       <body className={ubuntu.className}>
-        <Toaster />
-        <Auth />
-        <ModalWrapper />
-        <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
-        <main className={st.main}>
-          <MiniLogo />
-          <Header />
-          {children}
-          <Footer />
-          <Bar />
-        </main>
+        <Providers>
+          <main className={st.main}>
+            <MiniLogo />
+            <Header />
+            {children}
+            <Footer />
+            <Bar />
+          </main>
+        </Providers>
       </body>
     </html>
   )
