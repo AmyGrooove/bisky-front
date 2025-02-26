@@ -6,7 +6,7 @@ import { useAddAnimesToShikiBanList } from '@entities/parser/api/addAnimesToShik
 const useAllAnimesPage = () => {
   const [excludedAnimeIDs, setExcludedAnimeIDs] = useState<string[]>([])
 
-  const { data: allAnimes = [], refetch } = useGetAnimesAdmin(excludedAnimeIDs)
+  const { data: allAnimes = [] } = useGetAnimesAdmin(excludedAnimeIDs)
 
   const { mutateAsync: addAnimesToShikiBanList } = useAddAnimesToShikiBanList()
 
@@ -31,7 +31,6 @@ const useAllAnimesPage = () => {
     await addAnimesToShikiBanList({ shikiIDList: animesToDelete })
     setAnimesToDelete([])
     setAnimesToTrust([])
-    await refetch()
   }
 
   const addAnimeToDeleteList = (shikiID: number) => {
