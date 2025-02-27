@@ -21,6 +21,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
     score,
     currentUserScore,
     _id,
+    guestListStatus,
   } = useAnimeCard(props)
 
   return (
@@ -36,7 +37,11 @@ const AnimeCard = (props: IAnimeCardProps) => {
       <div className={st.hoverLabel}>
         <Text weight="700">{label}</Text>
       </div>
-      <AddInListButton _id={_id} className={st.addButton} />
+      <AddInListButton
+        _id={_id}
+        className={st.addButton}
+        selectedListStatus={guestListStatus}
+      />
 
       <Text maxLines={1} weight="700" className={st.label}>
         {label}
