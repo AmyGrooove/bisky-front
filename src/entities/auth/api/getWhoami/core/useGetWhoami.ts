@@ -5,6 +5,7 @@ const useGetWhoami = () => {
   return useQuery({
     queryKey: ['user'],
     queryFn: ({ signal }) => getWhoami(signal),
+    refetchInterval: 4 * 60 * 1000,
   })
 }
 

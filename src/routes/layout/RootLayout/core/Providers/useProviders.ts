@@ -13,7 +13,6 @@ const useProviders = (props: IRootLayoutProps) => {
         defaultOptions: {
           queries: {
             staleTime: 1000 * 60 * 5,
-            refetchOnWindowFocus: false,
             retry: false,
           },
           mutations: {

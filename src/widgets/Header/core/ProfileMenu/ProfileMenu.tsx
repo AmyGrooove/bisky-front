@@ -24,6 +24,7 @@ const ProfileMenu = () => {
     isTemporary,
     copyUsername,
     isLoading,
+    toggle,
   } = useProfileMenu()
 
   return (
@@ -70,7 +71,12 @@ const ProfileMenu = () => {
           )}
           <div className={st.divider} />
           {profileMenuLinks(username).map(({ href, name, Icon }) => (
-            <Link key={href} href={href} className={st.linkRow}>
+            <Link
+              key={href}
+              href={href}
+              className={st.linkRow}
+              onClick={() => toggle(false)}
+            >
               <Text weight="700">{name}</Text>
               {Icon({ className: st.linkIcon })}
             </Link>

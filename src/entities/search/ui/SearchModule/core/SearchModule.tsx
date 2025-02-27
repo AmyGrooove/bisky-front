@@ -137,30 +137,36 @@ const SearchModule = () => {
         </div>
       ) : (
         <div className={st.result}>
-          <div className={st.users} onClick={() => closeModal()}>
-            {users.map((userInfo) => (
-              <Fragment key={userInfo.username}>
-                <AvatarElement
-                  variant="small"
-                  data={userInfo}
-                  className={st.avatar_small}
-                />
-                <AvatarElement
-                  variant="big"
-                  data={userInfo}
-                  className={st.avatar_big}
-                />
-              </Fragment>
-            ))}
-          </div>
-          <div className={st.separator} />
-          <div className={st.animes}>
-            {animes.map((animeInfo) => (
-              <div key={animeInfo._id} onClick={() => closeModal()}>
-                <AnimeCard data={animeInfo} />
-              </div>
-            ))}
-          </div>
+          {users.length !== 0 && (
+            <div className={st.users} onClick={() => closeModal()}>
+              {users.map((userInfo) => (
+                <Fragment key={userInfo.username}>
+                  <AvatarElement
+                    variant="small"
+                    data={userInfo}
+                    className={st.avatar_small}
+                  />
+                  <AvatarElement
+                    variant="big"
+                    data={userInfo}
+                    className={st.avatar_big}
+                  />
+                </Fragment>
+              ))}
+            </div>
+          )}
+          {users.length !== 0 && animes.length !== 0 && (
+            <div className={st.separator} />
+          )}
+          {animes.length !== 0 && (
+            <div className={st.animes}>
+              {animes.map((animeInfo) => (
+                <div key={animeInfo._id} onClick={() => closeModal()}>
+                  <AnimeCard data={animeInfo} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>

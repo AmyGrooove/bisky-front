@@ -1,0 +1,12 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.header {
+  height: 208px;
+  width: 100%;
+}
+
+@include media-query(tablet) {
+  .header {
+    height: 200px;
+  }
+}
