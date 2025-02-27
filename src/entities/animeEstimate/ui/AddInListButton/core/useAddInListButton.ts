@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { getListStatusIcon } from '@entities/animeEstimate/utils'
 import { TListStatus } from '@entities/animeEstimate/types'
@@ -13,6 +13,11 @@ const useAddInListButton = (props: IAddInListButtonProps) => {
   )
 
   const ListIcon = getListStatusIcon(currentStatus)
+
+  useEffect(() => {
+    if (selectedListStatus !== currentStatus)
+      setCurrentStatus(selectedListStatus)
+  }, [selectedListStatus])
 
   return {
     selectedListStatus,

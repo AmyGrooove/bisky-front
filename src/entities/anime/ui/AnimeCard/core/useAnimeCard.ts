@@ -2,7 +2,15 @@ import { IAnimeCardProps } from '../types/IAnimeCardProps'
 
 const useAnimeCard = (props: IAnimeCardProps) => {
   const { data, className } = props
-  const { _id, poster, label, relation, score, currentUserScore } = data
+  const {
+    _id,
+    poster,
+    label,
+    relation,
+    score,
+    currentUserScore = null,
+    guestListStatus = null,
+  } = data
 
   const animeHref = `/anime/${_id}`
 
@@ -15,6 +23,7 @@ const useAnimeCard = (props: IAnimeCardProps) => {
     score,
     currentUserScore,
     _id,
+    guestListStatus,
   }
 }
 

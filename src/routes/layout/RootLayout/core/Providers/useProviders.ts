@@ -4,7 +4,6 @@ import { useMemo } from 'react'
 import { errorToast } from '@shared/utils/toast'
 import { QUERY_SKIP_LIST } from '../../static/QUERY_SKIP_LIST'
 
-
 const useProviders = (props: IRootLayoutProps) => {
   const { children } = props
 

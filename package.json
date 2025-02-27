@@ -18,12 +18,12 @@
     "effector-react": "^23.3.0",
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
-    "next": "^15.1.7",
+    "next": "^15.2.0",
     "nextjs-toploader": "^3.7.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-intersection-observer": "^9.15.1",
-    "sass": "^1.85.0",
+    "sass": "^1.85.1",
     "sonner": "^2.0.1",
     "typescript": "^5.7.3",
     "use-debounce": "^10.0.4"
@@ -32,14 +32,14 @@
     "@eslint/js": "^9.21.0",
     "@types/react-dom": "^19.0.4",
     "eslint": "^9.21.0",
-    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-prettier": "^10.0.2",
     "prettier": "^3.5.2",
     "stylelint": "^16.14.1",
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.3",
     "stylelint-scss": "^6.11.1",
-    "typescript-eslint": "^8.24.1"
+    "typescript-eslint": "^8.25.0"
   },
   "pnpm": {
     "ignoredBuiltDependencies": [
