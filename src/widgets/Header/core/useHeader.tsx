@@ -1,13 +1,11 @@
-import { useRouter } from 'next/navigation'
-
+import { SearchModule } from '@entities/search/ui/SearchModule'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
+import { setModal } from '@widgets/ModalWrapper'
 
 const useHeader = () => {
-  const { push } = useRouter()
-
   useKeyboardShortcut({
     keys: ['k'],
-    callback: () => push('/search'),
+    callback: () => setModal(<SearchModule />),
     modifiers: ['ctrlKey'],
   })
 }

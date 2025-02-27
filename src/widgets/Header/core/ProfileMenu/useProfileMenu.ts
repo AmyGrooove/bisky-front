@@ -49,6 +49,7 @@ const useProfileMenu = () => {
     isTemporary,
     copyUsername,
     isLoading,
+    toggle,
   }
 }
 

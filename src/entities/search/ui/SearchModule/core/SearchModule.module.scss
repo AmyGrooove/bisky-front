@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 12px;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -101,8 +101,14 @@
 @include media-query(tablet, true) {
   .root {
     height: 60vh;
-    overflow-y: auto;
     width: 1044px;
+  }
+
+  .info,
+  .main,
+  .result {
+    border-radius: var(--radius-12);
+    overflow-y: auto;
 
     &::-webkit-scrollbar-thumb {
       background-color: var(--dark-100);

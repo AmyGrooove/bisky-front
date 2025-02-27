@@ -1,0 +1,102 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  border-radius: var(--radius-20);
+  display: flex;
+  flex-shrink: 0;
+  gap: 20px;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  @extend %invoke-scale;
+}
+
+.profile {
+  align-items: center;
+  background-color: var(--dark-240);
+  border-radius: var(--radius-20);
+  display: flex;
+  gap: 32px;
+  padding: 24px;
+  @include effect(background-blur-shadow);
+}
+
+.avatar {
+  border-radius: var(--radius-full);
+  height: 120px;
+  width: 120px;
+  @include effect(back-shadow);
+}
+
+.username {
+  @include text-style(32);
+}
+
+.lastOnline {
+  opacity: 0.6;
+
+  &_mobile {
+    display: none;
+  }
+}
+
+.settings {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.background {
+  height: 100%;
+  left: 0;
+  position: absolute !important;
+  scale: 1.2;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  @include effect(frame-blur);
+
+  &::before {
+    background-color: var(--black-60);
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: 2;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    height: 200px;
+    justify-content: center;
+  }
+
+  .profile {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .avatar {
+    height: 80px;
+    width: 80px;
+  }
+
+  .username {
+    @include text-style(20);
+  }
+
+  .lastOnline {
+    display: none;
+
+    &_mobile {
+      @include text-style(12);
+      bottom: 8px;
+      display: block;
+      position: absolute;
+      right: 8px;
+      z-index: 2;
+    }
+  }
+}

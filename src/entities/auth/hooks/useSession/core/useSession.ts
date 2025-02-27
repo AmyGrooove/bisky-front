@@ -1,12 +1,9 @@
 'use client'
 
-import { useUnit } from 'effector-react'
-
-import { $user, $isLoading } from '../store/sessionStore'
+import { useGetWhoami } from '@entities/auth/api/getWhoami'
 
 const useSession = () => {
-  const user = useUnit($user)
-  const isLoading = useUnit($isLoading)
+  const { data: user, isLoading } = useGetWhoami()
 
   return { user, isLoading }
 }
