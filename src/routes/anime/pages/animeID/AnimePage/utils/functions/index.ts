@@ -1,1 +1,0 @@
-export { getRatingWord } from './getRatingWord'

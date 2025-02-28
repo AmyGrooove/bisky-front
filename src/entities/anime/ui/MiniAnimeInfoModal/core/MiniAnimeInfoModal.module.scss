@@ -1,0 +1,112 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.info {
+  background-color: var(--dark-300);
+  border-radius: var(--radius-20);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  width: 100%;
+}
+.screenshots {
+  border-radius: var(--radius-20);
+  overflow: hidden;
+  width: 100%;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  @extend %invoke-scale;
+
+  &_modal {
+    .info {
+      background-color: transparent;
+      padding: 0px;
+    }
+
+    .screenshots {
+      overflow: visible;
+    }
+  }
+}
+
+.label {
+  @include text-style(24);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.absolute {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.icon {
+  flex-shrink: 0;
+  height: 24px;
+  width: 24px;
+}
+
+.rowText {
+  @include text-style(20);
+  @include status-color(color);
+}
+
+.rowTextWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.rating {
+  align-items: center;
+  background-color: var(--light-300);
+  border-radius: var(--radius-20);
+  display: flex;
+  height: 24px;
+  padding: 0px 4px;
+  width: fit-content;
+}
+
+.ratingText {
+  color: var(--dark-400);
+  @include text-style(16);
+}
+
+.watchNow {
+  display: none;
+  width: 100%;
+}
+
+@include media-query(tablet) {
+  .icon {
+    height: 16px;
+    width: 16px;
+  }
+
+  .rowText {
+    @include text-style(16);
+  }
+
+  .watchNow {
+    display: flex;
+  }
+}

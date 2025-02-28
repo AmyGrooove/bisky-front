@@ -57,7 +57,7 @@ const SearchModule = () => {
                 variant="big"
                 className={st.button}
                 Icon={DonutIcon}
-                onClick={() => {}}
+                onClick={() => closeModal()}
               >
                 Быстрый поиск
               </BigButton>
@@ -67,7 +67,7 @@ const SearchModule = () => {
                 variant="big"
                 className={st.button}
                 Icon={CrownIcon}
-                onClick={() => {}}
+                onClick={() => closeModal()}
               >
                 Быстрый выбор
               </BigButton>
@@ -118,7 +118,7 @@ const SearchModule = () => {
                 variant="big"
                 className={st.button}
                 Icon={DonutIcon}
-                onClick={() => {}}
+                onClick={() => closeModal()}
               >
                 Быстрый поиск
               </BigButton>
@@ -128,7 +128,7 @@ const SearchModule = () => {
                 variant="big"
                 className={st.button}
                 Icon={CrownIcon}
-                onClick={() => {}}
+                onClick={() => closeModal()}
               >
                 Быстрый выбор
               </BigButton>

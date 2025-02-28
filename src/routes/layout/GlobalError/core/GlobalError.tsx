@@ -26,10 +26,10 @@ const GlobalError = (props: IGlobalError) => {
           <Text className={st.description}>{errorText}</Text>
           <Image
             className={st.image}
-            src="/images/biskyTea.png"
+            src="/images/biskyPleaseCry.png"
             width={170}
             height={170}
-            alt="biskyTea"
+            alt="biskyPleaseCry"
           />
           <Button onClick={reset} variant="big" className={st.button}>
             Обновить страницу

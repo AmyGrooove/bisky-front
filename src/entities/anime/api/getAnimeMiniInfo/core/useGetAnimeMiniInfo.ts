@@ -5,6 +5,7 @@ const useGetAnimeMiniInfo = (animeID: string) => {
   return useQuery({
     queryKey: ['anime', animeID],
     queryFn: ({ signal }) => getAnimeMiniInfo(animeID, signal),
+    enabled: animeID !== '',
   })
 }
 

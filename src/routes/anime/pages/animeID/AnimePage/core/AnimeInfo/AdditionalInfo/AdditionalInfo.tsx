@@ -11,7 +11,7 @@ import {
 } from '@shared/icons'
 import { ScoreBadge } from '@entities/animeEstimate/ui/ScoreBadge'
 import { cn, isNil } from '@shared/utils/functions'
-import { DescriptionWrapper } from './DescriptionWrapper/DescriptionWrapper'
+import { DescriptionWrapper } from '@entities/anime/ui/DescriptionWrapper'
 
 const AdditionalInfo = (props: IAnimeSectionProps) => {
   const {

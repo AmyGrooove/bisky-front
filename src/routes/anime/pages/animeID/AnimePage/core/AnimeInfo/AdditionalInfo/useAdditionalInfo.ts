@@ -3,9 +3,9 @@ import {
   getNormalStatus,
   getSeasonYear,
   getNormalEpisodeInfo,
+  getRatingWord,
 } from '@entities/anime/utils/functions'
 import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
-import { getRatingWord } from '../../../utils/functions'
 
 const useAdditionalInfo = (props: IAnimeSectionProps) => {
   const {

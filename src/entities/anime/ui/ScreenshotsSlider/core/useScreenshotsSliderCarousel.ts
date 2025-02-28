@@ -6,7 +6,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 const useScreenshotsSliderCarousel = (
   props: IScreenshotsSliderCarouselProps,
 ) => {
-  const { screenshots } = props
+  const { screenshots, isLabelEnabled = true, className } = props
 
   const [isSliderLoading, setIsSliderLoading] = useState(true)
   const [isCanScrollPrev, setIsCanScrollPrev] = useState(false)
@@ -52,6 +52,8 @@ const useScreenshotsSliderCarousel = (
     isCanScrollPrev,
     isCanScrollNext,
     isDragEnabled,
+    isLabelEnabled,
+    className,
   }
 }
 

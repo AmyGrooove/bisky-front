@@ -3,11 +3,12 @@ import {
   CassetteTapeIcon,
   CheckIcon,
   CirclePlayIcon,
+  CrossIcon,
   EyeIcon,
   TrashIcon,
 } from '@shared/icons'
 
-const getListStatusIcon = (value: TListStatus | null) => {
+const getListStatusIcon = (value: TListStatus | 'skipped' | null) => {
   if (value === null) return CassetteTapeIcon
 
   return {
@@ -15,6 +16,7 @@ const getListStatusIcon = (value: TListStatus | null) => {
     watching: CirclePlayIcon,
     completed: CheckIcon,
     dropped: TrashIcon,
+    skipped: CrossIcon,
   }[value]
 }
 

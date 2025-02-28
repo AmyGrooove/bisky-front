@@ -1,0 +1,57 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  height: 100%;
+  justify-content: center;
+}
+
+.rightSide {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 24px;
+  padding: 0px 12px;
+}
+
+.leftButton {
+  fill: var(--bisky-300) !important;
+}
+
+.count {
+  color: var(--bisky-100) !important;
+  cursor: default !important;
+
+  &:active {
+    scale: 1 !important;
+  }
+}
+
+.info {
+  width: 800px !important;
+}
+
+.watchNow {
+  width: 100%;
+}
+
+@include media-query(hd) {
+  .info {
+    width: 650px !important;
+  }
+}
+
+@include media-query(tablet) {
+  .info {
+    display: none !important;
+  }
+}
