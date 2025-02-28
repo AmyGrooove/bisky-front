@@ -3,20 +3,29 @@ import { useGetAnimesFastFind } from '@entities/anime/api/getAnimesFastFind'
 import { useAddAnimeToSkip } from '@entities/animeEstimate/api/addAnimeToSkip'
 import { useSetAnimeEstimate } from '@entities/animeEstimate/api/setAnimeEstimate'
 import { TListStatus } from '@entities/animeEstimate/types'
+import { useSession } from '@entities/auth/hooks/useSession'
 import { isNil } from '@shared/utils/functions'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 const useFastFindPage = () => {
   const { data: fastFindList, isLoading: isFastFindLoading } =
     useGetAnimesFastFind()
 
+  const { push } = useRouter()
+
+  const { user } = useSession()
+
   const [currentAnimeIndex, setCurrentAnimeIndex] = useState(0)
+  const [previousSelectedStatuses, setPreviousSelectedStatuses] = useState<
+    (TListStatus | 'skipped')[]
+  >([])
   const [selectedStatus, setSelectedStatus] = useState<
     TListStatus | 'skipped' | null
   >(null)
 
   const { data = null, isLoading: isAnimeInfoLoading } = useGetAnimeMiniInfo(
-    fastFindList?.[currentAnimeIndex]._id ?? '',
+    fastFindList?.[currentAnimeIndex]?._id ?? '',
   )
 
   const { mutateAsync: addAnimeToSkip } = useAddAnimeToSkip(true)
@@ -29,20 +38,30 @@ const useFastFindPage = () => {
 
   const currentAnimeHref = `/anime/${data?._id}`
 
-  const setAnimeEstimateHandler = async (animeEstimate: TListStatus) => {
-    if (isNil(data)) return
+  const setAnimeEstimateHandler = async (animeEstimate: TListStatus | null) => {
+    if (isNil(data) || isNil(animeEstimate)) return
 
     setSelectedStatus(animeEstimate)
 
     setTimeout(async () => {
+      if (previousSelectedStatuses[currentAnimeIndex] === animeEstimate) return
+
+      if (isNil(previousSelectedStatuses[currentAnimeIndex]))
+        setPreviousSelectedStatuses((prev) => [...prev, animeEstimate])
+      else {
+        const newPreviousStatuses = previousSelectedStatuses
+        previousSelectedStatuses[currentAnimeIndex] = animeEstimate
+        setPreviousSelectedStatuses(newPreviousStatuses)
+      }
+
       await setAnimeEstimate({
         animeID: data._id,
         isFastFind: true,
         estimateVariant: animeEstimate,
       })
-      setCurrentAnimeIndex((prev) => prev + 1)
     }, 100)
 
+    setCurrentAnimeIndex((prev) => prev + 1)
     setTimeout(() => setSelectedStatus(null), 800)
   }
 
@@ -52,14 +71,36 @@ const useFastFindPage = () => {
     setSelectedStatus('skipped')
 
     setTimeout(async () => {
+      if (previousSelectedStatuses[currentAnimeIndex] === 'skipped') return
+
+      if (isNil(previousSelectedStatuses[currentAnimeIndex]))
+        setPreviousSelectedStatuses((prev) => [...prev, 'skipped'])
+      else {
+        const newPreviousStatuses = previousSelectedStatuses
+        previousSelectedStatuses[currentAnimeIndex] = 'skipped'
+        setPreviousSelectedStatuses(newPreviousStatuses)
+      }
+
       await addAnimeToSkip({ animeID: data._id, isFastFind: true })
-      setCurrentAnimeIndex((prev) => prev + 1)
     }, 100)
 
+    setCurrentAnimeIndex((prev) => prev + 1)
     setTimeout(() => setSelectedStatus(null), 800)
   }
 
+  const goBack = () => {
+    if (currentAnimeIndex <= 0) return
+
+    setCurrentAnimeIndex((prev) => prev - 1)
+  }
+
   const isMiniInfoLoading = isAnimeInfoLoading || selectedStatus !== null
+  const previousListStatus = previousSelectedStatuses[currentAnimeIndex] ?? null
+
+  useEffect(() => {
+    if (currentAnimeIndex === fastFindList?.length)
+      push(`/user/${user?.username}/list?fastFind=true`)
+  }, [currentAnimeIndex])
 
   return {
     data,
@@ -71,6 +112,8 @@ const useFastFindPage = () => {
     selectedStatus,
     addAnimeToSkipHandler,
     setAnimeEstimateHandler,
+    goBack,
+    previousListStatus,
   }
 }
 

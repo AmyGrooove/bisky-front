@@ -10,10 +10,10 @@ import st from './Bar.module.scss'
 import { useBar } from './useBar'
 
 const Bar = () => {
-  const { username, checkIsActive } = useBar()
+  const { username, checkIsActive, isHidden } = useBar()
 
   return (
-    <div className={st.root}>
+    <div className={cn(st.root, { [st.root_hidden]: isHidden })}>
       {barLinks(username).map(({ href, Icon }) => (
         <Link key={href} href={href}>
           {Icon({

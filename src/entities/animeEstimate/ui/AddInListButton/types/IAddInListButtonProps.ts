@@ -1,9 +1,8 @@
 import { TListStatus } from '@entities/animeEstimate/types'
 
 interface IAddInListButtonProps {
-  _id: string
-
-  selectedListStatus?: TListStatus | null
+  _id?: string
+  selectedListStatus?: TListStatus | 'skipped' | null
   className?: string
 }
 

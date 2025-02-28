@@ -1,6 +1,7 @@
 import { usePathname } from 'next/navigation'
 
 import { useSession } from '@entities/auth/hooks/useSession'
+import { hiddenLinks } from '../static/hiddenLinks'
 
 const useBar = () => {
   const pathname = usePathname()
@@ -16,7 +17,9 @@ const useBar = () => {
     return pathname === value
   }
 
-  return { username, checkIsActive }
+  const isHidden = hiddenLinks.includes(pathname)
+
+  return { username, checkIsActive, isHidden }
 }
 
 export { useBar }

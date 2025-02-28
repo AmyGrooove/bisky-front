@@ -46,14 +46,55 @@
   width: 100%;
 }
 
+.listButtonRow {
+  padding: 0px 12px;
+  width: 100%;
+}
+
 @include media-query(hd) {
   .rightSide {
     width: 650px !important;
   }
 }
 
-@include media-query(tablet) {
-  .rightSide {
+@include media-query(tablet, true) {
+  .sectionLabel {
+    display: none !important;
+  }
+
+  .smallButton_mobile {
     display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    width: 100%;
+  }
+
+  .panel {
+    width: 100%;
+  }
+
+  .buttons {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .rightSide {
+    display: none !important;
+  }
+
+  .bigButton_desktop {
+    display: none;
+  }
+
+  .watchNow {
+    display: none;
+  }
+
+  .poster {
+    height: 514px;
+    width: 100%;
   }
 }
