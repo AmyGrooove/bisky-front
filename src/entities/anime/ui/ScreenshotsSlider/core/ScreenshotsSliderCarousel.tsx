@@ -22,16 +22,22 @@ const ScreenshotsSliderCarousel = (props: IScreenshotsSliderCarouselProps) => {
     isCanScrollPrev,
     isCanScrollNext,
     isDragEnabled,
+    isLabelEnabled,
+    className,
   } = useScreenshotsSliderCarousel(props)
 
   return (
-    <div className={st.root}>
-      <Label variant="big" className={st.label_big}>
-        Кадры
-      </Label>
-      <Label variant="small" className={st.label_small}>
-        Кадры
-      </Label>
+    <div className={cn(st.root, className)}>
+      {isLabelEnabled && (
+        <>
+          <Label variant="big" className={st.label_big}>
+            Кадры
+          </Label>
+          <Label variant="small" className={st.label_small}>
+            Кадры
+          </Label>
+        </>
+      )}
       {isSliderLoading ? (
         <div className={st.skeleton}>
           {getEmptyArray(7).map((_, index) => (

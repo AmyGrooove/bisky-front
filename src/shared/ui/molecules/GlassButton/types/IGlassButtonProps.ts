@@ -3,7 +3,7 @@ import { MouseEventHandler, ReactNode } from 'react'
 
 interface IGlassButtonProps {
   onClick: MouseEventHandler<HTMLButtonElement>
-  children: (props: IIconProps) => ReactNode | string
+  children: ((props: IIconProps) => ReactNode) | string
 
   iconClassName?: string
   isDisabled?: boolean

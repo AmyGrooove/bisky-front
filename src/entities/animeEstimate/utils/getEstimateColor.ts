@@ -1,6 +1,6 @@
 import { TListStatus } from '../types'
 
-const getEstimateColor = (value: TListStatus | null) => {
+const getEstimateColor = (value: TListStatus | 'skipped' | null) => {
   if (value === null) return 'delete'
 
   return {
@@ -8,6 +8,7 @@ const getEstimateColor = (value: TListStatus | null) => {
     watching: 'watching',
     completed: 'completed',
     dropped: 'dropped',
+    skipped: 'skipped',
   }[value]
 }
 

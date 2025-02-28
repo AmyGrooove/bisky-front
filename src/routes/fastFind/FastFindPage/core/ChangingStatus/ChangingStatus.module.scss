@@ -1,0 +1,67 @@
+@use '@shared/styles/reusable.scss' as *;
+
+@keyframes invoke-list-icon {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  25% {
+    opacity: 1;
+    scale: 1.25;
+  }
+  50% {
+    opacity: 1;
+    scale: 1;
+  }
+  75% {
+    opacity: 1;
+    scale: 1.25;
+  }
+  to {
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+.root {
+  border-radius: var(--radius-20);
+  overflow: hidden;
+  position: relative;
+}
+
+.poster {
+  height: 330px;
+  width: 220px;
+}
+
+.changing {
+  align-items: center;
+  animation: invoke-list-icon 0.8s ease-in-out;
+  border-radius: var(--radius-20);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  scale: 0;
+  z-index: 1;
+  @include estimate-color(background-color);
+
+  &::after {
+    background-color: var(--dark-400);
+    content: '';
+    height: 100%;
+    inset: 0;
+    opacity: 0.4;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+.icon {
+  height: 160px;
+  position: relative;
+  width: 160px;
+  @include estimate-color(fill);
+}

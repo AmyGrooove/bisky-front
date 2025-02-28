@@ -1,10 +1,10 @@
 'use client'
 
 import { isNil } from '@shared/utils/functions'
-import { IDescriptionWrapperProps } from '../../../../types/IDescriptionWrapperProps'
 import { useDescriptionWrapper } from './useDescriptionWrapper'
 import st from './DescriptionWrapper.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
+import { IDescriptionWrapperProps } from '../types/IDescriptionWrapperProps'
 
 const DescriptionWrapper = (props: IDescriptionWrapperProps) => {
   const { description, openDescription } = useDescriptionWrapper(props)

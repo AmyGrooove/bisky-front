@@ -17,7 +17,7 @@ const GlassButton = (props: IGlassButtonProps) => {
       disabled={isDisabled}
     >
       {typeof children === 'string' ? (
-        <Text weight="700" className={st.children}>
+        <Text weight="700" className={st.children} isCustomColor>
           {children}
         </Text>
       ) : (

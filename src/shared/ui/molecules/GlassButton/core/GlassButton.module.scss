@@ -1,15 +1,21 @@
 @use '@shared/styles/reusable.scss' as *;
 
 .icon {
-  fill: var(--bisky-100);
+  fill: inherit;
+}
+
+.children {
+  color: inherit;
 }
 
 .root {
   align-items: center;
   background-color: var(--dark-240);
   border: 0;
+  color: var(--light-100);
   cursor: pointer;
   display: flex;
+  fill: var(--bisky-100);
   justify-content: center;
   @extend %invoke-scale, %press, %no-select;
   @include effect(back-shadow);

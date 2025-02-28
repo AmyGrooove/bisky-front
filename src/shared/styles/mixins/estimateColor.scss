@@ -18,4 +18,8 @@
   &_delete {
     #{$property}: var(--light-400);
   }
+
+  &_skipped {
+    #{$property}: var(--gray);
+  }
 }
