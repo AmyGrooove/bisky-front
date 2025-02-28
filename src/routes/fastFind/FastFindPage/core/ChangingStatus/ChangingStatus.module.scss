@@ -30,6 +30,7 @@
 }
 
 .poster {
+  border-radius: var(--radius-20);
   height: 330px;
   width: 220px;
 }
@@ -64,4 +65,71 @@
   position: relative;
   width: 160px;
   @include estimate-color(fill);
+}
+
+.label {
+  @include text-style(20);
+}
+
+.mobilePoster {
+  position: relative;
+}
+
+.info {
+  left: 8px;
+  position: absolute;
+  top: 8px;
+}
+
+.listStatus {
+  bottom: 8px;
+  cursor: default;
+  left: 8px;
+  position: absolute;
+
+  &:hover {
+    cursor: default;
+    scale: 1;
+  }
+}
+
+@include media-query(tablet, true) {
+  .label {
+    display: none !important;
+  }
+
+  .mobilePoster {
+    display: none;
+  }
+
+  .listStatus_mobile {
+    display: none !important;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    align-items: center;
+    background-color: var(--dark-300);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 514px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .poster {
+    height: 420px;
+    width: 280px;
+  }
+
+  .desktopPoster {
+    display: none;
+  }
+
+  .listStatus_desktop {
+    display: none !important;
+  }
 }

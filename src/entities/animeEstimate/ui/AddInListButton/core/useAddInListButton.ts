@@ -6,11 +6,11 @@ import { TListStatus } from '@entities/animeEstimate/types'
 import { IAddInListButtonProps } from '../types/IAddInListButtonProps'
 
 const useAddInListButton = (props: IAddInListButtonProps) => {
-  const { _id, selectedListStatus = null, className } = props
+  const { _id = null, selectedListStatus = null, className } = props
 
-  const [currentStatus, setCurrentStatus] = useState<TListStatus | null>(
-    selectedListStatus,
-  )
+  const [currentStatus, setCurrentStatus] = useState<
+    TListStatus | 'skipped' | null
+  >(selectedListStatus)
 
   const ListIcon = getListStatusIcon(currentStatus)
 

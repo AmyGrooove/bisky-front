@@ -3,7 +3,7 @@
 import { getEstimateColor } from '@entities/animeEstimate/utils'
 import { Button } from '@shared/ui/molecules/Button'
 import { setModal } from '@widgets/ModalWrapper'
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 
 import { IAddInListButtonProps } from '../types/IAddInListButtonProps'
 import { AddInListModal } from '../../AddInListModal'
@@ -20,6 +20,8 @@ const AddInListButton = (props: IAddInListButtonProps) => {
       isCustomColor
       variant="big"
       onClick={(event) => {
+        if (isNil(_id) || currentStatus === 'skipped') return
+
         event.preventDefault()
         setModal(
           <AddInListModal

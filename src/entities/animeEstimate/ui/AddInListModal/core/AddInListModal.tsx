@@ -8,22 +8,27 @@ import st from './AddInListModal.module.scss'
 import { useAddInListModal } from './useAddInListModal'
 
 const AddInListModal = (props: IAddInListModalProps) => {
-  const { selectedListStatus, addAnimeInList } = useAddInListModal(props)
+  const { selectedListStatus, addAnimeInList, excludedListStatuses } =
+    useAddInListModal(props)
 
   return (
     <div className={st.root}>
-      {listStatusButtons(selectedListStatus).map(({ text, Icon, status }) => (
-        <BigButton
-          variant="big"
-          key={text}
-          Icon={Icon}
-          className={st[`button_${getEstimateColor(status)}`]}
-          isCustomColor
-          onClick={() => addAnimeInList(status)}
-        >
-          {text}
-        </BigButton>
-      ))}
+      {listStatusButtons(selectedListStatus)
+        .filter(
+          (statusButton) => !excludedListStatuses.includes(statusButton.status),
+        )
+        .map(({ text, Icon, status }) => (
+          <BigButton
+            variant="big"
+            key={text}
+            Icon={Icon}
+            className={st[`button_${getEstimateColor(status)}`]}
+            isCustomColor
+            onClick={() => addAnimeInList(status)}
+          >
+            {text}
+          </BigButton>
+        ))}
     </div>
   )
 }

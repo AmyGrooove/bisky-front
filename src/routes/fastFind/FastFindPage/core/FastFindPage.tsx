@@ -8,12 +8,17 @@ import { GlassButton } from '@shared/ui/molecules/GlassButton'
 import {
   CassetteTapeIcon,
   CrossIcon,
+  DonutIcon,
   EyeIcon,
   MoveLeftIcon,
 } from '@shared/icons'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
 import { ChangingStatus } from './ChangingStatus/ChangingStatus'
+import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
+import { setModal } from '@widgets/ModalWrapper'
+import { AddInListModal } from '@entities/animeEstimate/ui/AddInListModal'
+import { isNil } from '@shared/utils/functions'
 
 const FastFindPage = () => {
   const {
@@ -26,12 +31,17 @@ const FastFindPage = () => {
     selectedStatus,
     addAnimeToSkipHandler,
     setAnimeEstimateHandler,
+    goBack,
+    previousListStatus,
   } = useFastFindPage()
 
   if (isFastFindLoading) return <FastFindLoading />
 
   return (
     <>
+      <SectionLabel className={st.sectionLabel} Icon={DonutIcon}>
+        Быстрый поиск
+      </SectionLabel>
       <div className={st.root}>
         <MiniAnimeInfoModal
           data={data}
@@ -40,16 +50,33 @@ const FastFindPage = () => {
           isLoading={isMiniInfoLoading}
         />
         <div className={st.rightSide}>
-          <GlassButton variant="big" onClick={() => {}}>
+          <GlassButton
+            variant="big"
+            onClick={(event) => {
+              event.preventDefault()
+              if (isNil(data)) return
+
+              setModal(
+                <AddInListModal
+                  _id={data._id}
+                  setStatus={(value) => setAnimeEstimateHandler(value)}
+                  excludedListStatuses={['added', 'watching']}
+                />,
+              )
+            }}
+            className={st.desktopCassette}
+          >
             {CassetteTapeIcon}
           </GlassButton>
           <ChangingStatus
+            animeData={data}
             selectedStatus={selectedStatus}
             posterHref={data?.poster ?? null}
+            selectedPreviousStatus={previousListStatus}
           />
           <div className={st.buttons}>
             <GlassButton
-              onClick={() => {}}
+              onClick={goBack}
               className={st.leftButton}
               isDisabled={isBackButtonDisabled || isMiniInfoLoading}
             >
@@ -79,6 +106,25 @@ const FastFindPage = () => {
               Смотреть сейчас
             </Button>
           </Link>
+          <div className={st.mobileCassette}>
+            <GlassButton
+              variant="small"
+              onClick={(event) => {
+                event.preventDefault()
+                if (isNil(data)) return
+
+                setModal(
+                  <AddInListModal
+                    _id={data._id}
+                    setStatus={(value) => setAnimeEstimateHandler(value)}
+                    excludedListStatuses={['added', 'watching']}
+                  />,
+                )
+              }}
+            >
+              {CassetteTapeIcon}
+            </GlassButton>
+          </div>
         </div>
       </div>
     </>
