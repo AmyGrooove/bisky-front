@@ -29,7 +29,7 @@ const useProviders = (props: IRootLayoutProps) => {
               return
 
             console.log(error)
-            errorToast({ message: 'Ой! Произошла ошибка' })
+            errorToast({ message: `Произошла ошибка: ${error.message}` })
           },
         }),
       }),

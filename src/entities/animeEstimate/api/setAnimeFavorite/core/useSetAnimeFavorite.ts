@@ -10,7 +10,6 @@ const useSetAnimeFavorite = () => {
   return useMutation({
     mutationFn: (body: ISetAnimeFavoriteRequest) => setAnimeFavorite(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['fast'] })
       queryClient.invalidateQueries({ queryKey: ['anime'] })
       successToast({
         message: 'Статус избранного аниме успешно изменен',

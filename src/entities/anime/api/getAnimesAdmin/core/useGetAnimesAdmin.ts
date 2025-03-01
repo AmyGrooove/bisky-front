@@ -4,7 +4,7 @@ import { getAnimesAdmin } from './getAnimesAdmin'
 const useGetAnimesAdmin = (excludedAnimeIDs: string[] = []) => {
   return useQuery({
     queryKey: ['anime', 'admin'],
-    queryFn: ({ signal }) => getAnimesAdmin(excludedAnimeIDs, signal),
+    queryFn: ({ signal }) => getAnimesAdmin(excludedAnimeIDs, false, signal),
   })
 }
 

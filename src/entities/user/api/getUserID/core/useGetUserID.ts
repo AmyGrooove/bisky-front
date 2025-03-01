@@ -4,7 +4,7 @@ import { getUserID } from './getUserID'
 const useGetUserID = () => {
   return useQuery({
     queryKey: ['user'],
-    queryFn: ({ signal }) => getUserID(signal),
+    queryFn: ({ signal }) => getUserID(false, signal),
   })
 }
 

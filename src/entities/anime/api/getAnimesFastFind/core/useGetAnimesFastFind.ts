@@ -4,7 +4,7 @@ import { getAnimesFastFind } from './getAnimesFastFind'
 const useGetAnimesFastFind = () => {
   return useQuery({
     queryKey: [],
-    queryFn: ({ signal }) => getAnimesFastFind(signal),
+    queryFn: ({ signal }) => getAnimesFastFind(false, signal),
   })
 }
 

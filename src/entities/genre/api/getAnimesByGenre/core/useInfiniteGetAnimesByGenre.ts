@@ -12,6 +12,7 @@ const useInfiniteGetAnimesByGenre = (genreID: string, page = 1, count = 40) => {
             genreID,
             pageParam,
             count,
+            false,
             signal,
           )
 

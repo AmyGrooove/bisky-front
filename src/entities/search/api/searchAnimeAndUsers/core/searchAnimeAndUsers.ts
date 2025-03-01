@@ -4,6 +4,7 @@ import { ISearchAnimeAndUsersResponse } from '../types/ISearchAnimeAndUsersRespo
 
 const searchAnimeAndUsers = async (
   searchValue: string,
+  skipAuth = false,
   signal?: AbortSignal,
 ): Promise<ISearchAnimeAndUsersResponse> => {
   const url = new URL(`/search`, ENV.API_URL)
@@ -11,7 +12,11 @@ const searchAnimeAndUsers = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-Skip-Auth': String(skipAuth),
+    },
     credentials: 'include',
     signal,
   })

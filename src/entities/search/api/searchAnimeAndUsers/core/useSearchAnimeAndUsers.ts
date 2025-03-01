@@ -4,7 +4,7 @@ import { searchAnimeAndUsers } from './searchAnimeAndUsers'
 const useSearchAnimeAndUsers = (searchValue: string) => {
   return useQuery({
     queryKey: ['anime', 'search', searchValue],
-    queryFn: ({ signal }) => searchAnimeAndUsers(searchValue, signal),
+    queryFn: ({ signal }) => searchAnimeAndUsers(searchValue, false, signal),
     enabled: searchValue !== '',
   })
 }

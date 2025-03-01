@@ -16,6 +16,7 @@ const useInfiniteGetAnimesByStudio = (
             studioID,
             pageParam,
             count,
+            false,
             signal,
           )
 

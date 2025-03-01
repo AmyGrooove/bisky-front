@@ -6,6 +6,7 @@ const getAnimesByStudio = async (
   studioID: string,
   page = 1,
   count = 40,
+  skipAuth = false,
   signal?: AbortSignal,
 ): Promise<IGetAnimesByStudioResponse> => {
   const url = new URL(`/studio/${studioID}/animes`, ENV.API_URL)
@@ -14,7 +15,11 @@ const getAnimesByStudio = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-Skip-Auth': String(skipAuth),
+    },
     credentials: 'include',
     signal,
   })

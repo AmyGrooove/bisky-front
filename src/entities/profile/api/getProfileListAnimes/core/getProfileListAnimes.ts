@@ -9,6 +9,7 @@ const getProfileListAnimes = async (
   searchValue = '',
   page = 1,
   count = 20,
+  skipAuth = false,
   signal?: AbortSignal,
 ): Promise<IGetProfileListAnimesResponse> => {
   const url = new URL(`/profile/${username}/list/${listStatus}`, ENV.API_URL)
@@ -18,7 +19,11 @@ const getProfileListAnimes = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-Skip-Auth': String(skipAuth),
+    },
     credentials: 'include',
     signal,
   })

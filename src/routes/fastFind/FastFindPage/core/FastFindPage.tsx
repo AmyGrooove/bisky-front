@@ -29,7 +29,6 @@ const FastFindPage = () => {
     animesCount,
     isBackButtonDisabled,
     selectedStatus,
-    addAnimeToSkipHandler,
     setAnimeEstimateHandler,
     goBack,
     previousListStatus,
@@ -84,7 +83,7 @@ const FastFindPage = () => {
             </GlassButton>
             <GlassButton
               variant="big"
-              onClick={addAnimeToSkipHandler}
+              onClick={() => setAnimeEstimateHandler('skipped')}
               className={st.leftButton}
               isDisabled={isMiniInfoLoading}
             >

@@ -4,7 +4,7 @@ import { getAnimeMiniInfo } from './getAnimeMiniInfo'
 const useGetAnimeMiniInfo = (animeID: string) => {
   return useQuery({
     queryKey: ['anime', animeID],
-    queryFn: ({ signal }) => getAnimeMiniInfo(animeID, signal),
+    queryFn: ({ signal }) => getAnimeMiniInfo(animeID, false, signal),
     enabled: animeID !== '',
   })
 }

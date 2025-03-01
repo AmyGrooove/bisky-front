@@ -17,7 +17,7 @@ const useInfiniteGetBlockRow = (excludedGenreIDs: string[] = []) => {
       ],
       queryFn: ({ pageParam, signal }) => {
         try {
-          return getBlockRow(pageParam, signal)
+          return getBlockRow(pageParam, false, signal)
         } catch (_) {
           return null
         }

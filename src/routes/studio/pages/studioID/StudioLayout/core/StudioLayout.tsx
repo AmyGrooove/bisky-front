@@ -7,7 +7,7 @@ const StudioLayout = async (props: IStudioLayoutProps) => {
   const { studioID } = await params
 
   try {
-    const studioData = await getAnimesByStudio(studioID)
+    const studioData = await getAnimesByStudio(studioID, 1, 40, true)
 
     if (!studioData) throw new Error()
   } catch (error) {

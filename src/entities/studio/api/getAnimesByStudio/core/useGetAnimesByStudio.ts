@@ -4,7 +4,8 @@ import { getAnimesByStudio } from './getAnimesByStudio'
 const useGetAnimesByStudio = (studioID: string, page = 1, count = 40) => {
   return useQuery({
     queryKey: ['anime', 'studio', studioID, page, count],
-    queryFn: ({ signal }) => getAnimesByStudio(studioID, page, count, signal),
+    queryFn: ({ signal }) =>
+      getAnimesByStudio(studioID, page, count, false, signal),
   })
 }
 

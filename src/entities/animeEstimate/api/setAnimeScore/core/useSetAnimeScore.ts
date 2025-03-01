@@ -10,7 +10,6 @@ const useSetAnimeScore = () => {
   return useMutation({
     mutationFn: (body: ISetAnimeScoreRequest) => setAnimeScore(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['fast'] })
       queryClient.invalidateQueries({ queryKey: ['anime'] })
       successToast({ message: 'Оценка успешно изменена', Icon: StarIcon })
     },

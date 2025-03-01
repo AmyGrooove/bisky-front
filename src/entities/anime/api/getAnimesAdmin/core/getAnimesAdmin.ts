@@ -4,6 +4,7 @@ import { IGetAnimesAdminResponse } from '../types/IGetAnimesAdminResponse'
 
 const getAnimesAdmin = async (
   excludedAnimeIDs: string[] = [],
+  skipAuth = false,
   signal?: AbortSignal,
 ): Promise<IGetAnimesAdminResponse[]> => {
   const url = new URL(`/anime/allAnimes`, ENV.API_URL)
@@ -13,7 +14,11 @@ const getAnimesAdmin = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-Skip-Auth': String(skipAuth),
+    },
     credentials: 'include',
     signal,
   })
