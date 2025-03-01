@@ -6,6 +6,7 @@ const getProfileFavoriteAnimes = async (
   username: string,
   page = 1,
   count = 20,
+  skipAuth = false,
   signal?: AbortSignal,
 ): Promise<IGetProfileFavoriteAnimesResponse[]> => {
   const url = new URL(`/profile/${username}/favoriteAnimes`, ENV.API_URL)
@@ -14,7 +15,11 @@ const getProfileFavoriteAnimes = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-Skip-Auth': String(skipAuth),
+    },
     credentials: 'include',
     signal,
   })

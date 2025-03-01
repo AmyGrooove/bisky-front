@@ -4,7 +4,7 @@ import { getProfile } from './getProfile'
 const useGetProfile = (username: string) => {
   return useQuery({
     queryKey: ['anime', 'user', username],
-    queryFn: ({ signal }) => getProfile(username, signal),
+    queryFn: ({ signal }) => getProfile(username, false, signal),
   })
 }
 

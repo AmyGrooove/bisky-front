@@ -4,7 +4,8 @@ import { getAnimesByGenre } from './getAnimesByGenre'
 const useGetAnimesByGenre = (genreID: string, page = 1, count = 40) => {
   return useQuery({
     queryKey: ['anime', 'genre', genreID, page, count],
-    queryFn: ({ signal }) => getAnimesByGenre(genreID, page, count, signal),
+    queryFn: ({ signal }) =>
+      getAnimesByGenre(genreID, page, count, false, signal),
   })
 }
 

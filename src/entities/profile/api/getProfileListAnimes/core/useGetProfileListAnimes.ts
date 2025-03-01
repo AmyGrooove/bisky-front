@@ -18,6 +18,7 @@ const useGetProfileListAnimes = (
         searchValue,
         page,
         count,
+        false,
         signal,
       ),
   })

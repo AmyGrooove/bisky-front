@@ -4,7 +4,7 @@ import { getAnimeSitemap } from './getAnimeSitemap'
 const useGetAnimeSitemap = () => {
   return useQuery({
     queryKey: ['anime', 'sitemap'],
-    queryFn: ({ signal }) => getAnimeSitemap(signal),
+    queryFn: ({ signal }) => getAnimeSitemap(false, signal),
   })
 }
 

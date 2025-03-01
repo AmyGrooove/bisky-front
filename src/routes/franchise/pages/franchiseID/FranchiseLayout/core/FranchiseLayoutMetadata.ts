@@ -9,7 +9,7 @@ const FranchiseLayoutMetadata = async (
   const { franchiseID } = await props.params
 
   try {
-    const franchiseData = await getAnimesByFranchise(franchiseID)
+    const franchiseData = await getAnimesByFranchise(franchiseID, 1, 40, true)
 
     const title = franchiseData.franchise.name ?? ''
 

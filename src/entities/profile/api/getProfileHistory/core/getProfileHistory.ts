@@ -6,6 +6,7 @@ const getProfileHistory = async (
   username: string,
   page = 1,
   count = 40,
+  skipAuth = false,
   signal?: AbortSignal,
 ): Promise<IGetProfileHistoryResponse[]> => {
   const url = new URL(`/profile/${username}/history`, ENV.API_URL)
@@ -14,7 +15,11 @@ const getProfileHistory = async (
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-Skip-Auth': String(skipAuth),
+    },
     credentials: 'include',
     signal,
   })

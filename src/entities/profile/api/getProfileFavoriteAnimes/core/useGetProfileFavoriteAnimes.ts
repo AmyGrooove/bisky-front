@@ -9,7 +9,7 @@ const useGetProfileFavoriteAnimes = (
   return useQuery({
     queryKey: ['anime', 'user', username, page, count],
     queryFn: ({ signal }) =>
-      getProfileFavoriteAnimes(username, page, count, signal),
+      getProfileFavoriteAnimes(username, page, count, false, signal),
   })
 }
 

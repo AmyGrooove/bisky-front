@@ -7,7 +7,7 @@ const GenreLayout = async (props: IGenreLayoutProps) => {
   const { genreID } = await params
 
   try {
-    const genreData = await getAnimesByGenre(genreID)
+    const genreData = await getAnimesByGenre(genreID, 1, 40, true)
 
     if (!genreData) throw new Error()
   } catch (error) {

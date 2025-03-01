@@ -3,8 +3,8 @@ import { getAnimesFastSelect } from './getAnimesFastSelect'
 
 const useGetAnimesFastSelect = () => {
   return useQuery({
-    queryKey: ['anime', 'fast'],
-    queryFn: ({ signal }) => getAnimesFastSelect(signal),
+    queryKey: ['anime'],
+    queryFn: ({ signal }) => getAnimesFastSelect(false, signal),
   })
 }
 

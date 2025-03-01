@@ -9,7 +9,7 @@ const GenreLayoutMetadata = async (
   const { genreID } = await props.params
 
   try {
-    const genreData = await getAnimesByGenre(genreID)
+    const genreData = await getAnimesByGenre(genreID, 1, 40, true)
 
     const title = genreData.genre.name ?? ''
 

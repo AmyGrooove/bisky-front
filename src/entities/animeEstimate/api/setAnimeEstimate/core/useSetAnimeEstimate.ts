@@ -10,13 +10,13 @@ const useSetAnimeEstimate = (isFastFind = false) => {
   return useMutation({
     mutationFn: (body: ISetAnimeEstimateRequest) => setAnimeEstimate(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['fast'] })
+      if (isFastFind) return
+
       queryClient.invalidateQueries({ queryKey: ['anime'] })
-      if (!isFastFind)
-        successToast({
-          message: 'Статус аниме в списке успешно изменен',
-          Icon: CassetteTapeIcon,
-        })
+      successToast({
+        message: 'Статус аниме в списке успешно изменен',
+        Icon: CassetteTapeIcon,
+      })
     },
     onError: async ({ message }) => {
       errorToast({

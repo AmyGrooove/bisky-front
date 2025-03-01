@@ -16,6 +16,7 @@ const useInfiniteGetAnimesByFranchise = (
             franchiseID,
             pageParam,
             count,
+            false,
             signal,
           )
 

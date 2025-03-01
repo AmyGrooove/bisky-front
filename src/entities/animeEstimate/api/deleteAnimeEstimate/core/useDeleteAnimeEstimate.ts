@@ -11,7 +11,6 @@ const useDeleteAnimeEstimate = (isFromSkipList = false) => {
     mutationFn: (body: IDeleteAnimeEstimateRequest) =>
       deleteAnimeEstimate(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['fast'] })
       queryClient.invalidateQueries({ queryKey: ['anime'] })
       if (!isFromSkipList)
         successToast({

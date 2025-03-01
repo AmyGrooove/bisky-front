@@ -38,10 +38,10 @@ const useFastFindPage = () => {
 
   const currentAnimeHref = `/anime/${data?._id}`
 
-  const setAnimeEstimateHandler = async (animeEstimate: TListStatus | null) => {
+  const setAnimeEstimateHandler = async (
+    animeEstimate: TListStatus | 'skipped' | null,
+  ) => {
     if (isNil(data) || isNil(animeEstimate)) return
-
-    setSelectedStatus(animeEstimate)
 
     setTimeout(async () => {
       if (previousSelectedStatuses[currentAnimeIndex] === animeEstimate) return
@@ -54,37 +54,19 @@ const useFastFindPage = () => {
         setPreviousSelectedStatuses(newPreviousStatuses)
       }
 
-      await setAnimeEstimate({
-        animeID: data._id,
-        isFastFind: true,
-        estimateVariant: animeEstimate,
-      })
+      if (animeEstimate === 'added')
+        await setAnimeEstimate({
+          animeID: data._id,
+          isFastFind: true,
+          estimateVariant: 'added',
+        })
+
+      if (animeEstimate === 'skipped')
+        await addAnimeToSkip({ animeID: data._id, isFastFind: true })
+
+      setCurrentAnimeIndex((prev) => prev + 1)
     }, 100)
 
-    setCurrentAnimeIndex((prev) => prev + 1)
-    setTimeout(() => setSelectedStatus(null), 800)
-  }
-
-  const addAnimeToSkipHandler = async () => {
-    if (isNil(data)) return
-
-    setSelectedStatus('skipped')
-
-    setTimeout(async () => {
-      if (previousSelectedStatuses[currentAnimeIndex] === 'skipped') return
-
-      if (isNil(previousSelectedStatuses[currentAnimeIndex]))
-        setPreviousSelectedStatuses((prev) => [...prev, 'skipped'])
-      else {
-        const newPreviousStatuses = previousSelectedStatuses
-        previousSelectedStatuses[currentAnimeIndex] = 'skipped'
-        setPreviousSelectedStatuses(newPreviousStatuses)
-      }
-
-      await addAnimeToSkip({ animeID: data._id, isFastFind: true })
-    }, 100)
-
-    setCurrentAnimeIndex((prev) => prev + 1)
     setTimeout(() => setSelectedStatus(null), 800)
   }
 
@@ -98,8 +80,11 @@ const useFastFindPage = () => {
   const previousListStatus = previousSelectedStatuses[currentAnimeIndex] ?? null
 
   useEffect(() => {
-    if (currentAnimeIndex === fastFindList?.length)
+    if (currentAnimeIndex === fastFindList?.length) {
       push(`/user/${user?.username}/list?fastFind=true`)
+      setCurrentAnimeIndex(0)
+      setPreviousSelectedStatuses([])
+    }
   }, [currentAnimeIndex])
 
   return {
@@ -110,7 +95,6 @@ const useFastFindPage = () => {
     animesCount,
     isBackButtonDisabled,
     selectedStatus,
-    addAnimeToSkipHandler,
     setAnimeEstimateHandler,
     goBack,
     previousListStatus,

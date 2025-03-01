@@ -4,7 +4,7 @@ import { getStudioSitemap } from './getStudioSitemap'
 const useGetStudioSitemap = () => {
   return useQuery({
     queryKey: ['anime', 'studio', 'sitemap'],
-    queryFn: ({ signal }) => getStudioSitemap(signal),
+    queryFn: ({ signal }) => getStudioSitemap(false, signal),
   })
 }
 

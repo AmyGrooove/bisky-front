@@ -4,13 +4,18 @@ import { IGetAnimeMiniInfoResponse } from '../types/IGetAnimeMiniInfoResponse'
 
 const getAnimeMiniInfo = async (
   animeID: string,
+  skipAuth = false,
   signal?: AbortSignal,
 ): Promise<IGetAnimeMiniInfoResponse> => {
   const url = new URL(`/anime/miniInfo/${animeID}`, ENV.API_URL)
 
   const response = await fetch(url, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'X-Skip-Auth': String(skipAuth),
+    },
     credentials: 'include',
     signal,
   })

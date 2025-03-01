@@ -7,7 +7,7 @@ const UserLayout = async (props: IUserLayoutProps) => {
   const { username } = await params
 
   try {
-    const userData = await getProfile(username)
+    const userData = await getProfile(username, true)
 
     if (!userData) throw new Error()
   } catch (error) {
