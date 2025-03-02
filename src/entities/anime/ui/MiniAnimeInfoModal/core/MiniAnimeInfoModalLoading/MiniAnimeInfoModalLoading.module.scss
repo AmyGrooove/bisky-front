@@ -25,3 +25,28 @@
   height: 220px;
   width: 400px;
 }
+
+.watchNow {
+  display: none;
+  height: 34px;
+  width: 100%;
+}
+
+@include media-query(tablet) {
+  .info {
+    height: 255px;
+  }
+
+  .watchNow {
+    display: flex;
+  }
+
+  .screenshotWrapper {
+    overflow: visible;
+  }
+
+  .screenshot {
+    height: 165px;
+    width: 300px;
+  }
+}

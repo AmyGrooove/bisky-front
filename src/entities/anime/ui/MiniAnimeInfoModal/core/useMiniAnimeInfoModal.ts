@@ -6,9 +6,20 @@ import {
   getNormalRating,
 } from '@entities/anime/utils/functions'
 import { IMiniAnimeInfoModalProps } from '../types/IMiniAnimeInfoModalProps'
+import { useGetAnimeMiniInfo } from '@entities/anime/api/getAnimeMiniInfo'
 
 const useMiniAnimeInfoModal = (props: IMiniAnimeInfoModalProps) => {
-  const { data = null, className, isModal = true, isLoading = false } = props
+  const {
+    data = null,
+    className,
+    isModal = true,
+    isLoading = false,
+    animeID = '',
+  } = props
+
+  const { data: fetchedData, isLoading: isFetchedDataLoading } =
+    useGetAnimeMiniInfo(animeID)
+
   const {
     _id = '',
     genres = [],
@@ -22,7 +33,7 @@ const useMiniAnimeInfoModal = (props: IMiniAnimeInfoModalProps) => {
     label = '',
     description = null,
     rating = 'pg_13',
-  } = data ?? {}
+  } = data ?? fetchedData ?? {}
 
   const connectedGenres = genres.join(', ')
   const connectedStudios = studios.join(', ')
@@ -56,8 +67,9 @@ const useMiniAnimeInfoModal = (props: IMiniAnimeInfoModalProps) => {
     className,
     isModal,
     currentAnimeHref,
-    isLoading,
+    isLoading: isFetchedDataLoading || isLoading,
     data,
+    animeID,
   }
 }
 

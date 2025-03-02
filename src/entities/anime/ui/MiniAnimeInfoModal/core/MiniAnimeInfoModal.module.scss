@@ -9,6 +9,7 @@
   padding: 16px;
   width: 100%;
 }
+
 .screenshots {
   border-radius: var(--radius-20);
   overflow: hidden;
@@ -19,7 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100%;
+  width: 800px !important;
   @extend %invoke-scale;
 
   &_modal {
@@ -96,7 +97,17 @@
   width: 100%;
 }
 
+@include media-query(hd) {
+  .root {
+    width: 650px !important;
+  }
+}
+
 @include media-query(tablet) {
+  .root {
+    width: 100% !important;
+  }
+
   .icon {
     height: 16px;
     width: 16px;

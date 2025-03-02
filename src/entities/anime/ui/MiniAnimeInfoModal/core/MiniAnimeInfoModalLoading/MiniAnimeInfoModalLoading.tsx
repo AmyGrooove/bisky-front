@@ -18,6 +18,7 @@ const MiniAnimeInfoModalLoading = (props: IMiniAnimeInfoModalLoadingProps) => {
             <Skeleton key={index} className={st.screenshot} />
           ))}
         </div>
+        <Skeleton className={st.watchNow} />
       </div>
     </>
   )
