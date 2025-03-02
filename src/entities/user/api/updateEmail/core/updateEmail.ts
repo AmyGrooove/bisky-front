@@ -12,11 +12,11 @@ const updateEmail = async (body: IUpdateEmailRequest): Promise<true> => {
     credentials: 'include',
   })
 
-  const result = await response.json()
+  const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`updateEmail: ${result.message}`)
+  if (!response.ok) throw new Error(`updateEmail: ${responseData.message}`)
 
-  return result
+  return responseData
 }
 
 export { updateEmail }

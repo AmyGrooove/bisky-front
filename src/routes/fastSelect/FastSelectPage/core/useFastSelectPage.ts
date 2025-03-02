@@ -65,6 +65,7 @@ const useFastSelectPage = () => {
     nextIndex,
     isLoading,
     championData,
+    isError,
   }
 }
 

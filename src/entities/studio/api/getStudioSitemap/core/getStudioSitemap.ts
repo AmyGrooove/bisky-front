@@ -19,9 +19,11 @@ const getStudioSitemap = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getStudioSitemap: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getStudioSitemap: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getStudioSitemap }

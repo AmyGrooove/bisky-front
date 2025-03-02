@@ -28,10 +28,12 @@ const getProfileListAnimes = async (
     signal,
   })
 
-  if (!response.ok)
-    throw new Error(`getProfileListAnimes: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok)
+    throw new Error(`getProfileListAnimes: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getProfileListAnimes }

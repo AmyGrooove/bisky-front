@@ -20,9 +20,11 @@ const getProfile = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getProfile: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getProfile: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getProfile }

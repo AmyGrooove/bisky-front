@@ -69,8 +69,8 @@
 
 @include media-query(tablet) {
   .root {
-    height: 200px;
     justify-content: center;
+    padding: 32px 20px;
   }
 
   .profile {

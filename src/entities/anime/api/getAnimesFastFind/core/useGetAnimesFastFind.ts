@@ -5,6 +5,7 @@ const useGetAnimesFastFind = () => {
   return useQuery({
     queryKey: [],
     queryFn: ({ signal }) => getAnimesFastFind(false, signal),
+    gcTime: 0,
   })
 }
 

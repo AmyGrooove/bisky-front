@@ -19,9 +19,12 @@ const getAnimesFastFind = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getAnimesFastFind: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok)
+    throw new Error(`getAnimesFastFind: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimesFastFind }

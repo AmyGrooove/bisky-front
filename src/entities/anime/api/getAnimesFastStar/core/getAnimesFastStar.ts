@@ -19,9 +19,12 @@ const getAnimesFastStar = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getAnimesFastStar: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok)
+    throw new Error(`getAnimesFastStar: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimesFastStar }

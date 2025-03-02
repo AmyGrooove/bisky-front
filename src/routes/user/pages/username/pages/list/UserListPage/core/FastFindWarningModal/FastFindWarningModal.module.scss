@@ -1,0 +1,24 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label {
+  @include text-style(32);
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+@include media-query(tablet) {
+  .label {
+    width: 100%;
+    @include text-style(20);
+  }
+}

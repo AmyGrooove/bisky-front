@@ -14,11 +14,12 @@ const deleteAnimeEstimate = async (
     credentials: 'include',
   })
 
-  const result = await response.json()
+  const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`deleteAnimeEstimate: ${result.message}`)
+  if (!response.ok)
+    throw new Error(`deleteAnimeEstimate: ${responseData.message}`)
 
-  return result
+  return responseData
 }
 
 export { deleteAnimeEstimate }

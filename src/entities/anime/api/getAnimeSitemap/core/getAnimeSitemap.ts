@@ -19,9 +19,11 @@ const getAnimeSitemap = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getAnimeSitemap: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getAnimeSitemap: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimeSitemap }

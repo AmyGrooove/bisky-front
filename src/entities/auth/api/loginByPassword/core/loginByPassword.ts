@@ -14,11 +14,11 @@ const loginByPassword = async (
     credentials: 'include',
   })
 
-  const result = await response.json()
+  const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`loginByPassword: ${result.message}`)
+  if (!response.ok) throw new Error(`loginByPassword: ${responseData.message}`)
 
-  return result
+  return responseData
 }
 
 export { loginByPassword }

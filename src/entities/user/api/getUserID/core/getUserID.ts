@@ -17,9 +17,11 @@ const getUserID = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getUserID: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getUserID: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getUserID }

@@ -23,9 +23,11 @@ const getAnimesAdmin = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getAnimesAdmin: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getAnimesAdmin: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimesAdmin }

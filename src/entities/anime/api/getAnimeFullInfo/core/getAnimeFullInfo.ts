@@ -20,9 +20,11 @@ const getAnimeFullInfo = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getAnimeFullInfo: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getAnimeFullInfo: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimeFullInfo }

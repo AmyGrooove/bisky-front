@@ -1,5 +1,11 @@
+import { Text } from '@shared/ui/atoms/Text'
+
 const FastStarPage = async () => {
-  return <></>
+  return (
+    <>
+      <Text>Страница в разработке</Text>
+    </>
+  )
 }
 
 export { FastStarPage }

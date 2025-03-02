@@ -35,6 +35,7 @@ const Badge = (props: TBadgeProps) => {
               [st.children_custom]: isCustomTextColor,
             })}
             weight={iconText ? '400' : '700'}
+            isCustomColor={isCustomTextColor}
           >
             {children}
           </Text>
@@ -46,6 +47,7 @@ const Badge = (props: TBadgeProps) => {
           className={cn(st.iconText, {
             [st.iconText_custom]: isCustomTextColor,
           })}
+          isCustomColor={isCustomTextColor}
         >
           {iconText}
         </Text>

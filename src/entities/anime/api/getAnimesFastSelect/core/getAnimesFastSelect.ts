@@ -19,10 +19,12 @@ const getAnimesFastSelect = async (
     signal,
   })
 
-  if (!response.ok)
-    throw new Error(`getAnimesFastSelect: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok)
+    throw new Error(`getAnimesFastSelect: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimesFastSelect }

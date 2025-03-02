@@ -19,9 +19,11 @@ const getHomePageData = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getHomePageData: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getHomePageData: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getHomePageData }

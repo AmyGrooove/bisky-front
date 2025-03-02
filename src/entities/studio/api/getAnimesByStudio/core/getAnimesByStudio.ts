@@ -24,9 +24,12 @@ const getAnimesByStudio = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getAnimesByStudio: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok)
+    throw new Error(`getAnimesByStudio: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimesByStudio }

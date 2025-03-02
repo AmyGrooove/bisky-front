@@ -12,11 +12,11 @@ const addAnimeToSkip = async (body: IAddAnimeToSkipRequest): Promise<true> => {
     credentials: 'include',
   })
 
-  const result = await response.json()
+  const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`addAnimeToSkip: ${result.message}`)
+  if (!response.ok) throw new Error(`addAnimeToSkip: ${responseData.message}`)
 
-  return result
+  return responseData
 }
 
 export { addAnimeToSkip }
