@@ -1,7 +1,7 @@
 import { useGetAnimesFastSelect } from '@entities/anime/api/getAnimesFastSelect'
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { IStateSnapshot } from '../types/IStateSnapshot'
 
 const useFastSelectPage = () => {
@@ -40,7 +40,15 @@ const useFastSelectPage = () => {
     setNextIndex(prev.nextIndex)
   }
 
-  const isFinal = leftIndex === null || rightIndex === null
+  const championData = useMemo(
+    () =>
+      leftIndex === null && rightIndex !== null
+        ? data[rightIndex]
+        : rightIndex === null && leftIndex !== null
+          ? data[leftIndex]
+          : null,
+    [leftIndex, rightIndex, data],
+  )
 
   useEffect(() => {
     if (isError) {
@@ -52,11 +60,11 @@ const useFastSelectPage = () => {
     data,
     selectAnime,
     goBackInHistory,
-    isFinal,
     leftIndex,
     rightIndex,
     nextIndex,
     isLoading,
+    championData,
   }
 }
 

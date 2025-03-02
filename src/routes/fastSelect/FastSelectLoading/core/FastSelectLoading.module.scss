@@ -7,6 +7,7 @@
   justify-content: center;
   margin: auto 0px;
   width: 900px;
+  @extend %invoke-scale;
 }
 
 .mobileControl {
@@ -16,6 +17,7 @@
   margin-bottom: 80px;
   padding: 0px 12px;
   width: 100%;
+  @extend %invoke-scale;
 }
 
 .mainBlock {

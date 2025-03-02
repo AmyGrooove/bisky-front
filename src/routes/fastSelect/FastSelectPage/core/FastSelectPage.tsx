@@ -4,22 +4,25 @@ import st from './FastSelectPage.module.scss'
 import { useFastSelectPage } from './useFastSelectPage'
 import { SelectElement } from './SelectElement/SelectElement'
 import { Text } from '@shared/ui/atoms/Text'
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 import { GlassButton } from '@shared/ui/molecules/GlassButton'
 import { CrownIcon, MoveLeftIcon } from '@shared/icons'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { FastSelectLoading } from '@routes/fastSelect/FastSelectLoading'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
+import { Button } from '@shared/ui/molecules/Button'
+import Link from 'next/link'
 
 const FastSelectPage = () => {
   const {
     data,
     selectAnime,
     goBackInHistory,
-    isFinal,
     leftIndex,
     rightIndex,
     nextIndex,
     isLoading,
+    championData,
   } = useFastSelectPage()
 
   if (isLoading) return <FastSelectLoading />
@@ -30,57 +33,82 @@ const FastSelectPage = () => {
         Быстрый выбор
       </SectionLabel>
       <div className={st.root}>
-        {isFinal ? (
-          <div className={st.final}></div>
-        ) : (
-          <div className={st.main}>
-            {leftIndex !== null && (
-              <SelectElement
-                side="left"
-                poster={data[leftIndex].poster}
-                label={data[leftIndex].label}
-                selectThis={() => selectAnime('left')}
-                _id={data[leftIndex]._id}
+        <div className={st.main}>
+          {!isNil(championData) ? (
+            <div className={st.final}>
+              <PlaceholderImage
+                src={championData.poster}
+                className={st.poster}
+                sizes={[220, 180]}
               />
-            )}
-            {rightIndex !== null && (
-              <SelectElement
-                side="right"
-                poster={data[rightIndex].poster}
-                label={data[rightIndex].label}
-                selectThis={() => selectAnime('right')}
-                _id={data[rightIndex]._id}
-              />
-            )}
-            <div className={st.versusElements}>
-              <div className={st.divider} />
-              <Text className={st.versus} weight="700">
-                VS
+              <Text weight="700" className={st.label} maxLines={2}>
+                {championData.label}
               </Text>
-              <div className={st.countWrapper}>
-                <Text
-                  className={cn(st.count, st.count_current)}
-                  weight="700"
-                  isCustomColor
+              <Link href={`/anime/${championData._id}`}>
+                <Button
+                  variant="big"
+                  onClick={() => {}}
+                  className={st.choiceButton}
                 >
-                  {String(nextIndex)}
+                  Начать просмотр
+                </Button>
+              </Link>
+              <PlaceholderImage
+                src={championData.poster}
+                className={st.background}
+                sizes={[700, 300]}
+              />
+            </div>
+          ) : (
+            <>
+              {leftIndex !== null && (
+                <SelectElement
+                  side="left"
+                  poster={data[leftIndex].poster}
+                  label={data[leftIndex].label}
+                  selectThis={() => selectAnime('left')}
+                  _id={data[leftIndex]._id}
+                />
+              )}
+              {rightIndex !== null && (
+                <SelectElement
+                  side="right"
+                  poster={data[rightIndex].poster}
+                  label={data[rightIndex].label}
+                  selectThis={() => selectAnime('right')}
+                  _id={data[rightIndex]._id}
+                />
+              )}
+              <div className={st.versusElements}>
+                <div className={st.divider} />
+                <Text className={st.versus} weight="700">
+                  VS
                 </Text>
-                <Text className={st.count} weight="700">
-                  {`/${data.length}`}
-                </Text>
+                <div className={st.countWrapper}>
+                  <Text
+                    className={cn(st.count, st.count_current)}
+                    weight="700"
+                    isCustomColor
+                  >
+                    {String(nextIndex)}
+                  </Text>
+                  <Text className={st.count} weight="700">
+                    {`/${data.length}`}
+                  </Text>
+                </div>
               </div>
-            </div>
-            <div className={st.goBackWrapper}>
-              <GlassButton
-                className={st.goBack}
-                onClick={goBackInHistory}
-                isDisabled={nextIndex === 2}
-              >
-                {MoveLeftIcon}
-              </GlassButton>
-            </div>
+            </>
+          )}
+          <div className={st.goBackWrapper}>
+            <GlassButton
+              className={st.goBack}
+              onClick={goBackInHistory}
+              isDisabled={nextIndex === 2}
+            >
+              {MoveLeftIcon}
+            </GlassButton>
           </div>
-        )}
+        </div>
       </div>
       <div className={st.mobileControl}>
         <GlassButton onClick={goBackInHistory} isDisabled={nextIndex === 2}>
@@ -92,11 +120,13 @@ const FastSelectPage = () => {
             weight="700"
             isCustomColor
           >
-            {String(nextIndex)}
+            {!isNil(championData) ? 'ʕ•ᴥ•ʔ' : String(nextIndex)}
           </Text>
-          <Text className={st.count} weight="700">
-            {`/${data.length}`}
-          </Text>
+          {isNil(championData) && (
+            <Text className={st.count} weight="700">
+              {`/${data.length}`}
+            </Text>
+          )}
         </div>
         <div className={st.emptyControl} />
       </div>
