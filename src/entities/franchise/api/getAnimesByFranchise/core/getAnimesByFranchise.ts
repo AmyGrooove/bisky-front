@@ -24,10 +24,12 @@ const getAnimesByFranchise = async (
     signal,
   })
 
-  if (!response.ok)
-    throw new Error(`getAnimesByFranchise: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok)
+    throw new Error(`getAnimesByFranchise: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimesByFranchise }

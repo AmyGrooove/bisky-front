@@ -14,12 +14,12 @@ const addAnimesToShikiBanList = async (
     credentials: 'include',
   })
 
-  const result = await response.json()
+  const responseData = await response.json()
 
   if (!response.ok)
-    throw new Error(`addAnimesToShikiBanList: ${result.message}`)
+    throw new Error(`addAnimesToShikiBanList: ${responseData.message}`)
 
-  return result
+  return responseData
 }
 
 export { addAnimesToShikiBanList }

@@ -14,11 +14,12 @@ const unsubscribeFromUser = async (
     credentials: 'include',
   })
 
-  const result = await response.json()
+  const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`unsubscribeFromUser: ${result.message}`)
+  if (!response.ok)
+    throw new Error(`unsubscribeFromUser: ${responseData.message}`)
 
-  return result
+  return responseData
 }
 
 export { unsubscribeFromUser }

@@ -23,9 +23,10 @@ const FastSelectPage = () => {
     nextIndex,
     isLoading,
     championData,
+    isError,
   } = useFastSelectPage()
 
-  if (isLoading) return <FastSelectLoading />
+  if (isLoading || isError) return <FastSelectLoading />
 
   return (
     <>

@@ -23,7 +23,7 @@ import { isNil } from '@shared/utils/functions'
 const FastFindPage = () => {
   const {
     data,
-    isFastFindLoading,
+    isFastFindFullLoading,
     isMiniInfoLoading,
     currentAnimeHref,
     animesCount,
@@ -34,7 +34,7 @@ const FastFindPage = () => {
     previousListStatus,
   } = useFastFindPage()
 
-  if (isFastFindLoading) return <FastFindLoading />
+  if (isFastFindFullLoading) return <FastFindLoading />
 
   return (
     <>

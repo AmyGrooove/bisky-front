@@ -81,17 +81,18 @@ const useFastFindPage = () => {
   const isMiniInfoLoading = isAnimeInfoLoading || selectedStatus !== null
   const previousListStatus = previousSelectedStatuses[currentAnimeIndex] ?? null
 
+  const isFastFindFullLoading =
+    isFastFindLoading || currentAnimeIndex === fastFindList?.length
+
   useEffect(() => {
     if (currentAnimeIndex === fastFindList?.length) {
       push(`/user/${user?.username}/list?fastFind=true`)
-      setCurrentAnimeIndex(0)
-      setPreviousSelectedStatuses([])
     }
   }, [currentAnimeIndex])
 
   return {
     data,
-    isFastFindLoading,
+    isFastFindFullLoading,
     isMiniInfoLoading,
     currentAnimeHref,
     animesCount,

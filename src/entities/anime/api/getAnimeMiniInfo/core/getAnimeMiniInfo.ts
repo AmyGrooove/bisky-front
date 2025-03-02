@@ -20,9 +20,11 @@ const getAnimeMiniInfo = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getAnimeMiniInfo: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getAnimeMiniInfo: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getAnimeMiniInfo }

@@ -14,11 +14,11 @@ const subscribeToUser = async (
     credentials: 'include',
   })
 
-  const result = await response.json()
+  const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`subscribeToUser: ${result.message}`)
+  if (!response.ok) throw new Error(`subscribeToUser: ${responseData.message}`)
 
-  return result
+  return responseData
 }
 
 export { subscribeToUser }

@@ -19,9 +19,11 @@ const getWhoami = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`Очистите куки браузера`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getWhoami: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getWhoami }

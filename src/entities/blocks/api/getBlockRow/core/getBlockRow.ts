@@ -23,9 +23,11 @@ const getBlockRow = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getBlockRow: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getBlockRow: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getBlockRow }

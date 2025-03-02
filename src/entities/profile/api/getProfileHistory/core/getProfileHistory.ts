@@ -24,9 +24,12 @@ const getProfileHistory = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getProfileHistory: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok)
+    throw new Error(`getProfileHistory: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getProfileHistory }

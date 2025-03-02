@@ -19,9 +19,11 @@ const getGenreSitemap = async (
     signal,
   })
 
-  if (!response.ok) throw new Error(`getGenreSitemap: ${response.statusText}`)
+  const responseData = await response.json()
 
-  return response.json()
+  if (!response.ok) throw new Error(`getGenreSitemap: ${responseData.message}`)
+
+  return responseData
 }
 
 export { getGenreSitemap }
