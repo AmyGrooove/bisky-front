@@ -9,12 +9,12 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 const useFastFindPage = () => {
-  const { data: fastFindList, isLoading: isFastFindLoading } =
-    useGetAnimesFastFind()
-
   const { push } = useRouter()
 
   const { user } = useSession()
+
+  const { data: fastFindList, isLoading: isFastFindLoading } =
+    useGetAnimesFastFind()
 
   const [currentAnimeIndex, setCurrentAnimeIndex] = useState(0)
   const [previousSelectedStatuses, setPreviousSelectedStatuses] = useState<
@@ -42,6 +42,8 @@ const useFastFindPage = () => {
     animeEstimate: TListStatus | 'skipped' | null,
   ) => {
     if (isNil(data) || isNil(animeEstimate)) return
+
+    setSelectedStatus(animeEstimate)
 
     setTimeout(async () => {
       if (previousSelectedStatuses[currentAnimeIndex] === animeEstimate) return

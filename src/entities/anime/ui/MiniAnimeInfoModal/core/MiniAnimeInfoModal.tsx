@@ -36,10 +36,11 @@ const MiniAnimeInfoModal = (props: IMiniAnimeInfoModalProps) => {
     currentAnimeHref,
     isLoading,
     data,
+    animeID,
   } = useMiniAnimeInfoModal(props)
 
-  if (isLoading || isNil(data))
-    return <MiniAnimeInfoModalLoading className={className} />
+  if (isLoading || (isNil(data) && animeID === ''))
+    return <MiniAnimeInfoModalLoading className={cn(st.root, className)} />
 
   return (
     <div className={cn(st.root, className, { [st.root_modal]: isModal })}>

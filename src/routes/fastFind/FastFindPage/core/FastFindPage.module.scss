@@ -36,10 +36,6 @@
   }
 }
 
-.info {
-  width: 800px !important;
-}
-
 .watchNow {
   width: 100%;
 }
@@ -47,12 +43,6 @@
 .mobileCassette {
   padding: 0 12px;
   width: 100%;
-}
-
-@include media-query(hd) {
-  .info {
-    width: 650px !important;
-  }
 }
 
 @include media-query(tablet, true) {
