@@ -1,12 +1,12 @@
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 import { useEffect, useState } from 'react'
-import { useGetAnimesAdmin } from '@entities/anime/api/getAnimesAdmin'
 import { useAddAnimesToShikiBanList } from '@entities/parser/api/addAnimesToShikiBanList'
+import { useGetAllAnimes } from '@entities/anime/api/getAllAnimes'
 
 const useAllAnimesPage = () => {
   const [excludedAnimeIDs, setExcludedAnimeIDs] = useState<string[]>([])
 
-  const { data: allAnimes = [] } = useGetAnimesAdmin(excludedAnimeIDs)
+  const { data: allAnimes = [] } = useGetAllAnimes(excludedAnimeIDs)
 
   const { mutateAsync: addAnimesToShikiBanList } = useAddAnimesToShikiBanList()
 

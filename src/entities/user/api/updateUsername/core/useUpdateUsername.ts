@@ -10,7 +10,14 @@ const useUpdateUsername = () => {
   return useMutation({
     mutationFn: (body: IUpdateUsernameRequest) => updateUsername(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ['profile'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] }),
+      ])
+
       successToast({ message: 'Логин успешно изменен', Icon: UserIcon })
     },
     onError: async ({ message }) => {

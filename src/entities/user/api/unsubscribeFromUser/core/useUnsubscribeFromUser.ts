@@ -11,7 +11,11 @@ const useUnsubscribeFromUser = () => {
     mutationFn: (body: IUnsubscribeFromUserRequest) =>
       unsubscribeFromUser(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await queryClient.invalidateQueries({
+        queryKey: ['profile'],
+        exact: false,
+      })
+
       successToast({
         message: 'Успешно отписан от пользователя',
         Icon: UserIcon,

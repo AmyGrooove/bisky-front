@@ -3,7 +3,7 @@ import { getAnimeFullInfo } from './getAnimeFullInfo'
 
 const useGetAnimeFullInfo = (animeID: string) => {
   return useQuery({
-    queryKey: ['anime', animeID],
+    queryKey: ['anime', 'fullInfo', animeID],
     queryFn: ({ signal }) => getAnimeFullInfo(animeID, false, signal),
   })
 }

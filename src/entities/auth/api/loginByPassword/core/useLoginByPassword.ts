@@ -10,7 +10,8 @@ const useLoginByPassword = () => {
   return useMutation({
     mutationFn: (body: ILoginByPasswordRequest) => loginByPassword(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] })
+
       successToast({ message: 'Успешно авторизован', Icon: UserIcon })
     },
   })

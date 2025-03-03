@@ -1,18 +1,28 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addAnimeToSkip } from './addAnimeToSkip'
 import { IAddAnimeToSkipRequest } from '../types/IAddAnimeToSkipRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { CassetteTapeIcon } from '@shared/icons'
 
 const useAddAnimeToSkip = (isFastFind = false) => {
+  const queryClient = useQueryClient()
+
   return useMutation({
     mutationFn: (body: IAddAnimeToSkipRequest) => addAnimeToSkip(body),
     onSuccess: async () => {
-      if (!isFastFind)
-        successToast({
-          message: 'Аниме успешно добавлено в список исключаемых',
-          Icon: CassetteTapeIcon,
-        })
+      await queryClient.invalidateQueries({
+        queryKey: ['profile', 'history'],
+        exact: false,
+      })
+
+      if (isFastFind) return
+
+      await queryClient.invalidateQueries({ queryKey: ['anime', 'fastFind'] })
+
+      successToast({
+        message: 'Аниме успешно добавлено в список исключаемых',
+        Icon: CassetteTapeIcon,
+      })
     },
     onError: async ({ message }) => {
       errorToast({

@@ -2,7 +2,7 @@ import { ENV } from '@shared/static'
 
 import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
 
-const setAnimeScore = async (body: ISetAnimeScoreRequest): Promise<true> => {
+const setAnimeScore = async (body: ISetAnimeScoreRequest): Promise<string> => {
   const url = new URL(`/animeEstimate/score`, ENV.API_URL)
 
   const response = await fetch(url, {
@@ -16,7 +16,7 @@ const setAnimeScore = async (body: ISetAnimeScoreRequest): Promise<true> => {
 
   if (!response.ok) throw new Error(`setAnimeScore: ${responseData.message}`)
 
-  return responseData
+  return body.animeID
 }
 
 export { setAnimeScore }

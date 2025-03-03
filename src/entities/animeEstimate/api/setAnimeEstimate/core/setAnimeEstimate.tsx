@@ -4,7 +4,7 @@ import { ISetAnimeEstimateRequest } from '../types/ISetAnimeEstimateRequest'
 
 const setAnimeEstimate = async (
   body: ISetAnimeEstimateRequest,
-): Promise<true> => {
+): Promise<string> => {
   const url = new URL(`/animeEstimate`, ENV.API_URL)
 
   const response = await fetch(url, {
@@ -18,7 +18,7 @@ const setAnimeEstimate = async (
 
   if (!response.ok) throw new Error(`setAnimeEstimate: ${responseData.message}`)
 
-  return responseData
+  return body.animeID
 }
 
 export { setAnimeEstimate }

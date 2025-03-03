@@ -10,7 +10,8 @@ const useChangePassword = () => {
   return useMutation({
     mutationFn: (body: IChangePasswordRequest) => changePassword(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] })
+
       successToast({ message: 'Пароль успешно изменен', Icon: UserIcon })
     },
     onError: async ({ message }) => {

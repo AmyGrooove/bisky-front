@@ -4,7 +4,7 @@ import { ISetAnimeFavoriteRequest } from '../types/ISetAnimeFavoriteRequest'
 
 const setAnimeFavorite = async (
   body: ISetAnimeFavoriteRequest,
-): Promise<true> => {
+): Promise<string> => {
   const url = new URL(`/animeEstimate/favorite`, ENV.API_URL)
 
   const response = await fetch(url, {
@@ -18,7 +18,7 @@ const setAnimeFavorite = async (
 
   if (!response.ok) throw new Error(`setAnimeFavorite: ${responseData.message}`)
 
-  return responseData
+  return body.animeID
 }
 
 export { setAnimeFavorite }

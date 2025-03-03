@@ -4,7 +4,7 @@ import {
   getListStatusIcon,
   getScoreColor,
 } from '@entities/animeEstimate/utils'
-import { ComponentProps, useMemo, useState } from 'react'
+import { ComponentProps, useEffect, useMemo, useState } from 'react'
 import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
 import { cn, isNil } from '@shared/utils/functions'
 import { CassetteTapeIcon, HeartIcon, StarIcon } from '@shared/icons'
@@ -96,6 +96,11 @@ const useListButtons = (props: IAnimeSectionProps) => {
     }),
     [currentStatus, isInFavorite],
   )
+
+  useEffect(() => {
+    if (currentStatus === null && currentScore !== null) setCurrentScore(null)
+    if (currentStatus === null && isInFavorite) setIsInFavorite(false)
+  }, [currentStatus, currentScore, isInFavorite])
 
   return { estimateButton, scoreButton, favoriteButton }
 }

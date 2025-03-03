@@ -7,14 +7,7 @@ const useInfiniteGetBlockRow = (excludedGenreIDs: string[] = []) => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
       initialPageParam: excludedGenreIDs,
-      queryKey: [
-        'anime',
-        'block',
-        'genre',
-        'studio',
-        'franchise',
-        excludedGenreIDs,
-      ],
+      queryKey: ['blocks', 'row'],
       queryFn: ({ pageParam, signal }) => {
         try {
           return getBlockRow(pageParam, false, signal)

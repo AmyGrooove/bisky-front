@@ -3,7 +3,7 @@ import { getFranchiseSitemap } from './getFranchiseSitemap'
 
 const useGetFranchiseSitemap = () => {
   return useQuery({
-    queryKey: ['anime', 'franchise', 'sitemap'],
+    queryKey: ['franchise', 'sitemap'],
     queryFn: ({ signal }) => getFranchiseSitemap(false, signal),
   })
 }

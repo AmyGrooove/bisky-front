@@ -3,7 +3,7 @@ import { getAnimesByStudio } from './getAnimesByStudio'
 
 const useGetAnimesByStudio = (studioID: string, page = 1, count = 40) => {
   return useQuery({
-    queryKey: ['anime', 'studio', studioID, page, count],
+    queryKey: ['studio', studioID, 'animes'],
     queryFn: ({ signal }) =>
       getAnimesByStudio(studioID, page, count, false, signal),
   })

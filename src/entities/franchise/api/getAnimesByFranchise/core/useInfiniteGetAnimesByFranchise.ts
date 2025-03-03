@@ -9,7 +9,7 @@ const useInfiniteGetAnimesByFranchise = (
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
       initialPageParam: page,
-      queryKey: ['anime', 'franchise', franchiseID, page, count],
+      queryKey: ['franchise', franchiseID, 'animes'],
       queryFn: async ({ pageParam = page, signal }) => {
         try {
           const response = await getAnimesByFranchise(

@@ -10,7 +10,14 @@ const useUpdateEmail = () => {
   return useMutation({
     mutationFn: (body: IUpdateEmailRequest) => updateEmail(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ['profile'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] }),
+      ])
+
       successToast({ message: 'Почта успешно изменена', Icon: UserIcon })
     },
     onError: async ({ message }) => {
