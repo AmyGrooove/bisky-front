@@ -1,0 +1,15 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.historyLoading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}

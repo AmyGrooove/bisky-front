@@ -1,0 +1,27 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  background-color: var(--dark-300);
+  border-radius: var(--radius-20);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  width: 100%;
+}
+
+.selector {
+  width: fit-content;
+}
+
+@include media-query(tablet) {
+  .root {
+    background-color: unset;
+    border-radius: unset;
+    padding: 0px;
+  }
+
+  .selector {
+    width: 100%;
+  }
+}

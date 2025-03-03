@@ -20,6 +20,9 @@ const Skeleton = (props: ISkeletonProps) => {
     avatarElement: (
       <div className={cn(st.root, st[`root_${templates}`], className)} />
     ),
+    historyItem: (
+      <div className={cn(st.root, st[`root_${templates}`], className)} />
+    ),
     none: <div className={cn(st.root, className)} />,
   }[templates]
 }

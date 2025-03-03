@@ -30,7 +30,7 @@ const useSectionSelector = (props: ISectionSelectorProps) => {
         height: currentTab.clientHeight,
         top: currentTab.offsetTop,
       })
-  }, [activeTab])
+  }, [activeTab, items])
 
   return {
     className,

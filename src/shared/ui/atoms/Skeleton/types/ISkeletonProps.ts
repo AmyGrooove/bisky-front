@@ -1,5 +1,11 @@
 interface ISkeletonProps {
-  templates?: 'season' | 'animeCard' | 'label' | 'avatarElement' | 'none'
+  templates?:
+    | 'season'
+    | 'animeCard'
+    | 'label'
+    | 'avatarElement'
+    | 'historyItem'
+    | 'none'
   className?: string
 }
 

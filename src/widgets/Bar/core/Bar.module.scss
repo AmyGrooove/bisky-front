@@ -13,6 +13,7 @@
   position: fixed;
   right: 36px;
   width: calc(100% - 72px);
+  z-index: 1;
   @include effect(background-blur-shadow);
 
   &_hidden {
