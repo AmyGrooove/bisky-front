@@ -29,11 +29,12 @@ const SectionSelector = (props: ISectionSelectorProps) => {
           top: indicatorStyle.top,
         }}
       />
-      {items.map(({ Icon, children }, index) => (
+      {items.map(({ Icon, children, isDisabled = false }, index) => (
         <div
           key={index}
           className={cn(st.tab, st[`tab_${elementsVariant}`], {
             [st.tab_active]: activeTab === index,
+            [st.tab_disabled]: isDisabled,
           })}
           onClick={() => onSwitchTab(index)}
           ref={(el) => {

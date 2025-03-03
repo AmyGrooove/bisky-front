@@ -10,6 +10,7 @@
   padding: 8px;
   position: relative;
   width: 100%;
+  z-index: 0;
 }
 
 .updateDate {
@@ -29,4 +30,5 @@
   overflow: hidden;
   position: absolute;
   right: 40px;
+  z-index: -1;
 }

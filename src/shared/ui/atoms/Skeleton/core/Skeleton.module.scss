@@ -43,6 +43,11 @@
     height: 76px;
     width: 100%;
   }
+
+  &_historyItem {
+    height: 80px;
+    width: 100%;
+  }
 }
 
 @include media-query(tablet) {

@@ -31,14 +31,20 @@
   align-items: center;
   display: flex;
   gap: 4px;
+  justify-content: center;
   padding: 8px;
   position: relative;
+  width: 100%;
   z-index: 1;
   @extend %no-select;
   @include transition((scale), (100ms));
 
   &_column {
     flex-direction: column;
+  }
+
+  &_disabled {
+    display: none;
   }
 
   &:not(&_active) {

@@ -1,0 +1,13 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.barMargin {
+  flex-shrink: 0;
+  height: 120px;
+  width: 100%;
+}
+
+@include media-query(tablet, true) {
+  .barMargin {
+    display: none;
+  }
+}

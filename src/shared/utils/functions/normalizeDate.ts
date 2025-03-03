@@ -1,3 +1,7 @@
-const normalizeDate = (value: Date) => value.toLocaleDateString('ru-RU')
+const normalizeDate = (value: Date | string) => {
+  const convertedValue = new Date(value)
+
+  return convertedValue.toLocaleDateString('ru-RU')
+}
 
 export { normalizeDate }
