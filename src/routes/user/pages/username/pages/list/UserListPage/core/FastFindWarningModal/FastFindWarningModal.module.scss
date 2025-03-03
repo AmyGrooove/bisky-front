@@ -18,7 +18,8 @@
 
 @include media-query(tablet) {
   .label {
+    text-align: center;
     width: 100%;
-    @include text-style(20);
+    @include text-style(24);
   }
 }

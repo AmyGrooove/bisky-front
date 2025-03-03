@@ -9,7 +9,7 @@ const useInfiniteGetAnimesByStudio = (
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
       initialPageParam: page,
-      queryKey: ['anime', 'studio', studioID, page, count],
+      queryKey: ['studio', studioID, 'animes'],
       queryFn: async ({ pageParam = page, signal }) => {
         try {
           const response = await getAnimesByStudio(

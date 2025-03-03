@@ -10,7 +10,11 @@ const useSubscribeToUser = () => {
   return useMutation({
     mutationFn: (body: ISubscribeToUserRequest) => subscribeToUser(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await queryClient.invalidateQueries({
+        queryKey: ['profile'],
+        exact: false,
+      })
+
       successToast({
         message: 'Успешно подписан на пользователя',
         Icon: UserIcon,

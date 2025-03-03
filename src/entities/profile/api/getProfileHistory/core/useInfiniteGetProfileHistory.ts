@@ -9,7 +9,7 @@ const useInfiniteGetProfileHistory = (
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
       initialPageParam: page,
-      queryKey: ['anime', 'user', 'history', username, page, count],
+      queryKey: ['profile', username, 'history'],
       queryFn: async ({ pageParam = page, signal }) => {
         try {
           const response = await getProfileHistory(

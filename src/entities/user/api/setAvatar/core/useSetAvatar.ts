@@ -9,7 +9,11 @@ const useSetAvatar = () => {
   return useMutation({
     mutationFn: (file: FormData) => setAvatar(file),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await queryClient.invalidateQueries({
+        queryKey: ['profile'],
+        exact: false,
+      })
+
       successToast({ message: 'Аватар успешно изменен', Icon: ImageIcon })
     },
     onError: async ({ message }) => {

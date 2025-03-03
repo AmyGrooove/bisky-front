@@ -1,12 +1,12 @@
 import { ENV } from '@shared/static'
 
-import { IGetAnimesAdminResponse } from '../types/IGetAnimesAdminResponse'
+import { IGetAllAnimesResponse } from '../types/IGetAllAnimesResponse'
 
-const getAnimesAdmin = async (
+const getAllAnimes = async (
   excludedAnimeIDs: string[] = [],
   skipAuth = false,
   signal?: AbortSignal,
-): Promise<IGetAnimesAdminResponse[]> => {
+): Promise<IGetAllAnimesResponse[]> => {
   const url = new URL(`/anime/allAnimes`, ENV.API_URL)
   excludedAnimeIDs.forEach((id) =>
     url.searchParams.append('excludedAnimeIDs', id),
@@ -25,9 +25,9 @@ const getAnimesAdmin = async (
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`getAnimesAdmin: ${responseData.message}`)
+  if (!response.ok) throw new Error(`getAllAnimes: ${responseData.message}`)
 
   return responseData
 }
 
-export { getAnimesAdmin }
+export { getAllAnimes }

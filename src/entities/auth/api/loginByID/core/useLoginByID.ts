@@ -10,7 +10,11 @@ const useLoginByID = () => {
   return useMutation({
     mutationFn: (body: ILoginByIDRequest) => loginByID(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['account', 'getUserID'] }),
+        queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] }),
+      ])
+
       successToast({ message: 'Успешно авторизован', Icon: UserIcon })
     },
   })

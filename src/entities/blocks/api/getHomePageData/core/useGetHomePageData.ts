@@ -3,7 +3,7 @@ import { getHomePageData } from './getHomePageData'
 
 const useGetHomePageData = () => {
   return useQuery({
-    queryKey: ['anime', 'block', 'genre', 'studio', 'franchise'],
+    queryKey: ['blocks'],
     queryFn: ({ signal }) => getHomePageData(false, signal),
   })
 }

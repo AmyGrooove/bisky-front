@@ -5,7 +5,7 @@ const useInfiniteGetAnimesByGenre = (genreID: string, page = 1, count = 40) => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useInfiniteQuery({
       initialPageParam: page,
-      queryKey: ['anime', 'genre', genreID, page, count],
+      queryKey: ['genre', genreID, 'animes'],
       queryFn: async ({ pageParam = page, signal }) => {
         try {
           const response = await getAnimesByGenre(

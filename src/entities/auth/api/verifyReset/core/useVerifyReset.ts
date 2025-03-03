@@ -10,7 +10,8 @@ const useVerifyReset = () => {
   return useMutation({
     mutationFn: (body: IVerifyResetRequest) => verifyReset(body),
     onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] })
+      await queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] })
+
       successToast({ message: 'Успешно сброшен', Icon: UserIcon })
     },
   })

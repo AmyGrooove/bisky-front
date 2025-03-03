@@ -4,7 +4,7 @@ import { IDeleteAnimeEstimateRequest } from '../types/IDeleteAnimeEstimateReques
 
 const deleteAnimeEstimate = async (
   body: IDeleteAnimeEstimateRequest,
-): Promise<true> => {
+): Promise<string> => {
   const url = new URL(`/animeEstimate`, ENV.API_URL)
 
   const response = await fetch(url, {
@@ -19,7 +19,7 @@ const deleteAnimeEstimate = async (
   if (!response.ok)
     throw new Error(`deleteAnimeEstimate: ${responseData.message}`)
 
-  return responseData
+  return body.animeID
 }
 
 export { deleteAnimeEstimate }

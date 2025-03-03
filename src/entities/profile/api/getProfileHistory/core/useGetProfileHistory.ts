@@ -3,7 +3,7 @@ import { getProfileHistory } from './getProfileHistory'
 
 const useGetProfileHistory = (username: string, page = 1, count = 40) => {
   return useQuery({
-    queryKey: ['anime', 'user', 'history', username, page, count],
+    queryKey: ['profile', username, 'history'],
     queryFn: ({ signal }) =>
       getProfileHistory(username, page, count, false, signal),
   })

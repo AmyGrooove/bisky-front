@@ -9,10 +9,37 @@ const useSetAnimeEstimate = (isFastFind = false) => {
 
   return useMutation({
     mutationFn: (body: ISetAnimeEstimateRequest) => setAnimeEstimate(body),
-    onSuccess: async () => {
+    onSuccess: async (animeID) => {
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ['anime', 'fullInfo', animeID],
+        }),
+        queryClient.invalidateQueries({ queryKey: ['anime', 'fastSelect'] }),
+        queryClient.invalidateQueries({ queryKey: ['anime', 'fastStar'] }),
+        queryClient.invalidateQueries({
+          queryKey: ['genre', 'animes'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['profile'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['franchise', 'animes'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['studio', 'animes'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
+        queryClient.invalidateQueries({ queryKey: ['blocks'] }),
+      ])
+
       if (isFastFind) return
 
-      queryClient.invalidateQueries({ queryKey: ['anime'] })
+      await queryClient.invalidateQueries({ queryKey: ['anime', 'fastFind'] })
+
       successToast({
         message: 'Статус аниме в списке успешно изменен',
         Icon: CassetteTapeIcon,

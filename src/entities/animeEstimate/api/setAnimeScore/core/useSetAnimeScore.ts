@@ -4,13 +4,40 @@ import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { StarIcon } from '@shared/icons'
 
-const useSetAnimeScore = () => {
+const useSetAnimeScore = (isFastSelect = false) => {
   const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: (body: ISetAnimeScoreRequest) => setAnimeScore(body),
-    onSuccess: async () => {
-      queryClient.invalidateQueries({ queryKey: ['anime'] })
+    onSuccess: async (animeID) => {
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ['anime', 'fullInfo', animeID],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['genre', 'animes'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['profile', 'history'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['franchise', 'animes'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['studio', 'animes'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
+        queryClient.invalidateQueries({ queryKey: ['blocks'] }),
+      ])
+
+      if (isFastSelect) return
+
+      await queryClient.invalidateQueries({ queryKey: ['anime', 'fastStar'] })
+
       successToast({ message: 'Оценка успешно изменена', Icon: StarIcon })
     },
     onError: async ({ message }) => {
