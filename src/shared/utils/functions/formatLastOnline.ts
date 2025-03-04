@@ -4,7 +4,7 @@ const formatLastOnline = (input: string | Date): string => {
   const diffMin = Math.floor((now - date.getTime()) / 60000)
 
   if (diffMin < 10) return 'в сети'
-  if (diffMin < 30) return `был в сети менее ${diffMin} минут назад`
+  if (diffMin < 30) return `был в сети ${diffMin} минут назад`
   if (diffMin < 1440) {
     const hours = Math.floor(diffMin / 60)
     const hourText =

@@ -6,6 +6,8 @@
 }
 
 .main {
+  display: flex;
+  gap: 20px;
   width: 100%;
 }
 
@@ -14,8 +16,33 @@
   width: 100%;
 }
 
+.friends {
+  height: 176px;
+  width: 340px;
+}
+
+.bar {
+  height: 50px;
+  width: 100%;
+}
+
+@include media-query(tablet, true) {
+  .bar {
+    display: none;
+  }
+}
+
 @include media-query(tablet) {
+  .main {
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .header {
     height: 231px;
+  }
+
+  .left {
+    display: none;
   }
 }

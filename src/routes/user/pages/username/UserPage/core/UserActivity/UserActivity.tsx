@@ -5,6 +5,7 @@ import { HistoryTab } from './HistoryTab/HistoryTab'
 import { FavoriteTab } from './FavoriteTab/FavoriteTab'
 import { useUserActivity } from './useUserActivity'
 import { HeartIcon, HistoryIcon, InfoIcon } from '@shared/icons'
+import { InfoTab } from './InfoTab/InfoTab'
 
 const UserActivity = (props: IUserSectionProps) => {
   const { isMobile, activeTab, setActiveTab } = useUserActivity(props)
@@ -22,6 +23,7 @@ const UserActivity = (props: IUserSectionProps) => {
         className={st.selector}
       />
       <div>
+        {activeTab === 0 && <InfoTab />}
         {activeTab === 1 && <FavoriteTab />}
         {activeTab === 2 && <HistoryTab />}
       </div>

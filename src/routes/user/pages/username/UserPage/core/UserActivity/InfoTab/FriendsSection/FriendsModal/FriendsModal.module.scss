@@ -1,0 +1,48 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 300px;
+}
+
+.avatar {
+  border: 2px solid transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  @include effect(back-shadow);
+  @include transition((border, scale), (250ms, 100ms));
+}
+
+.row {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @extend %press, %no-select;
+
+  &:hover > .avatar {
+    border: 2px solid var(--bisky-200);
+  }
+}
+
+.friendLabel {
+  width: 80px;
+  word-break: break-all;
+}
+
+.friends {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+}
+
+.label {
+  @include text-style(32);
+}
