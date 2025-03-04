@@ -1,5 +1,11 @@
 @use '@shared/styles/reusable.scss' as *;
 
+.main {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
 .barMargin {
   flex-shrink: 0;
   height: 120px;
@@ -8,6 +14,12 @@
 
 @include media-query(tablet, true) {
   .barMargin {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .infoTab {
     display: none;
   }
 }
