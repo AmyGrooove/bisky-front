@@ -1,23 +1,23 @@
 import { getEmptyArray } from '@shared/utils/functions'
-import st from './HistoryTab.module.scss'
-import { useHistoryTab } from './useHistoryTab'
-import { HistoryItem } from '@entities/history/ui/HistoryItem'
+import st from './FavoriteTab.module.scss'
+import { useFavoriteTab } from './useFavoriteTab'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { Text } from '@shared/ui/atoms/Text'
 import Image from 'next/image'
+import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 
-const HistoryTab = () => {
-  const { data, isLoading, loadingRef, isEnd } = useHistoryTab()
+const FavoriteTab = () => {
+  const { data, isLoading, loadingRef, isEnd } = useFavoriteTab()
 
   return (
     <div className={st.root}>
-      {data.map((historyItem, index) => (
-        <HistoryItem key={index} data={historyItem} />
+      {data.map((animeData) => (
+        <AnimeCard key={animeData._id} data={animeData} />
       ))}
       {(!isEnd || isLoading) && (
-        <div className={st.historyLoading} ref={loadingRef}>
-          {getEmptyArray(4).map((_, index) => (
-            <Skeleton key={index} templates="historyItem" />
+        <div className={st.loading} ref={loadingRef}>
+          {getEmptyArray(9).map((_, index) => (
+            <Skeleton key={index} templates="animeCard" />
           ))}
         </div>
       )}
@@ -31,7 +31,7 @@ const HistoryTab = () => {
             alt="biskyAttention"
           />
           <Text weight="700" className={st.emptyLabel}>
-            История пуста
+            Избранных аниме нет
           </Text>
         </div>
       )}
@@ -39,4 +39,4 @@ const HistoryTab = () => {
   )
 }
 
-export { HistoryTab }
+export { FavoriteTab }

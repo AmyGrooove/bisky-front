@@ -5,8 +5,17 @@
   width: 100%;
 }
 
+.main {
+  width: 100%;
+}
+
+.info {
+  height: 800px;
+  width: 100%;
+}
+
 @include media-query(tablet) {
   .header {
-    height: 200px;
+    height: 231px;
   }
 }

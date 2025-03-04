@@ -2,16 +2,18 @@
 
 .root {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
   width: 100%;
   @extend %invoke-scale;
 }
 
-.historyLoading {
+.loading {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
   width: 100%;
 }
 
@@ -21,7 +23,6 @@
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  @extend %invoke-scale;
 }
 
 .image {
@@ -38,5 +39,13 @@
     background-color: var(--dark-300);
     border-radius: var(--radius-20);
     padding: 20px;
+  }
+
+  .root {
+    gap: 8px;
+  }
+
+  .loading {
+    gap: 8px;
   }
 }
