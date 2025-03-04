@@ -23,6 +23,7 @@ const AddInListButton = (props: IAddInListButtonProps) => {
         if (isNil(_id) || currentStatus === 'skipped') return
 
         event.preventDefault()
+        event.stopPropagation()
         setModal(
           <AddInListModal
             selectedListStatus={currentStatus}

@@ -7,6 +7,13 @@ const UserLoading = () => {
   return (
     <>
       <Skeleton className={st.header} />
+      <div className={st.main}>
+        <div className={st.left}>
+          <Skeleton />
+          <Skeleton />
+        </div>
+        <Skeleton className={st.info} />
+      </div>
     </>
   )
 }
