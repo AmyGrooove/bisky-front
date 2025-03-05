@@ -20,7 +20,6 @@ const UserPage = () => {
         <InfoTab className={st.infoTab} />
         <UserActivity data={data} />
       </div>
-      <div className={st.barMargin} />
     </>
   )
 }

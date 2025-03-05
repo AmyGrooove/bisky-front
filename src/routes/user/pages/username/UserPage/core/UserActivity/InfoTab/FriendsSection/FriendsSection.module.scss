@@ -11,6 +11,18 @@
   @extend %invoke-scale;
 }
 
+.label {
+  color: var(--light-100);
+  cursor: pointer;
+  @include text-style(24);
+  @extend %press;
+  @include transition((color, scale), (250ms, 100ms));
+
+  &:hover {
+    color: var(--bisky-100);
+  }
+}
+
 .friends {
   display: flex;
   gap: 16px;
@@ -55,18 +67,6 @@
 .loading {
   height: 176px;
   width: 100%;
-}
-
-.label {
-  color: var(--light-100);
-  cursor: pointer;
-  @include text-style(24);
-  @extend %press;
-  @include transition((color, scale), (250ms, 100ms));
-
-  &:hover {
-    color: var(--bisky-100);
-  }
 }
 
 @include media-query(tablet) {
