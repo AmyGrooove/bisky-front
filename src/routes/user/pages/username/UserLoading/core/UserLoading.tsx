@@ -10,7 +10,7 @@ const UserLoading = () => {
       <div className={st.main}>
         <div className={st.left}>
           <Skeleton className={st.friends} />
-          <Skeleton />
+          <Skeleton className={st.list} />
         </div>
         <Skeleton className={st.bar} />
         <Skeleton className={st.info} />

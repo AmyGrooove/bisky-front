@@ -3,19 +3,8 @@
 .main {
   display: flex;
   gap: 20px;
+  height: 100%;
   width: 100%;
-}
-
-.barMargin {
-  flex-shrink: 0;
-  height: 120px;
-  width: 100%;
-}
-
-@include media-query(tablet, true) {
-  .barMargin {
-    display: none;
-  }
 }
 
 @include media-query(tablet) {

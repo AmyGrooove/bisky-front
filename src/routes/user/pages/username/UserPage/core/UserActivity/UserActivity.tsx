@@ -22,10 +22,11 @@ const UserActivity = (props: IUserSectionProps) => {
         onSwitchTab={setActiveTab}
         className={st.selector}
       />
-      <div>
+      <div className={st.main}>
         {activeTab === 0 && <InfoTab />}
         {activeTab === 1 && <FavoriteTab />}
         {activeTab === 2 && <HistoryTab />}
+        <div className={st.barMargin} />
       </div>
     </div>
   )

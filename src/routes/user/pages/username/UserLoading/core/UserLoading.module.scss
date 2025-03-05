@@ -12,18 +12,32 @@
 }
 
 .info {
+  flex-shrink: 1;
   height: 800px;
   width: 100%;
 }
 
 .friends {
   height: 176px;
-  width: 340px;
+  width: 100%;
+}
+
+.list {
+  height: 260px;
+  width: 100%;
 }
 
 .bar {
   height: 50px;
   width: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 20px;
+  width: 340px;
 }
 
 @include media-query(tablet, true) {
@@ -44,5 +58,13 @@
 
   .left {
     display: none;
+  }
+
+  .list {
+    height: 220px;
+  }
+
+  .friends {
+    height: 186px;
   }
 }
