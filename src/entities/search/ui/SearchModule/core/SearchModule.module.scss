@@ -49,7 +49,9 @@
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
 }
 
 .result {
@@ -91,10 +93,6 @@
 
   .buttons {
     width: 100%;
-  }
-
-  .button {
-    width: 100% !important;
   }
 }
 

@@ -1,0 +1,47 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  margin: auto 0px;
+  width: 900px;
+  @extend %invoke-scale;
+}
+
+.mainBlock {
+  height: 546px;
+  width: 100%;
+}
+
+.mobileControl {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  padding: 16px 12px;
+  width: 100%;
+  @extend %invoke-scale;
+}
+
+.button {
+  height: 34px;
+  width: 100%;
+}
+
+@include media-query(tablet, true) {
+  .sectionLabel {
+    display: none !important;
+  }
+
+  .mobileControl {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    width: 100%;
+  }
+}

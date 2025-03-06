@@ -85,8 +85,8 @@ const ListSections = () => {
               </Text>
             </div>
           )}
+          <div className={st.barMargin} />
         </div>
-        <div className={st.barMargin} />
       </div>
     </div>
   )

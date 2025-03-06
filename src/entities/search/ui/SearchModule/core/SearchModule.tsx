@@ -3,7 +3,7 @@
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Fragment } from 'react'
 import st from './SearchModule.module.scss'
-import { CrownIcon, DonutIcon, SearchIcon } from '@shared/icons'
+import { SearchIcon } from '@shared/icons'
 import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
 import { BigButton } from '@shared/ui/molecules/BigButton'
@@ -14,6 +14,7 @@ import { AvatarElement } from '../../AvatarElement'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 import { closeModal } from '@widgets/ModalWrapper'
 import { useSearchModule } from './useSearchModule'
+import { fastButtons } from '../static/fastButtons'
 
 const SearchModule = () => {
   const {
@@ -52,26 +53,17 @@ const SearchModule = () => {
             или воспользуйтесь
           </Text>
           <div className={st.buttons}>
-            <Link href="/fastFind" className={st.button}>
-              <BigButton
-                variant="big"
-                className={st.button}
-                Icon={DonutIcon}
-                onClick={() => closeModal()}
-              >
-                Быстрый поиск
-              </BigButton>
-            </Link>
-            <Link href="/fastSelect" className={st.button}>
-              <BigButton
-                variant="big"
-                className={st.button}
-                Icon={CrownIcon}
-                onClick={() => closeModal()}
-              >
-                Быстрый выбор
-              </BigButton>
-            </Link>
+            {fastButtons.map(({ Icon, name, href }) => (
+              <Link key={href} href={href} className={st.button}>
+                <BigButton
+                  variant="big"
+                  Icon={Icon}
+                  onClick={() => closeModal()}
+                >
+                  {name}
+                </BigButton>
+              </Link>
+            ))}
           </div>
         </div>
       ) : isLoading || debouncedSearchValue !== searchValue ? (
@@ -113,26 +105,17 @@ const SearchModule = () => {
             или воспользуйтесь
           </Text>
           <div className={st.buttons}>
-            <Link href="/fastFind" className={st.button}>
-              <BigButton
-                variant="big"
-                className={st.button}
-                Icon={DonutIcon}
-                onClick={() => closeModal()}
-              >
-                Быстрый поиск
-              </BigButton>
-            </Link>
-            <Link href="/fastSelect" className={st.button}>
-              <BigButton
-                variant="big"
-                className={st.button}
-                Icon={CrownIcon}
-                onClick={() => closeModal()}
-              >
-                Быстрый выбор
-              </BigButton>
-            </Link>
+            {fastButtons.map(({ Icon, name, href }) => (
+              <Link key={href} href={href} className={st.button}>
+                <BigButton
+                  variant="big"
+                  Icon={Icon}
+                  onClick={() => closeModal()}
+                >
+                  {name}
+                </BigButton>
+              </Link>
+            ))}
           </div>
         </div>
       ) : (

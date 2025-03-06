@@ -5,6 +5,8 @@ interface IGetAnimesFastStarResponse extends Pick<IAnime, 'poster' | '_id'> {
   label: string
   userListStatus: TListStatus
   isFavorite: boolean
+  score: number
+  scoreCount: number
 }
 
 export type { IGetAnimesFastStarResponse }

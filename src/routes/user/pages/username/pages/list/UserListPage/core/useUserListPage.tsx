@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { FastFindWarningModal } from './FastFindWarningModal/FastFindWarningModal'
 import { FastSelectWarningModal } from './FastSelectWarningModal/FastSelectWarningModal'
+import { FastStarWarningModal } from './FastStarWarningModal/FastStarWarningModal'
 
 const useUserListPage = () => {
   const searchParams = useSearchParams()
@@ -11,6 +12,7 @@ const useUserListPage = () => {
 
   const isFastFindModal = searchParams.get('fastFind') === 'true'
   const isFastSelectModal = searchParams.get('fastSelect') === 'true'
+  const isFastStarModal = searchParams.get('fastStar') === 'true'
 
   useEffect(() => {
     const newSearchParams = new URLSearchParams(searchParams.toString())
@@ -25,6 +27,12 @@ const useUserListPage = () => {
     if (isFastSelectModal) {
       setModal(<FastSelectWarningModal />)
       newSearchParams.delete('fastSelect')
+      shouldUpdateUrl = true
+    }
+
+    if (isFastStarModal) {
+      setModal(<FastStarWarningModal />)
+      newSearchParams.delete('fastStar')
       shouldUpdateUrl = true
     }
 
