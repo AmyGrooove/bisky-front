@@ -1,3 +1,3 @@
-const hiddenLinks = ['/fastFind', '/fastSelect']
+const hiddenLinks = ['/fastFind', '/fastSelect', '/fastStar']
 
 export { hiddenLinks }
