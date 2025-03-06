@@ -1,12 +1,19 @@
 'use client'
 
-import { Text } from '@shared/ui/atoms/Text'
 import { useUserListPage } from './useUserListPage'
+import { ListSections } from './ListSections/ListSections'
+import st from './UserListPage.module.scss'
+import { ProfileListLeft } from './ProfileListLeft/ProfileListLeft'
 
 const UserListPage = () => {
   useUserListPage()
 
-  return <Text>Страница в разработке</Text>
+  return (
+    <div className={st.root}>
+      <ProfileListLeft />
+      <ListSections />
+    </div>
+  )
 }
 
 export { UserListPage }

@@ -34,8 +34,6 @@ const useUserListPage = () => {
       replace(newUrl)
     }
   }, [isFastFindModal, isFastSelectModal])
-
-  return {}
 }
 
 export { useUserListPage }

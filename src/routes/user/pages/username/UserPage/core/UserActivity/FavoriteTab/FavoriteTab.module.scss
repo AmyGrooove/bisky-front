@@ -34,6 +34,18 @@
   @include text-style(24);
 }
 
+.barMargin {
+  flex-shrink: 0;
+  height: 120px;
+  width: 100%;
+}
+
+@include media-query(tablet, true) {
+  .barMargin {
+    display: none;
+  }
+}
+
 @include media-query(tablet) {
   .emptyWrapper {
     background-color: var(--dark-300);

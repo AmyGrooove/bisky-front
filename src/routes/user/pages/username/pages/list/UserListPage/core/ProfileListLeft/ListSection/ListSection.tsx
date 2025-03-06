@@ -25,11 +25,9 @@ const ListSection = () => {
 
   return (
     <div className={st.root}>
-      <Link href={userListLink} className={st.button}>
-        <Text weight="700" className={st.label} isCustomColor>
-          Список аниме
-        </Text>
-      </Link>
+      <Text weight="700" className={st.label}>
+        Список аниме
+      </Text>
       <div className={st.main}>
         <CircleViews
           addedCount={added}
@@ -37,7 +35,7 @@ const ListSection = () => {
           droppedCount={dropped}
           watchingCount={watching}
         />
-        <div className={cn(st.badgeWrapper, st.badgeWrapper_desktop)}>
+        <div className={cn(st.badgeWrapper)}>
           {badgeElements.map(
             ({ estimateCount, estimateText, Icon, status }) => (
               <Badge
@@ -49,23 +47,6 @@ const ListSection = () => {
                 isCustomTextColor
               >
                 {getSpacedNumber(estimateCount)}
-              </Badge>
-            ),
-          )}
-        </div>
-        <div className={cn(st.badgeWrapper, st.badgeWrapper_mobile)}>
-          {badgeElements.map(
-            ({ estimateCount, estimateText, Icon, status }) => (
-              <Badge
-                key={estimateText}
-                Icon={Icon}
-                iconText={getSpacedNumber(estimateCount)}
-                variant="big"
-                className={cn(st.badge, st[`badge_${status}`])}
-                isCustomColor
-                isCustomTextColor
-              >
-                {estimateText}
               </Badge>
             ),
           )}
