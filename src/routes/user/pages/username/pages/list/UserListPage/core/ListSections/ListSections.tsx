@@ -1,25 +1,19 @@
-import {
-  CheckIcon,
-  CirclePlayIcon,
-  EyeIcon,
-  SearchIcon,
-  TrashIcon,
-} from '@shared/icons'
+import { SearchIcon } from '@shared/icons'
 import { SectionSelector } from '@shared/ui/molecules/SectionSelector'
 import st from './ListSections.module.scss'
 import { useListSections } from './useListSections'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
-import { getEmptyArray } from '@shared/utils/functions'
+import { cn, getEmptyArray } from '@shared/utils/functions'
 import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
 import { InputField } from '@shared/ui/atoms/InputField'
+import { sectionSelectorItems } from '../../static/setctionSelectorItems'
 
 const ListSections = () => {
   const {
     activeTab,
     setActiveTab,
-    isMobile,
     data,
     isEnd,
     isLoading,
@@ -27,31 +21,22 @@ const ListSections = () => {
     searchValue,
     setSearchValue,
     isSearchValueEmpty,
-    isOneTimeLoaded,
   } = useListSections()
-
-  if (isLoading && !isOneTimeLoaded)
-    return (
-      <div className={st.loadingWrapper}>
-        <Skeleton className={st.loadingButtons} />
-        <Skeleton className={st.loadingInput} />
-        <Skeleton className={st.loadingMain} />
-      </div>
-    )
 
   return (
     <div className={st.root}>
       <SectionSelector
-        items={[
-          { Icon: EyeIcon, children: 'Добавлен' },
-          { Icon: CirclePlayIcon, children: 'Смотрю' },
-          { Icon: CheckIcon, children: 'Просмотрен' },
-          { Icon: TrashIcon, children: 'Брошен' },
-        ]}
+        items={sectionSelectorItems}
         activeTab={activeTab}
         onSwitchTab={setActiveTab}
-        className={st.selector}
-        elementsVariant={isMobile ? 'column' : 'row'}
+        className={cn(st.selector, st.selector_desktop)}
+      />
+      <SectionSelector
+        items={sectionSelectorItems}
+        activeTab={activeTab}
+        onSwitchTab={setActiveTab}
+        className={cn(st.selector, st.selector_mobile)}
+        elementsVariant="column"
       />
       <div className={st.section}>
         <InputField

@@ -8,7 +8,7 @@ import { useUserBlock } from './useUserBlock'
 const UserBlock = () => {
   const { data, isLoading } = useUserBlock()
 
-  if (isLoading) <Skeleton className={st.loading} />
+  if (isLoading) return <Skeleton className={st.loading} />
 
   return (
     <Link href={`/user/${data?.username}`} className={st.root}>

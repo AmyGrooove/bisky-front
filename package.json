@@ -2,7 +2,7 @@
   "name": "bisky-front",
   "version": "3.0.0",
   "scripts": {
-    "dev": "next dev -p 3030 --experimental-https",
+    "dev": "next dev -p 3030 --turbo --experimental-https",
     "build": "next build",
     "start": "next start -p 3030",
     "lint:fix": "tsc && next lint --fix && stylelint \"src/**/*.{css,scss}\" --fix && prettier --write ."
@@ -26,7 +26,7 @@
     "nextjs-toploader": "^3.7.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-intersection-observer": "^9.15.1",
+    "react-intersection-observer": "^9.16.0",
     "sass": "^1.85.1",
     "sonner": "^2.0.1",
     "typescript": "5.8.2",

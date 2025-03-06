@@ -101,6 +101,10 @@
   .barMargin {
     display: none;
   }
+
+  .selector_mobile {
+    display: none !important;
+  }
 }
 
 @include media-query(tablet) {
@@ -129,6 +133,10 @@
 
   .selector {
     width: 100%;
+
+    &_desktop {
+      display: none !important;
+    }
   }
 
   .section {
