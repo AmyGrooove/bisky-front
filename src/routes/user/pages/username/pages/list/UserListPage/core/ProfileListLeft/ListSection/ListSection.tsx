@@ -4,22 +4,11 @@ import { Text } from '@shared/ui/atoms/Text'
 import { CircleViews } from '@entities/animeEstimate/ui/CircleViews'
 import { Badge } from '@shared/ui/molecules/Badge'
 import { cn, getSpacedNumber } from '@shared/utils/functions'
-import { CassetteTapeIcon } from '@shared/icons'
-import { Button } from '@shared/ui/molecules/Button'
-import Link from 'next/link'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 
 const ListSection = () => {
-  const {
-    added,
-    watching,
-    completed,
-    dropped,
-    badgeElements,
-    isCurrentUser,
-    userListLink,
-    isLoading,
-  } = useListSection()
+  const { added, watching, completed, dropped, badgeElements, isLoading } =
+    useListSection()
 
   if (isLoading) return <Skeleton className={st.loading} />
 
@@ -52,18 +41,6 @@ const ListSection = () => {
           )}
         </div>
       </div>
-      {!isCurrentUser && (
-        <Link href={userListLink} className={st.button}>
-          <Button
-            Icon={CassetteTapeIcon}
-            variant="big"
-            onClick={() => {}}
-            className={st.button}
-          >
-            Просмотреть список
-          </Button>
-        </Link>
-      )}
     </div>
   )
 }

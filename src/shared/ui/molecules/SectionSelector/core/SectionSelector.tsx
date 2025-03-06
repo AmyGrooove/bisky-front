@@ -7,28 +7,11 @@ import { useSectionSelector } from './useSectionSelector'
 import st from './SectionSelector.module.scss'
 
 const SectionSelector = (props: ISectionSelectorProps) => {
-  const {
-    className,
-    indicatorStyle,
-    items,
-    onSwitchTab,
-    tabRefs,
-    elementsVariant,
-    variant,
-    activeTab,
-  } = useSectionSelector(props)
+  const { className, items, onSwitchTab, elementsVariant, variant, activeTab } =
+    useSectionSelector(props)
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
-      <div
-        className={st.tabIndicator}
-        style={{
-          width: indicatorStyle.width,
-          height: indicatorStyle.height,
-          left: indicatorStyle.left,
-          top: indicatorStyle.top,
-        }}
-      />
       {items.map(({ Icon, children, isDisabled = false }, index) => (
         <div
           key={index}
@@ -37,9 +20,6 @@ const SectionSelector = (props: ISectionSelectorProps) => {
             [st.tab_disabled]: isDisabled,
           })}
           onClick={() => onSwitchTab(index)}
-          ref={(el) => {
-            tabRefs.current[index] = el
-          }}
         >
           {Icon && Icon({ className: st.icon })}
           <Text
