@@ -1,0 +1,147 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+  @extend %invoke-scale;
+}
+
+.section {
+  background-color: var(--dark-300);
+  border-radius: var(--radius-20);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 20px;
+  width: 100%;
+}
+
+.selector {
+  width: fit-content;
+}
+
+.image {
+  border-radius: var(--radius-20);
+  object-fit: cover;
+}
+
+.main {
+  border-radius: var(--radius-20);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  height: 100%;
+  justify-content: center;
+  max-height: calc(100vh - 400px);
+  overflow-y: auto;
+  width: 100%;
+  @extend %invoke-scale;
+}
+
+.emptyWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  @extend %invoke-scale;
+}
+
+.loading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+}
+
+.emptyLabel {
+  @include text-style(24);
+}
+
+.barMargin {
+  flex-shrink: 0;
+  height: 120px;
+  width: 100%;
+}
+
+.loadingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.loadingButtons {
+  height: 50px;
+  width: 512px;
+}
+
+.loadingInput {
+  height: 34px;
+  width: 100%;
+}
+
+.loadingMain {
+  height: 100%;
+  max-height: calc(100vh - 310px);
+  width: 100%;
+}
+
+@include media-query(tablet, true) {
+  .loadingInput {
+    display: none;
+  }
+
+  .barMargin {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .emptyWrapper {
+    background-color: var(--dark-300);
+    border-radius: var(--radius-20);
+    padding: 20px;
+  }
+
+  .loadingWrapper {
+    gap: 12px;
+  }
+
+  .loadingButtons {
+    height: 70px;
+    width: 100%;
+  }
+
+  .loadingMain {
+    max-height: calc(100vh - 504px);
+  }
+
+  .root {
+    gap: 12px;
+  }
+
+  .selector {
+    width: 100%;
+  }
+
+  .section {
+    background-color: unset;
+    padding: 0px;
+  }
+
+  .main {
+    gap: 8px;
+    max-height: calc(100vh - 274px);
+  }
+
+  .loading {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,17 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 20px;
+  width: 340px;
+}
+
+@include media-query(tablet) {
+  .root {
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+  }
+}

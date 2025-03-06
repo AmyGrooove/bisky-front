@@ -11,7 +11,7 @@ const getProfileListAnimes = async (
   count = 20,
   skipAuth = false,
   signal?: AbortSignal,
-): Promise<IGetProfileListAnimesResponse> => {
+): Promise<IGetProfileListAnimesResponse[]> => {
   const url = new URL(`/profile/${username}/list/${listStatus}`, ENV.API_URL)
   url.searchParams.append('searchValue', String(searchValue))
   url.searchParams.append('page', String(page))
