@@ -19,10 +19,15 @@ import { useUpdateUsername } from '@entities/user/api/updateUsername'
 const useProfile = () => {
   const { user, isLoading } = useSession()
 
-  const { control, getValues } = useForm<z.infer<typeof profileSchema>>({
+  const {
+    control,
+    watch,
+    getValues,
+    formState: { isValid },
+  } = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
     mode: 'all',
-    defaultValues: { username: user?.username },
+    defaultValues: { username: user?.username ?? '' },
   })
 
   const { mutateAsync: updateUsername, isPending: isUpdateUsernamePending } =
@@ -53,6 +58,8 @@ const useProfile = () => {
     closeAdditionalModal()
   }
 
+  const isDisabled = user?.username === watch('username') || !isValid
+
   useEffect(() => {
     if (!isNil(imageSrc))
       setAdditionalModal(
@@ -69,7 +76,7 @@ const useProfile = () => {
     if (!isNil(imageSrc) && isNil(additionalModal)) setImageSrc(null)
   }, [additionalModal, imageSrc])
 
-  return { user, isLoading, setImageSrc, control, sendForm }
+  return { user, isLoading, setImageSrc, control, sendForm, isDisabled }
 }
 
 export { useProfile }

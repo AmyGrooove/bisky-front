@@ -4,9 +4,12 @@ import { getSettingsTabs } from '../static/getSettingsTabs'
 import { cn } from '@shared/utils/functions'
 import { useIsMobile } from '@shared/utils/hooks/useIsMobile'
 import { ISettingsModalProps } from '../types/ISettingsModalProps'
+import { useSession } from '@entities/auth/hooks/useSession'
 
 const useSettingsModal = (props: ISettingsModalProps) => {
   const { defaultActiveTab = 1 } = props
+
+  const { user } = useSession()
 
   const isMobile = useIsMobile()
 
@@ -17,6 +20,7 @@ const useSettingsModal = (props: ISettingsModalProps) => {
     temporaryClassName: cn(st.temporary, {
       [st.temporary_active]: activeTab === 0,
     }),
+    isTemporary: user?.isTemporary ?? true,
   })
 
   const selectActiveTab = (index: number) => {
