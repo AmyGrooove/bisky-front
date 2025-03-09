@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -11,7 +11,7 @@ const useIsMobile = () => {
     setIsMobile(isMobileWidth || isMobileDevice)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     checkIsMobile()
 
     window.addEventListener('resize', checkIsMobile)

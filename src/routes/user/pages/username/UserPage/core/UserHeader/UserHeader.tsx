@@ -7,6 +7,8 @@ import { Text } from '@shared/ui/atoms/Text'
 import { GlassButton } from '@shared/ui/molecules/GlassButton'
 import { SettingsIcon } from '@shared/icons'
 import { cn } from '@shared/utils/functions'
+import { setModal } from '@widgets/ModalWrapper'
+import { SettingsModal } from '@widgets/SettingsModal'
 
 const UserHeader = (props: IUserSectionProps) => {
   const { avatar, username, convertedLastOnline } = useUserHeader(props)
@@ -35,7 +37,10 @@ const UserHeader = (props: IUserSectionProps) => {
           <Text className={st.lastOnline}>{convertedLastOnline}</Text>
         </div>
       </div>
-      <GlassButton onClick={() => {}} className={st.settings}>
+      <GlassButton
+        onClick={() => setModal(<SettingsModal />)}
+        className={st.settings}
+      >
         {SettingsIcon}
       </GlassButton>
       <Text weight="700" className={cn(st.lastOnline, st.lastOnline_mobile)}>

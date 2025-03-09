@@ -7,12 +7,14 @@ import st from './DesktopModal.module.scss'
 import { useDesktopModal } from './useDesktopModal'
 
 const DesktopModal = (props: IModalSolutionProps) => {
-  const { children, closeFunction, isModalClosing } = useDesktopModal(props)
+  const { children, closeFunction, isModalClosing, modalID } =
+    useDesktopModal(props)
 
   if (!children) return null
 
   return (
     <div
+      id={modalID}
       className={cn(st.root, {
         [st[`root_closing`]]: isModalClosing,
       })}

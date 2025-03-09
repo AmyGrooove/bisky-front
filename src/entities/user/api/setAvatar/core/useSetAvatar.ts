@@ -13,8 +13,16 @@ const useSetAvatar = () => {
         queryKey: ['profile'],
         exact: false,
       })
+      await queryClient.invalidateQueries({
+        queryKey: ['auth', 'whoami'],
+        exact: false,
+      })
 
-      successToast({ message: 'Аватар успешно изменен', Icon: ImageIcon })
+      successToast({
+        message:
+          'Аватар успешно изменен (Изменения отобразятся в течении минуты)',
+        Icon: ImageIcon,
+      })
     },
     onError: async ({ message }) => {
       errorToast({ message: `Не удалось изменить аватар: ${message}` })

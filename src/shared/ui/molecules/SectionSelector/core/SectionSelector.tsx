@@ -12,26 +12,32 @@ const SectionSelector = (props: ISectionSelectorProps) => {
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
-      {items.map(({ Icon, children, isDisabled = false }, index) => (
-        <div
-          key={index}
-          className={cn(st.tab, st[`tab_${elementsVariant}`], {
-            [st.tab_active]: activeTab === index,
-            [st.tab_disabled]: isDisabled,
-          })}
-          onClick={() => onSwitchTab(index)}
-        >
-          {Icon && Icon({ className: st.icon })}
-          <Text
-            className={cn(st.children, {
-              [st.children_row]: elementsVariant === 'row',
+      {items.map(
+        (
+          { Icon, children, isDisabled = false, className: itemClassName },
+          index,
+        ) => (
+          <div
+            key={index}
+            className={cn(st.tab, itemClassName, st[`tab_${elementsVariant}`], {
+              [st.tab_active]: activeTab === index,
+              [st.tab_disabled]: isDisabled,
             })}
-            weight="700"
+            onClick={() => onSwitchTab(index)}
           >
-            {children}
-          </Text>
-        </div>
-      ))}
+            {Icon && Icon({ className: st.icon, isCustomColor: true })}
+            <Text
+              className={cn(st.children, {
+                [st.children_row]: elementsVariant === 'row',
+              })}
+              weight="700"
+              isCustomColor
+            >
+              {children}
+            </Text>
+          </div>
+        ),
+      )}
     </div>
   )
 }

@@ -1,0 +1,32 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avatarBlock {
+  display: flex;
+  gap: 16px;
+  height: 100px;
+  width: 100%;
+}
+
+.avatar {
+  border-radius: var(--radius-full);
+  height: 100px;
+  width: 100px;
+}
+
+.avatarCrop {
+  border-radius: var(--radius-full) !important;
+}
+
+.separator {
+  background-color: var(--dark-400);
+  height: 1px;
+  opacity: 0.2;
+  width: 80%;
+}

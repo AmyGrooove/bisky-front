@@ -6,7 +6,7 @@ const setAvatar = async (file: FormData): Promise<true> => {
   const response = await fetch(url, {
     method: 'PATCH',
     body: file,
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    headers: { Accept: 'application/json' },
     credentials: 'include',
   })
 

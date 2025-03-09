@@ -16,12 +16,14 @@ const MobileModal = (props: IModalSolutionProps) => {
     handleTouchEnd,
     modalDragStyle,
     modalRef,
+    modalID,
   } = useMobileModal(props)
 
   if (!children) return null
 
   return (
     <div
+      id={modalID}
       className={cn(st.root, {
         [st[`root_closing`]]: isModalClosing,
       })}

@@ -10,6 +10,7 @@ const useMobileModal = (props: IModalSolutionProps) => {
   const [modalHeight, setModalHeight] = useState(1000)
 
   const isOpen = children !== null
+  const modalID = isOpen ? 'modal' : undefined
 
   const {
     isDragging,
@@ -35,7 +36,8 @@ const useMobileModal = (props: IModalSolutionProps) => {
   }, [isOpen])
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
+    const hasModal = document.getElementById('modal') !== null
+    document.body.style.overflow = hasModal ? 'hidden' : ''
 
     return () => {
       document.body.style.overflow = ''
@@ -51,6 +53,7 @@ const useMobileModal = (props: IModalSolutionProps) => {
     handleTouchEnd,
     modalDragStyle,
     modalRef,
+    modalID,
   }
 }
 

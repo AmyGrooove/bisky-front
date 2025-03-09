@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 import { CopyIcon, HourglassIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
@@ -10,6 +10,8 @@ import { profileMenuLinks } from '../../static/profileMenuLinks'
 
 import st from './ProfileMenu.module.scss'
 import { useProfileMenu } from './useProfileMenu'
+import { setModal } from '@widgets/ModalWrapper'
+import { SettingsModal } from '@widgets/SettingsModal'
 
 const ProfileMenu = () => {
   const {
@@ -59,28 +61,42 @@ const ProfileMenu = () => {
               <CopyIcon className={st.usernameIcon} />
             </button>
           ) : (
-            <Link
-              href="/settings"
+            <div
+              onClick={() => setModal(<SettingsModal defaultActiveTab={0} />)}
               className={cn(st.linkRow, st.linkRow_temporary)}
             >
               <Text weight="700" className={st.linkText}>
                 Временный
               </Text>
               <HourglassIcon className={st.linkIcon} />
-            </Link>
+            </div>
           )}
           <div className={st.divider} />
-          {profileMenuLinks(username).map(({ href, name, Icon }) => (
-            <Link
-              key={href}
-              href={href}
-              className={st.linkRow}
-              onClick={() => toggle(false)}
-            >
-              <Text weight="700">{name}</Text>
-              {Icon({ className: st.linkIcon })}
-            </Link>
-          ))}
+          {profileMenuLinks(username).map(({ href, name, Icon, onClick }) =>
+            !isNil(onClick) ? (
+              <div
+                key={name}
+                className={st.linkRow}
+                onClick={() => {
+                  onClick()
+                  toggle(false)
+                }}
+              >
+                <Text weight="700">{name}</Text>
+                {Icon({ className: st.linkIcon })}
+              </div>
+            ) : (
+              <Link
+                key={name}
+                href={href ?? ''}
+                className={st.linkRow}
+                onClick={() => toggle(false)}
+              >
+                <Text weight="700">{name}</Text>
+                {Icon({ className: st.linkIcon })}
+              </Link>
+            ),
+          )}
         </div>
       )}
     </>

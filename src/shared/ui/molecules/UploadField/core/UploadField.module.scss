@@ -1,0 +1,55 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  background-color: transparent;
+  border-radius: var(--radius-20);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  justify-content: center;
+  outline: 2px dotted var(--bisky-100);
+  width: 100%;
+  @extend %invoke-scale;
+  @include transition((filter, background-color));
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+
+  &_drag {
+    background-color: var(--bisky-400);
+  }
+}
+
+.icon {
+  fill: var(--bisky-100);
+  height: 32px;
+  width: 32px;
+}
+
+.textWrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.text {
+  &_select {
+    color: var(--bisky-100);
+    text-decoration: underline;
+  }
+}
+
+@include media-query(tablet, true) {
+  .text_mobile {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .text_desktop {
+    display: none;
+  }
+}

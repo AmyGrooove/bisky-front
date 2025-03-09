@@ -3,11 +3,12 @@
 .root {
   background-color: var(--dark-200);
   border-radius: var(--radius-20);
+  color: var(--light-100);
   display: flex;
+  fill: var(--light-100);
   gap: 16px;
   padding: 8px;
   position: relative;
-
   @extend %invoke-scale;
   @include transition((scale), (100ms));
 
@@ -23,7 +24,6 @@
   border-radius: var(--radius-12);
   display: flex;
   gap: 4px;
-  justify-content: center;
   padding: 8px;
   position: relative;
   width: 100%;
@@ -43,6 +43,7 @@
     cursor: pointer;
     @extend %press, %no-select;
   }
+
   &_active {
     background-color: var(--bisky-200);
   }

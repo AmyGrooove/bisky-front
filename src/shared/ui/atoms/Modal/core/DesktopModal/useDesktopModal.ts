@@ -6,9 +6,12 @@ const useDesktopModal = (props: IModalSolutionProps) => {
   const { children, closeFunction, isModalClosing } = props
 
   const isOpen = children !== null
+  const modalID = isOpen ? 'modal' : undefined
 
   useEffect(() => {
-    if (isOpen) {
+    const hasModal = document.getElementById('modal') !== null
+
+    if (hasModal) {
       const scrollBarWidth =
         window.innerWidth - document.documentElement.clientWidth
       document.documentElement.style.overflow = 'hidden'
@@ -25,7 +28,7 @@ const useDesktopModal = (props: IModalSolutionProps) => {
     }
   }, [isOpen])
 
-  return { children, closeFunction, isModalClosing }
+  return { children, closeFunction, isModalClosing, modalID }
 }
 
 export { useDesktopModal }
