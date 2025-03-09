@@ -1,6 +1,5 @@
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import st from './UserHeader.module.scss'
-import { IUserSectionProps } from '../../types/IUserSectionProps'
 import { useUserHeader } from './useUserHeader'
 import { Fancybox } from '@shared/ui/atoms/Fancybox'
 import { Text } from '@shared/ui/atoms/Text'
@@ -10,8 +9,9 @@ import { cn } from '@shared/utils/functions'
 import { setModal } from '@widgets/ModalWrapper'
 import { SettingsModal } from '@widgets/SettingsModal'
 
-const UserHeader = (props: IUserSectionProps) => {
-  const { avatar, username, convertedLastOnline } = useUserHeader(props)
+const UserHeader = () => {
+  const { avatar, username, convertedLastOnline, isCurrentUser } =
+    useUserHeader()
 
   return (
     <div className={st.root}>
@@ -37,12 +37,14 @@ const UserHeader = (props: IUserSectionProps) => {
           <Text className={st.lastOnline}>{convertedLastOnline}</Text>
         </div>
       </div>
-      <GlassButton
-        onClick={() => setModal(<SettingsModal />)}
-        className={st.settings}
-      >
-        {SettingsIcon}
-      </GlassButton>
+      {isCurrentUser && (
+        <GlassButton
+          onClick={() => setModal(<SettingsModal />)}
+          className={st.settings}
+        >
+          {SettingsIcon}
+        </GlassButton>
+      )}
       <Text weight="700" className={cn(st.lastOnline, st.lastOnline_mobile)}>
         {convertedLastOnline}
       </Text>

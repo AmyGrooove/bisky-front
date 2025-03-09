@@ -15,7 +15,7 @@ const UserPage = () => {
 
   return (
     <>
-      <UserHeader data={data} />
+      <UserHeader />
       <div className={st.main}>
         <InfoTab className={st.infoTab} />
         <UserActivity />

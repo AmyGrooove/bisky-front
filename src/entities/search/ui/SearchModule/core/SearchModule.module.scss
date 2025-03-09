@@ -86,17 +86,17 @@
   display: none;
 }
 
-@include media-query(tablet) {
-  .avatar_big {
-    display: none !important;
-  }
-
-  .buttons {
-    width: 100%;
-  }
+.barMargin {
+  flex-shrink: 0;
+  height: 120px;
+  width: 100%;
 }
 
 @include media-query(tablet, true) {
+  .barMargin {
+    display: none;
+  }
+
   .root {
     height: 60vh;
     width: 1044px;
@@ -123,5 +123,24 @@
 
   .avatarSkeleton {
     flex: 1;
+  }
+}
+
+@include media-query(tablet) {
+  .avatar_big {
+    display: none !important;
+  }
+
+  .buttons {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .info,
+  .result {
+    border-radius: var(--radius-20);
+    height: 100%;
+    max-height: calc(100vh - 103px);
+    overflow-y: auto;
   }
 }
