@@ -10,6 +10,8 @@ import {
 
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
+import { successToast } from '@shared/utils/toast'
+import { UserIcon } from '@shared/icons'
 
 const useProfileMenu = () => {
   const { user, isLoading } = useSession()
@@ -35,6 +37,7 @@ const useProfileMenu = () => {
 
   const copyUsername = async () => {
     await navigator.clipboard.writeText(username)
+    successToast({ Icon: UserIcon, message: 'Никнейм скопирован' })
   }
 
   return {

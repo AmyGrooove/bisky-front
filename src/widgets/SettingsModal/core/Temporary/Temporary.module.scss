@@ -1,0 +1,86 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.copyWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.copyLabel {
+  color: var(--light-300);
+  @include text-style(12);
+}
+
+.copy {
+  align-items: center;
+  background-color: var(--dark-100);
+  border-radius: var(--radius-12);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  width: 100%;
+  @include transition((filter, scale), (250ms, 100ms));
+  @extend %press;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+}
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @extend %invoke-scale;
+}
+
+.text {
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+}
+
+.saveWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.separator {
+  background-color: var(--dark-400);
+  height: 1px;
+  opacity: 0.2;
+  width: 80%;
+}
+
+.link {
+  color: var(--bisky-100);
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+.logOutButton {
+  width: 100%;
+}
+
+@include media-query(tablet) {
+  .button {
+    width: 100%;
+  }
+}
