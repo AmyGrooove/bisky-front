@@ -9,7 +9,8 @@ import { Controller } from 'react-hook-form'
 import { FileIcon } from '@shared/icons'
 
 const Profile = () => {
-  const { user, isLoading, setImageSrc, control, sendForm } = useProfile()
+  const { user, isLoading, setImageSrc, control, sendForm, isDisabled } =
+    useProfile()
 
   if (isLoading) return <div>loading</div>
 
@@ -42,6 +43,7 @@ const Profile = () => {
             className={st.input}
             label="Никнейм"
             errorText={fieldState.error?.message}
+            placeholder="Username"
           />
         )}
       />
@@ -51,6 +53,7 @@ const Profile = () => {
           variant="big"
           Icon={FileIcon}
           onClick={sendForm}
+          isDisabled={isDisabled}
         >
           Сохранить
         </Button>

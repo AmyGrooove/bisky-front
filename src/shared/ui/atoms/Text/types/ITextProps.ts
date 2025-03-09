@@ -1,7 +1,7 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 interface ITextProps {
-  children: string
+  children: ReactNode
 
   style?: CSSProperties
   weight?: '400' | '700'

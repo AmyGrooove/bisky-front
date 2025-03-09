@@ -10,6 +10,7 @@ const useInputField = (props: IInputFieldProps) => {
     isDisabled = false,
     errorText,
     label,
+    type = 'text',
   } = props
 
   return {
@@ -21,6 +22,7 @@ const useInputField = (props: IInputFieldProps) => {
     isDisabled,
     errorText,
     label,
+    type,
   }
 }
 

@@ -5,6 +5,7 @@ interface IInputFieldProps {
   value: string
   onChange: (value: string) => void
 
+  type?: 'text' | 'password'
   label?: string
   errorText?: string
   isDisabled?: boolean

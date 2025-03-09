@@ -8,10 +8,17 @@ import {
 
 const getSettingsTabs = ({
   temporaryClassName,
+  isTemporary = true,
 }: {
   temporaryClassName: string
+  isTemporary: boolean
 }) => [
-  { Icon: HourglassIcon, children: 'Временный', className: temporaryClassName },
+  {
+    Icon: HourglassIcon,
+    children: 'Временный',
+    className: temporaryClassName,
+    isDisabled: !isTemporary,
+  },
   { Icon: UserIcon, children: 'Профиль' },
   { Icon: MailIcon, children: 'Почта' },
   { Icon: LockIcon, children: 'Пароль' },

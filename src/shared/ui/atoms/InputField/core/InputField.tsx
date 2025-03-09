@@ -18,6 +18,7 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
       isDisabled,
       errorText,
       label,
+      type,
     } = useInputField(props)
 
     return (
@@ -29,6 +30,7 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
           </Text>
         )}
         <input
+          type={type}
           ref={ref}
           value={value}
           onChange={(event) => onChange(event.target.value)}
