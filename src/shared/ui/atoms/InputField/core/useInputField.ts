@@ -8,9 +8,20 @@ const useInputField = (props: IInputFieldProps) => {
     className = null,
     placeholder,
     isDisabled = false,
+    errorText,
+    label,
   } = props
 
-  return { value, onChange, Icon, className, placeholder, isDisabled }
+  return {
+    value,
+    onChange,
+    Icon,
+    className,
+    placeholder,
+    isDisabled,
+    errorText,
+    label,
+  }
 }
 
 export { useInputField }

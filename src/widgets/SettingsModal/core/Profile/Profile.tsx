@@ -3,9 +3,13 @@ import st from './Profile.module.scss'
 import { useProfile } from './useProfile'
 import { Fancybox } from '@shared/ui/atoms/Fancybox'
 import { UploadField } from '@shared/ui/molecules/UploadField'
+import { InputField } from '@shared/ui/atoms/InputField'
+import { Button } from '@shared/ui/molecules/Button'
+import { Controller } from 'react-hook-form'
+import { FileIcon } from '@shared/icons'
 
 const Profile = () => {
-  const { user, isLoading, setImageSrc } = useProfile()
+  const { user, isLoading, setImageSrc, control, sendForm } = useProfile()
 
   if (isLoading) return <div>loading</div>
 
@@ -29,7 +33,28 @@ const Profile = () => {
         <UploadField onChange={setImageSrc} accept=".png, .jpg, .jpeg .webp" />
       </div>
       <div className={st.separator} />
-      <div></div>
+      <Controller
+        control={control}
+        name="username"
+        render={({ field, fieldState }) => (
+          <InputField
+            {...field}
+            className={st.input}
+            label="Никнейм"
+            errorText={fieldState.error?.message}
+          />
+        )}
+      />
+      <div className={st.saveWrapper}>
+        <Button
+          className={st.button}
+          variant="big"
+          Icon={FileIcon}
+          onClick={sendForm}
+        >
+          Сохранить
+        </Button>
+      </div>
     </div>
   )
 }

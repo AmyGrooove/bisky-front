@@ -6,6 +6,7 @@ import { useSettingsModal } from './useSettingsModal'
 import { Button } from '@shared/ui/molecules/Button'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { ISettingsModalProps } from '../types/ISettingsModalProps'
+import { Integrations } from './Integrations/Integrations'
 
 const SettingsModal = (props: ISettingsModalProps) => {
   const {
@@ -59,6 +60,7 @@ const SettingsModal = (props: ISettingsModalProps) => {
           {settingsTabs[activeTab].children}
         </SectionLabel>
         {activeTab === 1 && <Profile />}
+        {activeTab === 4 && <Integrations />}
       </div>
     </div>
   )

@@ -5,6 +5,8 @@ interface IInputFieldProps {
   value: string
   onChange: (value: string) => void
 
+  label?: string
+  errorText?: string
   isDisabled?: boolean
   placeholder?: string
   Icon?: (props: IIconProps) => ReactNode
