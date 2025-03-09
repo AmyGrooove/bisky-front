@@ -9,6 +9,7 @@ import { ISettingsModalProps } from '../types/ISettingsModalProps'
 import { Integrations } from './Integrations/Integrations'
 import { Email } from './Email/Email'
 import { Password } from './Password/Password'
+import { Temporary } from './Temporary/Temporary'
 
 const SettingsModal = (props: ISettingsModalProps) => {
   const {
@@ -61,6 +62,7 @@ const SettingsModal = (props: ISettingsModalProps) => {
         >
           {settingsTabs[activeTab].children}
         </SectionLabel>
+        {activeTab === 0 && <Temporary setActiveTab={setActiveTab} />}
         {activeTab === 1 && <Profile />}
         {activeTab === 2 && <Email />}
         {activeTab === 3 && <Password setActiveTab={setActiveTab} />}

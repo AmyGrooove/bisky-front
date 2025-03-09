@@ -1,0 +1,50 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 420px;
+}
+
+.label {
+  text-align: center;
+  @include text-style(24);
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+
+  &_active {
+    background-color: var(--red);
+  }
+}
+
+.link {
+  color: var(--bisky-100);
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+.infoText {
+  text-align: center;
+}
+
+@include media-query(tablet) {
+  .root {
+    width: 100%;
+  }
+}
