@@ -63,6 +63,10 @@
   .buttonsWrapper {
     display: none;
   }
+
+  .mobile {
+    display: none !important;
+  }
 }
 
 @include media-query(tablet) {

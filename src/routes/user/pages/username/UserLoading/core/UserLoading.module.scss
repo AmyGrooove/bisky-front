@@ -13,7 +13,7 @@
 
 .info {
   flex-shrink: 1;
-  height: 800px;
+  height: calc(100vh - 472px);
   width: 100%;
 }
 

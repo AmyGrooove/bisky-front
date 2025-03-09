@@ -65,6 +65,7 @@ const SearchModule = () => {
               </Link>
             ))}
           </div>
+          <div className={st.barMargin} />
         </div>
       ) : isLoading || debouncedSearchValue !== searchValue ? (
         <div className={st.result}>
@@ -83,6 +84,7 @@ const SearchModule = () => {
               <Skeleton key={index} templates="animeCard" />
             ))}
           </div>
+          <div className={st.barMargin} />
         </div>
       ) : animes.length === 0 && users.length === 0 ? (
         <div className={st.info}>
@@ -117,6 +119,7 @@ const SearchModule = () => {
               </Link>
             ))}
           </div>
+          <div className={st.barMargin} />
         </div>
       ) : (
         <div className={st.result}>
@@ -150,6 +153,7 @@ const SearchModule = () => {
               ))}
             </div>
           )}
+          <div className={st.barMargin} />
         </div>
       )}
     </div>
