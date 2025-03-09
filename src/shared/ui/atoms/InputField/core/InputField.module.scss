@@ -2,6 +2,7 @@
 
 .input {
   background-color: transparent;
+  background-color: var(--dark-100);
   border: 0;
   border-radius: var(--radius-12);
   color: var(--light-100);
@@ -10,6 +11,7 @@
   outline: 1px solid transparent;
   padding: 8px;
   width: 100%;
+  @include effect(back-shadow);
   @include transition(outline);
 
   &::placeholder {
@@ -18,6 +20,10 @@
 
   &:focus {
     outline-color: var(--bisky-100);
+  }
+
+  &_error {
+    outline-color: var(--red);
   }
 }
 
@@ -31,11 +37,12 @@
 }
 
 .root {
-  background-color: var(--dark-100);
   border-radius: var(--radius-12);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   position: relative;
   @extend %invoke-scale, %no-select;
-  @include effect(back-shadow);
 
   &:has(.icon) .input {
     padding: 8px 30px 8px 8px;
@@ -49,4 +56,12 @@
       fill: var(--light-400);
     }
   }
+}
+
+.labelText {
+  color: var(--light-300);
+}
+
+.errorText {
+  color: var(--red);
 }

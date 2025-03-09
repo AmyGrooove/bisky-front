@@ -9,14 +9,16 @@ const useSetAvatar = () => {
   return useMutation({
     mutationFn: (file: FormData) => setAvatar(file),
     onSuccess: async () => {
-      await queryClient.invalidateQueries({
-        queryKey: ['profile'],
-        exact: false,
-      })
-      await queryClient.invalidateQueries({
-        queryKey: ['auth', 'whoami'],
-        exact: false,
-      })
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ['profile'],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['auth', 'whoami'],
+          exact: false,
+        }),
+      ])
 
       successToast({
         message:

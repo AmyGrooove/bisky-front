@@ -1,0 +1,30 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @extend %invoke-scale;
+}
+
+.text {
+  text-align: center;
+}
+
+.button {
+  width: 100%;
+
+  &_active {
+    background-color: var(--dark-100);
+    cursor: default;
+
+    &:hover {
+      filter: unset;
+    }
+
+    &:active {
+      cursor: default;
+      scale: 1;
+    }
+  }
+}
