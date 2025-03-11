@@ -7,6 +7,7 @@ import { Toaster } from 'sonner'
 import { IRootLayoutProps } from '../../types/IRootLayoutProps'
 import { useProviders } from './useProviders'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { AuthProvider } from './AuthProvider/AuthProvider'
 
 const Providers = (props: IRootLayoutProps) => {
   const { queryClient, children } = useProviders(props)
@@ -17,7 +18,7 @@ const Providers = (props: IRootLayoutProps) => {
       <ModalWrapper />
       <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
       <ReactQueryDevtools initialIsOpen={false} />
-      {children}
+      <AuthProvider>{children}</AuthProvider>
     </QueryClientProvider>
   )
 }
