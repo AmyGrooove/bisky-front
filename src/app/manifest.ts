@@ -12,6 +12,12 @@ const manifest = (): MetadataRoute.Manifest => ({
       type: 'image/png',
     },
     {
+      src: '/favicons/favicon-192x192.png',
+      sizes: '192x192',
+      type: 'image/png',
+      purpose: 'maskable',
+    },
+    {
       src: '/favicons/favicon-512x512.png',
       sizes: '512x512',
       type: 'image/png',
