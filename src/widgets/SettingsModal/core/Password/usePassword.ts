@@ -21,7 +21,7 @@ const usePassword = (props: ISettingsSectionProps) => {
   const {
     control,
     getValues,
-    formState: { isValid },
+    formState: { isValid, isDirty },
     reset,
   } = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -55,7 +55,7 @@ const usePassword = (props: ISettingsSectionProps) => {
     reset()
   }
 
-  const isDisabled = !isValid
+  const isDisabled = !isValid || !isDirty
 
   return {
     isLoading,

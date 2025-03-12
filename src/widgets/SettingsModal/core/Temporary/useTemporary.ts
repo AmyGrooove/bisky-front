@@ -17,7 +17,7 @@ const useTemporary = (props: ISettingsSectionProps) => {
   const {
     control,
     getValues,
-    formState: { isValid },
+    formState: { isValid, isDirty },
   } = useForm<z.infer<typeof temporarySchema>>({
     resolver: zodResolver(temporarySchema),
     mode: 'all',
@@ -36,7 +36,7 @@ const useTemporary = (props: ISettingsSectionProps) => {
     await loginByID({ userID: data.userID })
   }
 
-  const isDisabled = !isValid
+  const isDisabled = !isValid || !isDirty
 
   const copyID = async () => {
     await navigator.clipboard.writeText(data ?? '')
