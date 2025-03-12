@@ -23,7 +23,7 @@ const useProfile = () => {
     control,
     watch,
     getValues,
-    formState: { isValid },
+    formState: { isValid, isDirty },
   } = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
     mode: 'all',
@@ -58,7 +58,8 @@ const useProfile = () => {
     closeAdditionalModal()
   }
 
-  const isDisabled = user?.username === watch('username') || !isValid
+  const isDisabled =
+    user?.username === watch('username') || !isValid || !isDirty
 
   useEffect(() => {
     if (!isNil(imageSrc))

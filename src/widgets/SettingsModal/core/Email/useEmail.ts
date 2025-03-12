@@ -14,7 +14,7 @@ const useEmail = () => {
     control,
     getValues,
     watch,
-    formState: { isValid },
+    formState: { isValid, isDirty },
   } = useForm<z.infer<typeof emailSchema>>({
     resolver: zodResolver(emailSchema),
     mode: 'all',
@@ -33,7 +33,7 @@ const useEmail = () => {
     await updateEmail({ email: data.email })
   }
 
-  const isDisabled = user?.email === watch('email') || !isValid
+  const isDisabled = user?.email === watch('email') || !isValid || !isDirty
 
   return { isLoading, control, sendForm, isDisabled }
 }
