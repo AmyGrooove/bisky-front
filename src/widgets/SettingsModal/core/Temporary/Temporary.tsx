@@ -8,7 +8,8 @@ import { anonymCode } from '@widgets/SettingsModal/utils/anonymCode'
 import { Controller } from 'react-hook-form'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
-import { ConfirmationModal } from './ConfirmationModal/ConfirmationModal'
+import { AuthConfirmationModal } from '@widgets/AuthConfirmationModal'
+import { AuthModule } from '@widgets/AuthModule'
 
 const Temporary = (props: ISettingsSectionProps) => {
   const {
@@ -41,7 +42,15 @@ const Temporary = (props: ISettingsSectionProps) => {
         className={st.logOutButton}
         variant="big"
         Icon={LogOutIcon}
-        onClick={() => {}}
+        onClick={() =>
+          setAdditionalModal(
+            <AuthConfirmationModal
+              callBack={async () => {
+                setTimeout(() => setAdditionalModal(<AuthModule />), 210)
+              }}
+            />,
+          )
+        }
       >
         Авторизоваться
       </Button>
@@ -74,7 +83,7 @@ const Temporary = (props: ISettingsSectionProps) => {
           variant="big"
           Icon={SendIcon}
           onClick={() =>
-            setAdditionalModal(<ConfirmationModal callBack={sendForm} />)
+            setAdditionalModal(<AuthConfirmationModal callBack={sendForm} />)
           }
           isDisabled={isDisabled}
         >
