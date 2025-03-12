@@ -1,13 +1,13 @@
 import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 import { closeAdditionalModal } from '@widgets/ModalWrapper'
-import { IConfirmationModalProps } from '../../../types/IConfirmationModalProps'
-import st from './ConfirmationModal.module.scss'
+import st from './AuthConfirmationModal.module.scss'
 import { cn } from '@shared/utils/functions'
-import { useConfirmationModal } from './useConfirmationModal'
+import { useAuthConfirmationModal } from './useAuthConfirmationModal'
+import { IAuthConfirmationModalProps } from '../types/IAuthConfirmationModalProps'
 
-const ConfirmationModal = (props: IConfirmationModalProps) => {
-  const { handleCallback, copyID } = useConfirmationModal(props)
+const AuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
+  const { handleCallback, copyID } = useAuthConfirmationModal(props)
 
   return (
     <div className={st.root}>
@@ -42,4 +42,4 @@ const ConfirmationModal = (props: IConfirmationModalProps) => {
   )
 }
 
-export { ConfirmationModal }
+export { AuthConfirmationModal }

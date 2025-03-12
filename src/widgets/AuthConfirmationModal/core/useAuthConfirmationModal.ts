@@ -1,10 +1,10 @@
 import { useGetUserID } from '@entities/user/api/getUserID'
 import { UserIcon } from '@shared/icons'
 import { successToast } from '@shared/utils/toast'
-import { IConfirmationModalProps } from '../../../types/IConfirmationModalProps'
 import { closeAdditionalModal } from '@widgets/ModalWrapper'
+import { IAuthConfirmationModalProps } from '../types/IAuthConfirmationModalProps'
 
-const useConfirmationModal = (props: IConfirmationModalProps) => {
+const useAuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
   const { callBack } = props
 
   const { data } = useGetUserID()
@@ -22,4 +22,4 @@ const useConfirmationModal = (props: IConfirmationModalProps) => {
   return { handleCallback, copyID }
 }
 
-export { useConfirmationModal }
+export { useAuthConfirmationModal }
