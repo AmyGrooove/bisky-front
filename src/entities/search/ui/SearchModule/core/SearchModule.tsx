@@ -24,11 +24,13 @@ const SearchModule = () => {
     setSearchValue,
     searchValue,
     debouncedSearchValue,
+    isMobile,
   } = useSearchModule()
 
   return (
     <div className={st.root}>
       <InputField
+        isAutoFocus={!isMobile}
         Icon={SearchIcon}
         className={st.input}
         value={searchValue}

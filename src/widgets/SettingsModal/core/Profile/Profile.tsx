@@ -7,12 +7,13 @@ import { InputField } from '@shared/ui/atoms/InputField'
 import { Button } from '@shared/ui/molecules/Button'
 import { Controller } from 'react-hook-form'
 import { FileIcon } from '@shared/icons'
+import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 
 const Profile = () => {
   const { user, isLoading, setImageSrc, control, sendForm, isDisabled } =
     useProfile()
 
-  if (isLoading) return <div>loading</div>
+  if (isLoading) return <LoadingSettings />
 
   return (
     <div className={st.root}>

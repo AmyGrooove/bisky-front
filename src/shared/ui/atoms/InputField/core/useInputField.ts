@@ -1,6 +1,12 @@
+import { useInView } from 'react-intersection-observer'
 import { IInputFieldProps } from '../types/IInputFieldProps'
+import { useRef, useEffect, ForwardedRef } from 'react'
+import { mergeRefs } from '@shared/utils/functions'
 
-const useInputField = (props: IInputFieldProps) => {
+const useInputField = (
+  props: IInputFieldProps,
+  ref: ForwardedRef<HTMLInputElement>,
+) => {
   const {
     value,
     onChange,
@@ -11,7 +17,17 @@ const useInputField = (props: IInputFieldProps) => {
     errorText,
     label,
     type = 'text',
+    isAutoFocus = false,
   } = props
+
+  const { ref: inViewRef, inView } = useInView({ threshold: 1 })
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const mergedRefs = mergeRefs(ref, inputRef)
+
+  useEffect(() => {
+    if (inView && isAutoFocus) inputRef.current?.focus()
+  }, [inView])
 
   return {
     value,
@@ -23,6 +39,8 @@ const useInputField = (props: IInputFieldProps) => {
     errorText,
     label,
     type,
+    mergedRefs,
+    inViewRef,
   }
 }
 

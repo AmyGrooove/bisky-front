@@ -6,18 +6,19 @@ import { Button } from '@shared/ui/molecules/Button'
 import { cn, isNil } from '@shared/utils/functions'
 import Link from 'next/link'
 import { anonymCode } from '../../utils/anonymCode'
+import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 
 const Integrations = () => {
   const { data, isLoading } = useIntegrations()
 
-  if (isLoading) return <div>loading</div>
+  if (isLoading) return <LoadingSettings />
 
   return (
     <div className={st.root}>
       <Text className={st.text}>
-        Добавив интеграцию, вы преобразуете временный аккаунт в постоянный. Для
-        доступа потребуется вход через интеграцию. Интеграции можно объединять
-        между собой или с паролем
+        {`Добавив интеграцию, вы преобразуете временный аккаунт в постоянный.
+        Для доступа потребуется вход через интеграцию.
+        Интеграции можно объединять между собой или с паролем`}
       </Text>
       {integrationList.map(({ children, id, Icon, href }) =>
         !isNil(data[id]) ? (

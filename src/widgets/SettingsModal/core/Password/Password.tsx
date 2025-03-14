@@ -6,6 +6,7 @@ import { Controller } from 'react-hook-form'
 import { FileIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
+import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 
 const Password = (props: ISettingsSectionProps) => {
   const {
@@ -17,14 +18,14 @@ const Password = (props: ISettingsSectionProps) => {
     setActiveTab,
   } = usePassword(props)
 
-  if (isLoading) return <div>loading</div>
+  if (isLoading) return <LoadingSettings />
 
   return (
     <div className={st.root}>
       <Text className={st.text}>
-        Добавив пароль, вы преобразуете временный аккаунт в постоянный. Для
-        доступа к нему потребуется вводить никнейм и пароль. Для восстановления
-        пароля понадобится{' '}
+        {`Добавив пароль, вы преобразуете временный аккаунт в постоянный.
+        Для доступа к нему потребуется вводить никнейм и пароль.
+        Для восстановления пароля понадобится `}
         <strong className={st.link} onClick={() => setActiveTab(2)}>
           привязанная почта
         </strong>

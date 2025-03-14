@@ -12,11 +12,13 @@ const useKeyboardShortcut = (props: IUseKeyboardShortcutProps) => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      const areModifiersPressed = modifiers?.every((mod) => event[mod])
+      const areModifiersPressed =
+        modifiers?.length !== 0 || modifiers?.every((mod) => event[mod])
       const isKeyPressed = keys.includes(event.key.toLowerCase())
 
       if (areModifiersPressed && isKeyPressed) {
         event.preventDefault()
+        console.log(123)
         debouncedCallback()
       }
     }

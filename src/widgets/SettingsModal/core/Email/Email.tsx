@@ -5,17 +5,17 @@ import { Controller } from 'react-hook-form'
 import { FileIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { useEmail } from './useEmail'
+import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 
 const Email = () => {
   const { isLoading, control, sendForm, isDisabled } = useEmail()
 
-  if (isLoading) return <div>loading</div>
+  if (isLoading) return <LoadingSettings />
 
   return (
     <div className={st.root}>
       <Text className={st.text}>
-        Укажите электронную почту для уведомлений, восстановления аккаунта и его
-        преобразования в постоянный
+        Укажите электронную почту для уведомлений и восстановления аккаунта
       </Text>
       <Controller
         control={control}
