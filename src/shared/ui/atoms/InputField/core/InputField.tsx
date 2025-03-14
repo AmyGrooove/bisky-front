@@ -19,10 +19,12 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
       errorText,
       label,
       type,
-    } = useInputField(props)
+      mergedRefs,
+      inViewRef,
+    } = useInputField(props, ref)
 
     return (
-      <div className={cn(st.root, className)}>
+      <div ref={inViewRef} className={cn(st.root, className)}>
         {Icon && Icon({ className: st.icon })}
         {!isNil(label) && (
           <Text maxLines={1} className={st.labelText} isCustomColor>
@@ -31,7 +33,7 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
         )}
         <input
           type={type}
-          ref={ref}
+          ref={mergedRefs}
           value={value}
           onChange={(event) => onChange(event.target.value)}
           placeholder={placeholder}

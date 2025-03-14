@@ -1,37 +1,19 @@
-import { Text } from '@shared/ui/atoms/Text'
+import { FormProvider } from 'react-hook-form'
 import st from './AuthModule.module.scss'
-import { InputField } from '@shared/ui/atoms/InputField'
-import { oauthList } from '../static/oauthList'
-import { Button } from '@shared/ui/molecules/Button'
-import Link from 'next/link'
+import { SelectAuthMethodTab } from './SelectAuthMethodTab/SelectAuthMethodTab'
+import { PasswordAuthTab } from './PasswordAuthTab/PasswordAuthTab'
+import { useAuthModule } from './useAuthModule'
 
 const AuthModule = () => {
+  const { authForm, currentTab, setCurrentTab } = useAuthModule()
+
   return (
-    <div className={st.root}>
-      <Text weight="700" className={st.label}>
-        Авторизация
-      </Text>
-      <InputField
-        value=""
-        onChange={() => {}}
-        placeholder="Никнейм"
-        isDisabled
-        className={st.input}
-      />
-      <div className={st.separator} />
-      {oauthList.map(({ children, id, Icon, href }) => (
-        <Link className={st.button} href={href} key={id}>
-          <Button
-            className={st.button}
-            Icon={Icon}
-            variant="big"
-            onClick={() => {}}
-          >
-            {children}
-          </Button>
-        </Link>
-      ))}
-    </div>
+    <FormProvider {...authForm}>
+      <div className={st.root}>
+        {currentTab === 0 && <SelectAuthMethodTab setNewTab={setCurrentTab} />}
+        {currentTab === 1 && <PasswordAuthTab setNewTab={setCurrentTab} />}
+      </div>
+    </FormProvider>
   )
 }
 

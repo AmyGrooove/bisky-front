@@ -10,6 +10,7 @@ import { InputField } from '@shared/ui/atoms/InputField'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
 import { AuthConfirmationModal } from '@widgets/AuthConfirmationModal'
 import { AuthModule } from '@widgets/AuthModule'
+import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 
 const Temporary = (props: ISettingsSectionProps) => {
   const {
@@ -22,21 +23,22 @@ const Temporary = (props: ISettingsSectionProps) => {
     sendForm,
   } = useTemporary(props)
 
-  if (isLoading) return <div>loading</div>
+  if (isLoading) return <LoadingSettings />
 
   return (
     <div className={st.root}>
       <Text className={st.text}>
-        Вы используете временный аккаунт без пароля! Для сохранения данных и
-        защиты рекомендуем{' '}
+        {`Вы используете временный аккаунт без пароля!
+        Для сохранения данных и защиты рекомендуем `}
         <strong className={st.link} onClick={() => setActiveTab(3)}>
           установить пароль
-        </strong>{' '}
-        или{' '}
+        </strong>
+        {` или `}
         <strong className={st.link} onClick={() => setActiveTab(4)}>
           подключить интеграцию
-        </strong>{' '}
-        . Если у вас уже есть аккаунт, выполните вход
+        </strong>
+        {`.
+        Если у вас уже есть аккаунт, выполните вход`}
       </Text>
       <Button
         className={st.logOutButton}

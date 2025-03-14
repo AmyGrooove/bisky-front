@@ -4,7 +4,7 @@ import { Fancybox as NativeFancybox } from '@fancyapps/ui'
 import { IFancyboxProps } from '../types/IFancyboxProps'
 
 const useFancybox = (props: IFancyboxProps) => {
-  const { children } = props
+  const { children, className } = props
 
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -21,7 +21,7 @@ const useFancybox = (props: IFancyboxProps) => {
     }
   }, [])
 
-  return { containerRef, children }
+  return { containerRef, children, className }
 }
 
 export { useFancybox }

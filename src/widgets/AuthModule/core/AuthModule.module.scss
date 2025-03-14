@@ -8,25 +8,6 @@
   width: 320px;
 }
 
-.label {
-  @include text-style(24);
-}
-
-.separator {
-  background-color: var(--dark-400);
-  height: 1px;
-  opacity: 0.2;
-  width: 80%;
-}
-
-.input {
-  width: 100%;
-}
-
-.button {
-  width: 100%;
-}
-
 @include media-query(tablet) {
   .root {
     width: 100%;

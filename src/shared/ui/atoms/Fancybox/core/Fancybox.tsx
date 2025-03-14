@@ -6,10 +6,10 @@ import { IFancyboxProps } from '../types/IFancyboxProps'
 import { useFancybox } from './useFancybox'
 
 const Fancybox = (props: IFancyboxProps) => {
-  const { containerRef, children } = useFancybox(props)
+  const { containerRef, children, className } = useFancybox(props)
 
   return (
-    <div ref={containerRef} className={props.className}>
+    <div ref={containerRef} className={className}>
       {children}
     </div>
   )
