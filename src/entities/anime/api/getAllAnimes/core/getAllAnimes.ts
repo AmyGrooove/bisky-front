@@ -25,7 +25,7 @@ const getAllAnimes = async (
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`getAllAnimes: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }

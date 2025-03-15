@@ -14,7 +14,7 @@ const verifyReset = async (body: IVerifyResetRequest): Promise<true> => {
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`verifyReset: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }

@@ -7,20 +7,20 @@ import { ITextProps } from '../types/ITextProps'
 import { useText } from './useText'
 import st from './Text.module.scss'
 
-const Text = forwardRef<HTMLDivElement, ITextProps>((props, ref) => {
-  const { children, weight, isCustomColor, className, inlineStyle } =
+const Text = forwardRef<HTMLElement, ITextProps>((props, ref) => {
+  const { Component, children, weight, isCustomColor, className, inlineStyle } =
     useText(props)
 
   return (
-    <div
-      ref={ref}
+    <Component
+      ref={ref as any}
       className={cn(className, st.root, st[`weight_${weight}`], {
         [st.root_defaultColor]: !isCustomColor,
       })}
       style={inlineStyle}
     >
       {children}
-    </div>
+    </Component>
   )
 })
 

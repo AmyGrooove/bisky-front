@@ -1,0 +1,53 @@
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: start;
+}
+
+input,
+textarea,
+select {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+article,
+section,
+aside,
+nav,
+figure,
+footer,
+header,
+main,
+mark,
+summary {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}

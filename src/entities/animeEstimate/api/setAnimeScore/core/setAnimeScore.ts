@@ -14,7 +14,7 @@ const setAnimeScore = async (body: ISetAnimeScoreRequest): Promise<string> => {
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`setAnimeScore: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return body.animeID
 }

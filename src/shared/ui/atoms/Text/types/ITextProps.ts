@@ -1,6 +1,6 @@
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties, ElementType, ReactNode } from 'react'
 
-interface ITextProps {
+interface ITextProps<T extends ElementType = ElementType> {
   children: ReactNode
 
   style?: CSSProperties
@@ -8,6 +8,7 @@ interface ITextProps {
   isCustomColor?: boolean
   className?: string
   maxLines?: number
+  as?: T
 }
 
 export type { ITextProps }

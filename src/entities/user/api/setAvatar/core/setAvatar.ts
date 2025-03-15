@@ -12,7 +12,7 @@ const setAvatar = async (file: FormData): Promise<true> => {
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`setAvatar: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }

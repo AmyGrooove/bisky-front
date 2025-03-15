@@ -21,6 +21,7 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
       type,
       mergedRefs,
       inViewRef,
+      inputClassName,
     } = useInputField(props, ref)
 
     return (
@@ -37,7 +38,9 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
           value={value}
           onChange={(event) => onChange(event.target.value)}
           placeholder={placeholder}
-          className={cn(st.input, { [st.input_error]: !isNil(errorText) })}
+          className={cn(st.input, inputClassName, {
+            [st.input_error]: !isNil(errorText),
+          })}
           disabled={isDisabled}
         />
         {!isNil(errorText) && (

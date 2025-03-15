@@ -77,7 +77,14 @@ const useProfile = () => {
     if (!isNil(imageSrc) && isNil(additionalModal)) setImageSrc(null)
   }, [additionalModal, imageSrc])
 
-  return { user, isLoading, setImageSrc, control, sendForm, isDisabled }
+  return {
+    user,
+    isLoading,
+    setImageSrc,
+    control,
+    sendForm,
+    isDisabled,
+  }
 }
 
 export { useProfile }

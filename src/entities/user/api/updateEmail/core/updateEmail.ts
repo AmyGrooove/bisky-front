@@ -14,7 +14,7 @@ const updateEmail = async (body: IUpdateEmailRequest): Promise<true> => {
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`updateEmail: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }
