@@ -27,7 +27,7 @@ const PasswordAuthTab = (props: IAuthTabProps) => {
           {error.message}
         </Text>
       )}
-      <div className={st.form}>
+      <form className={st.form}>
         <Controller
           control={control}
           name="username"
@@ -62,7 +62,7 @@ const PasswordAuthTab = (props: IAuthTabProps) => {
         >
           Войти
         </Button>
-      </div>
+      </form>
       <button onClick={() => setNewTab(2)}>
         <Text weight="700" isCustomColor className={st.reset}>
           Восстановить пароль

@@ -19,6 +19,7 @@ const Button = (props: TButtonProps) => {
 
   return (
     <button
+      type="button"
       onClick={onClick}
       className={cn(st.root, className, st[`root_${variant}`], {
         [st.root_defaultColor]: !isCustomColor,

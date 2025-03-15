@@ -6,8 +6,6 @@ import Link from 'next/link'
 import st from './SelectAuthMethodTab.module.scss'
 import { Controller } from 'react-hook-form'
 import { useSelectAuthMethodTab } from './useSelectAuthMethodTab'
-import { MoveRightIcon } from '@shared/icons'
-import { cn } from '@shared/utils/functions'
 import { IAuthTabProps } from '../../types/IAuthTabProps'
 
 const SelectAuthMethodTab = (props: IAuthTabProps) => {
@@ -18,7 +16,7 @@ const SelectAuthMethodTab = (props: IAuthTabProps) => {
       <Text weight="700" className={st.label}>
         Авторизация
       </Text>
-      <div className={st.inputWrapper}>
+      <form className={st.inputWrapper}>
         <Controller
           control={control}
           name="username"
@@ -31,14 +29,19 @@ const SelectAuthMethodTab = (props: IAuthTabProps) => {
             />
           )}
         />
-        <MoveRightIcon
-          className={cn(st.iconMove, {
-            [st.iconMove_disabled]: username !== '',
-            [st.iconMove_active]: username.length >= 3,
-          })}
+        <Button
+          isDisabled={username.length < 3}
+          className={st.goButton}
           onClick={goToPasswordAuth}
+        >
+          Войти
+        </Button>
+        <Controller
+          control={control}
+          name="password"
+          render={({ field }) => <input {...field} hidden type="password" />}
         />
-      </div>
+      </form>
       <div className={st.separator} />
       {oauthList.map(({ children, id, Icon, href }) => (
         <Link className={st.button} href={href} key={id}>

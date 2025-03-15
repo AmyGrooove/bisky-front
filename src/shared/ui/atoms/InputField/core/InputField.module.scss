@@ -65,3 +65,19 @@
 .errorText {
   color: var(--red);
 }
+
+.eye {
+  cursor: pointer;
+  height: 24px;
+  opacity: 0.6;
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  width: 24px;
+  @extend %press;
+  @include transition((opacity, scale), (250ms, 100ms));
+
+  &:hover {
+    opacity: 1;
+  }
+}

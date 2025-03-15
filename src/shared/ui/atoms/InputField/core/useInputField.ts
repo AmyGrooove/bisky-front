@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer'
 import { IInputFieldProps } from '../types/IInputFieldProps'
-import { useRef, useEffect, ForwardedRef } from 'react'
+import { useRef, useEffect, ForwardedRef, useState } from 'react'
 import { mergeRefs } from '@shared/utils/functions'
 
 const useInputField = (
@@ -20,6 +20,8 @@ const useInputField = (
     isAutoFocus = false,
     inputClassName,
   } = props
+
+  const [isPasswordShow, setIsPasswordShow] = useState(false)
 
   const { ref: inViewRef, inView } = useInView({ threshold: 1 })
   const inputRef = useRef<HTMLInputElement>(null)
@@ -43,6 +45,8 @@ const useInputField = (
     mergedRefs,
     inViewRef,
     inputClassName,
+    isPasswordShow,
+    setIsPasswordShow,
   }
 }
 
