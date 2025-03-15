@@ -12,6 +12,7 @@ interface IInputFieldProps {
   placeholder?: string
   Icon?: (props: IIconProps) => ReactNode
   className?: string
+  inputClassName?: string
   isAutoFocus?: boolean
 }
 

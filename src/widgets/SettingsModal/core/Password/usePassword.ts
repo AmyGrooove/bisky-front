@@ -64,6 +64,7 @@ const usePassword = (props: ISettingsSectionProps) => {
     isDisabled,
     isOldPasswordEnabled,
     setActiveTab,
+    isPending,
   }
 }
 

@@ -16,7 +16,7 @@ const setAnimeEstimate = async (
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`setAnimeEstimate: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return body.animeID
 }

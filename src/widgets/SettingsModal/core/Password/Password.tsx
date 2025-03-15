@@ -16,9 +16,10 @@ const Password = (props: ISettingsSectionProps) => {
     isDisabled,
     isOldPasswordEnabled,
     setActiveTab,
+    isPending,
   } = usePassword(props)
 
-  if (isLoading) return <LoadingSettings />
+  if (isLoading || isPending) return <LoadingSettings />
 
   return (
     <div className={st.root}>

@@ -10,6 +10,21 @@ const useFancybox = (props: IFancyboxProps) => {
 
   useEffect(() => {
     const container = containerRef.current
+    if (!container) return
+
+    const clickHandler = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      const link = target.closest('[data-fancybox]')
+      if (link) {
+        const href = link.getAttribute('href')
+
+        if (!href || href.trim() === '') {
+          event.preventDefault()
+        }
+      }
+    }
+
+    container.addEventListener('click', clickHandler)
 
     NativeFancybox.bind(container, '[data-fancybox]', {
       Carousel: { infinite: false },

@@ -26,8 +26,7 @@ const getProfileFavoriteAnimes = async (
 
   const responseData = await response.json()
 
-  if (!response.ok)
-    throw new Error(`getProfileFavoriteAnimes: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }

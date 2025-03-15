@@ -21,7 +21,7 @@ const getWhoami = async (
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`getWhoami: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }

@@ -18,6 +18,7 @@ const useInputField = (
     label,
     type = 'text',
     isAutoFocus = false,
+    inputClassName,
   } = props
 
   const { ref: inViewRef, inView } = useInView({ threshold: 1 })
@@ -41,6 +42,7 @@ const useInputField = (
     type,
     mergedRefs,
     inViewRef,
+    inputClassName,
   }
 }
 

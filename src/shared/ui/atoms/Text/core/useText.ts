@@ -10,6 +10,7 @@ const useText = (props: ITextProps) => {
     className = null,
     maxLines,
     style,
+    as: Component = 'div',
   } = props
 
   const inlineStyle: CSSProperties | undefined = maxLines
@@ -28,6 +29,7 @@ const useText = (props: ITextProps) => {
     isCustomColor,
     className,
     inlineStyle,
+    Component,
   }
 }
 

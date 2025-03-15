@@ -21,9 +21,10 @@ const Temporary = (props: ISettingsSectionProps) => {
     isDisabled,
     copyID,
     sendForm,
+    isPending,
   } = useTemporary(props)
 
-  if (isLoading) return <LoadingSettings />
+  if (isLoading || isPending) return <LoadingSettings />
 
   return (
     <div className={st.root}>

@@ -51,6 +51,7 @@ const useTemporary = (props: ISettingsSectionProps) => {
     isDisabled,
     copyID,
     sendForm,
+    isPending,
   }
 }
 

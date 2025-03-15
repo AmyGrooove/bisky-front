@@ -1,0 +1,30 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.label {
+  @include text-style(24);
+}
+
+.error {
+  color: var(--red);
+}
+
+.logo {
+  height: 64px;
+  width: 64px;
+
+  &_loading {
+    animation: loading ease-in-out infinite 1s;
+  }
+
+  &_error {
+    animation: error ease-in-out 0.4s;
+  }
+}
+
+.input {
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+}

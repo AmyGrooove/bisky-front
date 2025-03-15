@@ -16,8 +16,7 @@ const unsubscribeFromUser = async (
 
   const responseData = await response.json()
 
-  if (!response.ok)
-    throw new Error(`unsubscribeFromUser: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }

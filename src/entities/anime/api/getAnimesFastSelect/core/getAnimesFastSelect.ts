@@ -21,8 +21,7 @@ const getAnimesFastSelect = async (
 
   const responseData = await response.json()
 
-  if (!response.ok)
-    throw new Error(`getAnimesFastSelect: ${responseData.message}`)
+  if (!response.ok) throw new Error(`${responseData.message}`)
 
   return responseData
 }
