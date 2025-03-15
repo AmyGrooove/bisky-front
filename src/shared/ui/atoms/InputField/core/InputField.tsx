@@ -6,6 +6,7 @@ import { useInputField } from './useInputField'
 import st from './InputField.module.scss'
 import { forwardRef } from 'react'
 import { Text } from '@shared/ui/atoms/Text'
+import { EyeIcon, EyeOffIcon } from '@shared/icons'
 
 const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
   (props, ref) => {
@@ -22,6 +23,8 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
       mergedRefs,
       inViewRef,
       inputClassName,
+      isPasswordShow,
+      setIsPasswordShow,
     } = useInputField(props, ref)
 
     return (
@@ -33,7 +36,7 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
           </Text>
         )}
         <input
-          type={type}
+          type={isPasswordShow ? 'text' : type}
           ref={mergedRefs}
           value={value}
           onChange={(event) => onChange(event.target.value)}
@@ -47,6 +50,21 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
           <Text isCustomColor className={st.errorText} maxLines={2}>
             {errorText}
           </Text>
+        )}
+        {type === 'password' && (
+          <>
+            {isPasswordShow ? (
+              <EyeOffIcon
+                onClick={() => setIsPasswordShow(false)}
+                className={st.eye}
+              />
+            ) : (
+              <EyeIcon
+                onClick={() => setIsPasswordShow(true)}
+                className={st.eye}
+              />
+            )}
+          </>
         )}
       </div>
     )

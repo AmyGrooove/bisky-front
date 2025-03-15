@@ -57,6 +57,7 @@ const CheckCodeTab = (props: IEmailTabProps) => {
           <InputField
             {...field}
             className={st.input}
+            type="password"
             placeholder="Новый пароль"
             errorText={fieldState.error?.message}
           />
