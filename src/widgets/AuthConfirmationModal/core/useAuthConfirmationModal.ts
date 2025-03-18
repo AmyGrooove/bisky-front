@@ -5,7 +5,7 @@ import { closeAdditionalModal } from '@widgets/ModalWrapper'
 import { IAuthConfirmationModalProps } from '../types/IAuthConfirmationModalProps'
 
 const useAuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
-  const { callBack } = props
+  const { callBack, isIDTextEnabled = true } = props
 
   const { data } = useGetUserID()
 
@@ -19,7 +19,7 @@ const useAuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
     closeAdditionalModal()
   }
 
-  return { handleCallback, copyID }
+  return { handleCallback, copyID, isIDTextEnabled }
 }
 
 export { useAuthConfirmationModal }
