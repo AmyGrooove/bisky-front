@@ -7,7 +7,8 @@ import { useAuthConfirmationModal } from './useAuthConfirmationModal'
 import { IAuthConfirmationModalProps } from '../types/IAuthConfirmationModalProps'
 
 const AuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
-  const { handleCallback, copyID } = useAuthConfirmationModal(props)
+  const { handleCallback, copyID, isIDTextEnabled } =
+    useAuthConfirmationModal(props)
 
   return (
     <div className={st.root}>
@@ -31,13 +32,15 @@ const AuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
           Да
         </Button>
       </div>
-      <Text className={st.infoText}>
-        Аккаунт можно восстановить{' '}
-        <strong onClick={copyID} className={st.link}>
-          по ID
-        </strong>{' '}
-        в течение 3 месяцев, иначе он будет удалён
-      </Text>
+      {isIDTextEnabled && (
+        <Text className={st.infoText}>
+          Аккаунт можно восстановить{' '}
+          <strong onClick={copyID} className={st.link}>
+            по ID
+          </strong>{' '}
+          в течение 3 месяцев, иначе он будет удалён
+        </Text>
+      )}
     </div>
   )
 }

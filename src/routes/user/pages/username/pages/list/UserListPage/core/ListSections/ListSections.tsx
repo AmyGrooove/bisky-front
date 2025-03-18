@@ -8,7 +8,7 @@ import { cn, getEmptyArray } from '@shared/utils/functions'
 import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
 import { InputField } from '@shared/ui/atoms/InputField'
-import { sectionSelectorItems } from '../../static/setctionSelectorItems'
+import { sectionSelectorItems } from '@entities/animeEstimate/static'
 
 const ListSections = () => {
   const {

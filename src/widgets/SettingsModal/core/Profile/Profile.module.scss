@@ -42,6 +42,10 @@
   width: 100%;
 }
 
+.logOutButton {
+  width: 100%;
+}
+
 @include media-query(tablet) {
   .button {
     width: 100%;

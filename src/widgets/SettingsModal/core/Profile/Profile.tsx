@@ -6,8 +6,11 @@ import { UploadField } from '@shared/ui/molecules/UploadField'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Button } from '@shared/ui/molecules/Button'
 import { Controller } from 'react-hook-form'
-import { FileIcon } from '@shared/icons'
+import { FileIcon, LogOutIcon } from '@shared/icons'
 import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
+import { AuthConfirmationModal } from '@widgets/AuthConfirmationModal'
+import { AuthModule } from '@widgets/AuthModule'
+import { setAdditionalModal } from '@widgets/ModalWrapper'
 
 const Profile = () => {
   const { user, isLoading, setImageSrc, control, sendForm, isDisabled } =
@@ -59,6 +62,28 @@ const Profile = () => {
           Сохранить
         </Button>
       </div>
+      {!(user?.isTemporary ?? true) && (
+        <>
+          <div className={st.separator} />
+          <Button
+            className={st.logOutButton}
+            variant="big"
+            Icon={LogOutIcon}
+            onClick={() =>
+              setAdditionalModal(
+                <AuthConfirmationModal
+                  isIDTextEnabled={false}
+                  callBack={async () => {
+                    setTimeout(() => setAdditionalModal(<AuthModule />), 210)
+                  }}
+                />,
+              )
+            }
+          >
+            Сменить аккаунт
+          </Button>
+        </>
+      )}
     </div>
   )
 }

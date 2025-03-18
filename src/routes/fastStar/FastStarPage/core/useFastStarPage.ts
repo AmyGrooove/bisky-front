@@ -2,6 +2,7 @@ import { useGetAnimesFastStar } from '@entities/anime/api/getAnimesFastStar'
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { getCurrentEstimate } from '../utils/getCurrentEstimate'
 
 const useFastStarPage = () => {
   const { push } = useRouter()
@@ -12,7 +13,18 @@ const useFastStarPage = () => {
 
   const [currentAnimeIndex, setCurrentAnimeIndex] = useState(0)
 
-  const currentAnime = data[currentAnimeIndex]
+  const [currentScore, setCurrentScore] = useState(5)
+
+  const currentAnime = data[currentAnimeIndex] ?? {
+    score: 0,
+    userListStatus: 'added',
+  }
+
+  const newScore =
+    (currentAnime.score * currentAnime.scoreCount + currentScore) /
+    (currentAnime.scoreCount + 1)
+
+  const currentEstimate = getCurrentEstimate(currentAnime.userListStatus)
 
   useEffect(() => {
     if (currentAnimeIndex === data.length && !isLoading && !isError) {
@@ -25,7 +37,15 @@ const useFastStarPage = () => {
     }
   }, [currentAnimeIndex, data, isLoading, isError])
 
-  return { currentAnime, isLoading, isError }
+  return {
+    currentAnime,
+    isLoading,
+    isError,
+    currentScore,
+    setCurrentScore,
+    newScore,
+    currentEstimate,
+  }
 }
 
 export { useFastStarPage }
