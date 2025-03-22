@@ -1,0 +1,126 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bisky — Смотреть Аниме | Оффлайн</title>
+    <link
+      rel="icon"
+      href="/favicons/favicon.ico"
+      sizes="48x48"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        letter-spacing: 0;
+      }
+
+      body {
+        --light-100: #f8f8f8;
+        --dark-200: #322136;
+        --dark-400: #170e19;
+        --bisky-100: #dd5480;
+        --bisky-300: #801a59;
+
+        --radius-12: 12px;
+        --radius-20: 20px;
+
+        background-color: var(--dark-400);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        margin: 0px;
+      }
+
+      .card {
+        font-family:
+          Ubuntu,
+          Ubuntu Fallback;
+        width: 300px;
+        align-items: center;
+        background-color: var(--dark-200);
+        border-radius: var(--radius-20);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px;
+      }
+
+      .label {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        color: var(--light-100);
+        font-size: 32px;
+        line-height: 37px;
+        text-align: center;
+      }
+
+      .image {
+        border-radius: var(--radius-20);
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+      }
+
+      .button {
+        padding: 8px;
+        border-radius: var(--radius-12);
+        width: 100%;
+        background-color: var(--bisky-300);
+        border: 0px;
+        font-size: 16px;
+        line-height: 18px;
+        font-family:
+          Ubuntu,
+          Ubuntu Fallback;
+        color: var(--light-100);
+        cursor: pointer;
+        transition:
+          filter 0.25s ease-in-out,
+          scale 0.1s ease-in-out;
+      }
+
+      .button:hover {
+        filter: brightness(1.1);
+      }
+
+      .button:active {
+        cursor: pointer;
+        scale: 0.93;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="label">Нет доступа к интернету</div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 48 48"
+        fill="var(--bisky-100)"
+        class="image"
+      >
+        <path
+          d="M23.8655 28.2051C33.5423 28.2051 41.6063 32.7039 41.6063 38.1025C41.6063 43.5011 33.5423 47.9999 23.8655 47.9999C14.1888 47.9999 6.12476 43.5011 6.12476 38.1025C6.12476 32.7039 14.1888 28.2051 23.8655 28.2051Z"
+        />
+        <path
+          d="M39.4559 1.31216C42.0095 2.02447 42.0095 9.82244 39.4559 18.3702C36.9024 26.918 32.6016 33.5163 30.048 32.804C27.4944 32.0916 27.4944 24.2937 30.048 15.7459C32.6016 7.19813 36.9024 0.599844 39.4559 1.31216Z"
+        />
+        <path
+          d="M8.54396 1.31211C11.0976 0.599795 15.3984 7.19808 17.952 15.7459C20.5056 24.2936 20.5056 32.0916 17.952 32.8039C15.3984 33.5162 11.0976 26.9179 8.54396 18.3702C5.99036 9.82239 5.99036 2.02442 8.54396 1.31211Z"
+        />
+      </svg>
+      <button class="button" onclick="window.location.reload();">
+        Обновить страницу
+      </button>
+    </div>
+  </body>
+</html>

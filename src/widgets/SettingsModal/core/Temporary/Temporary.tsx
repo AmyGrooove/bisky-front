@@ -74,7 +74,7 @@ const Temporary = (props: ISettingsSectionProps) => {
           <InputField
             {...field}
             className={st.input}
-            label="Сменить пароль"
+            label="Сменить аккаунт"
             errorText={fieldState.error?.message}
             placeholder="ID аккаунта"
           />
