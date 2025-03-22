@@ -1,6 +1,6 @@
 import { QueryCache, QueryClient } from '@tanstack/react-query'
 import { IRootLayoutProps } from '../../types/IRootLayoutProps'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { errorToast } from '@shared/utils/toast'
 import { QUERY_SKIP_LIST } from '../../static/QUERY_SKIP_LIST'
 
@@ -35,6 +35,12 @@ const useProviders = (props: IRootLayoutProps) => {
       }),
     [],
   )
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(console.error)
+    }
+  }, [])
 
   return { queryClient, children }
 }
