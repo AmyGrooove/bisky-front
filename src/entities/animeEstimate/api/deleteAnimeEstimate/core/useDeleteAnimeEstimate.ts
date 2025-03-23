@@ -3,9 +3,11 @@ import { deleteAnimeEstimate } from './deleteAnimeEstimate'
 import { IDeleteAnimeEstimateRequest } from '../types/IDeleteAnimeEstimateRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { EyeOffIcon } from '@shared/icons'
+import { usePathname } from 'next/navigation'
 
 const useDeleteAnimeEstimate = (isFromSkipList = false) => {
   const queryClient = useQueryClient()
+  const pathname = usePathname()
 
   return useMutation({
     mutationFn: (body: IDeleteAnimeEstimateRequest) =>
@@ -33,9 +35,14 @@ const useDeleteAnimeEstimate = (isFromSkipList = false) => {
           queryKey: ['studio', 'animes'],
           exact: false,
         }),
-        queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
-        queryClient.invalidateQueries({ queryKey: ['blocks'] }),
       ])
+
+      if (pathname !== '/') {
+        await Promise.all([
+          queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
+          queryClient.invalidateQueries({ queryKey: ['blocks'] }),
+        ])
+      }
 
       if (isFromSkipList) return
 

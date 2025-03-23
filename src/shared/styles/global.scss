@@ -4,6 +4,8 @@
 * {
   box-sizing: border-box;
   letter-spacing: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 
   &::after,
   &::before {

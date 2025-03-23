@@ -25,6 +25,9 @@ const useStarSlider = (props: IStarSliderProps) => {
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (isNil(containerRef.current)) return
 
+    event.preventDefault()
+    if (event.buttons === 0) return
+
     const newRating = calculateRating(event.clientX)
     setCurrentStart(newRating)
     containerRef.current.setPointerCapture(event.pointerId)
