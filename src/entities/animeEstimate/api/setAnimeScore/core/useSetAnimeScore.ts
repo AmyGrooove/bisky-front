@@ -4,7 +4,7 @@ import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { StarIcon } from '@shared/icons'
 
-const useSetAnimeScore = (isFastSelect = false) => {
+const useSetAnimeScore = (isFastStar = false) => {
   const queryClient = useQueryClient()
 
   return useMutation({
@@ -34,7 +34,7 @@ const useSetAnimeScore = (isFastSelect = false) => {
         queryClient.invalidateQueries({ queryKey: ['blocks'] }),
       ])
 
-      if (isFastSelect) return
+      if (isFastStar) return
 
       await queryClient.invalidateQueries({ queryKey: ['anime', 'fastStar'] })
 

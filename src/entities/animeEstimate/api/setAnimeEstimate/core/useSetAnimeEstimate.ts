@@ -3,9 +3,11 @@ import { setAnimeEstimate } from './setAnimeEstimate'
 import { ISetAnimeEstimateRequest } from '../types/ISetAnimeEstimateRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { CassetteTapeIcon } from '@shared/icons'
+import { usePathname } from 'next/navigation'
 
 const useSetAnimeEstimate = (isFastFind = false) => {
   const queryClient = useQueryClient()
+  const pathname = usePathname()
 
   return useMutation({
     mutationFn: (body: ISetAnimeEstimateRequest) => setAnimeEstimate(body),
@@ -32,9 +34,14 @@ const useSetAnimeEstimate = (isFastFind = false) => {
           queryKey: ['studio', 'animes'],
           exact: false,
         }),
-        queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
-        queryClient.invalidateQueries({ queryKey: ['blocks'] }),
       ])
+
+      if (pathname !== '/') {
+        await Promise.all([
+          queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
+          queryClient.invalidateQueries({ queryKey: ['blocks'] }),
+        ])
+      }
 
       if (isFastFind) return
 

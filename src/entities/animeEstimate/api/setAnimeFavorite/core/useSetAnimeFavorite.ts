@@ -4,7 +4,7 @@ import { ISetAnimeFavoriteRequest } from '../types/ISetAnimeFavoriteRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { HeartIcon } from '@shared/icons'
 
-const useSetAnimeFavorite = (isFastSelect = false) => {
+const useSetAnimeFavorite = (isFastStar = false) => {
   const queryClient = useQueryClient()
 
   return useMutation({
@@ -24,7 +24,7 @@ const useSetAnimeFavorite = (isFastSelect = false) => {
         }),
       ])
 
-      if (isFastSelect) return
+      if (isFastStar) return
 
       await queryClient.invalidateQueries({ queryKey: ['anime', 'fastStar'] })
 

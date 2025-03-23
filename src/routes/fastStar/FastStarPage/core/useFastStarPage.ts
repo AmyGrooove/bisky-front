@@ -3,6 +3,8 @@ import { useSession } from '@entities/auth/hooks/useSession'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { getCurrentEstimate } from '../utils/getCurrentEstimate'
+import { useSetAnimeFavorite } from '@entities/animeEstimate/api/setAnimeFavorite'
+import { useSetAnimeScore } from '@entities/animeEstimate/api/setAnimeScore'
 
 const useFastStarPage = () => {
   const { push } = useRouter()
@@ -11,14 +13,18 @@ const useFastStarPage = () => {
 
   const { data = [], isLoading, isError, refetch } = useGetAnimesFastStar()
 
-  const [currentAnimeIndex, setCurrentAnimeIndex] = useState(0)
+  const { mutateAsync: setAnimeScore } = useSetAnimeScore(true)
+  const { mutateAsync: setAnimeFavorite } = useSetAnimeFavorite(true)
 
-  const [currentScore, setCurrentScore] = useState(5)
+  const [currentAnimeIndex, setCurrentAnimeIndex] = useState(0)
 
   const currentAnime = data[currentAnimeIndex] ?? {
     score: 0,
     userListStatus: 'added',
   }
+
+  const [currentScore, setCurrentScore] = useState(5)
+  const [isInFavorite, setIsInFavorite] = useState(false)
 
   const newScore =
     (currentAnime.score * currentAnime.scoreCount + currentScore) /
@@ -26,16 +32,34 @@ const useFastStarPage = () => {
 
   const currentEstimate = getCurrentEstimate(currentAnime.userListStatus)
 
+  const setNewAnimeScore = async () => {
+    await setAnimeScore({ animeID: currentAnime._id, score: currentScore })
+    setCurrentScore(5)
+    setCurrentAnimeIndex((prev) => prev + 1)
+  }
+
+  const addAnimeInFavorite = async () => {
+    setIsInFavorite(!isInFavorite)
+    await setAnimeFavorite({
+      animeID: currentAnime._id,
+      isFavorite: !isInFavorite,
+    })
+  }
+
   useEffect(() => {
+    if (isError) {
+      push(`/user/${user?.username}/list?fastStar=true`)
+    }
+
     if (currentAnimeIndex === data.length && !isLoading && !isError) {
       refetch()
       setCurrentAnimeIndex(0)
     }
-
-    if (isError) {
-      push(`/user/${user?.username}/list?fastStar=true`)
-    }
   }, [currentAnimeIndex, data, isLoading, isError])
+
+  useEffect(() => {
+    setIsInFavorite(currentAnime.userIsFavorite)
+  }, [currentAnime])
 
   return {
     currentAnime,
@@ -45,6 +69,9 @@ const useFastStarPage = () => {
     setCurrentScore,
     newScore,
     currentEstimate,
+    isInFavorite,
+    addAnimeInFavorite,
+    setNewAnimeScore,
   }
 }
 

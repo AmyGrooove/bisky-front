@@ -27,7 +27,6 @@ const useSendToEmailTab = (props: IEmailTabProps) => {
     const email = getValues('email')
 
     if (timeLeft <= 0) {
-      console.log(1)
       await requestReset({ email })
 
       startCooldown(180 * 1000)

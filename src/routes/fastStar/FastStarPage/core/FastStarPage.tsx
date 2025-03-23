@@ -3,6 +3,7 @@
 import {
   CassetteTapeIcon,
   HeartIcon,
+  HeartOffIcon,
   InfoIcon,
   MoveRightIcon,
   StarIcon,
@@ -31,6 +32,9 @@ const FastStarPage = () => {
     setCurrentScore,
     newScore,
     currentEstimate,
+    isInFavorite,
+    addAnimeInFavorite,
+    setNewAnimeScore,
   } = useFastStarPage()
 
   if (isLoading || isError) return <FastStarLoading />
@@ -42,13 +46,24 @@ const FastStarPage = () => {
       </SectionLabel>
       <div className={st.root}>
         <div className={st.main}>
+          <Badge
+            variant="medium"
+            Icon={currentEstimate.Icon}
+            isCustomColor
+            className={cn(
+              st[`badgeEstimate_${currentAnime.userListStatus}`],
+              st.badgeEstimate_mobile,
+            )}
+          >
+            {currentEstimate.children}
+          </Badge>
           <div className={st.posterWrapper}>
             <PlaceholderImage
               src={currentAnime.poster}
               className={st.poster}
               sizes={[220, 180]}
             />
-            <Text weight="700" className={st.label} maxLines={1}>
+            <Text weight="700" className={st.label} maxLines={2}>
               {currentAnime.label}
             </Text>
           </div>
@@ -57,7 +72,10 @@ const FastStarPage = () => {
               variant="medium"
               Icon={currentEstimate.Icon}
               isCustomColor
-              className={st[`badgeEstimate_${currentAnime.userListStatus}`]}
+              className={cn(
+                st[`badgeEstimate_${currentAnime.userListStatus}`],
+                st.badgeEstimate_desktop,
+              )}
             >
               {currentEstimate.children}
             </Badge>
@@ -93,9 +111,23 @@ const FastStarPage = () => {
                   {newScore}
                 </Text>
               </div>
-              <GlassButton onClick={() => {}}>{HeartIcon}</GlassButton>
+              <GlassButton
+                className={cn(st.button, {
+                  [st.buttonFavorite_active]: isInFavorite,
+                })}
+                onClick={async (event) => {
+                  event.preventDefault()
+                  await addAnimeInFavorite()
+                }}
+              >
+                {isInFavorite ? HeartOffIcon : HeartIcon}
+              </GlassButton>
             </div>
-            <Button variant="big" onClick={() => {}} className={st.goNext}>
+            <Button
+              variant="big"
+              onClick={setNewAnimeScore}
+              className={cn(st.goNext, st.goNext_desktop)}
+            >
               Дальше
             </Button>
           </div>
@@ -113,8 +145,17 @@ const FastStarPage = () => {
             sizes={[700, 300]}
           />
         </div>
-        <div className={st.mobileControl}></div>
       </div>
+      <div className={st.mobileControl}>
+        <Button
+          variant="big"
+          onClick={() => {}}
+          className={cn(st.goNext, st.goNext_mobile)}
+        >
+          Дальше
+        </Button>
+      </div>
+      <div className={st.emptyControl} />
     </>
   )
 }

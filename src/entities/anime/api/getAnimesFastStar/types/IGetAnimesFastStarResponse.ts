@@ -4,7 +4,7 @@ import { TListStatus } from '@entities/animeEstimate/types'
 interface IGetAnimesFastStarResponse extends Pick<IAnime, 'poster' | '_id'> {
   label: string
   userListStatus: TListStatus
-  isFavorite: boolean
+  userIsFavorite: boolean
   score: number
   scoreCount: number
 }

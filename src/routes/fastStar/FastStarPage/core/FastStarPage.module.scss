@@ -124,8 +124,82 @@
   @include estimate-color(background-color);
 }
 
+.mobileControl {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  padding: 0px 12px;
+  width: 100%;
+}
+
+.emptyControl {
+  width: 48px;
+}
+
+.buttonFavorite_active {
+  background-color: var(--dark-460) !important;
+}
+
 @include media-query(tablet, true) {
   .sectionLabel {
     display: none !important;
+  }
+
+  .badgeEstimate_mobile {
+    display: none;
+  }
+
+  .goNext_mobile {
+    display: none;
+  }
+
+  .mobileControl {
+    display: none;
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    width: 100%;
+  }
+
+  .main {
+    flex-direction: column;
+    gap: 16px;
+    height: unset;
+    padding: 12px 8px;
+    width: 100%;
+  }
+
+  .poster {
+    height: 300px;
+    width: 200px;
+  }
+
+  .label {
+    width: 200px;
+  }
+
+  .infoButton {
+    left: unset;
+    right: 8px;
+    top: 8px;
+  }
+
+  .badgeEstimate_desktop {
+    display: none;
+  }
+
+  .goNext {
+    width: 100%;
+
+    &_desktop {
+      display: none;
+    }
+  }
+
+  .starData {
+    gap: 8px;
   }
 }
