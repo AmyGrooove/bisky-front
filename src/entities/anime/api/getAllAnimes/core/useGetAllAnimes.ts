@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { getAllAnimes } from './getAllAnimes'
 
-const useGetAllAnimes = (excludedAnimeIDs: string[] = []) => {
+const useGetAllAnimes = () => {
   return useQuery({
     queryKey: ['anime', 'allAnimes'],
-    queryFn: ({ signal }) => getAllAnimes(excludedAnimeIDs, false, signal),
+    queryFn: ({ signal }) => getAllAnimes(false, signal),
   })
 }
 
