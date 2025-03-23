@@ -3,14 +3,10 @@ import { ENV } from '@shared/static'
 import { IGetAllAnimesResponse } from '../types/IGetAllAnimesResponse'
 
 const getAllAnimes = async (
-  excludedAnimeIDs: string[] = [],
   skipAuth = false,
   signal?: AbortSignal,
 ): Promise<IGetAllAnimesResponse[]> => {
   const url = new URL(`/anime/allAnimes`, ENV.API_URL)
-  excludedAnimeIDs.forEach((id) =>
-    url.searchParams.append('excludedAnimeIDs', id),
-  )
 
   const response = await fetch(url, {
     method: 'GET',

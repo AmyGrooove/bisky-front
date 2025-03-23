@@ -1,34 +1,22 @@
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useAddAnimesToShikiBanList } from '@entities/parser/api/addAnimesToShikiBanList'
 import { useGetAllAnimes } from '@entities/anime/api/getAllAnimes'
+import { useAddAnimesToShikiTrustList } from '@entities/parser/api/addAnimesToShikiTrustList'
 
 const useAllAnimesPage = () => {
-  const [excludedAnimeIDs, setExcludedAnimeIDs] = useState<string[]>([])
-
-  const { data: allAnimes = [] } = useGetAllAnimes(excludedAnimeIDs)
+  const { data: allAnimes = [] } = useGetAllAnimes()
 
   const { mutateAsync: addAnimesToShikiBanList } = useAddAnimesToShikiBanList()
+  const { mutateAsync: addAnimesToShikiTrustList } =
+    useAddAnimesToShikiTrustList()
 
   const [animesToDelete, setAnimesToDelete] = useState<string[]>([])
   const [animesToTrust, setAnimesToTrust] = useState<string[]>([])
 
-  const getAndUpdateTrustAnimes = () => {
-    const stored = localStorage.getItem('trustList')
-    const trustAnimeIDs: string[] = stored ? JSON.parse(stored) : []
-    const updatedTrustAnimes = Array.from(
-      new Set([...trustAnimeIDs, ...animesToTrust]),
-    )
-    localStorage.setItem('trustList', JSON.stringify(updatedTrustAnimes))
-
-    return updatedTrustAnimes
-  }
-
   const validate = async () => {
-    const trustedAnimes = getAndUpdateTrustAnimes()
-    setExcludedAnimeIDs(trustedAnimes)
-
     await addAnimesToShikiBanList({ shikiIDList: animesToDelete })
+    await addAnimesToShikiTrustList({ shikiIDList: animesToTrust })
     setAnimesToDelete([])
     setAnimesToTrust([])
   }
@@ -56,11 +44,6 @@ const useAllAnimesPage = () => {
     callback: () => validate(),
     modifiers: ['ctrlKey'],
   })
-
-  useEffect(() => {
-    const trustedAnimes = getAndUpdateTrustAnimes()
-    setExcludedAnimeIDs(trustedAnimes)
-  }, [])
 
   return {
     allAnimes,
