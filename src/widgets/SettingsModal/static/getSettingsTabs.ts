@@ -3,6 +3,7 @@ import {
   HourglassIcon,
   LockIcon,
   MailIcon,
+  QRCodeIcon,
   UserIcon,
 } from '@shared/icons'
 
@@ -23,6 +24,7 @@ const getSettingsTabs = ({
   { Icon: MailIcon, children: 'Почта' },
   { Icon: LockIcon, children: 'Пароль' },
   { Icon: BlocksIcon, children: 'Интеграция' },
+  { Icon: QRCodeIcon, children: 'Вход по QR' },
 ]
 
 export { getSettingsTabs }

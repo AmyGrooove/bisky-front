@@ -10,6 +10,7 @@ import { Integrations } from './Integrations/Integrations'
 import { Email } from './Email/Email'
 import { Password } from './Password/Password'
 import { Temporary } from './Temporary/Temporary'
+import { QRCode } from './QRCode/QRCode'
 
 const SettingsModal = (props: ISettingsModalProps) => {
   const {
@@ -67,6 +68,7 @@ const SettingsModal = (props: ISettingsModalProps) => {
         {activeTab === 2 && <Email />}
         {activeTab === 3 && <Password setActiveTab={setActiveTab} />}
         {activeTab === 4 && <Integrations />}
+        {activeTab === 5 && <QRCode />}
       </div>
     </div>
   )
