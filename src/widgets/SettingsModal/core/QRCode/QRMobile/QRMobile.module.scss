@@ -1,7 +1,0 @@
-@use '@shared/styles/reusable.scss' as *;
-
-@include media-query(tablet, true) {
-  .root {
-    display: none;
-  }
-}
