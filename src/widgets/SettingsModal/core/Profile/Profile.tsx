@@ -9,7 +9,6 @@ import { Controller } from 'react-hook-form'
 import { FileIcon, LogOutIcon } from '@shared/icons'
 import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 import { AuthConfirmationModal } from '@widgets/AuthConfirmationModal'
-import { AuthModule } from '@widgets/AuthModule'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
 
 const Profile = () => {
@@ -69,16 +68,7 @@ const Profile = () => {
             className={st.logOutButton}
             variant="big"
             Icon={LogOutIcon}
-            onClick={() =>
-              setAdditionalModal(
-                <AuthConfirmationModal
-                  isIDTextEnabled={false}
-                  callBack={async () => {
-                    setTimeout(() => setAdditionalModal(<AuthModule />), 210)
-                  }}
-                />,
-              )
-            }
+            onClick={() => setAdditionalModal(<AuthConfirmationModal />)}
           >
             Сменить аккаунт
           </Button>

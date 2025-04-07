@@ -12,6 +12,7 @@ import { useSession } from '@entities/auth/hooks/useSession'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 import { successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+import { useCallNoAuthorize } from '@widgets/NoAuthorize'
 
 const useProfileMenu = () => {
   const { user, isLoading } = useSession()
@@ -19,10 +20,16 @@ const useProfileMenu = () => {
 
   const { isOpen, isClosing, toggle } = useTransitionClose()
 
+  const openNoAuthorize = useCallNoAuthorize()
+
+  const checkAndToggle = (isOpen: boolean) => {
+    openNoAuthorize({ thenCallback: () => toggle(isOpen) })
+  }
+
   const { refs, floatingStyles, context } = useFloating({
     placement: 'bottom-end',
     open: isOpen,
-    onOpenChange: toggle,
+    onOpenChange: checkAndToggle,
     middleware: [flip(), shift(), offset(8)],
     transform: false,
   })

@@ -11,10 +11,10 @@ const useTransitionClose = (props: IUseTransitionClose = {}) => {
   const [isClosing, setIsClosing] = useState(false)
 
   const toggle = useCallback(
-    (open: boolean) => {
+    (isOpen: boolean) => {
       if (isToggleDisabled) return
 
-      if (open) {
+      if (isOpen) {
         setIsOpen(true)
         return
       }

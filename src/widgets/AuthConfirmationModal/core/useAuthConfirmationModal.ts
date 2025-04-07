@@ -1,11 +1,10 @@
 import { useGetUserID } from '@entities/user/api/getUserID'
 import { UserIcon } from '@shared/icons'
 import { successToast } from '@shared/utils/toast'
-import { closeAdditionalModal } from '@widgets/ModalWrapper'
 import { IAuthConfirmationModalProps } from '../types/IAuthConfirmationModalProps'
 
 const useAuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
-  const { callBack, isIDTextEnabled = true } = props
+  const { isIDTextEnabled = false } = props
 
   const { data } = useGetUserID()
 
@@ -14,12 +13,7 @@ const useAuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
     successToast({ Icon: UserIcon, message: 'ID скопирован' })
   }
 
-  const handleCallback = async () => {
-    await callBack()
-    closeAdditionalModal()
-  }
-
-  return { handleCallback, copyID, isIDTextEnabled }
+  return { copyID, isIDTextEnabled }
 }
 
 export { useAuthConfirmationModal }
