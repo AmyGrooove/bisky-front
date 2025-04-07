@@ -1,27 +1,23 @@
 'use client'
 
-import Link from 'next/link'
-
 import { cn } from '@shared/utils/functions'
-
-import { barLinks } from '../static/barLinks'
 
 import st from './Bar.module.scss'
 import { useBar } from './useBar'
 
 const Bar = () => {
-  const { username, checkIsActive, isHidden } = useBar()
+  const { checkIsActive, isHidden, openTab, links } = useBar()
 
   return (
     <div className={cn(st.root, { [st.root_hidden]: isHidden })}>
-      {barLinks(username).map(({ href, Icon }) => (
-        <Link key={href} href={href}>
+      {links.map(({ href, Icon }) => (
+        <button key={href} onClick={() => openTab(href)}>
           {Icon({
             className: cn(st.linkIcon, {
               [st.linkIcon_active]: checkIsActive(href),
             }),
           })}
-        </Link>
+        </button>
       ))}
     </div>
   )

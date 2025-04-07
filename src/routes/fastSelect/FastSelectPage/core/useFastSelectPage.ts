@@ -3,6 +3,7 @@ import { useSession } from '@entities/auth/hooks/useSession'
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import { IStateSnapshot } from '../types/IStateSnapshot'
+import { isNil } from '@shared/utils/functions'
 
 const useFastSelectPage = () => {
   const { push } = useRouter()
@@ -51,7 +52,7 @@ const useFastSelectPage = () => {
   )
 
   useEffect(() => {
-    if (isError) {
+    if (isError && !isNil(user)) {
       push(`/user/${user?.username}/list?fastSelect=true`)
     }
   }, [isError])

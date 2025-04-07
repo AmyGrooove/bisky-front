@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { getCurrentEstimate } from '../utils/getCurrentEstimate'
 import { useSetAnimeFavorite } from '@entities/animeEstimate/api/setAnimeFavorite'
 import { useSetAnimeScore } from '@entities/animeEstimate/api/setAnimeScore'
+import { isNil } from '@shared/utils/functions'
 
 const useFastStarPage = () => {
   const { push } = useRouter()
@@ -47,7 +48,7 @@ const useFastStarPage = () => {
   }
 
   useEffect(() => {
-    if (isError) {
+    if (isError && !isNil(user)) {
       push(`/user/${user?.username}/list?fastStar=true`)
     }
 

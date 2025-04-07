@@ -28,6 +28,8 @@ const useProviders = (props: IRootLayoutProps) => {
             )
               return
 
+            if (error.message === 'Unauthorized') return
+
             console.error(error)
             errorToast({ message: `Произошла ошибка: ${error.message}` })
           },

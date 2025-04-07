@@ -21,7 +21,7 @@
   }
 }
 
-.temporary {
+.warning {
   color: var(--red);
   fill: var(--red);
 
@@ -83,7 +83,7 @@
     display: none;
   }
 
-  .temporary {
+  .warning {
     background-color: var(--red) !important;
   }
 }

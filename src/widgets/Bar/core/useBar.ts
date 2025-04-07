@@ -1,13 +1,18 @@
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 import { useSession } from '@entities/auth/hooks/useSession'
 import { hiddenLinks } from '../static/hiddenLinks'
+import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+import { barLinks } from '../static/barLinks'
 
 const useBar = () => {
   const pathname = usePathname()
+  const { push } = useRouter()
 
   const { user } = useSession()
   const { username = '' } = user ?? {}
+
+  const openNoAuthorize = useCallNoAuthorize()
 
   const checkIsActive = (value: string) => {
     if (!pathname) return false
@@ -19,7 +24,18 @@ const useBar = () => {
 
   const isHidden = hiddenLinks.includes(pathname)
 
-  return { username, checkIsActive, isHidden }
+  const links = barLinks(username)
+
+  const openTab = (href: string) => {
+    if ([links[0].href, links[1].href].includes(href)) {
+      push(href)
+      return
+    }
+
+    openNoAuthorize({ thenCallback: () => push(href) })
+  }
+
+  return { checkIsActive, isHidden, openTab, links }
 }
 
 export { useBar }

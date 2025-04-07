@@ -9,8 +9,8 @@ import { Controller } from 'react-hook-form'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
 import { AuthConfirmationModal } from '@widgets/AuthConfirmationModal'
-import { AuthModule } from '@widgets/AuthModule'
 import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
+import { ConfirmationModal } from '@shared/ui/organisms/ConfirmationModal'
 
 const Temporary = (props: ISettingsSectionProps) => {
   const {
@@ -46,13 +46,7 @@ const Temporary = (props: ISettingsSectionProps) => {
         variant="big"
         Icon={LogOutIcon}
         onClick={() =>
-          setAdditionalModal(
-            <AuthConfirmationModal
-              callBack={async () => {
-                setTimeout(() => setAdditionalModal(<AuthModule />), 210)
-              }}
-            />,
-          )
+          setAdditionalModal(<AuthConfirmationModal isIDTextEnabled />)
         }
       >
         Авторизоваться
@@ -86,7 +80,12 @@ const Temporary = (props: ISettingsSectionProps) => {
           variant="big"
           Icon={SendIcon}
           onClick={() =>
-            setAdditionalModal(<AuthConfirmationModal callBack={sendForm} />)
+            setAdditionalModal(
+              <ConfirmationModal
+                title="Вы уверены, что хотите сменить аккаунт?"
+                callBack={sendForm}
+              />,
+            )
           }
           isDisabled={isDisabled}
         >

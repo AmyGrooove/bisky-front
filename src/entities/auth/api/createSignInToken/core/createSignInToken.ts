@@ -7,7 +7,7 @@ const createSignInToken = async (
   const url = new URL(`/auth/createSignInToken`, ENV.API_URL)
 
   const response = await fetch(url, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',

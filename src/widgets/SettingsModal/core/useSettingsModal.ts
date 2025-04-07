@@ -17,8 +17,8 @@ const useSettingsModal = (props: ISettingsModalProps) => {
   const [isTabSelected, setIsTabSelected] = useState(false)
 
   const settingsTabs = getSettingsTabs({
-    temporaryClassName: cn(st.temporary, {
-      [st.temporary_active]: activeTab === 0,
+    warningClassName: cn(st.warning, {
+      [st.warning_active]: activeTab === 0 || activeTab === 5,
     }),
     isTemporary: user?.isTemporary ?? true,
   })

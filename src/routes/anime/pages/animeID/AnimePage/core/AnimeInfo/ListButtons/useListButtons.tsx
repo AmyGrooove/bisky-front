@@ -14,6 +14,7 @@ import { setModal } from '@widgets/ModalWrapper'
 import st from './ListButtons.module.scss'
 import { SetScoreModal } from '@entities/animeEstimate/ui/SetScoreModal'
 import { useSetAnimeFavorite } from '@entities/animeEstimate/api/setAnimeFavorite'
+import { useCallNoAuthorize } from '@widgets/NoAuthorize'
 
 const useListButtons = (props: IAnimeSectionProps) => {
   const {
@@ -22,6 +23,8 @@ const useListButtons = (props: IAnimeSectionProps) => {
       userEstimate: { listStatus, score, isFavorite },
     },
   } = props
+
+  const openNoAuthorize = useCallNoAuthorize()
 
   const { mutateAsync: setAnimeFavorite } = useSetAnimeFavorite()
 
@@ -44,20 +47,23 @@ const useListButtons = (props: IAnimeSectionProps) => {
         : getListStatusIcon(currentStatus),
       onClick: (event) => {
         event.preventDefault()
-        setModal(
-          <AddInListModal
-            selectedListStatus={currentStatus}
-            _id={_id}
-            setStatus={setCurrentStatus}
-          />,
-        )
+        openNoAuthorize({
+          thenCallback: () =>
+            setModal(
+              <AddInListModal
+                selectedListStatus={currentStatus}
+                _id={_id}
+                setStatus={setCurrentStatus}
+              />,
+            ),
+        })
       },
       className: cn(
         st.button,
         st[`button_estimate_${getEstimateColor(currentStatus)}`],
       ),
     }),
-    [currentStatus],
+    [currentStatus, openNoAuthorize],
   )
 
   const scoreButton: ComponentProps<typeof BigButton> = useMemo(

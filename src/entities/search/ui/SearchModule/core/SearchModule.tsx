@@ -25,6 +25,7 @@ const SearchModule = () => {
     searchValue,
     debouncedSearchValue,
     isMobile,
+    pushToFastPage,
   } = useSearchModule()
 
   return (
@@ -56,15 +57,15 @@ const SearchModule = () => {
           </Text>
           <div className={st.buttons}>
             {fastButtons.map(({ Icon, name, href }) => (
-              <Link key={href} href={href} className={st.button}>
-                <BigButton
-                  variant="big"
-                  Icon={Icon}
-                  onClick={() => closeModal()}
-                >
-                  {name}
-                </BigButton>
-              </Link>
+              <BigButton
+                key={href}
+                variant="big"
+                Icon={Icon}
+                onClick={() => pushToFastPage(href)}
+                className={st.button}
+              >
+                {name}
+              </BigButton>
             ))}
           </div>
           <div className={st.barMargin} />

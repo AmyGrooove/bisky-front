@@ -1,7 +1,20 @@
-import { IFastSelectLayoutProps } from '../types/IFastSelectLayoutProps'
+'use client'
 
-const FastSelectLayout = async (props: IFastSelectLayoutProps) => {
+import { useSession } from '@entities/auth/hooks/useSession'
+import { useEffect } from 'react'
+import { IFastSelectLayoutProps } from '../types/IFastSelectLayoutProps'
+import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+
+const FastSelectLayout = (props: IFastSelectLayoutProps) => {
   const { children } = props
+
+  const openNoAuthorize = useCallNoAuthorize()
+
+  const { isError } = useSession()
+
+  useEffect(() => {
+    if (isError) openNoAuthorize({ thenPushHref: '/fastSelect' })
+  }, [isError])
 
   return <>{children}</>
 }
