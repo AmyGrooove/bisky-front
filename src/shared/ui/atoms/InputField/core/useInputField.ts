@@ -1,7 +1,8 @@
 import { useInView } from 'react-intersection-observer'
-import { IInputFieldProps } from '../types/IInputFieldProps'
 import { useRef, useEffect, ForwardedRef, useState } from 'react'
 import { mergeRefs } from '@shared/utils/functions'
+
+import { IInputFieldProps } from '../types/IInputFieldProps'
 
 const useInputField = (
   props: IInputFieldProps,

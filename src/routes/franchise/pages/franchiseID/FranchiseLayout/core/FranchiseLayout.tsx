@@ -1,6 +1,7 @@
 import { getAnimesByFranchise } from '@entities/franchise/api/getAnimesByFranchise'
-import { IFranchiseLayoutProps } from '../types/IFranchiseLayoutProps'
 import { notFound } from 'next/navigation'
+
+import { IFranchiseLayoutProps } from '../types/IFranchiseLayoutProps'
 
 const FranchiseLayout = async (props: IFranchiseLayoutProps) => {
   const { params, children } = props

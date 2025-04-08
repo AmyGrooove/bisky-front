@@ -1,13 +1,15 @@
 import { InputField } from '@shared/ui/atoms/InputField'
-import st from './SendToEmailTab.module.scss'
 import { Controller } from 'react-hook-form'
-import { useSendToEmailTab } from './useSendToEmailTab'
 import { LogoIcon } from '@shared/icons'
 import { cn } from '@shared/utils/functions'
-import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { Button } from '@shared/ui/molecules/Button'
 import { Text } from '@shared/ui/atoms/Text'
+
+import { IEmailTabProps } from '../../types/IEmailTabProps'
+
+import { useSendToEmailTab } from './useSendToEmailTab'
+import st from './SendToEmailTab.module.scss'
 
 const SendToEmailTab = (props: IEmailTabProps) => {
   const { control, isValid, setNewTab, isPending, isError, sendReset, error } =

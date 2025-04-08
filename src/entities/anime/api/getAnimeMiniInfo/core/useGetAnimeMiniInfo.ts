@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { getAnimeMiniInfo } from './getAnimeMiniInfo'
 
 const useGetAnimeMiniInfo = (animeID: string) => {

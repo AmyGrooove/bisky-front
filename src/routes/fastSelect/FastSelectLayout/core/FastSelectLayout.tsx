@@ -2,8 +2,9 @@
 
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useEffect } from 'react'
-import { IFastSelectLayoutProps } from '../types/IFastSelectLayoutProps'
 import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+
+import { IFastSelectLayoutProps } from '../types/IFastSelectLayoutProps'
 
 const FastSelectLayout = (props: IFastSelectLayoutProps) => {
   const { children } = props

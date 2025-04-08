@@ -1,9 +1,9 @@
 import { TListStatus } from '@entities/animeEstimate/types'
 import { closeModal } from '@widgets/ModalWrapper'
-
-import { IAddInListModalProps } from '../types/IAddInListModalProps'
 import { useSetAnimeEstimate } from '@entities/animeEstimate/api/setAnimeEstimate'
 import { useDeleteAnimeEstimate } from '@entities/animeEstimate/api/deleteAnimeEstimate'
+
+import { IAddInListModalProps } from '../types/IAddInListModalProps'
 
 const useAddInListModal = (props: IAddInListModalProps) => {
   const {

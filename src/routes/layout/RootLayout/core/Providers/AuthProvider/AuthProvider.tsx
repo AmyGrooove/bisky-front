@@ -1,6 +1,7 @@
 'use client'
 
 import { IRootLayoutProps } from '../../../types/IRootLayoutProps'
+
 import { useAuthProvider } from './useAuthProvider'
 
 const AuthProvider = (props: IRootLayoutProps) => {

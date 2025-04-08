@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { setAnimeScore } from './setAnimeScore'
-import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { StarIcon } from '@shared/icons'
+
+import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
+
+import { setAnimeScore } from './setAnimeScore'
 
 const useSetAnimeScore = (isFastStar = false) => {
   const queryClient = useQueryClient()

@@ -1,11 +1,12 @@
 'use client'
 
-import st from './GenrePage.module.scss'
-import { useGenrePage } from './useGenrePage'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { getEmptyArray } from '@shared/utils/functions'
+
+import { useGenrePage } from './useGenrePage'
+import st from './GenrePage.module.scss'
 import { GenreHeader } from './GenreHeader/GenreHeader'
 
 const GenrePage = () => {

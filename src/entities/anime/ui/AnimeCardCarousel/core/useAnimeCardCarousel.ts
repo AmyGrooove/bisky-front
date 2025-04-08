@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 
 import { IAnimeCardCarouselProps } from '../types/IAnimeCardCarouselProps'
-import useEmblaCarousel from 'embla-carousel-react'
 
 const useAnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
   const { data, watchAllHref } = props

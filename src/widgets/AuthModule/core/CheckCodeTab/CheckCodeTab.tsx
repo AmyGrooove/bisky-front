@@ -1,14 +1,16 @@
-import st from './CheckCodeTab.module.scss'
 import { Controller } from 'react-hook-form'
-import { useCheckCodeTab } from './useCheckCodeTab'
 import { LogoIcon } from '@shared/icons'
 import { cn } from '@shared/utils/functions'
-import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { Button } from '@shared/ui/molecules/Button'
 import { InputCode } from '@shared/ui/atoms/InputCode'
 import { Text } from '@shared/ui/atoms/Text'
 import { InputField } from '@shared/ui/atoms/InputField'
+
+import { IEmailTabProps } from '../../types/IEmailTabProps'
+
+import { useCheckCodeTab } from './useCheckCodeTab'
+import st from './CheckCodeTab.module.scss'
 
 const CheckCodeTab = (props: IEmailTabProps) => {
   const {

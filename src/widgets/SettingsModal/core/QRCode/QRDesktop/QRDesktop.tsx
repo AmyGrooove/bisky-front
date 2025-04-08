@@ -1,9 +1,10 @@
-import st from './QRDesktop.module.scss'
-import { useQRDesktop } from './useQRDesktop'
 import { BigButton } from '@shared/ui/molecules/BigButton'
 import { EyeIcon } from '@shared/icons'
 import { cn } from '@shared/utils/functions'
 import { QRCodeSVG } from 'qrcode.react'
+
+import { useQRDesktop } from './useQRDesktop'
+import st from './QRDesktop.module.scss'
 
 const QRDesktop = () => {
   const { newToken, isQRActive, setIsQRHidden } = useQRDesktop()

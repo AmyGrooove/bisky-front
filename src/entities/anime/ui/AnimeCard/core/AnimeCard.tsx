@@ -1,5 +1,4 @@
 import Link from 'next/link'
-
 import { cn, isNil } from '@shared/utils/functions'
 import { ScoreBadge } from '@entities/animeEstimate/ui/ScoreBadge'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'

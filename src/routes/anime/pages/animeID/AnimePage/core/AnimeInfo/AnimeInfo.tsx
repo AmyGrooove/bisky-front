@@ -1,4 +1,5 @@
 import { IAnimeSectionProps } from '../../types/IAnimeSectionProps'
+
 import { AdditionalInfo } from './AdditionalInfo/AdditionalInfo'
 import st from './AnimeInfo.module.scss'
 import { ListButtons } from './ListButtons/ListButtons'

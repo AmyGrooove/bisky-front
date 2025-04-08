@@ -1,16 +1,18 @@
-import st from './Temporary.module.scss'
-import { useTemporary } from './useTemporary'
 import { Button } from '@shared/ui/molecules/Button'
 import { CopyIcon, LogOutIcon, SendIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
-import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
 import { anonymCode } from '@widgets/SettingsModal/utils/anonymCode'
 import { Controller } from 'react-hook-form'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
 import { AuthConfirmationModal } from '@widgets/AuthConfirmationModal'
-import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 import { ConfirmationModal } from '@shared/ui/organisms/ConfirmationModal'
+
+import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
+import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
+
+import { useTemporary } from './useTemporary'
+import st from './Temporary.module.scss'
 
 const Temporary = (props: ISettingsSectionProps) => {
   const {

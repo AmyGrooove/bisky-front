@@ -1,4 +1,5 @@
 import { ILegalLayoutProps } from '../types/ILegalLayoutProps'
+
 import st from './LegalLayout.module.scss'
 
 const LegalLayout = async (props: ILegalLayoutProps) => {

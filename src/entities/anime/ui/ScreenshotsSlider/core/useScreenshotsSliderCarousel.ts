@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 
 import { IScreenshotsSliderCarouselProps } from '../types/IScreenshotsSliderCarouselProps'
-import useEmblaCarousel from 'embla-carousel-react'
 
 const useScreenshotsSliderCarousel = (
   props: IScreenshotsSliderCarouselProps,

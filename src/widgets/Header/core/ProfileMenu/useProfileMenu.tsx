@@ -7,7 +7,6 @@ import {
   flip,
   shift,
 } from '@floating-ui/react'
-
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 import { successToast } from '@shared/utils/toast'

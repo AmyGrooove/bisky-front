@@ -1,9 +1,10 @@
 import { SectionSelector } from '@shared/ui/molecules/SectionSelector'
+import { HeartIcon, HistoryIcon, InfoIcon } from '@shared/icons'
+
 import st from './UserActivity.module.scss'
 import { HistoryTab } from './HistoryTab/HistoryTab'
 import { FavoriteTab } from './FavoriteTab/FavoriteTab'
 import { useUserActivity } from './useUserActivity'
-import { HeartIcon, HistoryIcon, InfoIcon } from '@shared/icons'
 import { InfoTab } from './InfoTab/InfoTab'
 
 const UserActivity = () => {

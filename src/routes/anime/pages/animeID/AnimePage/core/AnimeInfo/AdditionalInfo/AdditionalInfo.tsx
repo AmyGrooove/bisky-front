@@ -1,6 +1,3 @@
-import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
-import { useAdditionalInfo } from './useAdditionalInfo'
-import st from './AdditionalInfo.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
 import {
   BrushIcon,
@@ -12,6 +9,11 @@ import {
 import { ScoreBadge } from '@entities/animeEstimate/ui/ScoreBadge'
 import { cn, isNil } from '@shared/utils/functions'
 import { DescriptionWrapper } from '@entities/anime/ui/DescriptionWrapper'
+
+import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
+
+import st from './AdditionalInfo.module.scss'
+import { useAdditionalInfo } from './useAdditionalInfo'
 
 const AdditionalInfo = (props: IAnimeSectionProps) => {
   const {

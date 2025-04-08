@@ -1,11 +1,12 @@
 'use client'
 
-import st from './StudioPage.module.scss'
-import { useStudioPage } from './useStudioPage'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { getEmptyArray } from '@shared/utils/functions'
+
+import { useStudioPage } from './useStudioPage'
+import st from './StudioPage.module.scss'
 import { StudioHeader } from './StudioHeader/StudioHeader'
 
 const StudioPage = () => {

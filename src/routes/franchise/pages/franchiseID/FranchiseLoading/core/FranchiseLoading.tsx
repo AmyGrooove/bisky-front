@@ -1,6 +1,7 @@
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import st from './FranchiseLoading.module.scss'
 import { getEmptyArray } from '@shared/utils/functions'
+
+import st from './FranchiseLoading.module.scss'
 
 const FranchiseLoading = async () => {
   return (

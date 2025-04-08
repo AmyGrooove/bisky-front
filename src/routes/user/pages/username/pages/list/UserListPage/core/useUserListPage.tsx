@@ -2,6 +2,7 @@ import { setModal } from '@widgets/ModalWrapper'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
+
 import { FastFindWarningModal } from './FastFindWarningModal/FastFindWarningModal'
 import { FastSelectWarningModal } from './FastSelectWarningModal/FastSelectWarningModal'
 import { FastStarWarningModal } from './FastStarWarningModal/FastStarWarningModal'

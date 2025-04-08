@@ -1,6 +1,7 @@
 import { getAnimeFullInfo } from '@entities/anime/api/getAnimeFullInfo'
-import { IAnimeLayoutProps } from '../types/IAnimeLayoutProps'
 import { notFound } from 'next/navigation'
+
+import { IAnimeLayoutProps } from '../types/IAnimeLayoutProps'
 
 const AnimeLayout = async (props: IAnimeLayoutProps) => {
   const { params, children } = props

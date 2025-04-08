@@ -1,5 +1,4 @@
 import Link from 'next/link'
-
 import { cn } from '@shared/utils/functions'
 import { getScoreColor } from '@entities/animeEstimate/utils'
 import { THistoryTypes } from '@entities/history/types'

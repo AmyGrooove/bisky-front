@@ -1,7 +1,9 @@
 'use client'
 
 import { BigButton } from '@shared/ui/molecules/BigButton'
+
 import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
+
 import st from './ListButtons.module.scss'
 import { useListButtons } from './useListButtons'
 

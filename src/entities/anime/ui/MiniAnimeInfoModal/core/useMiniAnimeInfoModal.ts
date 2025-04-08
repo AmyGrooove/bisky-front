@@ -5,8 +5,9 @@ import {
   getNormalEpisodeInfo,
   getNormalRating,
 } from '@entities/anime/utils/functions'
-import { IMiniAnimeInfoModalProps } from '../types/IMiniAnimeInfoModalProps'
 import { useGetAnimeMiniInfo } from '@entities/anime/api/getAnimeMiniInfo'
+
+import { IMiniAnimeInfoModalProps } from '../types/IMiniAnimeInfoModalProps'
 
 const useMiniAnimeInfoModal = (props: IMiniAnimeInfoModalProps) => {
   const {

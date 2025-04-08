@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+
 import { ENV } from './ENV'
 
 const META_DATA: Metadata = {

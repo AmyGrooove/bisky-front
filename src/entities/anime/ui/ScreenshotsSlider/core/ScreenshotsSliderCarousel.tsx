@@ -3,14 +3,14 @@
 import { cn, getEmptyArray } from '@shared/utils/functions'
 import { ChevronLeftIcon, ChevronRightIcon } from '@shared/icons'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
+import { Label } from '@shared/ui/molecules/Label'
+import { Fancybox } from '@shared/ui/atoms/Fancybox'
 
 import { IScreenshotsSliderCarouselProps } from '../types/IScreenshotsSliderCarouselProps'
 
 import st from './ScreenshotsSliderCarousel.module.scss'
 import { useScreenshotsSliderCarousel } from './useScreenshotsSliderCarousel'
-import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
-import { Label } from '@shared/ui/molecules/Label'
-import { Fancybox } from '@shared/ui/atoms/Fancybox'
 
 const ScreenshotsSliderCarousel = (props: IScreenshotsSliderCarouselProps) => {
   const {

@@ -1,6 +1,7 @@
 import { PointerEvent, useRef } from 'react'
-import { IStarSliderProps } from '../types/IStarSliderProps'
 import { isNil } from '@shared/utils/functions'
+
+import { IStarSliderProps } from '../types/IStarSliderProps'
 import { TOTAL_STARS } from '../static/TOTAL_STARS'
 
 const useStarSlider = (props: IStarSliderProps) => {

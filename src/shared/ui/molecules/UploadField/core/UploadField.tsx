@@ -1,9 +1,11 @@
 import { UploadIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
-import st from './UploadField.module.scss'
 import { cn } from '@shared/utils/functions'
-import { useUploadField } from './useUploadField'
+
 import { IUploadFieldProps } from '../types/IUploadFieldProps'
+
+import st from './UploadField.module.scss'
+import { useUploadField } from './useUploadField'
 
 const UploadField = (props: IUploadFieldProps) => {
   const {

@@ -1,4 +1,5 @@
 import { closeAdditionalModal } from '@widgets/ModalWrapper'
+
 import { IConfirmationModalProps } from '../types/IConfirmationModalProps'
 
 const useConfirmationModal = (props: IConfirmationModalProps) => {

@@ -4,9 +4,11 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { ModalWrapper } from '@widgets/ModalWrapper'
 import NextTopLoader from 'nextjs-toploader'
 import { Toaster } from 'sonner'
-import { IRootLayoutProps } from '../../types/IRootLayoutProps'
-import { useProviders } from './useProviders'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
+import { IRootLayoutProps } from '../../types/IRootLayoutProps'
+
+import { useProviders } from './useProviders'
 import { AuthProvider } from './AuthProvider/AuthProvider'
 
 const Providers = (props: IRootLayoutProps) => {

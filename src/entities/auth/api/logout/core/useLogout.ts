@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { logout } from './logout'
 import { successToast } from '@shared/utils/toast'
 import { UserXIcon } from '@shared/icons'
+
+import { logout } from './logout'
 
 const useLogout = () => {
   const queryClient = useQueryClient()

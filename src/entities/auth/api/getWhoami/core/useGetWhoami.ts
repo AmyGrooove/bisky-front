@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { getWhoami } from './getWhoami'
 
 const useGetWhoami = () => {

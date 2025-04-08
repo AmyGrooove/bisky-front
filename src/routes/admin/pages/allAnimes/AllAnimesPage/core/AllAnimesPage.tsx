@@ -1,9 +1,10 @@
 'use client'
 
 import { cn, isNil } from '@shared/utils/functions'
+import Image from 'next/image'
+
 import { useAllAnimesPage } from './useAllAnimesPage'
 import st from './AllAnimesPage.module.scss'
-import Image from 'next/image'
 
 const AllAnimesPage = () => {
   const {

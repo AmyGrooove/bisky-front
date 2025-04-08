@@ -1,11 +1,13 @@
-import st from './Email.module.scss'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Button } from '@shared/ui/molecules/Button'
 import { Controller } from 'react-hook-form'
 import { FileIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
-import { useEmail } from './useEmail'
+
 import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
+
+import { useEmail } from './useEmail'
+import st from './Email.module.scss'
 
 const Email = () => {
   const { isLoading, control, sendForm, isDisabled } = useEmail()

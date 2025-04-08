@@ -2,7 +2,6 @@
 
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Fragment } from 'react'
-import st from './SearchModule.module.scss'
 import { SearchIcon } from '@shared/icons'
 import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
@@ -10,11 +9,14 @@ import { BigButton } from '@shared/ui/molecules/BigButton'
 import Link from 'next/link'
 import { getEmptyArray } from '@shared/utils/functions'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import { AvatarElement } from '../../AvatarElement'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 import { closeModal } from '@widgets/ModalWrapper'
-import { useSearchModule } from './useSearchModule'
+
+import { AvatarElement } from '../../AvatarElement'
 import { fastButtons } from '../static/fastButtons'
+
+import { useSearchModule } from './useSearchModule'
+import st from './SearchModule.module.scss'
 
 const SearchModule = () => {
   const {

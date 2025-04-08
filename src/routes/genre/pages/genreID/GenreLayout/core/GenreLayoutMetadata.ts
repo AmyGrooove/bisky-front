@@ -1,7 +1,8 @@
-import { IGenreLayoutProps } from '../types/IGenreLayoutProps'
 import { Metadata } from 'next'
 import { ENV } from '@shared/static'
 import { getAnimesByGenre } from '@entities/genre/api/getAnimesByGenre'
+
+import { IGenreLayoutProps } from '../types/IGenreLayoutProps'
 
 const GenreLayoutMetadata = async (
   props: IGenreLayoutProps,

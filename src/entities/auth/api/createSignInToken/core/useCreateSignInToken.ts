@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { createSignInToken } from './createSignInToken'
 
 const useCreateSignInToken = (isDisabled = false) => {

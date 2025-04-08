@@ -1,8 +1,9 @@
 import { SearchIcon } from '@shared/icons'
-import st from './SearchButton.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
 import { setModal } from '@widgets/ModalWrapper'
 import { SearchModule } from '@entities/search/ui/SearchModule'
+
+import st from './SearchButton.module.scss'
 
 const SearchButton = () => {
   return (

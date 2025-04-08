@@ -1,6 +1,4 @@
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
-import st from './UserHeader.module.scss'
-import { useUserHeader } from './useUserHeader'
 import { Fancybox } from '@shared/ui/atoms/Fancybox'
 import { Text } from '@shared/ui/atoms/Text'
 import { GlassButton } from '@shared/ui/molecules/GlassButton'
@@ -8,6 +6,9 @@ import { SettingsIcon } from '@shared/icons'
 import { cn } from '@shared/utils/functions'
 import { setModal } from '@widgets/ModalWrapper'
 import { SettingsModal } from '@widgets/SettingsModal'
+
+import { useUserHeader } from './useUserHeader'
+import st from './UserHeader.module.scss'
 
 const UserHeader = () => {
   const { avatar, username, convertedLastOnline, isCurrentUser } =

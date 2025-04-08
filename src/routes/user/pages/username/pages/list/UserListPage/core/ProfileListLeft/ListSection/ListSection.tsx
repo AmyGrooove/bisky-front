@@ -1,10 +1,11 @@
-import { useListSection } from './useListSection'
-import st from './ListSection.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
 import { CircleViews } from '@entities/animeEstimate/ui/CircleViews'
 import { Badge } from '@shared/ui/molecules/Badge'
 import { cn, getSpacedNumber } from '@shared/utils/functions'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
+
+import st from './ListSection.module.scss'
+import { useListSection } from './useListSection'
 
 const ListSection = () => {
   const { added, watching, completed, dropped, badgeElements, isLoading } =

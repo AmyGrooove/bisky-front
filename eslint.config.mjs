@@ -1,6 +1,7 @@
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import prettierConfig from 'eslint-config-prettier'
+import importPlugin from 'eslint-plugin-import'
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -8,6 +9,9 @@ export default tseslint.config(
   tseslint.configs.stylistic,
   prettierConfig,
   {
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       '@typescript-eslint/no-empty-object-type': ['off'],
       '@typescript-eslint/no-explicit-any': ['off'],
@@ -22,6 +26,22 @@ export default tseslint.config(
           destructuredArrayIgnorePattern: '^_',
           varsIgnorePattern: '^_',
           ignoreRestSiblings: true,
+        },
+      ],
+      'import/order': [
+        'warn',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+            'type',
+          ],
+          'newlines-between': 'always',
         },
       ],
     },

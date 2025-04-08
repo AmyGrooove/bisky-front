@@ -1,8 +1,5 @@
 'use client'
 
-import st from './FastSelectPage.module.scss'
-import { useFastSelectPage } from './useFastSelectPage'
-import { SelectElement } from './SelectElement/SelectElement'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn, isNil } from '@shared/utils/functions'
 import { GlassButton } from '@shared/ui/molecules/GlassButton'
@@ -12,6 +9,10 @@ import { FastSelectLoading } from '@routes/fastSelect/FastSelectLoading'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
+
+import { SelectElement } from './SelectElement/SelectElement'
+import { useFastSelectPage } from './useFastSelectPage'
+import st from './FastSelectPage.module.scss'
 
 const FastSelectPage = () => {
   const {

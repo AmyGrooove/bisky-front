@@ -1,8 +1,10 @@
-import { IPlayerModuleProps } from '../types/IPlayerModuleProps'
-import { usePlayerModule } from './usePlayerModule'
-import st from './PlayerModule.module.scss'
 import { cn } from '@shared/utils/functions'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
+
+import { IPlayerModuleProps } from '../types/IPlayerModuleProps'
+
+import { usePlayerModule } from './usePlayerModule'
+import st from './PlayerModule.module.scss'
 
 const PlayerModule = (props: IPlayerModuleProps) => {
   const { kodikHref, className } = usePlayerModule(props)

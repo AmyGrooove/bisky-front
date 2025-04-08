@@ -1,10 +1,12 @@
-import { IFriendsModalProps } from '../../../../../types/IFriendsModalProps'
-import { useFriendsModal } from './useFriendsModal'
-import st from './FriendsModal.module.scss'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import Link from 'next/link'
 import { Text } from '@shared/ui/atoms/Text'
 import { closeModal } from '@widgets/ModalWrapper'
+
+import { IFriendsModalProps } from '../../../../../types/IFriendsModalProps'
+
+import st from './FriendsModal.module.scss'
+import { useFriendsModal } from './useFriendsModal'
 
 const FriendsModal = (props: IFriendsModalProps) => {
   const { data } = useFriendsModal(props)

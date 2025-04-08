@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { loginByPassword } from './loginByPassword'
-import { ILoginByPasswordRequest } from '../types/ILoginByPasswordRequest'
 import { successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+
+import { ILoginByPasswordRequest } from '../types/ILoginByPasswordRequest'
+
+import { loginByPassword } from './loginByPassword'
 
 const useLoginByPassword = () => {
   const queryClient = useQueryClient()

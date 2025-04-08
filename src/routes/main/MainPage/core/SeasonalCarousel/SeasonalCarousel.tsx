@@ -3,12 +3,12 @@
 import { Season } from '@entities/anime/ui/Season'
 import { cn, getEmptyArray } from '@shared/utils/functions'
 import { ChevronLeftIcon, ChevronRightIcon } from '@shared/icons'
+import { Skeleton } from '@shared/ui/atoms/Skeleton'
 
 import { ISeasonalCarouselProps } from '../../types/ISeasonalCarouselProps'
 
 import st from './SeasonalCarousel.module.scss'
 import { useSeasonalCarousel } from './useSeasonalCarousel'
-import { Skeleton } from '@shared/ui/atoms/Skeleton'
 
 const SeasonalCarousel = (props: ISeasonalCarouselProps) => {
   const {

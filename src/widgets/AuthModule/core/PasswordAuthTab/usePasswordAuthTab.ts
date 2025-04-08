@@ -1,14 +1,15 @@
 import { useFormContext } from 'react-hook-form'
-import { IAuthTabProps } from '../../types/IAuthTabProps'
 import { useLoginByPassword } from '@entities/auth/api/loginByPassword'
 import { z } from 'zod'
-import { loginSchema } from '../../schemas/loginSchema'
 import { useRouter } from 'next/navigation'
 import { closeAdditionalModal, closeModal } from '@widgets/ModalWrapper'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 
+import { loginSchema } from '../../schemas/loginSchema'
+import { IAuthTabProps } from '../../types/IAuthTabProps'
+
 const usePasswordAuthTab = (props: IAuthTabProps) => {
-  const { setNewTab } = props
+  const { setNewTab, successCallback } = props
 
   const { push } = useRouter()
 
@@ -33,7 +34,12 @@ const usePasswordAuthTab = (props: IAuthTabProps) => {
     await loginByPassword({ username, password })
     closeModal()
     closeAdditionalModal()
-    push(`/user/${username}`)
+
+    if (successCallback) {
+      successCallback()
+    } else {
+      push(`/user/${username}`)
+    }
   }
 
   useKeyboardShortcut({

@@ -1,9 +1,10 @@
 import { useRouter } from 'next/navigation'
-import { ICallNoAuthorizeProps } from '../types/ICallNoAuthorizeProps'
 import { isNil } from '@shared/utils/functions'
 import { setModal } from '@widgets/ModalWrapper'
-import { NoAuthorize } from '../core/NoAuthorize'
 import { useSession } from '@entities/auth/hooks/useSession'
+
+import { NoAuthorize } from '../core/NoAuthorize'
+import { ICallNoAuthorizeProps } from '../types/ICallNoAuthorizeProps'
 
 const useCallNoAuthorize = () => {
   const { push } = useRouter()

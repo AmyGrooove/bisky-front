@@ -1,9 +1,10 @@
 'use client'
 
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
-import st from './FastStarLoading.module.scss'
 import { CrownIcon } from '@shared/icons'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
+
+import st from './FastStarLoading.module.scss'
 
 const FastStarLoading = () => {
   return (

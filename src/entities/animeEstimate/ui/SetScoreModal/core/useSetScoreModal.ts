@@ -1,9 +1,9 @@
 import { closeModal } from '@widgets/ModalWrapper'
-
-import { ISetScoreModalProps } from '../types/ISetScoreModalProps'
 import { useState } from 'react'
 import { isNil } from '@shared/utils/functions'
 import { useSetAnimeScore } from '@entities/animeEstimate/api/setAnimeScore'
+
+import { ISetScoreModalProps } from '../types/ISetScoreModalProps'
 
 const useSetScoreModal = (props: ISetScoreModalProps) => {
   const { _id, selectedScore, setScore } = props

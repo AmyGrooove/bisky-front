@@ -1,6 +1,7 @@
-import { IUserLayoutProps } from '../types/IUserLayoutProps'
 import { notFound } from 'next/navigation'
 import { getProfile } from '@entities/profile/api/getProfile'
+
+import { IUserLayoutProps } from '../types/IUserLayoutProps'
 
 const UserLayout = async (props: IUserLayoutProps) => {
   const { params, children } = props

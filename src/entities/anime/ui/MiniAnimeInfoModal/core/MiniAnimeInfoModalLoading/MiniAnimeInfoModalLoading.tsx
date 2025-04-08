@@ -1,9 +1,11 @@
 'use client'
 
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import st from './MiniAnimeInfoModalLoading.module.scss'
 import { cn, getEmptyArray } from '@shared/utils/functions'
+
 import { IMiniAnimeInfoModalLoadingProps } from '../../types/IMiniAnimeInfoModalLoadingProps'
+
+import st from './MiniAnimeInfoModalLoading.module.scss'
 import { useMiniAnimeInfoModalLoading } from './useMiniAnimeInfoModalLoading'
 
 const MiniAnimeInfoModalLoading = (props: IMiniAnimeInfoModalLoadingProps) => {

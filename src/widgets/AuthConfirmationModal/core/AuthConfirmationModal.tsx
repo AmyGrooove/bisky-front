@@ -1,9 +1,11 @@
 import { setAdditionalModal } from '@widgets/ModalWrapper'
-import st from './AuthConfirmationModal.module.scss'
-import { useAuthConfirmationModal } from './useAuthConfirmationModal'
-import { IAuthConfirmationModalProps } from '../types/IAuthConfirmationModalProps'
 import { ConfirmationModal } from '@shared/ui/organisms/ConfirmationModal'
 import { AuthModule } from '@widgets/AuthModule'
+
+import { IAuthConfirmationModalProps } from '../types/IAuthConfirmationModalProps'
+
+import st from './AuthConfirmationModal.module.scss'
+import { useAuthConfirmationModal } from './useAuthConfirmationModal'
 
 const AuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
   const { copyID, isIDTextEnabled } = useAuthConfirmationModal(props)

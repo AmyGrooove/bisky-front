@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { updateEmail } from './updateEmail'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+
 import { IUpdateEmailRequest } from '../types/IUpdateEmailRequest'
+
+import { updateEmail } from './updateEmail'
 
 const useUpdateEmail = () => {
   const queryClient = useQueryClient()

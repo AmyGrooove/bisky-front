@@ -1,7 +1,7 @@
 import { useDelayedClick } from '@shared/utils/hooks/useDelayedClick'
+import { useEffect, useState } from 'react'
 
 import { IModalProps } from '../types/IModalProps'
-import { useEffect, useState } from 'react'
 
 const useModal = (props: IModalProps) => {
   const { closeFunction, children } = props

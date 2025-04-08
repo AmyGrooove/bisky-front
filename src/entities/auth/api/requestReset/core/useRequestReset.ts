@@ -1,6 +1,8 @@
 import { useMutation } from '@tanstack/react-query'
-import { requestReset } from './requestReset'
+
 import { IRequestResetRequest } from '../types/IRequestResetRequest'
+
+import { requestReset } from './requestReset'
 
 const useRequestReset = () => {
   return useMutation({

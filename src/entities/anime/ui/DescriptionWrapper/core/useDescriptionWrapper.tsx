@@ -1,8 +1,10 @@
 import { isNil } from '@shared/utils/functions'
 import { setAdditionalModal, setModal } from '@widgets/ModalWrapper'
 import { Text } from '@shared/ui/atoms/Text'
-import st from './DescriptionWrapper.module.scss'
+
 import { IDescriptionWrapperProps } from '../types/IDescriptionWrapperProps'
+
+import st from './DescriptionWrapper.module.scss'
 
 const useDescriptionWrapper = (props: IDescriptionWrapperProps) => {
   const { description, isAdditionalModal = false } = props

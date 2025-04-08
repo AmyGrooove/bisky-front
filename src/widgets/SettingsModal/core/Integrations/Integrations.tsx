@@ -1,12 +1,14 @@
 import { Text } from '@shared/ui/atoms/Text'
-import st from './Integrations.module.scss'
-import { useIntegrations } from './useIntegrations'
-import { integrationList } from '../../static/integrationList'
 import { Button } from '@shared/ui/molecules/Button'
 import { cn, isNil } from '@shared/utils/functions'
 import Link from 'next/link'
+
+import { integrationList } from '../../static/integrationList'
 import { anonymCode } from '../../utils/anonymCode'
 import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
+
+import { useIntegrations } from './useIntegrations'
+import st from './Integrations.module.scss'
 
 const Integrations = () => {
   const { data, isLoading } = useIntegrations()

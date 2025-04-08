@@ -1,7 +1,9 @@
 'use client'
 
 import { isNil } from '@shared/utils/functions'
+
 import { UserLoading } from '../../UserLoading'
+
 import { UserHeader } from './UserHeader/UserHeader'
 import { useUserPage } from './useUserPage'
 import { UserActivity } from './UserActivity/UserActivity'

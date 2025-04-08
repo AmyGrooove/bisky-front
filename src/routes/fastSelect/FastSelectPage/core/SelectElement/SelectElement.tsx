@@ -1,13 +1,15 @@
 import { cn } from '@shared/utils/functions'
-import st from './SelectElement.module.scss'
 import { Button } from '@shared/ui/molecules/Button'
 import { InfoIcon } from '@shared/icons'
 import { setModal } from '@widgets/ModalWrapper'
 import { MiniAnimeInfoModal } from '@entities/anime/ui/MiniAnimeInfoModal'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
-import { useSelectElement } from './useSelectElement'
+
 import { ISelectElementProps } from '../../types/ISelectElementProps'
+
+import { useSelectElement } from './useSelectElement'
+import st from './SelectElement.module.scss'
 
 const SelectElement = (props: ISelectElementProps) => {
   const { side, poster, label, selectThis, _id } = useSelectElement(props)

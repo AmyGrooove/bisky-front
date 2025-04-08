@@ -1,10 +1,12 @@
-import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
-import { useListStatus } from './useListStatus'
-import st from './ListStatus.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
 import { CircleViews } from '@entities/animeEstimate/ui/CircleViews'
 import { Badge } from '@shared/ui/molecules/Badge'
 import { cn, getSpacedNumber } from '@shared/utils/functions'
+
+import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
+
+import st from './ListStatus.module.scss'
+import { useListStatus } from './useListStatus'
 
 const ListStatus = (props: IAnimeSectionProps) => {
   const { added, watching, completed, dropped, badgeElements } =

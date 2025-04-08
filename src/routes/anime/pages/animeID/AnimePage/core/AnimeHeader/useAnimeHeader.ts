@@ -5,6 +5,7 @@ import {
   getSeasonYear,
   getNormalEpisodeInfo,
 } from '@entities/anime/utils/functions'
+
 import { IAnimeSectionProps } from '../../types/IAnimeSectionProps'
 
 const useAnimeHeader = (props: IAnimeSectionProps) => {

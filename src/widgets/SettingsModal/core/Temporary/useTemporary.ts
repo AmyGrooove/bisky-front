@@ -1,13 +1,14 @@
-import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { temporarySchema } from '../../schemas/temporarySchema'
 import { useGetUserID } from '@entities/user/api/getUserID'
 import { UserIcon } from '@shared/icons'
 import { successToast } from '@shared/utils/toast'
 import { isNil } from '@shared/utils/functions'
 import { useLoginByID } from '@entities/auth/api/loginByID'
+
+import { temporarySchema } from '../../schemas/temporarySchema'
+import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
 
 const useTemporary = (props: ISettingsSectionProps) => {
   const { setActiveTab } = props

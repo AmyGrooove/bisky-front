@@ -1,9 +1,11 @@
-import { IInputCodeProps } from '../types/IInputCodeProps'
-import { useInputCode } from './useInputCode'
-import st from './InputCode.module.scss'
 import { cn, isNil } from '@shared/utils/functions'
 import { OTPInput } from 'input-otp'
+
+import { IInputCodeProps } from '../types/IInputCodeProps'
 import { Text } from '../../Text'
+
+import { useInputCode } from './useInputCode'
+import st from './InputCode.module.scss'
 
 const InputCode = (props: IInputCodeProps) => {
   const { length, value, handleChange, className, isAutoFocus, label } =

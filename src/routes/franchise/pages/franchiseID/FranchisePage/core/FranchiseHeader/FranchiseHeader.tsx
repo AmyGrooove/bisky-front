@@ -1,8 +1,10 @@
 import { Text } from '@shared/ui/atoms/Text'
+import { cn, isNil } from '@shared/utils/functions'
+
 import { IFranchiseHeaderProps } from '../../types/IFranchiseHeaderProps'
+
 import { useFranchiseHeader } from './useFranchiseHeader'
 import st from './FranchiseHeader.module.scss'
-import { cn, isNil } from '@shared/utils/functions'
 
 const FranchiseHeader = (props: IFranchiseHeaderProps) => {
   const { description, name } = useFranchiseHeader(props)

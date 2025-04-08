@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { addAnimesToShikiBanList } from './addAnimesToShikiBanList'
+
 import { IAddAnimesToShikiBanListRequest } from '../types/IAddAnimesToShikiBanListRequest'
+
+import { addAnimesToShikiBanList } from './addAnimesToShikiBanList'
 
 const useAddAnimesToShikiBanList = () => {
   const queryClient = useQueryClient()

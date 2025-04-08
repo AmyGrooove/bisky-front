@@ -1,10 +1,11 @@
+import { StarSlider } from '@shared/ui/atoms/StarSlider'
+import { Button } from '@shared/ui/molecules/Button'
+import { cn } from '@shared/utils/functions'
+
 import { ISetScoreModalProps } from '../types/ISetScoreModalProps'
 
 import st from './SetScoreModal.module.scss'
 import { useSetScoreModal } from './useSetScoreModal'
-import { StarSlider } from '@shared/ui/atoms/StarSlider'
-import { Button } from '@shared/ui/molecules/Button'
-import { cn } from '@shared/utils/functions'
 
 const SetScoreModal = (props: ISetScoreModalProps) => {
   const {

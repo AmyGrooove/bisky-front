@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
-import { ISeasonalCarouselProps } from '../../types/ISeasonalCarouselProps'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
+
+import { ISeasonalCarouselProps } from '../../types/ISeasonalCarouselProps'
 
 const useSeasonalCarousel = (props: ISeasonalCarouselProps) => {
   const { data } = props

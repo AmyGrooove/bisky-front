@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
-import { ICropImageProps } from '../types/ICropImageProps'
 import { Area } from 'react-easy-crop'
+
+import { ICropImageProps } from '../types/ICropImageProps'
 import { getCroppedImage } from '../utils/getCroppedImage'
 
 const useCropImage = (props: ICropImageProps) => {

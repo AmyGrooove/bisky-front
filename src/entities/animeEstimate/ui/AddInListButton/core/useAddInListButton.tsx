@@ -1,14 +1,13 @@
 import { MouseEvent, useEffect, useState } from 'react'
-
 import { getListStatusIcon } from '@entities/animeEstimate/utils'
 import { TListStatus } from '@entities/animeEstimate/types'
-
-import { IAddInListButtonProps } from '../types/IAddInListButtonProps'
 import { useTopLoader } from 'nextjs-toploader'
 import { isNil } from '@shared/utils/functions'
 import { setModal } from '@widgets/ModalWrapper'
-import { AddInListModal } from '../../AddInListModal'
 import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+
+import { AddInListModal } from '../../AddInListModal'
+import { IAddInListButtonProps } from '../types/IAddInListButtonProps'
 
 const useAddInListButton = (props: IAddInListButtonProps) => {
   const { _id = null, selectedListStatus = null, className } = props

@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+
 import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
 import { badgeItems } from '../../../static/badgeItems'
 

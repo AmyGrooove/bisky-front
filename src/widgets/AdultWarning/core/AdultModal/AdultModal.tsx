@@ -2,6 +2,7 @@ import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 import { cn } from '@shared/utils/functions'
 import Image from 'next/image'
+
 import { useAdultModal } from './useAdultModal'
 import st from './AdultModal.module.scss'
 

@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
-
 import { Button } from '@shared/ui/molecules/Button'
 import { Text } from '@shared/ui/atoms/Text'
 
-import st from './GlobalError.module.scss'
 import { IGlobalError } from '../types/IGlobalErrorProps'
+
+import st from './GlobalError.module.scss'
 import { useGlobalError } from './useGlobalError'
 
 const GlobalError = (props: IGlobalError) => {

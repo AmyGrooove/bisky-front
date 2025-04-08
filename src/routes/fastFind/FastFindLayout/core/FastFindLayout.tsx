@@ -1,9 +1,10 @@
 'use client'
 
 import { useSession } from '@entities/auth/hooks/useSession'
-import { IFastFindLayoutProps } from '../types/IFastFindLayoutProps'
 import { useEffect } from 'react'
 import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+
+import { IFastFindLayoutProps } from '../types/IFastFindLayoutProps'
 
 const FastFindLayout = (props: IFastFindLayoutProps) => {
   const { children } = props

@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useGetProfile } from '@entities/profile/api/getProfile'
 import { useParams } from 'next/navigation'
+
 import { badgeItems } from '../../../static/badgeItems'
 
 const useListSection = () => {

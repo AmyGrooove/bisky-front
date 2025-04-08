@@ -2,8 +2,9 @@ import { DonutIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { BigButton } from '@shared/ui/molecules/BigButton'
 import Link from 'next/link'
-import st from './FastStarWarningModal.module.scss'
 import { closeModal } from '@widgets/ModalWrapper'
+
+import st from './FastStarWarningModal.module.scss'
 
 const FastStarWarningModal = () => {
   return (

@@ -1,6 +1,7 @@
 'use client'
 
 import { ChevronLeftIcon } from '@shared/icons'
+
 import st from './BackButton.module.scss'
 import { useBackButton } from './useBackButton'
 
