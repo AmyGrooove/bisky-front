@@ -1,5 +1,6 @@
-import type { MDXComponents } from 'mdx/types'
 import st from './mdx-components.module.scss'
+
+import type { MDXComponents } from 'mdx/types'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

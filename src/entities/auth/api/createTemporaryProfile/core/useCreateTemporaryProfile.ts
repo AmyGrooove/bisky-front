@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { createTemporaryProfile } from './createTemporaryProfile'
 import { UserIcon } from '@shared/icons'
 import { successToast } from '@shared/utils/toast'
+
+import { createTemporaryProfile } from './createTemporaryProfile'
 
 const useCreateTemporaryProfile = () => {
   const queryClient = useQueryClient()

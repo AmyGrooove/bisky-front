@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { getHomePageData } from './getHomePageData'
 
 const useGetHomePageData = () => {

@@ -1,6 +1,7 @@
 import { getAnimesByStudio } from '@entities/studio/api/getAnimesByStudio'
-import { IStudioLayoutProps } from '../types/IStudioLayoutProps'
 import { notFound } from 'next/navigation'
+
+import { IStudioLayoutProps } from '../types/IStudioLayoutProps'
 
 const StudioLayout = async (props: IStudioLayoutProps) => {
   const { params, children } = props

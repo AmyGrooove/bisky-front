@@ -1,12 +1,14 @@
-import st from './Password.module.scss'
-import { usePassword } from './usePassword'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Button } from '@shared/ui/molecules/Button'
 import { Controller } from 'react-hook-form'
 import { FileIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
+
 import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
 import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
+
+import { usePassword } from './usePassword'
+import st from './Password.module.scss'
 
 const Password = (props: ISettingsSectionProps) => {
   const {

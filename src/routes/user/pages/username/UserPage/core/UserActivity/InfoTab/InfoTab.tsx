@@ -1,5 +1,7 @@
 import { cn } from '@shared/utils/functions'
+
 import { IInfoTabProps } from '../../../types/IInfoTabProps'
+
 import st from './InfoTab.module.scss'
 import { useInfoTab } from './useInfoTab'
 import { FriendsSection } from './FriendsSection/FriendsSection'

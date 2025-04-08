@@ -10,8 +10,6 @@ import {
 } from '@shared/icons'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
-import st from './FastStarPage.module.scss'
-import { useFastStarPage } from './useFastStarPage'
 import { FastStarLoading } from '@routes/fastStar/FastStarLoading'
 import { Text } from '@shared/ui/atoms/Text'
 import { MiniAnimeInfoModal } from '@entities/anime/ui/MiniAnimeInfoModal'
@@ -22,6 +20,9 @@ import { GlassButton } from '@shared/ui/molecules/GlassButton'
 import { cn } from '@shared/utils/functions'
 import { getScoreColor } from '@entities/animeEstimate/utils'
 import { Badge } from '@shared/ui/molecules/Badge'
+
+import { useFastStarPage } from './useFastStarPage'
+import st from './FastStarPage.module.scss'
 
 const FastStarPage = () => {
   const {

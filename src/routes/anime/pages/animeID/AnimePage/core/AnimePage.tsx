@@ -1,16 +1,18 @@
 'use client'
 
-import { AnimeHeader } from './AnimeHeader/AnimeHeader'
 import { AdultWarning } from '@widgets/AdultWarning'
-import { AnimeInfo } from './AnimeInfo/AnimeInfo'
 import { PlayerModule } from '@entities/player/ui/PlayerModule'
 import { ScreenshotsSliderCarousel } from '@entities/anime/ui/ScreenshotsSlider'
-import st from './AnimePage.module.scss'
 import { AnimeCardCarousel } from '@entities/anime/ui/AnimeCardCarousel'
 import { Label } from '@shared/ui/molecules/Label'
-import { useAnimePage } from './useAnimePage'
 import { isNil } from '@shared/utils/functions'
+
 import { AnimeLoading } from '../../AnimeLoading'
+
+import { useAnimePage } from './useAnimePage'
+import st from './AnimePage.module.scss'
+import { AnimeInfo } from './AnimeInfo/AnimeInfo'
+import { AnimeHeader } from './AnimeHeader/AnimeHeader'
 
 const AnimePage = () => {
   const { franchiseHref, data, isLoading } = useAnimePage()

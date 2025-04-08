@@ -1,10 +1,11 @@
 import { getEmptyArray } from '@shared/utils/functions'
-import st from './FavoriteTab.module.scss'
-import { useFavoriteTab } from './useFavoriteTab'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { Text } from '@shared/ui/atoms/Text'
 import Image from 'next/image'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
+
+import { useFavoriteTab } from './useFavoriteTab'
+import st from './FavoriteTab.module.scss'
 
 const FavoriteTab = () => {
   const { data, isLoading, loadingRef, isEnd } = useFavoriteTab()

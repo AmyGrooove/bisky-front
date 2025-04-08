@@ -1,10 +1,12 @@
 import { cn } from '@shared/utils/functions'
-import { ICropImageProps } from '../types/ICropImageProps'
-import { useCropImage } from './useCropImage'
-import st from './CropImage.module.scss'
 import Cropper from 'react-easy-crop'
 import { ImageIcon } from '@shared/icons'
 import { Button } from '@shared/ui/molecules/Button'
+
+import { ICropImageProps } from '../types/ICropImageProps'
+
+import { useCropImage } from './useCropImage'
+import st from './CropImage.module.scss'
 
 const CropImage = (props: ICropImageProps) => {
   const {

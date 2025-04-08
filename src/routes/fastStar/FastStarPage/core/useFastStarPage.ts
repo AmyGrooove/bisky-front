@@ -2,10 +2,11 @@ import { useGetAnimesFastStar } from '@entities/anime/api/getAnimesFastStar'
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { getCurrentEstimate } from '../utils/getCurrentEstimate'
 import { useSetAnimeFavorite } from '@entities/animeEstimate/api/setAnimeFavorite'
 import { useSetAnimeScore } from '@entities/animeEstimate/api/setAnimeScore'
 import { isNil } from '@shared/utils/functions'
+
+import { getCurrentEstimate } from '../utils/getCurrentEstimate'
 
 const useFastStarPage = () => {
   const { push } = useRouter()

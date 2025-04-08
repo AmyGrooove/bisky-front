@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { subscribeToUser } from './subscribeToUser'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+
 import { ISubscribeToUserRequest } from '../types/ISubscribeToUserRequest'
+
+import { subscribeToUser } from './subscribeToUser'
 
 const useSubscribeToUser = () => {
   const queryClient = useQueryClient()

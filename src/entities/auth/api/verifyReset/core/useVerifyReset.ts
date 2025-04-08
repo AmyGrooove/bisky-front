@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { verifyReset } from './verifyReset'
-import { IVerifyResetRequest } from '../types/IVerifyResetRequest'
 import { UserIcon } from '@shared/icons'
 import { successToast } from '@shared/utils/toast'
+
+import { IVerifyResetRequest } from '../types/IVerifyResetRequest'
+
+import { verifyReset } from './verifyReset'
 
 const useVerifyReset = () => {
   const queryClient = useQueryClient()

@@ -1,6 +1,7 @@
 import { getAnimesByGenre } from '@entities/genre/api/getAnimesByGenre'
-import { IGenreLayoutProps } from '../types/IGenreLayoutProps'
 import { notFound } from 'next/navigation'
+
+import { IGenreLayoutProps } from '../types/IGenreLayoutProps'
 
 const GenreLayout = async (props: IGenreLayoutProps) => {
   const { params, children } = props

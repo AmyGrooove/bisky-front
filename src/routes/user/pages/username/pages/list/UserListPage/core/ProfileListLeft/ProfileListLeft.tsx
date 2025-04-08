@@ -1,5 +1,4 @@
 import st from './ProfileListLeft.module.scss'
-
 import { UserBlock } from './UserBlock/UserBlock'
 import { ListSection } from './ListSection/ListSection'
 

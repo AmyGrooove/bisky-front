@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
-
 import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 

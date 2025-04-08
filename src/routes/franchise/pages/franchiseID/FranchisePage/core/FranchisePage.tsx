@@ -1,12 +1,13 @@
 'use client'
 
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
-import { FranchiseHeader } from './FranchiseHeader/FranchiseHeader'
-import st from './FranchisePage.module.scss'
-import { useFranchisePage } from './useFranchisePage'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { getEmptyArray } from '@shared/utils/functions'
+
+import { FranchiseHeader } from './FranchiseHeader/FranchiseHeader'
+import st from './FranchisePage.module.scss'
+import { useFranchisePage } from './useFranchisePage'
 
 const FranchisePage = () => {
   const {

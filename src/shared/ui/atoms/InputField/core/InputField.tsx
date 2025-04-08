@@ -1,12 +1,12 @@
 import { cn, isNil } from '@shared/utils/functions'
+import { forwardRef } from 'react'
+import { Text } from '@shared/ui/atoms/Text'
+import { EyeIcon, EyeOffIcon } from '@shared/icons'
 
 import { IInputFieldProps } from '../types/IInputFieldProps'
 
 import { useInputField } from './useInputField'
 import st from './InputField.module.scss'
-import { forwardRef } from 'react'
-import { Text } from '@shared/ui/atoms/Text'
-import { EyeIcon, EyeOffIcon } from '@shared/icons'
 
 const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
   (props, ref) => {

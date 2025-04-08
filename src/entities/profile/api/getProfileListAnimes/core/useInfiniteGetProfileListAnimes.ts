@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { getProfileListAnimes } from './getProfileListAnimes'
 import { TListStatus } from '@entities/animeEstimate/types'
+
+import { getProfileListAnimes } from './getProfileListAnimes'
 
 const useInfiniteGetProfileListAnimes = (
   username: string,

@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next'
-
 import { ENV } from '@shared/static'
 
 const robots = (): MetadataRoute.Robots =>

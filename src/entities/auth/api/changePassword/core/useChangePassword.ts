@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { changePassword } from './changePassword'
-import { IChangePasswordRequest } from '../types/IChangePasswordRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+
+import { IChangePasswordRequest } from '../types/IChangePasswordRequest'
+
+import { changePassword } from './changePassword'
 
 const useChangePassword = () => {
   const queryClient = useQueryClient()

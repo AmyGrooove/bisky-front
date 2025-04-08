@@ -6,15 +6,17 @@ import {
   BrushIcon,
 } from '@shared/icons'
 import { isNil, cn } from '@shared/utils/functions'
-import { DescriptionWrapper } from '../../DescriptionWrapper'
-import { ScreenshotsSliderCarousel } from '../../ScreenshotsSlider'
 import { Text } from '@shared/ui/atoms/Text'
-import st from './MiniAnimeInfoModal.module.scss'
-import { IMiniAnimeInfoModalProps } from '../types/IMiniAnimeInfoModalProps'
-import { useMiniAnimeInfoModal } from './useMiniAnimeInfoModal'
 import { ScoreBadge } from '@entities/animeEstimate/ui/ScoreBadge'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
+
+import { DescriptionWrapper } from '../../DescriptionWrapper'
+import { ScreenshotsSliderCarousel } from '../../ScreenshotsSlider'
+import { IMiniAnimeInfoModalProps } from '../types/IMiniAnimeInfoModalProps'
+
+import st from './MiniAnimeInfoModal.module.scss'
+import { useMiniAnimeInfoModal } from './useMiniAnimeInfoModal'
 import { MiniAnimeInfoModalLoading } from './MiniAnimeInfoModalLoading/MiniAnimeInfoModalLoading'
 
 const MiniAnimeInfoModal = (props: IMiniAnimeInfoModalProps) => {

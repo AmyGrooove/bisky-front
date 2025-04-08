@@ -1,7 +1,5 @@
 import { SearchIcon } from '@shared/icons'
 import { SectionSelector } from '@shared/ui/molecules/SectionSelector'
-import st from './ListSections.module.scss'
-import { useListSections } from './useListSections'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { AnimeCard } from '@entities/anime/ui/AnimeCard'
 import { cn, getEmptyArray } from '@shared/utils/functions'
@@ -9,6 +7,9 @@ import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { sectionSelectorItems } from '@entities/animeEstimate/static'
+
+import { useListSections } from './useListSections'
+import st from './ListSections.module.scss'
 
 const ListSections = () => {
   const {

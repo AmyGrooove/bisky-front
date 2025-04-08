@@ -2,8 +2,9 @@
 
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useEffect } from 'react'
-import { IFastStarLayoutProps } from '../types/IFastStarLayoutProps'
 import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+
+import { IFastStarLayoutProps } from '../types/IFastStarLayoutProps'
 
 const FastStarLayout = (props: IFastStarLayoutProps) => {
   const { children } = props

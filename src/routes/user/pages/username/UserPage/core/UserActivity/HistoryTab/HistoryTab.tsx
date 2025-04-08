@@ -1,10 +1,11 @@
 import { getEmptyArray } from '@shared/utils/functions'
-import st from './HistoryTab.module.scss'
-import { useHistoryTab } from './useHistoryTab'
 import { HistoryItem } from '@entities/history/ui/HistoryItem'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { Text } from '@shared/ui/atoms/Text'
 import Image from 'next/image'
+
+import { useHistoryTab } from './useHistoryTab'
+import st from './HistoryTab.module.scss'
 
 const HistoryTab = () => {
   const { data, isLoading, loadingRef, isEnd } = useHistoryTab()

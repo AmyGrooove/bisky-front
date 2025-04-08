@@ -1,6 +1,7 @@
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import st from './GenreLoading.module.scss'
 import { getEmptyArray } from '@shared/utils/functions'
+
+import st from './GenreLoading.module.scss'
 
 const GenreLoading = async () => {
   return (

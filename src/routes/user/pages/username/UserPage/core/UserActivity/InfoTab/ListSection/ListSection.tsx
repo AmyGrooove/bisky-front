@@ -1,5 +1,3 @@
-import { useListSection } from './useListSection'
-import st from './ListSection.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
 import { CircleViews } from '@entities/animeEstimate/ui/CircleViews'
 import { Badge } from '@shared/ui/molecules/Badge'
@@ -8,6 +6,9 @@ import { CassetteTapeIcon } from '@shared/icons'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
+
+import st from './ListSection.module.scss'
+import { useListSection } from './useListSection'
 
 const ListSection = () => {
   const {

@@ -1,9 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { deleteAnimeEstimate } from './deleteAnimeEstimate'
-import { IDeleteAnimeEstimateRequest } from '../types/IDeleteAnimeEstimateRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { EyeOffIcon } from '@shared/icons'
 import { usePathname } from 'next/navigation'
+
+import { IDeleteAnimeEstimateRequest } from '../types/IDeleteAnimeEstimateRequest'
+
+import { deleteAnimeEstimate } from './deleteAnimeEstimate'
 
 const useDeleteAnimeEstimate = (isFromSkipList = false) => {
   const queryClient = useQueryClient()

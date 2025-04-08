@@ -1,9 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { setAnimeEstimate } from './setAnimeEstimate'
-import { ISetAnimeEstimateRequest } from '../types/ISetAnimeEstimateRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { CassetteTapeIcon } from '@shared/icons'
 import { usePathname } from 'next/navigation'
+
+import { ISetAnimeEstimateRequest } from '../types/ISetAnimeEstimateRequest'
+
+import { setAnimeEstimate } from './setAnimeEstimate'
 
 const useSetAnimeEstimate = (isFastFind = false) => {
   const queryClient = useQueryClient()

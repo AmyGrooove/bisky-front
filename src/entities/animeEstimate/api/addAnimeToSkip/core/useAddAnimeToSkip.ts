@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { addAnimeToSkip } from './addAnimeToSkip'
-import { IAddAnimeToSkipRequest } from '../types/IAddAnimeToSkipRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { CassetteTapeIcon } from '@shared/icons'
+
+import { IAddAnimeToSkipRequest } from '../types/IAddAnimeToSkipRequest'
+
+import { addAnimeToSkip } from './addAnimeToSkip'
 
 const useAddAnimeToSkip = (isFastFind = false) => {
   const queryClient = useQueryClient()

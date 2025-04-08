@@ -2,8 +2,9 @@ import { useGetAnimesFastSelect } from '@entities/anime/api/getAnimesFastSelect'
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import { IStateSnapshot } from '../types/IStateSnapshot'
 import { isNil } from '@shared/utils/functions'
+
+import { IStateSnapshot } from '../types/IStateSnapshot'
 
 const useFastSelectPage = () => {
   const { push } = useRouter()

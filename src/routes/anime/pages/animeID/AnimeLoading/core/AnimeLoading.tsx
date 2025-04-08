@@ -1,6 +1,7 @@
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import st from './AnimeLoading.module.scss'
 import { getEmptyArray } from '@shared/utils/functions'
+
+import st from './AnimeLoading.module.scss'
 
 const AnimeLoading = () => {
   return (

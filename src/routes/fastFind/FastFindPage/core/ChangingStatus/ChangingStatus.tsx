@@ -1,6 +1,3 @@
-import { IChangingStatusProps } from '../../types/IChangingStatusProps'
-import { useChangingStatus } from './useChangingStatus'
-import st from './ChangingStatus.module.scss'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { cn, isNil } from '@shared/utils/functions'
 import { Fancybox } from '@shared/ui/atoms/Fancybox'
@@ -10,6 +7,11 @@ import { InfoIcon } from '@shared/icons'
 import { setModal } from '@widgets/ModalWrapper'
 import { MiniAnimeInfoModal } from '@entities/anime/ui/MiniAnimeInfoModal'
 import { AddInListButton } from '@entities/animeEstimate/ui/AddInListButton'
+
+import { IChangingStatusProps } from '../../types/IChangingStatusProps'
+
+import st from './ChangingStatus.module.scss'
+import { useChangingStatus } from './useChangingStatus'
 
 const ChangingStatus = (props: IChangingStatusProps) => {
   const {

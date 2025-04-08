@@ -1,4 +1,5 @@
 import { ENV } from '@shared/static'
+
 import { IRefreshTokenRequest } from '../types/IRefreshTokenRequest'
 
 const refreshToken = async (body: IRefreshTokenRequest): Promise<string> => {

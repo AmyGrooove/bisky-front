@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { updateUsername } from './updateUsername'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+
 import { IUpdateUsernameRequest } from '../types/IUpdateUsernameRequest'
+
+import { updateUsername } from './updateUsername'
 
 const useUpdateUsername = () => {
   const queryClient = useQueryClient()

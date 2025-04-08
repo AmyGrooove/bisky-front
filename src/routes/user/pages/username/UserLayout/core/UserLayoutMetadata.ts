@@ -1,7 +1,8 @@
-import { IUserLayoutProps } from '../types/IUserLayoutProps'
 import { Metadata } from 'next'
 import { ENV } from '@shared/static'
 import { getProfile } from '@entities/profile/api/getProfile'
+
+import { IUserLayoutProps } from '../types/IUserLayoutProps'
 
 const UserLayoutMetadata = async (
   props: IUserLayoutProps,

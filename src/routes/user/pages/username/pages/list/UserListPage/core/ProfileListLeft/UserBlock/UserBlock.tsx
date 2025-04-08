@@ -1,8 +1,9 @@
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
-import st from './UserBlock.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
 import Link from 'next/link'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
+
+import st from './UserBlock.module.scss'
 import { useUserBlock } from './useUserBlock'
 
 const UserBlock = () => {

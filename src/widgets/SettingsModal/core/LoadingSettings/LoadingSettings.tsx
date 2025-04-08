@@ -1,5 +1,6 @@
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { getEmptyArray } from '@shared/utils/functions'
+
 import st from './LoadingSettings.module.scss'
 
 const LoadingSettings = () => {

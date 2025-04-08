@@ -1,10 +1,12 @@
 import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 import { closeAdditionalModal } from '@widgets/ModalWrapper'
-import st from './ConfirmationModal.module.scss'
 import { cn, isNil } from '@shared/utils/functions'
-import { useConfirmationModal } from './useConfirmationModal'
+
 import { IConfirmationModalProps } from '../types/IConfirmationModalProps'
+
+import st from './ConfirmationModal.module.scss'
+import { useConfirmationModal } from './useConfirmationModal'
 
 const ConfirmationModal = (props: IConfirmationModalProps) => {
   const { handleCallback, title, yesButtonClassName, description } =

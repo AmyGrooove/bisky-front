@@ -43,6 +43,7 @@
     "@types/react-dom": "^19.0.4",
     "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-import": "^2.31.0",
     "prettier": "^3.5.3",
     "stylelint": "^16.16.0",
     "stylelint-config-recommended-scss": "^14.1.0",

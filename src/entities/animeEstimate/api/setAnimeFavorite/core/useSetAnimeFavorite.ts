@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { setAnimeFavorite } from './setAnimeFavorite'
-import { ISetAnimeFavoriteRequest } from '../types/ISetAnimeFavoriteRequest'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { HeartIcon } from '@shared/icons'
+
+import { ISetAnimeFavoriteRequest } from '../types/ISetAnimeFavoriteRequest'
+
+import { setAnimeFavorite } from './setAnimeFavorite'
 
 const useSetAnimeFavorite = (isFastStar = false) => {
   const queryClient = useQueryClient()

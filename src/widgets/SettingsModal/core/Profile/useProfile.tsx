@@ -7,14 +7,16 @@ import {
   setAdditionalModal,
 } from '@widgets/ModalWrapper'
 import { useEffect, useState } from 'react'
-import st from './Profile.module.scss'
 import { useUnit } from 'effector-react'
 import { useSetAvatar } from '@entities/user/api/setAvatar'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { profileSchema } from '../../schemas/profileSchema'
 import { z } from 'zod'
 import { useUpdateUsername } from '@entities/user/api/updateUsername'
+
+import { profileSchema } from '../../schemas/profileSchema'
+
+import st from './Profile.module.scss'
 
 const useProfile = () => {
   const { user, isLoading } = useSession()

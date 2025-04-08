@@ -1,5 +1,6 @@
-import st from './QRCode.module.scss'
 import { Text } from '@shared/ui/atoms/Text'
+
+import st from './QRCode.module.scss'
 import { QRDesktop } from './QRDesktop/QRDesktop'
 import { QRMobile } from './QRMobile/QRMobile'
 

@@ -1,11 +1,11 @@
 import { cn, getEmptyArray } from '@shared/utils/functions'
+import { StarIcon } from '@shared/icons'
 
 import { IStarSliderProps } from '../types/IStarSliderProps'
+import { TOTAL_STARS } from '../static/TOTAL_STARS'
 
 import st from './StarSlider.module.scss'
 import { useStarSlider } from './useStarSlider'
-import { StarIcon } from '@shared/icons'
-import { TOTAL_STARS } from '../static/TOTAL_STARS'
 
 const StarSlider = (props: IStarSliderProps) => {
   const {

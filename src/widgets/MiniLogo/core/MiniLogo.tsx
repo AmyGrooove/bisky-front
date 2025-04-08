@@ -1,5 +1,4 @@
 import Link from 'next/link'
-
 import { LogoIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 

@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { Ubuntu } from 'next/font/google'
-
 import { Bar } from '@widgets/Bar'
 import { Footer } from '@widgets/Footer'
 import { Header } from '@widgets/Header'
 import { MiniLogo } from '@widgets/MiniLogo'
+
 import { IRootLayoutProps } from '../types/IRootLayoutProps'
 
 import st from './RootLayout.module.scss'

@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { addAnimesToShikiTrustList } from './addAnimesToShikiTrustList'
+
 import { IAddAnimesToShikiTrustListRequest } from '../types/IAddAnimesToShikiTrustListRequest'
+
+import { addAnimesToShikiTrustList } from './addAnimesToShikiTrustList'
 
 const useAddAnimesToShikiTrustList = () => {
   const queryClient = useQueryClient()

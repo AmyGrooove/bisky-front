@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { loginSchema } from '../schemas/loginSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { emailSchema } from '../schemas/emailSchema'
 
-const useAuthModule = () => {
+import { loginSchema } from '../schemas/loginSchema'
+import { emailSchema } from '../schemas/emailSchema'
+import { IAuthModuleProps } from '../types/IAuthModuleProps'
+
+const useAuthModule = (props: IAuthModuleProps) => {
+  const { successCallback } = props
+
   const [currentTab, setCurrentTab] = useState(0)
 
   const authForm = useForm<z.infer<typeof loginSchema>>({
@@ -20,7 +24,7 @@ const useAuthModule = () => {
     defaultValues: { email: '' },
   })
 
-  return { authForm, currentTab, setCurrentTab, emailForm }
+  return { authForm, currentTab, setCurrentTab, emailForm, successCallback }
 }
 
 export { useAuthModule }

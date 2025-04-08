@@ -1,6 +1,4 @@
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import st from './FriendsSection.module.scss'
-import { useFriendsSection } from './useFriendsSection'
 import { Text } from '@shared/ui/atoms/Text'
 import { UserIcon, UserXIcon } from '@shared/icons'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
@@ -8,6 +6,9 @@ import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
 import { Hint } from '@shared/ui/molecules/Hint'
 import { setModal } from '@widgets/ModalWrapper'
+
+import { useFriendsSection } from './useFriendsSection'
+import st from './FriendsSection.module.scss'
 import { FriendsModal } from './FriendsModal/FriendsModal'
 
 const FriendsSection = () => {

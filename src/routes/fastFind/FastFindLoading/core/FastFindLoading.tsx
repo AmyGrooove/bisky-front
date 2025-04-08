@@ -1,11 +1,12 @@
 'use client'
 
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import st from './FastFindLoading.module.scss'
 import { MiniAnimeInfoModalLoading } from '@entities/anime/ui/MiniAnimeInfoModal'
 import { DonutIcon } from '@shared/icons'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { cn } from '@shared/utils/functions'
+
+import st from './FastFindLoading.module.scss'
 
 const FastFindLoading = () => {
   return (

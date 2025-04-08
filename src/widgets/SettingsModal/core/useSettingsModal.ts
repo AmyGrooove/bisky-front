@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import st from './SettingsModal.module.scss'
-import { getSettingsTabs } from '../static/getSettingsTabs'
 import { cn } from '@shared/utils/functions'
 import { useIsMobile } from '@shared/utils/hooks/useIsMobile'
-import { ISettingsModalProps } from '../types/ISettingsModalProps'
 import { useSession } from '@entities/auth/hooks/useSession'
+
+import { ISettingsModalProps } from '../types/ISettingsModalProps'
+import { getSettingsTabs } from '../static/getSettingsTabs'
+
+import st from './SettingsModal.module.scss'
 
 const useSettingsModal = (props: ISettingsModalProps) => {
   const { defaultActiveTab = 1 } = props

@@ -1,12 +1,14 @@
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
-import { oauthList } from '../../static/oauthList'
 import Link from 'next/link'
-import st from './SelectAuthMethodTab.module.scss'
 import { Controller } from 'react-hook-form'
-import { useSelectAuthMethodTab } from './useSelectAuthMethodTab'
+
+import { oauthList } from '../../static/oauthList'
 import { IAuthTabProps } from '../../types/IAuthTabProps'
+
+import st from './SelectAuthMethodTab.module.scss'
+import { useSelectAuthMethodTab } from './useSelectAuthMethodTab'
 
 const SelectAuthMethodTab = (props: IAuthTabProps) => {
   const { control, username, goToPasswordAuth } = useSelectAuthMethodTab(props)

@@ -1,17 +1,16 @@
 import Link from 'next/link'
-
 import { cn, isNil } from '@shared/utils/functions'
 import { CopyIcon, HourglassIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
+import { setModal } from '@widgets/ModalWrapper'
+import { SettingsModal } from '@widgets/SettingsModal'
 
 import { profileMenuLinks } from '../../static/profileMenuLinks'
 
 import st from './ProfileMenu.module.scss'
 import { useProfileMenu } from './useProfileMenu'
-import { setModal } from '@widgets/ModalWrapper'
-import { SettingsModal } from '@widgets/SettingsModal'
 
 const ProfileMenu = () => {
   const {

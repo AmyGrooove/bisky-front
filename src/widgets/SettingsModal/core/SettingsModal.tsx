@@ -1,11 +1,13 @@
 import { SectionSelector } from '@shared/ui/molecules/SectionSelector'
-import st from './SettingsModal.module.scss'
 import { cn } from '@shared/utils/functions'
-import { Profile } from './Profile/Profile'
-import { useSettingsModal } from './useSettingsModal'
 import { Button } from '@shared/ui/molecules/Button'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
+
 import { ISettingsModalProps } from '../types/ISettingsModalProps'
+
+import { useSettingsModal } from './useSettingsModal'
+import { Profile } from './Profile/Profile'
+import st from './SettingsModal.module.scss'
 import { Integrations } from './Integrations/Integrations'
 import { Email } from './Email/Email'
 import { Password } from './Password/Password'

@@ -1,6 +1,7 @@
-import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 import { useRequestReset } from '@entities/auth/api/requestReset'
+
+import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { useCooldown } from '../../utils/useCooldown'
 
 const useSendToEmailTab = (props: IEmailTabProps) => {

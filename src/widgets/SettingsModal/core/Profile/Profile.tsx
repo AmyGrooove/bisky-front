@@ -1,15 +1,17 @@
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
-import st from './Profile.module.scss'
-import { useProfile } from './useProfile'
 import { Fancybox } from '@shared/ui/atoms/Fancybox'
 import { UploadField } from '@shared/ui/molecules/UploadField'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Button } from '@shared/ui/molecules/Button'
 import { Controller } from 'react-hook-form'
 import { FileIcon, LogOutIcon } from '@shared/icons'
-import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
 import { AuthConfirmationModal } from '@widgets/AuthConfirmationModal'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
+
+import { LoadingSettings } from '../LoadingSettings/LoadingSettings'
+
+import { useProfile } from './useProfile'
+import st from './Profile.module.scss'
 
 const Profile = () => {
   const { user, isLoading, setImageSrc, control, sendForm, isDisabled } =

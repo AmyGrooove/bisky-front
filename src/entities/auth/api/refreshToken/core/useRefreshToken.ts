@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { refreshToken } from './refreshToken'
+
 import { IRefreshTokenRequest } from '../types/IRefreshTokenRequest'
+
+import { refreshToken } from './refreshToken'
 
 const useRefreshToken = () => {
   const queryClient = useQueryClient()

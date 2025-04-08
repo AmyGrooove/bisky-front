@@ -1,18 +1,19 @@
-import { useCooldown } from '../../utils/useCooldown'
-import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { codeSchema } from '../../schemas/codeSchema'
 import { useRequestReset } from '@entities/auth/api/requestReset'
 import { useVerifyReset } from '@entities/auth/api/verifyReset'
 import { useRouter } from 'next/navigation'
 import { closeModal, closeAdditionalModal } from '@widgets/ModalWrapper'
 import { getWhoami } from '@entities/auth/api/getWhoami'
 
+import { codeSchema } from '../../schemas/codeSchema'
+import { IEmailTabProps } from '../../types/IEmailTabProps'
+import { useCooldown } from '../../utils/useCooldown'
+
 const useCheckCodeTab = (props: IEmailTabProps) => {
-  const { setNewTab, form } = props
+  const { setNewTab, form, successCallback } = props
 
   const { push } = useRouter()
 
@@ -62,9 +63,14 @@ const useCheckCodeTab = (props: IEmailTabProps) => {
 
     await verifyReset({ code, newPassword })
     const username = (await getWhoami()).username
-    push(`/user/${username}`)
     closeModal()
     closeAdditionalModal()
+
+    if (successCallback) {
+      successCallback()
+    } else {
+      push(`/user/${username}`)
+    }
   }
 
   useKeyboardShortcut({

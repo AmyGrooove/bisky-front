@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { setAvatar } from './setAvatar'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { ImageIcon } from '@shared/icons'
+
+import { setAvatar } from './setAvatar'
 
 const useSetAvatar = () => {
   const queryClient = useQueryClient()

@@ -1,8 +1,8 @@
 import { useInfiniteScroll } from '@shared/utils/hooks/useInfiniteScroll'
-
-import { IInfiniteRowsProps } from '../../types/IInfiniteRowsProps'
 import { useInfiniteGetBlockRow } from '@entities/blocks/api/getBlockRow'
 import { useMemo } from 'react'
+
+import { IInfiniteRowsProps } from '../../types/IInfiniteRowsProps'
 
 const useInfiniteRows = (props: IInfiniteRowsProps) => {
   const { excludeGenreIDs, initialRowData } = props

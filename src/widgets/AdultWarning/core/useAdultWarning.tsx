@@ -1,10 +1,12 @@
 import { LOCAL_STORAGE_KEYS } from '@shared/static'
 import { $modal, setModal } from '@widgets/ModalWrapper'
 import { useEffect } from 'react'
-import { IAdultWarningProps } from '../types/IAdultWarningProps'
-import { AdultModal } from './AdultModal/AdultModal'
 import { useUnit } from 'effector-react'
 import { useFirstRender } from '@shared/utils/hooks/useFirstRender'
+
+import { IAdultWarningProps } from '../types/IAdultWarningProps'
+
+import { AdultModal } from './AdultModal/AdultModal'
 
 const useAdultWarning = (props: IAdultWarningProps) => {
   const { isCheckEnabled } = props

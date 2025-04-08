@@ -1,13 +1,15 @@
 import { InputField } from '@shared/ui/atoms/InputField'
-import st from './PasswordAuthTab.module.scss'
 import { Controller } from 'react-hook-form'
-import { usePasswordAuthTab } from './usePasswordAuthTab'
 import { LogoIcon } from '@shared/icons'
 import { cn } from '@shared/utils/functions'
-import { IAuthTabProps } from '../../types/IAuthTabProps'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { Button } from '@shared/ui/molecules/Button'
 import { Text } from '@shared/ui/atoms/Text'
+
+import { IAuthTabProps } from '../../types/IAuthTabProps'
+
+import { usePasswordAuthTab } from './usePasswordAuthTab'
+import st from './PasswordAuthTab.module.scss'
 
 const PasswordAuthTab = (props: IAuthTabProps) => {
   const { control, isValid, setNewTab, isPending, isError, loginUser, error } =

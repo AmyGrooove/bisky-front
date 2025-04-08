@@ -5,16 +5,18 @@ import {
   getScoreColor,
 } from '@entities/animeEstimate/utils'
 import { ComponentProps, useEffect, useMemo, useState } from 'react'
-import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
 import { cn, isNil } from '@shared/utils/functions'
 import { CassetteTapeIcon, HeartIcon, StarIcon } from '@shared/icons'
 import { BigButton } from '@shared/ui/molecules/BigButton'
 import { AddInListModal } from '@entities/animeEstimate/ui/AddInListModal'
 import { setModal } from '@widgets/ModalWrapper'
-import st from './ListButtons.module.scss'
 import { SetScoreModal } from '@entities/animeEstimate/ui/SetScoreModal'
 import { useSetAnimeFavorite } from '@entities/animeEstimate/api/setAnimeFavorite'
 import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+
+import { IAnimeSectionProps } from '../../../types/IAnimeSectionProps'
+
+import st from './ListButtons.module.scss'
 
 const useListButtons = (props: IAnimeSectionProps) => {
   const {

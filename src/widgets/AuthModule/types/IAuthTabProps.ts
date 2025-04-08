@@ -1,4 +1,6 @@
-interface IAuthTabProps {
+import { IAuthModuleProps } from './IAuthModuleProps'
+
+interface IAuthTabProps extends IAuthModuleProps {
   setNewTab: (value: number) => void
 }
 

@@ -1,10 +1,10 @@
 import { useSession } from '@entities/auth/hooks/useSession'
-
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { isNil } from '@shared/utils/functions'
 import { useChangePassword } from '@entities/auth/api/changePassword'
+
 import { passwordSchema } from '../../schemas/passwordSchema'
 import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
 

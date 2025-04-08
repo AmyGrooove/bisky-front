@@ -1,12 +1,14 @@
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
-import { IAnimeSectionProps } from '../../types/IAnimeSectionProps'
 import { Text } from '@shared/ui/atoms/Text'
 import { CalendarIcon, ClockIcon, RadioIcon } from '@shared/icons'
-import st from './AnimeHeader.module.scss'
 import { cn, getRandomNumber, isNil } from '@shared/utils/functions'
+import { Fancybox } from '@shared/ui/atoms/Fancybox'
+
+import { IAnimeSectionProps } from '../../types/IAnimeSectionProps'
+
+import st from './AnimeHeader.module.scss'
 import { BackButton } from './BackButton/BackButton'
 import { useAnimeHeader } from './useAnimeHeader'
-import { Fancybox } from '@shared/ui/atoms/Fancybox'
 
 const AnimeHeader = (props: IAnimeSectionProps) => {
   const {

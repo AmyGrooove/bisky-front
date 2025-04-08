@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { unsubscribeFromUser } from './unsubscribeFromUser'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+
 import { IUnsubscribeFromUserRequest } from '../types/IUnsubscribeFromUserRequest'
+
+import { unsubscribeFromUser } from './unsubscribeFromUser'
 
 const useUnsubscribeFromUser = () => {
   const queryClient = useQueryClient()

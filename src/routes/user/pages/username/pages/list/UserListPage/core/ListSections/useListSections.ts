@@ -1,8 +1,9 @@
 import { useInfiniteGetProfileListAnimes } from '@entities/profile/api/getProfileListAnimes'
 import { useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import { listStatusArray } from '../../static/listStatusArray'
 import { useInfiniteScroll } from '@shared/utils/hooks/useInfiniteScroll'
+
+import { listStatusArray } from '../../static/listStatusArray'
 
 const useListSections = () => {
   const { username } = useParams()

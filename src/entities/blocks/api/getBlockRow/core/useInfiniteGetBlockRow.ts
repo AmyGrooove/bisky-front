@@ -1,7 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { getBlockRow } from './getBlockRow'
 import { getExcludeGenreIDs } from '@entities/blocks/utils'
 import { isNil } from '@shared/utils/functions'
+
+import { getBlockRow } from './getBlockRow'
 
 const useInfiniteGetBlockRow = (excludedGenreIDs: string[] = []) => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =

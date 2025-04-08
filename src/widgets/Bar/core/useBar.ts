@@ -1,8 +1,8 @@
 import { usePathname, useRouter } from 'next/navigation'
-
 import { useSession } from '@entities/auth/hooks/useSession'
-import { hiddenLinks } from '../static/hiddenLinks'
 import { useCallNoAuthorize } from '@widgets/NoAuthorize'
+
+import { hiddenLinks } from '../static/hiddenLinks'
 import { barLinks } from '../static/barLinks'
 
 const useBar = () => {

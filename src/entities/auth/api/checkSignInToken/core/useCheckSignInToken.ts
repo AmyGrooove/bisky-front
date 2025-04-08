@@ -1,8 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { checkSignInToken } from './checkSignInToken'
-import { ICheckSignInTokenRequest } from '../types/ICheckSignInTokenRequest'
 import { UserIcon } from '@shared/icons'
 import { successToast } from '@shared/utils/toast'
+
+import { ICheckSignInTokenRequest } from '../types/ICheckSignInTokenRequest'
+
+import { checkSignInToken } from './checkSignInToken'
 
 const useCheckSignInToken = () => {
   const queryClient = useQueryClient()

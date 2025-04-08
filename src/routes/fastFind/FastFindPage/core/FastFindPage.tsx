@@ -1,8 +1,5 @@
 'use client'
 
-import st from './FastFindPage.module.scss'
-import { useFastFindPage } from './useFastFindPage'
-import { FastFindLoading } from '../../FastFindLoading'
 import { MiniAnimeInfoModal } from '@entities/anime/ui/MiniAnimeInfoModal'
 import { GlassButton } from '@shared/ui/molecules/GlassButton'
 import {
@@ -14,11 +11,16 @@ import {
 } from '@shared/icons'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
-import { ChangingStatus } from './ChangingStatus/ChangingStatus'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { setModal } from '@widgets/ModalWrapper'
 import { AddInListModal } from '@entities/animeEstimate/ui/AddInListModal'
 import { isNil } from '@shared/utils/functions'
+
+import { FastFindLoading } from '../../FastFindLoading'
+
+import { ChangingStatus } from './ChangingStatus/ChangingStatus'
+import { useFastFindPage } from './useFastFindPage'
+import st from './FastFindPage.module.scss'
 
 const FastFindPage = () => {
   const {
