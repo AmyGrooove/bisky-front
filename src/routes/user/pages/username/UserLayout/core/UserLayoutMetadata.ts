@@ -10,7 +10,7 @@ const UserLayoutMetadata = async (
   const { username } = await props.params
 
   try {
-    const userData = await getProfile(username, true)
+    const userData = await getProfile(username)
 
     const title = userData.username ?? ''
 

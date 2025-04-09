@@ -1,30 +1,15 @@
 import { ENV } from '@shared/static'
+import {
+  IApiFetchGetOptions,
+  apiFetchGet,
+} from '@shared/utils/functions/apiFetch'
 
 import { IGetProfileResponse } from '../types/IGetProfileResponse'
 
-const getProfile = async (
-  username: string,
-  skipAuth = false,
-  signal?: AbortSignal,
-): Promise<IGetProfileResponse> => {
+const getProfile = async (username: string, options?: IApiFetchGetOptions) => {
   const url = new URL(`/profile/${username}`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'X-Skip-Auth': String(skipAuth),
-    },
-    credentials: 'include',
-    signal,
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchGet<IGetProfileResponse>(url, options)
 }
 
 export { getProfile }

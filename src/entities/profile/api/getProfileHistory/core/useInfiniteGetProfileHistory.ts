@@ -13,13 +13,9 @@ const useInfiniteGetProfileHistory = (
       queryKey: ['profile', username, 'history'],
       queryFn: async ({ pageParam = page, signal }) => {
         try {
-          const response = await getProfileHistory(
-            username,
-            pageParam,
-            count,
-            false,
+          const response = await getProfileHistory(username, pageParam, count, {
             signal,
-          )
+          })
 
           return { history: response, currentPage: pageParam }
         } catch (_) {

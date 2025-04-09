@@ -1,24 +1,12 @@
 import { ENV } from '@shared/static'
+import { apiFetchPost } from '@shared/utils/functions/apiFetch'
 
 import { ILoginByPasswordRequest } from '../types/ILoginByPasswordRequest'
 
-const loginByPassword = async (
-  body: ILoginByPasswordRequest,
-): Promise<true> => {
+const loginByPassword = async (body: ILoginByPasswordRequest) => {
   const url = new URL(`/auth/loginByPassword`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    credentials: 'include',
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchPost(url, 'POST', body)
 }
 
 export { loginByPassword }

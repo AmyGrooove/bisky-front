@@ -6,7 +6,7 @@ const useCreateSignInToken = (isDisabled = false) => {
   const query = useQuery({
     enabled: !isDisabled,
     queryKey: ['auth', 'createSignInToken'],
-    queryFn: ({ signal }) => createSignInToken(false, signal),
+    queryFn: () => createSignInToken(),
   })
 
   return query

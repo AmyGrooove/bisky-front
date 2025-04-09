@@ -1,25 +1,13 @@
 import { ENV } from '@shared/static'
+import { apiFetchPost } from '@shared/utils/functions/apiFetch'
 
 import { IRefreshTokenRequest } from '../types/IRefreshTokenRequest'
+import { IRefreshTokenResponse } from '../types/IRefreshTokenResponse'
 
-const refreshToken = async (body: IRefreshTokenRequest): Promise<string> => {
+const refreshToken = async (body: IRefreshTokenRequest) => {
   const url = new URL(`/auth/refreshToken`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    credentials: 'include',
-    body: JSON.stringify(body),
-  })
-
-  if (!response.ok) {
-    const responseData = await response.json()
-    throw new Error(`${responseData.message}`)
-  }
-
-  const token = await response.text()
-
-  return token
+  return apiFetchPost<IRefreshTokenResponse>(url, 'POST', body)
 }
 
 export { refreshToken }

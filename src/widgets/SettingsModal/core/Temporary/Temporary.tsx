@@ -59,7 +59,7 @@ const Temporary = (props: ISettingsSectionProps) => {
           Временный ID
         </Text>
         <div className={st.copy}>
-          <Text>{anonymCode(data ?? '')}</Text>
+          <Text>{anonymCode(data?.userID ?? '')}</Text>
           <CopyIcon className={st.icon} />
         </div>
       </div>

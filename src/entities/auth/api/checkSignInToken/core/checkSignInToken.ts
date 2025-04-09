@@ -1,24 +1,12 @@
 import { ENV } from '@shared/static'
+import { apiFetchPost } from '@shared/utils/functions/apiFetch'
 
 import { ICheckSignInTokenRequest } from '../types/ICheckSignInTokenRequest'
 
-const checkSignInToken = async (
-  body: ICheckSignInTokenRequest,
-): Promise<true> => {
-  const url = new URL(`/auth/checkSignInToken`, ENV.API_URL)
+const checkSignInToken = async (body: ICheckSignInTokenRequest) => {
+  const url = new URL(`/animeEstimate/skipList`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    credentials: 'include',
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchPost(url, 'POST', body)
 }
 
 export { checkSignInToken }

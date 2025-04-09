@@ -13,15 +13,9 @@ const useGetProfileListAnimes = (
   return useQuery({
     queryKey: ['profile', username, 'list', listStatus, searchValue],
     queryFn: ({ signal }) =>
-      getProfileListAnimes(
-        username,
-        listStatus,
-        searchValue,
-        page,
-        count,
-        false,
+      getProfileListAnimes(username, listStatus, searchValue, page, count, {
         signal,
-      ),
+      }),
   })
 }
 

@@ -1,22 +1,12 @@
 import { ENV } from '@shared/static'
+import { apiFetchPost } from '@shared/utils/functions/apiFetch'
 
 import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
 
-const setAnimeScore = async (body: ISetAnimeScoreRequest): Promise<string> => {
+const setAnimeScore = async (body: ISetAnimeScoreRequest) => {
   const url = new URL(`/animeEstimate/score`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'PUT',
-    body: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    credentials: 'include',
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return body.animeID
+  return apiFetchPost(url, 'PUT', body)
 }
 
 export { setAnimeScore }

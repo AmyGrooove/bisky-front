@@ -5,7 +5,7 @@ import { getWhoami } from './getWhoami'
 const useGetWhoami = () => {
   const query = useQuery({
     queryKey: ['auth', 'whoami'],
-    queryFn: ({ signal }) => getWhoami(false, signal),
+    queryFn: ({ signal }) => getWhoami({ signal }),
   })
 
   return query
