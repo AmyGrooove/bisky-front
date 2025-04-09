@@ -13,13 +13,9 @@ const useInfiniteGetAnimesByStudio = (
       queryKey: ['studio', studioID, 'animes'],
       queryFn: async ({ pageParam = page, signal }) => {
         try {
-          const response = await getAnimesByStudio(
-            studioID,
-            pageParam,
-            count,
-            false,
+          const response = await getAnimesByStudio(studioID, pageParam, count, {
             signal,
-          )
+          })
 
           return {
             animes: response.animes,

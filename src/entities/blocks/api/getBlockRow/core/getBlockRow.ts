@@ -1,33 +1,21 @@
 import { ENV } from '@shared/static'
+import {
+  IApiFetchGetOptions,
+  apiFetchGet,
+} from '@shared/utils/functions/apiFetch'
 
 import { IGetBlockRowResponse } from '../types/IGetBlockRowResponse'
 
 const getBlockRow = async (
   excludedGenreIDs: string[] = [],
-  skipAuth = false,
-  signal?: AbortSignal,
-): Promise<IGetBlockRowResponse> => {
+  options?: IApiFetchGetOptions,
+) => {
   const url = new URL(`/blocks/row`, ENV.API_URL)
   excludedGenreIDs.forEach((id) =>
     url.searchParams.append('excludedGenreIDs', id),
   )
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'X-Skip-Auth': String(skipAuth),
-    },
-    credentials: 'include',
-    signal,
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchGet<IGetBlockRowResponse>(url, options)
 }
 
 export { getBlockRow }

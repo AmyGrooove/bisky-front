@@ -1,30 +1,18 @@
 import { ENV } from '@shared/static'
+import {
+  IApiFetchGetOptions,
+  apiFetchGet,
+} from '@shared/utils/functions/apiFetch'
 
 import { IGetAnimeMiniInfoResponse } from '../types/IGetAnimeMiniInfoResponse'
 
 const getAnimeMiniInfo = async (
   animeID: string,
-  skipAuth = false,
-  signal?: AbortSignal,
-): Promise<IGetAnimeMiniInfoResponse> => {
+  options?: IApiFetchGetOptions,
+) => {
   const url = new URL(`/anime/miniInfo/${animeID}`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'X-Skip-Auth': String(skipAuth),
-    },
-    credentials: 'include',
-    signal,
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchGet<IGetAnimeMiniInfoResponse>(url, options)
 }
 
 export { getAnimeMiniInfo }

@@ -10,7 +10,7 @@ const AnimeLayoutMetadata = async (
   const { animeID } = await props.params
 
   try {
-    const animeData = await getAnimeFullInfo(animeID, true)
+    const animeData = await getAnimeFullInfo(animeID)
 
     const title = animeData.labels.ru ?? animeData.labels.en ?? ''
 

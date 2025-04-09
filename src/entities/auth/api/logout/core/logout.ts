@@ -1,19 +1,10 @@
 import { ENV } from '@shared/static'
+import { apiFetchPost } from '@shared/utils/functions/apiFetch'
 
-const logout = async (): Promise<true> => {
+const logout = async () => {
   const url = new URL(`/auth/logout`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    credentials: 'include',
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchPost(url, 'POST')
 }
 
 export { logout }

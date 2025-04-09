@@ -1,20 +1,10 @@
 import { ENV } from '@shared/static'
+import { apiFetchPost } from '@shared/utils/functions/apiFetch'
 
-const setAvatar = async (file: FormData): Promise<true> => {
+const setAvatar = async (file: FormData) => {
   const url = new URL(`/account/avatar`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'PATCH',
-    body: file,
-    headers: { Accept: 'application/json' },
-    credentials: 'include',
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchPost(url, 'PATCH', file)
 }
 
 export { setAvatar }

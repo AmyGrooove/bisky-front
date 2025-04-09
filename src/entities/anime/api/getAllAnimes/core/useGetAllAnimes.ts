@@ -5,7 +5,7 @@ import { getAllAnimes } from './getAllAnimes'
 const useGetAllAnimes = () => {
   return useQuery({
     queryKey: ['anime', 'allAnimes'],
-    queryFn: ({ signal }) => getAllAnimes(false, signal),
+    queryFn: ({ signal }) => getAllAnimes({ signal }),
   })
 }
 

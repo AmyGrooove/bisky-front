@@ -8,7 +8,7 @@ const AnimeLayout = async (props: IAnimeLayoutProps) => {
   const { animeID } = await params
 
   try {
-    const animeData = await getAnimeFullInfo(animeID, true)
+    const animeData = await getAnimeFullInfo(animeID)
 
     if (!animeData) throw new Error()
   } catch (error) {

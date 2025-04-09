@@ -10,7 +10,7 @@ const useAuthConfirmationModal = (props: IAuthConfirmationModalProps) => {
   const { data } = useGetUserID()
 
   const copyID = async () => {
-    await navigator.clipboard.writeText(data ?? '')
+    await navigator.clipboard.writeText(data?.userID ?? '')
     successToast({ Icon: UserIcon, message: 'ID скопирован' })
   }
 

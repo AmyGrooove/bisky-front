@@ -5,7 +5,7 @@ import { getUserOAuthIDs } from './getUserOAuthIDs'
 const useGetUserOAuthIDs = () => {
   return useQuery({
     queryKey: ['account', 'getUserOAuthIDs'],
-    queryFn: ({ signal }) => getUserOAuthIDs(false, signal),
+    queryFn: ({ signal }) => getUserOAuthIDs({ signal }),
   })
 }
 

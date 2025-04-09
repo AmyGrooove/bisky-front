@@ -1,24 +1,12 @@
 import { ENV } from '@shared/static'
+import { apiFetchPost } from '@shared/utils/functions/apiFetch'
 
 import { ISubscribeToUserRequest } from '../types/ISubscribeToUserRequest'
 
-const subscribeToUser = async (
-  body: ISubscribeToUserRequest,
-): Promise<true> => {
+const subscribeToUser = async (body: ISubscribeToUserRequest) => {
   const url = new URL(`/account/subscribeToUser`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'PATCH',
-    body: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    credentials: 'include',
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchPost(url, 'PATCH', body)
 }
 
 export { subscribeToUser }

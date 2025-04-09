@@ -1,29 +1,15 @@
 import { ENV } from '@shared/static'
+import {
+  IApiFetchGetOptions,
+  apiFetchGet,
+} from '@shared/utils/functions/apiFetch'
 
 import { IGetUserOAuthIDsResponse } from '../types/IGetUserOAuthIDsResponse'
 
-const getUserOAuthIDs = async (
-  skipAuth = false,
-  signal?: AbortSignal,
-): Promise<IGetUserOAuthIDsResponse['socialLinks']> => {
+const getUserOAuthIDs = async (options?: IApiFetchGetOptions) => {
   const url = new URL('/account/getUserOAuthIDs', ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'X-Skip-Auth': String(skipAuth),
-    },
-    credentials: 'include',
-    signal,
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchGet<IGetUserOAuthIDsResponse['socialLinks']>(url, options)
 }
 
 export { getUserOAuthIDs }

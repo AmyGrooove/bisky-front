@@ -22,8 +22,7 @@ const useInfiniteGetProfileListAnimes = (
             searchValue,
             pageParam,
             count,
-            false,
-            signal,
+            { signal },
           )
 
           return { animes: response, currentPage: pageParam }

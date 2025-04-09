@@ -17,8 +17,7 @@ const useInfiniteGetProfileFavoriteAnimes = (
             username,
             pageParam,
             count,
-            false,
-            signal,
+            { signal },
           )
 
           return { favoriteAnimes: response, currentPage: pageParam }

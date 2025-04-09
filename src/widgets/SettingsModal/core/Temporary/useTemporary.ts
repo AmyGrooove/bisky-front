@@ -40,7 +40,7 @@ const useTemporary = (props: ISettingsSectionProps) => {
   const isDisabled = !isValid || !isDirty
 
   const copyID = async () => {
-    await navigator.clipboard.writeText(data ?? '')
+    await navigator.clipboard.writeText(data?.userID ?? '')
     successToast({ Icon: UserIcon, message: 'ID скопирован' })
   }
 

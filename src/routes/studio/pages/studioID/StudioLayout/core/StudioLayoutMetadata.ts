@@ -10,7 +10,7 @@ const StudioLayoutMetadata = async (
   const { studioID } = await props.params
 
   try {
-    const studioData = await getAnimesByStudio(studioID, 1, 40, true)
+    const studioData = await getAnimesByStudio(studioID, 1, 40)
 
     const title = studioData.studio.name ?? ''
 

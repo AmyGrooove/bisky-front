@@ -5,7 +5,7 @@ import { getBlockRow } from './getBlockRow'
 const useGetBlockRow = (excludedGenreIDs: string[] = []) => {
   return useQuery({
     queryKey: ['blocks', 'row'],
-    queryFn: ({ signal }) => getBlockRow(excludedGenreIDs, false, signal),
+    queryFn: ({ signal }) => getBlockRow(excludedGenreIDs, { signal }),
   })
 }
 

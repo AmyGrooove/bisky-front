@@ -5,7 +5,7 @@ import { getFranchiseSitemap } from './getFranchiseSitemap'
 const useGetFranchiseSitemap = () => {
   return useQuery({
     queryKey: ['franchise', 'sitemap'],
-    queryFn: ({ signal }) => getFranchiseSitemap(false, signal),
+    queryFn: ({ signal }) => getFranchiseSitemap({ signal }),
   })
 }
 

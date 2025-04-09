@@ -1,29 +1,15 @@
 import { ENV } from '@shared/static'
+import {
+  IApiFetchGetOptions,
+  apiFetchGet,
+} from '@shared/utils/functions/apiFetch'
 
 import { IGetStudioSitemapResponse } from '../types/IGetStudioSitemapResponse'
 
-const getStudioSitemap = async (
-  skipAuth = false,
-  signal?: AbortSignal,
-): Promise<IGetStudioSitemapResponse[]> => {
+const getStudioSitemap = async (options?: IApiFetchGetOptions) => {
   const url = new URL(`/studio/sitemap`, ENV.API_URL)
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'X-Skip-Auth': String(skipAuth),
-    },
-    credentials: 'include',
-    signal,
-  })
-
-  const responseData = await response.json()
-
-  if (!response.ok) throw new Error(`${responseData.message}`)
-
-  return responseData
+  return apiFetchGet<IGetStudioSitemapResponse[]>(url, options)
 }
 
 export { getStudioSitemap }
