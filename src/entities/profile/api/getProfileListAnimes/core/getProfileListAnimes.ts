@@ -1,9 +1,6 @@
 import { ENV } from '@shared/static'
 import { TListStatus } from '@entities/animeEstimate/types'
-import {
-  IApiFetchGetOptions,
-  apiFetchGet,
-} from '@shared/utils/functions/apiFetch'
+import { IApiFetchGetOptions, apiFetchGet } from '@shared/utils/functions'
 
 import { IGetProfileListAnimesResponse } from '../types/IGetProfileListAnimesResponse'
 

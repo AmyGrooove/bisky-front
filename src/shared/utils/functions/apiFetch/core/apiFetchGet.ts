@@ -1,10 +1,11 @@
+import { getAccessToken, getRefreshToken } from '../../indexAuthDB'
 import { IApiFetchGetOptions } from '../types/IApiFetchGetOptions'
 
 const apiFetchGet = async <TResponse>(
   url: URL,
-  options?: IApiFetchGetOptions,
+  options: IApiFetchGetOptions = {},
 ): Promise<TResponse> => {
-  const { signal } = options ?? {}
+  const { signal, tokenType = 'access' } = options
 
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
@@ -12,7 +13,9 @@ const apiFetchGet = async <TResponse>(
   }
 
   if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('token')
+    const token = await (tokenType === 'access'
+      ? getAccessToken()
+      : getRefreshToken())
 
     if (token) {
       headers['Authorization'] = `Bearer ${token}`

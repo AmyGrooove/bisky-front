@@ -1,8 +1,5 @@
 import { ENV } from '@shared/static'
-import {
-  IApiFetchGetOptions,
-  apiFetchGet,
-} from '@shared/utils/functions/apiFetch'
+import { IApiFetchGetOptions, apiFetchGet } from '@shared/utils/functions'
 
 import { IGetAnimeMiniInfoResponse } from '../types/IGetAnimeMiniInfoResponse'
 

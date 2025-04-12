@@ -1,5 +1,5 @@
 import { ENV } from '@shared/static'
-import { apiFetchPost } from '@shared/utils/functions/apiFetch'
+import { apiFetchPost } from '@shared/utils/functions'
 
 import { ICreateSignInTokenResponse } from '../types/ICreateSignInTokenResponse'
 
