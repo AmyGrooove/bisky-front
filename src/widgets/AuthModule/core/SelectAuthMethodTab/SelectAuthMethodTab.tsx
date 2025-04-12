@@ -44,7 +44,11 @@ const SelectAuthMethodTab = (props: IAuthTabProps) => {
           render={({ field }) => <input {...field} hidden type="password" />}
         />
       </form>
-      <div className={st.separator} />
+      <div className={st.separatorWrapper}>
+        <div className={st.separator} />
+        <Text>или</Text>
+        <div className={st.separator} />
+      </div>
       {oauthList.map(({ children, id, Icon, href }) => (
         <Link className={st.button} href={href} key={id}>
           <Button

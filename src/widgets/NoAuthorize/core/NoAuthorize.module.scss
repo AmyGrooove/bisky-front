@@ -1,0 +1,51 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.separatorWrapper {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.separator {
+  background-color: var(--dark-400);
+  height: 1px;
+  opacity: 0.2;
+  width: 80%;
+}
+
+.segment {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text {
+  text-align: center;
+  white-space: pre-line;
+}
+
+.link {
+  color: var(--bisky-100);
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+.error {
+  color: var(--red);
+  text-align: center;
+  white-space: pre-line;
+  @extend %invoke-scale;
+}
