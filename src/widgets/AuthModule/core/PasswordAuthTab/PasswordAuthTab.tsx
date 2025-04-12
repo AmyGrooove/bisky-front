@@ -1,7 +1,7 @@
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Controller } from 'react-hook-form'
 import { LogoIcon } from '@shared/icons'
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
 import { Button } from '@shared/ui/molecules/Button'
 import { Text } from '@shared/ui/atoms/Text'
@@ -24,7 +24,7 @@ const PasswordAuthTab = (props: IAuthTabProps) => {
           [st.logo_error]: isError,
         })}
       />
-      {error?.message && (
+      {!isNil(error?.message) && (
         <Text isCustomColor className={st.error}>
           {error.message}
         </Text>

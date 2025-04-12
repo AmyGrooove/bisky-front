@@ -1,5 +1,5 @@
 import { QueryCache, QueryClient } from '@tanstack/react-query'
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { errorToast } from '@shared/utils/toast'
 import { refreshToken } from '@entities/auth/api/refreshToken'
 import { setAccessToken, setRefreshToken } from '@shared/utils/functions'
@@ -9,6 +9,8 @@ import { QUERY_SKIP_LIST } from '../../static/QUERY_SKIP_LIST'
 
 const useProviders = (props: IRootLayoutProps) => {
   const { children } = props
+
+  const [isRefreshError, setIsRefreshError] = useState(false)
 
   const queryClient = useMemo(
     () =>
@@ -25,15 +27,25 @@ const useProviders = (props: IRootLayoutProps) => {
         },
         queryCache: new QueryCache({
           onError: async (error, query) => {
-            if (
-              query.queryKey.some((key) =>
-                QUERY_SKIP_LIST.includes(key as string),
-              )
-            )
-              return
+            const queryKey = query.queryKey.map(String)
 
-            try {
-              if (error.message === 'Unauthorized') {
+            const isSkipped = queryKey.some((key) =>
+              QUERY_SKIP_LIST.includes(key),
+            )
+            const isWhoAmI = queryKey.includes('whoami')
+            const isUnauthorized = error.message === 'Unauthorized'
+
+            if (isSkipped) return
+
+            if (isWhoAmI && !isUnauthorized && isRefreshError) {
+              setIsRefreshError(false)
+              return
+            }
+
+            if (isUnauthorized) {
+              if (isRefreshError) return
+
+              try {
                 const response = await refreshToken()
 
                 await setAccessToken(response.tokens.accessToken)
@@ -41,9 +53,10 @@ const useProviders = (props: IRootLayoutProps) => {
 
                 query.fetch()
                 return
+              } catch {
+                if (!isRefreshError) setIsRefreshError(true)
+                return
               }
-            } catch (_) {
-              return
             }
 
             console.error(error)
@@ -51,7 +64,7 @@ const useProviders = (props: IRootLayoutProps) => {
           },
         }),
       }),
-    [],
+    [isRefreshError],
   )
 
   useEffect(() => {

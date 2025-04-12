@@ -4,6 +4,12 @@
   @include text-style(24);
 }
 
+.separatorWrapper {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
 .separator {
   background-color: var(--dark-400);
   height: 1px;

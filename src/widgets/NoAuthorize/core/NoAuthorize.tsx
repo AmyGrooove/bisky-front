@@ -1,26 +1,100 @@
 import { Button } from '@shared/ui/molecules/Button'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
 import { AuthModule } from '@widgets/AuthModule'
+import { LockIcon, SendIcon, UserIcon } from '@shared/icons'
+import { InputField } from '@shared/ui/atoms/InputField'
+import { Controller } from 'react-hook-form'
+import { Text } from '@shared/ui/atoms/Text'
+import { isNil } from '@shared/utils/functions'
 
 import { INoAuthorizeProps } from '../types/INoAuthorizeProps'
 
+import st from './NoAuthorize.module.scss'
 import { useNoAuthorize } from './useNoAuthorize'
 
 const NoAuthorize = (props: INoAuthorizeProps) => {
-  const { createNewProfile, processCallback } = useNoAuthorize(props)
+  const {
+    createNewProfile,
+    processCallback,
+    control,
+    sendForm,
+    isDisabled,
+    errorText,
+  } = useNoAuthorize(props)
 
   return (
-    <>
-      В разработке
-      <Button onClick={createNewProfile}>Новый аккаунт</Button>
-      <Button
-        onClick={() =>
-          setAdditionalModal(<AuthModule successCallback={processCallback} />)
-        }
-      >
-        Авторизация
-      </Button>
-    </>
+    <div className={st.root}>
+      {!isNil(errorText) && (
+        <Text isCustomColor className={st.error}>
+          {errorText.message}
+        </Text>
+      )}
+
+      <div className={st.separator} />
+
+      <div className={st.segment}>
+        <Text className={st.text}>
+          <strong className={st.link} onClick={() => alert('в разработке')}>
+            Что такое временный аккаунт?
+          </strong>
+        </Text>
+        <Button variant="big" Icon={UserIcon} onClick={createNewProfile}>
+          Создать временный аккаунт
+        </Button>
+      </div>
+
+      <div className={st.separatorWrapper}>
+        <div className={st.separator} />
+        <Text>или</Text>
+        <div className={st.separator} />
+      </div>
+
+      <div className={st.segment}>
+        <Text className={st.text}>
+          Через логин и пароль или сервисы Google/Yandex
+        </Text>
+        <Button
+          variant="big"
+          Icon={LockIcon}
+          onClick={() =>
+            setAdditionalModal(<AuthModule successCallback={processCallback} />)
+          }
+        >
+          Авторизация
+        </Button>
+      </div>
+
+      <div className={st.separatorWrapper}>
+        <div className={st.separator} />
+        <Text>или</Text>
+        <div className={st.separator} />
+      </div>
+
+      <div className={st.segment}>
+        <Text className={st.text}>Через ID пользователя</Text>
+        <Controller
+          control={control}
+          name="userID"
+          render={({ field, fieldState }) => (
+            <InputField
+              {...field}
+              className={st.input}
+              errorText={fieldState.error?.message}
+              placeholder="ID аккаунта"
+            />
+          )}
+        />
+        <Button
+          className={st.button}
+          variant="big"
+          Icon={SendIcon}
+          onClick={sendForm}
+          isDisabled={isDisabled}
+        >
+          Войти
+        </Button>
+      </div>
+    </div>
   )
 }
 
