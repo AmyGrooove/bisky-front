@@ -14,9 +14,8 @@ const Season = (props: ISeasonProps) => {
     data,
     className,
     animeLink,
-    isNextImageShow,
-    backgroundImage2,
-    firstBackgroundSrc,
+    currentImageID,
+    currentScreenshots,
     genreRow,
     isNotActive,
   } = useSeason(props)
@@ -42,28 +41,20 @@ const Season = (props: ISeasonProps) => {
         {genreRow}
       </Text>
       <span className={st.background} />
-      <div
-        className={cn(st.backWrapper, {
-          [st.backWrapper_hide]: isNextImageShow,
-        })}
-      >
-        <PlaceholderImage
-          src={firstBackgroundSrc}
-          className={st.backImage}
-          sizes={[1080, 380]}
-        />
-      </div>
-      <div
-        className={cn(st.backWrapper, {
-          [st.backWrapper_hide]: !isNextImageShow,
-        })}
-      >
-        <PlaceholderImage
-          sizes={[1080, 380]}
-          src={data.screenshots?.[backgroundImage2] ?? null}
-          className={st.backImage}
-        />
-      </div>
+      {currentScreenshots.map((screenshot, index) => (
+        <div
+          key={screenshot}
+          className={cn(st.backWrapper, {
+            [st.backWrapper_hide]: index !== currentImageID,
+          })}
+        >
+          <PlaceholderImage
+            src={screenshot}
+            className={st.backImage}
+            sizes={[1080, 380]}
+          />
+        </div>
+      ))}
       <ScoreBadge
         score={data.score}
         className={cn(st.score, st.score_big)}

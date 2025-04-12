@@ -16,6 +16,13 @@ interface IUser {
     google: string | null
     yandex: string | null
   }
+  sessions: {
+    ip: string
+    refreshToken: string
+    deviceType: string | null
+    location: string | null
+    loggedOn: Date
+  }[]
 }
 
 export type { IUser }

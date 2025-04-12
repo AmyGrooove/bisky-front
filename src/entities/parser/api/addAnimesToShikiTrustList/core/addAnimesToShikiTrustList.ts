@@ -1,5 +1,5 @@
 import { ENV } from '@shared/static'
-import { apiFetchPost } from '@shared/utils/functions/apiFetch'
+import { apiFetchPost } from '@shared/utils/functions'
 
 import { IAddAnimesToShikiTrustListRequest } from '../types/IAddAnimesToShikiTrustListRequest'
 
@@ -8,7 +8,7 @@ const addAnimesToShikiTrustList = async (
 ) => {
   const url = new URL(`/parse/addAnimesToShikiTrustList`, ENV.API_URL)
 
-  return apiFetchPost(url, 'POST', body)
+  return apiFetchPost(url, 'POST', { body })
 }
 
 export { addAnimesToShikiTrustList }

@@ -1,13 +1,14 @@
 import { ENV } from '@shared/static'
-import { apiFetchPost } from '@shared/utils/functions/apiFetch'
+import { apiFetchPost } from '@shared/utils/functions'
 
-import { IRefreshTokenRequest } from '../types/IRefreshTokenRequest'
 import { IRefreshTokenResponse } from '../types/IRefreshTokenResponse'
 
-const refreshToken = async (body: IRefreshTokenRequest) => {
+const refreshToken = async () => {
   const url = new URL(`/auth/refreshToken`, ENV.API_URL)
 
-  return apiFetchPost<IRefreshTokenResponse>(url, 'POST', body)
+  return apiFetchPost<IRefreshTokenResponse>(url, 'POST', {
+    tokenType: 'refresh',
+  })
 }
 
 export { refreshToken }
