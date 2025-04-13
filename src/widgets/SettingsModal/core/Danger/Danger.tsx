@@ -43,6 +43,7 @@ const Danger = () => {
           setAdditionalModal(
             <ConfirmationModal
               callBack={logoutUserFromAccount}
+              yesButtonClassName={st.yesButton}
               title="Вы уверены, что хотите выйти из аккаунта?"
             />,
           )

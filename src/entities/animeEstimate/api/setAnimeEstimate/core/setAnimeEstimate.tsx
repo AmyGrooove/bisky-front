@@ -6,7 +6,9 @@ import { ISetAnimeEstimateRequest } from '../types/ISetAnimeEstimateRequest'
 const setAnimeEstimate = async (body: ISetAnimeEstimateRequest) => {
   const url = new URL(`/animeEstimate`, ENV.API_URL)
 
-  return apiFetchPost(url, 'POST', { body })
+  await apiFetchPost(url, 'POST', { body })
+
+  return { animeID: body.animeID, estimateVariant: body.estimateVariant }
 }
 
 export { setAnimeEstimate }

@@ -1,6 +1,6 @@
 'use client'
 
-import { QueryClientProvider } from '@tanstack/react-query'
+import { HydrationBoundary, QueryClientProvider } from '@tanstack/react-query'
 import { ModalWrapper } from '@widgets/ModalWrapper'
 import NextTopLoader from 'nextjs-toploader'
 import { Toaster } from 'sonner'
@@ -12,15 +12,17 @@ import { useProviders } from './useProviders'
 import { AuthProvider } from './AuthProvider/AuthProvider'
 
 const Providers = (props: IRootLayoutProps) => {
-  const { queryClient, children } = useProviders(props)
+  const { queryClient, children, dehydratedState } = useProviders(props)
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Toaster />
-      <ModalWrapper />
-      <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
-      <ReactQueryDevtools initialIsOpen={false} />
-      <AuthProvider>{children}</AuthProvider>
+      <HydrationBoundary state={dehydratedState}>
+        <Toaster />
+        <ModalWrapper />
+        <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
+        <ReactQueryDevtools initialIsOpen={false} />
+        <AuthProvider>{children}</AuthProvider>
+      </HydrationBoundary>
     </QueryClientProvider>
   )
 }

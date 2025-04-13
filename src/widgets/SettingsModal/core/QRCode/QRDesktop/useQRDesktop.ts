@@ -4,7 +4,7 @@ import { useState } from 'react'
 const useQRDesktop = () => {
   const [isQRHidden, setIsQRHidden] = useState(true)
 
-  const { data, isLoading } = useCreateSignInToken(isQRHidden)
+  const { data, isLoading } = useCreateSignInToken({ enabled: isQRHidden })
 
   const newToken = data?.token ?? 'placeholder'
 

@@ -17,7 +17,9 @@ const useSearchModule = () => {
 
   const [debouncedSearchValue] = useDebounce(searchValue, 300)
 
-  const { data, isLoading } = useSearchAnimeAndUsers(debouncedSearchValue)
+  const { data, isLoading } = useSearchAnimeAndUsers(debouncedSearchValue, {
+    enabled: debouncedSearchValue !== '',
+  })
   const { animes = [], users = [] } = data ?? {}
 
   const pushToFastPage = (href: string) => {

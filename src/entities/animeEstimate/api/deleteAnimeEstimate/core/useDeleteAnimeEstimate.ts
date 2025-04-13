@@ -1,17 +1,24 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { EyeOffIcon } from '@shared/icons'
+import { TUseMutationOptions } from '@shared/types'
+import { useSession } from '@entities/auth/hooks/useSession'
 import { usePathname } from 'next/navigation'
 
 import { IDeleteAnimeEstimateRequest } from '../types/IDeleteAnimeEstimateRequest'
 
 import { deleteAnimeEstimate } from './deleteAnimeEstimate'
 
-const useDeleteAnimeEstimate = (isFromSkipList = false) => {
+const useDeleteAnimeEstimate = (
+  isFromSkipList = false,
+  options: TUseMutationOptions<typeof deleteAnimeEstimate> = {},
+) => {
   const queryClient = useQueryClient()
   const pathname = usePathname()
+  const { user } = useSession()
 
   return useMutation({
+    ...options,
     mutationFn: (body: IDeleteAnimeEstimateRequest) =>
       deleteAnimeEstimate(body),
     onSuccess: async (animeID) => {
@@ -22,11 +29,14 @@ const useDeleteAnimeEstimate = (isFromSkipList = false) => {
         queryClient.invalidateQueries({ queryKey: ['anime', 'fastSelect'] }),
         queryClient.invalidateQueries({ queryKey: ['anime', 'fastStar'] }),
         queryClient.invalidateQueries({
-          queryKey: ['genre', 'animes'],
+          queryKey: ['profile', user?.username],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['profile', user?.username, 'list'],
           exact: false,
         }),
         queryClient.invalidateQueries({
-          queryKey: ['profile'],
+          queryKey: ['genre', 'animes'],
           exact: false,
         }),
         queryClient.invalidateQueries({
@@ -50,14 +60,11 @@ const useDeleteAnimeEstimate = (isFromSkipList = false) => {
 
       await queryClient.invalidateQueries({ queryKey: ['anime', 'fastFind'] })
 
-      successToast({
-        message: 'Статус аниме в списке успешно изменен',
-        Icon: EyeOffIcon,
-      })
+      successToast({ message: 'Аниме удалено из списка', Icon: EyeOffIcon })
     },
     onError: async ({ message }) => {
       errorToast({
-        message: `Не удалось изменить статус аниме в списке: ${message}`,
+        message: `Не удалось удалить аниме из списка: ${message}`,
       })
     },
   })

@@ -13,6 +13,7 @@ export default tseslint.config(
       import: importPlugin,
     },
     rules: {
+      '@typescript-eslint/no-invalid-void-type': ['off'],
       '@typescript-eslint/no-empty-object-type': ['off'],
       '@typescript-eslint/no-explicit-any': ['off'],
       '@typescript-eslint/no-empty-function': ['off'],

@@ -1,15 +1,22 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { StarIcon } from '@shared/icons'
+import { TUseMutationOptions } from '@shared/types'
+import { useSession } from '@entities/auth/hooks/useSession'
 
 import { ISetAnimeScoreRequest } from '../types/ISetAnimeScoreRequest'
 
 import { setAnimeScore } from './setAnimeScore'
 
-const useSetAnimeScore = (isFastStar = false) => {
+const useSetAnimeScore = (
+  isFastStar = false,
+  options: TUseMutationOptions<typeof setAnimeScore> = {},
+) => {
   const queryClient = useQueryClient()
+  const { user } = useSession()
 
   return useMutation({
+    ...options,
     mutationFn: (body: ISetAnimeScoreRequest) => setAnimeScore(body),
     onSuccess: async (animeID) => {
       await Promise.all([
@@ -17,23 +24,8 @@ const useSetAnimeScore = (isFastStar = false) => {
           queryKey: ['anime', 'fullInfo', animeID],
         }),
         queryClient.invalidateQueries({
-          queryKey: ['genre', 'animes'],
-          exact: false,
+          queryKey: ['profile', user?.username, 'history'],
         }),
-        queryClient.invalidateQueries({
-          queryKey: ['profile', 'history'],
-          exact: false,
-        }),
-        queryClient.invalidateQueries({
-          queryKey: ['franchise', 'animes'],
-          exact: false,
-        }),
-        queryClient.invalidateQueries({
-          queryKey: ['studio', 'animes'],
-          exact: false,
-        }),
-        queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
-        queryClient.invalidateQueries({ queryKey: ['blocks'] }),
       ])
 
       if (isFastStar) return

@@ -14,7 +14,7 @@ const useFastFindPage = () => {
   const { user } = useSession()
 
   const { data: fastFindList, isLoading: isFastFindLoading } =
-    useGetAnimesFastFind()
+    useGetAnimesFastFind({ gcTime: 0 })
 
   const [currentAnimeIndex, setCurrentAnimeIndex] = useState(0)
   const [previousSelectedStatuses, setPreviousSelectedStatuses] = useState<
@@ -24,8 +24,10 @@ const useFastFindPage = () => {
     TListStatus | 'skipped' | null
   >(null)
 
+  const animeID = fastFindList?.[currentAnimeIndex]?._id ?? ''
   const { data = null, isLoading: isAnimeInfoLoading } = useGetAnimeMiniInfo(
-    fastFindList?.[currentAnimeIndex]?._id ?? '',
+    animeID,
+    { enabled: animeID !== '' },
   )
 
   const { mutateAsync: addAnimeToSkip } = useAddAnimeToSkip(true)

@@ -1,22 +1,43 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { UserIcon } from '@shared/icons'
-import { successToast } from '@shared/utils/toast'
+import { errorToast, successToast } from '@shared/utils/toast'
 import { setAccessToken, setRefreshToken } from '@shared/utils/functions'
+import { TUseMutationOptions } from '@shared/types'
 
 import { createTemporaryProfile } from './createTemporaryProfile'
 
-const useCreateTemporaryProfile = () => {
+const useCreateTemporaryProfile = (
+  options: TUseMutationOptions<typeof createTemporaryProfile> = {},
+) => {
   const queryClient = useQueryClient()
 
   return useMutation({
+    ...options,
     mutationFn: () => createTemporaryProfile(),
     onSuccess: async (response) => {
-      await queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] })
+      await Promise.all([
+        setAccessToken(response.tokens.accessToken),
+        setRefreshToken(response.tokens.refreshToken),
+      ])
 
-      successToast({ message: 'Успешно создан', Icon: UserIcon })
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['account', 'getUserID'] }),
+        queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] }),
+        queryClient.invalidateQueries({
+          queryKey: ['account', 'getUserOAuthIDs'],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ['account', 'getUserSessions'],
+        }),
+      ])
 
-      await setAccessToken(response.tokens.accessToken)
-      await setRefreshToken(response.tokens.refreshToken)
+      successToast({
+        message: 'Временный аккаунт успешно создан',
+        Icon: UserIcon,
+      })
+    },
+    onError: async ({ message }) => {
+      errorToast({ message: `Ошибка создания временного аккаунта: ${message}` })
     },
   })
 }

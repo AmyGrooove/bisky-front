@@ -1,5 +1,5 @@
-import { QueryCache, QueryClient } from '@tanstack/react-query'
-import { useEffect, useMemo, useState } from 'react'
+import { dehydrate, QueryCache, QueryClient } from '@tanstack/react-query'
+import { useMemo, useState } from 'react'
 import { errorToast } from '@shared/utils/toast'
 import { refreshToken } from '@entities/auth/api/refreshToken'
 import { setAccessToken, setRefreshToken } from '@shared/utils/functions'
@@ -18,6 +18,7 @@ const useProviders = (props: IRootLayoutProps) => {
         defaultOptions: {
           queries: {
             staleTime: 1000 * 60 * 5,
+            gcTime: 1000 * 60 * 10,
             retry: false,
             refetchOnWindowFocus: false,
           },
@@ -67,13 +68,9 @@ const useProviders = (props: IRootLayoutProps) => {
     [isRefreshError],
   )
 
-  useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(console.error)
-    }
-  }, [])
+  const dehydratedState = dehydrate(queryClient)
 
-  return { queryClient, children }
+  return { queryClient, children, dehydratedState }
 }
 
 export { useProviders }
