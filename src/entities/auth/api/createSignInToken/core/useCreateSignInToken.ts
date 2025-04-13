@@ -1,15 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
+import { TUseQueryOptions } from '@shared/types'
 
 import { createSignInToken } from './createSignInToken'
 
-const useCreateSignInToken = (isDisabled = false) => {
-  const query = useQuery({
-    enabled: !isDisabled,
+const useCreateSignInToken = (
+  options: TUseQueryOptions<typeof createSignInToken> = {},
+) => {
+  return useQuery({
+    ...options,
     queryKey: ['auth', 'createSignInToken'],
     queryFn: () => createSignInToken(),
   })
-
-  return query
 }
 
 export { useCreateSignInToken }

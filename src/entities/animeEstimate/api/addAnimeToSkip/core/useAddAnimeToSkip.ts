@@ -1,20 +1,26 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { CassetteTapeIcon } from '@shared/icons'
+import { TUseMutationOptions } from '@shared/types'
+import { useSession } from '@entities/auth/hooks/useSession'
 
 import { IAddAnimeToSkipRequest } from '../types/IAddAnimeToSkipRequest'
 
 import { addAnimeToSkip } from './addAnimeToSkip'
 
-const useAddAnimeToSkip = (isFastFind = false) => {
+const useAddAnimeToSkip = (
+  isFastFind = false,
+  options: TUseMutationOptions<typeof addAnimeToSkip> = {},
+) => {
   const queryClient = useQueryClient()
+  const { user } = useSession()
 
   return useMutation({
+    ...options,
     mutationFn: (body: IAddAnimeToSkipRequest) => addAnimeToSkip(body),
     onSuccess: async () => {
       await queryClient.invalidateQueries({
-        queryKey: ['profile', 'history'],
-        exact: false,
+        queryKey: ['profile', user?.username, 'history'],
       })
 
       if (isFastFind) return

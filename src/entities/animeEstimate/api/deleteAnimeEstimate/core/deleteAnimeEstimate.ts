@@ -6,7 +6,9 @@ import { IDeleteAnimeEstimateRequest } from '../types/IDeleteAnimeEstimateReques
 const deleteAnimeEstimate = async (body: IDeleteAnimeEstimateRequest) => {
   const url = new URL(`/animeEstimate`, ENV.API_URL)
 
-  return apiFetchPost(url, 'DELETE', { body })
+  await apiFetchPost(url, 'DELETE', { body })
+
+  return body.animeID
 }
 
 export { deleteAnimeEstimate }

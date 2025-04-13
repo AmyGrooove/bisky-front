@@ -1,20 +1,23 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+import { TUseMutationOptions } from '@shared/types'
 
 import { IDeleteSessionRequest } from '../types/IDeleteSessionRequest'
 
 import { deleteSession } from './deleteSession'
 
-const useDeleteSession = () => {
+const useDeleteSession = (
+  options: TUseMutationOptions<typeof deleteSession> = {},
+) => {
   const queryClient = useQueryClient()
 
   return useMutation({
+    ...options,
     mutationFn: (body: IDeleteSessionRequest) => deleteSession(body),
     onSuccess: async () => {
       await queryClient.invalidateQueries({
         queryKey: ['account', 'getUserSessions'],
-        exact: false,
       })
 
       successToast({

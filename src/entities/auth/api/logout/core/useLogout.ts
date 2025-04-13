@@ -1,22 +1,26 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { successToast } from '@shared/utils/toast'
+import { errorToast, successToast } from '@shared/utils/toast'
 import { UserXIcon } from '@shared/icons'
 import { deleteAccessToken, deleteRefreshToken } from '@shared/utils/functions'
+import { TUseMutationOptions } from '@shared/types'
 
 import { logout } from './logout'
 
-const useLogout = () => {
+const useLogout = (options: TUseMutationOptions<typeof logout> = {}) => {
   const queryClient = useQueryClient()
 
   return useMutation({
+    ...options,
     mutationFn: () => logout(),
     onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] })
+      await Promise.all([deleteAccessToken(), deleteRefreshToken()])
 
-      await deleteAccessToken()
-      await deleteRefreshToken()
+      queryClient.clear()
 
       successToast({ message: 'Успешно вышел из системы', Icon: UserXIcon })
+    },
+    onError: async ({ message }) => {
+      errorToast({ message: `Ошибка выхода: ${message}` })
     },
   })
 }

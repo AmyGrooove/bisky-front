@@ -1,40 +1,21 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { TUseMutationOptions } from '@shared/types'
 
 import { IAddAnimesToShikiTrustListRequest } from '../types/IAddAnimesToShikiTrustListRequest'
 
 import { addAnimesToShikiTrustList } from './addAnimesToShikiTrustList'
 
-const useAddAnimesToShikiTrustList = () => {
+const useAddAnimesToShikiTrustList = (
+  options: TUseMutationOptions<typeof addAnimesToShikiTrustList> = {},
+) => {
   const queryClient = useQueryClient()
 
   return useMutation({
+    ...options,
     mutationFn: (body: IAddAnimesToShikiTrustListRequest) =>
       addAnimesToShikiTrustList(body),
     onSuccess: async () => {
-      await Promise.all([
-        queryClient.invalidateQueries({
-          queryKey: ['anime', 'fullInfo'],
-          exact: false,
-        }),
-        queryClient.invalidateQueries({
-          queryKey: ['genre', 'animes'],
-          exact: false,
-        }),
-        queryClient.invalidateQueries({
-          queryKey: ['franchise', 'animes'],
-          exact: false,
-        }),
-        queryClient.invalidateQueries({
-          queryKey: ['studio', 'animes'],
-          exact: false,
-        }),
-        queryClient.invalidateQueries({ queryKey: ['anime', 'sitemap'] }),
-        queryClient.invalidateQueries({ queryKey: ['franchise', 'sitemap'] }),
-        queryClient.invalidateQueries({ queryKey: ['studio', 'sitemap'] }),
-        queryClient.invalidateQueries({ queryKey: ['anime', 'allAnimes'] }),
-        queryClient.invalidateQueries({ queryKey: ['blocks', 'row'] }),
-        queryClient.invalidateQueries({ queryKey: ['blocks'] }),
-      ])
+      queryClient.clear()
     },
   })
 }

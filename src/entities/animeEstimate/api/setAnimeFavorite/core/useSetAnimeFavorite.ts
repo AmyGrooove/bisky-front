@@ -1,15 +1,22 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { errorToast, successToast } from '@shared/utils/toast'
 import { HeartIcon } from '@shared/icons'
+import { TUseMutationOptions } from '@shared/types'
+import { useSession } from '@entities/auth/hooks/useSession'
 
 import { ISetAnimeFavoriteRequest } from '../types/ISetAnimeFavoriteRequest'
 
 import { setAnimeFavorite } from './setAnimeFavorite'
 
-const useSetAnimeFavorite = (isFastStar = false) => {
+const useSetAnimeFavorite = (
+  isFastStar = false,
+  options: TUseMutationOptions<typeof setAnimeFavorite> = {},
+) => {
   const queryClient = useQueryClient()
+  const { user } = useSession()
 
   return useMutation({
+    ...options,
     mutationFn: (body: ISetAnimeFavoriteRequest) => setAnimeFavorite(body),
     onSuccess: async (animeID) => {
       await Promise.all([
@@ -17,12 +24,10 @@ const useSetAnimeFavorite = (isFastStar = false) => {
           queryKey: ['anime', 'fullInfo', animeID],
         }),
         queryClient.invalidateQueries({
-          queryKey: ['profile', 'history'],
-          exact: false,
+          queryKey: ['profile', user?.username, 'history'],
         }),
         queryClient.invalidateQueries({
-          queryKey: ['profile', 'favoriteAnimes'],
-          exact: false,
+          queryKey: ['profile', user?.username, 'favoriteAnimes'],
         }),
       ])
 

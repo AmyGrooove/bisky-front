@@ -19,7 +19,7 @@ const useMiniAnimeInfoModal = (props: IMiniAnimeInfoModalProps) => {
   } = props
 
   const { data: fetchedData, isLoading: isFetchedDataLoading } =
-    useGetAnimeMiniInfo(animeID)
+    useGetAnimeMiniInfo(animeID, { enabled: animeID !== '' })
 
   const {
     _id = '',
