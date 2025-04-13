@@ -1,5 +1,5 @@
 interface IDeleteSessionRequest {
-  refreshToken: 'string'
+  refreshToken: string
 }
 
 export type { IDeleteSessionRequest }

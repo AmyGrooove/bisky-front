@@ -63,7 +63,11 @@ const useNoAuthorize = (props: INoAuthorizeProps) => {
 
     if (isNil(data.userID)) return
 
-    await loginByID({ userID: data.userID })
+    loginByID({ userID: data.userID }).then(() => {
+      closeModal()
+
+      processCallback()
+    })
   }
 
   return {
