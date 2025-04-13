@@ -11,19 +11,15 @@ const MainPage = () => {
   const { seasonalAnimes, rowsAnime, excludeGenreIDs, isHomeLoading } =
     useMainPage()
 
+  if (isHomeLoading) return <MainLoading />
+
   return (
     <>
-      {isHomeLoading ? (
-        <MainLoading />
-      ) : (
-        <>
-          <SeasonalCarousel data={seasonalAnimes} />
-          <InfiniteRows
-            excludeGenreIDs={excludeGenreIDs}
-            initialRowData={rowsAnime}
-          />
-        </>
-      )}
+      <SeasonalCarousel data={seasonalAnimes} />
+      <InfiniteRows
+        excludeGenreIDs={excludeGenreIDs}
+        initialRowData={rowsAnime}
+      />
       <div className={st.barMargin} />
     </>
   )

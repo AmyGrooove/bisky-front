@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import { cn, isNil } from '@shared/utils/functions'
-import { CopyIcon, HourglassIcon } from '@shared/icons'
+import { CopyIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
-import { setModal } from '@widgets/ModalWrapper'
-import { SettingsModal } from '@widgets/SettingsModal'
 
 import { profileMenuLinks } from '../../static/profileMenuLinks'
 
@@ -22,7 +20,6 @@ const ProfileMenu = () => {
     floatingStyles,
     username,
     isClosing,
-    isTemporary,
     copyUsername,
     isLoading,
     toggle,
@@ -52,24 +49,12 @@ const ProfileMenu = () => {
           className={cn(st.menu, { [st.menu_hide]: isClosing })}
           {...getFloatingProps()}
         >
-          {!isTemporary ? (
-            <button className={st.usernameCopy} onClick={copyUsername}>
-              <Text isCustomColor className={st.username}>
-                {username}
-              </Text>
-              <CopyIcon className={st.usernameIcon} />
-            </button>
-          ) : (
-            <div
-              onClick={() => setModal(<SettingsModal defaultActiveTab={0} />)}
-              className={cn(st.linkRow, st.linkRow_temporary)}
-            >
-              <Text weight="700" className={st.linkText}>
-                Временный
-              </Text>
-              <HourglassIcon className={st.linkIcon} />
-            </div>
-          )}
+          <button className={st.usernameCopy} onClick={copyUsername}>
+            <Text isCustomColor className={st.username}>
+              {username}
+            </Text>
+            <CopyIcon className={st.usernameIcon} />
+          </button>
           <div className={st.divider} />
           {profileMenuLinks(username).map(({ href, name, Icon, onClick }) =>
             !isNil(onClick) ? (

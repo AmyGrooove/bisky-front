@@ -15,7 +15,7 @@ import { useCallNoAuthorize } from '@widgets/NoAuthorize'
 
 const useProfileMenu = () => {
   const { user, isLoading } = useSession()
-  const { avatar = null, username = '', isTemporary = true } = user ?? {}
+  const { avatar = null, username = '' } = user ?? {}
 
   const { isOpen, isClosing, toggle } = useTransitionClose()
 
@@ -55,7 +55,6 @@ const useProfileMenu = () => {
     floatingStyles,
     username,
     isClosing,
-    isTemporary,
     copyUsername,
     isLoading,
     toggle,
