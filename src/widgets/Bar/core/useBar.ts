@@ -22,7 +22,7 @@ const useBar = () => {
     return pathname === value
   }
 
-  const isHidden = hiddenLinks.includes(pathname)
+  const isHidden = hiddenLinks.some((link) => pathname.startsWith(link))
 
   const links = barLinks(username)
 

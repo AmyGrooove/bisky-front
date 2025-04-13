@@ -1,33 +1,23 @@
 import { useRouter } from 'next/navigation'
-import { useCallback } from 'react'
+import { useEffect, useRef } from 'react'
 
 const useNavigationFallback = (fallback = '/') => {
   const { back, push } = useRouter()
 
-  const handleNavigation = useCallback(() => {
-    if (typeof window !== 'undefined') {
-      const currentHost = window.location.host
-      const referrer = document.referrer
+  const hasHistory = useRef(false)
 
-      if (referrer) {
-        try {
-          const referrerHost = new URL(referrer).host
+  const goBack = () => {
+    if (hasHistory.current) back()
+    else push(fallback)
+  }
 
-          if (referrerHost === currentHost) {
-            back()
-
-            return
-          }
-        } catch (error) {
-          console.error('Error referrer url:', error)
-        }
-      }
+  useEffect(() => {
+    if (window.history.length > 1) {
+      hasHistory.current = true
     }
+  }, [])
 
-    push(fallback)
-  }, [fallback, back, push])
-
-  return handleNavigation
+  return goBack
 }
 
 export { useNavigationFallback }
