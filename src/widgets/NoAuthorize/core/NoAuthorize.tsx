@@ -25,12 +25,13 @@ const NoAuthorize = (props: INoAuthorizeProps) => {
   return (
     <div className={st.root}>
       {!isNil(errorText) && (
-        <Text isCustomColor className={st.error}>
-          {errorText.message}
-        </Text>
+        <>
+          <Text isCustomColor className={st.error}>
+            {errorText.message}
+          </Text>
+          <div className={st.separator} />
+        </>
       )}
-
-      <div className={st.separator} />
 
       <div className={st.segment}>
         <Text className={st.text}>

@@ -1,0 +1,45 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.session {
+  background-color: var(--dark-100);
+  border-radius: var(--radius-12);
+  padding: 4px 8px;
+  width: 400px;
+}
+
+.sessionData {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.otherSession {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.skeletonSession {
+  height: 70px;
+  width: 400px;
+}
+
+.separator {
+  background-color: var(--dark-400);
+  height: 1px;
+  opacity: 0.2;
+  width: 80%;
+}
+
+.loggedOn {
+  opacity: 0.6;
+}

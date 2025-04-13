@@ -7,6 +7,7 @@ import { ConfirmationModal } from '@shared/ui/organisms/ConfirmationModal'
 
 import { useDanger } from './useDanger'
 import st from './Danger.module.scss'
+import { SessionManager } from './SessionManager/SessionManager'
 
 const Danger = () => {
   const { logoutUserFromAccount } = useDanger()
@@ -18,7 +19,7 @@ const Danger = () => {
         работу сайта и настройки вашего аккаунта
       </Text>
       <Button
-        className={st.logOutButton}
+        className={st.button}
         variant="big"
         Icon={LogOutIcon}
         onClick={() => setAdditionalModal(<AuthConfirmationModal />)}
@@ -27,7 +28,15 @@ const Danger = () => {
       </Button>
       <div className={st.separator} />
       <Button
-        className={st.logOutButton}
+        className={st.button}
+        variant="big"
+        onClick={() => setAdditionalModal(<SessionManager />)}
+      >
+        Менеджер сессий
+      </Button>
+      <div className={st.separator} />
+      <Button
+        className={st.button}
         variant="big"
         Icon={UserXIcon}
         onClick={() =>
