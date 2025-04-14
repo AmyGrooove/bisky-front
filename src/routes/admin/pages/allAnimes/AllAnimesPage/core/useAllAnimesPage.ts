@@ -1,5 +1,5 @@
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
-import { useState } from 'react'
+import { MouseEvent, useState } from 'react'
 import { useAddAnimesToShikiBanList } from '@entities/parser/api/addAnimesToShikiBanList'
 import { useGetAllAnimes } from '@entities/anime/api/getAllAnimes'
 import { useAddAnimesToShikiTrustList } from '@entities/parser/api/addAnimesToShikiTrustList'
@@ -39,6 +39,14 @@ const useAllAnimesPage = () => {
     setAnimesToDelete((prev) => prev.filter((id) => id !== String(shikiID)))
   }
 
+  const goToAnime = (event: MouseEvent, animeID: string) => {
+    event.preventDefault()
+
+    if (event.button === 1) {
+      window.open(`/anime/${animeID}`, '_blank')
+    }
+  }
+
   useKeyboardShortcut({
     keys: ['d'],
     callback: () => validate(),
@@ -52,6 +60,7 @@ const useAllAnimesPage = () => {
     addAnimeToDeleteList,
     addAnimeToTrustList,
     animesToTrust,
+    goToAnime,
   }
 }
 
