@@ -14,14 +14,16 @@ const AllAnimesPage = () => {
     addAnimeToDeleteList,
     addAnimeToTrustList,
     animesToTrust,
+    goToAnime,
   } = useAllAnimesPage()
 
   return (
     <div className={st.root}>
-      {allAnimes.map(({ shikiID, poster, status, label }) => (
+      {allAnimes.map(({ _id, shikiID, poster, status, label }) => (
         <div
           key={shikiID}
           onClick={() => addAnimeToDeleteList(shikiID)}
+          onMouseDown={(event) => goToAnime(event, _id)}
           onContextMenu={(event) => {
             event.preventDefault()
             addAnimeToTrustList(shikiID)
