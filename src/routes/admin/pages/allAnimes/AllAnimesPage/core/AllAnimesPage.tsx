@@ -23,7 +23,10 @@ const AllAnimesPage = () => {
         <div
           key={shikiID}
           onClick={() => addAnimeToDeleteList(shikiID)}
-          onMouseDown={(event) => goToAnime(event, _id)}
+          onMouseDown={async (event) => {
+            event.preventDefault()
+            goToAnime(event, _id)
+          }}
           onContextMenu={(event) => {
             event.preventDefault()
             addAnimeToTrustList(shikiID)

@@ -1,6 +1,7 @@
 import {
   BlocksIcon,
   HourglassIcon,
+  InfoIcon,
   LockIcon,
   MailIcon,
   TriangleAlertIcon,
@@ -10,9 +11,11 @@ import {
 const getSettingsTabs = ({
   warningClassName,
   isTemporary = true,
+  isMobile = false,
 }: {
   warningClassName: string
   isTemporary: boolean
+  isMobile: boolean
 }) => [
   {
     Icon: HourglassIcon,
@@ -29,6 +32,11 @@ const getSettingsTabs = ({
     children: 'Критично',
     className: warningClassName,
     isDisabled: isTemporary,
+  },
+  {
+    Icon: InfoIcon,
+    children: 'Поддержка',
+    isDisabled: !isMobile,
   },
 ]
 

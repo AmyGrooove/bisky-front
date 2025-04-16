@@ -1,5 +1,5 @@
 import { Button } from '@shared/ui/molecules/Button'
-import { CopyIcon, LogOutIcon, SendIcon } from '@shared/icons'
+import { CopyIcon, LogOutIcon, SendIcon, UserXIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { anonymCode } from '@widgets/SettingsModal/utils/anonymCode'
 import { Controller } from 'react-hook-form'
@@ -24,6 +24,7 @@ const Temporary = (props: ISettingsSectionProps) => {
     copyID,
     sendForm,
     isPending,
+    logoutUserFromAccount,
   } = useTemporary(props)
 
   if (isLoading || isPending) return <LoadingSettings />
@@ -94,6 +95,23 @@ const Temporary = (props: ISettingsSectionProps) => {
           Сменить
         </Button>
       </div>
+      <div className={st.separator} />
+      <Button
+        className={st.button}
+        variant="big"
+        Icon={UserXIcon}
+        onClick={() =>
+          setAdditionalModal(
+            <ConfirmationModal
+              callBack={logoutUserFromAccount}
+              yesButtonClassName={st.yesButton}
+              title="Вы уверены, что хотите выйти из аккаунта?"
+            />,
+          )
+        }
+      >
+        Выйти из аккаунта
+      </Button>
     </div>
   )
 }

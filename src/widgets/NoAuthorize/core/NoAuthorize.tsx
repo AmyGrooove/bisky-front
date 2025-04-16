@@ -1,11 +1,12 @@
 import { Button } from '@shared/ui/molecules/Button'
 import { setAdditionalModal } from '@widgets/ModalWrapper'
 import { AuthModule } from '@widgets/AuthModule'
-import { LockIcon, SendIcon, UserIcon } from '@shared/icons'
+import { InfoIcon, LockIcon, SendIcon, UserIcon } from '@shared/icons'
 import { InputField } from '@shared/ui/atoms/InputField'
 import { Controller } from 'react-hook-form'
 import { Text } from '@shared/ui/atoms/Text'
-import { isNil } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
+import { Support } from '@widgets/Support'
 
 import { INoAuthorizeProps } from '../types/INoAuthorizeProps'
 
@@ -95,6 +96,18 @@ const NoAuthorize = (props: INoAuthorizeProps) => {
           Войти
         </Button>
       </div>
+
+      <div className={st.separator} />
+
+      <Button
+        isCustomColor
+        className={cn(st.button, st.button_support)}
+        variant="big"
+        Icon={InfoIcon}
+        onClick={() => setAdditionalModal(<Support />)}
+      >
+        Поддержка
+      </Button>
     </div>
   )
 }

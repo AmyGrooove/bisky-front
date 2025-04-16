@@ -6,14 +6,22 @@ import { UserIcon } from '@shared/icons'
 import { successToast } from '@shared/utils/toast'
 import { isNil } from '@shared/utils/functions'
 import { useLoginByID } from '@entities/auth/api/loginByID'
+import { useLogout } from '@entities/auth/api/logout'
+import { closeModal } from '@widgets/ModalWrapper'
+import { useRouter } from 'next/navigation'
+import { getWhoami } from '@entities/auth/api/getWhoami'
 
-import { temporarySchema } from '../../schemas/temporarySchema'
 import { ISettingsSectionProps } from '../../types/ISettingsSectionProps'
+import { temporarySchema } from '../../schemas/temporarySchema'
 
 const useTemporary = (props: ISettingsSectionProps) => {
   const { setActiveTab } = props
 
+  const { push } = useRouter()
+
   const { data, isLoading } = useGetUserID()
+
+  const { mutateAsync: logoutUser, isPending: isLogoutPending } = useLogout()
 
   const {
     control,
@@ -34,7 +42,12 @@ const useTemporary = (props: ISettingsSectionProps) => {
 
     if (isNil(data.userID)) return
 
-    await loginByID({ userID: data.userID })
+    loginByID({ userID: data.userID }).then(async () => {
+      const { username } = await getWhoami()
+
+      closeModal()
+      push(`/user/${username}`)
+    })
   }
 
   const isDisabled = !isValid || !isDirty
@@ -42,6 +55,15 @@ const useTemporary = (props: ISettingsSectionProps) => {
   const copyID = async () => {
     await navigator.clipboard.writeText(data?.userID ?? '')
     successToast({ Icon: UserIcon, message: 'ID скопирован' })
+  }
+
+  const logoutUserFromAccount = async () => {
+    if (isLogoutPending) return
+
+    await logoutUser()
+
+    closeModal()
+    push('/')
   }
 
   return {
@@ -53,6 +75,7 @@ const useTemporary = (props: ISettingsSectionProps) => {
     copyID,
     sendForm,
     isPending,
+    logoutUserFromAccount,
   }
 }
 

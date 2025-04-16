@@ -3,6 +3,10 @@ import { errorToast, successToast } from '@shared/utils/toast'
 import { UserXIcon } from '@shared/icons'
 import { deleteAccessToken, deleteRefreshToken } from '@shared/utils/functions'
 import { TUseMutationOptions } from '@shared/types'
+import {
+  resetSessionError,
+  resetUserData,
+} from '@entities/auth/hooks/useSession'
 
 import { logout } from './logout'
 
@@ -13,9 +17,15 @@ const useLogout = (options: TUseMutationOptions<typeof logout> = {}) => {
     ...options,
     mutationFn: () => logout(),
     onSuccess: async () => {
-      await Promise.all([deleteAccessToken(), deleteRefreshToken()])
+      await Promise.all([
+        deleteAccessToken(),
+        deleteRefreshToken(),
+        queryClient.invalidateQueries({ queryKey: ['auth', 'whoami'] }),
+      ])
 
       queryClient.clear()
+      resetUserData()
+      resetSessionError()
 
       successToast({ message: 'Успешно вышел из системы', Icon: UserXIcon })
     },

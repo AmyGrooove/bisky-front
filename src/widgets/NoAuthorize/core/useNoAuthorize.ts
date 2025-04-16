@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { isNil } from '@shared/utils/functions'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { getWhoami } from '@entities/auth/api/getWhoami'
 
 import { INoAuthorizeProps } from '../types/INoAuthorizeProps'
 import { idSchema } from '../schemas/idSchema'
@@ -39,9 +40,9 @@ const useNoAuthorize = (props: INoAuthorizeProps) => {
   const isDisabled = !isValid || !isDirty
   const errorText = createTemporaryProfileError || loginByIDError
 
-  const processCallback = () => {
+  const processCallback = (username?: string) => {
     setTimeout(() => {
-      if (thenCallback) thenCallback()
+      if (thenCallback) thenCallback(username)
       if (thenPushHref) push(thenPushHref)
     }, 300)
   }
@@ -49,10 +50,11 @@ const useNoAuthorize = (props: INoAuthorizeProps) => {
   const createNewProfile = async () => {
     if (isCreateTemporaryProfilePending) return
 
-    createTemporaryProfile().then(() => {
+    createTemporaryProfile().then(async () => {
       closeModal()
 
-      processCallback()
+      const { username } = await getWhoami()
+      processCallback(username)
     })
   }
 
@@ -63,10 +65,11 @@ const useNoAuthorize = (props: INoAuthorizeProps) => {
 
     if (isNil(data.userID)) return
 
-    loginByID({ userID: data.userID }).then(() => {
+    loginByID({ userID: data.userID }).then(async () => {
       closeModal()
 
-      processCallback()
+      const { username } = await getWhoami()
+      processCallback(username)
     })
   }
 

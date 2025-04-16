@@ -1,6 +1,6 @@
 interface INoAuthorizeProps {
   thenPushHref?: string
-  thenCallback?: () => void
+  thenCallback?: (username?: string) => void
 }
 
 export type { INoAuthorizeProps }

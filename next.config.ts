@@ -2,7 +2,11 @@ import type { NextConfig } from 'next'
 import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
-  env: { API_URL: process.env.API_URL, APP_URL: process.env.APP_URL },
+  env: {
+    API_URL: process.env.API_URL,
+    APP_URL: process.env.APP_URL,
+    IS_DEVELOPMENT: process.env.IS_DEVELOPMENT,
+  },
   pageExtensions: ['mdx', 'ts', 'tsx'],
   images: {
     minimumCacheTTL: 86400,

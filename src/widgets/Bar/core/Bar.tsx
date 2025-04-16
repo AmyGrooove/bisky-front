@@ -10,8 +10,8 @@ const Bar = () => {
 
   return (
     <div className={cn(st.root, { [st.root_hidden]: isHidden })}>
-      {links.map(({ href, Icon }) => (
-        <button key={href} onClick={() => openTab(href)}>
+      {links.map(({ href, Icon }, index) => (
+        <button key={href} onClick={() => openTab(href, index)}>
           {Icon({
             className: cn(st.linkIcon, {
               [st.linkIcon_active]: checkIsActive(href),
