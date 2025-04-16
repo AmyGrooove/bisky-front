@@ -14,9 +14,22 @@ const UserActivity = () => {
     <div className={st.root}>
       <SectionSelector
         items={[
-          { Icon: InfoIcon, children: 'Основное', isDisabled: !isMobile },
-          { Icon: HeartIcon, children: 'Избранное' },
-          { Icon: HistoryIcon, children: 'История' },
+          {
+            Icon: InfoIcon,
+            children: 'Основное',
+            isDisabled: !isMobile,
+            className: st.selectorItem,
+          },
+          {
+            Icon: HeartIcon,
+            children: 'Избранное',
+            className: st.selectorItem,
+          },
+          {
+            Icon: HistoryIcon,
+            children: 'История',
+            className: st.selectorItem,
+          },
         ]}
         activeTab={activeTab}
         onSwitchTab={setActiveTab}

@@ -2,6 +2,7 @@ import { SectionSelector } from '@shared/ui/molecules/SectionSelector'
 import { cn } from '@shared/utils/functions'
 import { Button } from '@shared/ui/molecules/Button'
 import { SectionLabel } from '@shared/ui/molecules/SectionLabel'
+import { Support } from '@widgets/Support'
 
 import { ISettingsModalProps } from '../types/ISettingsModalProps'
 
@@ -40,18 +41,24 @@ const SettingsModal = (props: ISettingsModalProps) => {
           [st.buttonsWrapper_hidden]: isTabSelected && isMobile,
         })}
       >
-        {settingsTabs.map(({ children, Icon, className }, index) => (
-          <Button
-            variant="big"
-            key={children}
-            Icon={Icon}
-            onClick={() => selectActiveTab(index)}
-            className={cn(st.button, className)}
-            isCustomColor
-          >
-            {children}
-          </Button>
-        ))}
+        {settingsTabs.map(
+          ({ children, Icon, className, isDisabled }, index) => {
+            if (isDisabled) return null
+
+            return (
+              <Button
+                variant="big"
+                key={children}
+                Icon={Icon}
+                onClick={() => selectActiveTab(index)}
+                className={cn(st.button, className)}
+                isCustomColor
+              >
+                {children}
+              </Button>
+            )
+          },
+        )}
       </div>
       <div
         className={cn(st.main, {
@@ -71,6 +78,7 @@ const SettingsModal = (props: ISettingsModalProps) => {
         {activeTab === 3 && <Password setActiveTab={setActiveTab} />}
         {activeTab === 4 && <Integrations />}
         {activeTab === 5 && <Danger />}
+        {activeTab === 6 && <Support />}
       </div>
     </div>
   )

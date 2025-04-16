@@ -11,7 +11,7 @@ const useFriendsSection = () => {
   const { user, isLoading: isWhoamiLoading } = useSession()
 
   const { data: currentProfileData, isLoading: isCurrentProfileDataLoading } =
-    useGetProfile(String(user?.username))
+    useGetProfile(String(user?.username), { enabled: !isNil(user?.username) })
   const { data: profileData, isLoading: isProfileDataLoading } = useGetProfile(
     String(username),
   )
