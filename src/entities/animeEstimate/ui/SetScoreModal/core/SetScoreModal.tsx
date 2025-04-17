@@ -1,6 +1,8 @@
 import { StarSlider } from '@shared/ui/atoms/StarSlider'
 import { Button } from '@shared/ui/molecules/Button'
 import { cn } from '@shared/utils/functions'
+import { Text } from '@shared/ui/atoms/Text'
+import { getScoreColor } from '@entities/animeEstimate/utils'
 
 import { ISetScoreModalProps } from '../types/ISetScoreModalProps'
 
@@ -17,6 +19,20 @@ const SetScoreModal = (props: ISetScoreModalProps) => {
 
   return (
     <div className={st.root}>
+      <div className={st.labelWrapper}>
+        <Text weight="700" className={st.label}>
+          {!isDeleteButtonDisabled ? 'Изменить оценку на' : 'Оценить на'}
+        </Text>
+        <Text
+          weight="700"
+          className={cn(
+            st.scoreText,
+            st[`scoreText_${getScoreColor(currentScore)}`],
+          )}
+        >
+          {currentScore}
+        </Text>
+      </div>
       <StarSlider
         currentStar={currentScore}
         setCurrentStart={setCurrentScore}
@@ -37,7 +53,7 @@ const SetScoreModal = (props: ISetScoreModalProps) => {
           variant="big"
           className={cn(st.button, st.button_set)}
         >
-          Поставить оценку
+          {!isDeleteButtonDisabled ? 'Изменить оценку' : 'Поставить оценку'}
         </Button>
       </div>
     </div>

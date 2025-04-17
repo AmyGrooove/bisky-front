@@ -58,8 +58,9 @@
 
 .separator {
   background-color: var(--dark-400);
-  height: 1px;
-  opacity: 0.2;
+  border-radius: var(--radius-20);
+  height: 2px;
+  opacity: 0.4;
   width: 80%;
 }
 
