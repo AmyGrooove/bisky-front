@@ -1,5 +1,12 @@
-import { getAccessToken, getRefreshToken } from '../../indexAuthDB'
+import {
+  getAccessToken,
+  getRefreshToken,
+  setAccessToken,
+  setRefreshToken,
+} from '../../indexAuthDB'
 import { IApiFetchPostOptions } from '../types/IApiFetchPostOptions'
+
+import { refreshToken } from './refreshToken/refreshToken'
 
 const apiFetchPost = async <TResponse = true>(
   url: URL,
@@ -29,6 +36,19 @@ const apiFetchPost = async <TResponse = true>(
     credentials: 'include',
     body: JSON.stringify(body),
   })
+
+  if (response.status === 401 && tokenType === 'access') {
+    try {
+      const refreshResponse = await refreshToken()
+
+      await setAccessToken(refreshResponse.tokens.accessToken)
+      await setRefreshToken(refreshResponse.tokens.refreshToken)
+
+      return apiFetchPost<TResponse>(url, methodType, options)
+    } catch (_) {
+      /* empty */
+    }
+  }
 
   const responseData = await response.json()
 

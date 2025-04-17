@@ -23,11 +23,10 @@ const Temporary = (props: ISettingsSectionProps) => {
     isDisabled,
     copyID,
     sendForm,
-    isPending,
     logoutUserFromAccount,
   } = useTemporary(props)
 
-  if (isLoading || isPending) return <LoadingSettings />
+  if (isLoading) return <LoadingSettings />
 
   return (
     <div className={st.root}>
@@ -97,7 +96,7 @@ const Temporary = (props: ISettingsSectionProps) => {
       </div>
       <div className={st.separator} />
       <Button
-        className={st.button}
+        className={st.logOutButton}
         variant="big"
         Icon={UserXIcon}
         onClick={() =>

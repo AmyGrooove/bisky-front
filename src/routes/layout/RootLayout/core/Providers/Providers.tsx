@@ -9,7 +9,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { IRootLayoutProps } from '../../types/IRootLayoutProps'
 
 import { useProviders } from './useProviders'
-import { Auth } from './Auth/Auth'
 
 const Providers = (props: IRootLayoutProps) => {
   const { queryClient, children, dehydratedState } = useProviders(props)
@@ -17,7 +16,6 @@ const Providers = (props: IRootLayoutProps) => {
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={dehydratedState}>
-        <Auth />
         <Toaster />
         <ModalWrapper />
         <NextTopLoader color="var(--bisky-100)" showSpinner={false} />

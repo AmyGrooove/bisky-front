@@ -1,8 +1,6 @@
 import { dehydrate, QueryCache, QueryClient } from '@tanstack/react-query'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { errorToast } from '@shared/utils/toast'
-import { refreshToken } from '@entities/auth/api/refreshToken'
-import { setAccessToken, setRefreshToken } from '@shared/utils/functions'
 
 import { IRootLayoutProps } from '../../types/IRootLayoutProps'
 import { QUERY_SKIP_LIST } from '../../static/QUERY_SKIP_LIST'
@@ -10,15 +8,13 @@ import { QUERY_SKIP_LIST } from '../../static/QUERY_SKIP_LIST'
 const useProviders = (props: IRootLayoutProps) => {
   const { children } = props
 
-  const [isRefreshError, setIsRefreshError] = useState(false)
-
   const queryClient = useMemo(
     () =>
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 1000 * 60 * 5,
-            gcTime: 1000 * 60 * 10,
+            staleTime: 1000 * 60 * 20,
+            gcTime: 1000 * 60 * 30,
             retry: false,
             refetchOnWindowFocus: false,
           },
@@ -36,36 +32,14 @@ const useProviders = (props: IRootLayoutProps) => {
             const isWhoAmI = queryKey.includes('whoami')
             const isUnauthorized = error.message === 'Unauthorized'
 
-            if (isSkipped) return
-
-            if (isWhoAmI && !isUnauthorized && isRefreshError) {
-              setIsRefreshError(false)
-              return
-            }
-
-            if (isUnauthorized) {
-              if (isRefreshError) return
-
-              try {
-                const response = await refreshToken()
-
-                await setAccessToken(response.tokens.accessToken)
-                await setRefreshToken(response.tokens.refreshToken)
-
-                query.fetch()
-                return
-              } catch {
-                if (!isRefreshError) setIsRefreshError(true)
-                return
-              }
-            }
+            if (isSkipped || isUnauthorized || isWhoAmI) return
 
             console.error(error)
             errorToast({ message: `Произошла ошибка: ${error.message}` })
           },
         }),
       }),
-    [isRefreshError],
+    [],
   )
 
   const dehydratedState = dehydrate(queryClient)
