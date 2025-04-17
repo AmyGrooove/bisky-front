@@ -9,3 +9,14 @@
   max-width: 1280px;
   padding: 24px;
 }
+
+.empty {
+  flex-shrink: 0;
+  height: 92px;
+}
+
+@include media-query(tablet, true) {
+  .empty {
+    display: none;
+  }
+}

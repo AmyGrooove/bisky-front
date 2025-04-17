@@ -35,3 +35,21 @@
   position: absolute;
   right: 4px;
 }
+
+.text {
+  text-align: center;
+  white-space: pre-line;
+  @include text-style(12);
+}
+
+.link {
+  color: var(--bisky-100);
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: underline;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}

@@ -3,6 +3,7 @@ import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
 import { Controller } from 'react-hook-form'
+import { closeAdditionalModal, closeModal } from '@widgets/ModalWrapper'
 
 import { oauthList } from '../../static/oauthList'
 import { IAuthTabProps } from '../../types/IAuthTabProps'
@@ -61,6 +62,30 @@ const SelectAuthMethodTab = (props: IAuthTabProps) => {
           </Button>
         </Link>
       ))}
+      <Text className={st.text}>
+        Авторизуясь через сервисы, вы принимаете{' '}
+        <Link
+          className={st.link}
+          href="/legal/terms"
+          onClick={() => {
+            closeModal()
+            closeAdditionalModal()
+          }}
+        >
+          пользовательское соглашение
+        </Link>{' '}
+        и{' '}
+        <Link
+          className={st.link}
+          href="/legal/privacy"
+          onClick={() => {
+            closeModal()
+            closeAdditionalModal()
+          }}
+        >
+          политику конфиденциальности
+        </Link>
+      </Text>
     </>
   )
 }
