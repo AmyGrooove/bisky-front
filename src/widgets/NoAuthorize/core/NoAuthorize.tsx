@@ -17,6 +17,7 @@ import { INoAuthorizeProps } from '../types/INoAuthorizeProps'
 
 import st from './NoAuthorize.module.scss'
 import { useNoAuthorize } from './useNoAuthorize'
+import { WhatIsTemporary } from './WhatIsTemporary/WhatIsTemporary'
 
 const NoAuthorize = (props: INoAuthorizeProps) => {
   const {
@@ -41,7 +42,10 @@ const NoAuthorize = (props: INoAuthorizeProps) => {
 
       <div className={st.segment}>
         <Text className={st.text}>
-          <strong className={st.link} onClick={() => alert('в разработке')}>
+          <strong
+            className={st.link}
+            onClick={() => setAdditionalModal(<WhatIsTemporary />)}
+          >
             Что такое временный аккаунт?
           </strong>
         </Text>
