@@ -34,6 +34,12 @@
   white-space: pre-line;
 }
 
+.littleText {
+  text-align: center;
+  white-space: pre-line;
+  @include text-style(12);
+}
+
 .button {
   width: 100%;
 

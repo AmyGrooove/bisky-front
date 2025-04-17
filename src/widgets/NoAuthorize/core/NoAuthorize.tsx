@@ -1,5 +1,9 @@
 import { Button } from '@shared/ui/molecules/Button'
-import { setAdditionalModal } from '@widgets/ModalWrapper'
+import {
+  closeAdditionalModal,
+  closeModal,
+  setAdditionalModal,
+} from '@widgets/ModalWrapper'
 import { AuthModule } from '@widgets/AuthModule'
 import { InfoIcon, LockIcon, SendIcon, UserIcon } from '@shared/icons'
 import { InputField } from '@shared/ui/atoms/InputField'
@@ -7,6 +11,7 @@ import { Controller } from 'react-hook-form'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn, isNil } from '@shared/utils/functions'
 import { Support } from '@widgets/Support'
+import Link from 'next/link'
 
 import { INoAuthorizeProps } from '../types/INoAuthorizeProps'
 
@@ -43,6 +48,30 @@ const NoAuthorize = (props: INoAuthorizeProps) => {
         <Button variant="big" Icon={UserIcon} onClick={createNewProfile}>
           Создать временный аккаунт
         </Button>
+        <Text className={st.littleText}>
+          Создавая аккаунт, вы принимаете{' '}
+          <Link
+            className={st.link}
+            href="/legal/terms"
+            onClick={() => {
+              closeModal()
+              closeAdditionalModal()
+            }}
+          >
+            пользовательское соглашение
+          </Link>{' '}
+          и{' '}
+          <Link
+            className={st.link}
+            href="/legal/privacy"
+            onClick={() => {
+              closeModal()
+              closeAdditionalModal()
+            }}
+          >
+            политику конфиденциальности
+          </Link>
+        </Text>
       </div>
 
       <div className={st.separatorWrapper}>
