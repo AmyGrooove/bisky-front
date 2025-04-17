@@ -36,8 +36,7 @@ const useStarSlider = (props: IStarSliderProps) => {
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
     if (isNil(containerRef.current)) return
-
-    if (event.pressure === 0) return
+    if (!containerRef.current.hasPointerCapture(event.pointerId)) return
 
     const newRating = calculateRating(event.clientX)
     setCurrentStart(newRating)
