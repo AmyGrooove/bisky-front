@@ -1,16 +1,15 @@
 'use client'
 
-import { useUnit } from 'effector-react'
-import { isNil } from '@shared/utils/functions'
-
-import { $sessionData } from '../store/sessionData'
-import { $sessionError } from '../store/sessionError'
+import { useGetWhoami } from '@entities/auth/api/getWhoami'
 
 const useSession = () => {
-  const user = useUnit($sessionData)
-  const isError = useUnit($sessionError)
+  const {
+    data: user = null,
+    isLoading,
+    isError,
+  } = useGetWhoami({ refetchInterval: 28 * 60 * 1000 })
 
-  return { user, isLoading: isNil(user) && !isError, isError }
+  return { user, isLoading, isError }
 }
 
 export { useSession }

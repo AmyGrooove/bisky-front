@@ -8,7 +8,6 @@ const useDanger = () => {
     if (isLogoutPending) return
 
     await logoutUser()
-
     closeModal()
   }
 

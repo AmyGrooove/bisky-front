@@ -33,10 +33,11 @@ const useTemporary = (props: ISettingsSectionProps) => {
     defaultValues: { userID: '' },
   })
 
-  const { mutateAsync: loginByID, isPending } = useLoginByID()
+  const { mutateAsync: loginByID, isPending: isLoginByIDPending } =
+    useLoginByID()
 
   const sendForm = async () => {
-    if (isPending) return
+    if (isLoginByIDPending) return
 
     const data = getValues()
 
@@ -61,9 +62,7 @@ const useTemporary = (props: ISettingsSectionProps) => {
     if (isLogoutPending) return
 
     await logoutUser()
-
     closeModal()
-    push('/')
   }
 
   return {
@@ -74,7 +73,6 @@ const useTemporary = (props: ISettingsSectionProps) => {
     isDisabled,
     copyID,
     sendForm,
-    isPending,
     logoutUserFromAccount,
   }
 }

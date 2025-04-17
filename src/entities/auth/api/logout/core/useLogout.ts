@@ -3,14 +3,12 @@ import { errorToast, successToast } from '@shared/utils/toast'
 import { UserXIcon } from '@shared/icons'
 import { deleteAccessToken, deleteRefreshToken } from '@shared/utils/functions'
 import { TUseMutationOptions } from '@shared/types'
-import {
-  resetSessionError,
-  resetUserData,
-} from '@entities/auth/hooks/useSession'
+import { useRouter } from 'next/navigation'
 
 import { logout } from './logout'
 
 const useLogout = (options: TUseMutationOptions<typeof logout> = {}) => {
+  const { push } = useRouter()
   const queryClient = useQueryClient()
 
   return useMutation({
@@ -24,10 +22,10 @@ const useLogout = (options: TUseMutationOptions<typeof logout> = {}) => {
       ])
 
       queryClient.clear()
-      resetUserData()
-      resetSessionError()
 
       successToast({ message: 'Успешно вышел из системы', Icon: UserXIcon })
+
+      setTimeout(() => push('/'), 200)
     },
     onError: async ({ message }) => {
       errorToast({ message: `Ошибка выхода: ${message}` })
