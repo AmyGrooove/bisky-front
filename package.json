@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "scripts": {
     "dev": "next dev -p 3030 --turbo --experimental-https",
-    "build": "next build",
+    "build": "next build --turbo",
     "start": "next start -p 3030",
     "lint:fix": "tsc && next lint --fix && stylelint \"src/**/*.{css,scss}\" --fix && prettier --write ."
   },
