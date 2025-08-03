@@ -1,3 +1,0 @@
-const LOCAL_STORAGE_KEYS = { IS_ADULT: 'IS_ADULT' }
-
-export { LOCAL_STORAGE_KEYS }

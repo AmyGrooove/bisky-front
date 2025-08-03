@@ -1,9 +1,0 @@
-@use '@shared/styles/reusable.scss' as *;
-
-.root {
-  @include estimate-color(background-color);
-
-  &_delete {
-    background-color: var(--bisky-300);
-  }
-}
