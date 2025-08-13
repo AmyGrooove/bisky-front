@@ -1,18 +1,20 @@
 import { cn } from '@shared/utils/functions'
+import { forwardRef, memo } from 'react'
 
-import { ISkeletonProps } from '../types/ISkeletonProps'
-
-import st from './Skeleton.module.scss'
 import { useSkeleton } from './useSkeleton'
-import { forwardRef } from 'react'
+import st from './Skeleton.module.scss'
 
-const Skeleton = forwardRef<HTMLDivElement, ISkeletonProps>((props, ref) => {
-  const { className, templates } = useSkeleton(props)
+import type { ISkeletonProps } from '../types/ISkeletonProps'
 
-  return {
-    none: <div ref={ref} className={cn(st.root, className)} />,
-  }[templates]
-})
+const Skeleton = memo(
+  forwardRef<HTMLDivElement, ISkeletonProps>((props, ref) => {
+    const { className, templates } = useSkeleton(props)
+
+    return {
+      none: <div ref={ref} className={cn(st.root, className)} />,
+    }[templates]
+  }),
+)
 
 Skeleton.displayName = 'Skeleton'
 
