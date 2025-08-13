@@ -1,6 +1,9 @@
-import { CSSProperties } from 'react'
+import { useMemo } from 'react'
+import { cn } from '@shared/utils/functions'
 
 import { ITextProps } from '../types/ITextProps'
+
+import st from './Text.module.scss'
 
 const useText = (props: ITextProps) => {
   const {
@@ -13,24 +16,29 @@ const useText = (props: ITextProps) => {
     as: Component = 'div',
   } = props
 
-  const inlineStyle: CSSProperties | undefined = maxLines
-    ? {
-        ...style,
-        display: '-webkit-box',
-        WebkitBoxOrient: 'vertical',
-        WebkitLineClamp: maxLines,
-        overflow: 'hidden',
-      }
-    : style
+  const inlineStyle = useMemo(
+    () =>
+      maxLines
+        ? {
+            ...style,
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: maxLines,
+            overflow: 'hidden',
+          }
+        : style,
+    [maxLines, style],
+  )
 
-  return {
-    children,
-    weight,
-    isCustomColor,
-    className,
-    inlineStyle,
-    Component,
-  }
+  const classes = useMemo(
+    () =>
+      cn(className, st.root, st[`weight_${weight}`], {
+        [st.root_defaultColor]: !isCustomColor,
+      }),
+    [className, weight, isCustomColor],
+  )
+
+  return { Component, children, classes, inlineStyle }
 }
 
 export { useText }

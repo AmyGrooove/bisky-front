@@ -1,27 +1,20 @@
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 
 import { ITextProps } from '../types/ITextProps'
 
 import { useText } from './useText'
-import st from './Text.module.scss'
-import { cn } from '@shared/utils/functions'
 
-const Text = forwardRef<HTMLElement, ITextProps>((props, ref) => {
-  const { Component, children, weight, isCustomColor, className, inlineStyle } =
-    useText(props)
+const Text = memo(
+  forwardRef<HTMLElement, ITextProps>((props, ref) => {
+    const { Component, children, classes, inlineStyle } = useText(props)
 
-  return (
-    <Component
-      ref={ref as any}
-      className={cn(className, st.root, st[`weight_${weight}`], {
-        [st.root_defaultColor]: !isCustomColor,
-      })}
-      style={inlineStyle}
-    >
-      {children}
-    </Component>
-  )
-})
+    return (
+      <Component ref={ref} className={classes} style={inlineStyle}>
+        {children}
+      </Component>
+    )
+  }),
+)
 
 Text.displayName = 'Text'
 
