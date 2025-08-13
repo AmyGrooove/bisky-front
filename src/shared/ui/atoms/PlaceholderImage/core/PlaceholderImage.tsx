@@ -20,13 +20,17 @@ const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
       alt,
       handleLoad,
       handleError,
+      handleTransitionEnd,
       sizes,
     } = usePlaceholderImage(props)
 
     return (
       <div ref={ref} className={cn(st.root, className)}>
         {!isPlaceholderHidden && (
-          <div className={cn(st.blurImage, { [st.blurImage_hide]: isLoaded })}>
+          <div
+            className={cn(st.blurImage, { [st.blurImage_hide]: isLoaded })}
+            onTransitionEnd={handleTransitionEnd}
+          >
             <LogoIcon className={st.icon} />
           </div>
         )}
