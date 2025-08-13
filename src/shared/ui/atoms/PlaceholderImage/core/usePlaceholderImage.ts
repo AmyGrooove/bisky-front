@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, type TransitionEvent } from 'react'
 
 import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
-import { PLACEHOLDER_DELAY } from '../static/PLACEHOLDER_DELAY'
 
 const usePlaceholderImage = (props: IPlaceholderImageProps) => {
   const { src, className = null, alt = '', sizes } = props
@@ -17,21 +16,17 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
     setIsLoaded(false)
   }, [])
 
+  const handleTransitionEnd = useCallback(
+    (event: TransitionEvent<HTMLDivElement>) => {
+      if (event.propertyName === 'opacity') setIsPlaceholderHidden(true)
+    },
+    [],
+  )
+
   useEffect(() => {
     setIsLoaded(false)
     setIsPlaceholderHidden(false)
   }, [src])
-
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>
-
-    if (isLoaded && src)
-      timer = setTimeout(() => setIsPlaceholderHidden(true), PLACEHOLDER_DELAY)
-
-    return () => {
-      if (timer) clearTimeout(timer)
-    }
-  }, [isLoaded, src])
 
   return {
     className,
@@ -41,6 +36,7 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
     alt,
     handleLoad,
     handleError,
+    handleTransitionEnd,
     sizes,
   }
 }
