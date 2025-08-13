@@ -1,0 +1,8 @@
+@use '@shared/styles/reusable.scss' as *;
+@use '../styles/defineFontWeight.scss' as *;
+
+@include define-font-weight((400, 700));
+
+.root_defaultColor {
+  color: var(--light-100);
+}
