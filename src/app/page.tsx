@@ -1,4 +1,4 @@
-const home = () => (
+const Home = () => (
   <div
     style={{
       display: 'flex',
@@ -17,4 +17,4 @@ const home = () => (
   </div>
 )
 
-export default home
+export default Home
