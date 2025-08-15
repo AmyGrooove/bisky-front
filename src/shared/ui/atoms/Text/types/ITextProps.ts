@@ -5,7 +5,6 @@ interface ITextProps<T extends ElementType = ElementType> {
 
   style?: CSSProperties
   weight?: '400' | '700'
-  isCustomColor?: boolean
   className?: string
   maxLines?: number
   as?: T

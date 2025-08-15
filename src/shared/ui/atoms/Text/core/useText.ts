@@ -9,7 +9,6 @@ const useText = (props: ITextProps) => {
   const {
     children,
     weight = '400',
-    isCustomColor = false,
     className = null,
     maxLines,
     style,
@@ -31,11 +30,8 @@ const useText = (props: ITextProps) => {
   )
 
   const classes = useMemo(
-    () =>
-      cn(className, st.root, st[`weight_${weight}`], {
-        [st.root_defaultColor]: !isCustomColor,
-      }),
-    [className, weight, isCustomColor],
+    () => cn(className, st.root, st[`weight_${weight}`]),
+    [className, weight],
   )
 
   return { Component, children, classes, inlineStyle }
