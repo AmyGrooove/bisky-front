@@ -5,7 +5,7 @@ const useButton = (props: TButtonProps) => {
     onClick,
     children = null,
     Icon = null,
-    className = null,
+    className,
     variant = 'small',
     isDisabled = false,
     type = 'button',

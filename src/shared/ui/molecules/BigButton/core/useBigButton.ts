@@ -5,7 +5,7 @@ const useBigButton = (props: IBigButtonProps) => {
     onClick,
     children,
     Icon,
-    className = null,
+    className,
     variant = 'small',
     isDisabled = false,
     iconText = null,

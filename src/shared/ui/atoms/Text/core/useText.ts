@@ -9,7 +9,7 @@ const useText = (props: ITextProps) => {
   const {
     children,
     weight = '400',
-    className = null,
+    className,
     maxLines,
     style,
     as: Component = 'div',

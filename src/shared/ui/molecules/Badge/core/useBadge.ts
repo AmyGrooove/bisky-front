@@ -1,12 +1,7 @@
 import { TBadgeProps } from '../types/TBadgeProps'
 
 const useBadge = (props: TBadgeProps) => {
-  const {
-    children = null,
-    Icon = null,
-    className = null,
-    variant = 'small',
-  } = props
+  const { children = null, Icon = null, className, variant = 'small' } = props
 
   return {
     children,

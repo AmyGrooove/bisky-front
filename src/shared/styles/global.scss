@@ -3,9 +3,9 @@
 
 * {
   box-sizing: border-box;
+  color: var(--light-100);
   letter-spacing: 0;
   outline: none;
-  color: var(--light-100);
   -webkit-tap-highlight-color: transparent;
 
   &::after,

@@ -1,0 +1,19 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  background-color: var(--dark-200);
+  border-radius: var(--radius-12);
+  display: flex;
+  gap: 12px;
+  padding: 4px;
+}
+
+.tab {
+  background-color: var(--dark-200);
+  flex: 0 0 auto;
+  height: 34px;
+
+  &_active {
+    background-color: var(--bisky-200);
+  }
+}

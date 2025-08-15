@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState, type TransitionEvent } from 'react'
 import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
 
 const usePlaceholderImage = (props: IPlaceholderImageProps) => {
-  const { src, className = null, alt = '', sizes } = props
+  const { src, className, alt = '', sizes } = props
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [isPlaceholderHidden, setIsPlaceholderHidden] = useState(false)

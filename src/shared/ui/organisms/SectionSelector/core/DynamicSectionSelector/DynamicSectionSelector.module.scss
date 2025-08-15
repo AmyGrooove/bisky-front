@@ -1,0 +1,44 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  margin-left: -24px;
+  padding-left: 24px;
+  user-select: none;
+
+  &_drag {
+    cursor: grab;
+  }
+}
+
+.slide {
+  background-color: var(--dark-200);
+  flex: 0 0 auto;
+  height: 34px;
+  margin-left: 4px;
+
+  &_active {
+    background-color: var(--bisky-200);
+  }
+}
+
+.slideEmpty {
+  flex-shrink: 0;
+  width: 4px;
+}
+
+.skeleton {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+
+.skeletonItem {
+  height: 34px;
+  width: 80px;
+}
