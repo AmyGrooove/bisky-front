@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import { forwardRef } from 'react'
 import { cn } from '@shared/utils/functions'
