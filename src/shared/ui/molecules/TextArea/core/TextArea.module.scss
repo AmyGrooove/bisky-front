@@ -1,0 +1,50 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  @extend %no-select;
+
+  &:has(.input:disabled) {
+    background-color: var(--gray);
+  }
+}
+
+.labelText {
+  color: var(--light-100);
+  opacity: 0.8;
+}
+
+.errorText {
+  color: var(--red);
+}
+
+.input {
+  background-color: var(--dark-100);
+  border: 0px;
+  border-radius: var(--radius-12);
+  color: var(--light-100);
+  font-size: 16px;
+  line-height: 18px;
+  outline: 1px solid transparent;
+  padding: 8px;
+  width: 100%;
+  resize: vertical;
+  min-height: 60px;
+  max-height: 240px;
+  @include effect(back-shadow);
+  @include transition(outline);
+
+  &::placeholder {
+    color: var(--light-400);
+  }
+
+  &:focus {
+    outline-color: var(--bisky-100);
+  }
+
+  &_error {
+    outline-color: var(--red);
+  }
+}
