@@ -1,17 +1,20 @@
 import { cn, getEmptyArray } from '@shared/utils/functions'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { Button } from '@shared/ui/molecules/Button'
-import { forwardRef } from 'react'
+import { forwardRef, ForwardedRef } from 'react'
 
-import { ISectionSelectorChildrenProps } from '../../types/ISectionSelectorChildrenProps'
+import {
+  ISectionSelectorChildrenProps,
+  ISectionSelectorComponent,
+} from '../../types/ISectionSelectorChildrenProps'
 
 import st from './DynamicSectionSelector.module.scss'
 import { useDynamicSectionSelector } from './useDynamicSectionSelector'
 
-const DynamicSectionSelector = forwardRef<
-  HTMLDivElement,
-  ISectionSelectorChildrenProps
->((props, ref) => {
+const DynamicSectionSelectorInner = <T extends string>(
+  props: ISectionSelectorChildrenProps<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) => {
   const {
     items,
     isSliderLoading,
@@ -33,14 +36,14 @@ const DynamicSectionSelector = forwardRef<
   return (
     <div ref={sliderRef} className={cn(st.root, className)}>
       <div className={st.slider}>
-        {items.map((item, index) => (
+        {items.map((item) => (
           <Button
-            key={index}
+            key={item.value}
             variant="big"
             className={cn(st.slide, {
-              [st.slide_active]: activeTab === index,
+              [st.slide_active]: activeTab === item.value,
             })}
-            onClick={() => onSwitchTab(index)}
+            onClick={() => onSwitchTab(item.value)}
           >
             {item.children}
           </Button>
@@ -49,7 +52,11 @@ const DynamicSectionSelector = forwardRef<
       </div>
     </div>
   )
-})
+}
+
+const DynamicSectionSelector = forwardRef(
+  DynamicSectionSelectorInner,
+) as ISectionSelectorComponent
 
 DynamicSectionSelector.displayName = 'DynamicSectionSelector'
 

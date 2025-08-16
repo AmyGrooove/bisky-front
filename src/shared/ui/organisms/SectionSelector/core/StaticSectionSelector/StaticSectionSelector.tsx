@@ -1,34 +1,41 @@
 import { cn } from '@shared/utils/functions'
 import { Button } from '@shared/ui/molecules/Button'
-import { forwardRef } from 'react'
+import { forwardRef, ForwardedRef } from 'react'
 
-import { ISectionSelectorChildrenProps } from '../../types/ISectionSelectorChildrenProps'
+import {
+  ISectionSelectorChildrenProps,
+  ISectionSelectorComponent,
+} from '../../types/ISectionSelectorChildrenProps'
 
 import st from './StaticSectionSelector.module.scss'
 import { useStaticSectionSelector } from './useStaticSectionSelector'
 
-const StaticSectionSelector = forwardRef<
-  HTMLDivElement,
-  ISectionSelectorChildrenProps
->((props, ref) => {
+const StaticSectionSelectorInner = <T extends string>(
+  props: ISectionSelectorChildrenProps<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) => {
   const { items, onSwitchTab, activeTab, className } =
     useStaticSectionSelector(props)
 
   return (
     <div ref={ref} className={cn(st.root, className)}>
-      {items.map((item, index) => (
+      {items.map((item) => (
         <Button
-          key={index}
+          key={item.value}
           variant="big"
-          className={cn(st.tab, { [st.tab_active]: activeTab === index })}
-          onClick={() => onSwitchTab(index)}
+          className={cn(st.tab, { [st.tab_active]: activeTab === item.value })}
+          onClick={() => onSwitchTab(item.value)}
         >
           {item.children}
         </Button>
       ))}
     </div>
   )
-})
+}
+
+const StaticSectionSelector = forwardRef(
+  StaticSectionSelectorInner,
+) as ISectionSelectorComponent
 
 StaticSectionSelector.displayName = 'StaticSectionSelector'
 

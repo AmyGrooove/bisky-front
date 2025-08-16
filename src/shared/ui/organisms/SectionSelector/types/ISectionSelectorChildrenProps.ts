@@ -1,11 +1,22 @@
+import { ForwardedRef, ReactElement } from 'react'
+
 import { ITabItem } from './ITabItem'
 
-interface ISectionSelectorChildrenProps {
-  items: ITabItem[]
-  activeTab: number
-  onSwitchTab: (value: number) => void
+interface ISectionSelectorChildrenProps<T extends string = string> {
+  items: ITabItem<T>[]
+  activeTab: T
+  onSwitchTab: (value: T) => void
 
   className?: string
 }
 
-export type { ISectionSelectorChildrenProps }
+interface ISectionSelectorComponent {
+  <T extends string>(
+    props: ISectionSelectorChildrenProps<T> & {
+      ref?: ForwardedRef<HTMLDivElement>
+    },
+  ): ReactElement
+  displayName?: string
+}
+
+export type { ISectionSelectorChildrenProps, ISectionSelectorComponent }

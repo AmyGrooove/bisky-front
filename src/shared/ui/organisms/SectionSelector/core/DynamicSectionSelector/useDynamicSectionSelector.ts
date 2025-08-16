@@ -4,8 +4,8 @@ import { mergeRefs } from '@shared/utils/functions'
 
 import { ISectionSelectorChildrenProps } from '../../types/ISectionSelectorChildrenProps'
 
-const useDynamicSectionSelector = (
-  props: ISectionSelectorChildrenProps,
+const useDynamicSectionSelector = <T extends string>(
+  props: ISectionSelectorChildrenProps<T>,
   ref?: Ref<HTMLDivElement>,
 ) => {
   const { items, onSwitchTab, activeTab, className } = props
