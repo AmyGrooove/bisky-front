@@ -1,5 +1,7 @@
 'use client'
 
+import { MoreInfo } from '@shared/ui/molecules/MoreInfo/core/MoreInfo'
+
 const Home = () => {
   return (
     <>
@@ -18,6 +20,8 @@ const Home = () => {
         <p style={{ color: 'white' }}>Мы работаем над улучшением сайта.</p>
         <p style={{ color: 'white' }}>Пожалуйста, вернитесь позже.</p>
         <img src="/images/biskyLook.png" alt="" width={200} />
+
+        <MoreInfo>dsadasd</MoreInfo>
       </div>
     </>
   )
