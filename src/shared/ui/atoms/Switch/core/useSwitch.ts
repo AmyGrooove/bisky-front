@@ -1,19 +1,13 @@
 import { ISwitchProps } from '../types/ISwitchProps'
 
 const useSwitch = (props: ISwitchProps) => {
-  const {
-    value,
-    onChange,
-    variant = 'big',
-    isDisabled = false,
-    className,
-  } = props
+  const { value, onChange, variant = 'big', isDisabled = false, className } = props
 
-  const setChecked = () => {
+  const toggle = () => {
     onChange(!value)
   }
 
-  return { variant, className, value, isDisabled, setChecked }
+  return { variant, className, value, isDisabled, toggle }
 }
 
 export { useSwitch }
