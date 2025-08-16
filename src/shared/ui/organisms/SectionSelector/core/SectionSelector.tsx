@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, ForwardedRef } from 'react'
 
 import { ISectionSelectorProps } from '../types/ISectionSelectorProps'
 
@@ -6,24 +6,16 @@ import { DynamicSectionSelector } from './DynamicSectionSelector/DynamicSectionS
 import { StaticSectionSelector } from './StaticSectionSelector/StaticSectionSelector'
 import { useSectionSelector } from './useSectionSelector'
 
-const SectionSelector = forwardRef<HTMLDivElement, ISectionSelectorProps>(
-  (props, ref) => {
-    const { className, items, onSwitchTab, variant, activeTab } =
-      useSectionSelector(props)
+const SectionSelectorInner = <T extends string>(
+  props: ISectionSelectorProps<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) => {
+  const { className, items, onSwitchTab, variant, activeTab } =
+    useSectionSelector(props)
 
-    if (variant === 'dynamic')
-      return (
-        <DynamicSectionSelector
-          ref={ref}
-          items={items}
-          className={className}
-          activeTab={activeTab}
-          onSwitchTab={onSwitchTab}
-        />
-      )
-
+  if (variant === 'dynamic')
     return (
-      <StaticSectionSelector
+      <DynamicSectionSelector
         ref={ref}
         items={items}
         className={className}
@@ -31,8 +23,19 @@ const SectionSelector = forwardRef<HTMLDivElement, ISectionSelectorProps>(
         onSwitchTab={onSwitchTab}
       />
     )
-  },
-)
+
+  return (
+    <StaticSectionSelector
+      ref={ref}
+      items={items}
+      className={className}
+      activeTab={activeTab}
+      onSwitchTab={onSwitchTab}
+    />
+  )
+}
+
+const SectionSelector = forwardRef(SectionSelectorInner)
 
 SectionSelector.displayName = 'SectionSelector'
 

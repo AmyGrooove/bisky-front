@@ -1,6 +1,8 @@
 import { ISectionSelectorProps } from '../types/ISectionSelectorProps'
 
-const useSectionSelector = (props: ISectionSelectorProps) => {
+const useSectionSelector = <T extends string>(
+  props: ISectionSelectorProps<T>,
+) => {
   const {
     items = [],
     activeTab,

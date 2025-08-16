@@ -1,6 +1,7 @@
 import { ISectionSelectorChildrenProps } from './ISectionSelectorChildrenProps'
 
-interface ISectionSelectorProps extends ISectionSelectorChildrenProps {
+interface ISectionSelectorProps<T extends string = string>
+  extends ISectionSelectorChildrenProps<T> {
   variant?: 'static' | 'dynamic'
 }
 
