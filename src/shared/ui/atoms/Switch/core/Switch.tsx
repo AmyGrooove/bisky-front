@@ -1,18 +1,23 @@
 import { cn } from '@shared/utils/functions'
+import { forwardRef } from 'react'
 
 import { ISwitchProps } from '../types/ISwitchProps'
 
 import { useSwitch } from './useSwitch'
 import st from './Switch.module.scss'
 
-const Switch = (props: ISwitchProps) => {
-  const { variant, className, value, isDisabled, setChecked } = useSwitch(props)
+const Switch = forwardRef<HTMLButtonElement, ISwitchProps>((props, ref) => {
+  const { variant, className, value, isDisabled, toggle } = useSwitch(props)
 
   return (
     <button
+      ref={ref}
+      type="button"
       className={cn(st.root, st[`root_${variant}`], className)}
-      onClick={setChecked}
+      onClick={toggle}
       disabled={isDisabled}
+      role="switch"
+      aria-checked={value}
     >
       <input
         hidden
@@ -25,6 +30,6 @@ const Switch = (props: ISwitchProps) => {
       <div className={st.tumbler} />
     </button>
   )
-}
+})
 
 export { Switch }
