@@ -1,0 +1,35 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.icon {
+  fill: var(--bisky-100);
+}
+
+.label {
+  color: var(--bisky-100);
+}
+
+.root {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  @include effect(back-shadow);
+  @extend %press, %no-select;
+
+  &_small {
+    .icon {
+      height: 16px;
+      width: 16px;
+    }
+
+    .label {
+      @include text-style(12);
+    }
+  }
+
+  &_big {
+    .icon {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
