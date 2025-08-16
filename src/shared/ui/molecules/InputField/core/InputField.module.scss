@@ -9,6 +9,10 @@
   &:has(.input:disabled) {
     background-color: var(--gray);
   }
+
+  &:has(.icon) .input {
+    padding: 8px 36px 8px 8px;
+  }
 }
 
 .labelText {
@@ -27,11 +31,8 @@
   color: var(--light-100);
   font-size: 16px;
   line-height: 18px;
-  max-height: 240px;
-  min-height: 60px;
   outline: 1px solid transparent;
   padding: 8px;
-  resize: vertical;
   text-overflow: ellipsis;
   width: 100%;
   @include effect(back-shadow);
@@ -48,4 +49,18 @@
   &_error {
     outline-color: var(--red);
   }
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.icon {
+  cursor: pointer;
+  height: 18px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 18px;
+  @extend %press, %no-select;
 }
