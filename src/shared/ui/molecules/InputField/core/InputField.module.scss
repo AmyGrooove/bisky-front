@@ -1,5 +1,32 @@
 @use '@shared/styles/reusable.scss' as *;
 
+.input {
+  background-color: var(--dark-100);
+  border: 0px;
+  border-radius: var(--radius-12);
+  color: var(--light-100);
+  font-size: 16px;
+  line-height: 18px;
+  outline: 1px solid transparent;
+  padding: 8px;
+  text-overflow: ellipsis;
+  width: 100%;
+  @include effect(back-shadow);
+  @include transition(outline);
+
+  &::placeholder {
+    color: var(--light-400);
+  }
+
+  &:focus {
+    outline-color: var(--bisky-100);
+  }
+
+  &_error {
+    outline-color: var(--red);
+  }
+}
+
 .root {
   display: flex;
   flex-direction: column;
@@ -20,32 +47,20 @@
   color: var(--red);
 }
 
-.input {
-  background-color: var(--dark-100);
-  border: 0px;
-  border-radius: var(--radius-12);
-  color: var(--light-100);
-  font-size: 16px;
-  line-height: 18px;
-  max-height: 240px;
-  min-height: 60px;
-  outline: 1px solid transparent;
-  padding: 8px;
-  resize: vertical;
-  text-overflow: ellipsis;
-  width: 100%;
-  @include effect(back-shadow);
-  @include transition(outline);
+.inputWrapper {
+  position: relative;
+}
 
-  &::placeholder {
-    color: var(--light-400);
-  }
+.icon {
+  cursor: pointer;
+  height: 18px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 18px;
+  @extend %press, %no-select;
+}
 
-  &:focus {
-    outline-color: var(--bisky-100);
-  }
-
-  &_error {
-    outline-color: var(--red);
-  }
+.root:has(.icon) .input {
+  padding: 8px 36px 8px 8px;
 }
