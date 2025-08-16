@@ -1,7 +1,6 @@
-import { memo } from 'react'
 import { IIconProps } from '@shared/types'
 
-const DiscordIcon = memo((props: IIconProps) => (
+const DiscordIcon = (props: IIconProps) => (
   <svg
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -18,6 +17,6 @@ const DiscordIcon = memo((props: IIconProps) => (
       </clipPath>
     </defs>
   </svg>
-))
+)
 
 export { DiscordIcon }

@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const useDelayedClick = (callback: () => void, delay = 250) => {
   const [isPressed, setIsPressed] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const handleDelayedClick = useCallback(async () => {
+  const handleDelayedClick = async () => {
     if (isPressed) return
 
     setIsPressed(true)
@@ -18,7 +18,7 @@ const useDelayedClick = (callback: () => void, delay = 250) => {
         resolve()
       }, delay)
     })
-  }, [callback, delay, isPressed])
+  }
 
   useEffect(() => {
     return () => {

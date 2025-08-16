@@ -1,7 +1,6 @@
-import { memo } from 'react'
 import { IIconProps } from '@shared/types'
 
-const BoostyIcon = memo((props: IIconProps) => (
+const BoostyIcon = (props: IIconProps) => (
   <svg
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -11,6 +10,6 @@ const BoostyIcon = memo((props: IIconProps) => (
   >
     <path d="M8.9506 23.2235C8.97884 23.2235 9.01413 23.2235 9.06354 23.2235C14.1318 23.2235 19.3341 19.44 20.6188 14.9577C21.8259 10.7788 19.7788 7.32708 15.4377 6.86825L12.9035 13.2565H15.8118L8.9506 23.2235ZM3.6706 14.4918L3.53648 14.9435C2.25884 19.3906 3.72001 23.153 8.92237 23.2094C9.5859 21.5294 10.5035 19.193 11.6824 16.2283H8.8659L11.8941 5.6259C11.9012 5.60472 11.9082 5.58355 11.9224 5.55531L13.073 1.5459H7.37648L3.6706 14.4918Z" />
   </svg>
-))
+)
 
 export { BoostyIcon }

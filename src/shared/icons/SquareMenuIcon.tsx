@@ -1,7 +1,6 @@
-import { memo } from 'react'
 import { IIconProps } from '@shared/types'
 
-const SquareMenuIcon = memo((props: IIconProps) => (
+const SquareMenuIcon = (props: IIconProps) => (
   <svg
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -11,6 +10,6 @@ const SquareMenuIcon = memo((props: IIconProps) => (
   >
     <path d="M20 5C20 4.44771 19.5523 4 19 4H5C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44771 20 5 20H19C19.5523 20 20 19.5523 20 19V5ZM17 15C17.5523 15 18 15.4477 18 16C18 16.5523 17.5523 17 17 17H7C6.44772 17 6 16.5523 6 16C6 15.4477 6.44772 15 7 15H17ZM17 11C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12C6 11.4477 6.44772 11 7 11H17ZM17 7C17.5523 7 18 7.44772 18 8C18 8.55228 17.5523 9 17 9H7C6.44772 9 6 8.55228 6 8C6 7.44772 6.44772 7 7 7H17ZM22 19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V19Z" />
   </svg>
-))
+)
 
 export { SquareMenuIcon }

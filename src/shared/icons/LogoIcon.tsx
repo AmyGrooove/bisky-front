@@ -1,7 +1,6 @@
-import { memo } from 'react'
 import { IIconProps } from '@shared/types'
 
-const LogoIcon = memo((props: IIconProps) => (
+const LogoIcon = (props: IIconProps) => (
   <svg
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -13,6 +12,6 @@ const LogoIcon = memo((props: IIconProps) => (
     <path d="M19.6666 0.656079C20.9333 1.01224 20.9333 4.91122 19.6666 9.1851C18.4 13.459 16.2666 16.7581 15 16.402C13.7333 16.0458 13.7333 12.1468 15 7.87295C16.2666 3.59906 18.4 0.299922 19.6666 0.656079Z" />
     <path d="M4.33333 0.655933C5.6 0.299776 7.73333 3.59892 8.99999 7.8728C10.2667 12.1467 10.2667 16.0457 8.99999 16.4018C7.73333 16.758 5.6 13.4588 4.33333 9.18496C3.06667 4.91107 3.06667 1.01209 4.33333 0.655933Z" />
   </svg>
-))
+)
 
 export { LogoIcon }

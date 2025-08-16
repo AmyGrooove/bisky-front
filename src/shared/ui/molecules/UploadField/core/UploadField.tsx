@@ -1,4 +1,4 @@
-import { forwardRef, memo } from 'react'
+import { forwardRef } from 'react'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn } from '@shared/utils/functions'
 import { CloudUploadIcon } from '@shared/icons'
@@ -8,8 +8,8 @@ import { IUploadFieldProps } from '../types/IUploadFieldProps'
 import st from './UploadField.module.scss'
 import { useUploadField } from './useUploadField'
 
-const UploadField = memo(
-  forwardRef<HTMLInputElement, IUploadFieldProps>((props, ref) => {
+const UploadField = forwardRef<HTMLInputElement, IUploadFieldProps>(
+  (props, ref) => {
     const {
       className,
       uploadImage,
@@ -50,7 +50,7 @@ const UploadField = memo(
         )}
       </label>
     )
-  }),
+  },
 )
 
 export { UploadField }

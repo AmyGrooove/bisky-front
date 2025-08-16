@@ -1,11 +1,10 @@
-import { memo } from 'react'
 import { IIconProps } from '@shared/types'
 
 type Props = IIconProps & {
   seconds: number
 }
 
-const SkipLeftIcon = memo(({ seconds, ...props }: Props) => (
+const SkipLeftIcon = ({ seconds, ...props }: Props) => (
   <svg
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -30,6 +29,6 @@ const SkipLeftIcon = memo(({ seconds, ...props }: Props) => (
       {seconds}
     </text>
   </svg>
-))
+)
 
 export { SkipLeftIcon }

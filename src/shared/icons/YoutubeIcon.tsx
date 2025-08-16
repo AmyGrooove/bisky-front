@@ -1,7 +1,6 @@
-import { memo } from 'react'
 import { IIconProps } from '@shared/types'
 
-const YoutubeIcon = memo((props: IIconProps) => (
+const YoutubeIcon = (props: IIconProps) => (
   <svg
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -22,6 +21,6 @@ const YoutubeIcon = memo((props: IIconProps) => (
       </clipPath>
     </defs>
   </svg>
-))
+)
 
 export { YoutubeIcon }

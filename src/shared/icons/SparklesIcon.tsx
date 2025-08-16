@@ -1,7 +1,6 @@
-import { memo } from 'react'
 import { IIconProps } from '@shared/types'
 
-const SparklesIcon = memo((props: IIconProps) => (
+const SparklesIcon = (props: IIconProps) => (
   <svg
     viewBox="0 0 23 22"
     fill="currentColor"
@@ -22,6 +21,6 @@ const SparklesIcon = memo((props: IIconProps) => (
       </clipPath>
     </defs>
   </svg>
-))
+)
 
 export { SparklesIcon }

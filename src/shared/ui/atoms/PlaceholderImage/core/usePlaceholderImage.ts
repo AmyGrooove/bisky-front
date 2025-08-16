@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type TransitionEvent } from 'react'
+import { useEffect, useState, type TransitionEvent } from 'react'
 
 import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
 
@@ -8,20 +8,17 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isPlaceholderHidden, setIsPlaceholderHidden] = useState(false)
 
-  const handleLoad = useCallback(() => {
+  const handleLoad = () => {
     setIsLoaded(true)
-  }, [])
+  }
 
-  const handleError = useCallback(() => {
+  const handleError = () => {
     setIsLoaded(false)
-  }, [])
+  }
 
-  const handleTransitionEnd = useCallback(
-    (event: TransitionEvent<HTMLDivElement>) => {
-      if (event.propertyName === 'opacity') setIsPlaceholderHidden(true)
-    },
-    [],
-  )
+  const handleTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
+    if (event.propertyName === 'opacity') setIsPlaceholderHidden(true)
+  }
 
   useEffect(() => {
     setIsLoaded(false)

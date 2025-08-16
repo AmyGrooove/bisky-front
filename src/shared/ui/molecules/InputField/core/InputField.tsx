@@ -1,14 +1,14 @@
 import { cn, isNil } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
-import { forwardRef, memo } from 'react'
+import { forwardRef } from 'react'
 
 import { IInputFieldProps } from '../types/IInputFieldProps'
 
 import { useInputField } from './useInputField'
 import st from './InputField.module.scss'
 
-const InputField = memo(
-  forwardRef<HTMLInputElement, IInputFieldProps>((props, ref) => {
+const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
+  (props, ref) => {
     const {
       value,
       onChange,
@@ -47,7 +47,7 @@ const InputField = memo(
         )}
       </div>
     )
-  }),
+  },
 )
 
 InputField.displayName = 'InputField'

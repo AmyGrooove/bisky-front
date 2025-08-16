@@ -1,4 +1,4 @@
-import { forwardRef, memo } from 'react'
+import { forwardRef } from 'react'
 
 import { ISectionSelectorProps } from '../types/ISectionSelectorProps'
 
@@ -6,8 +6,8 @@ import { DynamicSectionSelector } from './DynamicSectionSelector/DynamicSectionS
 import { StaticSectionSelector } from './StaticSectionSelector/StaticSectionSelector'
 import { useSectionSelector } from './useSectionSelector'
 
-const SectionSelector = memo(
-  forwardRef<HTMLDivElement, ISectionSelectorProps>((props, ref) => {
+const SectionSelector = forwardRef<HTMLDivElement, ISectionSelectorProps>(
+  (props, ref) => {
     const { className, items, onSwitchTab, variant, activeTab } =
       useSectionSelector(props)
 
@@ -31,7 +31,7 @@ const SectionSelector = memo(
         onSwitchTab={onSwitchTab}
       />
     )
-  }),
+  },
 )
 
 SectionSelector.displayName = 'SectionSelector'

@@ -1,0 +1,61 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.tumbler {
+  background-color: var(--tumbler-bg, var(--bisky-400));
+  border-radius: var(--radius-full);
+  transform: translateX(0);
+  @include transition((background-color, transform));
+}
+
+.root {
+  background-color: var(--dark-100);
+  @extend %no-select;
+  @include effect(back-shadow);
+  @include transition(background-color);
+
+  &_big {
+    border-radius: var(--radius-20);
+    height: 32px;
+    padding: 4px;
+    width: 60px;
+
+    .tumbler {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &_small {
+    border-radius: var(--radius-12);
+    height: 24px;
+    padding: 2px;
+    width: 44px;
+
+    .tumbler {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &:where(:has(.input:checked)) {
+    background-color: var(--bisky-300);
+    --tumbler-bg: var(--bisky-100);
+  }
+
+  &_big:where(:has(.input:checked)) .tumbler {
+    transform: translateX(28px);
+  }
+
+  &_small:where(:has(.input:checked)) .tumbler {
+    transform: translateX(20px);
+  }
+
+  &:where(:has(.input:disabled)) {
+    cursor: default;
+    opacity: 0.6;
+
+    &:hover {
+      filter: none;
+    }
+  }
+}
