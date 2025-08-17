@@ -13,8 +13,7 @@ const ToggleFiltersInner = <T extends string>(
   props: IToggleFiltersProps<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) => {
-  const { toggle, items, variant, className, checkIsInActive } =
-    useToggleFilters(props)
+  const { toggle, items, variant, className, isActive } = useToggleFilters(props)
 
   return (
     <div ref={ref} className={cn(st.root, st[`root_${variant}`], className)}>
@@ -23,7 +22,7 @@ const ToggleFiltersInner = <T extends string>(
           onClick={() => toggle(tag.value)}
           key={tag.value}
           className={cn(st.tag, {
-            [st.tag_active]: checkIsInActive(tag.value),
+            [st.tag_active]: isActive(tag.value),
           })}
         >
           {tag.children}
