@@ -18,7 +18,7 @@ const DynamicSectionSelectorInner = <T extends string>(
   const {
     items,
     isSliderLoading,
-    sliderRef,
+    mergedRef,
     onSwitchTab,
     activeTab,
     className,
@@ -34,7 +34,7 @@ const DynamicSectionSelectorInner = <T extends string>(
     )
 
   return (
-    <div ref={sliderRef} className={cn(st.root, className)}>
+    <div ref={mergedRef} className={cn(st.root, className)}>
       <div className={st.slider}>
         {items.map((item) => (
           <Button

@@ -3,9 +3,15 @@ import { ISectionSelectorChildrenProps } from '../../types/ISectionSelectorChild
 const useStaticSectionSelector = <T extends string>(
   props: ISectionSelectorChildrenProps<T>,
 ) => {
-  const { items, onSwitchTab, activeTab, className } = props
+  const {
+    items,
+    onSwitchTab,
+    activeTab,
+    className,
+    orientation = 'horizontal',
+  } = props
 
-  return { items, onSwitchTab, activeTab, className }
+  return { items, onSwitchTab, activeTab, className, orientation }
 }
 
 export { useStaticSectionSelector }

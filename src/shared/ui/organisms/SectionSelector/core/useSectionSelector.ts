@@ -9,6 +9,7 @@ const useSectionSelector = <T extends string>(
     onSwitchTab,
     variant = 'static',
     className,
+    orientation = 'horizontal',
   } = props
 
   return {
@@ -17,6 +18,7 @@ const useSectionSelector = <T extends string>(
     onSwitchTab,
     variant,
     activeTab,
+    orientation,
   }
 }
 

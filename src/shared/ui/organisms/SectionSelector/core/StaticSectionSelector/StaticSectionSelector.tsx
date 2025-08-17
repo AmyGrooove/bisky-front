@@ -14,11 +14,14 @@ const StaticSectionSelectorInner = <T extends string>(
   props: ISectionSelectorChildrenProps<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) => {
-  const { items, onSwitchTab, activeTab, className } =
+  const { items, onSwitchTab, activeTab, className, orientation } =
     useStaticSectionSelector(props)
 
   return (
-    <div ref={ref} className={cn(st.root, className)}>
+    <div
+      ref={ref}
+      className={cn(st.root, st[`root_${orientation}`], className)}
+    >
       {items.map((item) => (
         <Button
           key={item.value}

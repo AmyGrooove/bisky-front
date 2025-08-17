@@ -10,7 +10,7 @@ const SectionSelectorInner = <T extends string>(
   props: ISectionSelectorProps<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) => {
-  const { className, items, onSwitchTab, variant, activeTab } =
+  const { className, items, onSwitchTab, variant, activeTab, orientation } =
     useSectionSelector(props)
 
   if (variant === 'dynamic')
@@ -21,6 +21,7 @@ const SectionSelectorInner = <T extends string>(
         className={className}
         activeTab={activeTab}
         onSwitchTab={onSwitchTab as (value: string) => void}
+        orientation={orientation}
       />
     )
 
@@ -31,6 +32,7 @@ const SectionSelectorInner = <T extends string>(
       className={className}
       activeTab={activeTab}
       onSwitchTab={onSwitchTab as (value: string) => void}
+      orientation={orientation}
     />
   )
 }

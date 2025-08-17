@@ -7,6 +7,7 @@ interface ISectionSelectorChildrenProps<T extends string = string> {
   activeTab: T
   onSwitchTab: (value: T) => void
 
+  orientation?: 'horizontal' | 'vertical'
   className?: string
 }
 
