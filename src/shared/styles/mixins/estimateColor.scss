@@ -1,25 +1,25 @@
 @mixin estimate-color($property) {
-  &_added {
+  #{&}_added {
     #{$property}: var(--bisky-100);
   }
 
-  &_watching {
+  #{&}_watching {
     #{$property}: var(--blue);
   }
 
-  &_completed {
+  #{&}_completed {
     #{$property}: var(--green);
   }
 
-  &_dropped {
+  #{&}_dropped {
     #{$property}: var(--bisky-400);
   }
 
-  &_delete {
+  #{&}_delete {
     #{$property}: var(--light-400);
   }
 
-  &_skipped {
+  #{&}_skipped {
     #{$property}: var(--gray);
   }
 }

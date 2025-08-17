@@ -1,13 +1,13 @@
 @mixin status-color($property) {
-  &_anons {
+  #{&}_anons {
     #{$property}: var(--orange);
   }
 
-  &_ongoing {
+  #{&}_ongoing {
     #{$property}: var(--blue);
   }
 
-  &_released {
+  #{&}_released {
     #{$property}: var(--green);
   }
 }
