@@ -3,28 +3,24 @@ import { Button } from '@shared/ui/molecules/Button'
 import { forwardRef, ForwardedRef } from 'react'
 
 import {
-  IStaticSectionSelectorProps,
-  TStaticSectionSelectorComponent,
-} from '../../types/IStaticSectionSelectorProps'
+  ISectionSelectorChildrenProps,
+  TSectionSelectorChildrenComponent,
+} from '../../types/ISectionSelectorChildrenProps'
 
 import st from './StaticSectionSelector.module.scss'
 import { useStaticSectionSelector } from './useStaticSectionSelector'
 
 const StaticSectionSelectorInner = <T extends string>(
-  props: IStaticSectionSelectorProps<T>,
+  props: ISectionSelectorChildrenProps<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) => {
-  const { items, onSwitchTab, activeTab, className, variant } =
+  const { items, onSwitchTab, activeTab, className, orientation } =
     useStaticSectionSelector(props)
 
   return (
     <div
       ref={ref}
-      className={cn(
-        st.root,
-        { [st.root_vertical]: variant === 'vertical' },
-        className,
-      )}
+      className={cn(st.root, st[`root_${orientation}`], className)}
     >
       {items.map((item) => (
         <Button
@@ -42,7 +38,7 @@ const StaticSectionSelectorInner = <T extends string>(
 
 const StaticSectionSelector = forwardRef(
   StaticSectionSelectorInner,
-) as TStaticSectionSelectorComponent
+) as TSectionSelectorChildrenComponent
 
 StaticSectionSelector.displayName = 'StaticSectionSelector'
 
