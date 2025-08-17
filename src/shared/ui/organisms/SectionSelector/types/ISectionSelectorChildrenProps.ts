@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactElement } from 'react'
+import { IForwardRefComponent } from '@shared/types'
 
 import { ITabItem } from './ITabItem'
 
@@ -10,13 +10,8 @@ interface ISectionSelectorChildrenProps<T extends string = string> {
   className?: string
 }
 
-interface ISectionSelectorComponent {
-  <T extends string>(
-    props: ISectionSelectorChildrenProps<T> & {
-      ref?: ForwardedRef<HTMLDivElement>
-    },
-  ): ReactElement
-  displayName?: string
-}
+type TSectionSelectorChildrenComponent = IForwardRefComponent<
+  ISectionSelectorChildrenProps<string>
+>
 
-export type { ISectionSelectorChildrenProps, ISectionSelectorComponent }
+export type { ISectionSelectorChildrenProps, TSectionSelectorChildrenComponent }

@@ -4,7 +4,7 @@ import { forwardRef, ForwardedRef } from 'react'
 
 import {
   ISectionSelectorChildrenProps,
-  ISectionSelectorComponent,
+  TSectionSelectorChildrenComponent,
 } from '../../types/ISectionSelectorChildrenProps'
 
 import st from './StaticSectionSelector.module.scss'
@@ -35,7 +35,7 @@ const StaticSectionSelectorInner = <T extends string>(
 
 const StaticSectionSelector = forwardRef(
   StaticSectionSelectorInner,
-) as ISectionSelectorComponent
+) as TSectionSelectorChildrenComponent
 
 StaticSectionSelector.displayName = 'StaticSectionSelector'
 

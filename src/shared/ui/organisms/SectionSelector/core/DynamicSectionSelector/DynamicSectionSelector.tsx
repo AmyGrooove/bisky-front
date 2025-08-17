@@ -5,7 +5,7 @@ import { forwardRef, ForwardedRef } from 'react'
 
 import {
   ISectionSelectorChildrenProps,
-  ISectionSelectorComponent,
+  TSectionSelectorChildrenComponent,
 } from '../../types/ISectionSelectorChildrenProps'
 
 import st from './DynamicSectionSelector.module.scss'
@@ -56,7 +56,7 @@ const DynamicSectionSelectorInner = <T extends string>(
 
 const DynamicSectionSelector = forwardRef(
   DynamicSectionSelectorInner,
-) as ISectionSelectorComponent
+) as TSectionSelectorChildrenComponent
 
 DynamicSectionSelector.displayName = 'DynamicSectionSelector'
 

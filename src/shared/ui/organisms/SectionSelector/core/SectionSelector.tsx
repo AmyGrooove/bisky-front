@@ -20,7 +20,7 @@ const SectionSelectorInner = <T extends string>(
         items={items}
         className={className}
         activeTab={activeTab}
-        onSwitchTab={onSwitchTab}
+        onSwitchTab={onSwitchTab as (value: string) => void}
       />
     )
 
@@ -30,7 +30,7 @@ const SectionSelectorInner = <T extends string>(
       items={items}
       className={className}
       activeTab={activeTab}
-      onSwitchTab={onSwitchTab}
+      onSwitchTab={onSwitchTab as (value: string) => void}
     />
   )
 }
