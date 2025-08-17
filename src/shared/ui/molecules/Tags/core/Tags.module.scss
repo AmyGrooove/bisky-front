@@ -1,5 +1,44 @@
 @use '@shared/styles/reusable.scss' as *;
 
+.icon {
+  height: 24px;
+  opacity: 0;
+  position: absolute;
+  width: 24px;
+  @include transition(opacity);
+}
+
+.text {
+  @include transition(opacity);
+}
+
+.tag {
+  align-items: center;
+  background-color: var(--dark-200);
+  border: 2px solid var(--bisky-200);
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition(
+    (scale, background-color, filter, opacity),
+    (100ms, 250ms, 250ms, 250ms)
+  );
+
+  &:hover {
+    filter: brightness(1.1);
+
+    .text {
+      opacity: 0;
+    }
+
+    .icon {
+      opacity: 1;
+    }
+  }
+}
+
 .root {
   align-items: center;
   display: flex;
@@ -33,43 +72,4 @@
       @include text-style(12);
     }
   }
-}
-
-.tag {
-  align-items: center;
-  background-color: var(--dark-200);
-  border: 2px solid var(--bisky-200);
-  display: flex;
-  font-weight: 700;
-  justify-content: center;
-  @extend %press, %no-select;
-  @include effect(back-shadow);
-  @include transition(
-    (scale, background-color, filter, opacity),
-    (100ms, 250ms, 250ms, 250ms)
-  );
-
-  &:hover {
-    filter: brightness(1.1);
-
-    .text {
-      opacity: 0;
-    }
-
-    .icon {
-      opacity: 1;
-    }
-  }
-}
-
-.icon {
-  height: 24px;
-  opacity: 0;
-  position: absolute;
-  width: 24px;
-  @include transition(opacity);
-}
-
-.text {
-  @include transition(opacity);
 }
