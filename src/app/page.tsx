@@ -1,7 +1,5 @@
 'use client'
 
-import { SectionSelector } from '@shared/ui/organisms/SectionSelector'
-
 const Home = () => {
   return (
     <>
@@ -20,16 +18,6 @@ const Home = () => {
         <p style={{ color: 'white' }}>Мы работаем над улучшением сайта.</p>
         <p style={{ color: 'white' }}>Пожалуйста, вернитесь позже.</p>
         <img src="/images/biskyLook.png" alt="" width={200} />
-
-        <SectionSelector
-          items={[
-            { children: '213', value: '123' },
-            { children: '111', value: '412' },
-          ]}
-          activeTab={'123'}
-          onSwitchTab={() => {}}
-          variant="dynamic"
-        />
       </div>
     </>
   )

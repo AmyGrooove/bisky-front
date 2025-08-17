@@ -1,5 +1,20 @@
 @use '@shared/styles/reusable.scss' as *;
 
+.tag {
+  align-items: center;
+  background-color: var(--dark-200);
+  border: 2px solid var(--bisky-200);
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition(
+    (scale, background-color, filter, opacity),
+    (100ms, 250ms, 250ms, 250ms)
+  );
+}
+
 .root {
   align-items: center;
   display: flex;
@@ -27,34 +42,19 @@
   }
 }
 
-.tag {
-  align-items: center;
-  background-color: var(--dark-200);
-  border: 2px solid var(--bisky-200);
-  display: flex;
-  font-weight: 700;
-  justify-content: center;
-  @extend %press, %no-select;
-  @include effect(back-shadow);
-  @include transition(
-    (scale, background-color, filter, opacity),
-    (100ms, 250ms, 250ms, 250ms)
-  );
+.tag:hover {
+  filter: brightness(1.1);
+}
 
-  &:hover {
-    filter: brightness(1.1);
-  }
+.tag:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
 
-  &:disabled {
-    cursor: default;
-    opacity: 0.6;
+.tag:disabled:hover {
+  filter: none;
+}
 
-    &:hover {
-      filter: none;
-    }
-  }
-
-  &_active {
-    background-color: var(--bisky-200);
-  }
+.tag_active {
+  background-color: var(--bisky-200);
 }

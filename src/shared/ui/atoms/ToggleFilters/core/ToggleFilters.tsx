@@ -13,7 +13,8 @@ const ToggleFiltersInner = <T extends string>(
   props: IToggleFiltersProps<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) => {
-  const { toggle, items, variant, className, isActive } = useToggleFilters(props)
+  const { toggle, items, variant, className, isActive } =
+    useToggleFilters(props)
 
   return (
     <div ref={ref} className={cn(st.root, st[`root_${variant}`], className)}>
