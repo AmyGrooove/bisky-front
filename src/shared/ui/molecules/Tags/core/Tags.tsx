@@ -17,7 +17,13 @@ const TagsInner = <T extends string>(
   return (
     <div ref={ref} className={cn(st.root, st[`root_${variant}`], className)}>
       {[...items].map((tag) => (
-        <button onClick={() => removeTag(tag)} key={tag} className={st.tag}>
+        <button
+          type="button"
+          aria-label={`Remove ${tag}`}
+          onClick={() => removeTag(tag)}
+          key={tag}
+          className={st.tag}
+        >
           <CrossIcon className={st.icon} />
           <Text className={st.text}>{tag}</Text>
         </button>
