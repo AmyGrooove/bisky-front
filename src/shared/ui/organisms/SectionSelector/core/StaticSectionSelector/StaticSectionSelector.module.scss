@@ -6,6 +6,10 @@
   display: flex;
   gap: 12px;
   padding: 4px;
+
+  &_vertical {
+    flex-direction: column;
+  }
 }
 
 .tab {
