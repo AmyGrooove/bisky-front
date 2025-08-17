@@ -9,37 +9,19 @@ const useToggleFilters = <T extends string>(props: IToggleFiltersProps<T>) => {
     className,
   } = props
 
-  const checkIsInActive = (value: T) => {
-    const activeToggleFiltersSet = new Set(activeToggleFilters)
+  const activeToggleFiltersSet = new Set(activeToggleFilters)
 
-    return activeToggleFiltersSet.has(value)
-  }
-
-  const addTag = (value: T) => {
-    const newActiveToggleFilters = [...activeToggleFilters, value]
-
-    onChangeItems(newActiveToggleFilters)
-  }
-
-  const removeTag = (value: T) => {
-    const newActiveToggleFilters = [...activeToggleFilters].filter(
-      (item) => item !== value,
-    )
-
-    onChangeItems(newActiveToggleFilters)
-  }
+  const isActive = (value: T) => activeToggleFiltersSet.has(value)
 
   const toggle = (value: T) => {
-    const isActive = checkIsInActive(value)
+    const newActiveToggleFilters = isActive(value)
+      ? activeToggleFilters.filter((item) => item !== value)
+      : [...activeToggleFilters, value]
 
-    if (isActive) {
-      removeTag(value)
-    } else {
-      addTag(value)
-    }
+    onChangeItems(newActiveToggleFilters)
   }
 
-  return { toggle, items, variant, className, checkIsInActive }
+  return { toggle, items, variant, className, isActive }
 }
 
 export { useToggleFilters }
