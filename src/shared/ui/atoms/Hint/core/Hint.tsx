@@ -1,5 +1,5 @@
 import { Text } from '@shared/ui/atoms/Text'
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 
 import { IHintProps } from '../types/IHintProps'
 
@@ -22,32 +22,23 @@ const Hint = (props: IHintProps) => {
 
   return (
     <div {...getReferenceProps()} ref={refs.setReference} className={className}>
-      {isOpen && hintChildren && (
-        <>
-          {typeof hintChildren === 'string' ? (
-            <Text
-              {...getFloatingProps()}
-              ref={refs.setFloating}
-              style={{ ...floatingStyles }}
-              className={cn(st.hintWrapper, {
-                [st.hintWrapper_hide]: isClosing,
-              })}
-            >
-              {hintChildren}
-            </Text>
+      {isOpen && !isNil(hintChildren) && (
+        <div
+          {...getFloatingProps()}
+          ref={refs.setFloating}
+          style={{ ...floatingStyles }}
+          className={cn(st.hintWrapper, hintChildrenClassName, {
+            [st.hintWrapper_hide]: isClosing,
+          })}
+          role="tooltip"
+        >
+          {typeof hintChildren === 'string' ||
+          typeof hintChildren === 'number' ? (
+            <Text>{hintChildren}</Text>
           ) : (
-            <div
-              {...getFloatingProps()}
-              ref={refs.setFloating}
-              style={{ ...floatingStyles }}
-              className={cn(st.hintWrapper, hintChildrenClassName, {
-                [st.hintWrapper_hide]: isClosing,
-              })}
-            >
-              {hintChildren}
-            </div>
+            hintChildren
           )}
-        </>
+        </div>
       )}
       {children}
     </div>
