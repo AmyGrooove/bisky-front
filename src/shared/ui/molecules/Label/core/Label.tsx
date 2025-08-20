@@ -2,17 +2,18 @@ import { cn, isNil } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
 import Link from 'next/link'
 import { ChevronRightIcon } from '@shared/icons'
+import { forwardRef } from 'react'
 
 import { ILabelProps } from '../types/ILabelProps'
 
 import st from './Label.module.scss'
 import { useLabel } from './useLabel'
 
-const Label = (props: ILabelProps) => {
+const Label = forwardRef<HTMLDivElement, ILabelProps>((props, ref) => {
   const { children, variant, link, className } = useLabel(props)
 
   return (
-    <div className={cn(st.root, className, st[`root_${variant}`])}>
+    <div ref={ref} className={cn(st.root, className, st[`root_${variant}`])}>
       <Text weight="700" className={st.label}>
         {children}
       </Text>
@@ -30,6 +31,6 @@ const Label = (props: ILabelProps) => {
       )}
     </div>
   )
-}
+})
 
 export { Label }
