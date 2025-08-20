@@ -1,0 +1,52 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.icon {
+  fill: var(--bisky-100);
+}
+
+.root {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &_big {
+    .label {
+      @include text-style(32);
+    }
+
+    .linkLabel {
+      @include text-style(20);
+    }
+
+    .icon {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &_small {
+    .label {
+      @include text-style(20);
+    }
+
+    .linkLabel {
+      @include text-style(12);
+    }
+
+    .icon {
+      height: 16px;
+      width: 16px;
+    }
+  }
+}
+
+.linkWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.linkLabel {
+  color: var(--bisky-100);
+}
