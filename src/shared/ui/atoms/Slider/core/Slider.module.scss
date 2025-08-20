@@ -2,12 +2,15 @@
 
 .root {
   align-items: center;
+  cursor: pointer;
   display: flex;
   height: 20px;
   position: relative;
   touch-action: none;
   user-select: none;
   width: 100%;
+  @extend %no-select;
+  @include effect(back-shadow);
 }
 
 .track {

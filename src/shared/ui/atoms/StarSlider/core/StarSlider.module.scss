@@ -1,0 +1,72 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.track {
+  background-color: transparent;
+  flex-grow: 1;
+  position: relative;
+}
+
+.thumb {
+  background-color: transparent;
+  display: block;
+}
+
+.root {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  touch-action: none;
+  @extend %no-select;
+  @include effect(back-shadow);
+
+  &_big {
+    height: 48px;
+    width: 480px;
+
+    .icon,
+    .thumb {
+      height: 48px;
+      width: 48px;
+    }
+
+    .track {
+      height: 48px;
+    }
+  }
+
+  &_small {
+    height: 36px;
+    width: 360px;
+
+    .icon,
+    .thumb {
+      height: 36px;
+      width: 36px;
+    }
+
+    .track {
+      height: 36px;
+    }
+  }
+}
+
+.starWrapper {
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+.icon {
+  @include transition(fill);
+
+  &_active {
+    fill: var(--bisky-100);
+  }
+}
+
+.range {
+  background-color: transparent;
+  height: 100%;
+  position: absolute;
+}
