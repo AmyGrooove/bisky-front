@@ -1,0 +1,16 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.hintWrapper {
+  background-color: var(--dark-240);
+  border: 2px solid var(--dark-460);
+  border-radius: var(--radius-20);
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 10;
+  @extend %no-select;
+  @include effect(background-blur-shadow);
+
+  &_hide {
+    @extend %disappear;
+  }
+}
