@@ -1,8 +1,8 @@
 import { Placement } from '@floating-ui/react'
-import { ReactElement, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 interface IHintProps {
-  hintChildren: string | ReactElement<HTMLDivElement> | null
+  hintChildren: ReactNode
   children: ReactNode
 
   margin?: number

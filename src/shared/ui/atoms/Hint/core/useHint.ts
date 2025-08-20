@@ -6,6 +6,7 @@ import {
   useHover,
   useInteractions,
 } from '@floating-ui/react'
+import { isNil } from '@shared/utils/functions'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 
 import { IHintProps } from '../types/IHintProps'
@@ -21,7 +22,7 @@ const useHint = (props: IHintProps) => {
   } = props
 
   const { isOpen, isClosing, toggle } = useTransitionClose({
-    isToggleDisabled: hintChildren === null,
+    isToggleDisabled: isNil(hintChildren),
   })
 
   const { refs, floatingStyles, context } = useFloating({
