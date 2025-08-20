@@ -1,6 +1,6 @@
 import { IIconProps } from '@shared/types'
 
-const VkIcon = (props: IIconProps) => (
+const VKIcon = (props: IIconProps) => (
   <svg
     viewBox="0 0 24 24"
     fill="currentColor"
@@ -16,4 +16,4 @@ const VkIcon = (props: IIconProps) => (
   </svg>
 )
 
-export { VkIcon }
+export { VKIcon }

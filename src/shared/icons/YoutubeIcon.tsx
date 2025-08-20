@@ -8,7 +8,7 @@ const YoutubeIcon = (props: IIconProps) => (
     aria-label="youtube"
     {...props}
   >
-    <g clip-path="url(#clip0_3963_7727)">
+    <g clipPath="url(#clip0_3963_7727)">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
