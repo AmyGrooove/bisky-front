@@ -1,0 +1,58 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.h1 {
+  color: var(--light-100);
+  letter-spacing: 1px;
+  @include text-style(32);
+}
+
+.h2 {
+  color: var(--light-100);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  @include text-style(20);
+}
+
+.h3 {
+  color: var(--light-100);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.li {
+  color: var(--light-100);
+  letter-spacing: 1px;
+}
+
+.p {
+  color: var(--light-100);
+  letter-spacing: 1px;
+}
+
+.link {
+  color: var(--bisky-100);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.blockquote {
+  background-color: var(--dark-100);
+  border-radius: var(--radius-12);
+  margin: 0;
+  padding: 16px;
+  @include text-style(16);
+}
