@@ -12,6 +12,7 @@ import {
 } from '@floating-ui/react'
 import { isNil } from '@shared/utils/functions'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
+
 import { IHintMenuItem } from '../types/IHintMenuItem'
 import { IHintMenuProps } from '../types/IHintMenuProps'
 

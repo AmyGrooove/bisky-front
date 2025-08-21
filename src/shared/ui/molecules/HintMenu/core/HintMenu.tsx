@@ -1,11 +1,15 @@
 import { forwardRef, useImperativeHandle } from 'react'
-import { IHintMenuProps } from '../types/IHintMenuProps'
-import { useHintMenu } from './useHintMenu'
-import st from './HintMenu.module.scss'
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
-import { IHintMenuRef } from '../types/IHintMenuRef'
 import { FloatingPortal } from '@floating-ui/react'
+
+import { IHintMenuProps } from '../types/IHintMenuProps'
+import { IHintMenuRef } from '../types/IHintMenuRef'
+
+import { useHintMenu } from './useHintMenu'
+import st from './HintMenu.module.scss'
+
+
 
 const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
   const {
@@ -45,11 +49,14 @@ const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
           >
             {items.map((item, index) => (
               <button
+                type="button"
+                role="menuitem"
                 key={index}
                 onClick={handleItemClick(item)}
                 className={cn(st.menuItem, {
                   [st.menuItem_selected]: !!item.isSelected,
                 })}
+                aria-selected={item.isSelected}
               >
                 <div className={st.labelWrapper}>
                   {item.IconLeft && <item.IconLeft className={st.icon} />}

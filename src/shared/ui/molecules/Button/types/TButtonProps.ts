@@ -1,8 +1,8 @@
 import { IIconProps } from '@shared/types'
-import { ComponentType, MouseEventHandler } from 'react'
+import { ComponentType } from 'react'
 
 interface IButtonPropsBase {
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick: () => void
 
   isDisabled?: boolean
   variant?: 'small' | 'big'

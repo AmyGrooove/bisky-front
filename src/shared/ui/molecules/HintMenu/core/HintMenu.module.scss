@@ -4,23 +4,31 @@
   background-color: var(--dark-200);
   border: 2px solid var(--dark-100);
   border-radius: var(--radius-12);
-  width: 240px;
-  padding: 8px;
   display: flex;
   flex-direction: column;
+  padding: 8px;
+  width: 240px;
   @extend %no-select;
   @include effect(background-blur-shadow);
 }
 
+.icon {
+  height: 20px;
+  width: 20px;
+}
+
+.text {
+  @include text-style(16);
+}
+
 .menuItem {
-  padding: 8px;
+  align-items: center;
+  border-radius: var(--radius-12);
+  cursor: pointer;
   display: flex;
   gap: 4px;
-  cursor: pointer;
-  border-radius: var(--radius-12);
-  display: flex;
   justify-content: space-between;
-  align-items: center;
+  padding: 8px;
   @include transition(background-color);
 
   &:hover {
@@ -39,16 +47,7 @@
 }
 
 .labelWrapper {
+  align-items: center;
   display: flex;
   gap: 4px;
-  align-items: center;
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
-}
-
-.text {
-  @include text-style(16);
 }

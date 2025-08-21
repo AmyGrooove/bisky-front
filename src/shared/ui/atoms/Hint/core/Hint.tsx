@@ -1,11 +1,11 @@
 import { Text } from '@shared/ui/atoms/Text'
 import { cn, isNil } from '@shared/utils/functions'
+import { FloatingPortal } from '@floating-ui/react'
 
 import { IHintProps } from '../types/IHintProps'
 
 import { useHint } from './useHint'
 import st from './Hint.module.scss'
-import { FloatingPortal } from '@floating-ui/react'
 
 const Hint = (props: IHintProps) => {
   const {
