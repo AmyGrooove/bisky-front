@@ -1,0 +1,54 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.hintWrapper {
+  background-color: var(--dark-200);
+  border: 2px solid var(--dark-100);
+  border-radius: var(--radius-12);
+  width: 240px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  @extend %no-select;
+  @include effect(background-blur-shadow);
+}
+
+.menuItem {
+  padding: 8px;
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+  border-radius: var(--radius-12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--dark-100);
+  }
+
+  &_selected {
+    .icon {
+      fill: var(--bisky-100);
+    }
+
+    .text {
+      color: var(--bisky-100);
+    }
+  }
+}
+
+.labelWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.text {
+  @include text-style(16);
+}

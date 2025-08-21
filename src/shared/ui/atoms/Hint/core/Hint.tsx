@@ -5,43 +5,50 @@ import { IHintProps } from '../types/IHintProps'
 
 import { useHint } from './useHint'
 import st from './Hint.module.scss'
+import { FloatingPortal } from '@floating-ui/react'
 
 const Hint = (props: IHintProps) => {
   const {
     children,
     hintChildren,
     refs,
-    isOpen,
-    isClosing,
+    transitionStyles,
     floatingStyles,
     getReferenceProps,
     getFloatingProps,
     className,
+    isMounted,
     hintChildrenClassName,
   } = useHint(props)
 
   return (
-    <div {...getReferenceProps()} ref={refs.setReference} className={className}>
-      {isOpen && !isNil(hintChildren) && (
-        <div
-          {...getFloatingProps()}
-          ref={refs.setFloating}
-          style={{ ...floatingStyles }}
-          className={cn(st.hintWrapper, hintChildrenClassName, {
-            [st.hintWrapper_hide]: isClosing,
-          })}
-          role="tooltip"
-        >
-          {typeof hintChildren === 'string' ||
-          typeof hintChildren === 'number' ? (
-            <Text>{hintChildren}</Text>
-          ) : (
-            hintChildren
-          )}
-        </div>
+    <>
+      <span
+        {...getReferenceProps()}
+        ref={refs.setReference}
+        className={className}
+      >
+        {children}
+      </span>
+      {isMounted && !isNil(hintChildren) && (
+        <FloatingPortal>
+          <div
+            {...getFloatingProps()}
+            ref={refs.setFloating}
+            style={{ ...floatingStyles, ...transitionStyles }}
+            className={cn(st.hintWrapper, hintChildrenClassName)}
+            role="tooltip"
+          >
+            {typeof hintChildren === 'string' ||
+            typeof hintChildren === 'number' ? (
+              <Text>{hintChildren}</Text>
+            ) : (
+              hintChildren
+            )}
+          </div>
+        </FloatingPortal>
       )}
-      {children}
-    </div>
+    </>
   )
 }
 

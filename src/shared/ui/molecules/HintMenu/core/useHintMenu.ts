@@ -1,44 +1,40 @@
 import {
-  autoUpdate,
-  flip,
-  offset,
-  shift,
   useFloating,
-  useHover,
+  flip,
+  shift,
+  offset,
+  useClick,
+  useDismiss,
   useInteractions,
-  useRole,
   useTransitionStyles,
+  useRole,
+  autoUpdate,
 } from '@floating-ui/react'
 import { isNil } from '@shared/utils/functions'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
+import { IHintMenuItem } from '../types/IHintMenuItem'
+import { IHintMenuProps } from '../types/IHintMenuProps'
 
-import { IHintProps } from '../types/IHintProps'
-
-const useHint = (props: IHintProps) => {
-  const {
-    hintChildren,
-    children,
-    className,
-    position = 'top',
-    margin = 0,
-    hintChildrenClassName,
-  } = props
+const useHintMenu = (props: IHintMenuProps) => {
+  const { items, children, className } = props
 
   const { isOpen, toggle } = useTransitionClose({
-    isToggleDisabled: isNil(hintChildren),
+    isToggleDisabled: isNil(items) || items.length === 0,
   })
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: toggle,
-    placement: position,
+    placement: 'top',
+    strategy: 'fixed',
     whileElementsMounted: autoUpdate,
-    middleware: [flip(), shift(), offset(margin)],
+    middleware: [flip(), shift(), offset(4)],
   })
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useHover(context),
-    useRole(context, { role: 'tooltip' }),
+    useClick(context),
+    useDismiss(context),
+    useRole(context, { role: 'menu' }),
   ])
 
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {
@@ -48,18 +44,28 @@ const useHint = (props: IHintProps) => {
     close: { opacity: 0 },
   })
 
+  const open = () => toggle(true)
+  const close = () => toggle(false)
+
+  const handleItemClick = (item: IHintMenuItem) => () => {
+    item.onClick()
+    close()
+  }
+
   return {
+    items,
     children,
-    hintChildren,
     refs,
-    transitionStyles,
+    isMounted,
     floatingStyles,
     getReferenceProps,
     getFloatingProps,
     className,
-    isMounted,
-    hintChildrenClassName,
+    open,
+    close,
+    handleItemClick,
+    transitionStyles,
   }
 }
 
-export { useHint }
+export { useHintMenu }
