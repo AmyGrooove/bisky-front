@@ -1,0 +1,45 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.backIcon {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+}
+
+.labelWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+}
+
+.label {
+  @include text-style(24);
+}
+
+.additionalIcon {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+
+  &_disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
