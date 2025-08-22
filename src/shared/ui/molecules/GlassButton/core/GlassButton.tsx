@@ -31,4 +31,6 @@ const GlassButton = forwardRef<HTMLButtonElement, TGlassButtonProps>(
   },
 )
 
+GlassButton.displayName = 'GlassButton'
+
 export { GlassButton }

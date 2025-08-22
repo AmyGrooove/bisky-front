@@ -1,0 +1,66 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+  height: 60px;
+  opacity: 0.6;
+  @extend %press, %no-select;
+  @include transition((filter, opacity, scale), (250ms, 250ms, 100ms));
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &_selected {
+    opacity: 1;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    .icon {
+      fill: var(--bisky-100);
+    }
+
+    .label {
+      color: var(--bisky-100);
+    }
+
+    &.root_chevron .icon_chevron {
+      rotate: 180deg;
+    }
+  }
+
+  &_header {
+    .label {
+      @include text-style(20);
+    }
+
+    .icon {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &_footer {
+    .label {
+      @include text-style(12);
+    }
+
+    .icon {
+      height: 12px;
+      width: 12px;
+    }
+  }
+}
+
+.icon {
+  @include transition((fill, rotate));
+}
+
+.label {
+  @include transition(color);
+}

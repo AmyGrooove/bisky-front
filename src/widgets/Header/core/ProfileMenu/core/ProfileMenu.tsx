@@ -1,0 +1,79 @@
+import Link from 'next/link'
+import { cn } from '@shared/utils/functions'
+import { CopyIcon } from '@shared/icons'
+import { Text } from '@shared/ui/atoms/Text'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
+import { Skeleton } from '@shared/ui/atoms/Skeleton'
+import { FloatingPortal } from '@floating-ui/react'
+import { Divider } from '@shared/ui/atoms/Divider'
+
+import st from './ProfileMenu.module.scss'
+import { useProfileMenu } from './useProfileMenu'
+
+const ProfileMenu = () => {
+  const {
+    avatar,
+    getReferenceProps,
+    getFloatingProps,
+    refs,
+    floatingStyles,
+    username,
+    copyUsername,
+    isLoading,
+    toggle,
+    transitionStyles,
+    isMounted,
+    links,
+  } = useProfileMenu()
+
+  return (
+    <>
+      <div {...getReferenceProps()} ref={refs.setReference}>
+        <button
+          className={cn(st.avatarButton, {
+            [st.avatarButton_opened]: isMounted,
+          })}
+        >
+          {isLoading ? (
+            <Skeleton className={st.avatarSkeleton} />
+          ) : (
+            <PlaceholderImage
+              src={avatar}
+              className={st.avatar}
+              sizes={[40, 40]}
+            />
+          )}
+        </button>
+      </div>
+      {isMounted && (
+        <FloatingPortal>
+          <div
+            {...getFloatingProps()}
+            ref={refs.setFloating}
+            style={{ ...floatingStyles, ...transitionStyles }}
+            className={st.menu}
+          >
+            <button className={st.usernameCopy} onClick={copyUsername}>
+              <Text className={st.username}>{username}</Text>
+              <CopyIcon className={st.usernameIcon} />
+            </button>
+            <Divider />
+            {links.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={st.linkRow}
+                onClick={() => toggle(false)}
+              >
+                <Text weight="700">{link.name}</Text>
+                <link.Icon className={st.linkIcon} />
+              </Link>
+            ))}
+          </div>
+        </FloatingPortal>
+      )}
+    </>
+  )
+}
+
+export { ProfileMenu }

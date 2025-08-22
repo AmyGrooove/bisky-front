@@ -9,8 +9,6 @@ import { IHintMenuRef } from '../types/IHintMenuRef'
 import { useHintMenu } from './useHintMenu'
 import st from './HintMenu.module.scss'
 
-
-
 const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
   const {
     items,

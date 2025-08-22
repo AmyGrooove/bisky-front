@@ -1,0 +1,31 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.divider {
+  background-color: var(--dark-400);
+  opacity: 0.6;
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+
+  &_horizontal {
+    height: 1px;
+    width: 100%;
+
+    .divider {
+      height: 100%;
+      width: 80%;
+    }
+  }
+
+  &_vertical {
+    height: 100%;
+    width: 1px;
+
+    .divider {
+      height: 80%;
+      width: 100%;
+    }
+  }
+}

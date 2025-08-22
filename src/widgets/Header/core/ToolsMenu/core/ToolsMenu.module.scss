@@ -1,55 +1,54 @@
 @use '@shared/styles/reusable.scss' as *;
 
-.hintWrapper {
+.toolWrapper {
   background-color: var(--dark-200);
   border: 2px solid var(--dark-100);
   border-radius: var(--radius-12);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
   padding: 8px;
-  width: 240px;
+  width: 428px;
   z-index: 1000;
   @extend %no-select;
   @include effect(background-blur-shadow);
 }
 
-.icon {
-  height: 20px;
-  width: 20px;
-}
-
-.text {
-  @include text-style(16);
-}
-
-.menuItem {
-  align-items: center;
+.tool {
   border-radius: var(--radius-12);
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   gap: 4px;
-  justify-content: space-between;
   padding: 8px;
+  width: 200px;
   @extend %press, %no-select;
-  @include transition(background-color);
+  @include transition(
+    (background-color, filter, opacity, scale),
+    (250ms, 250ms, 250ms, 100ms)
+  );
 
   &:hover {
     background-color: var(--dark-100);
   }
-
-  &_selected {
-    .icon {
-      fill: var(--bisky-100);
-    }
-
-    .text {
-      color: var(--bisky-100);
-    }
-  }
 }
 
-.labelWrapper {
+.toolLabel {
   align-items: center;
   display: flex;
   gap: 4px;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+}
+
+.label {
+  @include text-style(20);
+}
+
+.description {
+  opacity: 0.6;
+  @include text-style(16);
 }

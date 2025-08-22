@@ -1,33 +1,28 @@
-'use client'
-
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 
 import { IUseTransitionClose } from '../types/IUseTransitionClose'
 
-const useTransitionClose = (props: IUseTransitionClose) => {
+const useTransitionClose = (props?: IUseTransitionClose) => {
   const { closeDelay = 100, isToggleDisabled = false } = props ?? {}
 
   const [isOpen, setIsOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
 
-  const toggle = useCallback(
-    (isOpen: boolean) => {
-      if (isToggleDisabled) return
+  const toggle = (isOpen: boolean) => {
+    if (isToggleDisabled) return
 
-      if (isOpen) {
-        setIsOpen(true)
-        return
-      }
+    if (isOpen) {
+      setIsOpen(true)
+      return
+    }
 
-      setIsClosing(true)
+    setIsClosing(true)
 
-      setTimeout(() => {
-        setIsOpen(false)
-        setIsClosing(false)
-      }, closeDelay)
-    },
-    [isToggleDisabled, closeDelay],
-  )
+    setTimeout(() => {
+      setIsOpen(false)
+      setIsClosing(false)
+    }, closeDelay)
+  }
 
   return { isOpen, isClosing, toggle }
 }
