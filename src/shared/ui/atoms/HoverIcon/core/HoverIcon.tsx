@@ -6,9 +6,19 @@ import { useHoverIcon } from './useHoverIcon'
 import st from './HoverIcon.module.scss'
 
 const HoverIcon = (props: IHoverIconProps) => {
-  const { Children, variant, className } = useHoverIcon(props)
+  const { Icon, variant, className, isSelected, onClick } = useHoverIcon(props)
 
-  return <Children className={cn(st.root, st[`root_${variant}`], className)} />
+  return (
+    <Icon
+      onClick={onClick}
+      className={cn(
+        st.root,
+        st[`root_${variant}`],
+        { [st.root_selected]: isSelected },
+        className,
+      )}
+    />
+  )
 }
 
 export { HoverIcon }

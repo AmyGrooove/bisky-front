@@ -1,7 +1,7 @@
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-import { mainLinks } from '../static/mainLinks'
+import { MAIN_LINKS } from '../static/MAIN_LINKS'
 
 const useHeader = () => {
   const pathname = usePathname()
@@ -9,7 +9,7 @@ const useHeader = () => {
 
   const [isToolsOpened, setIsToolsOpened] = useState(false)
 
-  const mainLinksConverted = mainLinks.map((link) => {
+  const mainLinksConverted = MAIN_LINKS.map((link) => {
     if ('href' in link) {
       return { ...link, isSelected: pathname.includes(link.href ?? '') }
     }

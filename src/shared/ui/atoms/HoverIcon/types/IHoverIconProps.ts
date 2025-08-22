@@ -2,8 +2,10 @@ import { IIconProps } from '@shared/types'
 import { ComponentType } from 'react'
 
 interface IHoverIconProps {
-  Children: ComponentType<IIconProps>
+  Icon: ComponentType<IIconProps>
 
+  onClick?: () => void
+  isSelected?: boolean
   variant?: 'footerLink' | 'barIcon'
   className?: string
 }
