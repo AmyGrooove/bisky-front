@@ -19,6 +19,6 @@ const TOOLS = [
     description: 'Вспомни и оцени, что ты уже смотрел',
     href: '/aniJudge',
   },
-]
+] as const
 
 export { TOOLS }

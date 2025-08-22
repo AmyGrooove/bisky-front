@@ -1,0 +1,12 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.addButton {
+  background-color: var(--bisky-300);
+}

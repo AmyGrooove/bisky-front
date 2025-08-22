@@ -5,11 +5,12 @@ interface IPageLinkProps {
   children: string
 
   onClick?: () => void
-  variant?: 'footer' | 'header'
+  variant?: 'footer' | 'header' | 'mobileHeader'
   Icon?: ComponentType<IIconProps>
   className?: string
   isSelected?: boolean
   isChevronEnabled?: boolean
+  isAlwaysHovered?: boolean
 }
 
 export type { IPageLinkProps }

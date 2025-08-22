@@ -12,12 +12,13 @@ import {
 } from '@floating-ui/react'
 import { isNil } from '@shared/utils/functions'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
+import { useEffect } from 'react'
 
 import { IHintMenuItem } from '../types/IHintMenuItem'
 import { IHintMenuProps } from '../types/IHintMenuProps'
 
 const useHintMenu = (props: IHintMenuProps) => {
-  const { items, children, className } = props
+  const { items, children, className, onOpenChange, placement = 'top' } = props
 
   const { isOpen, toggle } = useTransitionClose({
     isToggleDisabled: isNil(items) || items.length === 0,
@@ -26,7 +27,7 @@ const useHintMenu = (props: IHintMenuProps) => {
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: toggle,
-    placement: 'top',
+    placement,
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,
     middleware: [flip(), shift(), offset(4)],
@@ -52,6 +53,10 @@ const useHintMenu = (props: IHintMenuProps) => {
     item.onClick()
     close()
   }
+
+  useEffect(() => {
+    if (!isNil(onOpenChange)) onOpenChange(isMounted)
+  }, [isMounted, onOpenChange])
 
   return {
     items,

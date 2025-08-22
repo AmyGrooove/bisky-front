@@ -6,9 +6,9 @@
 }
 
 .root {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   &_horizontal {
     height: 1px;

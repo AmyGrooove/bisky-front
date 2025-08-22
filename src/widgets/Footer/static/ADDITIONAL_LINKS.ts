@@ -9,6 +9,6 @@ const ADDITIONAL_LINKS = [
     { label: 'Политика конфиденциальности', href: '/' },
     { label: 'Правила', href: '/' },
   ],
-]
+] as const
 
 export { ADDITIONAL_LINKS }

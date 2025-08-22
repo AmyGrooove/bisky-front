@@ -31,7 +31,7 @@
   justify-content: space-between;
   padding: 8px;
   @extend %press, %no-select;
-  @include transition(background-color);
+  @include transition((background-color, scale), (250ms, 100ms));
 
   &:hover {
     background-color: var(--dark-100);

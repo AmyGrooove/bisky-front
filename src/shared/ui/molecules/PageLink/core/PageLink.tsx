@@ -16,6 +16,7 @@ const PageLink = (props: IPageLinkProps) => {
     isChevronEnabled,
     variant,
     onClick,
+    isAlwaysHovered,
   } = usePageLink(props)
 
   return (
@@ -24,6 +25,7 @@ const PageLink = (props: IPageLinkProps) => {
       className={cn(
         st.root,
         className,
+        { [st.root_alwaysHovered]: isAlwaysHovered },
         { [st.root_selected]: isSelected },
         { [st.root_chevron]: isChevronEnabled },
         st[`root_${variant}`],

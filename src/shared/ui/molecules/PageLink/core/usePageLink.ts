@@ -9,6 +9,7 @@ const usePageLink = (props: IPageLinkProps) => {
     isChevronEnabled = false,
     variant = 'header',
     onClick,
+    isAlwaysHovered = false,
   } = props
 
   return {
@@ -19,6 +20,7 @@ const usePageLink = (props: IPageLinkProps) => {
     isChevronEnabled,
     variant,
     onClick,
+    isAlwaysHovered,
   }
 }
 
