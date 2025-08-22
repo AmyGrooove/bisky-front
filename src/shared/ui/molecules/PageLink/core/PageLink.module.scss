@@ -5,7 +5,6 @@
   cursor: pointer;
   display: flex;
   gap: 4px;
-  height: 60px;
   opacity: 0.6;
   @extend %press, %no-select;
   @include transition((filter, opacity, scale), (250ms, 250ms, 100ms));
@@ -35,6 +34,8 @@
   }
 
   &_header {
+    height: 60px;
+
     .label {
       @include text-style(20);
     }

@@ -1,0 +1,82 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  background-color: var(--dark-240);
+  border-radius: var(--radius-20);
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  padding: 16px 20px;
+  width: calc(100% - 40px);
+  @include effect(background-blur-shadow);
+  @include transition(background-color);
+
+  &:hover {
+    background-color: var(--dark-200);
+  }
+}
+
+.leftSide {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logoWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.logo {
+  fill: var(--bisky-100);
+  height: 16px;
+  width: 16px;
+}
+
+.logoText {
+  color: var(--bisky-100);
+  @include text-style(20);
+}
+
+.legalText {
+  color: var(--light-400);
+  @include text-style(16);
+}
+
+.socialWrapper {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.rightSide {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  height: 50px;
+}
+
+.additionalWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@include media-query(tablet) {
+  .root {
+    display: none;
+  }
+}
