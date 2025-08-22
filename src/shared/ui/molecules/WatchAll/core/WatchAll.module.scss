@@ -1,0 +1,58 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-20);
+  background-color: var(--dark-240);
+  cursor: pointer;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition(
+    (background-color, filter, opacity, scale),
+    (250ms, 250ms, 250ms, 100ms)
+  );
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &_big {
+    .text {
+      @include text-style(24);
+    }
+
+    &.root_anime {
+      width: 200px;
+      height: 320px;
+    }
+
+    &.root_collection {
+      width: 120px;
+      height: 218px;
+    }
+  }
+
+  &_small {
+    .text {
+      @include text-style(16);
+    }
+
+    &.root_anime {
+      width: 200px;
+      height: 200px;
+    }
+
+    &.root_collection {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+}

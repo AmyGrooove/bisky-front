@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { Text } from '@shared/ui/atoms/Text'
 import { LogoIcon } from '@shared/icons'
 import { PageLink } from '@shared/ui/molecules/PageLink'
-import { NotificationButton } from '@shared/ui/atoms/NotificationButton'
 
 import { useHeader } from './useHeader'
 import st from './Header.module.scss'
 import { ToolsMenu } from './ToolsMenu'
 import { ProfileMenu } from './ProfileMenu'
 import { SearchButton } from './SearchButton'
+import { NotificationButton } from '@entities/notification/NotificationButton'
 
 const Header = () => {
   const { mainLinksConverted, push, setIsToolsOpened } = useHeader()

@@ -15,7 +15,10 @@ const useMobileHeader = () => {
   const convertedMenuLinks = MENU_LINKS.map((link) => ({
     isSelected: link.text === currentMenu,
     text: link.text,
-    onClick: () => push(link.href),
+    onClick: () => {
+      push(link.href)
+      setIsMenuOpened(false)
+    },
     IconLeft: link.Icon,
   }))
 
