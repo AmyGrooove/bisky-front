@@ -17,9 +17,9 @@ const ProfileMenu = () => {
     getFloatingProps,
     refs,
     floatingStyles,
-    username,
+    nickname,
     copyUsername,
-    isLoading,
+    isSessionLoading,
     toggle,
     transitionStyles,
     isMounted,
@@ -34,7 +34,7 @@ const ProfileMenu = () => {
             [st.avatarButton_opened]: isMounted,
           })}
         >
-          {isLoading ? (
+          {isSessionLoading ? (
             <Skeleton className={st.avatarSkeleton} />
           ) : (
             <PlaceholderImage
@@ -54,7 +54,7 @@ const ProfileMenu = () => {
             className={st.menu}
           >
             <button className={st.usernameCopy} onClick={copyUsername}>
-              <Text className={st.username}>{username}</Text>
+              <Text className={st.username}>{nickname}</Text>
               <CopyIcon className={st.usernameIcon} />
             </button>
             <Divider />

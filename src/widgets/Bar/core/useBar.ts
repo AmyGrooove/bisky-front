@@ -1,16 +1,17 @@
 import { usePathname, useRouter } from 'next/navigation'
+import { useSession } from '@entities/auth/hooks/useSession'
 
 import { barLinks } from '../static/barLinks'
 
-const user = { username: 'asdasdasd' } // TODO
-
 const useBar = () => {
-  const { username = '' } = user ?? {}
+  const { user } = useSession()
+
+  const { nickname = '' } = user ?? {}
 
   const pathname = usePathname()
   const { push } = useRouter()
 
-  const mainLinksConverted = barLinks(username).map((link) => {
+  const mainLinksConverted = barLinks(nickname).map((link) => {
     const isSelected = pathname.includes(link.href)
 
     return {

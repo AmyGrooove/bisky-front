@@ -13,14 +13,14 @@ import {
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 import { successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
+import { useSession } from '@entities/auth/hooks/useSession'
 
 import { profileMenuLinks } from '../static/profileMenuLinks'
 
-const isLoading = false // TODO
-const user = { avatar: null, username: 'asdasdasd' } // TODO
-
 const useProfileMenu = () => {
-  const { avatar = null, username = '' } = user ?? {}
+  const { user, isLoading: isSessionLoading } = useSession()
+
+  const { avatar = null, nickname = '' } = user ?? {}
 
   const { isOpen, toggle } = useTransitionClose()
 
@@ -50,10 +50,10 @@ const useProfileMenu = () => {
     close: { opacity: 0 },
   })
 
-  const links = profileMenuLinks(username)
+  const links = profileMenuLinks(nickname)
 
   const copyUsername = async () => {
-    await navigator.clipboard.writeText(username)
+    await navigator.clipboard.writeText(nickname)
     successToast({ Icon: UserIcon, message: 'Никнейм скопирован' })
   }
 
@@ -63,9 +63,9 @@ const useProfileMenu = () => {
     getFloatingProps,
     refs,
     floatingStyles,
-    username,
+    nickname,
     copyUsername,
-    isLoading,
+    isSessionLoading,
     toggle,
     transitionStyles,
     isMounted,
