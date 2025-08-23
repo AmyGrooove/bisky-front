@@ -1,4 +1,5 @@
 interface IUserCollectionReactionModel {
+  _id: string
   author: string
   collectionID: string
   score: number | null

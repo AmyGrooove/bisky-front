@@ -1,6 +1,7 @@
 type TListStatus = 'added' | 'watching' | 'completed' | 'dropped'
 
 interface IUserAnimeReactionModel {
+  _id: string
   status: TListStatus
   author: string
   animeID: string

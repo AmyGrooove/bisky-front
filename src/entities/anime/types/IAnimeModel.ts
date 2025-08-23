@@ -30,6 +30,7 @@ interface IRelatedAnime {
 }
 
 interface IAnimeModel {
+  _id: string
   name: string
   otherNames: string[]
   description: string
@@ -40,6 +41,15 @@ interface IAnimeModel {
   status: TStatus
   related: IRelatedAnime[]
   updateIDs: IAnimeDataUpdateIDs
+  poster: string | null
+  nextEpisodeAiredAt: Date | null
+  episodeAiredCount: number | null
+  episodeCount: number | null
+  screenshots: string[]
+  airedAt: Date | null
+  releasedAt: Date | null
+  views: number
+  blockedUrl: string | null
 }
 
 export type { IAnimeModel }

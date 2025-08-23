@@ -3,7 +3,7 @@ import { IApiFetchPostOptions } from './IApiFetchPostOptions'
 
 interface IWrapperFetchParams {
   params?: Record<string, string>
-  query?: Record<string, string | number | boolean>
+  query?: Record<string, string | number | boolean | Date | string[]>
   options?: IApiFetchGetOptions | IApiFetchPostOptions
 }
 
