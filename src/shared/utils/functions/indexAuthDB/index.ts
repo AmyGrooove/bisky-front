@@ -8,3 +8,5 @@ export {
   deleteAccessToken,
   deleteRefreshToken,
 } from './core/alias/authDBTokens'
+
+export type { TTokenKey } from './types/TTokenKey'

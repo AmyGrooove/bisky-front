@@ -1,8 +1,5 @@
 interface IRefreshTokenResponse {
-  tokens: {
-    accessToken: string
-    refreshToken: string
-  }
+  tokens: { accessToken: string; refreshToken: string }
 }
 
 export type { IRefreshTokenResponse }

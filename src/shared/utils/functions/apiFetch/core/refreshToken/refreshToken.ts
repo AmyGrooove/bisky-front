@@ -7,7 +7,7 @@ const refreshToken = async () => {
   const url = new URL(`/auth/session/refresh`, ENV.API_URL)
 
   return apiFetchPost<IRefreshTokenResponse>(url, 'POST', {
-    tokenType: 'refresh',
+    tokenType: 'refreshToken',
   })
 }
 

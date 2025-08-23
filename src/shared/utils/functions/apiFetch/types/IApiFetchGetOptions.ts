@@ -1,6 +1,8 @@
+import { TTokenKey } from '../../indexAuthDB'
+
 interface IApiFetchGetOptions {
   signal?: AbortSignal
-  tokenType?: 'access' | 'refresh'
+  tokenType?: TTokenKey
 }
 
 export type { IApiFetchGetOptions }

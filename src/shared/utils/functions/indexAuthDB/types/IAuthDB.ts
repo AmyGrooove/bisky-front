@@ -1,6 +1,6 @@
 import { DBSchema } from 'idb'
 
-type TTokenKey = 'accessToken' | 'refreshToken' | string
+import { TTokenKey } from './TTokenKey'
 
 interface IAuthDB extends DBSchema {
   tokens: {
@@ -9,4 +9,4 @@ interface IAuthDB extends DBSchema {
   }
 }
 
-export type { IAuthDB, TTokenKey }
+export type { IAuthDB }

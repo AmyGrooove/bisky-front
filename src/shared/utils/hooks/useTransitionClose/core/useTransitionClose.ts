@@ -2,8 +2,8 @@ import { useState } from 'react'
 
 import { IUseTransitionClose } from '../types/IUseTransitionClose'
 
-const useTransitionClose = (props?: IUseTransitionClose) => {
-  const { closeDelay = 100, isToggleDisabled = false } = props ?? {}
+const useTransitionClose = (props: IUseTransitionClose = {}) => {
+  const { closeDelay = 100, isToggleDisabled = false } = props
 
   const [isOpen, setIsOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)

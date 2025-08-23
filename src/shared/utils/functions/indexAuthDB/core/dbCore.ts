@@ -1,4 +1,4 @@
-import { TTokenKey } from '../types/IAuthDB'
+import { TTokenKey } from '../types/TTokenKey'
 
 import { withDB } from './withDB'
 

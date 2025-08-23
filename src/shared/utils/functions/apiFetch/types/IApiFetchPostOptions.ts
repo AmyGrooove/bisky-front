@@ -1,6 +1,8 @@
+import { TTokenKey } from '../../indexAuthDB'
+
 interface IApiFetchPostOptions {
   body?: Record<string, unknown>
-  tokenType?: 'access' | 'refresh'
+  tokenType?: TTokenKey
 }
 
 export type { IApiFetchPostOptions }

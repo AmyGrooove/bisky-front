@@ -3,16 +3,18 @@ import {
   getRefreshToken,
   setAccessToken,
   setRefreshToken,
-} from '../../indexAuthDB'
-import { isNil } from '../../isNil'
+  TTokenKey,
+} from '@shared/utils/functions/indexAuthDB'
+import { isNil } from '@shared/utils/functions/isNil'
 
-import { refreshToken } from './refreshToken/refreshToken'
+import { refreshToken } from '../refreshToken/refreshToken'
+import { IErrorMessage } from '../../types/IErrorMessage'
 
 const authorizedFetch = async <TResponse>(
   url: URL,
   fetchOptions: RequestInit,
-  tokenType: 'access' | 'refresh' = 'access',
-): Promise<TResponse> => {
+  tokenType: TTokenKey = 'accessToken',
+) => {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
@@ -20,7 +22,7 @@ const authorizedFetch = async <TResponse>(
   }
 
   if (typeof window !== 'undefined') {
-    const token = await (tokenType === 'access'
+    const token = await (tokenType === 'accessToken'
       ? getAccessToken()
       : getRefreshToken())
 
@@ -33,7 +35,7 @@ const authorizedFetch = async <TResponse>(
     credentials: 'include',
   })
 
-  if (response.status === 401 && tokenType === 'access') {
+  if (response.status === 401 && tokenType === 'accessToken') {
     try {
       const refreshResponse = await refreshToken()
 
@@ -48,9 +50,16 @@ const authorizedFetch = async <TResponse>(
 
   const responseData = await response.json()
 
-  if (!response.ok) throw new Error(`${responseData.message}`)
+  if (!response.ok) {
+    const { statusCode, error, message } = responseData as IErrorMessage
+    const messages = !isNil(message) ? message : ['Неизвестная ошибка']
 
-  return responseData
+    throw new Error(
+      `[${statusCode ?? response.status}] ${error ?? ''}: ${messages.join(', ')}`,
+    )
+  }
+
+  return responseData as TResponse
 }
 
 export { authorizedFetch }
