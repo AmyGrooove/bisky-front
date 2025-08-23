@@ -1,3 +1,3 @@
-const getEmptyArray = (count: number) => [...Array(count)]
+const getEmptyArray = (count: number) => Array.from({ length: count })
 
 export { getEmptyArray }
