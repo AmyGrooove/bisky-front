@@ -19,12 +19,16 @@ const useUpdateNickname = (
     ...options,
     mutationFn: updateNicknameAdapter,
     onSuccess: async () => {
-      await Promise.all([queryClient.invalidateQueries({ queryKey: [] })])
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['account'] }),
+        queryClient.invalidateQueries({ queryKey: ['account', 'whoami'] }),
+        queryClient.invalidateQueries({ queryKey: ['profile'], exact: false }),
+      ])
 
-      successToast({ message: '', Icon: UserIcon })
+      successToast({ message: 'Nickname успешно изменён', Icon: UserIcon })
     },
     onError: async ({ message }) => {
-      errorToast({ message: `${message}` })
+      errorToast({ message })
     },
   })
 }

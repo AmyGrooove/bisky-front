@@ -5,7 +5,8 @@ import { UserIcon } from '@shared/icons'
 import { successToast, errorToast } from '@shared/utils/toast'
 
 const logout = createPostFetcher('/auth/logout', 'POST')
-const logoutAdapter = () => logout()
+const logoutAdapter = () =>
+  logout({ optionsPost: { tokenType: 'refreshToken' } })
 
 const useLogout = (options: TUseMutationOptions<typeof logoutAdapter> = {}) => {
   const queryClient = useQueryClient()
@@ -14,12 +15,15 @@ const useLogout = (options: TUseMutationOptions<typeof logoutAdapter> = {}) => {
     ...options,
     mutationFn: logoutAdapter,
     onSuccess: async () => {
-      await Promise.all([queryClient.invalidateQueries({ queryKey: [] })])
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['account'] }),
+        queryClient.invalidateQueries({ queryKey: ['account', 'whoami'] }),
+      ])
 
-      successToast({ message: '', Icon: UserIcon })
+      successToast({ message: 'Вы вышли из системы', Icon: UserIcon })
     },
     onError: async ({ message }) => {
-      errorToast({ message: `${message}` })
+      errorToast({ message })
     },
   })
 }

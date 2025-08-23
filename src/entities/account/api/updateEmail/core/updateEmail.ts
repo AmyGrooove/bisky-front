@@ -19,12 +19,15 @@ const useUpdateEmail = (
     ...options,
     mutationFn: updateEmailAdapter,
     onSuccess: async () => {
-      await Promise.all([queryClient.invalidateQueries({ queryKey: [] })])
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['account'] }),
+        queryClient.invalidateQueries({ queryKey: ['account', 'whoami'] }),
+      ])
 
       successToast({ message: '', Icon: UserIcon })
     },
     onError: async ({ message }) => {
-      errorToast({ message: `${message}` })
+      errorToast({ message })
     },
   })
 }

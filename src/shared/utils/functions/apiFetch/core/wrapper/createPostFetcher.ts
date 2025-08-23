@@ -8,15 +8,17 @@ import { appendQuery } from './appendQuery'
 import { interpolatePath } from './interpolatePath'
 
 const createPostFetcher =
-  <TResponse>(url: string, methodType: TMethodType) =>
-  (props: Omit<IWrapperFetchParams, 'optionsGet'> = {}) => {
+  (url: string, methodType: TMethodType) =>
+  async (props: Omit<IWrapperFetchParams, 'optionsGet'> = {}) => {
     const { params, query, optionsPost } = props
 
     const path = interpolatePath(url, params)
     const convertedUrl = new URL(path, ENV.API_URL)
     appendQuery(convertedUrl, query)
 
-    return apiFetchPost<TResponse>(convertedUrl, methodType, optionsPost)
+    await apiFetchPost(convertedUrl, methodType, optionsPost)
+
+    return { params, query }
   }
 
 export { createPostFetcher }

@@ -1,8 +1,8 @@
 import { TUseMutationOptions } from '@shared/types'
 import { createPostFetcher } from '@shared/utils/functions'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { UserIcon } from '@shared/icons'
 import { successToast, errorToast } from '@shared/utils/toast'
+import { StarOffIcon } from '@shared/icons'
 
 import { IAddAnimeToSkipListBody } from '../types/IAddAnimeToSkipListBody'
 
@@ -19,12 +19,19 @@ const useAddAnimeToSkipList = (
     ...options,
     mutationFn: addAnimeToSkipListAdapter,
     onSuccess: async () => {
-      await Promise.all([queryClient.invalidateQueries({ queryKey: [] })])
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['aniPick'] }),
+        queryClient.invalidateQueries({ queryKey: ['aniJudge'] }),
+        queryClient.invalidateQueries({ queryKey: ['aniBattle'] }),
+      ])
 
-      successToast({ message: '', Icon: UserIcon })
+      successToast({
+        message: 'Аниме добавлено в пропущенное',
+        Icon: StarOffIcon,
+      })
     },
     onError: async ({ message }) => {
-      errorToast({ message: `${message}` })
+      errorToast({ message })
     },
   })
 }

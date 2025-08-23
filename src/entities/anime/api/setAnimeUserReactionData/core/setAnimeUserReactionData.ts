@@ -1,7 +1,7 @@
 import { TUseMutationOptions } from '@shared/types'
 import { createPostFetcher } from '@shared/utils/functions'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { UserIcon } from '@shared/icons'
+import { CassetteTapeIcon } from '@shared/icons'
 import { successToast, errorToast } from '@shared/utils/toast'
 
 import { ISetAnimeUserReactionDataBody } from '../types/ISetAnimeUserReactionDataBody'
@@ -27,13 +27,25 @@ const useSetAnimeUserReactionData = (
   return useMutation({
     ...options,
     mutationFn: setAnimeUserReactionDataAdapter,
-    onSuccess: async () => {
-      await Promise.all([queryClient.invalidateQueries({ queryKey: [] })])
+    onSuccess: async ({ query }) => {
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ['anime', query?.ID],
+          exact: false,
+        }),
+        queryClient.invalidateQueries({ queryKey: ['profile'], exact: false }),
+        queryClient.invalidateQueries({ queryKey: ['aniPick'] }),
+        queryClient.invalidateQueries({ queryKey: ['aniJudge'] }),
+        queryClient.invalidateQueries({ queryKey: ['aniBattle'] }),
+      ])
 
-      successToast({ message: '', Icon: UserIcon })
+      successToast({
+        message: 'Рeакция на аниме обновлена',
+        Icon: CassetteTapeIcon,
+      })
     },
     onError: async ({ message }) => {
-      errorToast({ message: `${message}` })
+      errorToast({ message })
     },
   })
 }

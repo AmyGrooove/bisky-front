@@ -1,7 +1,7 @@
 import { TUseMutationOptions } from '@shared/types'
 import { createPostFetcher } from '@shared/utils/functions'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { UserIcon } from '@shared/icons'
+import { LockIcon } from '@shared/icons'
 import { successToast, errorToast } from '@shared/utils/toast'
 
 import { IConfirmCodeAndUpdatePasswordBody } from '../types/IConfirmCodeAndUpdatePasswordBody'
@@ -23,12 +23,15 @@ const useConfirmCodeAndUpdatePassword = (
     ...options,
     mutationFn: confirmCodeAndUpdatePasswordAdapter,
     onSuccess: async () => {
-      await Promise.all([queryClient.invalidateQueries({ queryKey: [] })])
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: ['account'] }),
+        queryClient.invalidateQueries({ queryKey: ['account', 'whoami'] }),
+      ])
 
-      successToast({ message: '', Icon: UserIcon })
+      successToast({ message: 'Пароль успешно изменён', Icon: LockIcon })
     },
     onError: async ({ message }) => {
-      errorToast({ message: `${message}` })
+      errorToast({ message })
     },
   })
 }
