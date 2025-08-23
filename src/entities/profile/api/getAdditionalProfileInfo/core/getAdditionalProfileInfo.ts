@@ -19,7 +19,7 @@ const useGetAdditionalProfileInfo = (
     queryFn: ({ signal }) =>
       getAdditionalProfileInfo({
         params: { ID: profileID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

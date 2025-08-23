@@ -13,7 +13,7 @@ const useGetInitialHomeData = (
   return useQuery({
     ...options,
     queryKey: ['home'],
-    queryFn: ({ signal }) => getInitialHomeData({ options: { signal } }),
+    queryFn: ({ signal }) => getInitialHomeData({ optionsGet: { signal } }),
   })
 }
 

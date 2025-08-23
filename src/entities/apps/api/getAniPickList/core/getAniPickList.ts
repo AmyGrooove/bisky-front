@@ -1,8 +1,8 @@
 import { TUseQueryOptions } from '@shared/types'
 import { createGetFetcher } from '@shared/utils/functions'
 import { useQuery } from '@tanstack/react-query'
-
 import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
+
 import { IGetAniPickListResponse } from '../types/IGetAniPickListResponse'
 
 const getAniPickList = createGetFetcher<IGetAniPickListResponse[]>('/aniPick')
@@ -20,7 +20,7 @@ const useGetAniPickList = (
     queryFn: ({ signal }) =>
       getAniPickList({
         query: { ...additionalQuery },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

@@ -18,7 +18,7 @@ const useGetFriendsStatus = (
     queryFn: ({ signal }) =>
       getFriendsStatus({
         params: { ID: animeID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

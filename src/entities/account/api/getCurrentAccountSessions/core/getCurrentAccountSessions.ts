@@ -13,7 +13,8 @@ const useGetCurrentAccountSessions = (
   return useQuery({
     ...options,
     queryKey: ['auth', 'session'],
-    queryFn: ({ signal }) => getCurrentAccountSessions({ options: { signal } }),
+    queryFn: ({ signal }) =>
+      getCurrentAccountSessions({ optionsGet: { signal } }),
   })
 }
 

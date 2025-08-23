@@ -16,7 +16,7 @@ const useGetClubMeta = (
     queryFn: ({ signal }) =>
       getClubMeta({
         params: { slug: clubSlug },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

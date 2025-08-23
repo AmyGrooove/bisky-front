@@ -20,7 +20,7 @@ const useGetAnimeEpisodes = (
       getAnimeEpisodes({
         params: { ID: animeID },
         query: { ...additionalQuery },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

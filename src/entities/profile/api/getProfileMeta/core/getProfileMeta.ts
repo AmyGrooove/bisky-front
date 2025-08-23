@@ -18,7 +18,7 @@ const useGetProfileMeta = (
     queryFn: ({ signal }) =>
       getProfileMeta({
         params: { slug: profileSlug },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

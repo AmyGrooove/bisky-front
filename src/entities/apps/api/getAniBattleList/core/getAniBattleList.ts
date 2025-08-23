@@ -15,7 +15,7 @@ const useGetAniBattleList = (
     queryKey: ['aniBattle'],
     queryFn: ({ signal }) =>
       getAniBattleList({
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

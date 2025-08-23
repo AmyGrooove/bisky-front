@@ -18,7 +18,7 @@ const useGetAnimeEpisodePlayers = (
     queryFn: ({ signal }) =>
       getAnimeEpisodePlayers({
         params: { ID: animeEpisodeID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

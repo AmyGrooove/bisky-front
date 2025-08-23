@@ -16,7 +16,7 @@ const useGetClubMainInfo = (
     queryFn: ({ signal }) =>
       getClubMainInfo({
         params: { ID: clubID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

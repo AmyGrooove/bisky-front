@@ -1,10 +1,10 @@
 import { TUseQueryOptions } from '@shared/types'
 import { createGetFetcher } from '@shared/utils/functions'
 import { useQuery } from '@tanstack/react-query'
-
-import { IGetCollectionAnimeListResponse } from '../types/IGetCollectionAnimeListResponse'
 import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 import { IPaginationQuery } from '@shared/types/IPaginationQuery'
+
+import { IGetCollectionAnimeListResponse } from '../types/IGetCollectionAnimeListResponse'
 
 const getCollectionAnimeList =
   createGetFetcher<IGetCollectionAnimeListResponse>(
@@ -23,7 +23,7 @@ const useGetCollectionAnimeList = (
       getCollectionAnimeList({
         params: { ID: collectionID },
         query: { ...additionalQuery },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

@@ -21,7 +21,7 @@ const useGetUserAnimeReactions = (
       getUserAnimeReactions({
         params: { ID: profileID },
         query: { listStatus },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

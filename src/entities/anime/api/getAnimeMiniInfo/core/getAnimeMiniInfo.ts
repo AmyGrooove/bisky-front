@@ -17,7 +17,7 @@ const useGetAnimeMiniInfo = (
     queryFn: ({ signal }) =>
       getAnimeMiniInfo({
         params: { ID: animeID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

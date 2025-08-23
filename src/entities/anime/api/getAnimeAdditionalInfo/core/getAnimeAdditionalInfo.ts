@@ -17,7 +17,7 @@ const useGetAnimeAdditionalInfo = (
     queryFn: ({ signal }) =>
       getAnimeAdditionalInfo({
         params: { ID: animeID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

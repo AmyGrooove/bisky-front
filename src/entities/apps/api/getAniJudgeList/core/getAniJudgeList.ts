@@ -15,7 +15,7 @@ const useGetAniJudgeList = (
     queryKey: ['aniJudge'],
     queryFn: ({ signal }) =>
       getAniJudgeList({
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

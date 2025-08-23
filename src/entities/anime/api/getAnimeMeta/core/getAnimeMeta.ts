@@ -17,7 +17,7 @@ const useGetAnimeMeta = (
     queryFn: ({ signal }) =>
       getAnimeMeta({
         params: { slug: animeSlug },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

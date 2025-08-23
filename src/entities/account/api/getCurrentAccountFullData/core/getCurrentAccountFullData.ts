@@ -13,7 +13,8 @@ const useGetCurrentAccountFullData = (
   return useQuery({
     ...options,
     queryKey: ['account'],
-    queryFn: ({ signal }) => getCurrentAccountFullData({ options: { signal } }),
+    queryFn: ({ signal }) =>
+      getCurrentAccountFullData({ optionsGet: { signal } }),
   })
 }
 

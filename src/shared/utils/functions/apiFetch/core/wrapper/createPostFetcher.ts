@@ -9,14 +9,14 @@ import { interpolatePath } from './interpolatePath'
 
 const createPostFetcher =
   <TResponse>(url: string, methodType: TMethodType) =>
-  (props: IWrapperFetchParams = {}) => {
-    const { params, query, options } = props
+  (props: Omit<IWrapperFetchParams, 'optionsGet'> = {}) => {
+    const { params, query, optionsPost } = props
 
     const path = interpolatePath(url, params)
     const convertedUrl = new URL(path, ENV.API_URL)
     appendQuery(convertedUrl, query)
 
-    return apiFetchPost<TResponse>(convertedUrl, methodType, options)
+    return apiFetchPost<TResponse>(convertedUrl, methodType, optionsPost)
   }
 
 export { createPostFetcher }

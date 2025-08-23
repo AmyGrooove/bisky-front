@@ -14,7 +14,7 @@ const useGetCurrentAccountWhoamiData = (
     ...options,
     queryKey: ['account', 'whoami'],
     queryFn: ({ signal }) =>
-      getCurrentAccountWhoamiData({ options: { signal } }),
+      getCurrentAccountWhoamiData({ optionsGet: { signal } }),
   })
 }
 

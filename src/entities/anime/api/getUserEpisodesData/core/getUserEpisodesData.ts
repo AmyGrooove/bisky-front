@@ -18,7 +18,7 @@ const useGetUserEpisodesData = (
     queryFn: ({ signal }) =>
       getUserEpisodesData({
         params: { ID: animeID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

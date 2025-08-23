@@ -2,9 +2,9 @@ import { IUserAnimeReactionModel } from '@entities/anime/types/IUserAnimeReactio
 import { IPaginationQuery, TUseQueryOptions } from '@shared/types'
 import { createGetFetcher } from '@shared/utils/functions'
 import { useQuery } from '@tanstack/react-query'
+import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
 import { IGetUserAnimeListResponse } from '../types/IGetUserAnimeListResponse'
-import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
 const getUserAnimeList = createGetFetcher<IGetUserAnimeListResponse>(
   '/profile/{ID}/animeList',
@@ -23,7 +23,7 @@ const useGetUserAnimeList = (
       getUserAnimeList({
         params: { ID: profileID },
         query: { ...additionalQuery, listStatus },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

@@ -18,7 +18,7 @@ const useGetUserClubAnimesReactionData = (
     queryFn: ({ signal }) =>
       getUserClubAnimesReactionData({
         params: { ID: clubID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

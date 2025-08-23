@@ -1,7 +1,7 @@
 import { TTokenKey } from '../../indexAuthDB'
 
 interface IApiFetchPostOptions {
-  body?: Record<string, unknown>
+  body?: Record<string, any>
   tokenType?: TTokenKey
 }
 

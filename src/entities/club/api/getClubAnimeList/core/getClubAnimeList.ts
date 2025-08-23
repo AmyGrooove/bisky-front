@@ -1,9 +1,9 @@
 import { IPaginationQuery, TUseQueryOptions } from '@shared/types'
 import { createGetFetcher } from '@shared/utils/functions'
 import { useQuery } from '@tanstack/react-query'
+import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
 import { IGetClubAnimeListResponse } from '../types/IGetClubAnimeListResponse'
-import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
 const getClubAnimeList = createGetFetcher<IGetClubAnimeListResponse>(
   '/club/{ID}/animeList',
@@ -21,7 +21,7 @@ const useGetClubAnimeList = (
       getClubAnimeList({
         params: { ID: clubID },
         query: { ...additionalQuery },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

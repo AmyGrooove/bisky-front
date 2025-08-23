@@ -17,7 +17,7 @@ const useGetCollectionMainInfo = (
     queryFn: ({ signal }) =>
       getCollectionMainInfo({
         params: { ID: collectionID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

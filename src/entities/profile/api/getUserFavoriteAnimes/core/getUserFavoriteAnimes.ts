@@ -1,9 +1,9 @@
 import { IPaginationQuery, TUseQueryOptions } from '@shared/types'
 import { createGetFetcher } from '@shared/utils/functions'
 import { useQuery } from '@tanstack/react-query'
+import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
 import { IGetUserFavoriteAnimesResponse } from '../types/IGetUserFavoriteAnimesResponse'
-import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
 const getUserFavoriteAnimes = createGetFetcher<IGetUserFavoriteAnimesResponse>(
   '/profile/{ID}/favoriteAnimes',
@@ -21,7 +21,7 @@ const useGetUserFavoriteAnimes = (
       getUserFavoriteAnimes({
         params: { ID: profileID },
         query: { ...additionalQuery },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

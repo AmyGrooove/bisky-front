@@ -14,7 +14,7 @@ const useGetHomeRow = (
     ...options,
     queryKey: ['home', 'row', elementIndex],
     queryFn: ({ signal }) =>
-      getHomeRow({ query: { elementIndex }, options: { signal } }),
+      getHomeRow({ query: { elementIndex }, optionsGet: { signal } }),
   })
 }
 

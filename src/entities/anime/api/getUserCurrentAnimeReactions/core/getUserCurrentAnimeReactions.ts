@@ -19,7 +19,7 @@ const useGetUserCurrentAnimeReactions = (
     queryFn: ({ signal }) =>
       getUserCurrentAnimeReactions({
         params: { ID: animeID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

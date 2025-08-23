@@ -17,7 +17,7 @@ const useGetSearch = (
     queryFn: ({ signal }) =>
       getSearch({
         query: { search, searchType },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

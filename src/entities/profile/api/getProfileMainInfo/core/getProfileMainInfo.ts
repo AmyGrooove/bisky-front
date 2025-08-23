@@ -17,7 +17,7 @@ const useGetProfileMainInfo = (
     queryFn: ({ signal }) =>
       getProfileMainInfo({
         params: { ID: profileID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

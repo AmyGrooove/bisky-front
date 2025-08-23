@@ -18,7 +18,7 @@ const useGetUserCollectionAnimesReactionData = (
     queryFn: ({ signal }) =>
       getUserCollectionAnimesReactionData({
         params: { ID: collectionID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

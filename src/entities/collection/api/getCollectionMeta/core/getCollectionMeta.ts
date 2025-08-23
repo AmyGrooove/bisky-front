@@ -18,7 +18,7 @@ const useGetCollectionMeta = (
     queryFn: ({ signal }) =>
       getCollectionMeta({
         params: { slug: collectionSlug },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }

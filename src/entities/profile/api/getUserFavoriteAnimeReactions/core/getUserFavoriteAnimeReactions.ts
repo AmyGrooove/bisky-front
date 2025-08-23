@@ -18,7 +18,7 @@ const useGetUserFavoriteAnimeReactions = (
     queryFn: ({ signal }) =>
       getUserFavoriteAnimeReactions({
         params: { ID: profileID },
-        options: { signal },
+        optionsGet: { signal },
       }),
   })
 }
