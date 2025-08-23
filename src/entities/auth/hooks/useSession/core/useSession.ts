@@ -1,13 +1,22 @@
 import { useGetCurrentAccountWhoamiData } from '@entities/account/api/getCurrentAccountWhoamiData'
 
+import { REFETCH_INTERVAL_MS } from '../static/REFETCH_INTERVAL_MS'
+
 const useSession = () => {
   const {
     data: user = null,
     isLoading,
     isError,
-  } = useGetCurrentAccountWhoamiData({ refetchInterval: 28 * 60 * 1000 })
+    refetch,
+  } = useGetCurrentAccountWhoamiData({
+    refetchInterval: REFETCH_INTERVAL_MS,
+    staleTime: REFETCH_INTERVAL_MS,
+    refetchOnWindowFocus: false,
+  })
 
-  return { user, isLoading, isError }
+  const isAuthenticated = Boolean(user)
+
+  return { user, isLoading, isError, isAuthenticated, refetch }
 }
 
 export { useSession }
