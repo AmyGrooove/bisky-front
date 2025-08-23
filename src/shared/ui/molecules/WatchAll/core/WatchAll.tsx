@@ -1,9 +1,11 @@
 import { MoveRightIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
+import { cn } from '@shared/utils/functions'
+
 import { IWatchAllProps } from '../types/IWatchAllProps'
+
 import { useWatchAll } from './useWatchAll'
 import st from './WatchAll.module.scss'
-import { cn } from '@shared/utils/functions'
 
 const WatchAll = (props: IWatchAllProps) => {
   const { type, variant, className, onClick } = useWatchAll(props)

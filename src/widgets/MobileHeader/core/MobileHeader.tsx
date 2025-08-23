@@ -2,10 +2,10 @@ import { PageLink } from '@shared/ui/molecules/PageLink'
 import { HintMenu } from '@shared/ui/molecules/HintMenu'
 import { Button } from '@shared/ui/molecules/Button'
 import { PlusIcon } from '@shared/icons'
+import { NotificationButton } from '@entities/notification/NotificationButton'
 
 import st from './MobileHeader.module.scss'
 import { useMobileHeader } from './useMobileHeader'
-import { NotificationButton } from '@entities/notification/NotificationButton'
 
 const MobileHeader = () => {
   const { currentMenu, isMenuOpened, convertedMenuLinks, setIsMenuOpened } =

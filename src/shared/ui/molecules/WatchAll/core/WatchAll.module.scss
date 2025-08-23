@@ -1,13 +1,13 @@
 @use '@shared/styles/reusable.scss' as *;
 
 .root {
+  align-items: center;
+  background-color: var(--dark-240);
+  border-radius: var(--radius-20);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  border-radius: var(--radius-20);
-  background-color: var(--dark-240);
-  cursor: pointer;
   @extend %press, %no-select;
   @include effect(back-shadow);
   @include transition(
@@ -25,13 +25,13 @@
     }
 
     &.root_anime {
-      width: 200px;
       height: 320px;
+      width: 200px;
     }
 
     &.root_collection {
-      width: 120px;
       height: 218px;
+      width: 120px;
     }
   }
 
@@ -41,18 +41,18 @@
     }
 
     &.root_anime {
-      width: 200px;
       height: 200px;
+      width: 200px;
     }
 
     &.root_collection {
-      width: 120px;
       height: 120px;
+      width: 120px;
     }
   }
 }
 
 .icon {
-  width: 36px;
   height: 36px;
+  width: 36px;
 }

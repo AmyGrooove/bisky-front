@@ -1,5 +1,6 @@
-import { TTokenKey } from '../types/iAuthDb'
-import { withDB } from './withDb'
+import { TTokenKey } from '../types/IAuthDB'
+
+import { withDB } from './withDB'
 
 const getDBToken = async (key: TTokenKey) =>
   withDB(async (db) => (await db.get('tokens', key)) ?? null)

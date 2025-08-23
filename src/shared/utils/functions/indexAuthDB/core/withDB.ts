@@ -1,4 +1,5 @@
-import { IAuthDB } from '../types/iAuthDb'
+import { IAuthDB } from '../types/IAuthDB'
+
 import { dbPromise } from './dbPromise'
 
 type IDBDatabaseType = import('idb').IDBPDatabase<IAuthDB>

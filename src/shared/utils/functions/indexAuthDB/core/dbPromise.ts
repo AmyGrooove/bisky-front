@@ -1,4 +1,5 @@
 import { IDBPDatabase, openDB } from 'idb'
+
 import { IAuthDB } from '../types/IAuthDB'
 
 const dbPromise: Promise<IDBPDatabase<IAuthDB> | null> =

@@ -1,4 +1,5 @@
 import { IApiFetchGetOptions } from '../types/IApiFetchGetOptions'
+
 import { authorizedFetch } from './authorizedFetch'
 
 const apiFetchGet = async <TResponse>(
