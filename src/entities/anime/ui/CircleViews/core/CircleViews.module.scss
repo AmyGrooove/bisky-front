@@ -1,0 +1,51 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  flex-shrink: 0;
+  position: relative;
+  @extend %invoke-scale, %no-select;
+
+  &_big {
+    height: 180px;
+    width: 180px;
+
+    .sumCount {
+      @include text-style(40);
+    }
+
+    .circle {
+      padding: 36px;
+    }
+  }
+
+  &_small {
+    height: 120px;
+    width: 120px;
+
+    .sumCount {
+      @include text-style(24);
+    }
+
+    .circle {
+      padding: 24px;
+    }
+  }
+}
+
+.circle {
+  border-radius: var(--radius-full) !important;
+  height: 100%;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  width: 100%;
+}
+
+.sumCount {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+}
