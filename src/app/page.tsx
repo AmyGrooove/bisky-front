@@ -10,6 +10,7 @@ const Home = async () => {
           justifyContent: 'center',
           height: '100%',
           backgroundColor: '#170e19',
+          width: '100%',
         }}
       >
         <h1 style={{ color: 'white' }}>Сайт в доработке</h1>

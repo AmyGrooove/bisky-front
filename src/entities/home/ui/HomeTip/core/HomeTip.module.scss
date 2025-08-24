@@ -1,0 +1,164 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  background-color: var(--dark-300);
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+
+  &_big {
+    border-radius: var(--radius-20);
+    padding: 12px;
+    height: 112px;
+
+    .mainWrapper {
+      width: 180px;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .title {
+      @include text-style(24);
+    }
+
+    .leftSide {
+      gap: 24px;
+    }
+
+    .button {
+      height: 32px;
+    }
+
+    .buttonText {
+      @include text-style(16);
+    }
+
+    .descriptionWrapper {
+      width: 400px;
+    }
+
+    .description {
+      @include text-style(16);
+    }
+  }
+
+  &_small {
+    border-radius: var(--radius-20);
+    height: 80px;
+
+    .mainWrapper {
+      width: 100px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .title {
+      @include text-style(16);
+    }
+
+    .leftSide {
+      gap: 12px;
+    }
+
+    .button {
+      height: 24px;
+    }
+
+    .buttonText {
+      @include text-style(12);
+    }
+
+    .descriptionWrapper {
+      width: 100%;
+    }
+
+    .description {
+      @include text-style(12);
+    }
+
+    .image {
+      display: none;
+    }
+  }
+}
+
+.leftSide {
+  display: flex;
+  align-items: center;
+}
+
+.mainWrapper {
+  flex-shrink: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.button {
+  background-color: var(--bisky-300);
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  border-radius: var(--radius-8);
+  padding: 4px;
+  width: 100%;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition(
+    (background-color, filter, opacity, scale),
+    (250ms, 250ms, 250ms, 100ms)
+  );
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  position: relative;
+  right: -40px;
+  rotate: 15deg;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    inset: 0;
+    left: -4px;
+    background: linear-gradient(
+      to right,
+      var(--dark-300) 0%,
+      color-mix(in srgb, var(--dark-300) 50%, transparent) 60%,
+      transparent 80%
+    );
+  }
+}
+
+.image {
+  width: 700px;
+  height: 400px;
+}
