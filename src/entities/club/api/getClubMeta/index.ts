@@ -1,1 +1,2 @@
-export { useGetClubMeta } from './core/getClubMeta'
+export { getClubMeta } from './core/getClubMeta'
+export { useGetClubMeta } from './core/useGetClubMeta'

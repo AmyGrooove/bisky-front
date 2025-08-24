@@ -1,0 +1,27 @@
+import { TUseQueryOptions } from '@shared/types'
+import { useQuery } from '@tanstack/react-query'
+import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
+
+import { IGetAniPickListResponse } from '../types/IGetAniPickListResponse'
+
+import { getAniPickList } from './getAniPickList'
+
+const useGetAniPickList = (
+  additionalQuery: Pick<
+    IAnimeFIltersAndSort,
+    'endDate' | 'startDate' | 'rating' | 'kind' | 'season' | 'status'
+  > = {},
+  options: TUseQueryOptions<typeof getAniPickList> = {},
+) => {
+  return useQuery({
+    ...options,
+    queryKey: ['aniPick'],
+    queryFn: ({ signal }) =>
+      getAniPickList({
+        query: { ...additionalQuery },
+        optionsGet: { signal },
+      }),
+  })
+}
+
+export { useGetAniPickList }

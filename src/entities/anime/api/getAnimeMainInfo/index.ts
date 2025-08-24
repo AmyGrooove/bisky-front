@@ -1,1 +1,2 @@
-export { useGetAnimeMainInfo } from './core/getAnimeMainInfo'
+export { getAnimeMainInfo } from './core/getAnimeMainInfo'
+export { useGetAnimeMainInfo } from './core/useGetAnimeMainInfo'

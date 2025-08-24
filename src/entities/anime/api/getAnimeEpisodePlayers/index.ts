@@ -1,1 +1,2 @@
-export { useGetAnimeEpisodePlayers } from './core/getAnimeEpisodePlayers'
+export { getAnimeEpisodePlayers } from './core/getAnimeEpisodePlayers'
+export { useGetAnimeEpisodePlayers } from './core/useGetAnimeEpisodePlayers'

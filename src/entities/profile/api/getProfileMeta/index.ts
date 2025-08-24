@@ -1,1 +1,2 @@
-export { useGetProfileMeta } from './core/getProfileMeta'
+export { getProfileMeta } from './core/getProfileMeta'
+export { useGetProfileMeta } from './core/useGetProfileMeta'

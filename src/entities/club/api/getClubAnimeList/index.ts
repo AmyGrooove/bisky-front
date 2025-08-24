@@ -1,1 +1,2 @@
-export { useGetClubAnimeList } from './core/getClubAnimeList'
+export { getClubAnimeList } from './core/getClubAnimeList'
+export { useGetClubAnimeList } from './core/useGetClubAnimeList'
