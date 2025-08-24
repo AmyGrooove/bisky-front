@@ -1,1 +1,2 @@
-export { useGetUserFavoriteAnimes } from './core/getUserFavoriteAnimes'
+export { getUserFavoriteAnimes } from './core/getUserFavoriteAnimes'
+export { useGetUserFavoriteAnimes } from './core/useGetUserFavoriteAnimes'

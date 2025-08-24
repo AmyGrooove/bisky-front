@@ -1,1 +1,2 @@
-export { useGetCurrentAccountWhoamiData } from './core/getCurrentAccountWhoamiData'
+export { getCurrentAccountWhoamiData } from './core/getCurrentAccountWhoamiData'
+export { useGetCurrentAccountWhoamiData } from './core/useGetCurrentAccountWhoamiData'

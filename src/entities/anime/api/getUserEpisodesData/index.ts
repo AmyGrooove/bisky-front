@@ -1,1 +1,2 @@
-export { useGetUserEpisodesData } from './core/getUserEpisodesData'
+export { getUserEpisodesData } from './core/getUserEpisodesData'
+export { useGetUserEpisodesData } from './core/useGetUserEpisodesData'

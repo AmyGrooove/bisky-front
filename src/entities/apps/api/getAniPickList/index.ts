@@ -1,1 +1,2 @@
-export { useGetAniPickList } from './core/getAniPickList'
+export { getAniPickList } from './core/getAniPickList'
+export { useGetAniPickList } from './core/useGetAniPickList'

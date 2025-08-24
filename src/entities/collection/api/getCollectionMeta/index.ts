@@ -1,1 +1,2 @@
-export { useGetCollectionMeta } from './core/getCollectionMeta'
+export { getCollectionMeta } from './core/getCollectionMeta'
+export { useGetCollectionMeta } from './core/useGetCollectionMeta'

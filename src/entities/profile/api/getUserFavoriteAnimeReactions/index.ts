@@ -1,1 +1,2 @@
-export { useGetUserFavoriteAnimeReactions } from './core/getUserFavoriteAnimeReactions'
+export { getUserFavoriteAnimeReactions } from './core/getUserFavoriteAnimeReactions'
+export { useGetUserFavoriteAnimeReactions } from './core/useGetUserFavoriteAnimeReactions'

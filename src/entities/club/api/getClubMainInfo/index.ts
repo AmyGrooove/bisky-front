@@ -1,1 +1,2 @@
-export { useGetClubMainInfo } from './core/getClubMainInfo'
+export { getClubMainInfo } from './core/getClubMainInfo'
+export { useGetClubMainInfo } from './core/useGetClubMainInfo'

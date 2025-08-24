@@ -1,1 +1,2 @@
-export { useGetProfileMainInfo } from './core/getProfileMainInfo'
+export { getProfileMainInfo } from './core/getProfileMainInfo'
+export { useGetProfileMainInfo } from './core/useGetProfileMainInfo'

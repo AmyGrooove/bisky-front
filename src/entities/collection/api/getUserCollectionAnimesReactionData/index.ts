@@ -1,1 +1,2 @@
-export { useGetUserCollectionAnimesReactionData } from './core/getUserCollectionAnimesReactionData'
+export { getUserCollectionAnimesReactionData } from './core/getUserCollectionAnimesReactionData'
+export { useGetUserCollectionAnimesReactionData } from './core/useGetUserCollectionAnimesReactionData'

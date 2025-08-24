@@ -1,1 +1,2 @@
-export { useGetUserAnimeList } from './core/getUserAnimeList'
+export { getUserAnimeList } from './core/getUserAnimeList'
+export { useGetUserAnimeList } from './core/useGetUserAnimeList'
