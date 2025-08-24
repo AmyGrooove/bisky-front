@@ -1,1 +1,2 @@
-export { useAddAnimeToSkipList } from './core/addAnimeToSkipList'
+export { addAnimeToSkipList } from './core/addAnimeToSkipList'
+export { useAddAnimeToSkipList } from './core/useAddAnimeToSkipList'

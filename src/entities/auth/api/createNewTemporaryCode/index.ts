@@ -1,1 +1,2 @@
-export { useCreateNewTemporaryCode } from './core/createNewTemporaryCode'
+export { createNewTemporaryCode } from './core/createNewTemporaryCode'
+export { useCreateNewTemporaryCode } from './core/useCreateNewTemporaryCode'

@@ -1,1 +1,2 @@
-export { useUpdatePassword } from './core/updatePassword'
+export { updatePassword } from './core/updatePassword'
+export { useUpdatePassword } from './core/useUpdatePassword'

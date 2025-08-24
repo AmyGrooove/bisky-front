@@ -1,1 +1,2 @@
-export { useSendToEmailResetPassword } from './core/sendToEmailResetPassword'
+export { sendToEmailResetPassword } from './core/sendToEmailResetPassword'
+export { useSendToEmailResetPassword } from './core/useSendToEmailResetPassword'

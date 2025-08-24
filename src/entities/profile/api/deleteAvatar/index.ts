@@ -1,1 +1,2 @@
-export { useDeleteAvatar } from './core/deleteAvatar'
+export { deleteAvatar } from './core/deleteAvatar'
+export { useDeleteAvatar } from './core/useDeleteAvatar'

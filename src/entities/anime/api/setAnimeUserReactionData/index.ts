@@ -1,1 +1,2 @@
-export { useSetAnimeUserReactionData } from './core/setAnimeUserReactionData'
+export { setAnimeUserReactionData } from './core/setAnimeUserReactionData'
+export { useSetAnimeUserReactionData } from './core/useSetAnimeUserReactionData'
