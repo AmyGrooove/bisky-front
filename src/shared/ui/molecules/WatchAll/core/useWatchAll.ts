@@ -1,9 +1,15 @@
 import { IWatchAllProps } from '../types/IWatchAllProps'
 
 const useWatchAll = (props: IWatchAllProps) => {
-  const { type = 'anime', variant = 'big', className, onClick } = props
+  const {
+    label = 'Смотреть все',
+    type = 'anime',
+    variant = 'big',
+    className,
+    onClick,
+  } = props
 
-  return { type, variant, className, onClick }
+  return { label, type, variant, className, onClick }
 }
 
 export { useWatchAll }

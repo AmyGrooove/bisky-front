@@ -1,5 +1,3 @@
-'use client'
-
 const Home = () => {
   return (
     <>
@@ -10,7 +8,7 @@ const Home = () => {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          height: '100vh',
+          height: '100%',
           backgroundColor: '#170e19',
         }}
       >

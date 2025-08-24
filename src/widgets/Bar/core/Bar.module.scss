@@ -14,3 +14,9 @@
   @include effect(background-blur-shadow);
   @include transition(background-color);
 }
+
+@include media-query(tablet, true) {
+  .root {
+    display: none;
+  }
+}

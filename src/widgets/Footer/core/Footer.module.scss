@@ -8,7 +8,7 @@
   height: 80px;
   justify-content: space-between;
   padding: 16px 20px;
-  width: calc(100% - 40px);
+  width: 100%;
   @include effect(background-blur-shadow);
   @include transition(background-color);
 

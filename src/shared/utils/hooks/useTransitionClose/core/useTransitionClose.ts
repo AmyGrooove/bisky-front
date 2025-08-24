@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 import { IUseTransitionClose } from '../types/IUseTransitionClose'

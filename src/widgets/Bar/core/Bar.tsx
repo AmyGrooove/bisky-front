@@ -1,3 +1,5 @@
+'use client'
+
 import { HoverIcon } from '@shared/ui/atoms/HoverIcon'
 
 import { useBar } from './useBar'

@@ -1,0 +1,28 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.logo {
+  fill: var(--bisky-100);
+  height: 28px;
+  width: 28px;
+}
+
+.logoText {
+  color: var(--bisky-100);
+  @include text-style(24);
+}
+
+@include media-query(tablet, true) {
+  .root {
+    display: none;
+  }
+}

@@ -1,8 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import { Text } from '@shared/ui/atoms/Text'
 import { LogoIcon } from '@shared/icons'
 import { PageLink } from '@shared/ui/molecules/PageLink'
-import { NotificationButton } from '@entities/notification/NotificationButton'
+import { NotificationButton } from '@entities/notification/ui/NotificationButton'
 
 import { useHeader } from './useHeader'
 import st from './Header.module.scss'
