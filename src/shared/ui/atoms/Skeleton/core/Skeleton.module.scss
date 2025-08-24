@@ -19,9 +19,3 @@
   border-radius: var(--radius-20);
   flex-shrink: 0;
 }
-
-@include media-query(tablet) {
-  /* stylelint-disable-next-line block-no-empty */
-  .root {
-  }
-}

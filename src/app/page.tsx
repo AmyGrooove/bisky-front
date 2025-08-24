@@ -1,6 +1,4 @@
-'use client'
-
-const Home = () => {
+const Home = async () => {
   return (
     <>
       <div
