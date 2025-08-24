@@ -16,7 +16,7 @@ const Season = (props: ISeasonProps) => {
     data,
     className,
     animeLink,
-    currentImageID,
+    currentImageIndex,
     currentScreenshots,
     genreRow,
     variant,
@@ -44,7 +44,7 @@ const Season = (props: ISeasonProps) => {
         <div
           key={screenshot}
           className={cn(st.backWrapper, {
-            [st.backWrapper_hide]: index !== currentImageID,
+            [st.backWrapper_hide]: index !== currentImageIndex,
           })}
         >
           <PlaceholderImage
