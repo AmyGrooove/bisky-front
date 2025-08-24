@@ -1,1 +1,2 @@
-export { useSetAnimeUserStatus } from './core/setAnimeUserStatus'
+export { setAnimeUserStatus } from './core/setAnimeUserStatus'
+export { useSetAnimeUserStatus } from './core/useSetAnimeUserStatus'

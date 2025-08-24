@@ -1,1 +1,2 @@
-export { useSetAnimeScore } from './core/setAnimeScore'
+export { setAnimeScore } from './core/setAnimeScore'
+export { useSetAnimeScore } from './core/useSetAnimeScore'

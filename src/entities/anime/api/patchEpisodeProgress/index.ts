@@ -1,1 +1,2 @@
-export { usePatchEpisodeProgress } from './core/patchEpisodeProgress'
+export { patchEpisodeProgress } from './core/patchEpisodeProgress'
+export { usePatchEpisodeProgress } from './core/usePatchEpisodeProgress'

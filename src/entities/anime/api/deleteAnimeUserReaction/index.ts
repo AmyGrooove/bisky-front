@@ -1,1 +1,2 @@
-export { useDeleteAnimeUserReaction } from './core/deleteAnimeUserReaction'
+export { deleteAnimeUserReaction } from './core/deleteAnimeUserReaction'
+export { useDeleteAnimeUserReaction } from './core/useDeleteAnimeUserReaction'

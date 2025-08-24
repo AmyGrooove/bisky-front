@@ -1,1 +1,2 @@
-export { useUpdateNickname } from './core/updateNickname'
+export { updateNickname } from './core/updateNickname'
+export { useUpdateNickname } from './core/useUpdateNickname'

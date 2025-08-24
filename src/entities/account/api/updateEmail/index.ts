@@ -1,1 +1,2 @@
-export { useUpdateEmail } from './core/updateEmail'
+export { updateEmail } from './core/updateEmail'
+export { useUpdateEmail } from './core/useUpdateEmail'
