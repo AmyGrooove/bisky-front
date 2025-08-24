@@ -1,0 +1,125 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  border: 2px solid transparent;
+  border-radius: var(--radius-20);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  @extend %no-select;
+  @include effect(back-shadow);
+  @include transition((border-color, opacity, scale), (250ms, 250ms, 100ms));
+
+  &:hover {
+    border-color: var(--bisky-400);
+  }
+
+  &_big {
+    height: 380px;
+    padding: 48px 20px;
+    width: 1080px;
+
+    .poster {
+      border-radius: var(--radius-20);
+      height: 250px;
+      width: 180px;
+    }
+
+    .label {
+      @include text-style(32);
+    }
+
+    .genres {
+      bottom: 20px;
+      left: 20px;
+      opacity: 0.8;
+      @include text-style(20);
+    }
+
+    .score {
+      right: 20px;
+      top: 20px;
+    }
+
+    .main {
+      gap: 20px;
+    }
+
+    .backImage {
+      height: 380px;
+      width: 1080px;
+    }
+  }
+
+  &_small {
+    height: 180px;
+    padding: 28px 12px;
+    width: 380px;
+
+    .poster {
+      border-radius: var(--radius-12);
+      height: 120px;
+      width: 80px;
+    }
+
+    .label {
+      @include text-style(16);
+    }
+
+    .genres {
+      bottom: 8px;
+      right: 8px;
+      @include text-style(12);
+    }
+
+    .score {
+      right: 8px;
+      top: 8px;
+    }
+
+    .main {
+      gap: 12px;
+    }
+
+    .backImage {
+      height: 180px;
+      width: 100%;
+    }
+  }
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.genres {
+  position: absolute;
+}
+
+.score {
+  position: absolute;
+}
+
+.backWrapper {
+  inset: 0;
+  opacity: 1;
+  position: absolute;
+  z-index: -2;
+  @include transition(opacity, 2s);
+
+  &_hide {
+    opacity: 0;
+  }
+
+  &::after {
+    background-color: var(--black-60);
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+}

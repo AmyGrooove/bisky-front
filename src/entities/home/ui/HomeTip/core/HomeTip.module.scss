@@ -1,26 +1,98 @@
 @use '@shared/styles/reusable.scss' as *;
 
-.root {
-  background-color: var(--dark-300);
-  width: 100%;
-  padding: 12px;
-  display: flex;
+.leftSide {
   align-items: center;
-  overflow: hidden;
+  display: flex;
+}
+
+.mainWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0px;
+  gap: 8px;
+}
+
+.titleWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.button {
+  align-items: center;
+  background-color: var(--bisky-300);
+  border-radius: var(--radius-8);
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  padding: 4px;
+  width: 100%;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition(
+    (background-color, filter, opacity, scale),
+    (250ms, 250ms, 250ms, 100ms)
+  );
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  position: relative;
+  right: -40px;
+  rotate: 15deg;
+
+  &::after {
+    background: linear-gradient(
+      to right,
+      var(--dark-300) 0%,
+      color-mix(in srgb, var(--dark-300) 50%, transparent) 60%,
+      transparent 80%
+    );
+    content: '';
+    display: flex;
+    inset: 0;
+    left: -4px;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.image {
+  height: 400px;
+  width: 700px;
+}
+
+.root {
+  align-items: center;
+  background-color: var(--dark-300);
+  display: flex;
   justify-content: space-between;
+  overflow: hidden;
+  padding: 12px;
+  width: 100%;
 
   &_big {
     border-radius: var(--radius-20);
-    padding: 12px;
     height: 112px;
+    padding: 12px;
 
     .mainWrapper {
       width: 180px;
     }
 
     .icon {
-      width: 36px;
       height: 36px;
+      width: 36px;
     }
 
     .title {
@@ -57,8 +129,8 @@
     }
 
     .icon {
-      width: 20px;
       height: 20px;
+      width: 20px;
     }
 
     .title {
@@ -89,76 +161,4 @@
       display: none;
     }
   }
-}
-
-.leftSide {
-  display: flex;
-  align-items: center;
-}
-
-.mainWrapper {
-  flex-shrink: 0px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-}
-
-.titleWrapper {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.button {
-  background-color: var(--bisky-300);
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  gap: 4px;
-  justify-content: center;
-  border-radius: var(--radius-8);
-  padding: 4px;
-  width: 100%;
-  @extend %press, %no-select;
-  @include effect(back-shadow);
-  @include transition(
-    (background-color, filter, opacity, scale),
-    (250ms, 250ms, 250ms, 100ms)
-  );
-
-  &:hover {
-    filter: brightness(1.1);
-  }
-}
-
-.descriptionWrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.imageWrapper {
-  position: relative;
-  right: -40px;
-  rotate: 15deg;
-
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    inset: 0;
-    left: -4px;
-    background: linear-gradient(
-      to right,
-      var(--dark-300) 0%,
-      color-mix(in srgb, var(--dark-300) 50%, transparent) 60%,
-      transparent 80%
-    );
-  }
-}
-
-.image {
-  width: 700px;
-  height: 400px;
 }

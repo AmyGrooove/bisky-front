@@ -1,10 +1,12 @@
-import { IHomeTipProps } from '../types/IHomeTipProps'
-import { useHomeTip } from './useHomeTip'
-import st from './HomeTip.module.scss'
 import { cn } from '@shared/utils/functions'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
 import Link from 'next/link'
+
+import { IHomeTipProps } from '../types/IHomeTipProps'
+
+import st from './HomeTip.module.scss'
+import { useHomeTip } from './useHomeTip'
 
 const HomeTip = (props: IHomeTipProps) => {
   const { variant, className, currentData } = useHomeTip(props)

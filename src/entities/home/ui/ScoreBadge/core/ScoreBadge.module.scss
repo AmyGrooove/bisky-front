@@ -1,0 +1,15 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  &_lowScore {
+    background-color: var(--red);
+  }
+
+  &_mediumScore {
+    background-color: var(--orange);
+  }
+
+  &_highScore {
+    background-color: var(--lime);
+  }
+}
