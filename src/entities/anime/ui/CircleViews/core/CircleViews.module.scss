@@ -1,5 +1,15 @@
 @use '@shared/styles/reusable.scss' as *;
 
+.circle {
+  border-radius: var(--radius-full) !important;
+  height: 100%;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  width: 100%;
+}
+
 .root {
   flex-shrink: 0;
   position: relative;
@@ -32,17 +42,7 @@
   }
 }
 
-.circle {
-  border-radius: var(--radius-full) !important;
-  height: 100%;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  width: 100%;
-}
-
-.sumCount {
+.sumWrapper {
   align-items: center;
   display: flex;
   inset: 0;

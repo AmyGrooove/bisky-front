@@ -18,7 +18,7 @@ const CircleViews = (props: ICircleViewsProps) => {
       ) : (
         <div className={st.circle} style={{ background: circleGradient }} />
       )}
-      <div className={st.sumCount}>
+      <div className={st.sumWrapper}>
         <Text className={st.sumCount} weight="700">
           {String(sumCount)}
         </Text>

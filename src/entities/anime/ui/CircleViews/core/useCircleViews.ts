@@ -11,20 +11,17 @@ const useCircleViews = (props: ICircleViewsProps) => {
     variant = 'big',
   } = props
 
-  const isEmpty =
-    addedCount === 0 &&
-    completeCount === 0 &&
-    watchingCount === 0 &&
-    droppedCount === 0
-
-  const circleGradient = getCircleGradient({
-    addedCount,
-    completeCount,
-    watchingCount,
-    droppedCount,
-  })
-
   const sumCount = addedCount + completeCount + watchingCount + droppedCount
+  const isEmpty = sumCount === 0
+
+  const circleGradient = isEmpty
+    ? ''
+    : getCircleGradient({
+        addedCount,
+        completeCount,
+        watchingCount,
+        droppedCount,
+      })
 
   return {
     isEmpty,

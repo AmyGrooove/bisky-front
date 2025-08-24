@@ -1,0 +1,47 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.avatar {
+  border-radius: var(--radius-full);
+}
+
+.root {
+  align-items: center;
+  background-color: var(--bisky-200);
+  border-radius: var(--radius-12);
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((filter, scale), (250ms, 100ms));
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &_big {
+    padding: 8px;
+
+    .avatar {
+      height: 60px;
+      width: 60px;
+    }
+
+    .nickname {
+      @include text-style(16);
+    }
+  }
+
+  &_small {
+    padding-right: 4px;
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+    }
+
+    .nickname {
+      @include text-style(12);
+    }
+  }
+}

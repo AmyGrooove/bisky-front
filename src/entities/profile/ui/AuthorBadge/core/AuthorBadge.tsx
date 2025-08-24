@@ -1,12 +1,12 @@
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
+import { cn } from '@shared/utils/functions'
+import Link from 'next/link'
 
 import { IAuthorBadgeProps } from '../types/IAuthorBadgeProps'
 
 import { useAuthorBadge } from './useAuthorBadge'
 import st from './AuthorBadge.module.scss'
-import { cn } from '@shared/utils/functions'
-import Link from 'next/link'
 
 const AuthorBadge = (props: IAuthorBadgeProps) => {
   const { variant, userData, className, isCurrentUser } = useAuthorBadge(props)

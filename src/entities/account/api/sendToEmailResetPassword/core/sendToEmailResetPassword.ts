@@ -6,8 +6,7 @@ const sendToEmailResetPassword = createPostFetcher(
   '/account/password/reset',
   'POST',
 )
-const sendToEmailResetPasswordAdapter = (
-  body: ISendToEmailResetPasswordBody,
-) => sendToEmailResetPassword({ optionsPost: { body } })
+const sendToEmailResetPasswordAdapter = (body: ISendToEmailResetPasswordBody) =>
+  sendToEmailResetPassword({ optionsPost: { body } })
 
 export { sendToEmailResetPasswordAdapter as sendToEmailResetPassword }

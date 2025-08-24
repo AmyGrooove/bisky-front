@@ -10,6 +10,4 @@ const confirmCodeAndUpdatePasswordAdapter = (
   body: IConfirmCodeAndUpdatePasswordBody,
 ) => confirmCodeAndUpdatePassword({ optionsPost: { body } })
 
-export {
-  confirmCodeAndUpdatePasswordAdapter as confirmCodeAndUpdatePassword,
-}
+export { confirmCodeAndUpdatePasswordAdapter as confirmCodeAndUpdatePassword }
