@@ -1,4 +1,5 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query'
+
 import { IRootLayoutProps } from '../types/IRootLayoutProps'
 
 const useRootLayout = (props: IRootLayoutProps) => {

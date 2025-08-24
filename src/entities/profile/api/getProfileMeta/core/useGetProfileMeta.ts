@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetProfileMetaResponse } from '../types/IGetProfileMetaResponse'
-
 import { getProfileMeta } from './getProfileMeta'
 
 const useGetProfileMeta = (

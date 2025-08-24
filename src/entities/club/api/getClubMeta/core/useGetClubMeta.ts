@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetClubMetaResponse } from '../types/IGetClubMetaResponse'
-
 import { getClubMeta } from './getClubMeta'
 
 const useGetClubMeta = (

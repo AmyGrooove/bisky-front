@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetAnimeEpisodePlayersResponse } from '../types/IGetAnimeEpisodePlayersResponse'
-
 import { getAnimeEpisodePlayers } from './getAnimeEpisodePlayers'
 
 const useGetAnimeEpisodePlayers = (

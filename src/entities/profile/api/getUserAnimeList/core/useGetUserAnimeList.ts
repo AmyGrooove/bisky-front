@@ -3,8 +3,6 @@ import { IPaginationQuery, TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
-import { IGetUserAnimeListResponse } from '../types/IGetUserAnimeListResponse'
-
 import { getUserAnimeList } from './getUserAnimeList'
 
 const useGetUserAnimeList = (

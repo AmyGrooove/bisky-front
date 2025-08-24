@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetHomeRowResponse } from '../types/IGetHomeRowResponse'
-
 import { getHomeRow } from './getHomeRow'
 
 const useGetHomeRow = (

@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetAnimeMainInfoResponse } from '../types/IGetAnimeMainInfoResponse'
-
 import { getAnimeMainInfo } from './getAnimeMainInfo'
 
 const useGetAnimeMainInfo = (

@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetCurrentAccountFullDataResponse } from '../types/IGetCurrentAccountFullDataResponse'
-
 import { getCurrentAccountFullData } from './getCurrentAccountFullData'
 
 const useGetCurrentAccountFullData = (

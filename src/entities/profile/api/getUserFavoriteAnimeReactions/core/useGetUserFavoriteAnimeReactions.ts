@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetUserFavoriteAnimeReactionsResponse } from '../types/IGetUserFavoriteAnimeReactionsResponse'
-
 import { getUserFavoriteAnimeReactions } from './getUserFavoriteAnimeReactions'
 
 const useGetUserFavoriteAnimeReactions = (

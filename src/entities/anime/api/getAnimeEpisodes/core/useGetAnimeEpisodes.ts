@@ -1,8 +1,6 @@
 import { IPaginationQuery, TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetAnimeEpisodesResponse } from '../types/IGetAnimeEpisodesResponse'
-
 import { getAnimeEpisodes } from './getAnimeEpisodes'
 
 const useGetAnimeEpisodes = (

@@ -1,0 +1,85 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  border-radius: var(--radius-20);
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition(
+    (background-color, filter, opacity, scale),
+    (250ms, 250ms, 250ms, 100ms)
+  );
+
+  &:hover {
+    background-color: var(--bisky-400);
+
+    .nickname {
+      opacity: 1;
+    }
+  }
+
+  &_currentUser {
+    background-color: var(--bisky-100);
+
+    .nickname {
+      opacity: 1;
+    }
+
+    &:hover {
+      background-color: var(--bisky-100);
+      cursor: pointer;
+      filter: brightness(1.1);
+    }
+  }
+
+  &_big {
+    padding-right: 12px;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+    }
+
+    .nickname {
+      @include text-style(20);
+    }
+  }
+
+  &_medium {
+    padding-right: 4px;
+
+    .avatar {
+      width: 24px;
+      height: 24px;
+    }
+
+    .nickname {
+      @include text-style(16);
+    }
+  }
+
+  &_small {
+    padding-right: 4px;
+
+    .avatar {
+      width: 12px;
+      height: 12px;
+    }
+
+    .nickname {
+      @include text-style(12);
+    }
+  }
+}
+
+.avatar {
+  border-radius: var(--radius-full);
+}
+
+.nickname {
+  opacity: 0.8;
+  @include transition(opacity);
+}

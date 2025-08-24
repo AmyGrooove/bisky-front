@@ -2,8 +2,6 @@ import { IPaginationQuery, TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
-import { IGetClubAnimeListResponse } from '../types/IGetClubAnimeListResponse'
-
 import { getClubAnimeList } from './getClubAnimeList'
 
 const useGetClubAnimeList = (

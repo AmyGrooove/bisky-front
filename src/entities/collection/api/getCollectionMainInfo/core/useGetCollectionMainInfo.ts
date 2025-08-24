@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetCollectionMainInfoResponse } from '../types/IGetCollectionMainInfoResponse'
-
 import { getCollectionMainInfo } from './getCollectionMainInfo'
 
 const useGetCollectionMainInfo = (

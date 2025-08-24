@@ -2,8 +2,6 @@ import { IPaginationQuery, TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort'
 
-import { IGetUserFavoriteAnimesResponse } from '../types/IGetUserFavoriteAnimesResponse'
-
 import { getUserFavoriteAnimes } from './getUserFavoriteAnimes'
 
 const useGetUserFavoriteAnimes = (

@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetUserEpisodesDataResponse } from '../types/IGetUserEpisodesDataResponse'
-
 import { getUserEpisodesData } from './getUserEpisodesData'
 
 const useGetUserEpisodesData = (

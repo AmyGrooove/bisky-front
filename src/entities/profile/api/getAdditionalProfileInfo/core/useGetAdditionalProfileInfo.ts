@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetAdditionalProfileInfoResponse } from '../types/IGetAdditionalProfileInfoResponse'
-
 import { getAdditionalProfileInfo } from './getAdditionalProfileInfo'
 
 const useGetAdditionalProfileInfo = (

@@ -2,8 +2,6 @@ import { IUserAnimeReactionModel } from '@entities/anime/types/IUserAnimeReactio
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetUserAnimeReactionsResponse } from '../types/IGetUserAnimeReactionsResponse'
-
 import { getUserAnimeReactions } from './getUserAnimeReactions'
 
 const useGetUserAnimeReactions = (

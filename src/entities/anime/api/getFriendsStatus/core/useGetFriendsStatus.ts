@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetFriendsStatusResponse } from '../types/IGetFriendsStatusResponse'
-
 import { getFriendsStatus } from './getFriendsStatus'
 
 const useGetFriendsStatus = (

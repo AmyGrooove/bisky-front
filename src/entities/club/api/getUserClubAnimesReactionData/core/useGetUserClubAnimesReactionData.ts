@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetUserClubAnimesReactionDataResponse } from '../types/IGetUserClubAnimesReactionDataResponse'
-
 import { getUserClubAnimesReactionData } from './getUserClubAnimesReactionData'
 
 const useGetUserClubAnimesReactionData = (

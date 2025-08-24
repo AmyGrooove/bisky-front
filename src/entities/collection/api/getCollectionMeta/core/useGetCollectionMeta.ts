@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetCollectionMetaResponse } from '../types/IGetCollectionMetaResponse'
-
 import { getCollectionMeta } from './getCollectionMeta'
 
 const useGetCollectionMeta = (

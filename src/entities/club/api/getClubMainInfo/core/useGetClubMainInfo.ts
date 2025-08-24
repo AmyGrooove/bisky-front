@@ -1,8 +1,6 @@
 import { TUseQueryOptions } from '@shared/types'
 import { useQuery } from '@tanstack/react-query'
 
-import { IGetClubMainInfoResponse } from '../types/IGetClubMainInfoResponse'
-
 import { getClubMainInfo } from './getClubMainInfo'
 
 const useGetClubMainInfo = (
