@@ -1,7 +1,7 @@
 import { IUserModel } from '@entities/account/types/IUserModel'
 import { IAnimeModel } from '@entities/anime/types/IAnimeModel'
 import { IUserAnimeReactionModel } from '@entities/anime/types/IUserAnimeReactionModel'
-import { IDubClubModel } from '@entities/club/types/IDubClubModel'
+import { IDubClubModel } from '@entities/dubClub/types/IDubClubModel'
 import { ICollectionModel } from '@entities/collection/types/ICollectionModel'
 import { IUserCollectionReactionModel } from '@entities/collection/types/IUserCollectionReactionModel'
 

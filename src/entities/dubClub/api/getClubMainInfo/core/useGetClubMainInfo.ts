@@ -4,15 +4,15 @@ import { useQuery } from '@tanstack/react-query'
 import { getClubMainInfo } from './getClubMainInfo'
 
 const useGetClubMainInfo = (
-  clubID: string,
+  dubClubID: string,
   options: TUseQueryOptions<typeof getClubMainInfo> = {},
 ) => {
   return useQuery({
     ...options,
-    queryKey: ['club', clubID],
+    queryKey: ['dubClub', dubClubID],
     queryFn: ({ signal }) =>
       getClubMainInfo({
-        params: { ID: clubID },
+        params: { ID: dubClubID },
         optionsGet: { signal },
       }),
   })

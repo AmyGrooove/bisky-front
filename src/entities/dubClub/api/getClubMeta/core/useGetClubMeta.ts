@@ -4,15 +4,15 @@ import { useQuery } from '@tanstack/react-query'
 import { getClubMeta } from './getClubMeta'
 
 const useGetClubMeta = (
-  clubSlug: string,
+  dubClubSlug: string,
   options: TUseQueryOptions<typeof getClubMeta> = {},
 ) => {
   return useQuery({
     ...options,
-    queryKey: ['club', clubSlug, 'meta'],
+    queryKey: ['dubClub', dubClubSlug, 'meta'],
     queryFn: ({ signal }) =>
       getClubMeta({
-        params: { slug: clubSlug },
+        params: { slug: dubClubSlug },
         optionsGet: { signal },
       }),
   })

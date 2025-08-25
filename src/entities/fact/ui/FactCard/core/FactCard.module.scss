@@ -85,10 +85,13 @@
 
 .sourceLinkWrapper {
   align-items: center;
+  cursor: pointer;
   display: flex;
   gap: 4px;
   opacity: 0.8;
-  @include transition(opacity);
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((opacity, scale), (250ms, 100ms));
 
   &:hover {
     opacity: 1;

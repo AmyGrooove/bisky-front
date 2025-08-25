@@ -4,15 +4,15 @@ import { useQuery } from '@tanstack/react-query'
 import { getUserClubAnimesReactionData } from './getUserClubAnimesReactionData'
 
 const useGetUserClubAnimesReactionData = (
-  clubID: string,
+  dubClubID: string,
   options: TUseQueryOptions<typeof getUserClubAnimesReactionData> = {},
 ) => {
   return useQuery({
     ...options,
-    queryKey: ['club', clubID, 'userAnimeReactions'],
+    queryKey: ['dubClub', dubClubID, 'userAnimeReactions'],
     queryFn: ({ signal }) =>
       getUserClubAnimesReactionData({
-        params: { ID: clubID },
+        params: { ID: dubClubID },
         optionsGet: { signal },
       }),
   })

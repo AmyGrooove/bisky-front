@@ -1,0 +1,52 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.name {
+  background-color: var(--dark-200);
+  border-radius: var(--radius-12);
+  padding: 4px 8px;
+  position: absolute;
+  z-index: 1;
+}
+
+.root {
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((border-color, scale), (250ms, 100ms));
+
+  &:hover {
+    border-color: var(--bisky-400);
+  }
+
+  &_big {
+    border-radius: var(--radius-20);
+    height: 150px;
+    width: 200px;
+
+    .name {
+      bottom: 8px;
+      left: 8px;
+      @include text-style(16);
+    }
+  }
+
+  &_small {
+    border-radius: var(--radius-12);
+    height: 120px;
+    width: 160px;
+
+    .name {
+      bottom: 4px;
+      left: 4px;
+      @include text-style(12);
+    }
+  }
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+}

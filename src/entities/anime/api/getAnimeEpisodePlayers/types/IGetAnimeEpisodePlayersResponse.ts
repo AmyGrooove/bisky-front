@@ -1,5 +1,5 @@
 import { IAnimeEpisodePlayerModel } from '@entities/anime/types/IAnimeEpisodePlayerModel'
-import { IDubClubModel } from '@entities/club/types/IDubClubModel'
+import { IDubClubModel } from '@entities/dubClub/types/IDubClubModel'
 
 interface IAnimeEpisodePlayerDubClub
   extends Pick<IDubClubModel, '_id' | 'name' | 'slug'> {}

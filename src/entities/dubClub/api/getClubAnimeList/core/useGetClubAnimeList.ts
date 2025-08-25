@@ -5,16 +5,16 @@ import { IAnimeFIltersAndSort } from '@entities/anime/types/IAnimeFIltersAndSort
 import { getClubAnimeList } from './getClubAnimeList'
 
 const useGetClubAnimeList = (
-  clubID: string,
+  dubClubID: string,
   additionalQuery: IAnimeFIltersAndSort & IPaginationQuery = {},
   options: TUseQueryOptions<typeof getClubAnimeList> = {},
 ) => {
   return useQuery({
     ...options,
-    queryKey: ['club', clubID, 'animeList'],
+    queryKey: ['dubClub', dubClubID, 'animeList'],
     queryFn: ({ signal }) =>
       getClubAnimeList({
-        params: { ID: clubID },
+        params: { ID: dubClubID },
         query: { ...additionalQuery },
         optionsGet: { signal },
       }),

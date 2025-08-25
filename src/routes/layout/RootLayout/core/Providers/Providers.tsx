@@ -29,7 +29,6 @@ const Providers = (props: IProvidersProps) => {
         <ModalWrapper />
         <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
         {ENV.IS_DEVELOPMENT && <ReactQueryDevtools initialIsOpen={false} />}
-        <ReactQueryDevtools initialIsOpen={false} />
         {children}
       </HydrationBoundary>
     </QueryClientProvider>

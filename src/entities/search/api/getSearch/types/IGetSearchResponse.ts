@@ -1,6 +1,6 @@
 import { IUserModel } from '@entities/account/types/IUserModel'
 import { IAnimeModel } from '@entities/anime/types/IAnimeModel'
-import { IDubClubModel } from '@entities/club/types/IDubClubModel'
+import { IDubClubModel } from '@entities/dubClub/types/IDubClubModel'
 import { ICollectionModel } from '@entities/collection/types/ICollectionModel'
 
 interface ISearchAnime

@@ -4,6 +4,6 @@ import { IGetUserClubAnimesReactionDataResponse } from '../types/IGetUserClubAni
 
 const getUserClubAnimesReactionData = createGetFetcher<
   IGetUserClubAnimesReactionDataResponse[]
->('/club/{ID}/userAnimeReactions')
+>('/dubClub/{ID}/userAnimeReactions')
 
 export { getUserClubAnimesReactionData }

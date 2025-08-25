@@ -1,4 +1,4 @@
-import { IDubClubModel } from '@entities/club/types/IDubClubModel'
+import { IDubClubModel } from '@entities/dubClub/types/IDubClubModel'
 
 interface IGetClubMainInfoResponse
   extends Pick<
