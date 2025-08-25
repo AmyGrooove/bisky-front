@@ -1,0 +1,100 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.image {
+  border-radius: var(--radius-20);
+  height: 100px;
+  width: 120px;
+}
+
+.tools {
+  display: flex;
+  justify-content: space-between;
+}
+
+.root {
+  background-color: var(--dark-300);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 12px;
+  width: 100%;
+
+  &_big {
+    border-radius: var(--radius-20);
+
+    .text {
+      width: 90%;
+      @include text-style(16);
+    }
+
+    .tools {
+      align-items: flex-end;
+      flex-direction: column;
+    }
+
+    .sourceIcon {
+      height: 16px;
+      width: 16px;
+    }
+
+    .sourceText {
+      @include text-style(16);
+    }
+  }
+
+  &_small {
+    border-radius: var(--radius-12);
+    flex-direction: column;
+
+    .text {
+      width: 100%;
+      @include text-style(12);
+    }
+
+    .image {
+      display: none;
+    }
+
+    .tools {
+      align-items: center;
+      flex-direction: row-reverse;
+    }
+
+    .sourceIcon {
+      height: 12px;
+      width: 12px;
+    }
+
+    .sourceText {
+      @include text-style(12);
+    }
+  }
+}
+
+.leftSide {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+}
+
+.sourceWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sourceLinkWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  opacity: 0.8;
+  @include transition(opacity);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.reportButton {
+  background-color: var(--bisky-300);
+}

@@ -32,7 +32,7 @@ const MobileHeader = () => {
         <Button
           className={st.addButton}
           Icon={PlusIcon}
-          onClick={() => {}}
+          onClick={() => alert('В разработке')}
           variant="small"
         >
           Создать коллекцию
