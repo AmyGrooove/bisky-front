@@ -7,6 +7,7 @@ interface ITextProps<T extends ElementType = ElementType> {
   weight?: '400' | '700'
   className?: string
   maxLines?: number
+  maxChars?: number
   as?: T
 }
 
