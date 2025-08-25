@@ -26,7 +26,7 @@
     height: 150px;
     width: 200px;
 
-    .name {
+    .itemsCount {
       bottom: 8px;
       left: 8px;
       @include text-style(16);
@@ -38,7 +38,7 @@
     height: 120px;
     width: 160px;
 
-    .name {
+    .itemsCount {
       bottom: 4px;
       left: 4px;
       @include text-style(12);

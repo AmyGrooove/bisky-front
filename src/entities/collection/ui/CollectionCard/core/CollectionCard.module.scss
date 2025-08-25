@@ -1,0 +1,109 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &_big {
+    .card {
+      height: 200px;
+      width: 200px;
+    }
+
+    .author {
+      left: 12px;
+      top: 12px;
+    }
+
+    .score {
+      right: 12px;
+      top: 12px;
+    }
+
+    .infoWrapper {
+      bottom: 12px;
+      left: 12px;
+    }
+
+    .name {
+      @include text-style(24);
+    }
+  }
+
+  &_small {
+    .card {
+      height: 120px;
+      width: 120px;
+    }
+
+    .author {
+      left: 8px;
+      top: 8px;
+    }
+
+    .score {
+      right: 8px;
+      top: 8px;
+    }
+
+    .infoWrapper {
+      bottom: 8px;
+      left: 8px;
+    }
+
+    .name {
+      @include text-style(12);
+    }
+  }
+}
+
+.card {
+  border: 2px solid transparent;
+  border-radius: var(--radius-20);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((border-color, scale), (250ms, 100ms));
+
+  &:hover {
+    border-color: var(--bisky-400);
+  }
+}
+
+.poster {
+  height: 100%;
+  width: 100%;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+}
+
+.itemsCount {
+  opacity: 0.8;
+  @include text-style(12);
+}
+
+.author {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+}
+
+.score {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}

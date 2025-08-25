@@ -7,19 +7,24 @@ interface ISearchAnime
   extends Pick<IAnimeModel, '_id' | 'slug' | 'name' | 'poster'> {}
 
 interface ISearchCollection
-  extends Pick<ICollectionModel, '_id' | 'slug' | 'name' | 'poster'> {}
+  extends Pick<ICollectionModel, '_id' | 'slug' | 'name' | 'poster'> {
+  itemsCount: number
+  author: Pick<IUserModel, 'nickname' | 'avatar' | 'slug' | '_id'> | null
+}
 
 interface ISearchClub
-  extends Pick<IDubClubModel, '_id' | 'slug' | 'name' | 'logo'> {}
+  extends Pick<IDubClubModel, '_id' | 'slug' | 'name' | 'logo'> {
+  itemsCount: number
+}
 
 interface ISearchUser
   extends Pick<IUserModel, '_id' | 'slug' | 'nickname' | 'avatar'> {}
 
 interface IGetSearchResponse {
-  anime?: ISearchAnime[]
-  collection?: ISearchCollection[]
-  dubClub?: ISearchClub[]
-  user?: ISearchUser[]
+  animes?: ISearchAnime[]
+  collections?: ISearchCollection[]
+  dubClubs?: ISearchClub[]
+  users?: ISearchUser[]
 }
 
 export type { IGetSearchResponse }

@@ -9,7 +9,8 @@ import { useAuthorBadge } from './useAuthorBadge'
 import st from './AuthorBadge.module.scss'
 
 const AuthorBadge = (props: IAuthorBadgeProps) => {
-  const { variant, userData, className, isCurrentUser } = useAuthorBadge(props)
+  const { variant, userData, maxChars, className, isCurrentUser } =
+    useAuthorBadge(props)
 
   return (
     <Link
@@ -23,7 +24,11 @@ const AuthorBadge = (props: IAuthorBadgeProps) => {
         sizes={[40, 40]}
         className={st.avatar}
       />
-      <Text weight={variant === 'big' ? '700' : '400'} className={st.nickname}>
+      <Text
+        maxChars={maxChars}
+        weight={variant === 'big' ? '700' : '400'}
+        className={st.nickname}
+      >
         {userData?.nickname}
       </Text>
     </Link>

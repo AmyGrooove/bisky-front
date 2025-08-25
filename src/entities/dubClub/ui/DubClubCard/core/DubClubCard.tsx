@@ -8,7 +8,7 @@ import st from './DubClubCard.module.scss'
 import { useDubClubCard } from './useDubClubCard'
 
 const DubClubCard = (props: IDubClubCardProps) => {
-  const { dubClubData, className, variant } = useDubClubCard(props)
+  const { dubClubData, className, variant, itemsCount } = useDubClubCard(props)
 
   return (
     <Link
@@ -20,7 +20,7 @@ const DubClubCard = (props: IDubClubCardProps) => {
         src={dubClubData.logo}
         sizes={[200, 160]}
       />
-      <div className={st.name}>{dubClubData.name}</div>
+      <div className={st.itemsCount}>{itemsCount}</div>
     </Link>
   )
 }

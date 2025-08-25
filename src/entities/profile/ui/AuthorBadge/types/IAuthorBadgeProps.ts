@@ -6,6 +6,7 @@ interface IAuthorBadgeProps {
   isCurrentUser?: boolean
   variant?: 'small' | 'medium' | 'big'
   className?: string
+  maxChars?: number
 }
 
 export type { IAuthorBadgeProps }
