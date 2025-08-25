@@ -6,21 +6,21 @@ import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
 import { ScoreBadge } from '@entities/home/ui/ScoreBadge'
 
-import { ISeasonProps } from '../types/ISeasonProps'
+import { ISeasonAnimeCardProps } from '../types/ISeasonAnimeCardProps'
 
-import { useSeason } from './useSeason'
-import st from './Season.module.scss'
+import { useSeasonAnimeCard } from './useSeasonAnimeCard'
+import st from './SeasonAnimeCard.module.scss'
 
-const Season = (props: ISeasonProps) => {
+const SeasonAnimeCard = (props: ISeasonAnimeCardProps) => {
   const {
     data,
     className,
     animeLink,
-    currentImageID,
+    currentImageIndex,
     currentScreenshots,
     genreRow,
     variant,
-  } = useSeason(props)
+  } = useSeasonAnimeCard(props)
 
   return (
     <Link
@@ -44,7 +44,7 @@ const Season = (props: ISeasonProps) => {
         <div
           key={screenshot}
           className={cn(st.backWrapper, {
-            [st.backWrapper_hide]: index !== currentImageID,
+            [st.backWrapper_hide]: index !== currentImageIndex,
           })}
         >
           <PlaceholderImage
@@ -59,4 +59,4 @@ const Season = (props: ISeasonProps) => {
   )
 }
 
-export { Season }
+export { SeasonAnimeCard }

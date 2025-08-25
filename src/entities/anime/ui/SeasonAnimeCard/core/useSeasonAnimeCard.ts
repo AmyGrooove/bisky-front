@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 
-import { ISeasonProps } from '../types/ISeasonProps'
+import { ISeasonAnimeCardProps } from '../types/ISeasonAnimeCardProps'
 import { IMAGE_INTERVAL } from '../static/IMAGE_INTERVAL'
 
-const useSeason = (props: ISeasonProps) => {
-  const { data, className = null, variant = 'big' } = props
+const useSeasonAnimeCard = (props: ISeasonAnimeCardProps) => {
+  const { data, className, variant = 'big' } = props
 
   const { screenshots, slug, poster } = data
 
-  const [currentImageID, setCurrentImageID] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const animeLink = `/anime/${slug}`
   const genreRow = data.genres.join(' • ')
@@ -16,26 +16,24 @@ const useSeason = (props: ISeasonProps) => {
   const currentScreenshots = screenshots.length === 0 ? [poster] : screenshots
 
   useEffect(() => {
-    if (screenshots.length === 0) return
+    if (currentScreenshots.length <= 1) return
 
     const interval = setInterval(() => {
-      setCurrentImageID((prev) =>
-        prev + 1 >= screenshots.length ? 0 : prev + 1,
-      )
+      setCurrentImageIndex((prev) => (prev + 1) % currentScreenshots.length)
     }, IMAGE_INTERVAL)
 
-    return () => clearTimeout(interval)
-  }, [screenshots.length])
+    return () => clearInterval(interval)
+  }, [currentScreenshots.length])
 
   return {
     data,
     className,
     animeLink,
-    currentImageID,
+    currentImageIndex,
     currentScreenshots,
     genreRow,
     variant,
   }
 }
 
-export { useSeason }
+export { useSeasonAnimeCard }
