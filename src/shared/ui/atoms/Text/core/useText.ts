@@ -6,6 +6,7 @@ const useText = (props: ITextProps) => {
     weight = '400',
     className,
     maxLines,
+    maxChars,
     style,
     as: Component = 'div',
   } = props
@@ -19,8 +20,16 @@ const useText = (props: ITextProps) => {
         overflow: 'hidden',
       }
     : style
+  let content = children
+  if (
+    typeof children === 'string' &&
+    typeof maxChars === 'number' &&
+    children.length > maxChars
+  ) {
+    content = `${children.slice(0, maxChars)}...`
+  }
 
-  return { Component, children, className, weight, inlineStyle }
+  return { Component, children: content, className, weight, inlineStyle }
 }
 
 export { useText }
