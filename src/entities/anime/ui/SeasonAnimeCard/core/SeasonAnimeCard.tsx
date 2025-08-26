@@ -32,6 +32,7 @@ const SeasonAnimeCard = (props: ISeasonAnimeCardProps) => {
           className={st.poster}
           src={data.poster}
           sizes={[180, 80]}
+          alt={data.name}
         />
         <Text weight="700" className={st.label}>
           {data.name}
@@ -51,6 +52,7 @@ const SeasonAnimeCard = (props: ISeasonAnimeCardProps) => {
             src={screenshot}
             className={st.backImage}
             sizes={[1080, 380]}
+            alt={`${data.name} скриншот`}
           />
         </div>
       ))}

@@ -41,6 +41,7 @@ const HomeTip = (props: IHomeTipProps) => {
             className={st.image}
             src={currentData.image}
             sizes={[700, 400]}
+            alt={currentData.title}
           />
         </div>
       )}

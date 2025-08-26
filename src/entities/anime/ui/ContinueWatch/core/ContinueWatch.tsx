@@ -22,6 +22,7 @@ const ContinueWatch = (props: IContinueWatchProps) => {
         src={episodeProgressData.previewImage}
         sizes={[388, 180]}
         className={st.image}
+        alt={episodeProgressData.name ?? 'Превью эпизода'}
       />
       <div className={st.background} />
       <div className={st.infoWrapper}>

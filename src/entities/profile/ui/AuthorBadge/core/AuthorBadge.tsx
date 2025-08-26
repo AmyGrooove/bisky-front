@@ -23,6 +23,7 @@ const AuthorBadge = (props: IAuthorBadgeProps) => {
         src={userData?.avatar ?? null}
         sizes={[40, 40]}
         className={st.avatar}
+        alt={userData?.nickname ?? 'Аватар'}
       />
       <Text
         maxChars={maxChars}

@@ -21,6 +21,7 @@ const FactCard = (props: IFactCardProps) => {
           className={st.image}
           src="/images/biskyLook.png"
           sizes={[120, 120]}
+          alt="Bisky"
         />
         <Text className={st.text}>{text}</Text>
       </div>
