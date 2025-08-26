@@ -41,6 +41,7 @@ const ProfileMenu = () => {
               src={avatar}
               className={st.avatar}
               sizes={[40, 40]}
+              alt={nickname ?? 'Аватар'}
             />
           )}
         </button>

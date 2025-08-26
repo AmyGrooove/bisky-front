@@ -20,6 +20,7 @@ const AvatarElement = (props: IAvatarElementProps) => {
         src={userData?.avatar ?? null}
         sizes={[60, 40]}
         className={st.avatar}
+        alt={userData?.nickname ?? 'Аватар'}
       />
       <Text weight="700" className={st.nickname}>
         {userData?.nickname}

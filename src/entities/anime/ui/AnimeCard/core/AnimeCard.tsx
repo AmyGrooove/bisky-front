@@ -33,6 +33,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
           className={st.poster}
           src={animeData.poster}
           sizes={[200, 120]}
+          alt={animeData.name}
         />
         <ScoreBadge
           variant={variant}

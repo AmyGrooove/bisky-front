@@ -19,6 +19,7 @@ const DubClubCard = (props: IDubClubCardProps) => {
         className={st.logo}
         src={dubClubData.logo}
         sizes={[200, 160]}
+        alt={dubClubData.name}
       />
       <div className={st.itemsCount}>{itemsCount}</div>
     </Link>

@@ -21,6 +21,7 @@ const CollectionCard = (props: ICollectionCardProps) => {
           className={st.poster}
           src={collectionData.poster}
           sizes={[200, 120]}
+          alt={collectionData.name}
         />
         <div className={st.infoWrapper}>
           <Text weight="700" className={st.name}>
