@@ -30,6 +30,7 @@ const PageLink = (props: IPageLinkProps) => {
         { [st.root_chevron]: isChevronEnabled },
         st[`root_${variant}`],
       )}
+      aria-current={isSelected ? 'page' : undefined}
     >
       {!isNil(Icon) && <Icon className={st.icon} />}
       <Text weight={variant === 'header' ? '700' : '400'} className={st.label}>

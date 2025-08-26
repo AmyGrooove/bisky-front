@@ -9,6 +9,7 @@ const useButton = (props: TButtonProps) => {
     variant = 'small',
     isDisabled = false,
     type = 'button',
+    ariaLabel,
   } = props
 
   return {
@@ -19,6 +20,7 @@ const useButton = (props: TButtonProps) => {
     variant,
     isDisabled,
     type,
+    ariaLabel,
   }
 }
 

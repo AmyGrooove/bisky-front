@@ -10,7 +10,7 @@ import { useMoreInfo } from './useMoreInfo'
 import st from './MoreInfo.module.scss'
 
 const MoreInfo = forwardRef<HTMLButtonElement, IMoreInfoProps>((props, ref) => {
-  const { children, label, className, variant } = useMoreInfo(props)
+  const { children, label, className, variant, ariaLabel } = useMoreInfo(props)
 
   return (
     <button
@@ -18,6 +18,7 @@ const MoreInfo = forwardRef<HTMLButtonElement, IMoreInfoProps>((props, ref) => {
       type="button"
       className={cn(st.root, st[`root_${variant}`], className)}
       onClick={() => setModal(children)}
+      aria-label={ariaLabel ?? label}
     >
       <TextSelectIcon className={st.icon} />
       <Text className={st.label}>{label}</Text>

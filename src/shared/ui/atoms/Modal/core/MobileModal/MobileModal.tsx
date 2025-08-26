@@ -27,6 +27,8 @@ const MobileModal = (props: IModalSolutionProps) => {
       className={cn(st.root, {
         [st[`root_closing`]]: isModalClosing,
       })}
+      role="dialog"
+      aria-modal="true"
     >
       <div className={st.background} onClick={closeFunction} />
       <div ref={modalRef} className={st.modal} style={modalDragStyle}>
@@ -38,7 +40,11 @@ const MobileModal = (props: IModalSolutionProps) => {
         />
         {children}
       </div>
-      <button onClick={closeFunction} className={st.closeButton}>
+      <button
+        onClick={closeFunction}
+        className={st.closeButton}
+        aria-label="Закрыть модальное окно"
+      >
         <CrossIcon className={st.closeIcon} />
       </button>
     </div>

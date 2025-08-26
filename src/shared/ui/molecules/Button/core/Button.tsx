@@ -8,8 +8,16 @@ import { useButton } from './useButton'
 import st from './Button.module.scss'
 
 const Button = forwardRef<HTMLButtonElement, TButtonProps>((props, ref) => {
-  const { children, onClick, Icon, className, variant, isDisabled, type } =
-    useButton(props)
+  const {
+    children,
+    onClick,
+    Icon,
+    className,
+    variant,
+    isDisabled,
+    type,
+    ariaLabel,
+  } = useButton(props)
 
   return (
     <button
@@ -18,6 +26,7 @@ const Button = forwardRef<HTMLButtonElement, TButtonProps>((props, ref) => {
       onClick={onClick}
       className={cn(st.root, className, st[`root_${variant}`])}
       disabled={isDisabled}
+      aria-label={ariaLabel}
     >
       {!isNil(Icon) && <Icon className={st.icon} />}
       {!isNil(children) && (

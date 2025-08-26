@@ -9,7 +9,8 @@ import { useWatchAll } from './useWatchAll'
 import st from './WatchAll.module.scss'
 
 const WatchAll = forwardRef<HTMLButtonElement, IWatchAllProps>((props, ref) => {
-  const { label, type, variant, className, onClick } = useWatchAll(props)
+  const { label, type, variant, className, onClick, ariaLabel } =
+    useWatchAll(props)
 
   return (
     <button
@@ -22,6 +23,7 @@ const WatchAll = forwardRef<HTMLButtonElement, IWatchAllProps>((props, ref) => {
         st[`root_${variant}`],
         className,
       )}
+      aria-label={ariaLabel ?? label}
     >
       <MoveRightIcon className={st.icon} />
       <Text className={st.text}>{label}</Text>

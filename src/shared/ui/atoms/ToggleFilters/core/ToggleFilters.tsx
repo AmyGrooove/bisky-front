@@ -17,7 +17,11 @@ const ToggleFiltersInner = <T extends string>(
     useToggleFilters(props)
 
   return (
-    <div ref={ref} className={cn(st.root, st[`root_${variant}`], className)}>
+    <div
+      ref={ref}
+      className={cn(st.root, st[`root_${variant}`], className)}
+      role="group"
+    >
       {items.map((tag) => (
         <button
           onClick={() => toggle(tag.value)}
@@ -25,6 +29,8 @@ const ToggleFiltersInner = <T extends string>(
           className={cn(st.tag, {
             [st.tag_active]: isActive(tag.value),
           })}
+          type="button"
+          aria-pressed={isActive(tag.value)}
         >
           {tag.children}
         </button>

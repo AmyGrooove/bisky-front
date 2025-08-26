@@ -5,6 +5,7 @@ interface IWatchAllProps {
   type?: 'anime' | 'collection'
   variant?: 'big' | 'small'
   className?: string
+  ariaLabel?: string
 }
 
 export type { IWatchAllProps }

@@ -16,11 +16,17 @@ const DesktopModal = (props: IModalSolutionProps) => {
     <div
       id={modalID}
       className={cn(st.root, { [st[`root_closing`]]: isModalClosing })}
+      role="dialog"
+      aria-modal="true"
     >
       <div className={st.background} onClick={closeFunction} />
       <div className={st.modalWrapper}>
         <div className={st.modal}>{children}</div>
-        <button onClick={closeFunction} className={st.closeButton}>
+        <button
+          onClick={closeFunction}
+          className={st.closeButton}
+          aria-label="Закрыть модальное окно"
+        >
           <CrossIcon className={st.closeIcon} />
         </button>
       </div>

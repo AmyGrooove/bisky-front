@@ -9,7 +9,7 @@ import st from './GlassButton.module.scss'
 
 const GlassButton = forwardRef<HTMLButtonElement, TGlassButtonProps>(
   (props, ref) => {
-    const { onClick, className, variant, isDisabled, otherProps } =
+    const { onClick, className, variant, isDisabled, ariaLabel, otherProps } =
       useGlassButton(props)
 
     return (
@@ -18,6 +18,7 @@ const GlassButton = forwardRef<HTMLButtonElement, TGlassButtonProps>(
         onClick={onClick}
         className={cn(st.root, className, st[`root_${variant}`])}
         disabled={isDisabled}
+        aria-label={ariaLabel}
       >
         {'children' in otherProps ? (
           <Text weight="700" className={st.children}>
