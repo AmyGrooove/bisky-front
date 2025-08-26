@@ -7,7 +7,6 @@
   display: flex;
   flex-direction: column;
   padding: 8px;
-  width: 240px;
   z-index: 1000;
   @extend %no-select;
   @include effect(background-blur-shadow);

@@ -13,12 +13,15 @@ import {
 import { isNil } from '@shared/utils/functions'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 import { useEffect } from 'react'
+import { useTopLoader } from 'nextjs-toploader'
 
 import { IHintMenuItem } from '../types/IHintMenuItem'
 import { IHintMenuProps } from '../types/IHintMenuProps'
 
 const useHintMenu = (props: IHintMenuProps) => {
   const { items, children, className, onOpenChange, placement = 'top' } = props
+
+  const { done } = useTopLoader()
 
   const { isOpen, toggle } = useTransitionClose({
     isToggleDisabled: isNil(items) || items.length === 0,
@@ -71,6 +74,7 @@ const useHintMenu = (props: IHintMenuProps) => {
     close,
     handleItemClick,
     transitionStyles,
+    done,
   }
 }
 

@@ -25,6 +25,7 @@ const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
     close,
     handleItemClick,
     transitionStyles,
+    done,
   } = useHintMenu(props)
 
   useImperativeHandle(ref, () => ({ open, close }))
@@ -32,7 +33,12 @@ const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
   return (
     <>
       <span
-        {...getReferenceProps()}
+        {...getReferenceProps({
+          onClick: (event) => {
+            event.preventDefault()
+            setTimeout(() => done(true), 0)
+          },
+        })}
         ref={refs.setReference}
         className={className}
       >
@@ -41,7 +47,12 @@ const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
       {isMounted && (
         <FloatingPortal>
           <div
-            {...getFloatingProps()}
+            {...getFloatingProps({
+              onClick: (event) => {
+                event.preventDefault()
+                setTimeout(() => done(true), 0)
+              },
+            })}
             ref={refs.setFloating}
             style={{ ...floatingStyles, ...transitionStyles }}
             className={st.hintWrapper}

@@ -1,0 +1,95 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.progressBar {
+  position: absolute;
+}
+
+.editEpisodeButton {
+  opacity: 0;
+  position: absolute;
+  @include transition(opacity);
+}
+
+.infoWrapper {
+  padding: 8px;
+  position: absolute;
+}
+
+.root {
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((border-color, scale), (250ms, 100ms));
+
+  &:has(.editEpisodeButton:active) {
+    scale: 1;
+  }
+
+  &_big {
+    border-radius: var(--radius-20);
+    height: 180px;
+    width: 400px;
+
+    .name {
+      @include text-style(16);
+    }
+
+    .infoWrapper,
+    .progressBar {
+      bottom: 8px;
+    }
+
+    .editEpisodeButton {
+      right: 8px;
+      top: 8px;
+    }
+  }
+
+  &_small {
+    border-radius: var(--radius-12);
+    height: 100px;
+    width: 180px;
+
+    .name {
+      @include text-style(12);
+    }
+
+    .infoWrapper,
+    .progressBar {
+      bottom: 4px;
+    }
+
+    .editEpisodeButton {
+      opacity: 1; // для маленькой — всегда видна
+      right: 4px;
+      top: 4px;
+    }
+  }
+
+  /* более специфичное правило — самое последнее */
+  &:hover {
+    .editEpisodeButton {
+      opacity: 1;
+    }
+  }
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  background-color: var(--black-60);
+  inset: 0;
+  position: absolute;
+  @include transition(opacity);
+}
+
+.infoText {
+  opacity: 0.8;
+  @include text-style(12);
+}

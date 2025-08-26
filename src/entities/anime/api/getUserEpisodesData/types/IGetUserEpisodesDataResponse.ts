@@ -7,7 +7,6 @@ interface IGetUserEpisodesDataResponse
     | 'lastWatchedDuration'
     | 'reWatchedCount'
     | 'isWatched'
-    | 'updatedAt'
     | 'firstWatchedAt'
   > {}
 

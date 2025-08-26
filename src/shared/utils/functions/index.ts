@@ -8,3 +8,4 @@ export {
   createGetFetcher,
   createPostFetcher,
 } from './apiFetch'
+export { formatMinutes } from './formatMinutes'

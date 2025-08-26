@@ -26,9 +26,8 @@ const Header = () => {
         </Link>
         {mainLinksConverted.map((link) =>
           'href' in link ? (
-            <Link href={link.href}>
+            <Link href={link.href} key={link.name}>
               <PageLink
-                key={link.name}
                 variant="header"
                 Icon={link.Icon}
                 isSelected={link.isSelected}

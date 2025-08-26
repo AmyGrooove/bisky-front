@@ -1,0 +1,16 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  background: var(--dark-100);
+  border-radius: var(--radius-12);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.bar {
+  background-color: var(--bisky-100);
+  border-radius: var(--radius-12);
+  height: 100%;
+  @include transition(width);
+}
