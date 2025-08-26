@@ -7,9 +7,10 @@ const useWatchAll = (props: IWatchAllProps) => {
     variant = 'big',
     className,
     onClick,
+    ariaLabel,
   } = props
 
-  return { label, type, variant, className, onClick }
+  return { label, type, variant, className, onClick, ariaLabel }
 }
 
 export { useWatchAll }

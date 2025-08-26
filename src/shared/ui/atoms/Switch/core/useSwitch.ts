@@ -7,13 +7,14 @@ const useSwitch = (props: ISwitchProps) => {
     variant = 'big',
     isDisabled = false,
     className,
+    ariaLabel,
   } = props
 
   const toggle = () => {
     onChange(!value)
   }
 
-  return { variant, className, value, isDisabled, toggle }
+  return { variant, className, value, isDisabled, toggle, ariaLabel }
 }
 
 export { useSwitch }

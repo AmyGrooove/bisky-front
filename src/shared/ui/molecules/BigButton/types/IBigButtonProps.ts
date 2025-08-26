@@ -11,6 +11,7 @@ interface IBigButtonProps {
   iconText?: string
   className?: string
   type?: 'button' | 'submit' | 'reset'
+  ariaLabel?: string
 }
 
 export type { IBigButtonProps }
