@@ -1,14 +1,15 @@
 import { SearchIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
+import Link from 'next/link'
 
 import st from './SearchButton.module.scss'
 import { useSearchButton } from './useSearchButton'
 
 const SearchButton = () => {
-  const { handleClick } = useSearchButton()
+  const { searchLink } = useSearchButton()
 
   return (
-    <button onClick={handleClick} className={st.root}>
+    <Link href={searchLink} className={st.root}>
       <div className={st.searchLabel}>
         <SearchIcon className={st.searchIcon} />
         <Text className={st.searchText}>Поиск...</Text>
@@ -16,7 +17,7 @@ const SearchButton = () => {
       <Text className={st.hotKey} weight="700">
         Ctrl + K
       </Text>
-    </button>
+    </Link>
   )
 }
 

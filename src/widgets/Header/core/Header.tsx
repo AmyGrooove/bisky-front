@@ -13,7 +13,7 @@ import { ProfileMenu } from './ProfileMenu'
 import { SearchButton } from './SearchButton'
 
 const Header = () => {
-  const { mainLinksConverted, push, setIsToolsOpened } = useHeader()
+  const { mainLinksConverted, setIsToolsOpened } = useHeader()
 
   return (
     <div className={st.root}>
@@ -26,15 +26,16 @@ const Header = () => {
         </Link>
         {mainLinksConverted.map((link) =>
           'href' in link ? (
-            <PageLink
-              key={link.name}
-              onClick={() => push(link.href ?? '')}
-              variant="header"
-              Icon={link.Icon}
-              isSelected={link.isSelected}
-            >
-              {link.name}
-            </PageLink>
+            <Link href={link.href}>
+              <PageLink
+                key={link.name}
+                variant="header"
+                Icon={link.Icon}
+                isSelected={link.isSelected}
+              >
+                {link.name}
+              </PageLink>
+            </Link>
           ) : (
             <ToolsMenu onOpenChange={setIsToolsOpened} key={link.name}>
               <PageLink

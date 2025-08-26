@@ -4,15 +4,15 @@ import { useRouter } from 'next/navigation'
 const useSearchButton = () => {
   const { push } = useRouter()
 
-  const handleClick = () => push('/search')
+  const searchLink = '/search'
 
   useKeyboardShortcut({
     keys: ['k'],
-    callback: handleClick,
+    callback: () => push(searchLink),
     modifiers: ['ctrlKey'],
   })
 
-  return { handleClick }
+  return { searchLink }
 }
 
 export { useSearchButton }

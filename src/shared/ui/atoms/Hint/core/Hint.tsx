@@ -1,3 +1,5 @@
+'use client'
+
 import { Text } from '@shared/ui/atoms/Text'
 import { cn, isNil } from '@shared/utils/functions'
 import { FloatingPortal } from '@floating-ui/react'

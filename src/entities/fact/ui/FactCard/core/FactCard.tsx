@@ -1,12 +1,10 @@
-'use client'
-
 import { cn, isNil } from '@shared/utils/functions'
-import { Button } from '@shared/ui/molecules/Button'
-import { FlagIcon, LinkIcon } from '@shared/icons'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
 import Link from 'next/link'
 import { AuthorBadge } from '@entities/profile/ui/AuthorBadge'
+import { ReportButton } from '@entities/report/ui/ReportButton'
+import { LinkIcon } from '@shared/icons'
 
 import { IFactCardProps } from '../types/IFactCardProps'
 
@@ -27,12 +25,7 @@ const FactCard = (props: IFactCardProps) => {
         <Text className={st.text}>{text}</Text>
       </div>
       <div className={st.tools}>
-        <Button
-          className={st.reportButton}
-          variant={variant}
-          Icon={FlagIcon}
-          onClick={() => alert('В разработке')}
-        />
+        <ReportButton variant={variant} />
         <div className={st.sourceWrapper}>
           {!isNil(sourceLink) && (
             <Link

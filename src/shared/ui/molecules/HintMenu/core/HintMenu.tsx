@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef, useImperativeHandle } from 'react'
 import { cn } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'

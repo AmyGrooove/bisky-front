@@ -1,11 +1,10 @@
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 import { MAIN_LINKS } from '../static/MAIN_LINKS'
 
 const useHeader = () => {
   const pathname = usePathname()
-  const { push } = useRouter()
 
   const [isToolsOpened, setIsToolsOpened] = useState(false)
 
@@ -17,7 +16,7 @@ const useHeader = () => {
     return { ...link, isSelected: isToolsOpened }
   })
 
-  return { mainLinksConverted, push, setIsToolsOpened }
+  return { mainLinksConverted, setIsToolsOpened }
 }
 
 export { useHeader }
