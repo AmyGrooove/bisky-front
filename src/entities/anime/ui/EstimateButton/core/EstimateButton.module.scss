@@ -1,5 +1,5 @@
 @use '@shared/styles/reusable.scss' as *;
 
 .root {
-  @include score-color(background-color);
+  @include estimate-color(background-color);
 }

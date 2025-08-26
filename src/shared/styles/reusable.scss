@@ -4,13 +4,13 @@
 @forward './classes/press';
 @forward './classes/noSelect';
 
+@forward './mixins/estimateColor';
 @forward './mixins/transition';
 @forward './mixins/effect';
 @forward './mixins/scoreColor';
-@forward './mixins/statusColor';
-@forward './mixins/estimateColor';
 @forward './mixins/textStyle';
 @forward './mixins/mediaQuery';
+@forward './mixins/statusColor';
 
 @forward './variables/borderRadiuses';
 @forward './variables/colors';

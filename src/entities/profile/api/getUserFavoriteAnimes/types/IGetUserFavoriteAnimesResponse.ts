@@ -4,7 +4,9 @@ import { IPaginationMeta } from '@shared/types'
 
 interface IFavoriteAnimeResponse
   extends Pick<IAnimeModel, '_id' | 'name' | 'poster' | 'slug'>,
-    Pick<IUserAnimeReactionModel, 'score'> {}
+    Pick<IUserAnimeReactionModel, 'score'> {
+  userScore: number | null
+}
 
 interface IGetUserFavoriteAnimesResponse extends IPaginationMeta {
   results: IFavoriteAnimeResponse[]

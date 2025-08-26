@@ -1,0 +1,26 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleWrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 380px;
+}
+
+.title {
+  @include estimate-color(color);
+  @include text-style(20);
+}

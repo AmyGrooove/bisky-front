@@ -1,63 +1,5 @@
 @use '@shared/styles/reusable.scss' as *;
 
-.root {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  &_big {
-    .card {
-      height: 200px;
-      width: 200px;
-    }
-
-    .author {
-      left: 12px;
-      top: 12px;
-    }
-
-    .score {
-      right: 12px;
-      top: 12px;
-    }
-
-    .infoWrapper {
-      bottom: 12px;
-      left: 12px;
-    }
-
-    .name {
-      @include text-style(24);
-    }
-  }
-
-  &_small {
-    .card {
-      height: 120px;
-      width: 120px;
-    }
-
-    .author {
-      left: 8px;
-      top: 8px;
-    }
-
-    .score {
-      right: 8px;
-      top: 8px;
-    }
-
-    .infoWrapper {
-      bottom: 8px;
-      left: 8px;
-    }
-
-    .name {
-      @include text-style(12);
-    }
-  }
-}
-
 .card {
   border: 2px solid transparent;
   border-radius: var(--radius-20);
@@ -73,37 +15,79 @@
   }
 }
 
-.poster {
-  height: 100%;
-  width: 100%;
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
-.infoWrapper {
+.root {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  z-index: 1;
-}
+  gap: 4px;
 
-.itemsCount {
-  opacity: 0.8;
-  @include text-style(12);
-}
+  &_big {
+    .card {
+      height: 200px;
+      width: 200px;
+    }
 
-.author {
-  display: flex;
-  position: absolute;
-  z-index: 1;
+    .name {
+      @include text-style(24);
+    }
+
+    .badges {
+      width: 200px;
+    }
+  }
+
+  &_small {
+    .card {
+      height: 120px;
+      width: 120px;
+    }
+
+    .name {
+      @include text-style(12);
+    }
+
+    .badges {
+      width: 120px;
+    }
+  }
 }
 
 .score {
   display: flex;
   position: absolute;
+  right: 8px;
+  top: 8px;
   z-index: 1;
 }
 
-.badges {
+.author {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1;
+}
+
+.infoWrapper {
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  left: 8px;
+  position: absolute;
+  z-index: 1;
+}
+
+.poster {
+  height: 100%;
+  width: 100%;
+}
+
+.itemsCount {
+  opacity: 0.8;
+  @include text-style(12);
 }

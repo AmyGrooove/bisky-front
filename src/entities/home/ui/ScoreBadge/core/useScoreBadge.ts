@@ -1,5 +1,4 @@
-import { getScoreColor } from '@entities/home/functions/getScoreColor'
-
+import { getScoreColor } from '../functions/getScoreColor'
 import { IScoreBadge } from '../types/IScoreBadge'
 
 const useScoreBadge = (props: IScoreBadge) => {

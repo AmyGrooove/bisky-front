@@ -9,6 +9,7 @@ const cn = (...args: (string | null | undefined | Record<string, boolean>)[]) =>
               .map(([key]) => key)
           : [],
     )
+    .filter((item) => typeof item === 'string' && item.trim() !== '')
     .join(' ')
 
 export { cn }

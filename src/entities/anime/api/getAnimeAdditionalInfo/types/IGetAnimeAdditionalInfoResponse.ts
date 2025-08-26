@@ -27,7 +27,9 @@ interface IListCounts {
 
 interface IRelatedAnime
   extends Pick<IAnimeModel, '_id' | 'name' | 'poster' | 'slug'>,
-    Pick<IUserAnimeReactionModel, 'score'> {}
+    Pick<IUserAnimeReactionModel, 'score'> {
+  relation: string
+}
 
 interface IGetAnimeAdditionalInfoResponse
   extends Pick<

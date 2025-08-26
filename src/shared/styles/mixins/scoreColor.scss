@@ -1,13 +1,13 @@
+$score-map: (
+  lowScore: var(--red),
+  mediumScore: var(--orange),
+  highScore: var(--lime),
+);
+
 @mixin score-color($property) {
-  #{&}_lowScore {
-    #{$property}: var(--red);
-  }
-
-  #{&}_mediumScore {
-    #{$property}: var(--orange);
-  }
-
-  #{&}_highScore {
-    #{$property}: var(--lime);
+  @each $key, $value in $score-map {
+    &_#{$key} {
+      #{$property}: #{$value};
+    }
   }
 }

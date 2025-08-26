@@ -10,18 +10,13 @@ const useModal = (props: IModalProps) => {
 
   const { isPressed, handleDelayedClick } = useDelayedClick(closeFunction, 200)
 
-  const updateChildren = async () => {
-    if (children === null) {
-      await handleDelayedClick()
-      setPreviousChildren(null)
-    } else setPreviousChildren(children)
-  }
-
   useEffect(() => {
     if (children === null && previousChildren === null) return
 
-    void updateChildren()
-  }, [children, handleDelayedClick])
+    if (children === null)
+      handleDelayedClick().then(() => setPreviousChildren(null))
+    else setPreviousChildren(children)
+  }, [children])
 
   return { isPressed, closeFunction, children: previousChildren }
 }

@@ -1,13 +1,13 @@
+$status-map: (
+  anons: var(--orange),
+  ongoing: var(--blue),
+  released: var(--green),
+);
+
 @mixin status-color($property) {
-  #{&}_anons {
-    #{$property}: var(--orange);
-  }
-
-  #{&}_ongoing {
-    #{$property}: var(--blue);
-  }
-
-  #{&}_released {
-    #{$property}: var(--green);
+  @each $key, $value in $status-map {
+    &_#{$key} {
+      #{$property}: #{$value};
+    }
   }
 }
