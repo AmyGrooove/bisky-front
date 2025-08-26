@@ -1,13 +1,16 @@
-const formatMinutes = (totalMinutes: number): string => {
+const formatMinutes = (totalMinutes: number) => {
   const sign = totalMinutes < 0 ? '-' : ''
-  const abs = Math.abs(Math.trunc(totalMinutes))
-  const h = Math.floor(abs / 60)
-  const m = abs % 60
+  const minutesAbsolute = Math.abs(Math.trunc(totalMinutes))
+  const hours = Math.floor(minutesAbsolute / 60)
+  const minutes = minutesAbsolute % 60
+  const parts: string[] = []
 
-  if (h === 0) return `${sign}${m} мин`
-  if (m === 0) return `${sign}${h} ч`
+  if (hours) parts.push(`${hours} ч`)
+  if (minutes) parts.push(`${minutes} мин`)
 
-  return `${sign}${h} ч ${m} мин`
+  const formatted = parts.length ? parts.join(' ') : '0 мин'
+
+  return `${sign}${formatted}`
 }
 
 export { formatMinutes }
