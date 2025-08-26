@@ -1,0 +1,46 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 540px;
+  height: 500px;
+  overflow-y: auto;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.friend {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 100px;
+  border-radius: var(--radius-12);
+  align-items: center;
+  gap: 4px;
+  @extend %press, %no-select;
+  @include effect(back-shadow);
+  @include transition((background-color, scale), (250ms, 100ms));
+
+  &:hover {
+    background-color: var(--dark-100);
+  }
+}
+
+.avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: var(--radius-full);
+}
+
+.nickname {
+  @include text-style(16);
+}
+
+.loggedAt {
+  text-align: center;
+  opacity: 0.8;
+  overflow: hidden;
+  @include text-style(12);
+}

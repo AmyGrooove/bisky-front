@@ -1,7 +1,9 @@
+import { ISessionModel } from '@entities/account/types/ISessionModel'
 import { IUserModel } from '@entities/account/types/IUserModel'
 
 interface IProfileFriendResponse
-  extends Pick<IUserModel, 'avatar' | '_id' | 'nickname' | 'slug'> {}
+  extends Pick<IUserModel, 'avatar' | '_id' | 'nickname' | 'slug'>,
+    Pick<ISessionModel, 'loggedAt'> {}
 
 interface IProfileListCounts {
   added: number
