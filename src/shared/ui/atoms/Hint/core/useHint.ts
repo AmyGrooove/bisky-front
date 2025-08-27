@@ -6,7 +6,6 @@ import {
   useFloating,
   useHover,
   useInteractions,
-  useRole,
   useTransitionStyles,
 } from '@floating-ui/react'
 import { isNil } from '@shared/utils/functions'
@@ -38,7 +37,6 @@ const useHint = (props: IHintProps) => {
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useHover(context),
-    useRole(context, { role: 'tooltip' }),
   ])
 
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {

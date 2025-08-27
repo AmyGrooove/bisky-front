@@ -19,7 +19,6 @@ const TagsInner = <T extends string>(
       {[...items].map((tag) => (
         <button
           type="button"
-          aria-label={`Remove ${tag}`}
           onClick={() => removeTag(tag)}
           key={tag}
           className={st.tag}

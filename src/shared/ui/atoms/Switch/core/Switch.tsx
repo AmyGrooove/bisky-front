@@ -7,8 +7,7 @@ import { useSwitch } from './useSwitch'
 import st from './Switch.module.scss'
 
 const Switch = forwardRef<HTMLButtonElement, ISwitchProps>((props, ref) => {
-  const { variant, className, value, isDisabled, toggle, ariaLabel } =
-    useSwitch(props)
+  const { variant, className, value, isDisabled, toggle } = useSwitch(props)
 
   return (
     <button
@@ -17,9 +16,6 @@ const Switch = forwardRef<HTMLButtonElement, ISwitchProps>((props, ref) => {
       className={cn(st.root, st[`root_${variant}`], className)}
       onClick={toggle}
       disabled={isDisabled}
-      role="switch"
-      aria-checked={value}
-      aria-label={ariaLabel}
     >
       <input
         hidden

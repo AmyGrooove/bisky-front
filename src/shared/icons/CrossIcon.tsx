@@ -1,13 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const CrossIcon = (props: IIconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    role="img"
-    aria-label="cross"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"

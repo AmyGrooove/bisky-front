@@ -7,7 +7,6 @@ interface IButtonPropsBase {
   variant?: 'small' | 'big'
   className?: string
   type?: 'button' | 'submit' | 'reset'
-  ariaLabel?: string
 }
 
 interface IButtonPropsWithChildren extends IButtonPropsBase {

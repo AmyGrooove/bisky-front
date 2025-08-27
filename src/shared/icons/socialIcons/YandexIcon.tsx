@@ -1,13 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const YandexIcon = (props: IIconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    role="img"
-    aria-label="yandex"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M24 12C24 5.37231 18.6277 0 12 0C5.37231 0 0 5.37231 0 12C0 18.6277 5.37231 24 12 24C18.6277 24 24 18.6277 24 12Z"
       fill="#F8604A"

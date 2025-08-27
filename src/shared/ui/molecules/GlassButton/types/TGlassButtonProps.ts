@@ -7,7 +7,6 @@ interface IGlassButtonPropsBase {
   isDisabled?: boolean
   variant?: 'small' | 'big'
   className?: string
-  ariaLabel?: string
 }
 
 interface IGlassButtonPropsWithChildren extends IGlassButtonPropsBase {

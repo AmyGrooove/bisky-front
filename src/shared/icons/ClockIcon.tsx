@@ -1,13 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const ClockIcon = (props: IIconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    role="img"
-    aria-label="clock"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"

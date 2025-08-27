@@ -32,7 +32,6 @@ const Footer = () => {
               key={social.label}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={social.label}
             >
               <HoverIcon Icon={social.Icon} variant="footerLink" />
             </Link>

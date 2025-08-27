@@ -6,7 +6,6 @@ import {
   useInteractions,
   flip,
   shift,
-  useRole,
   autoUpdate,
   useTransitionStyles,
 } from '@floating-ui/react'
@@ -40,7 +39,6 @@ const useProfileMenu = () => {
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
     useDismiss(context),
-    useRole(context, { role: 'menu' }),
   ])
 
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {

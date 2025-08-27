@@ -10,7 +10,6 @@ const useBigButton = (props: IBigButtonProps) => {
     isDisabled = false,
     iconText = null,
     type = 'button',
-    ariaLabel,
   } = props
 
   return {
@@ -22,7 +21,6 @@ const useBigButton = (props: IBigButtonProps) => {
     isDisabled,
     iconText,
     type,
-    ariaLabel,
   }
 }
 

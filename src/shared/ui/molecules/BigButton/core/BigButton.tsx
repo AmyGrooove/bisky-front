@@ -18,7 +18,6 @@ const BigButton = forwardRef<HTMLButtonElement, IBigButtonProps>(
       isDisabled,
       iconText,
       type,
-      ariaLabel,
     } = useBigButton(props)
 
     return (
@@ -28,7 +27,6 @@ const BigButton = forwardRef<HTMLButtonElement, IBigButtonProps>(
         onClick={onClick}
         className={cn(st.root, className, st[`root_${variant}`])}
         disabled={isDisabled}
-        aria-label={ariaLabel}
       >
         <div className={st.iconWrapper}>
           <Icon className={st.icon} />

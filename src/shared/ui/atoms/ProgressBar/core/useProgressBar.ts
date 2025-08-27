@@ -1,7 +1,7 @@
 import { IProgressBarProps } from '../types/IProgressBarProps'
 
 const useProgressBar = (props: IProgressBarProps) => {
-  const { progress, max, height = 8, className, ariaLabel } = props
+  const { progress, max, height = 8, className } = props
 
   const validatedMax = Math.max(0, max)
   const currentValue =
@@ -19,10 +19,7 @@ const useProgressBar = (props: IProgressBarProps) => {
   return {
     rootStyle,
     barStyle,
-    currentValue,
-    validatedMax,
     className,
-    ariaLabel,
   }
 }
 

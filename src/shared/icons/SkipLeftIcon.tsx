@@ -5,13 +5,7 @@ type Props = IIconProps & {
 }
 
 const SkipLeftIcon = ({ seconds, ...props }: Props) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    role="img"
-    aria-label={`skip${seconds}-left`}
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"

@@ -1,13 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const WorldArtIcon = (props: IIconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    role="img"
-    aria-label="worldArt"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M3.53245 17.9919L0 6.00928H4.22386L6.56593 14.8717L5.95189 17.9919H3.53245Z"
       fill="#F8F8F8"

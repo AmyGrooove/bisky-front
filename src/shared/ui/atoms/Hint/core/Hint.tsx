@@ -39,7 +39,6 @@ const Hint = (props: IHintProps) => {
             ref={refs.setFloating}
             style={{ ...floatingStyles, ...transitionStyles }}
             className={cn(st.hintWrapper, hintChildrenClassName)}
-            role="tooltip"
           >
             {typeof hintChildren === 'string' ||
             typeof hintChildren === 'number' ? (

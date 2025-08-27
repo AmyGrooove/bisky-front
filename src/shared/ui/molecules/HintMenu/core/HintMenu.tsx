@@ -56,18 +56,15 @@ const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
             ref={refs.setFloating}
             style={{ ...floatingStyles, ...transitionStyles }}
             className={st.hintWrapper}
-            role="menu"
           >
             {items.map((item, index) => (
               <button
                 type="button"
-                role="menuitem"
                 key={index}
                 onClick={handleItemClick(item)}
                 className={cn(st.menuItem, {
                   [st.menuItem_selected]: !!item.isSelected,
                 })}
-                aria-selected={item.isSelected}
               >
                 <div className={st.labelWrapper}>
                   {item.IconLeft && <item.IconLeft className={st.icon} />}

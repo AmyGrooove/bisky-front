@@ -31,7 +31,6 @@ const ToolsMenu = (props: IToolsMenuProps) => {
             ref={refs.setFloating}
             style={{ ...floatingStyles, ...transitionStyles }}
             className={st.toolWrapper}
-            role="menu"
           >
             {TOOLS.map((tool) => (
               <Link key={tool.label} href={tool.href} className={st.tool}>

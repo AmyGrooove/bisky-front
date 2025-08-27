@@ -7,7 +7,6 @@ import {
   useDismiss,
   useInteractions,
   useTransitionStyles,
-  useRole,
   autoUpdate,
 } from '@floating-ui/react'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
@@ -33,7 +32,6 @@ const useToolsMenu = (props: IToolsMenuProps) => {
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
     useDismiss(context),
-    useRole(context, { role: 'menu' }),
   ])
 
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {

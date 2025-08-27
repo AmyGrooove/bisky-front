@@ -7,10 +7,9 @@ const useWatchAllCard = (props: IWatchAllCardProps) => {
     variant = 'big',
     className,
     onClick,
-    ariaLabel,
   } = props
 
-  return { label, type, variant, className, onClick, ariaLabel }
+  return { label, type, variant, className, onClick }
 }
 
 export { useWatchAllCard }

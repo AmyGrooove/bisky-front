@@ -6,7 +6,6 @@ const useGlassButton = (props: TGlassButtonProps) => {
     className,
     variant = 'small',
     isDisabled = false,
-    ariaLabel,
     ...otherProps
   } = props
 
@@ -15,7 +14,6 @@ const useGlassButton = (props: TGlassButtonProps) => {
     className,
     variant,
     isDisabled,
-    ariaLabel,
     otherProps,
   }
 }

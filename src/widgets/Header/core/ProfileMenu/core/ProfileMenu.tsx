@@ -33,9 +33,6 @@ const ProfileMenu = () => {
           className={cn(st.avatarButton, {
             [st.avatarButton_opened]: isMounted,
           })}
-          aria-label="Меню профиля"
-          aria-haspopup="menu"
-          aria-expanded={isMounted}
         >
           {isSessionLoading ? (
             <Skeleton className={st.avatarSkeleton} />
@@ -56,13 +53,8 @@ const ProfileMenu = () => {
             ref={refs.setFloating}
             style={{ ...floatingStyles, ...transitionStyles }}
             className={st.menu}
-            role="menu"
           >
-            <button
-              className={st.usernameCopy}
-              onClick={copyUsername}
-              aria-label="Скопировать имя пользователя"
-            >
+            <button className={st.usernameCopy} onClick={copyUsername}>
               <Text className={st.username}>{nickname}</Text>
               <CopyIcon className={st.usernameIcon} />
             </button>

@@ -10,8 +10,7 @@ import st from './WatchAllCard.module.scss'
 
 const WatchAllCard = forwardRef<HTMLButtonElement, IWatchAllCardProps>(
   (props, ref) => {
-    const { label, type, variant, className, onClick, ariaLabel } =
-      useWatchAllCard(props)
+    const { label, type, variant, className, onClick } = useWatchAllCard(props)
 
     return (
       <button
@@ -24,7 +23,6 @@ const WatchAllCard = forwardRef<HTMLButtonElement, IWatchAllCardProps>(
           st[`root_${variant}`],
           className,
         )}
-        aria-label={ariaLabel ?? label}
       >
         <MoveRightIcon className={st.icon} />
         <Text className={st.text}>{label}</Text>

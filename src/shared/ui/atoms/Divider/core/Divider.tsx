@@ -9,11 +9,7 @@ const Divider = (props: IDividerProps) => {
   const { variant, className } = useDivider(props)
 
   return (
-    <div
-      className={cn(st.root, st[`root_${variant}`], className)}
-      role="separator"
-      aria-orientation={variant}
-    >
+    <div className={cn(st.root, st[`root_${variant}`], className)}>
       <div className={st.divider} />
     </div>
   )

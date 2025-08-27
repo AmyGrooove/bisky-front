@@ -7,7 +7,6 @@ import {
   useDismiss,
   useInteractions,
   useTransitionStyles,
-  useRole,
   autoUpdate,
 } from '@floating-ui/react'
 import { isNil } from '@shared/utils/functions'
@@ -39,7 +38,6 @@ const useHintMenu = (props: IHintMenuProps) => {
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useClick(context),
     useDismiss(context),
-    useRole(context, { role: 'menu' }),
   ])
 
   const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {

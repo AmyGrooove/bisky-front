@@ -26,8 +26,6 @@ const MobileModal = (props: IModalSolutionProps) => {
       className={cn(st.root, {
         [st[`root_closing`]]: isModalClosing,
       })}
-      role="dialog"
-      aria-modal="true"
     >
       <div className={st.background} onClick={closeFunction} />
       <div ref={modalRef} className={st.modal} style={modalDragStyle}>

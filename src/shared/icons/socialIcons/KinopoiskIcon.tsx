@@ -1,13 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const KinopoiskIcon = (props: IIconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    role="img"
-    aria-label="kinopoisk"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="none" {...props}>
     <g xmlns="http://www.w3.org/2000/svg" clip-path="url(#clip0_4073_12873)">
       <path
         d="M0 0H5.09345V7.37119L10.4028 0H16.5713L7.60492 8.6385L24 0V5.48476L9.27924 10.6953L24 9.39474V14.6053L9.27924 13.2964L24 18.5152V24L7.60492 15.374L16.5845 24H10.416L5.08904 16.6205V24H0V0Z"

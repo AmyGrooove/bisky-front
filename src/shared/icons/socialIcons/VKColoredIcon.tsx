@@ -1,13 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const VKColoredIcon = (props: IIconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    role="img"
-    aria-label="vk-colored"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path
       d="M8.32299 -0.00634766H15.6893C22.4178 -0.00634766 24.0062 1.59449 24.0062 8.32299V15.6893C24.0062 22.4178 22.4053 24.0062 15.6768 24.0062H8.31048C1.58198 24.0062 -0.00634766 22.4053 -0.00634766 15.6768V8.31048C-0.00634766 1.59449 1.59449 -0.00634766 8.32299 -0.00634766Z"
       fill="#5181B8"

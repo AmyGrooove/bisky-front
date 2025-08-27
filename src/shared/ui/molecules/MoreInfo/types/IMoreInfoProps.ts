@@ -6,7 +6,6 @@ interface IMoreInfoProps {
   variant?: 'big' | 'small'
   label?: string
   className?: string
-  ariaLabel?: string
 }
 
 export type { IMoreInfoProps }

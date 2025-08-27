@@ -1,13 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const YoutubeIcon = (props: IIconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    role="img"
-    aria-label="youtube"
-    {...props}
-  >
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
     <g clipPath="url(#clip0_3963_7727)">
       <path
         fillRule="evenodd"

@@ -1,7 +1,7 @@
 import { IIconProps } from '@shared/types'
 
 const MALIcon = (props: IIconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" role="img" aria-label="mal" {...props}>
+  <svg viewBox="0 0 24 24" fill="none" {...props}>
     <g xmlns="http://www.w3.org/2000/svg" clip-path="url(#clip0_4073_12833)">
       <mask
         id="mask0_4073_12833"

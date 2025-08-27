@@ -8,26 +8,10 @@ import st from './ProgressBar.module.scss'
 
 const ProgressBar = forwardRef<HTMLDivElement, IProgressBarProps>(
   (props, ref) => {
-    const {
-      rootStyle,
-      barStyle,
-      currentValue,
-      validatedMax,
-      className,
-      ariaLabel,
-    } = useProgressBar(props)
+    const { rootStyle, barStyle, className } = useProgressBar(props)
 
     return (
-      <div
-        className={cn(st.root, className)}
-        style={rootStyle}
-        ref={ref}
-        role="progressbar"
-        aria-valuenow={currentValue}
-        aria-valuemin={0}
-        aria-valuemax={validatedMax}
-        aria-label={ariaLabel}
-      >
+      <div className={cn(st.root, className)} style={rootStyle} ref={ref}>
         <div className={st.bar} style={barStyle} />
       </div>
     )

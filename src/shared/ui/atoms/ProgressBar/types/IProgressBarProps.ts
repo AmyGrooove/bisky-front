@@ -4,7 +4,6 @@ interface IProgressBarProps {
 
   height?: number
   className?: string
-  ariaLabel?: string
 }
 
 export type { IProgressBarProps }

@@ -1,5 +1,5 @@
 const MainPage = async () => {
-  return <></>
+  return <div className=""></div>
 }
 
 export { MainPage }
