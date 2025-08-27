@@ -51,12 +51,10 @@ const authorizedFetch = async <TResponse>(
   const responseData = await response.json()
 
   if (!response.ok) {
-    const { statusCode, error, message } = responseData as IErrorMessage
+    const { message } = responseData as IErrorMessage
     const messages = !isNil(message) ? message : ['Неизвестная ошибка']
 
-    throw new Error(
-      `[${statusCode ?? response.status}] ${error ?? ''}: ${messages.join(', ')}`,
-    )
+    throw new Error(`${messages.join(', ')}`)
   }
 
   return responseData as TResponse

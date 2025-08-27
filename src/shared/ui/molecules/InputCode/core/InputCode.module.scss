@@ -1,0 +1,40 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.labelText {
+  color: var(--light-300);
+}
+
+.codeWrapper {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.slot {
+  align-items: center;
+  background-color: var(--dark-100);
+  border: 1px solid transparent;
+  border-radius: var(--radius-12);
+  display: flex;
+  height: 34px;
+  justify-content: center;
+  width: 100%;
+  @include text-style(24);
+  @include transition(border-color);
+  @include effect(back-shadow);
+
+  &_active {
+    border-color: var(--bisky-100);
+  }
+}
+
+.errorText {
+  color: var(--red);
+}

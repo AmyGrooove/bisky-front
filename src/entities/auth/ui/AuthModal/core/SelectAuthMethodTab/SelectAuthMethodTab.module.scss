@@ -1,0 +1,21 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.label {
+  @include text-style(24);
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.button {
+  background-color: var(--bisky-300);
+  width: 100%;
+}
+
+.buttonWrapper {
+  width: 100%;
+}

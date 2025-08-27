@@ -1,5 +1,4 @@
-import { CrossIcon } from '@shared/icons'
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 
@@ -19,7 +18,7 @@ const MobileModal = (props: IModalSolutionProps) => {
     modalID,
   } = useMobileModal(props)
 
-  if (!children) return null
+  if (isNil(children)) return null
 
   return (
     <div
@@ -40,13 +39,6 @@ const MobileModal = (props: IModalSolutionProps) => {
         />
         {children}
       </div>
-      <button
-        onClick={closeFunction}
-        className={st.closeButton}
-        aria-label="Закрыть модальное окно"
-      >
-        <CrossIcon className={st.closeIcon} />
-      </button>
     </div>
   )
 }

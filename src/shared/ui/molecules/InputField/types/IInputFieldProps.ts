@@ -11,6 +11,7 @@ interface IInputFieldProps {
   isDisabled?: boolean
   placeholder?: string
   className?: string
+  inputClassName?: string
   type?: 'password' | 'text'
 }
 

@@ -1,0 +1,15 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 340px;
+}
+
+@include media-query(tablet) {
+  .root {
+    width: 100%;
+  }
+}

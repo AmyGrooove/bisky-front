@@ -11,6 +11,7 @@ const useInputField = (props: IInputFieldProps) => {
     placeholder,
     Icon,
     type = 'text',
+    inputClassName,
   } = props
 
   return {
@@ -23,6 +24,7 @@ const useInputField = (props: IInputFieldProps) => {
     placeholder,
     Icon,
     type,
+    inputClassName,
   }
 }
 

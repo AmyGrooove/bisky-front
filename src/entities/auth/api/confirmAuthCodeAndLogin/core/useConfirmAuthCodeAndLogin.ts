@@ -3,16 +3,16 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { MailIcon } from '@shared/icons'
 import { successToast, errorToast } from '@shared/utils/toast'
 
-import { sendToEmailResetPassword } from './sendToEmailResetPassword'
+import { confirmAuthCodeAndLogin } from './confirmAuthCodeAndLogin'
 
-const useSendToEmailResetPassword = (
-  options: TUseMutationOptions<typeof sendToEmailResetPassword> = {},
+const useConfirmAuthCodeAndLogin = (
+  options: TUseMutationOptions<typeof confirmAuthCodeAndLogin> = {},
 ) => {
   const queryClient = useQueryClient()
 
   return useMutation({
     ...options,
-    mutationFn: sendToEmailResetPassword,
+    mutationFn: confirmAuthCodeAndLogin,
     onSuccess: async () => {
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: ['account'] }),
@@ -20,7 +20,7 @@ const useSendToEmailResetPassword = (
       ])
 
       successToast({
-        message: 'Заявка на сброс пароля отправлена',
+        message: 'Успешный вход',
         Icon: MailIcon,
       })
     },
@@ -30,4 +30,4 @@ const useSendToEmailResetPassword = (
   })
 }
 
-export { useSendToEmailResetPassword }
+export { useConfirmAuthCodeAndLogin }

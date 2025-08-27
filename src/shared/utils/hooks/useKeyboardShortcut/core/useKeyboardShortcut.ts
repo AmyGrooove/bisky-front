@@ -1,52 +1,30 @@
-import { useEffect, useRef } from 'react'
-import { useDebouncedCallback } from 'use-debounce'
+import { useEffect } from 'react'
+import { useDebounce } from 'use-debounce'
 
 import { IUseKeyboardShortcutProps } from '../types/IUseKeyboardShortcutProps'
 
 const useKeyboardShortcut = (props: IUseKeyboardShortcutProps) => {
   const { keys, callback, modifiers } = props
 
-  const callbackRef = useRef(callback)
-  useEffect(() => {
-    callbackRef.current = callback
-  }, [callback])
-
-  const keySet = new Set(keys.map((key) => key.toLowerCase()))
-
-  const invoke = useDebouncedCallback(() => callbackRef.current(), 500)
+  const [debouncedCallback] = useDebounce(callback, 500)
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
-
     const handleKeyDown = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement | null
-      if (
-        target &&
-        (target.tagName === 'INPUT' ||
-          target.tagName === 'TEXTAREA' ||
-          target.isContentEditable)
-      ) {
-        return
-      }
+      const areModifiersPressed =
+        modifiers?.length !== 0 || modifiers?.every((mod) => event[mod])
+      const isKeyPressed = keys.includes(event.key?.toLowerCase())
 
-      if (event.repeat) return
-
-      const mods = modifiers ?? []
-      const modsOk =
-        mods.length === 0 || mods.every((m) => (event as any)[m] === true)
-
-      const keyOk =
-        keySet.has(event.key.toLowerCase()) || keySet.has(event.code)
-
-      if (modsOk && keyOk) {
+      if (areModifiersPressed && isKeyPressed) {
         event.preventDefault()
-        invoke()
+        debouncedCallback()
       }
     }
 
-    window.addEventListener('keydown', handleKeyDown, { passive: false })
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [keySet, modifiers, invoke])
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [keys, modifiers, debouncedCallback])
 }
 
 export { useKeyboardShortcut }

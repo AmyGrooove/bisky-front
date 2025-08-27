@@ -1,5 +1,5 @@
 import { CrossIcon } from '@shared/icons'
-import { cn } from '@shared/utils/functions'
+import { cn, isNil } from '@shared/utils/functions'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 
@@ -10,7 +10,7 @@ const DesktopModal = (props: IModalSolutionProps) => {
   const { children, closeFunction, isModalClosing, modalID } =
     useDesktopModal(props)
 
-  if (!children) return null
+  if (isNil(children)) return null
 
   return (
     <div
@@ -20,8 +20,8 @@ const DesktopModal = (props: IModalSolutionProps) => {
       aria-modal="true"
     >
       <div className={st.background} onClick={closeFunction} />
-      <div className={st.modalWrapper}>
-        <div className={st.modal}>{children}</div>
+      <div className={st.modal}>
+        {children}
         <button
           onClick={closeFunction}
           className={st.closeButton}

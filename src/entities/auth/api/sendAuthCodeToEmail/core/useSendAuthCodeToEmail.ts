@@ -3,23 +3,23 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { LockIcon } from '@shared/icons'
 import { successToast, errorToast } from '@shared/utils/toast'
 
-import { confirmCodeAndUpdatePassword } from './confirmCodeAndUpdatePassword'
+import { sendAuthCodeToEmail } from './sendAuthCodeToEmail'
 
-const useConfirmCodeAndUpdatePassword = (
-  options: TUseMutationOptions<typeof confirmCodeAndUpdatePassword> = {},
+const useSendAuthCodeToEmail = (
+  options: TUseMutationOptions<typeof sendAuthCodeToEmail> = {},
 ) => {
   const queryClient = useQueryClient()
 
   return useMutation({
     ...options,
-    mutationFn: confirmCodeAndUpdatePassword,
+    mutationFn: sendAuthCodeToEmail,
     onSuccess: async () => {
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: ['account'] }),
         queryClient.invalidateQueries({ queryKey: ['account', 'whoami'] }),
       ])
 
-      successToast({ message: 'Пароль успешно изменён', Icon: LockIcon })
+      successToast({ message: 'Код отправлен', Icon: LockIcon })
     },
     onError: async ({ message }) => {
       errorToast({ message })
@@ -27,4 +27,4 @@ const useConfirmCodeAndUpdatePassword = (
   })
 }
 
-export { useConfirmCodeAndUpdatePassword }
+export { useSendAuthCodeToEmail }

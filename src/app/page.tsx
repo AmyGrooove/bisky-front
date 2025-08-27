@@ -1,3 +1,8 @@
+'use client'
+
+import { AuthModal } from '@entities/auth/ui/AuthModal'
+import { setModal } from '@widgets/ModalWrapper'
+
 const Home = async () => {
   return (
     <>
@@ -17,6 +22,7 @@ const Home = async () => {
         <p style={{ color: 'white' }}>Мы работаем над улучшением сайта.</p>
         <p style={{ color: 'white' }}>Пожалуйста, вернитесь позже.</p>
         <img src="/images/biskyLook.png" alt="" width={200} />
+        <button onClick={() => setModal(<AuthModal />)}>asdasd</button>
       </div>
     </>
   )

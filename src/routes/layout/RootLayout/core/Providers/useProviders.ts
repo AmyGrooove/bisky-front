@@ -24,7 +24,7 @@ const useProviders = (props: IProvidersProps) => {
         queryCache: new QueryCache({
           onError: async (error) => {
             console.error(error)
-            errorToast({ message: `Произошла ошибка: ${error.message}` })
+            errorToast({ message: `Ошибка: ${error.message}` })
           },
         }),
       }),

@@ -19,6 +19,7 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
       placeholder,
       Icon,
       type,
+      inputClassName,
     } = useInputField(props)
 
     return (
@@ -34,7 +35,9 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
             ref={ref}
             value={value}
             onChange={(event) => onChange(event.target.value)}
-            className={cn(st.input, { [st.input_error]: !isNil(errorText) })}
+            className={cn(st.input, inputClassName, {
+              [st.input_error]: !isNil(errorText),
+            })}
             disabled={isDisabled}
             placeholder={placeholder}
           />

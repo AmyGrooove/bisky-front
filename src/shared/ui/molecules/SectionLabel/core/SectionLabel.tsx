@@ -18,7 +18,9 @@ const SectionLabel = forwardRef<HTMLDivElement, ISectionLabelProps>(
         <ChevronLeftIcon onClick={onClickHandler} className={st.backIcon} />
         <div className={st.labelWrapper}>
           {!isNil(Icon) && <Icon className={st.icon} />}
-          <Text className={st.label}>{children}</Text>
+          <Text weight="700" className={st.label}>
+            {children}
+          </Text>
         </div>
         <EllipsisIcon
           onClick={additionalOnClick}
