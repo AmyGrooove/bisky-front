@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form'
 import { useLoginByPassword } from '@entities/auth/api/loginByPassword'
 import { z } from 'zod'
-import { closeAdditionalModal, closeModal } from '@widgets/ModalWrapper'
+import { closeModal } from '@widgets/ModalWrapper'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 
 import { loginSchema } from '../../schemas/loginSchema'
@@ -29,8 +29,6 @@ const usePasswordAuthTab = (props: IAuthTabProps) => {
     const { username, password } = getValues()
 
     await loginByPassword({ username, password })
-    closeModal()
-    closeAdditionalModal()
 
     if (successCallback) {
       successCallback()
@@ -41,7 +39,7 @@ const usePasswordAuthTab = (props: IAuthTabProps) => {
 
   useKeyboardShortcut({
     keys: ['enter'],
-    callback: () => loginUser(),
+    callback: loginUser,
   })
 
   return {

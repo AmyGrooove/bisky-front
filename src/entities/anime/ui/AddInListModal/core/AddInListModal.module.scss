@@ -21,6 +21,6 @@
 }
 
 .title {
-  @include estimate-color(color);
   @include text-style(20);
+  @include estimate-color(color);
 }

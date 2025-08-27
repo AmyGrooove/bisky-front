@@ -22,7 +22,7 @@ const useSelectAuthMethodTab = (props: IAuthTabProps) => {
 
   useKeyboardShortcut({
     keys: ['enter'],
-    callback: () => goToPasswordAuth(),
+    callback: goToPasswordAuth,
   })
 
   useEffect(() => {

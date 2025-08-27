@@ -17,9 +17,7 @@ const AnimeCard = (props: IAnimeCardProps) => {
     animeData,
     className,
     variant,
-    scoreBadge,
     reWatchedCountBadge,
-    relationBadge,
     currentUserAnimeStatus,
     statusBadgeText,
     isBigVariant,
@@ -78,9 +76,6 @@ const AnimeCard = (props: IAnimeCardProps) => {
             {statusBadgeText}
           </Badge>
         )}
-        {!isNil(scoreBadge) && (
-          <ScoreBadge variant={badgeVariant} score={scoreBadge} />
-        )}
         {!isNil(reWatchedCountBadge) && (
           <Badge
             variant={badgeVariant}
@@ -90,9 +85,9 @@ const AnimeCard = (props: IAnimeCardProps) => {
             {reWatchedCountBadge}
           </Badge>
         )}
-        {!isNil(relationBadge) && (
+        {!isNil(animeData.relation) && (
           <Badge variant={badgeVariant} className={st.relationBadge}>
-            {relationBadge}
+            {animeData.relation}
           </Badge>
         )}
       </div>

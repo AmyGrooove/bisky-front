@@ -1,6 +1,7 @@
 import { QueryCache, QueryClient } from '@tanstack/react-query'
 import { useMemo } from 'react'
 import { errorToast } from '@shared/utils/toast'
+
 import { IProvidersProps } from '../types/IProvidersProps'
 import { QUERY_SKIP_LIST } from '../static/QUERY_SKIP_LIST'
 

@@ -1,6 +1,5 @@
-interface IWatchAllProps {
-  onClick: () => void
-
+interface IWatchAllCardProps {
+  onClick?: () => void
   label?: string
   type?: 'anime' | 'collection'
   variant?: 'big' | 'small'
@@ -8,4 +7,4 @@ interface IWatchAllProps {
   ariaLabel?: string
 }
 
-export type { IWatchAllProps }
+export type { IWatchAllCardProps }

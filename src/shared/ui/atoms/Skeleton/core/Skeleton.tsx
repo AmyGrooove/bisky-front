@@ -1,17 +1,22 @@
 import { cn } from '@shared/utils/functions'
 import { forwardRef } from 'react'
 
-import { useSkeleton } from './useSkeleton'
 import st from './Skeleton.module.scss'
 
-import type { ISkeletonProps } from '../types/ISkeletonProps'
+import type { TSkeletonProps } from '../types/TSkeletonProps'
 
-const Skeleton = forwardRef<HTMLDivElement, ISkeletonProps>((props, ref) => {
-  const { className, templates } = useSkeleton(props)
+const Skeleton = forwardRef<HTMLDivElement, TSkeletonProps>((props, ref) => {
+  if (props.templates === 'animeCard') {
+    const { variant = 'big', className } = props
+    return (
+      <div
+        className={cn(st.root, st[`root_animeCard_${variant}`], className)}
+      />
+    )
+  }
 
-  return {
-    none: <div ref={ref} className={cn(st.root, className)} />,
-  }[templates]
+  const { className } = props
+  return <div ref={ref} className={cn(st.root, className)} />
 })
 
 Skeleton.displayName = 'Skeleton'

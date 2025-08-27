@@ -1,0 +1,84 @@
+'use client'
+
+import { cn, getEmptyArray } from '@shared/utils/functions'
+import { ChevronLeftIcon, ChevronRightIcon } from '@shared/icons'
+import { Skeleton } from '@shared/ui/atoms/Skeleton'
+import { Button } from '@shared/ui/molecules/Button'
+
+import { ICarouselProps } from '../types/ICarouselProps'
+
+import st from './Carousel.module.scss'
+import { useCarousel } from './useCarousel'
+
+const Carousel = (props: ICarouselProps) => {
+  const {
+    slidesData,
+    className,
+    sliderRef,
+    isSliderLoading,
+    scrollPrev,
+    scrollNext,
+    isCanScrollPrev,
+    isCanScrollNext,
+    isDragEnabled,
+    variant,
+    skeletonTemplate,
+  } = useCarousel(props)
+
+  return (
+    <div className={cn(st.root, className, st[`root_${variant}`])}>
+      {isSliderLoading ? (
+        <div className={cn(st.skeletonWrapper, className)}>
+          {getEmptyArray(20).map((_, index) => (
+            <Skeleton
+              key={index}
+              templates={skeletonTemplate}
+              variant={variant}
+            />
+          ))}
+        </div>
+      ) : (
+        <>
+          {isDragEnabled && variant === 'big' && (
+            <>
+              <div className={cn(st.buttonWrapper, st.buttonWrapper_prev)}>
+                <Button
+                  onClick={scrollPrev}
+                  isDisabled={!isCanScrollPrev}
+                  Icon={ChevronLeftIcon}
+                  variant="big"
+                  className={st.button}
+                />
+              </div>
+              <div className={cn(st.buttonWrapper, st.buttonWrapper_next)}>
+                <Button
+                  onClick={scrollNext}
+                  isDisabled={!isCanScrollNext}
+                  variant="big"
+                  Icon={ChevronRightIcon}
+                  className={st.button}
+                />
+              </div>
+            </>
+          )}
+          <div
+            ref={sliderRef}
+            className={cn(st.sliderWrapper, {
+              [st.sliderWrapper_drag]: isDragEnabled,
+            })}
+          >
+            <div className={st.slider}>
+              {slidesData.map((item, index) => (
+                <div key={index} className={st.slide}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+export { Carousel }

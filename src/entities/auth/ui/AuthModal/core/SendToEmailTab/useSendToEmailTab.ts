@@ -38,7 +38,7 @@ const useSendToEmailTab = (props: IEmailTabProps) => {
 
   useKeyboardShortcut({
     keys: ['enter'],
-    callback: () => sendReset(),
+    callback: sendReset,
   })
 
   return { control, isValid, setNewTab, isPending, isError, sendReset, error }

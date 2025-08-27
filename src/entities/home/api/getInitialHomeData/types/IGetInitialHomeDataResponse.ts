@@ -15,7 +15,7 @@ interface IHomeNewEpisodeAnime
     Pick<IUserAnimeReactionModel, 'score'> {}
 
 interface IHomeBestAnime
-  extends Pick<IAnimeModel, '_id' | 'slug' | 'name' | 'poster' | 'status'>,
+  extends Pick<IAnimeModel, '_id' | 'slug' | 'name' | 'poster'>,
     Pick<IUserAnimeReactionModel, 'score'> {}
 
 interface IHomeSeasonalAnime

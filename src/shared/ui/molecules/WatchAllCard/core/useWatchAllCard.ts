@@ -1,6 +1,6 @@
-import { IWatchAllProps } from '../types/IWatchAllProps'
+import { IWatchAllCardProps } from '../types/IWatchAllCardProps'
 
-const useWatchAll = (props: IWatchAllProps) => {
+const useWatchAllCard = (props: IWatchAllCardProps) => {
   const {
     label = 'Смотреть все',
     type = 'anime',
@@ -13,4 +13,4 @@ const useWatchAll = (props: IWatchAllProps) => {
   return { label, type, variant, className, onClick, ariaLabel }
 }
 
-export { useWatchAll }
+export { useWatchAllCard }

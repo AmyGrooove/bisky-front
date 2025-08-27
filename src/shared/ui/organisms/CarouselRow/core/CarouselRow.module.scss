@@ -1,0 +1,16 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  &_big {
+    gap: 12px;
+  }
+
+  &_small {
+    gap: 8px;
+  }
+}

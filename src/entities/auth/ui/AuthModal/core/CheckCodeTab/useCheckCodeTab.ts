@@ -69,7 +69,7 @@ const useCheckCodeTab = (props: IEmailTabProps) => {
 
   useKeyboardShortcut({
     keys: ['enter'],
-    callback: () => loginByCode(),
+    callback: loginByCode,
   })
 
   return {

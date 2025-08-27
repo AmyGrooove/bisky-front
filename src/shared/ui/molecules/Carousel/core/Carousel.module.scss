@@ -1,0 +1,68 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.skeletonWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.root {
+  position: relative;
+  width: 100%;
+
+  &_big {
+    .skeletonWrapper {
+      gap: 24px;
+    }
+
+    .slide {
+      margin-left: 24px;
+    }
+  }
+
+  &_small {
+    .skeletonWrapper {
+      gap: 8px;
+    }
+
+    .slide {
+      margin-left: 8px;
+    }
+  }
+}
+
+.sliderWrapper {
+  &_drag {
+    cursor: grab;
+  }
+}
+
+.slider {
+  display: flex;
+}
+
+.slide {
+  &:first-child {
+    margin-left: unset;
+  }
+}
+
+.buttonWrapper {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+
+  &_prev {
+    left: -16px;
+  }
+
+  &_next {
+    right: -16px;
+  }
+}
+
+.button {
+  background-color: var(--dark-100);
+  height: 60px;
+}

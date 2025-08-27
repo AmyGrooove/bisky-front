@@ -18,4 +18,16 @@
   animation: 1s shine linear infinite;
   border-radius: var(--radius-20);
   flex-shrink: 0;
+
+  &_animeCard {
+    &_big {
+      height: 320px;
+      width: 200px;
+    }
+
+    &_small {
+      height: 218px;
+      width: 120px;
+    }
+  }
 }
