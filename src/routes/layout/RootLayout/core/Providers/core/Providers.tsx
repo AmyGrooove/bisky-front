@@ -7,9 +7,8 @@ import { Toaster } from 'sonner'
 import { ENV } from '@shared/static'
 import dynamic from 'next/dynamic'
 
-import { IProvidersProps } from '../../types/IProvidersProps'
-
 import { useProviders } from './useProviders'
+import { IProvidersProps } from '../types/IProvidersProps'
 
 const ReactQueryDevtools = dynamic(
   () =>

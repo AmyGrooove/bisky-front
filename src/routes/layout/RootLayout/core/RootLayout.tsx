@@ -7,8 +7,8 @@ import { MiniLogo } from '@widgets/MiniLogo'
 import { IRootLayoutProps } from '../types/IRootLayoutProps'
 
 import st from './RootLayout.module.scss'
-import { Providers } from './Providers/Providers'
 import { useRootLayout } from './useRootLayout'
+import { Providers } from './Providers'
 
 const ubuntu = Ubuntu({
   weight: ['400', '700'],

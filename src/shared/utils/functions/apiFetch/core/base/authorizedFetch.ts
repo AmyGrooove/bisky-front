@@ -43,8 +43,8 @@ const authorizedFetch = async <TResponse>(
       await setRefreshToken(refreshResponse.tokens.refreshToken)
 
       return authorizedFetch<TResponse>(url, fetchOptions, tokenType)
-    } catch (error) {
-      console.error('Token refresh failed:', error)
+    } catch (_) {
+      /* empty */
     }
   }
 

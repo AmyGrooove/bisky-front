@@ -1,8 +1,8 @@
 import { QueryCache, QueryClient } from '@tanstack/react-query'
 import { useMemo } from 'react'
 import { errorToast } from '@shared/utils/toast'
-
-import { IProvidersProps } from '../../types/IProvidersProps'
+import { IProvidersProps } from '../types/IProvidersProps'
+import { QUERY_SKIP_LIST } from '../static/QUERY_SKIP_LIST'
 
 const useProviders = (props: IProvidersProps) => {
   const { children, dehydratedState } = props
@@ -22,7 +22,16 @@ const useProviders = (props: IProvidersProps) => {
           },
         },
         queryCache: new QueryCache({
-          onError: async (error) => {
+          onError: async (error, query) => {
+            const queryKey = query.queryKey.map(String)
+
+            const isSkipped = queryKey.some((key) =>
+              QUERY_SKIP_LIST.includes(key),
+            )
+            const isUnauthorized = error.message === 'Unauthorized'
+
+            if (isSkipped || isUnauthorized) return
+
             console.error(error)
             errorToast({ message: `Ошибка: ${error.message}` })
           },

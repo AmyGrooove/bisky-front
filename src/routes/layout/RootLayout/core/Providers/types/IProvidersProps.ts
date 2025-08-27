@@ -1,8 +1,9 @@
 import { DehydratedState } from '@tanstack/react-query'
+import { ReactNode } from 'react'
 
-import { IRootLayoutProps } from './IRootLayoutProps'
+interface IProvidersProps {
+  children: ReactNode
 
-interface IProvidersProps extends IRootLayoutProps {
   dehydratedState?: DehydratedState
 }
 
