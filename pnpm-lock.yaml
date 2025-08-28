@@ -52,6 +52,9 @@ importers:
       effector-react:
         specifier: ^23.3.0
         version: 23.3.0(effector@23.4.2)(react@19.1.1)
+      embla-carousel-auto-height:
+        specifier: ^8.6.0
+        version: 8.6.0(embla-carousel@8.6.0)
       embla-carousel-autoplay:
         specifier: ^8.6.0
         version: 8.6.0(embla-carousel@8.6.0)
@@ -1961,6 +1964,14 @@ packages:
         integrity: sha512-Uae07sVa6yilnO9FhjFvLVkuakpKTHqn4bIoFxEuDsvNKfFtidLHGi1mv3bjaoJUxj3ldqZDAg3kvELVgMWSjw==,
       }
     engines: { node: '>=11.0.0' }
+
+  embla-carousel-auto-height@8.6.0:
+    resolution:
+      {
+        integrity: sha512-/HrJQOEM6aol/oF33gd2QlINcXy3e19fJWvHDuHWp2bpyTa+2dm9tVVJak30m2Qy6QyQ6Fc8DkImtv7pxWOJUQ==,
+      }
+    peerDependencies:
+      embla-carousel: 8.6.0
 
   embla-carousel-autoplay@8.6.0:
     resolution:
@@ -5640,6 +5651,10 @@ snapshots:
       use-sync-external-store: 1.5.0(react@19.1.1)
 
   effector@23.4.2: {}
+
+  embla-carousel-auto-height@8.6.0(embla-carousel@8.6.0):
+    dependencies:
+      embla-carousel: 8.6.0
 
   embla-carousel-autoplay@8.6.0(embla-carousel@8.6.0):
     dependencies:

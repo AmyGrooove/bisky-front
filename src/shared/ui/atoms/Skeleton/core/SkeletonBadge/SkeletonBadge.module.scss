@@ -1,0 +1,22 @@
+@use '@shared/styles/reusable.scss' as *;
+@use '../Skeleton.module.scss' as *;
+
+.root {
+  flex-shrink: 0;
+  @extend %skeleton-base;
+
+  &_big {
+    height: 32px;
+    width: 78px;
+  }
+
+  &_medium {
+    height: 24px;
+    width: 64px;
+  }
+
+  &_small {
+    height: 20px;
+    width: 44px;
+  }
+}

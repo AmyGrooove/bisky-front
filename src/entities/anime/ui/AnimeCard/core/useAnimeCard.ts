@@ -13,7 +13,7 @@ const useAnimeCard = (props: IAnimeCardProps) => {
   const statusBadgeText = isNil(animeData.status)
     ? null
     : animeData.status === 'ongoing'
-      ? `${animeData.episodeAiredCount ?? 0}/${animeData.episodeCount ?? 0}`
+      ? `${animeData.episodeAiredCount ?? '?'}/${animeData.episodeCount ?? '?'}`
       : getNormalStatus(animeData.status)
 
   const isBigVariant = variant === 'big'

@@ -9,8 +9,11 @@
   }
 }
 
+.slide {
+  flex: 0 0 auto;
+}
+
 .root {
-  padding-inline: 24px;
   position: relative;
   width: 100%;
 
@@ -33,15 +36,22 @@
       margin-left: 8px;
     }
   }
+
+  &:not(.root_looped) .slide:first-child {
+    margin-left: 0px;
+  }
 }
 
 .sliderWrapper {
+  touch-action: pan-y;
+
   &_drag {
     cursor: grab;
   }
 }
 
 .slider {
+  align-items: flex-start;
   display: flex;
 }
 

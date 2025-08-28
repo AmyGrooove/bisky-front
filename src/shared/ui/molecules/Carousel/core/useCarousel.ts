@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import AutoHeight from 'embla-carousel-auto-height'
 
 import { ICarouselProps } from '../types/ICarouselProps'
 
@@ -8,7 +9,7 @@ const useCarousel = (props: ICarouselProps) => {
     slidesData,
     className,
     variant = 'big',
-    skeletonTemplate = 'none',
+    skeletonTemplate,
     carouselProps,
     carouselPlugins,
   } = props
@@ -19,10 +20,10 @@ const useCarousel = (props: ICarouselProps) => {
 
   const isDragEnabled = isCanScrollPrev || isCanScrollNext
 
-  const [sliderRef, sliderApi] = useEmblaCarousel(
-    carouselProps,
-    carouselPlugins,
-  )
+  const [sliderRef, sliderApi] = useEmblaCarousel(carouselProps, [
+    AutoHeight(),
+    ...(carouselPlugins ?? []),
+  ])
 
   const scrollPrev = useCallback(() => {
     if (sliderApi) sliderApi.scrollPrev()

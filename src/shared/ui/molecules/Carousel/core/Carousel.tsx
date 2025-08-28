@@ -27,7 +27,11 @@ const Carousel = (props: ICarouselProps) => {
   } = useCarousel(props)
 
   return (
-    <div className={cn(st.root, className, st[`root_${variant}`])}>
+    <div
+      className={cn(st.root, className, st[`root_${variant}`], {
+        [st.root_looped]: carouselProps?.loop ?? false,
+      })}
+    >
       {isSliderLoading ? (
         <div
           className={cn(st.skeletonWrapper, className, {

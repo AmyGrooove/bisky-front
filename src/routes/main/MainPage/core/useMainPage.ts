@@ -6,7 +6,9 @@ const useMainPage = async () => {
 
   const { isMobile } = await useIsMobileServer()
 
-  return { homeData, isMobile }
+  const pageVariant: 'small' | 'big' = isMobile ? 'small' : 'big'
+
+  return { homeData, pageVariant }
 }
 
 export { useMainPage }

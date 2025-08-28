@@ -6,7 +6,17 @@ interface ISkeletonDefaultProps extends IBaseSkeletonProps {
   templates?: 'none'
 }
 
-interface ISkeletonCardProps extends IBaseSkeletonProps {
+interface ISkeletonBadgeProps extends IBaseSkeletonProps {
+  templates?: 'badge'
+  variant?: 'big' | 'medium' | 'small'
+}
+
+interface ISkeletonAnimeCardProps extends IBaseSkeletonProps {
+  templates?: 'animeCard' | 'seasonalAnimeCard'
+  variant?: 'big' | 'small'
+}
+
+interface ISkeletonSeasonalAnimeCardProps extends IBaseSkeletonProps {
   templates?: 'animeCard' | 'seasonalAnimeCard'
   variant?: 'big' | 'small'
 }
@@ -19,7 +29,15 @@ interface ISkeletonSectionLabelProps extends IBaseSkeletonProps {
 
 type TSkeletonProps =
   | ISkeletonDefaultProps
-  | ISkeletonCardProps
+  | ISkeletonBadgeProps
   | ISkeletonSectionLabelProps
+  | ISkeletonAnimeCardProps
+  | ISkeletonSeasonalAnimeCardProps
 
-export type { TSkeletonProps }
+export type {
+  TSkeletonProps,
+  ISkeletonBadgeProps,
+  ISkeletonAnimeCardProps,
+  ISkeletonSeasonalAnimeCardProps,
+  ISkeletonSectionLabelProps,
+}

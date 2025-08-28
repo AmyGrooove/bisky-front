@@ -1,0 +1,21 @@
+@use '@shared/styles/reusable.scss' as *;
+@use '../Skeleton.module.scss' as *;
+
+.root {
+  display: flex;
+  justify-content: space-between;
+
+  &_big .label {
+    height: 37px;
+    width: 200px;
+  }
+
+  &_small .label {
+    height: 23px;
+    width: 130px;
+  }
+}
+
+.label {
+  @extend %skeleton-base;
+}

@@ -1,0 +1,39 @@
+@use '@shared/styles/reusable.scss' as *;
+@use '../Skeleton.module.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &_big {
+    .card {
+      height: 320px;
+      width: 200px;
+    }
+
+    .name {
+      display: none;
+    }
+  }
+
+  &_small {
+    .card {
+      height: 190px;
+      width: 120px;
+    }
+
+    .name {
+      height: 28px;
+      width: 100px;
+    }
+  }
+}
+
+.card {
+  @extend %skeleton-base;
+}
+
+.name {
+  @extend %skeleton-base;
+}

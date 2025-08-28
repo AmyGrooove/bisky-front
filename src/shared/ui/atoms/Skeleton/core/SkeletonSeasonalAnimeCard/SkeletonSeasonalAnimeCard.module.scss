@@ -1,0 +1,16 @@
+@use '@shared/styles/reusable.scss' as *;
+@use '../Skeleton.module.scss' as *;
+
+.root {
+  @extend %skeleton-base;
+
+  &_big {
+    height: 380px;
+    width: 1080px;
+  }
+
+  &_small {
+    height: 180px;
+    width: 380px;
+  }
+}

@@ -1,17 +1,34 @@
+import { AnimeCardCarousel } from '@entities/anime/ui/AnimeCardCarousel'
+
 import { useMainPage } from './useMainPage'
-import st from './MainPage.module.scss'
 import { SeasonalCarousel } from './SeasonalCarousel/core/SeasonalCarousel'
 
 const MainPage = async () => {
-  const { homeData, isMobile } = await useMainPage()
+  const { homeData, pageVariant } = await useMainPage()
 
   return (
-    <div className={st.root}>
+    <>
       <SeasonalCarousel
         seasonalData={homeData.seasonalAnimes}
-        variant={isMobile ? 'small' : 'big'}
+        variant={pageVariant}
       />
-    </div>
+      <AnimeCardCarousel
+        variant={pageVariant}
+        labelProps={{
+          label: 'Новые серии',
+          link: { label: 'Онгоинги', href: '#', watchAllType: 'anime' },
+        }}
+        animesData={homeData.newEpisodeAnimes}
+      />
+      <AnimeCardCarousel
+        variant={pageVariant}
+        labelProps={{
+          label: 'Топ-100',
+          link: { label: 'Смотреть все', href: '#', watchAllType: 'anime' },
+        }}
+        animesData={homeData.bestAnimes}
+      />
+    </>
   )
 }
 

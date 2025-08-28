@@ -6,7 +6,7 @@ const useSeasonalCarousel = (props: ISeasonalCarouselProps) => {
   const { seasonalData, variant = 'big' } = props
 
   const seasonalCarousel = seasonalData.map((anime) => (
-    <SeasonAnimeCard variant={variant} data={anime} />
+    <SeasonAnimeCard key={anime._id} variant={variant} data={anime} />
   ))
 
   return { seasonalCarousel, variant }

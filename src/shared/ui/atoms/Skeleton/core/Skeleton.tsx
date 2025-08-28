@@ -2,41 +2,32 @@ import { cn } from '@shared/utils/functions'
 import { forwardRef } from 'react'
 
 import st from './Skeleton.module.scss'
+import { SkeletonSectionLabel } from './SkeletonSectionLabel/SkeletonSectionLabel'
+import { SkeletonSeasonalAnimeCard } from './SkeletonSeasonalAnimeCard/SkeletonSeasonalAnimeCard'
+import { SkeletonBadge } from './SkeletonBadge/SkeletonBadge'
+import { SkeletonAnimeCard } from './SkeletonAnimeCard/SkeletonAnimeCard'
 
 import type { TSkeletonProps } from '../types/TSkeletonProps'
 
 const Skeleton = forwardRef<HTMLDivElement, TSkeletonProps>((props, ref) => {
-  if (
-    props.templates === 'animeCard' ||
-    props.templates === 'seasonalAnimeCard'
-  ) {
-    const { variant = 'big', className } = props
-    return (
-      <div
-        className={cn(
-          st.root,
-          st[`root_${props.templates}`],
-          st[`root_${variant}`],
-          className,
-        )}
-      />
-    )
+  if (props.templates === 'badge') {
+    return <SkeletonBadge {...props} />
+  }
+
+  if (props.templates === 'animeCard') {
+    return <SkeletonAnimeCard {...props} />
+  }
+
+  if (props.templates === 'seasonalAnimeCard') {
+    return <SkeletonSeasonalAnimeCard {...props} />
   }
 
   if (props.templates === 'sectionLabel') {
-    const { variant = 'big', isLinkEnabled = false, className } = props
-    return (
-      <div className={cn(st.root, st.root_sectionLabel, className)}>
-        <div className={cn(st.label, st[`label_${variant}`])} />
-        {isLinkEnabled && (
-          <div className={cn(st.label, st[`label_${variant}`])} />
-        )}
-      </div>
-    )
+    return <SkeletonSectionLabel {...props} />
   }
 
   const { className } = props
-  return <div ref={ref} className={cn(st.root, st.root_none, className)} />
+  return <div ref={ref} className={cn(st.none, className)} />
 })
 
 Skeleton.displayName = 'Skeleton'
