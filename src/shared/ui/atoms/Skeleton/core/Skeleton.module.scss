@@ -1,3 +1,4 @@
+@use 'sass:string';
 @use '@shared/styles/reusable.scss' as *;
 
 @keyframes shine {
@@ -14,20 +15,58 @@
   }
 }
 
-.root {
+%skeleton-base {
   animation: 1s shine linear infinite;
   border-radius: var(--radius-20);
+}
+
+@mixin skeleton-card(
+  $big-height,
+  $big-width,
+  $small-height,
+  $small-width,
+  $class: root
+) {
+  $convertedClass: if(
+    string.index(#{$class}, '.') == 1,
+    string.slice(#{$class}, 2),
+    #{$class}
+  );
+
+  @extend %skeleton-base;
+
+  &.#{$convertedClass}_big {
+    height: $big-height;
+    width: $big-width;
+  }
+
+  &.#{$convertedClass}_small {
+    height: $small-height;
+    width: $small-width;
+  }
+}
+
+.root {
   flex-shrink: 0;
 
-  &_animeCard {
-    &_big {
-      height: 320px;
-      width: 200px;
-    }
+  &_none {
+    @extend %skeleton-base;
+  }
 
-    &_small {
-      height: 218px;
-      width: 120px;
+  &_animeCard {
+    @include skeleton-card(320px, 200px, 218px, 120px);
+  }
+
+  &_seasonalAnimeCard {
+    @include skeleton-card(380px, 1080px, 180px, 380px);
+  }
+
+  &_sectionLabel {
+    display: flex;
+    justify-content: space-between;
+
+    .label {
+      @include skeleton-card(37px, 200px, 23px, 130px, '.label');
     }
   }
 }

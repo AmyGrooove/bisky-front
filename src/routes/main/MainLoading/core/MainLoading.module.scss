@@ -1,0 +1,36 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.season {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  &_big {
+    gap: 12px;
+  }
+
+  &_small {
+    gap: 8px;
+  }
+}
+
+.animeCards {
+  display: flex;
+  width: 3000px;
+
+  &_big {
+    gap: 24px;
+  }
+
+  &_small {
+    gap: 8px;
+  }
+}

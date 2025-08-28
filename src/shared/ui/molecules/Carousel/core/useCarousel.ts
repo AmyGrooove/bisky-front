@@ -64,6 +64,7 @@ const useCarousel = (props: ICarouselProps) => {
     isDragEnabled,
     variant,
     skeletonTemplate,
+    carouselProps,
   }
 }
 

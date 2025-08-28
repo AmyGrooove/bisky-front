@@ -23,13 +23,18 @@ const Carousel = (props: ICarouselProps) => {
     isDragEnabled,
     variant,
     skeletonTemplate,
+    carouselProps,
   } = useCarousel(props)
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
       {isSliderLoading ? (
-        <div className={cn(st.skeletonWrapper, className)}>
-          {getEmptyArray(20).map((_, index) => (
+        <div
+          className={cn(st.skeletonWrapper, className, {
+            [st.skeletonWrapper_center]: carouselProps?.align === 'center',
+          })}
+        >
+          {getEmptyArray(19).map((_, index) => (
             <Skeleton
               key={index}
               templates={skeletonTemplate}
