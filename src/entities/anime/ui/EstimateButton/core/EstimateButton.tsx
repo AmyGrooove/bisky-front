@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import { BigButton } from '@shared/ui/molecules/BigButton'
 import { cn } from '@shared/utils/functions'
 import { Button } from '@shared/ui/molecules/Button'
@@ -9,7 +10,7 @@ import { IEstimateButtonProps } from '../types/IEstimateButtonProps'
 import st from './EstimateButton.module.scss'
 import { useEstimateButton } from './useEstimateButton'
 
-const EstimateButton = (props: IEstimateButtonProps) => {
+const EstimateButton = memo((props: IEstimateButtonProps) => {
   const {
     className,
     currentEstimateData,
@@ -42,6 +43,8 @@ const EstimateButton = (props: IEstimateButtonProps) => {
       {currentEstimateData.label}
     </BigButton>
   )
-}
+})
+
+EstimateButton.displayName = 'EstimateButton'
 
 export { EstimateButton }

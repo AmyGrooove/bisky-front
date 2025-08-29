@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Controller } from 'react-hook-form'
 import { LogoIcon } from '@shared/icons'
 import { cn, isNil } from '@shared/utils/functions'
@@ -11,7 +12,7 @@ import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { useCheckCodeTab } from './useCheckCodeTab'
 import st from './CheckCodeTab.module.scss'
 
-const CheckCodeTab = (props: IEmailTabProps) => {
+const CheckCodeTab = memo((props: IEmailTabProps) => {
   const {
     setNewTab,
     sendCode,
@@ -68,6 +69,8 @@ const CheckCodeTab = (props: IEmailTabProps) => {
       )}
     </>
   )
-}
+})
+
+CheckCodeTab.displayName = 'CheckCodeTab'
 
 export { CheckCodeTab }

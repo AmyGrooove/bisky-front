@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Text } from '@shared/ui/atoms/Text'
 import { BigButton } from '@shared/ui/molecules/BigButton'
 import { CrownIcon, DonutIcon } from '@shared/icons'
@@ -6,7 +7,7 @@ import { closeModal } from '@widgets/ModalWrapper'
 
 import st from './AniPickEndModal.module.scss'
 
-const AniPickEndModal = () => {
+const AniPickEndModal = memo(() => {
   return (
     <div className={st.root}>
       <div className={st.labelWrapper}>
@@ -41,6 +42,8 @@ const AniPickEndModal = () => {
       </div>
     </div>
   )
-}
+})
+
+AniPickEndModal.displayName = 'AniPickEndModal'
 
 export { AniPickEndModal }

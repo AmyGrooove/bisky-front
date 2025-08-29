@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import { getItemsCountText } from '../functions/getItemsCountText'
 import { ICollectionCardProps } from '../types/ICollectionCardProps'
 
@@ -9,9 +11,20 @@ const useCollectionCard = (props: ICollectionCardProps) => {
     variant = 'big',
     badges,
   } = props
-  const { score: scoreBadge = null } = badges ?? {}
+  const scoreBadge = useMemo(
+    () => (badges ? (badges.score ?? null) : null),
+    [badges?.score],
+  )
 
-  const itemsCountText = getItemsCountText(itemsCount)
+  const itemsCountText = useMemo(
+    () => getItemsCountText(itemsCount),
+    [itemsCount],
+  )
+
+  const compactVariant: 'medium' | 'small' = useMemo(
+    () => (variant === 'big' ? 'medium' : 'small'),
+    [variant],
+  )
 
   return {
     collectionData,
@@ -19,6 +32,7 @@ const useCollectionCard = (props: ICollectionCardProps) => {
     className,
     variant,
     scoreBadge,
+    compactVariant,
   }
 }
 

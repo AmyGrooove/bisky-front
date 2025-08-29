@@ -2,13 +2,14 @@ import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn } from '@shared/utils/functions'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import { IAvatarElementProps } from '../types/IAvatarElementProps'
 
 import { useAvatarElement } from './useAvatarElement'
 import st from './AvatarElement.module.scss'
 
-const AvatarElement = (props: IAvatarElementProps) => {
+const AvatarElement = memo((props: IAvatarElementProps) => {
   const { variant, userData, className } = useAvatarElement(props)
 
   return (
@@ -27,6 +28,8 @@ const AvatarElement = (props: IAvatarElementProps) => {
       </Text>
     </Link>
   )
-}
+})
+
+AvatarElement.displayName = 'AvatarElement'
 
 export { AvatarElement }

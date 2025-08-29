@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 import { z } from 'zod'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import { IAuthTabProps } from '../../types/IAuthTabProps'
 import { loginSchema } from '../../schemas/loginSchema'
@@ -14,11 +14,11 @@ const useSelectAuthMethodTab = (props: IAuthTabProps) => {
 
   const username = watch('username')
 
-  const goToPasswordAuth = () => {
+  const goToPasswordAuth = useCallback(() => {
     if (username.length < 3) return
 
     setNewTab(1)
-  }
+  }, [username, setNewTab])
 
   useKeyboardShortcut({
     keys: ['enter'],

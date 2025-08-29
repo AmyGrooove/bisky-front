@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Controller } from 'react-hook-form'
 import { LogoIcon } from '@shared/icons'
 import { cn, isNil } from '@shared/utils/functions'
@@ -11,7 +12,7 @@ import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { useSendToEmailTab } from './useSendToEmailTab'
 import st from './SendToEmailTab.module.scss'
 
-const SendToEmailTab = (props: IEmailTabProps) => {
+const SendToEmailTab = memo((props: IEmailTabProps) => {
   const { control, isValid, setNewTab, isPending, isError, sendReset, error } =
     useSendToEmailTab(props)
 
@@ -51,6 +52,8 @@ const SendToEmailTab = (props: IEmailTabProps) => {
       </Button>
     </>
   )
-}
+})
+
+SendToEmailTab.displayName = 'SendToEmailTab'
 
 export { SendToEmailTab }

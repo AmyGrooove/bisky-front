@@ -1,6 +1,6 @@
 import { usePatchEpisodeProgress } from '@entities/anime/api/patchEpisodeProgress'
 import { CheckIcon, EyeOffIcon } from '@shared/icons'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import { IEditEpisodeButtonProps } from '../types/IEditEpisodeButtonProps'
 
@@ -19,38 +19,47 @@ const useEditEpisodeButton = (props: IEditEpisodeButtonProps) => {
 
   const { mutateAsync: patchEpisodeProgress } = usePatchEpisodeProgress()
 
-  const hintOptions = [
-    {
-      IconLeft: CheckIcon,
-      text: 'Просмотрено',
-      onClick: () => {
-        setCurrentProgress(episodeProgressData.duration ?? 0)
-        patchEpisodeProgress({
-          episodeID: _id,
-          body: {
-            reWatchedCount,
-            firstWatchedAt: new Date(firstWatchedAt),
-            isWatched: true,
-          },
-        })
+  const hintOptions = useMemo(
+    () => [
+      {
+        IconLeft: CheckIcon,
+        text: 'Просмотрено',
+        onClick: () => {
+          setCurrentProgress(episodeProgressData.duration ?? 0)
+          patchEpisodeProgress({
+            episodeID: _id,
+            body: {
+              reWatchedCount,
+              firstWatchedAt: new Date(firstWatchedAt),
+              isWatched: true,
+            },
+          })
+        },
       },
-    },
-    {
-      IconLeft: EyeOffIcon,
-      text: 'Не просмотрено',
-      onClick: () => {
-        setCurrentProgress(0)
-        patchEpisodeProgress({
-          episodeID: _id,
-          body: {
-            reWatchedCount,
-            firstWatchedAt: new Date(firstWatchedAt),
-            isWatched: false,
-          },
-        })
+      {
+        IconLeft: EyeOffIcon,
+        text: 'Не просмотрено',
+        onClick: () => {
+          setCurrentProgress(0)
+          patchEpisodeProgress({
+            episodeID: _id,
+            body: {
+              reWatchedCount,
+              firstWatchedAt: new Date(firstWatchedAt),
+              isWatched: false,
+            },
+          })
+        },
       },
-    },
-  ]
+    ],
+    [
+      _id,
+      episodeProgressData.duration,
+      firstWatchedAt,
+      patchEpisodeProgress,
+      reWatchedCount,
+    ],
+  )
 
   return {
     buttonClassName,

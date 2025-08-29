@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { memo } from 'react'
 import { cn, isNil } from '@shared/utils/functions'
 import { ScoreBadge } from '@entities/home/ui/ScoreBadge'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
@@ -10,9 +11,15 @@ import { ICollectionCardProps } from '../types/ICollectionCardProps'
 import st from './CollectionCard.module.scss'
 import { useCollectionCard } from './useCollectionCard'
 
-const CollectionCard = (props: ICollectionCardProps) => {
-  const { collectionData, itemsCountText, className, variant, scoreBadge } =
-    useCollectionCard(props)
+const CollectionCard = memo((props: ICollectionCardProps) => {
+  const {
+    collectionData,
+    compactVariant,
+    itemsCountText,
+    className,
+    variant,
+    scoreBadge,
+  } = useCollectionCard(props)
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
@@ -32,7 +39,7 @@ const CollectionCard = (props: ICollectionCardProps) => {
         {!isNil(collectionData.author) && (
           <AuthorBadge
             maxChars={5}
-            variant={variant === 'big' ? 'medium' : 'small'}
+            variant={compactVariant}
             className={st.author}
             userData={collectionData.author}
           />
@@ -47,14 +54,13 @@ const CollectionCard = (props: ICollectionCardProps) => {
       </Link>
       <div className={st.badges}>
         {!isNil(scoreBadge) && (
-          <ScoreBadge
-            variant={variant === 'big' ? 'medium' : 'small'}
-            score={scoreBadge}
-          />
+          <ScoreBadge variant={compactVariant} score={scoreBadge} />
         )}
       </div>
     </div>
   )
-}
+})
+
+CollectionCard.displayName = 'CollectionCard'
 
 export { CollectionCard }

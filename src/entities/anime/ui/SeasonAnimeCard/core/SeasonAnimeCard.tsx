@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import Link from 'next/link'
 import { cn } from '@shared/utils/functions'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
@@ -11,7 +12,7 @@ import { ISeasonAnimeCardProps } from '../types/ISeasonAnimeCardProps'
 import { useSeasonAnimeCard } from './useSeasonAnimeCard'
 import st from './SeasonAnimeCard.module.scss'
 
-const SeasonAnimeCard = (props: ISeasonAnimeCardProps) => {
+const SeasonAnimeCard = memo((props: ISeasonAnimeCardProps) => {
   const {
     data,
     className,
@@ -59,6 +60,8 @@ const SeasonAnimeCard = (props: ISeasonAnimeCardProps) => {
       <ScoreBadge score={data.score} className={st.score} variant={variant} />
     </Link>
   )
-}
+})
+
+SeasonAnimeCard.displayName = 'SeasonAnimeCard'
 
 export { SeasonAnimeCard }

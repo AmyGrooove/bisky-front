@@ -1,6 +1,7 @@
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
 import { useCooldown } from '@shared/utils/hooks/useCooldown'
 import { useSendAuthCodeToEmail } from '@entities/auth/api/sendAuthCodeToEmail'
+import { useCallback } from 'react'
 
 import { IEmailTabProps } from '../../types/IEmailTabProps'
 
@@ -22,19 +23,26 @@ const useSendToEmailTab = (props: IEmailTabProps) => {
     getValues,
   } = form
 
-  const sendReset = async () => {
+  const sendReset = useCallback(async () => {
     if (isPending || !isValid) return
 
     const email = getValues('email')
 
     if (timeLeft <= 0) {
       await sendAuthCodeToEmail({ email })
-
       startCooldown(180 * 1000)
     }
 
     setNewTab(3)
-  }
+  }, [
+    getValues,
+    isPending,
+    isValid,
+    sendAuthCodeToEmail,
+    startCooldown,
+    timeLeft,
+    setNewTab,
+  ])
 
   useKeyboardShortcut({
     keys: ['enter'],

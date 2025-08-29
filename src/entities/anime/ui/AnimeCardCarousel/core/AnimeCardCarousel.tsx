@@ -1,10 +1,11 @@
+import { memo } from 'react'
 import { CarouselRow } from '@shared/ui/organisms/CarouselRow'
 
 import { IAnimeCardCarouselProps } from '../types/IAnimeCardCarouselProps'
 
 import { useAnimeCardCarousel } from './useAnimeCardCarousel'
 
-const AnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
+const AnimeCardCarousel = memo((props: IAnimeCardCarouselProps) => {
   const { animeCarousel, labelProps, variant } = useAnimeCardCarousel(props)
 
   return (
@@ -19,6 +20,8 @@ const AnimeCardCarousel = (props: IAnimeCardCarouselProps) => {
       }}
     />
   )
-}
+})
+
+AnimeCardCarousel.displayName = 'AnimeCardCarousel'
 
 export { AnimeCardCarousel }

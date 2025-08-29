@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Controller } from 'react-hook-form'
 import { LogoIcon } from '@shared/icons'
 import { cn, isNil } from '@shared/utils/functions'
@@ -11,7 +12,7 @@ import { IAuthTabProps } from '../../types/IAuthTabProps'
 import { usePasswordAuthTab } from './usePasswordAuthTab'
 import st from './PasswordAuthTab.module.scss'
 
-const PasswordAuthTab = (props: IAuthTabProps) => {
+const PasswordAuthTab = memo((props: IAuthTabProps) => {
   const {
     control,
     isValid,
@@ -82,6 +83,8 @@ const PasswordAuthTab = (props: IAuthTabProps) => {
       </button>
     </>
   )
-}
+})
+
+PasswordAuthTab.displayName = 'PasswordAuthTab'
 
 export { PasswordAuthTab }

@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import { getCircleGradient } from '../functions/getCircleGradient'
 import { ICircleViewsProps } from '../types/ICircleViewsProps'
 
@@ -11,17 +13,23 @@ const useCircleViews = (props: ICircleViewsProps) => {
     variant = 'big',
   } = props
 
-  const sumCount = addedCount + completeCount + watchingCount + droppedCount
-  const isEmpty = sumCount === 0
+  const sumCount = useMemo(
+    () => addedCount + completeCount + watchingCount + droppedCount,
 
-  const circleGradient = isEmpty
-    ? ''
-    : getCircleGradient({
-        addedCount,
-        completeCount,
-        watchingCount,
-        droppedCount,
-      })
+    [addedCount, completeCount, watchingCount, droppedCount],
+  )
+  const isEmpty = useMemo(() => sumCount === 0, [sumCount])
+
+  const circleGradient = useMemo(() => {
+    if (isEmpty) return ''
+
+    return getCircleGradient({
+      addedCount,
+      completeCount,
+      watchingCount,
+      droppedCount,
+    })
+  }, [addedCount, completeCount, watchingCount, droppedCount, isEmpty])
 
   return {
     isEmpty,

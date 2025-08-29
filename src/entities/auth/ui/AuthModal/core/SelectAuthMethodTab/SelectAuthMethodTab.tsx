@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
@@ -11,7 +12,7 @@ import { OAUTH_LIST } from '../../static/OAUTH_LIST'
 import st from './SelectAuthMethodTab.module.scss'
 import { useSelectAuthMethodTab } from './useSelectAuthMethodTab'
 
-const SelectAuthMethodTab = (props: IAuthTabProps) => {
+const SelectAuthMethodTab = memo((props: IAuthTabProps) => {
   const { control, username, goToPasswordAuth } = useSelectAuthMethodTab(props)
 
   return (
@@ -55,6 +56,8 @@ const SelectAuthMethodTab = (props: IAuthTabProps) => {
       ))}
     </>
   )
-}
+})
+
+SelectAuthMethodTab.displayName = 'SelectAuthMethodTab'
 
 export { SelectAuthMethodTab }

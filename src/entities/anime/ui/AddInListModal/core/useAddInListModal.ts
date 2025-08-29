@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react'
 import { closeModal } from '@widgets/ModalWrapper'
 import { useDeleteAnimeUserReaction } from '@entities/anime/api/deleteAnimeUserReaction'
 import { useSetAnimeUserStatus } from '@entities/anime/api/setAnimeUserStatus'
@@ -16,26 +17,32 @@ const useAddInListModal = (props: IAddInListModalProps) => {
   const { mutateAsync: setAnimeUserStatus } = useSetAnimeUserStatus()
   const { mutateAsync: deleteAnimeUserReaction } = useDeleteAnimeUserReaction()
 
-  const filteredStatuses = (
-    Object.keys(ESTIMATE_DATA) as (keyof typeof ESTIMATE_DATA)[]
-  ).filter(
-    (key) => !excludedListStatuses.includes(key) && selectedListStatus !== key,
+  const filteredStatuses = useMemo(
+    () =>
+      (Object.keys(ESTIMATE_DATA) as (keyof typeof ESTIMATE_DATA)[]).filter(
+        (key) =>
+          !excludedListStatuses.includes(key) && selectedListStatus !== key,
+      ),
+    [excludedListStatuses, selectedListStatus],
   )
 
-  const currentStatusData = ['noSelected', 'delete'].includes(
-    selectedListStatus,
+  const currentStatusData = useMemo(() => {
+    return ['noSelected', 'delete'].includes(selectedListStatus)
+      ? null
+      : ESTIMATE_DATA[selectedListStatus]
+  }, [selectedListStatus])
+
+  const addAnimeInList = useCallback(
+    async (newStatus: keyof typeof ESTIMATE_DATA) => {
+      closeModal()
+
+      setStatus(newStatus === 'delete' ? 'noSelected' : newStatus)
+      if (newStatus === 'noSelected' || newStatus === 'delete')
+        await deleteAnimeUserReaction({ animeID })
+      else await setAnimeUserStatus({ animeID, body: { status: newStatus } })
+    },
+    [animeID, deleteAnimeUserReaction, setAnimeUserStatus, setStatus],
   )
-    ? null
-    : ESTIMATE_DATA[selectedListStatus]
-
-  const addAnimeInList = async (newStatus: keyof typeof ESTIMATE_DATA) => {
-    closeModal()
-
-    setStatus(newStatus === 'delete' ? 'noSelected' : newStatus)
-    if (newStatus === 'noSelected' || newStatus === 'delete')
-      await deleteAnimeUserReaction({ animeID })
-    else await setAnimeUserStatus({ animeID, body: { status: newStatus } })
-  }
 
   return {
     filteredStatuses,

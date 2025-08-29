@@ -2,13 +2,14 @@ import { cn } from '@shared/utils/functions'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import { IHomeTipProps } from '../types/IHomeTipProps'
 
 import st from './HomeTip.module.scss'
 import { useHomeTip } from './useHomeTip'
 
-const HomeTip = (props: IHomeTipProps) => {
+const HomeTip = memo((props: IHomeTipProps) => {
   const { variant, className, currentData } = useHomeTip(props)
 
   return (
@@ -47,6 +48,8 @@ const HomeTip = (props: IHomeTipProps) => {
       )}
     </div>
   )
-}
+})
+
+HomeTip.displayName = 'HomeTip'
 
 export { HomeTip }

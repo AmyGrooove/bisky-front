@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import Link from 'next/link'
 import { cn, isNil } from '@shared/utils/functions'
 import { ScoreBadge } from '@entities/home/ui/ScoreBadge'
@@ -12,7 +13,7 @@ import st from './AnimeCard.module.scss'
 import { useAnimeCard } from './useAnimeCard'
 import { UpdateEstimateButton } from './UpdateEstimateButton'
 
-const AnimeCard = (props: IAnimeCardProps) => {
+const AnimeCard = memo((props: IAnimeCardProps) => {
   const {
     animeData,
     className,
@@ -93,6 +94,8 @@ const AnimeCard = (props: IAnimeCardProps) => {
       </div>
     </div>
   )
-}
+})
+
+AnimeCard.displayName = 'AnimeCard'
 
 export { AnimeCard }

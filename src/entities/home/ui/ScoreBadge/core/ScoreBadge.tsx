@@ -1,13 +1,14 @@
 import { StarIcon } from '@shared/icons'
 import { Badge } from '@shared/ui/molecules/Badge'
 import { cn } from '@shared/utils/functions'
+import { memo } from 'react'
 
 import { IScoreBadge } from '../types/IScoreBadge'
 
 import { useScoreBadge } from './useScoreBadge'
 import st from './ScoreBadge.module.scss'
 
-const ScoreBadge = (props: IScoreBadge) => {
+const ScoreBadge = memo((props: IScoreBadge) => {
   const { scoreColor, score, className, otherProps } = useScoreBadge(props)
 
   return (
@@ -19,6 +20,8 @@ const ScoreBadge = (props: IScoreBadge) => {
       {String(score ?? 0)}
     </Badge>
   )
-}
+})
+
+ScoreBadge.displayName = 'ScoreBadge'
 
 export { ScoreBadge }

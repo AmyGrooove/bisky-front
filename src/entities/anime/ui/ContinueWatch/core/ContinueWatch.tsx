@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import Link from 'next/link'
 import { cn } from '@shared/utils/functions'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
@@ -9,7 +10,7 @@ import { useContinueWatch } from './useContinueWatch'
 import st from './ContinueWatch.module.scss'
 import { EditEpisodeButton } from './EditEpisodeButton/core/EditEpisodeButton'
 
-const ContinueWatch = (props: IContinueWatchProps) => {
+const ContinueWatch = memo((props: IContinueWatchProps) => {
   const { episodeProgressData, className, variant, episodeInfo } =
     useContinueWatch(props)
 
@@ -38,6 +39,8 @@ const ContinueWatch = (props: IContinueWatchProps) => {
       />
     </Link>
   )
-}
+})
+
+ContinueWatch.displayName = 'ContinueWatch'
 
 export { ContinueWatch }

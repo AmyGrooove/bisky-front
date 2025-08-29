@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Text } from '@shared/ui/atoms/Text'
 import { BigButton } from '@shared/ui/molecules/BigButton'
 import { DonutIcon } from '@shared/icons'
@@ -6,7 +7,7 @@ import { closeModal } from '@widgets/ModalWrapper'
 
 import st from './AniBattleErrorModal.module.scss'
 
-const AniBattleErrorModal = () => {
+const AniBattleErrorModal = memo(() => {
   return (
     <div className={st.root}>
       <Text weight="700" className={st.label}>
@@ -24,6 +25,8 @@ const AniBattleErrorModal = () => {
       </Link>
     </div>
   )
-}
+})
+
+AniBattleErrorModal.displayName = 'AniBattleErrorModal'
 
 export { AniBattleErrorModal }

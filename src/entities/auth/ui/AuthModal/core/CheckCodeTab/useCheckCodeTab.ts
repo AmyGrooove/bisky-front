@@ -6,6 +6,7 @@ import { closeModal } from '@widgets/ModalWrapper'
 import { useCooldown } from '@shared/utils/hooks/useCooldown'
 import { useSendAuthCodeToEmail } from '@entities/auth/api/sendAuthCodeToEmail'
 import { useConfirmAuthCodeAndLogin } from '@entities/auth/api/confirmAuthCodeAndLogin'
+import { useCallback } from 'react'
 
 import { IEmailTabProps } from '../../types/IEmailTabProps'
 import { codeSchema } from '../../schemas/codeSchema'
@@ -41,15 +42,15 @@ const useCheckCodeTab = (props: IEmailTabProps) => {
     defaultValues: { code: '' },
   })
 
-  const sendCode = async () => {
+  const sendCode = useCallback(async () => {
     if (timeLeft > 0) return
 
     const email = getEmailValues('email')
     await sendAuthCodeToEmail({ email })
     startCooldown(180 * 1000)
-  }
+  }, [getEmailValues, sendAuthCodeToEmail, startCooldown, timeLeft])
 
-  const loginByCode = async () => {
+  const loginByCode = useCallback(async () => {
     if (isPending || !isValid) return
 
     const { code } = getCodeValues()
@@ -65,7 +66,14 @@ const useCheckCodeTab = (props: IEmailTabProps) => {
     } catch {
       resetField('code')
     }
-  }
+  }, [
+    confirmAuthCodeAndLogin,
+    getCodeValues,
+    isPending,
+    isValid,
+    resetField,
+    successCallback,
+  ])
 
   useKeyboardShortcut({
     keys: ['enter'],

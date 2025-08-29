@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import { EllipsisIcon } from '@shared/icons'
 import { Button } from '@shared/ui/molecules/Button'
 import { HintMenu } from '@shared/ui/molecules/HintMenu'
@@ -10,7 +11,7 @@ import { IEditEpisodeButtonProps } from '../types/IEditEpisodeButtonProps'
 import { useEditEpisodeButton } from './useEditEpisodeButton'
 import st from './EditEpisodeButton.module.scss'
 
-const EditEpisodeButton = (props: IEditEpisodeButtonProps) => {
+const EditEpisodeButton = memo((props: IEditEpisodeButtonProps) => {
   const {
     buttonClassName,
     progressBarClassName,
@@ -37,6 +38,8 @@ const EditEpisodeButton = (props: IEditEpisodeButtonProps) => {
       />
     </>
   )
-}
+})
+
+EditEpisodeButton.displayName = 'EditEpisodeButton'
 
 export { EditEpisodeButton }

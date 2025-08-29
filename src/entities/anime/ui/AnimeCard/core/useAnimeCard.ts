@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { isNil } from '@shared/utils/functions'
 import { getNormalStatus } from '@entities/anime/functions/getNormalStatus'
 
@@ -10,14 +11,19 @@ const useAnimeCard = (props: IAnimeCardProps) => {
     animeStatus: currentUserAnimeStatus = null,
   } = userData ?? {}
 
-  const statusBadgeText = isNil(animeData.status)
-    ? null
-    : animeData.status === 'ongoing'
+  const statusBadgeText = useMemo(() => {
+    if (isNil(animeData.status)) return null
+
+    return animeData.status === 'ongoing'
       ? `${animeData.episodeAiredCount ?? '?'}/${animeData.episodeCount ?? '?'}`
       : getNormalStatus(animeData.status)
+  }, [animeData.status, animeData.episodeAiredCount, animeData.episodeCount])
 
-  const isBigVariant = variant === 'big'
-  const badgeVariant = isBigVariant ? ('medium' as const) : ('small' as const)
+  const isBigVariant = useMemo(() => variant === 'big', [variant])
+  const badgeVariant = useMemo(
+    () => (isBigVariant ? ('medium' as const) : ('small' as const)),
+    [isBigVariant],
+  )
 
   return {
     animeData,

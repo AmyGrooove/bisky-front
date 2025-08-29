@@ -3,6 +3,7 @@ import { useLoginByPassword } from '@entities/auth/api/loginByPassword'
 import { z } from 'zod'
 import { closeModal } from '@widgets/ModalWrapper'
 import { useKeyboardShortcut } from '@shared/utils/hooks/useKeyboardShortcut'
+import { useCallback } from 'react'
 
 import { loginSchema } from '../../schemas/loginSchema'
 import { IAuthTabProps } from '../../types/IAuthTabProps'
@@ -23,7 +24,7 @@ const usePasswordAuthTab = (props: IAuthTabProps) => {
     getValues,
   } = useFormContext<z.infer<typeof loginSchema>>()
 
-  const loginUser = async () => {
+  const loginUser = useCallback(async () => {
     if (isPending || !isValid) return
 
     const { username, password } = getValues()
@@ -35,7 +36,7 @@ const usePasswordAuthTab = (props: IAuthTabProps) => {
     } else {
       closeModal()
     }
-  }
+  }, [getValues, isPending, isValid, loginByPassword, successCallback])
 
   useKeyboardShortcut({
     keys: ['enter'],

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn, isNil } from '@shared/utils/functions'
 
@@ -7,7 +8,7 @@ import { IAddInListModalProps } from '../types/IAddInListModalProps'
 import st from './AddInListModal.module.scss'
 import { useAddInListModal } from './useAddInListModal'
 
-const AddInListModal = (props: IAddInListModalProps) => {
+const AddInListModal = memo((props: IAddInListModalProps) => {
   const {
     filteredStatuses,
     addAnimeInList,
@@ -39,6 +40,8 @@ const AddInListModal = (props: IAddInListModalProps) => {
       </div>
     </div>
   )
-}
+})
+
+AddInListModal.displayName = 'AddInListModal'
 
 export { AddInListModal }

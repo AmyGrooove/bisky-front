@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { FormProvider } from 'react-hook-form'
 
 import { IAuthModalProps } from '../types/IAuthModalProps'
@@ -9,7 +10,7 @@ import { useAuthModal } from './useAuthModal'
 import { SendToEmailTab } from './SendToEmailTab/SendToEmailTab'
 import { CheckCodeTab } from './CheckCodeTab/CheckCodeTab'
 
-const AuthModal = (props: IAuthModalProps) => {
+const AuthModal = memo((props: IAuthModalProps) => {
   const { authForm, currentTab, setCurrentTab, emailForm, successCallback } =
     useAuthModal(props)
 
@@ -36,6 +37,8 @@ const AuthModal = (props: IAuthModalProps) => {
       </div>
     </FormProvider>
   )
-}
+})
+
+AuthModal.displayName = 'AuthModal'
 
 export { AuthModal }

@@ -2,13 +2,14 @@ import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn } from '@shared/utils/functions'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import { IAuthorBadgeProps } from '../types/IAuthorBadgeProps'
 
 import { useAuthorBadge } from './useAuthorBadge'
 import st from './AuthorBadge.module.scss'
 
-const AuthorBadge = (props: IAuthorBadgeProps) => {
+const AuthorBadge = memo((props: IAuthorBadgeProps) => {
   const { variant, userData, maxChars, className, isCurrentUser } =
     useAuthorBadge(props)
 
@@ -34,6 +35,8 @@ const AuthorBadge = (props: IAuthorBadgeProps) => {
       </Text>
     </Link>
   )
-}
+})
+
+AuthorBadge.displayName = 'AuthorBadge'
 
 export { AuthorBadge }

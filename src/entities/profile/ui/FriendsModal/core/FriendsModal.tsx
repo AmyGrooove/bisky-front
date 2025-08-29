@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { memo } from 'react'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
 import { getProfileOnline } from '@entities/profile/functions/getProfileOnline'
@@ -8,7 +9,7 @@ import { IFriendsModalProps } from '../types/IFriendsModalProps'
 import st from './FriendsModal.module.scss'
 import { useFriendsModal } from './useFriendsModal'
 
-const FriendsModal = (props: IFriendsModalProps) => {
+const FriendsModal = memo((props: IFriendsModalProps) => {
   const { friendsData } = useFriendsModal(props)
 
   return (
@@ -33,6 +34,8 @@ const FriendsModal = (props: IFriendsModalProps) => {
       ))}
     </div>
   )
-}
+})
+
+FriendsModal.displayName = 'FriendsModal'
 
 export { FriendsModal }

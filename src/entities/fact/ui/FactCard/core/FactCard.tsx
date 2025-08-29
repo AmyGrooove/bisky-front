@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { cn, isNil } from '@shared/utils/functions'
 import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Text } from '@shared/ui/atoms/Text'
@@ -11,8 +12,9 @@ import { IFactCardProps } from '../types/IFactCardProps'
 import st from './FactCard.module.scss'
 import { useFactCard } from './useFactCard'
 
-const FactCard = (props: IFactCardProps) => {
-  const { text, source, author, className, variant } = useFactCard(props)
+const FactCard = memo((props: IFactCardProps) => {
+  const { text, source, author, className, variant, authorBadgeVariant } =
+    useFactCard(props)
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
@@ -39,15 +41,14 @@ const FactCard = (props: IFactCardProps) => {
             </Link>
           )}
           {!isNil(author) && (
-            <AuthorBadge
-              userData={author}
-              variant={variant === 'big' ? 'medium' : 'small'}
-            />
+            <AuthorBadge userData={author} variant={authorBadgeVariant} />
           )}
         </div>
       </div>
     </div>
   )
-}
+})
+
+FactCard.displayName = 'FactCard'
 
 export { FactCard }
