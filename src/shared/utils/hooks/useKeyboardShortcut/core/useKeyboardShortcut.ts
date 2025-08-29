@@ -1,12 +1,15 @@
-import { useEffect } from 'react'
-import { useDebounce } from 'use-debounce'
+import { useEffect, useMemo } from 'react'
+import { Debouncer } from '@tanstack/pacer'
 
 import { IUseKeyboardShortcutProps } from '../types/IUseKeyboardShortcutProps'
 
 const useKeyboardShortcut = (props: IUseKeyboardShortcutProps) => {
   const { keys, callback, modifiers } = props
 
-  const [debouncedCallback] = useDebounce(callback, 500)
+  const debouncer = useMemo(
+    () => new Debouncer(callback, { wait: 500 }),
+    [callback],
+  )
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -16,15 +19,16 @@ const useKeyboardShortcut = (props: IUseKeyboardShortcutProps) => {
 
       if (areModifiersPressed && isKeyPressed) {
         event.preventDefault()
-        debouncedCallback()
+        debouncer.maybeExecute()
       }
     }
 
     document.addEventListener('keydown', handleKeyDown)
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
+      debouncer.cancel()
     }
-  }, [keys, modifiers, debouncedCallback])
+  }, [keys, modifiers, debouncer])
 }
 
 export { useKeyboardShortcut }

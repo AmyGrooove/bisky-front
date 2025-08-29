@@ -15,13 +15,14 @@ const useCarouselRow = (props: ICarouselRowProps) => {
   } = link ?? {}
 
   const slidesData = useMemo(() => {
-    const extra = !isNil(watchAllType) && !isWatchListDisabled
-      ? [
-          <Link key="watch-all" href={href}>
-            <WatchAllCard type={watchAllType} label={linkLabel} />
-          </Link>,
-        ]
-      : []
+    const extra =
+      !isNil(watchAllType) && !isWatchListDisabled
+        ? [
+            <Link key="watch-all" href={href}>
+              <WatchAllCard type={watchAllType} label={linkLabel} />
+            </Link>,
+          ]
+        : []
 
     return [...carouselProps.slidesData, ...extra]
   }, [

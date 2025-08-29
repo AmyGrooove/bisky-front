@@ -1,8 +1,8 @@
 import { Label } from '@shared/ui/molecules/Label'
 import { cn, isNil } from '@shared/utils/functions'
 import { Carousel } from '@shared/ui/molecules/Carousel'
-
 import { forwardRef, memo } from 'react'
+
 import { ICarouselRowProps } from '../types/ICarouselRowProps'
 
 import st from './CarouselRow.module.scss'
