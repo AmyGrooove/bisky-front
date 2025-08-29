@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useSession } from '@entities/auth/hooks/useSession'
 
@@ -11,15 +12,21 @@ const useBar = () => {
   const pathname = usePathname()
   const { push } = useRouter()
 
-  const mainLinksConverted = barLinks(nickname).map((link) => {
-    const isSelected = pathname.includes(link.href)
+  const links = useMemo(() => barLinks(nickname), [nickname])
 
-    return {
-      ...link,
-      onClick: () => (isSelected ? {} : push(link.href)),
-      isSelected,
-    }
-  })
+  const mainLinksConverted = useMemo(
+    () =>
+      links.map((link) => {
+        const isSelected = pathname.includes(link.href)
+
+        const onClick = () => {
+          if (!isSelected) push(link.href)
+        }
+
+        return { ...link, onClick, isSelected }
+      }),
+    [links, pathname, push],
+  )
 
   return { mainLinksConverted }
 }

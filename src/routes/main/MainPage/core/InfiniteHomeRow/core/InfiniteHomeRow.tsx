@@ -6,6 +6,7 @@ import { Fragment } from 'react'
 import { AnimeCardCarousel } from '@entities/anime/ui/AnimeCardCarousel'
 import { FactCard } from '@entities/fact/ui/FactCard'
 import { HomeTip } from '@entities/home/ui/HomeTip'
+import { ErrorBlock } from '@entities/home/ui/ErrorBlock'
 
 import { IInfiniteHomeRowProps } from '../types/IInfiniteHomeRowProps'
 
@@ -13,7 +14,7 @@ import st from './InfiniteHomeRow.module.scss'
 import { useInfiniteHomeRow } from './useInfiniteHomeRow'
 
 const InfiniteHomeRow = (props: IInfiniteHomeRowProps) => {
-  const { data, loadingRef, isEnd, variant } = useInfiniteHomeRow(props)
+  const { data, loadingRef, isEnd, variant, error } = useInfiniteHomeRow(props)
 
   return (
     <>
@@ -54,6 +55,7 @@ const InfiniteHomeRow = (props: IInfiniteHomeRowProps) => {
           </div>
         </div>
       )}
+      <ErrorBlock error={error} />
     </>
   )
 }

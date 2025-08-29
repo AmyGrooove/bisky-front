@@ -1,6 +1,7 @@
 import { Text } from '@shared/ui/atoms/Text'
 import { FloatingPortal } from '@floating-ui/react'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import { IToolsMenuProps } from '../types/IToolsMenuProps'
 import { TOOLS } from '../static/TOOLS'
@@ -8,7 +9,7 @@ import { TOOLS } from '../static/TOOLS'
 import { useToolsMenu } from './useToolsMenu'
 import st from './ToolsMenu.module.scss'
 
-const ToolsMenu = (props: IToolsMenuProps) => {
+const ToolsMenu = memo((props: IToolsMenuProps) => {
   const {
     children,
     refs,
@@ -48,6 +49,8 @@ const ToolsMenu = (props: IToolsMenuProps) => {
       )}
     </>
   )
-}
+})
+
+ToolsMenu.displayName = 'ToolsMenu'
 
 export { ToolsMenu }

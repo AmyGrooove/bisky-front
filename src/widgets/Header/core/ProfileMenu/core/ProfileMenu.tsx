@@ -6,11 +6,12 @@ import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { FloatingPortal } from '@floating-ui/react'
 import { Divider } from '@shared/ui/atoms/Divider'
+import { memo } from 'react'
 
 import st from './ProfileMenu.module.scss'
 import { useProfileMenu } from './useProfileMenu'
 
-const ProfileMenu = () => {
+const ProfileMenu = memo(() => {
   const {
     avatar,
     getReferenceProps,
@@ -75,6 +76,8 @@ const ProfileMenu = () => {
       )}
     </>
   )
-}
+})
+
+ProfileMenu.displayName = 'ProfileMenu'
 
 export { ProfileMenu }

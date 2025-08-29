@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { memo } from 'react'
 import { Text } from '@shared/ui/atoms/Text'
 import { LogoIcon } from '@shared/icons'
 import { Divider } from '@shared/ui/atoms/Divider'
@@ -10,7 +11,7 @@ import { SOCIAL_LINKS } from '../static/SOCIAL_LINKS'
 
 import st from './Footer.module.scss'
 
-const Footer = () => {
+const Footer = memo(() => {
   return (
     <div className={st.root}>
       <div className={st.leftSide}>
@@ -57,6 +58,8 @@ const Footer = () => {
       </div>
     </div>
   )
-}
+})
+
+Footer.displayName = 'Footer'
 
 export { Footer }

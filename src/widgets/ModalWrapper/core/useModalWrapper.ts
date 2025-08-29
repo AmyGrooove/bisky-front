@@ -4,13 +4,12 @@ import { $modal } from '../store/modalStore'
 import { $additionalModal } from '../store/additionalModalStore'
 
 const useModalWrapper = () => {
-  const modal = useUnit($modal)
-  const additionalModal = useUnit($additionalModal)
+  const { modal, additionalModal } = useUnit({
+    modal: $modal,
+    additionalModal: $additionalModal,
+  })
 
-  return {
-    modal,
-    additionalModal,
-  }
+  return { modal, additionalModal }
 }
 
 export { useModalWrapper }

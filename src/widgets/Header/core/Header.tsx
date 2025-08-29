@@ -5,6 +5,7 @@ import { Text } from '@shared/ui/atoms/Text'
 import { LogoIcon } from '@shared/icons'
 import { PageLink } from '@shared/ui/molecules/PageLink'
 import { NotificationButton } from '@entities/notification/ui/NotificationButton'
+import { memo } from 'react'
 
 import { useHeader } from './useHeader'
 import st from './Header.module.scss'
@@ -12,7 +13,7 @@ import { ToolsMenu } from './ToolsMenu'
 import { ProfileMenu } from './ProfileMenu'
 import { SearchButton } from './SearchButton'
 
-const Header = () => {
+const Header = memo(() => {
   const { mainLinksConverted, setIsToolsOpened } = useHeader()
 
   return (
@@ -56,6 +57,8 @@ const Header = () => {
       </div>
     </div>
   )
-}
+})
+
+Header.displayName = 'Header'
 
 export { Header }

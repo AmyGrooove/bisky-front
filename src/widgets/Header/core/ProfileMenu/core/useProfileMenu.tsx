@@ -13,6 +13,7 @@ import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 import { successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
 import { useSession } from '@entities/auth/hooks/useSession'
+import { useCallback, useMemo } from 'react'
 
 import { profileMenuLinks } from '../static/profileMenuLinks'
 
@@ -23,9 +24,12 @@ const useProfileMenu = () => {
 
   const { isOpen, toggle } = useTransitionClose()
 
-  const checkAndToggle = (isOpen: boolean) => {
-    toggle(isOpen)
-  }
+  const checkAndToggle = useCallback(
+    (isOpen: boolean) => {
+      toggle(isOpen)
+    },
+    [toggle],
+  )
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
@@ -48,12 +52,12 @@ const useProfileMenu = () => {
     close: { opacity: 0 },
   })
 
-  const links = profileMenuLinks(nickname)
+  const links = useMemo(() => profileMenuLinks(nickname), [nickname])
 
-  const copyUsername = async () => {
+  const copyUsername = useCallback(async () => {
     await navigator.clipboard.writeText(nickname)
     successToast({ Icon: UserIcon, message: 'Никнейм скопирован' })
-  }
+  }, [nickname])
 
   return {
     avatar,

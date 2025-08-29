@@ -1,11 +1,12 @@
 'use client'
 
+import { memo } from 'react'
 import { HoverIcon } from '@shared/ui/atoms/HoverIcon'
 
 import { useBar } from './useBar'
 import st from './Bar.module.scss'
 
-const Bar = () => {
+const Bar = memo(() => {
   const { mainLinksConverted } = useBar()
 
   return (
@@ -20,6 +21,8 @@ const Bar = () => {
       ))}
     </div>
   )
-}
+})
+
+Bar.displayName = 'Bar'
 
 export { Bar }

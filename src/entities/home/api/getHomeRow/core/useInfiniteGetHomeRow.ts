@@ -3,7 +3,7 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { getHomeRow } from './getHomeRow'
 
 const useInfiniteGetHomeRow = () => {
-  const { data, fetchNextPage, isFetching, isFetchingNextPage } =
+  const { data, fetchNextPage, isFetching, isFetchingNextPage, error } =
     useInfiniteQuery({
       initialPageParam: 1,
       queryKey: ['home', 'row', 'infinite'],
@@ -26,6 +26,7 @@ const useInfiniteGetHomeRow = () => {
     isPending: isFetching,
     isFetchingNextPage,
     isEnd,
+    error,
   }
 }
 

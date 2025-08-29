@@ -1,11 +1,12 @@
 import { SearchIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import st from './SearchButton.module.scss'
 import { useSearchButton } from './useSearchButton'
 
-const SearchButton = () => {
+const SearchButton = memo(() => {
   const { searchLink } = useSearchButton()
 
   return (
@@ -19,6 +20,8 @@ const SearchButton = () => {
       </Text>
     </Link>
   )
-}
+})
+
+SearchButton.displayName = 'SearchButton'
 
 export { SearchButton }
