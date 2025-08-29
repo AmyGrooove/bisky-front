@@ -33,6 +33,4 @@ const SectionLabel = forwardRef<HTMLDivElement, ISectionLabelProps>(
   },
 )
 
-SectionLabel.displayName = 'SectionLabel'
-
 export { SectionLabel }

@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { cn, isNil } from '@shared/utils/functions'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'
@@ -5,7 +7,7 @@ import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 import { useMobileModal } from './useMobileModal'
 import st from './MobileModal.module.scss'
 
-const MobileModal = (props: IModalSolutionProps) => {
+const MobileModal = memo((props: IModalSolutionProps) => {
   const {
     children,
     closeFunction,
@@ -39,6 +41,8 @@ const MobileModal = (props: IModalSolutionProps) => {
       </div>
     </div>
   )
-}
+})
+
+MobileModal.displayName = 'MobileModal'
 
 export { MobileModal }

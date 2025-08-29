@@ -82,6 +82,4 @@ const HintMenu = forwardRef<IHintMenuRef, IHintMenuProps>((props, ref) => {
   )
 })
 
-HintMenu.displayName = 'HintMenu'
-
 export { HintMenu }

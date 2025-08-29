@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { CrossIcon } from '@shared/icons'
 import { cn, isNil } from '@shared/utils/functions'
 
@@ -6,7 +8,7 @@ import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 import st from './DesktopModal.module.scss'
 import { useDesktopModal } from './useDesktopModal'
 
-const DesktopModal = (props: IModalSolutionProps) => {
+const DesktopModal = memo((props: IModalSolutionProps) => {
   const { children, closeFunction, isModalClosing, modalID } =
     useDesktopModal(props)
 
@@ -26,6 +28,8 @@ const DesktopModal = (props: IModalSolutionProps) => {
       </div>
     </div>
   )
-}
+})
+
+DesktopModal.displayName = 'DesktopModal'
 
 export { DesktopModal }

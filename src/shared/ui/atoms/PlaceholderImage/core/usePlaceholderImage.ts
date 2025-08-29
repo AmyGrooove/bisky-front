@@ -1,4 +1,10 @@
-import { useEffect, useState, type TransitionEvent } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type TransitionEvent,
+} from 'react'
 
 import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
 
@@ -8,17 +14,25 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isPlaceholderHidden, setIsPlaceholderHidden] = useState(false)
 
-  const handleLoad = () => {
+  const handleLoad = useCallback(() => {
     setIsLoaded(true)
-  }
+  }, [])
 
-  const handleError = () => {
+  const handleError = useCallback(() => {
     setIsLoaded(false)
-  }
+  }, [])
 
-  const handleTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
-    if (event.propertyName === 'opacity') setIsPlaceholderHidden(true)
-  }
+  const handleTransitionEnd = useCallback(
+    (event: TransitionEvent<HTMLDivElement>) => {
+      if (event.propertyName === 'opacity') setIsPlaceholderHidden(true)
+    },
+    [],
+  )
+
+  const sizesAttr = useMemo(
+    () => `(max-width: 1024px) ${sizes[1]}px, ${sizes[0]}px`,
+    [sizes[0], sizes[1]],
+  )
 
   useEffect(() => {
     setIsLoaded(false)
@@ -34,7 +48,7 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
     handleLoad,
     handleError,
     handleTransitionEnd,
-    sizes,
+    sizesAttr,
   }
 }
 

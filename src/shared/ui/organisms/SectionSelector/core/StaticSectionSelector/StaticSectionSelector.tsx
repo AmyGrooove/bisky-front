@@ -40,6 +40,4 @@ const StaticSectionSelector = forwardRef(
   StaticSectionSelectorInner,
 ) as TSectionSelectorChildrenComponent
 
-StaticSectionSelector.displayName = 'StaticSectionSelector'
-
 export { StaticSectionSelector }

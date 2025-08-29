@@ -1,3 +1,5 @@
+import { useCallback, useMemo } from 'react'
+
 import { IToggleFiltersProps } from '../types/IToggleFiltersProps'
 
 const useToggleFilters = <T extends string>(props: IToggleFiltersProps<T>) => {
@@ -9,17 +11,26 @@ const useToggleFilters = <T extends string>(props: IToggleFiltersProps<T>) => {
     className,
   } = props
 
-  const activeToggleFiltersSet = new Set(activeToggleFilters)
+  const activeToggleFiltersSet = useMemo(
+    () => new Set(activeToggleFilters),
+    [activeToggleFilters],
+  )
 
-  const isActive = (value: T) => activeToggleFiltersSet.has(value)
+  const isActive = useCallback(
+    (value: T) => activeToggleFiltersSet.has(value),
+    [activeToggleFiltersSet],
+  )
 
-  const toggle = (value: T) => {
-    const newActiveToggleFilters = isActive(value)
-      ? activeToggleFilters.filter((item) => item !== value)
-      : [...activeToggleFilters, value]
+  const toggle = useCallback(
+    (value: T) => {
+      const newActiveToggleFilters = isActive(value)
+        ? activeToggleFilters.filter((item) => item !== value)
+        : [...activeToggleFilters, value]
 
-    onChangeItems(newActiveToggleFilters)
-  }
+      onChangeItems(newActiveToggleFilters)
+    },
+    [activeToggleFilters, isActive, onChangeItems],
+  )
 
   return { toggle, items, variant, className, isActive }
 }

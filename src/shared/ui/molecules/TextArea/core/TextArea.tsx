@@ -44,6 +44,4 @@ const TextArea = forwardRef<HTMLTextAreaElement, ITextAreaProps>(
   },
 )
 
-TextArea.displayName = 'TextArea'
-
 export { TextArea }

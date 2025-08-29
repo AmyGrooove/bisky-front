@@ -39,6 +39,4 @@ const SectionSelectorInner = <T extends string>(
 
 const SectionSelector = forwardRef(SectionSelectorInner)
 
-SectionSelector.displayName = 'SectionSelector'
-
 export { SectionSelector }

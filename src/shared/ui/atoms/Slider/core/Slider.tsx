@@ -1,4 +1,4 @@
-import { ComponentRef, forwardRef } from 'react'
+import { ComponentRef, forwardRef, memo } from 'react'
 import { Root, Track, Range, Thumb } from '@radix-ui/react-slider'
 import { cn } from '@shared/utils/functions'
 
@@ -7,8 +7,8 @@ import { TSliderProps } from '../types/TSliderProps'
 import { useSlider } from './useSlider'
 import st from './Slider.module.scss'
 
-const Slider = forwardRef<ComponentRef<typeof Root>, TSliderProps>(
-  (props, ref) => {
+const Slider = memo(
+  forwardRef<ComponentRef<typeof Root>, TSliderProps>((props, ref) => {
     const {
       flatValue,
       min,
@@ -40,7 +40,9 @@ const Slider = forwardRef<ComponentRef<typeof Root>, TSliderProps>(
         ))}
       </Root>
     )
-  },
+  }),
 )
+
+Slider.displayName = 'Slider'
 
 export { Slider }

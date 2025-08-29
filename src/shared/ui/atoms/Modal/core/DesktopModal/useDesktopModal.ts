@@ -1,12 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 
 const useDesktopModal = (props: IModalSolutionProps) => {
   const { children, closeFunction, isModalClosing } = props
 
-  const isOpen = children !== null
-  const modalID = isOpen ? 'modal' : undefined
+  const isOpen = useMemo(() => children !== null, [children])
+  const modalID = useMemo(() => (isOpen ? 'modal' : undefined), [isOpen])
 
   useEffect(() => {
     const hasModal = document.getElementById('modal') !== null

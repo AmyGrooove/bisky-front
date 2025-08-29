@@ -44,6 +44,4 @@ const BigButton = forwardRef<HTMLButtonElement, IBigButtonProps>(
   },
 )
 
-BigButton.displayName = 'BigButton'
-
 export { BigButton }

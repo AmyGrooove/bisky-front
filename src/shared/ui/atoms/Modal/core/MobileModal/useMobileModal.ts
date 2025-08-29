@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 import { useSwipeToClose } from '../../hooks/useSwipeToClose'
@@ -9,8 +9,8 @@ const useMobileModal = (props: IModalSolutionProps) => {
   const modalRef = useRef<HTMLDivElement | null>(null)
   const [modalHeight, setModalHeight] = useState(1000)
 
-  const isOpen = children !== null
-  const modalID = isOpen ? 'modal' : undefined
+  const isOpen = useMemo(() => children !== null, [children])
+  const modalID = useMemo(() => (isOpen ? 'modal' : undefined), [isOpen])
 
   const {
     isDragging,
@@ -20,16 +20,19 @@ const useMobileModal = (props: IModalSolutionProps) => {
     handleTouchEnd,
   } = useSwipeToClose({ closeFunction, isOpen })
 
-  const modalDragStyle = isModalClosing
-    ? {
-        '--modal-height': `${modalHeight}px`,
-        '--start-offset': `${offsetY}px`,
+  const modalDragStyle = useMemo<CSSProperties>(() => {
+    if (isModalClosing)
+      return {
+        ['--modal-height' as any]: `${modalHeight}px`,
+        ['--start-offset' as any]: `${offsetY}px`,
       }
-    : {
-        '--modal-height': `${modalHeight}px`,
-        transform: `translateY(${offsetY}px)`,
-        transition: !isDragging ? 'transform 0.2s ease-out' : 'none',
-      }
+
+    return {
+      ['--modal-height' as any]: `${modalHeight}px`,
+      transform: `translateY(${offsetY}px)`,
+      transition: !isDragging ? 'transform 0.2s ease-out' : 'none',
+    }
+  }, [isModalClosing, modalHeight, offsetY, isDragging])
 
   useEffect(() => {
     if (modalRef.current) setModalHeight(modalRef.current.offsetHeight)

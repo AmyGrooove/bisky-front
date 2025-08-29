@@ -1,13 +1,16 @@
+import { memo } from 'react'
+
 import { IModalProps } from '../types/IModalProps'
 
 import { DesktopModal } from './DesktopModal/DesktopModal'
 import { MobileModal } from './MobileModal/MobileModal'
 import { useModal } from './useModal'
+import { isNil } from '@shared/utils/functions'
 
-const Modal = (props: IModalProps) => {
+const Modal = memo((props: IModalProps) => {
   const { isPressed, closeFunction, children } = useModal(props)
 
-  if (!children) return null
+  if (isNil(children)) return null
 
   return (
     <>
@@ -19,6 +22,8 @@ const Modal = (props: IModalProps) => {
       </MobileModal>
     </>
   )
-}
+})
+
+Modal.displayName = 'Modal'
 
 export { Modal }

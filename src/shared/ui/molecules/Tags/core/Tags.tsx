@@ -33,6 +33,4 @@ const TagsInner = <T extends string>(
 
 const Tags = forwardRef(TagsInner) as TTagsComponent
 
-Tags.displayName = 'Tags'
-
 export { Tags }

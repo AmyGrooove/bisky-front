@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+
 import { ISwitchProps } from '../types/ISwitchProps'
 
 const useSwitch = (props: ISwitchProps) => {
@@ -9,9 +11,9 @@ const useSwitch = (props: ISwitchProps) => {
     className,
   } = props
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     onChange(!value)
-  }
+  }, [onChange, value])
 
   return { variant, className, value, isDisabled, toggle }
 }

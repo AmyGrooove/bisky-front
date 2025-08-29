@@ -58,6 +58,4 @@ const DynamicSectionSelector = forwardRef(
   DynamicSectionSelectorInner,
 ) as TSectionSelectorChildrenComponent
 
-DynamicSectionSelector.displayName = 'DynamicSectionSelector'
-
 export { DynamicSectionSelector }

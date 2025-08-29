@@ -27,6 +27,4 @@ const Badge = forwardRef<HTMLDivElement, TBadgeProps>((props, ref) => {
   )
 })
 
-Badge.displayName = 'Badge'
-
 export { Badge }

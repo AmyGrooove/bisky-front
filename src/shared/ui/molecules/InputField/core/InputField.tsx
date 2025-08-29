@@ -53,6 +53,4 @@ const InputField = forwardRef<HTMLInputElement, IInputFieldProps>(
   },
 )
 
-InputField.displayName = 'InputField'
-
 export { InputField }

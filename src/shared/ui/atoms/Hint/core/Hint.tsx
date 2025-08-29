@@ -1,6 +1,6 @@
 'use client'
 
-import { Text } from '@shared/ui/atoms/Text'
+import { memo } from 'react'
 import { cn, isNil } from '@shared/utils/functions'
 import { FloatingPortal } from '@floating-ui/react'
 
@@ -9,18 +9,18 @@ import { IHintProps } from '../types/IHintProps'
 import { useHint } from './useHint'
 import st from './Hint.module.scss'
 
-const Hint = (props: IHintProps) => {
+const Hint = memo((props: IHintProps) => {
   const {
     children,
     hintChildren,
     refs,
-    transitionStyles,
-    floatingStyles,
     getReferenceProps,
     getFloatingProps,
     className,
     isMounted,
     hintChildrenClassName,
+    hintContent,
+    mergedStyles,
   } = useHint(props)
 
   return (
@@ -37,20 +37,17 @@ const Hint = (props: IHintProps) => {
           <div
             {...getFloatingProps()}
             ref={refs.setFloating}
-            style={{ ...floatingStyles, ...transitionStyles }}
+            style={mergedStyles}
             className={cn(st.hintWrapper, hintChildrenClassName)}
           >
-            {typeof hintChildren === 'string' ||
-            typeof hintChildren === 'number' ? (
-              <Text>{hintChildren}</Text>
-            ) : (
-              hintChildren
-            )}
+            {hintContent}
           </div>
         </FloatingPortal>
       )}
     </>
   )
-}
+})
+
+Hint.displayName = 'Hint'
 
 export { Hint }

@@ -31,6 +31,4 @@ const WatchAllCard = forwardRef<HTMLButtonElement, IWatchAllCardProps>(
   },
 )
 
-WatchAllCard.displayName = 'WatchAllCard'
-
 export { WatchAllCard }

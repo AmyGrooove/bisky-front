@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 import { cn } from '@shared/utils/functions'
 import { LogoIcon } from '@shared/icons'
 
@@ -10,8 +10,8 @@ import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
 import { usePlaceholderImage } from './usePlaceholderImage'
 import st from './PlaceholderImage.module.scss'
 
-const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
-  (props, ref) => {
+const PlaceholderImage = memo(
+  forwardRef<HTMLDivElement, IPlaceholderImageProps>((props, ref) => {
     const {
       className,
       isPlaceholderHidden,
@@ -21,7 +21,7 @@ const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
       handleLoad,
       handleError,
       handleTransitionEnd,
-      sizes,
+      sizesAttr,
     } = usePlaceholderImage(props)
 
     return (
@@ -43,12 +43,12 @@ const PlaceholderImage = forwardRef<HTMLDivElement, IPlaceholderImageProps>(
             onError={handleError}
             loading="lazy"
             fill
-            sizes={`(max-width: 1024px) ${sizes[1]}px, ${sizes[0]}px`}
+            sizes={sizesAttr}
           />
         ) : null}
       </div>
     )
-  },
+  }),
 )
 
 PlaceholderImage.displayName = 'PlaceholderImage'

@@ -1,15 +1,20 @@
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 import { Root, Track, Thumb, Range } from '@radix-ui/react-slider'
-import { cn, getEmptyArray } from '@shared/utils/functions'
+import { cn } from '@shared/utils/functions'
 import { StarIcon } from '@shared/icons'
 
 import { IStarSliderProps } from '../types/IStarSliderProps'
 
 import st from './StarSlider.module.scss'
 import { useStarSlider } from './useStarSlider'
+import { MAX } from '../static/max'
+import { MIN } from '../static/min'
+import { MIN_STEPS_BETWEEN_THUMBS } from '../static/MIN_STEPS_BETWEEN_THUMBS'
+import { STARS } from '../static/stars'
+import { STEP } from '../static/step'
 
-const StarSlider = forwardRef<HTMLDivElement, IStarSliderProps>(
-  (props, ref) => {
+const StarSlider = memo(
+  forwardRef<HTMLDivElement, IStarSliderProps>((props, ref) => {
     const { value, handleChange, isDisabled, className, variant } =
       useStarSlider(props)
 
@@ -18,15 +23,15 @@ const StarSlider = forwardRef<HTMLDivElement, IStarSliderProps>(
         ref={ref}
         onValueChange={handleChange}
         value={[value]}
-        min={1}
-        max={10}
-        step={1}
+        min={MIN}
+        max={MAX}
+        step={STEP}
         disabled={isDisabled}
-        minStepsBetweenThumbs={1}
+        minStepsBetweenThumbs={MIN_STEPS_BETWEEN_THUMBS}
         className={cn(st.root, className, st[`root_${variant}`])}
       >
         <div className={st.starWrapper}>
-          {getEmptyArray(10).map((_, index) => (
+          {STARS.map((_, index) => (
             <StarIcon
               key={index}
               className={cn(st.icon, {
@@ -41,7 +46,7 @@ const StarSlider = forwardRef<HTMLDivElement, IStarSliderProps>(
         <Thumb className={st.thumb} />
       </Root>
     )
-  },
+  }),
 )
 
 StarSlider.displayName = 'StarSlider'

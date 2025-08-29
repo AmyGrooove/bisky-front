@@ -1,4 +1,4 @@
-import { isMulti } from '../functions/isMulti'
+import { useCallback, useMemo } from 'react'
 import { TSliderProps } from '../types/TSliderProps'
 
 const useSlider = (props: TSliderProps) => {
@@ -10,17 +10,26 @@ const useSlider = (props: TSliderProps) => {
     isDisabled = false,
     className,
     minStepsBetweenThumbs = 1,
+    onChange,
   } = props
 
-  const flatValue = [value].flat()
+  const isMultiValue = Array.isArray(value)
 
-  const handleChange = (newValue: number[]) => {
-    if (isMulti(props)) {
-      props.onChange([newValue[0] ?? min, newValue[1] ?? max])
-    } else {
-      props.onChange(newValue[0])
-    }
-  }
+  const flatValue = useMemo(() => [value].flat(), [value])
+
+  const handleChange = useCallback(
+    (newValue: number[]) => {
+      if (isMultiValue) {
+        ;(onChange as (value: [number, number]) => void)([
+          newValue[0] ?? min,
+          newValue[1] ?? max,
+        ])
+      } else {
+        ;(onChange as (value: number) => void)(newValue[0] ?? min)
+      }
+    },
+    [isMultiValue, onChange, min, max],
+  )
 
   return {
     flatValue,

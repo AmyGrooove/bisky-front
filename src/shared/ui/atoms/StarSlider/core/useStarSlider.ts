@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { IStarSliderProps } from '../types/IStarSliderProps'
 
 const useStarSlider = (props: IStarSliderProps) => {
@@ -9,9 +10,12 @@ const useStarSlider = (props: IStarSliderProps) => {
     variant = 'big',
   } = props
 
-  const handleChange = (newValue: number[]) => {
-    onChange(newValue[0])
-  }
+  const handleChange = useCallback(
+    (newValue: number[]) => {
+      onChange(newValue[0])
+    },
+    [onChange],
+  )
 
   return { value, handleChange, isDisabled, className, variant }
 }

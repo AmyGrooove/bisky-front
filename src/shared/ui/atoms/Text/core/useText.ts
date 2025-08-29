@@ -20,6 +20,7 @@ const useText = (props: ITextProps) => {
         overflow: 'hidden',
       }
     : style
+
   let content = children
   if (
     typeof children === 'string' &&

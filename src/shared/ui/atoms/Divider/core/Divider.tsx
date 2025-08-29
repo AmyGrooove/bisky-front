@@ -4,15 +4,20 @@ import { IDividerProps } from '../types/IDividerProps'
 
 import { useDivider } from './useDivider'
 import st from './Divider.module.scss'
+import { forwardRef, memo } from 'react'
 
-const Divider = (props: IDividerProps) => {
-  const { variant, className } = useDivider(props)
+const Divider = memo(
+  forwardRef<HTMLDivElement, IDividerProps>((props, ref) => {
+    const { variant, className } = useDivider(props)
 
-  return (
-    <div className={cn(st.root, st[`root_${variant}`], className)}>
-      <div className={st.divider} />
-    </div>
-  )
-}
+    return (
+      <div ref={ref} className={cn(st.root, st[`root_${variant}`], className)}>
+        <div className={st.divider} />
+      </div>
+    )
+  }),
+)
+
+Divider.displayName = 'Divider'
 
 export { Divider }

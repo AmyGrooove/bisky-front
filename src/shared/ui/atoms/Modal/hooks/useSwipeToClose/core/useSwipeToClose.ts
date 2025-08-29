@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 
 import { IUseSwipeToClose } from '../types/IUseSwipeToClose'
 
@@ -8,29 +8,50 @@ const useSwipeToClose = (props: IUseSwipeToClose) => {
   const [offsetY, setOffsetY] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
   const startYRef = useRef(0)
+  const offsetYRef = useRef(0)
+  const isDraggingRef = useRef(false)
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    startYRef.current = e.touches[0].clientY
-    setIsDragging(true)
-  }
+  const handleTouchStart = useCallback(
+    (event: React.TouchEvent<HTMLDivElement>) => {
+      startYRef.current = event.touches[0].clientY
+      isDraggingRef.current = true
+      setIsDragging(true)
+    },
+    [],
+  )
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!isDragging) return
-    const currentY = e.touches[0].clientY
-    const deltaY = currentY - startYRef.current
-    setOffsetY(deltaY)
-  }
+  const handleTouchMove = useCallback(
+    (event: React.TouchEvent<HTMLDivElement>) => {
+      if (!isDraggingRef.current) return
+      const currentY = event.touches[0].clientY
+      const deltaY = currentY - startYRef.current
+      offsetYRef.current = deltaY
+      setOffsetY(deltaY)
+    },
+    [],
+  )
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = useCallback(() => {
+    isDraggingRef.current = false
     setIsDragging(false)
 
-    if (offsetY > threshold) closeFunction()
-    else setOffsetY(0)
-  }
+    if (offsetYRef.current > threshold) closeFunction()
+    else {
+      offsetYRef.current = 0
+      setOffsetY(0)
+    }
+  }, [threshold, closeFunction])
 
   useEffect(() => {
-    if (isOpen) setOffsetY(0)
+    if (isOpen) {
+      offsetYRef.current = 0
+      setOffsetY(0)
+    }
   }, [isOpen])
+
+  useEffect(() => {
+    offsetYRef.current = offsetY
+  }, [offsetY])
 
   return {
     offsetY,

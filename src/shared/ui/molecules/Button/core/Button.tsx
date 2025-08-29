@@ -29,6 +29,4 @@ const Button = forwardRef<HTMLButtonElement, TButtonProps>((props, ref) => {
   )
 })
 
-Button.displayName = 'Button'
-
 export { Button }
