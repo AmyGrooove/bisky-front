@@ -1,7 +1,7 @@
 import { cn, getEmptyArray } from '@shared/utils/functions'
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { Button } from '@shared/ui/molecules/Button'
-import { forwardRef, ForwardedRef } from 'react'
+import { forwardRef, ForwardedRef, memo } from 'react'
 
 import {
   ISectionSelectorChildrenProps,
@@ -11,51 +11,51 @@ import {
 import st from './DynamicSectionSelector.module.scss'
 import { useDynamicSectionSelector } from './useDynamicSectionSelector'
 
-const DynamicSectionSelectorInner = <T extends string>(
-  props: ISectionSelectorChildrenProps<T>,
-  ref: ForwardedRef<HTMLDivElement>,
-) => {
-  const {
-    items,
-    isSliderLoading,
-    mergedRef,
-    onSwitchTab,
-    activeTab,
-    className,
-  } = useDynamicSectionSelector(props, ref)
+const DynamicSectionSelector = memo(
+  forwardRef(function ToggleFiltersInner<T extends string>(
+    props: ISectionSelectorChildrenProps<T>,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) {
+    const {
+      items,
+      isSliderLoading,
+      mergedRef,
+      onSwitchTab,
+      activeTab,
+      className,
+    } = useDynamicSectionSelector(props, ref)
 
-  if (isSliderLoading)
+    if (isSliderLoading)
+      return (
+        <div className={cn(st.skeleton, className)}>
+          {getEmptyArray(items.length).map((_, index) => (
+            <Skeleton key={index} className={st.skeletonItem} />
+          ))}
+        </div>
+      )
+
     return (
-      <div className={cn(st.skeleton, className)}>
-        {getEmptyArray(items.length).map((_, index) => (
-          <Skeleton key={index} className={st.skeletonItem} />
-        ))}
+      <div ref={mergedRef} className={cn(st.root, className)}>
+        <div className={st.slider}>
+          {items.map((item) => (
+            <Button
+              key={item.value}
+              variant="big"
+              className={cn(st.slide, {
+                [st.slide_active]: activeTab === item.value,
+              })}
+              onClick={() => onSwitchTab(item.value)}
+            >
+              {item.children}
+            </Button>
+          ))}
+          <div className={st.slideEmpty} />
+        </div>
       </div>
     )
-
-  return (
-    <div ref={mergedRef} className={cn(st.root, className)}>
-      <div className={st.slider}>
-        {items.map((item) => (
-          <Button
-            key={item.value}
-            variant="big"
-            className={cn(st.slide, {
-              [st.slide_active]: activeTab === item.value,
-            })}
-            onClick={() => onSwitchTab(item.value)}
-          >
-            {item.children}
-          </Button>
-        ))}
-        <div className={st.slideEmpty} />
-      </div>
-    </div>
-  )
-}
-
-const DynamicSectionSelector = forwardRef(
-  DynamicSectionSelectorInner,
+  }),
 ) as TSectionSelectorChildrenComponent
+
+DynamicSectionSelector.displayName = 'DynamicSectionSelector'
 
 export { DynamicSectionSelector }

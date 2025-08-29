@@ -1,5 +1,5 @@
 import useEmblaCarousel from 'embla-carousel-react'
-import { Ref, useEffect, useState } from 'react'
+import { Ref, useEffect, useMemo, useState } from 'react'
 import { mergeRefs } from '@shared/utils/functions'
 
 import { ISectionSelectorChildrenProps } from '../../types/ISectionSelectorChildrenProps'
@@ -16,7 +16,7 @@ const useDynamicSectionSelector = <T extends string>(
     dragFree: true,
   })
 
-  const mergedRef = mergeRefs(sliderRef, ref)
+  const mergedRef = useMemo(() => mergeRefs(sliderRef, ref), [sliderRef, ref])
 
   useEffect(() => {
     setIsSliderLoading(false)

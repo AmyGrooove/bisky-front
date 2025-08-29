@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { IPasswordInputFieldProps } from '../types/IPasswordInputFieldProps'
 
@@ -7,7 +7,10 @@ const usePasswordInputField = (props: IPasswordInputFieldProps) => {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
-  const toggleVisibility = () => setIsPasswordVisible((prev) => !prev)
+  const toggleVisibility = useCallback(
+    () => setIsPasswordVisible((prev) => !prev),
+    [],
+  )
 
   return { isPasswordVisible, toggleVisibility, otherProps }
 }

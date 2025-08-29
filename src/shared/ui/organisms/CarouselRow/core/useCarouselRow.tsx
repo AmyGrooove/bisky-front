@@ -1,6 +1,7 @@
 import { isNil } from '@shared/utils/functions'
 import { WatchAllCard } from '@shared/ui/molecules/WatchAllCard'
 import Link from 'next/link'
+import { useMemo } from 'react'
 
 import { ICarouselRowProps } from '../types/ICarouselRowProps'
 
@@ -13,16 +14,23 @@ const useCarouselRow = (props: ICarouselRowProps) => {
     isWatchListDisabled = false,
   } = link ?? {}
 
-  const slidesData = [
-    ...carouselProps.slidesData,
-    ...(!isNil(watchAllType) && !isWatchListDisabled
+  const slidesData = useMemo(() => {
+    const extra = !isNil(watchAllType) && !isWatchListDisabled
       ? [
-          <Link href={href}>
+          <Link key="watch-all" href={href}>
             <WatchAllCard type={watchAllType} label={linkLabel} />
           </Link>,
         ]
-      : []),
-  ]
+      : []
+
+    return [...carouselProps.slidesData, ...extra]
+  }, [
+    carouselProps.slidesData,
+    href,
+    linkLabel,
+    watchAllType,
+    isWatchListDisabled,
+  ])
 
   return {
     label,
