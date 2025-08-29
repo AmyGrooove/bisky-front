@@ -4,8 +4,8 @@ interface IFactCardProps {
   text: string
 
   variant?: 'big' | 'small'
-  sourceLink?: string
-  author?: Pick<IUserModel, 'nickname' | 'avatar' | 'slug'>
+  source?: string | null
+  author?: Pick<IUserModel, 'nickname' | 'avatar' | 'slug'> | null
   className?: string
 }
 

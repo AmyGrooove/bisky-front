@@ -1,6 +1,5 @@
 interface IPaginationMeta {
-  totalElements: number
-  totalPages: number
+  isEnd: boolean
 }
 
 export type { IPaginationMeta }

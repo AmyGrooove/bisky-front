@@ -12,7 +12,7 @@ import st from './FactCard.module.scss'
 import { useFactCard } from './useFactCard'
 
 const FactCard = (props: IFactCardProps) => {
-  const { text, sourceLink, author, className, variant } = useFactCard(props)
+  const { text, source, author, className, variant } = useFactCard(props)
 
   return (
     <div className={cn(st.root, className, st[`root_${variant}`])}>
@@ -28,9 +28,9 @@ const FactCard = (props: IFactCardProps) => {
       <div className={st.tools}>
         <ReportButton variant={variant} />
         <div className={st.sourceWrapper}>
-          {!isNil(sourceLink) && (
+          {!isNil(source) && (
             <Link
-              href={sourceLink}
+              href={source}
               target="_blank"
               className={st.sourceLinkWrapper}
             >

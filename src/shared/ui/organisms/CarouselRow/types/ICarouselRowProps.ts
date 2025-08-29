@@ -10,6 +10,7 @@ interface ICarouselRowProps {
     label: string
     href?: string
     watchAllType?: ComponentPropsWithoutRef<typeof WatchAllCard>['type']
+    isWatchListDisabled?: boolean
   }
   variant?: 'big' | 'small'
   className?: string

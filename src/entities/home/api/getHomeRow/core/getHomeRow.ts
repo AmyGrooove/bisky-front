@@ -1,7 +1,7 @@
 import { createGetFetcher } from '@shared/utils/functions'
 
-import { TGetHomeRowResponse } from '../types/TGetHomeRowResponse'
+import { IGetHomeRowResponse } from '../types/IGetHomeRowResponse'
 
-const getHomeRow = createGetFetcher<TGetHomeRowResponse>('/home/row')
+const getHomeRow = createGetFetcher<IGetHomeRowResponse>('/home/row')
 
 export { getHomeRow }

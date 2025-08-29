@@ -2,6 +2,7 @@ import { AnimeCardCarousel } from '@entities/anime/ui/AnimeCardCarousel'
 
 import { useMainPage } from './useMainPage'
 import { SeasonalCarousel } from './SeasonalCarousel/core/SeasonalCarousel'
+import { InfiniteHomeRow } from './InfiniteHomeRow'
 
 const MainPage = async () => {
   const { homeData, pageVariant } = await useMainPage()
@@ -28,6 +29,7 @@ const MainPage = async () => {
         }}
         animesData={homeData.bestAnimes}
       />
+      <InfiniteHomeRow variant={pageVariant} />
     </>
   )
 }

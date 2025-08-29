@@ -1,34 +1,32 @@
 import { useDebouncedCallback } from 'use-debounce'
 import { useInView } from 'react-intersection-observer'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 import { IUseInfiniteScrollProps } from '../types/IUseInfiniteScrollProps'
 
 const useInfiniteScroll = (props: IUseInfiniteScrollProps) => {
   const {
     onLoadMore,
-    isLoading = false,
-    isDisabled = true,
+    isDisabled = false,
     delay = 250,
+    isLoading = false,
   } = props
-
-  const callbackRef = useRef(onLoadMore)
-  callbackRef.current = onLoadMore
 
   const { ref, inView } = useInView({
     root: null,
-    rootMargin: '400px',
+    rootMargin: '200px',
     threshold: 0,
     triggerOnce: false,
   })
 
-  const debounced = useDebouncedCallback(() => callbackRef.current(), delay, {
+  const debounced = useDebouncedCallback(onLoadMore, delay, {
     maxWait: delay * 2,
   })
 
   useEffect(() => {
-    if (!isDisabled || isLoading) return
-    if (inView) debounced()
+    if (isDisabled || isLoading || !inView) return
+
+    debounced()
 
     return () => debounced.cancel()
   }, [inView, isDisabled, isLoading, debounced])

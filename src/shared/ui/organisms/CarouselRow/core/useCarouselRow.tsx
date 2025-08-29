@@ -6,11 +6,16 @@ import { ICarouselRowProps } from '../types/ICarouselRowProps'
 
 const useCarouselRow = (props: ICarouselRowProps) => {
   const { label, link, className, variant = 'big', carouselProps } = props
-  const { label: linkLabel = '', href = '#', watchAllType } = link ?? {}
+  const {
+    label: linkLabel = '',
+    href = '#',
+    watchAllType,
+    isWatchListDisabled = false,
+  } = link ?? {}
 
   const slidesData = [
     ...carouselProps.slidesData,
-    ...(!isNil(watchAllType)
+    ...(!isNil(watchAllType) && !isWatchListDisabled
       ? [
           <Link href={href}>
             <WatchAllCard type={watchAllType} label={linkLabel} />
