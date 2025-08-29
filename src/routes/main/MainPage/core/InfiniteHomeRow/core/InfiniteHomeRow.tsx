@@ -2,7 +2,7 @@
 
 import { Skeleton } from '@shared/ui/atoms/Skeleton'
 import { cn, getEmptyArray, isNil } from '@shared/utils/functions'
-import { Fragment } from 'react'
+import { Fragment, memo } from 'react'
 import { AnimeCardCarousel } from '@entities/anime/ui/AnimeCardCarousel'
 import { FactCard } from '@entities/fact/ui/FactCard'
 import { HomeTip } from '@entities/home/ui/HomeTip'
@@ -13,7 +13,7 @@ import { IInfiniteHomeRowProps } from '../types/IInfiniteHomeRowProps'
 import st from './InfiniteHomeRow.module.scss'
 import { useInfiniteHomeRow } from './useInfiniteHomeRow'
 
-const InfiniteHomeRow = (props: IInfiniteHomeRowProps) => {
+const InfiniteHomeRow = memo((props: IInfiniteHomeRowProps) => {
   const { data, loadingRef, isEnd, variant, error } = useInfiniteHomeRow(props)
 
   return (
@@ -58,6 +58,8 @@ const InfiniteHomeRow = (props: IInfiniteHomeRowProps) => {
       <ErrorBlock error={error} />
     </>
   )
-}
+})
+
+InfiniteHomeRow.displayName = 'InfiniteHomeRow'
 
 export { InfiniteHomeRow }
