@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import AutoHeight from 'embla-carousel-auto-height'
 
@@ -18,7 +18,10 @@ const useCarousel = (props: ICarouselProps) => {
   const [isCanScrollPrev, setIsCanScrollPrev] = useState(false)
   const [isCanScrollNext, setIsCanScrollNext] = useState(false)
 
-  const isDragEnabled = isCanScrollPrev || isCanScrollNext
+  const isDragEnabled = useMemo(
+    () => isCanScrollPrev || isCanScrollNext,
+    [isCanScrollPrev, isCanScrollNext],
+  )
 
   const [sliderRef, sliderApi] = useEmblaCarousel(carouselProps, [
     AutoHeight(),

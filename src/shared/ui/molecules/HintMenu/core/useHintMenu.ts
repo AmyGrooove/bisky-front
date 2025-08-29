@@ -11,7 +11,7 @@ import {
 } from '@floating-ui/react'
 import { isNil } from '@shared/utils/functions'
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useTopLoader } from 'nextjs-toploader'
 
 import { IHintMenuItem } from '../types/IHintMenuItem'
@@ -47,13 +47,16 @@ const useHintMenu = (props: IHintMenuProps) => {
     close: { opacity: 0 },
   })
 
-  const open = () => toggle(true)
-  const close = () => toggle(false)
+  const open = useCallback(() => toggle(true), [toggle])
+  const close = useCallback(() => toggle(false), [toggle])
 
-  const handleItemClick = (item: IHintMenuItem) => () => {
-    item.onClick()
-    close()
-  }
+  const handleItemClick = useCallback(
+    (item: IHintMenuItem) => () => {
+      item.onClick()
+      close()
+    },
+    [close],
+  )
 
   useEffect(() => {
     if (!isNil(onOpenChange)) onOpenChange(isMounted)

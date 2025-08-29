@@ -1,5 +1,4 @@
 import { memo } from 'react'
-
 import { cn, isNil } from '@shared/utils/functions'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'

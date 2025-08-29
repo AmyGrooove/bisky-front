@@ -1,15 +1,15 @@
 import { ChevronLeftIcon, EllipsisIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn, isNil } from '@shared/utils/functions'
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 
 import { ISectionLabelProps } from '../types/ISectionLabelProps'
 
 import { useSectionLabel } from './useSectionLabel'
 import st from './SectionLabel.module.scss'
 
-const SectionLabel = forwardRef<HTMLDivElement, ISectionLabelProps>(
-  (props, ref) => {
+const SectionLabel = memo(
+  forwardRef<HTMLDivElement, ISectionLabelProps>((props, ref) => {
     const { children, className, onClickHandler, Icon, additionalOnClick } =
       useSectionLabel(props)
 
@@ -30,7 +30,9 @@ const SectionLabel = forwardRef<HTMLDivElement, ISectionLabelProps>(
         />
       </div>
     )
-  },
+  }),
 )
+
+SectionLabel.displayName = 'SectionLabel'
 
 export { SectionLabel }

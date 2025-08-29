@@ -7,15 +7,10 @@ import { IStarSliderProps } from '../types/IStarSliderProps'
 
 import st from './StarSlider.module.scss'
 import { useStarSlider } from './useStarSlider'
-import { MAX } from '../static/max'
-import { MIN } from '../static/min'
-import { MIN_STEPS_BETWEEN_THUMBS } from '../static/MIN_STEPS_BETWEEN_THUMBS'
-import { STARS } from '../static/stars'
-import { STEP } from '../static/step'
 
 const StarSlider = memo(
   forwardRef<HTMLDivElement, IStarSliderProps>((props, ref) => {
-    const { value, handleChange, isDisabled, className, variant } =
+    const { value, handleChange, isDisabled, className, variant, stars } =
       useStarSlider(props)
 
     return (
@@ -23,15 +18,15 @@ const StarSlider = memo(
         ref={ref}
         onValueChange={handleChange}
         value={[value]}
-        min={MIN}
-        max={MAX}
-        step={STEP}
+        min={1}
+        max={10}
+        step={1}
         disabled={isDisabled}
-        minStepsBetweenThumbs={MIN_STEPS_BETWEEN_THUMBS}
+        minStepsBetweenThumbs={1}
         className={cn(st.root, className, st[`root_${variant}`])}
       >
         <div className={st.starWrapper}>
-          {STARS.map((_, index) => (
+          {stars.map((_, index) => (
             <StarIcon
               key={index}
               className={cn(st.icon, {

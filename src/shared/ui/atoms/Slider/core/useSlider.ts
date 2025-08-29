@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react'
+
 import { TSliderProps } from '../types/TSliderProps'
 
 const useSlider = (props: TSliderProps) => {

@@ -1,11 +1,11 @@
 import { memo } from 'react'
+import { isNil } from '@shared/utils/functions'
 
 import { IModalProps } from '../types/IModalProps'
 
 import { DesktopModal } from './DesktopModal/DesktopModal'
 import { MobileModal } from './MobileModal/MobileModal'
 import { useModal } from './useModal'
-import { isNil } from '@shared/utils/functions'
 
 const Modal = memo((props: IModalProps) => {
   const { isPressed, closeFunction, children } = useModal(props)

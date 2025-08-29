@@ -1,4 +1,5 @@
 import { useNavigationFallback } from '@shared/utils/hooks/useNavigationFallback'
+import { useCallback } from 'react'
 
 import { ISectionLabelProps } from '../types/ISectionLabelProps'
 
@@ -13,7 +14,9 @@ const useSectionLabel = (props: ISectionLabelProps) => {
 
   const goBack = useNavigationFallback()
 
-  const onClickHandler = goBackClick ?? goBack
+  const onClickHandler = useCallback(() => {
+    ;(goBackClick ?? goBack)()
+  }, [goBackClick, goBack])
 
   return { children, className, onClickHandler, Icon, additionalOnClick }
 }

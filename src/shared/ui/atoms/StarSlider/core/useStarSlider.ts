@@ -1,4 +1,6 @@
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
+import { getEmptyArray } from '@shared/utils/functions'
+
 import { IStarSliderProps } from '../types/IStarSliderProps'
 
 const useStarSlider = (props: IStarSliderProps) => {
@@ -17,7 +19,9 @@ const useStarSlider = (props: IStarSliderProps) => {
     [onChange],
   )
 
-  return { value, handleChange, isDisabled, className, variant }
+  const stars = useMemo(() => getEmptyArray(10), [])
+
+  return { value, handleChange, isDisabled, className, variant, stars }
 }
 
 export { useStarSlider }

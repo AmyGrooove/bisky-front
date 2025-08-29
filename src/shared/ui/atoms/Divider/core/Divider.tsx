@@ -1,10 +1,10 @@
 import { cn } from '@shared/utils/functions'
+import { forwardRef, memo } from 'react'
 
 import { IDividerProps } from '../types/IDividerProps'
 
 import { useDivider } from './useDivider'
 import st from './Divider.module.scss'
-import { forwardRef, memo } from 'react'
 
 const Divider = memo(
   forwardRef<HTMLDivElement, IDividerProps>((props, ref) => {

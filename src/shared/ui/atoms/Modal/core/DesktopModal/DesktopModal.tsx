@@ -1,5 +1,4 @@
 import { memo } from 'react'
-
 import { CrossIcon } from '@shared/icons'
 import { cn, isNil } from '@shared/utils/functions'
 

@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+
 import { IProgressBarProps } from '../types/IProgressBarProps'
 
 const useProgressBar = (props: IProgressBarProps) => {

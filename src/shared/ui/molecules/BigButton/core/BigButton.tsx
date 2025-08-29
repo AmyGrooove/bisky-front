@@ -1,14 +1,14 @@
 import { cn, isNil } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 
 import { IBigButtonProps } from '../types/IBigButtonProps'
 
 import { useBigButton } from './useBigButton'
 import st from './BigButton.module.scss'
 
-const BigButton = forwardRef<HTMLButtonElement, IBigButtonProps>(
-  (props, ref) => {
+const BigButton = memo(
+  forwardRef<HTMLButtonElement, IBigButtonProps>((props, ref) => {
     const {
       onClick,
       children,
@@ -41,7 +41,9 @@ const BigButton = forwardRef<HTMLButtonElement, IBigButtonProps>(
         </Text>
       </button>
     )
-  },
+  }),
 )
+
+BigButton.displayName = 'BigButton'
 
 export { BigButton }

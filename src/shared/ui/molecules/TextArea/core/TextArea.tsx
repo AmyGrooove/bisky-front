@@ -1,14 +1,14 @@
 import { cn, isNil } from '@shared/utils/functions'
 import { Text } from '@shared/ui/atoms/Text'
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 
 import { ITextAreaProps } from '../types/ITextAreaProps'
 
 import { useTextArea } from './useTextArea'
 import st from './TextArea.module.scss'
 
-const TextArea = forwardRef<HTMLTextAreaElement, ITextAreaProps>(
-  (props, ref) => {
+const TextArea = memo(
+  forwardRef<HTMLTextAreaElement, ITextAreaProps>((props, ref) => {
     const {
       value,
       onChange,
@@ -41,7 +41,9 @@ const TextArea = forwardRef<HTMLTextAreaElement, ITextAreaProps>(
         )}
       </div>
     )
-  },
+  }),
 )
+
+TextArea.displayName = 'TextArea'
 
 export { TextArea }
