@@ -1,26 +1,20 @@
 import { usePathname } from 'next/navigation'
-import { useMemo, useState } from 'react'
-
-import { MAIN_LINKS } from '../static/MAIN_LINKS'
+import { useCallback, useState } from 'react'
+import { useAuthGate } from '@entities/auth/hooks/useAuthGate'
 
 const useHeader = () => {
   const pathname = usePathname()
 
+  const { guardLink } = useAuthGate()
+
   const [isToolsOpened, setIsToolsOpened] = useState(false)
 
-  const mainLinksConverted = useMemo(
-    () =>
-      MAIN_LINKS.map((link) => {
-        if ('href' in link) {
-          return { ...link, isSelected: pathname.includes(link.href ?? '') }
-        }
-
-        return { ...link, isSelected: isToolsOpened }
-      }),
-    [pathname, isToolsOpened],
+  const checkIsSelected = useCallback(
+    (href: string) => pathname.includes(href),
+    [pathname],
   )
 
-  return { mainLinksConverted, setIsToolsOpened }
+  return { checkIsSelected, isToolsOpened, guardLink, setIsToolsOpened }
 }
 
 export { useHeader }

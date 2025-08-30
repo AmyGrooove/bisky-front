@@ -14,26 +14,21 @@ import { successToast } from '@shared/utils/toast'
 import { UserIcon } from '@shared/icons'
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useCallback, useMemo } from 'react'
+import { useAuthGate } from '@entities/auth/hooks/useAuthGate'
 
 import { profileMenuLinks } from '../static/profileMenuLinks'
 
 const useProfileMenu = () => {
   const { user, isLoading: isSessionLoading } = useSession()
-
   const { avatar = null, nickname = '' } = user ?? {}
 
   const { isOpen, toggle } = useTransitionClose()
 
-  const checkAndToggle = useCallback(
-    (isOpen: boolean) => {
-      toggle(isOpen)
-    },
-    [toggle],
-  )
+  const { guardCall } = useAuthGate()
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
-    onOpenChange: checkAndToggle,
+    onOpenChange: guardCall(toggle),
     placement: 'bottom-end',
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,

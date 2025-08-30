@@ -12,6 +12,7 @@ import {
 import { useTransitionClose } from '@shared/utils/hooks/useTransitionClose'
 import { useEffect } from 'react'
 import { isNil } from '@shared/utils/functions'
+import { useAuthGate } from '@entities/auth/hooks/useAuthGate'
 
 import { IToolsMenuProps } from '../types/IToolsMenuProps'
 
@@ -20,9 +21,11 @@ const useToolsMenu = (props: IToolsMenuProps) => {
 
   const { isOpen, toggle } = useTransitionClose()
 
+  const { guardCall } = useAuthGate()
+
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
-    onOpenChange: toggle,
+    onOpenChange: guardCall(toggle),
     placement: 'bottom-start',
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,

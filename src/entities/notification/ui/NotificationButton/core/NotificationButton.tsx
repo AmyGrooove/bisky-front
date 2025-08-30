@@ -9,11 +9,11 @@ import { useNotificationButton } from './useNotificationButton'
 import st from './NotificationButton.module.scss'
 
 const NotificationButton = memo((props: INotificationButtonProps) => {
-  const { isHasNotifications } = useNotificationButton(props)
+  const { isHasNotifications, guardLink } = useNotificationButton(props)
 
   return (
     <Link
-      href="/notifications"
+      {...guardLink('/notifications')}
       className={cn(st.root, {
         [st.root_hasNotifications]: isHasNotifications,
       })}
