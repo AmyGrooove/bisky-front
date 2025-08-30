@@ -1,12 +1,15 @@
 import { QueryCache, QueryClient } from '@tanstack/react-query'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { errorToast } from '@shared/utils/toast'
+import { usePathname } from 'next/navigation'
 
 import { IProvidersProps } from '../types/IProvidersProps'
 import { QUERY_SKIP_LIST } from '../static/QUERY_SKIP_LIST'
 
 const useProviders = (props: IProvidersProps) => {
   const { children, dehydratedState } = props
+
+  const pathname = usePathname()
 
   const queryClient = useMemo(
     () =>
@@ -40,6 +43,10 @@ const useProviders = (props: IProvidersProps) => {
       }),
     [],
   )
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   return { queryClient, children, dehydratedState }
 }

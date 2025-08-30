@@ -1,22 +1,25 @@
 import { useInfiniteGetHomeRow } from '@entities/home/api/getHomeRow'
-import { useInfiniteScroll } from '@shared/utils/hooks/useInfiniteScroll'
-import { isNil } from '@shared/utils/functions'
+import { useInViewCall } from '@shared/utils/hooks/useInViewCall'
 
 import { IInfiniteHomeRowProps } from '../types/IInfiniteHomeRowProps'
 
 const useInfiniteHomeRow = (props: IInfiniteHomeRowProps) => {
   const { variant = 'big' } = props
 
-  const { data, isEnd, isPending, error, fetchNextPage } =
+  const { data, isEnd, isPending, isFetchingNextPage, error, fetchNextPage } =
     useInfiniteGetHomeRow()
 
-  const loadingRef = useInfiniteScroll({
-    onLoadMore: fetchNextPage,
-    isDisabled: isEnd || !isNil(error),
-    isLoading: isPending,
+  const { inViewRef } = useInViewCall(fetchNextPage, {
+    isDisabled: isPending || isFetchingNextPage,
   })
 
-  return { data, loadingRef, isEnd, variant, error }
+  return {
+    data,
+    inViewRef,
+    isEnd,
+    variant,
+    error,
+  }
 }
 
 export { useInfiniteHomeRow }

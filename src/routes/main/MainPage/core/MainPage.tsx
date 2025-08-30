@@ -19,6 +19,7 @@ const MainPage = async () => {
           label: 'Новые серии',
           link: { label: 'Онгоинги', href: '#', watchAllType: 'anime' },
         }}
+        isReleasedStatusHide={false}
         animesData={homeData.newEpisodeAnimes}
       />
       <AnimeCardCarousel

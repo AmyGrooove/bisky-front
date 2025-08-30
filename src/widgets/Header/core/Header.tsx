@@ -19,7 +19,13 @@ const Header = memo(() => {
   return (
     <div className={st.root}>
       <div className={st.leftSide}>
-        <Link href="/" className={st.logoWrapper}>
+        <Link
+          href="/"
+          className={st.logoWrapper}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+        >
           <LogoIcon className={st.logo} />
           <Text weight="700" className={st.logoText}>
             Bisky

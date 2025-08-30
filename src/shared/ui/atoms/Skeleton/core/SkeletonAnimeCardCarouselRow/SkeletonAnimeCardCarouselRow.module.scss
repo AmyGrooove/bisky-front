@@ -1,6 +1,6 @@
 @use '@shared/styles/reusable.scss' as *;
 
-.row {
+.root {
   display: flex;
   flex-direction: column;
   gap: 12px;

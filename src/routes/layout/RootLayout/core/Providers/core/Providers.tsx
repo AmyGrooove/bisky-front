@@ -11,23 +11,10 @@ import { IProvidersProps } from '../types/IProvidersProps'
 
 import { useProviders } from './useProviders'
 
-const TanstackDevtools = dynamic(
-  () => import('@tanstack/react-devtools').then((mod) => mod.TanStackDevtools),
-  { ssr: false },
-)
-
-const ReactQueryDevtoolsPanel = dynamic(
+const ReactQueryDevtools = dynamic(
   () =>
     import('@tanstack/react-query-devtools').then(
-      (mod) => mod.ReactQueryDevtoolsPanel,
-    ),
-  { ssr: false },
-)
-
-const PacerDevtoolsPanel = dynamic(
-  () =>
-    import('@tanstack/react-pacer-devtools').then(
-      (mod) => mod.PacerDevtoolsPanel,
+      (mod) => mod.ReactQueryDevtools,
     ),
   { ssr: false },
 )
@@ -41,14 +28,7 @@ const Providers = (props: IProvidersProps) => {
         <Toaster />
         <ModalWrapper />
         <NextTopLoader color="var(--bisky-100)" showSpinner={false} />
-        {ENV.IS_DEVELOPMENT && (
-          <TanstackDevtools
-            plugins={[
-              { name: 'Query', render: <ReactQueryDevtoolsPanel /> },
-              { name: 'Pacer', render: <PacerDevtoolsPanel /> },
-            ]}
-          />
-        )}
+        {ENV.IS_DEVELOPMENT && <ReactQueryDevtools initialIsOpen={false} />}
         {children}
       </HydrationBoundary>
     </QueryClientProvider>

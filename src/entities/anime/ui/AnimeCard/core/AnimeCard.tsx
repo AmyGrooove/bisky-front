@@ -23,6 +23,7 @@ const AnimeCard = memo((props: IAnimeCardProps) => {
     statusBadgeText,
     isBigVariant,
     badgeVariant,
+    isReleasedStatusHide,
   } = useAnimeCard(props)
 
   return (
@@ -66,17 +67,18 @@ const AnimeCard = memo((props: IAnimeCardProps) => {
         </div>
       )}
       <div className={st.badges}>
-        {!isNil(animeData.status) && (
-          <Badge
-            className={cn(
-              st.statusBadge,
-              st[`statusBadge_${animeData.status}`],
-            )}
-            variant={badgeVariant}
-          >
-            {statusBadgeText}
-          </Badge>
-        )}
+        {!isNil(animeData.status) &&
+          (animeData.status !== 'released' || !isReleasedStatusHide) && (
+            <Badge
+              className={cn(
+                st.statusBadge,
+                st[`statusBadge_${animeData.status}`],
+              )}
+              variant={badgeVariant}
+            >
+              {statusBadgeText}
+            </Badge>
+          )}
         {!isNil(reWatchedCountBadge) && (
           <Badge
             variant={badgeVariant}

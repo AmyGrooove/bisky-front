@@ -5,7 +5,13 @@ import { getNormalStatus } from '@entities/anime/functions/getNormalStatus'
 import { IAnimeCardProps } from '../types/IAnimeCardProps'
 
 const useAnimeCard = (props: IAnimeCardProps) => {
-  const { animeData, className, variant = 'big', userData } = props
+  const {
+    animeData,
+    className,
+    variant = 'big',
+    userData,
+    isReleasedStatusHide = true,
+  } = props
   const {
     reWatchedCount: reWatchedCountBadge = null,
     animeStatus: currentUserAnimeStatus = null,
@@ -34,6 +40,7 @@ const useAnimeCard = (props: IAnimeCardProps) => {
     statusBadgeText,
     isBigVariant,
     badgeVariant,
+    isReleasedStatusHide,
   }
 }
 

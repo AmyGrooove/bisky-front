@@ -15,6 +15,7 @@ interface IAnimeCardProps {
     animeStatus?: IUserAnimeReactionModel['status'] | null
     reWatchedCount?: number
   }
+  isReleasedStatusHide?: boolean
   className?: string
   variant?: 'big' | 'small'
 }

@@ -15,6 +15,7 @@ const useInfiniteGetHomeRow = () => {
       getNextPageParam: (lastPage, _, lastPageParam) => {
         return lastPage.isEnd ? undefined : lastPageParam + 1
       },
+      enabled: false,
     })
 
   const allPageData = data?.pages.map((page) => page.result) ?? []

@@ -11,8 +11,10 @@ interface ILabelProps {
 interface IAnimeCardCarouselProps {
   animesData: ComponentPropsWithoutRef<typeof AnimeCard>['animeData'][]
 
+  isReleasedStatusHide?: boolean
   labelProps?: ILabelProps
   variant?: 'big' | 'small'
+  className?: string
 }
 
 export type { IAnimeCardCarouselProps }

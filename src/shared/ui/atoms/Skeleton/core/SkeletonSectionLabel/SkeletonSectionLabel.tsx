@@ -1,18 +1,23 @@
 import { cn } from '@shared/utils/functions'
+import { forwardRef, memo } from 'react'
 
 import { ISkeletonSectionLabelProps } from '../../types/TSkeletonProps'
 
 import st from './SkeletonSectionLabel.module.scss'
 
-const SkeletonSectionLabel = (props: ISkeletonSectionLabelProps) => {
-  const { variant, className, isLinkEnabled = false } = props
+const SkeletonSectionLabel = memo(
+  forwardRef<HTMLDivElement, ISkeletonSectionLabelProps>((props, ref) => {
+    const { variant = 'big', className, isLinkEnabled = false } = props
 
-  return (
-    <div className={cn(st.root, className, st[`root_${variant}`])}>
-      <div className={st.label} />
-      {isLinkEnabled && <div className={st.label} />}
-    </div>
-  )
-}
+    return (
+      <div ref={ref} className={cn(st.root, className, st[`root_${variant}`])}>
+        <div className={st.label} />
+        {isLinkEnabled && <div className={st.label} />}
+      </div>
+    )
+  }),
+)
+
+SkeletonSectionLabel.displayName = 'SkeletonSectionLabel'
 
 export { SkeletonSectionLabel }

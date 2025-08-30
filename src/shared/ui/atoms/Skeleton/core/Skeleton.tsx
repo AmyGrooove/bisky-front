@@ -6,25 +6,30 @@ import { SkeletonSectionLabel } from './SkeletonSectionLabel/SkeletonSectionLabe
 import { SkeletonSeasonalAnimeCard } from './SkeletonSeasonalAnimeCard/SkeletonSeasonalAnimeCard'
 import { SkeletonBadge } from './SkeletonBadge/SkeletonBadge'
 import { SkeletonAnimeCard } from './SkeletonAnimeCard/SkeletonAnimeCard'
+import { SkeletonAnimeCardCarouselRow } from './SkeletonAnimeCardCarouselRow/SkeletonAnimeCardCarouselRow'
 
 import type { TSkeletonProps } from '../types/TSkeletonProps'
 
 const Skeleton = memo(
   forwardRef<HTMLDivElement, TSkeletonProps>((props, ref) => {
+    if (props.templates === 'animeCardCarouselRow') {
+      return <SkeletonAnimeCardCarouselRow ref={ref} {...props} />
+    }
+
     if (props.templates === 'badge') {
-      return <SkeletonBadge {...props} />
+      return <SkeletonBadge ref={ref} {...props} />
     }
 
     if (props.templates === 'animeCard') {
-      return <SkeletonAnimeCard {...props} />
+      return <SkeletonAnimeCard ref={ref} {...props} />
     }
 
     if (props.templates === 'seasonalAnimeCard') {
-      return <SkeletonSeasonalAnimeCard {...props} />
+      return <SkeletonSeasonalAnimeCard ref={ref} {...props} />
     }
 
     if (props.templates === 'sectionLabel') {
-      return <SkeletonSectionLabel {...props} />
+      return <SkeletonSectionLabel ref={ref} {...props} />
     }
 
     const { className } = props
