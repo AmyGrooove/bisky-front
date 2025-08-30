@@ -1,0 +1,42 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 460px;
+}
+
+.segment {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.separator {
+  background-color: var(--dark-400);
+  border-radius: var(--radius-20);
+  height: 2px;
+  opacity: 0.4;
+  width: 80%;
+}
+
+.textMain {
+  color: var(--bisky-100);
+  text-align: center;
+  white-space: pre-line;
+  @include text-style(20);
+}
+
+.text {
+  text-align: center;
+  white-space: pre-line;
+}
+
+@include media-query(tablet) {
+  .root {
+    width: 100%;
+  }
+}

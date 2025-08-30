@@ -1,6 +1,6 @@
 import { MouseEvent, useCallback } from 'react'
 import { setModal } from '@widgets/ModalWrapper'
-import { AuthModal } from '@entities/auth/ui/AuthModal'
+import { NoAuthorizeModal } from '@entities/auth/ui/NoAuthorizeModal'
 import { redirect } from 'next/navigation'
 import { isNil } from '@shared/utils/functions'
 import { useTopLoader } from 'nextjs-toploader'
@@ -20,7 +20,7 @@ const useAuthGate = () => {
           return fn(...args)
         }
 
-        setModal(<AuthModal successCallback={() => fn(...args)} />)
+        setModal(<NoAuthorizeModal successCallback={() => fn(...args)} />)
       },
     [isAuthenticated],
   )
@@ -40,7 +40,7 @@ const useAuthGate = () => {
         setTimeout(() => done(true), 0)
         event.preventDefault()
         setModal(
-          <AuthModal
+          <NoAuthorizeModal
             successCallback={() => {
               if (!isNil(onClick)) onClick(event)
               redirect(href)

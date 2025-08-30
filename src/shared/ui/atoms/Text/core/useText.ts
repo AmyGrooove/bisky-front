@@ -9,6 +9,7 @@ const useText = (props: ITextProps) => {
     maxChars,
     style,
     as: Component = 'div',
+    onClick,
   } = props
 
   const inlineStyle = maxLines
@@ -30,7 +31,14 @@ const useText = (props: ITextProps) => {
     content = `${children.slice(0, maxChars)}...`
   }
 
-  return { Component, children: content, className, weight, inlineStyle }
+  return {
+    Component,
+    onClick,
+    children: content,
+    className,
+    weight,
+    inlineStyle,
+  }
 }
 
 export { useText }

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { acquireScrollLock, releaseScrollLock } from '@shared/utils/functions'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 import { useSwipeToClose } from '../../hooks/useSwipeToClose'
@@ -39,11 +40,11 @@ const useMobileModal = (props: IModalSolutionProps) => {
   }, [isOpen])
 
   useEffect(() => {
-    const hasModal = document.getElementById('modal') !== null
-    document.body.style.overflow = hasModal ? 'hidden' : ''
+    if (!isOpen) return
+    acquireScrollLock()
 
     return () => {
-      document.body.style.overflow = ''
+      releaseScrollLock()
     }
   }, [isOpen])
 

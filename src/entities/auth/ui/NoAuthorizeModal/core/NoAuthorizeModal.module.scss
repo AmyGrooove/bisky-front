@@ -1,0 +1,56 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 460px;
+}
+
+.text {
+  text-align: center;
+  white-space: pre-line;
+  @include text-style(16);
+}
+
+.link {
+  color: var(--bisky-100);
+  cursor: pointer;
+  text-decoration: underline;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+.littleText {
+  @include text-style(12);
+}
+
+.button {
+  background-color: var(--bisky-300);
+  width: 100%;
+
+  &_support {
+    background-color: var(--dark-100);
+  }
+}
+
+.segment {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.supportLink {
+  width: 100%;
+}
+
+@include media-query(tablet) {
+  .root {
+    width: 100%;
+  }
+}

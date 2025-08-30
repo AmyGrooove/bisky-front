@@ -9,3 +9,4 @@ export {
   createPostFetcher,
 } from './apiFetch'
 export { formatMinutes } from './formatMinutes'
+export { acquireScrollLock, releaseScrollLock } from './scrollLock'

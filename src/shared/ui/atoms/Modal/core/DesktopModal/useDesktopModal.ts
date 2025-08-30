@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react'
+import { acquireScrollLock, releaseScrollLock } from '@shared/utils/functions'
 
 import { IModalSolutionProps } from '../../types/IModalSolutionProps'
 
@@ -9,22 +10,11 @@ const useDesktopModal = (props: IModalSolutionProps) => {
   const modalID = useMemo(() => (isOpen ? 'modal' : undefined), [isOpen])
 
   useEffect(() => {
-    const hasModal = document.getElementById('modal') !== null
-
-    if (hasModal) {
-      const scrollBarWidth =
-        window.innerWidth - document.documentElement.clientWidth
-      document.documentElement.style.overflow = 'hidden'
-      document.documentElement.style.marginRight =
-        scrollBarWidth > 0 ? `${scrollBarWidth}px` : ''
-    } else {
-      document.documentElement.style.overflow = ''
-      document.documentElement.style.marginRight = ''
-    }
+    if (!isOpen) return
+    acquireScrollLock()
 
     return () => {
-      document.documentElement.style.overflow = ''
-      document.documentElement.style.marginRight = ''
+      releaseScrollLock()
     }
   }, [isOpen])
 

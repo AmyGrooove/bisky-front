@@ -1,9 +1,9 @@
 import { IDividerProps } from '../types/IDividerProps'
 
 const useDivider = (props: IDividerProps) => {
-  const { variant = 'horizontal', className } = props
+  const { variant = 'horizontal', className, children } = props
 
-  return { variant, className }
+  return { variant, className, children }
 }
 
 export { useDivider }

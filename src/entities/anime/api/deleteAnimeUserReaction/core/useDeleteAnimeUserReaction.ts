@@ -25,7 +25,7 @@ const useDeleteAnimeUserReaction = (
         queryClient.invalidateQueries({ queryKey: ['aniBattle'] }),
       ])
 
-      successToast({ message: 'Статус аниме в списке удален', Icon: TrashIcon })
+      successToast({ message: 'Аниме удалено из списка', Icon: TrashIcon })
     },
     onError: async ({ message }) => {
       errorToast({ message })

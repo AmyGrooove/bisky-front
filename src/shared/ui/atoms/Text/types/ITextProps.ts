@@ -3,6 +3,7 @@ import { CSSProperties, ElementType, ReactNode } from 'react'
 interface ITextProps<T extends ElementType = ElementType> {
   children: ReactNode
 
+  onClick?: () => void
   style?: CSSProperties
   weight?: '400' | '700'
   className?: string

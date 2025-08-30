@@ -10,7 +10,7 @@ import st from './Toast.module.scss'
 import { useToast } from './useToast'
 
 const Toast = (props: IToastProps) => {
-  const { message, Icon, duration, styles, handleAction, action } =
+  const { message, Icon, duration, styles, action, handleAction } =
     useToast(props)
 
   return sonnerToast.custom(

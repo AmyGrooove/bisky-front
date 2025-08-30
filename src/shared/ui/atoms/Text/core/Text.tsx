@@ -8,11 +8,12 @@ import st from './Text.module.scss'
 
 const Text = memo(
   forwardRef<HTMLElement, ITextProps>((props, ref) => {
-    const { Component, children, className, weight, inlineStyle } =
+    const { Component, children, className, weight, inlineStyle, onClick } =
       useText(props)
 
     return (
       <Component
+        onClick={onClick}
         ref={ref}
         className={cn(className, st.root, st[`weight_${weight}`])}
         style={inlineStyle}
