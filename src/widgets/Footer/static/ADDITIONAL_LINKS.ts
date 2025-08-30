@@ -1,13 +1,13 @@
 const ADDITIONAL_LINKS = [
   [
-    { label: 'О сайте', href: '/' },
-    { label: 'Поддержка', href: '/' },
-    { label: 'API', href: '/' },
+    { label: 'О сайте', href: '/about' },
+    { label: 'Поддержка', href: '/support' },
+    { label: 'API', href: 'https://api.bisky.one/' },
   ],
   [
-    { label: 'Пользовательское соглашение', href: '/' },
-    { label: 'Политика конфиденциальности', href: '/' },
-    { label: 'Правила', href: '/' },
+    { label: 'Пользовательское соглашение', href: '/legal/terms' },
+    { label: 'Политика конфиденциальности', href: '/legal/privacy' },
+    { label: 'Правила', href: '/legal/rules' },
   ],
 ] as const
 

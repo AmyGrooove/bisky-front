@@ -1,11 +1,11 @@
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 
 const useNavigationFallback = (fallback = '/') => {
-  const { back, push } = useRouter()
+  const { back } = useRouter()
 
   const goBack = () => {
     if (typeof window !== 'undefined' && window.history.length > 1) back()
-    else push(fallback)
+    else redirect(fallback)
   }
 
   return goBack

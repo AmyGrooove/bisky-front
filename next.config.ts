@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'minio-storage.bisky.one' },
     ],
   },
+  experimental: {
+    authInterrupts: true,
+  },
 }
 
 const withMDX = createMDX({})

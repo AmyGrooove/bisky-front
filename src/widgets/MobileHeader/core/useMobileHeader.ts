@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import { redirect, usePathname, useRouter } from 'next/navigation'
 
 import { MENU_LINKS } from '../static/MENU_LINKS'
 
@@ -16,8 +16,8 @@ const useMobileHeader = () => {
 
   const handleMenuLinkClick = useCallback(
     (href: string) => {
-      push(href)
       setIsMenuOpened(false)
+      redirect(href)
     },
     [push, setIsMenuOpened],
   )

@@ -17,7 +17,11 @@ const MainPage = async () => {
         variant={pageVariant}
         labelProps={{
           label: 'Новые серии',
-          link: { label: 'Онгоинги', href: '#', watchAllType: 'anime' },
+          link: {
+            label: 'Онгоинги',
+            href: '/collections/ongoings',
+            watchAllType: 'anime',
+          },
         }}
         isReleasedStatusHide={false}
         animesData={homeData.newEpisodeAnimes}
@@ -26,7 +30,11 @@ const MainPage = async () => {
         variant={pageVariant}
         labelProps={{
           label: 'Топ-100',
-          link: { label: 'Смотреть все', href: '#', watchAllType: 'anime' },
+          link: {
+            label: 'Смотреть все',
+            href: '/collections/best',
+            watchAllType: 'anime',
+          },
         }}
         animesData={homeData.bestAnimes}
       />
