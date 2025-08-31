@@ -1,11 +1,11 @@
 import { IIconProps } from '@shared/types'
-import { ComponentType } from 'react'
+import { ReactNode } from 'react'
 
 interface IInputFieldProps {
   value: string
   onChange: (value: string) => void
 
-  Icon?: ComponentType<IIconProps>
+  Icon?: (props: IIconProps) => ReactNode | ReactNode
   label?: string
   errorText?: string
   isDisabled?: boolean

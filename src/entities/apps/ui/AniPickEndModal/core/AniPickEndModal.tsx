@@ -24,7 +24,7 @@ const AniPickEndModal = memo(() => {
             onClick={() => closeModal()}
             className={st.button}
             variant="big"
-            Icon={DonutIcon}
+            Icon={<DonutIcon />}
           >
             АниПик
           </BigButton>
@@ -34,7 +34,7 @@ const AniPickEndModal = memo(() => {
             onClick={() => closeModal()}
             className={st.button}
             variant="big"
-            Icon={CrownIcon}
+            Icon={<CrownIcon />}
           >
             АниБаттл
           </BigButton>

@@ -18,7 +18,7 @@ const Badge = memo(
           [st.root_onlyIcon]: isNil(children),
         })}
       >
-        {!isNil(Icon) && <Icon className={st.icon} />}
+        {!isNil(Icon) && <div className={st.icon}>{Icon}</div>}
         {!isNil(children) && (
           <Text className={st.children} weight="700">
             {children}

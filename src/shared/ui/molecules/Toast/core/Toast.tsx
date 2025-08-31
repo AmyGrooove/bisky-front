@@ -16,7 +16,7 @@ const Toast = (props: IToastProps) => {
   return sonnerToast.custom(
     (id) => (
       <div className={st.root} style={styles as CSSProperties}>
-        {!isNil(Icon) && <Icon className={st.icon} />}
+        {!isNil(Icon) && <div className={st.icon}>{Icon}</div>}
         <Text className={st.message}>{message}</Text>
         {!isNil(action) && (
           <Button className={st.button} onClick={() => handleAction(id)}>

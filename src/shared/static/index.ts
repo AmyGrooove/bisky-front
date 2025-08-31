@@ -1,3 +1,5 @@
 export { ENV } from './ENV'
 export { META_DATA } from './META_DATA'
 export { VIEWPORT } from './VIEWPORT'
+export { ADDITIONAL_LINKS } from './ADDITIONAL_LINKS'
+export { SOCIAL_LINKS } from './SOCIAL_LINKS'

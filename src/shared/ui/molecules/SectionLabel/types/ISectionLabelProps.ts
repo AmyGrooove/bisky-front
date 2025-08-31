@@ -1,12 +1,11 @@
-import { IIconProps } from '@shared/types'
-import { ComponentType } from 'react'
+import { ReactNode } from 'react'
 
 interface ISectionLabelProps {
   children: string
 
   goBackClick?: () => void
   additionalOnClick?: () => void
-  Icon?: ComponentType<IIconProps>
+  Icon?: ReactNode
   className?: string
 }
 

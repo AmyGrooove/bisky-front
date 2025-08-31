@@ -16,7 +16,7 @@ const ReportButton = memo((props: IReportButtonProps) => {
     <Button
       className={st.reportButton}
       variant={variant}
-      Icon={FlagIcon}
+      Icon={<FlagIcon />}
       onClick={() => alert('В разработке')}
     />
   )

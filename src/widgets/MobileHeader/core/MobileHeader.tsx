@@ -32,7 +32,7 @@ const MobileHeader = memo(() => {
       {currentMenu === 'Коллекции' && (
         <Button
           className={st.addButton}
-          Icon={PlusIcon}
+          Icon={<PlusIcon />}
           onClick={() => alert('В разработке')}
           variant="small"
         >

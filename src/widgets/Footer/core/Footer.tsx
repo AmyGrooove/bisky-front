@@ -5,9 +5,7 @@ import { LogoIcon } from '@shared/icons'
 import { Divider } from '@shared/ui/atoms/Divider'
 import { HoverIcon } from '@shared/ui/atoms/HoverIcon'
 import { PageLink } from '@shared/ui/molecules/PageLink'
-
-import { ADDITIONAL_LINKS } from '../static/ADDITIONAL_LINKS'
-import { SOCIAL_LINKS } from '../static/SOCIAL_LINKS'
+import { SOCIAL_LINKS, ADDITIONAL_LINKS } from '@shared/static'
 
 import st from './Footer.module.scss'
 

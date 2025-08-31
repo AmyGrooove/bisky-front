@@ -41,7 +41,11 @@ const InputField = memo(
             disabled={isDisabled}
             placeholder={placeholder}
           />
-          {!isNil(Icon) && <Icon className={st.icon} />}
+          {!isNil(Icon) && (
+            <div className={st.icon}>
+              {typeof Icon === 'function' ? <Icon /> : Icon}
+            </div>
+          )}
         </div>
         {!isNil(errorText) && (
           <Text className={st.errorText} maxLines={2}>

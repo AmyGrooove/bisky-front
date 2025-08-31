@@ -1,9 +1,5 @@
 @use '@shared/styles/reusable.scss' as *;
 
-.icon {
-  fill: var(--bisky-100);
-}
-
 .root {
   align-items: center;
   display: flex;
@@ -43,10 +39,7 @@
 
 .linkWrapper {
   align-items: center;
+  color: var(--bisky-100);
   display: flex;
   gap: 4px;
-}
-
-.linkLabel {
-  color: var(--bisky-100);
 }

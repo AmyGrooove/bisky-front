@@ -1,27 +1,31 @@
 @use 'sass:map';
 
-$breakpoints: (
-  mobile: 768px,
-  tablet: 1024px,
+$breakpoints-map: (
+  mobile: 480px,
+  tablet: 768px,
   hd: 1280px,
   full-hd: 1920px,
   qhd: 2560px,
 );
 
 @mixin media-query($device, $min: false) {
-  $breakpoint: map.get($breakpoints, $device);
+  $breakpoint: map.get($breakpoints-map, $device);
 
-  @if $breakpoint {
-    @if $min == true {
-      @media screen and (min-width: $breakpoint) {
-        @content;
-      }
-    } @else {
-      @media screen and (max-width: $breakpoint) {
-        @content;
-      }
+  @if not $breakpoint {
+    @warn "#{$device} not found in $breakpoints";
+  } @else if $min == true {
+    @media screen and (min-width: $breakpoint) {
+      @content;
     }
   } @else {
-    @warn "#{$device} not found in \$breakpoints";
+    @media screen and (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+%breakpoints {
+  @each $name, $size in $breakpoints-map {
+    --#{$name}: #{$size};
   }
 }

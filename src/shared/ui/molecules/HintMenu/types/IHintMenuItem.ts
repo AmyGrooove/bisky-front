@@ -1,12 +1,11 @@
-import { ComponentType } from 'react'
-import { IIconProps } from '@shared/types'
+import { ReactNode } from 'react'
 
 interface IHintMenuItem {
   text: string
   onClick: () => void
 
-  IconLeft?: ComponentType<IIconProps>
-  IconRight?: ComponentType<IIconProps>
+  IconLeft?: ReactNode
+  IconRight?: ReactNode
   isSelected?: boolean
 }
 

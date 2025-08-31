@@ -34,7 +34,7 @@ const PageLink = memo(
           st[`root_${variant}`],
         )}
       >
-        {!isNil(Icon) && <Icon className={st.icon} />}
+        {!isNil(Icon) && <div className={st.icon}>{Icon}</div>}
         <Text
           weight={variant === 'header' ? '700' : '400'}
           className={st.label}

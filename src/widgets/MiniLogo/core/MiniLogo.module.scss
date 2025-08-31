@@ -2,6 +2,7 @@
 
 .root {
   align-items: center;
+  color: var(--bisky-100);
   display: flex;
   @include transition(filter);
 
@@ -11,13 +12,11 @@
 }
 
 .logo {
-  fill: var(--bisky-100);
   height: 28px;
   width: 28px;
 }
 
 .logoText {
-  color: var(--bisky-100);
   @include text-style(24);
 }
 

@@ -1,5 +1,4 @@
-import { IIconProps } from '@shared/types'
-import { ComponentType } from 'react'
+import { ReactNode } from 'react'
 
 interface IToastAction {
   text: string
@@ -9,7 +8,7 @@ interface IToastAction {
 interface IToastProps {
   message: string
 
-  Icon?: ComponentType<IIconProps>
+  Icon?: ReactNode
   action?: IToastAction
   duration?: number
   styles?: Record<string, string>

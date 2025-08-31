@@ -58,10 +58,10 @@
 }
 
 .icon {
-  @include transition(fill);
+  @include transition(color);
 
   &_active {
-    fill: var(--bisky-100);
+    color: var(--bisky-100);
   }
 }
 

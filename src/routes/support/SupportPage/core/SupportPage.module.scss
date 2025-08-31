@@ -1,0 +1,69 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  max-width: 900px;
+  width: 100%;
+}
+
+.label {
+  @include text-style(32);
+}
+
+.supportWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.linkButtonWrapper {
+  width: 100%;
+}
+
+.linkButton {
+  background-color: var(--bisky-300);
+  width: 100%;
+}
+
+.mail {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.link {
+  color: var(--bisky-100);
+  cursor: pointer;
+  text-decoration: underline;
+  @include transition(filter);
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+@include media-query(tablet) {
+  .root {
+    gap: 12px;
+  }
+
+  .buttonsWrapper,
+  .supportWrapper {
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .linkButtonWrapper_social {
+    width: calc(50% - 4px);
+  }
+}

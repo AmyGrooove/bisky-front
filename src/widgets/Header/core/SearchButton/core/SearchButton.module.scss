@@ -4,6 +4,7 @@
   align-items: center;
   background-color: var(--dark-100);
   border-radius: var(--radius-12);
+  color: var(--light-100);
   cursor: pointer;
   display: flex;
   gap: 32px;
@@ -25,12 +26,10 @@
 }
 
 .searchText {
-  color: var(--color-100);
   @include text-style(16);
 }
 
 .searchIcon {
-  fill: var(--light-100);
   height: 16px;
   width: 16px;
 }

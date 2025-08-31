@@ -1,5 +1,4 @@
-import { IIconProps } from '@shared/types'
-import { ComponentType, MouseEventHandler } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 
 interface IGlassButtonPropsBase {
   onClick: MouseEventHandler<HTMLButtonElement>
@@ -14,7 +13,7 @@ interface IGlassButtonPropsWithChildren extends IGlassButtonPropsBase {
 }
 
 interface IGlassButtonPropsWithIcon extends IGlassButtonPropsBase {
-  Icon: ComponentType<IIconProps>
+  Icon: ReactNode
 }
 
 type TGlassButtonProps =

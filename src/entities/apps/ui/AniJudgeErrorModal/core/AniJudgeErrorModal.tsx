@@ -18,7 +18,7 @@ const AniJudgeErrorModal = memo(() => {
           onClick={() => closeModal()}
           className={st.button}
           variant="big"
-          Icon={CrownIcon}
+          Icon={<CrownIcon />}
         >
           АниБаттл
         </BigButton>

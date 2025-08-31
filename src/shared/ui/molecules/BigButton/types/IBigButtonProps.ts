@@ -1,9 +1,8 @@
-import { IIconProps } from '@shared/types'
-import { ComponentType, MouseEventHandler, ReactNode } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 
 interface IBigButtonProps {
   children: ReactNode
-  Icon: ComponentType<IIconProps>
+  Icon: ReactNode
 
   onClick?: MouseEventHandler<HTMLButtonElement>
   isDisabled?: boolean

@@ -22,9 +22,9 @@ const ToolsMenu = memo((props: IToolsMenuProps) => {
 
   return (
     <>
-      <span {...getReferenceProps()} ref={refs.setReference}>
+      <div {...getReferenceProps()} ref={refs.setReference}>
         {children}
-      </span>
+      </div>
       {isMounted && (
         <FloatingPortal>
           <div
@@ -36,7 +36,7 @@ const ToolsMenu = memo((props: IToolsMenuProps) => {
             {TOOLS.map((tool) => (
               <Link key={tool.label} href={tool.href} className={st.tool}>
                 <div className={st.toolLabel}>
-                  <tool.Icon className={st.icon} />
+                  <div className={st.icon}>{tool.Icon}</div>
                   <Text weight="700" className={st.label}>
                     {tool.label}
                   </Text>

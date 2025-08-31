@@ -43,7 +43,7 @@ const NoAuthorizeModal = (props: INoAuthorizeModalProps) => {
         <Button
           className={st.button}
           variant="big"
-          Icon={UserIcon}
+          Icon={<UserIcon />}
           onClick={createNewProfile}
         >
           Создать временный аккаунт
@@ -75,7 +75,7 @@ const NoAuthorizeModal = (props: INoAuthorizeModalProps) => {
         <Button
           className={st.button}
           variant="big"
-          Icon={LockIcon}
+          Icon={<LockIcon />}
           onClick={() =>
             setAdditionalModal(<AuthModal successCallback={processCallback} />)
           }
@@ -107,7 +107,7 @@ const NoAuthorizeModal = (props: INoAuthorizeModalProps) => {
         <Button
           className={st.button}
           variant="big"
-          Icon={KeyRoundIcon}
+          Icon={<KeyRoundIcon />}
           onClick={sendForm}
           isDisabled={isDisabledLoginByTemporaryCode}
         >
@@ -119,7 +119,7 @@ const NoAuthorizeModal = (props: INoAuthorizeModalProps) => {
         <Button
           className={cn(st.button, st.button_support)}
           variant="big"
-          Icon={InfoIcon}
+          Icon={<InfoIcon />}
           onClick={() => closeModal()}
         >
           Поддержка

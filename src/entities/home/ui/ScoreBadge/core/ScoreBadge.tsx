@@ -14,7 +14,7 @@ const ScoreBadge = memo((props: IScoreBadge) => {
   return (
     <Badge
       {...otherProps}
-      Icon={StarIcon}
+      Icon={<StarIcon />}
       className={cn(className, st[`root_${scoreColor}`])}
     >
       {String(score ?? 0)}

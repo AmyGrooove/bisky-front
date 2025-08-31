@@ -1,5 +1,4 @@
-import { IIconProps } from '@shared/types'
-import { ComponentType, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 interface IBadgePropsBase {
   variant?: 'small' | 'medium' | 'big'
@@ -9,11 +8,11 @@ interface IBadgePropsBase {
 interface IBadgePropsWithChildren extends IBadgePropsBase {
   children: ReactNode
 
-  Icon?: ComponentType<IIconProps>
+  Icon?: ReactNode
 }
 
 interface IBadgePropsWithIcon extends IBadgePropsBase {
-  Icon: ComponentType<IIconProps>
+  Icon: ReactNode
 
   children?: ReactNode
 }

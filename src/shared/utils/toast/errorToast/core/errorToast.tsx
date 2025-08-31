@@ -9,7 +9,7 @@ const errorToast = (props: IErrorToastProps) => {
 
   return Toast({
     message,
-    Icon: TriangleAlertIcon,
+    Icon: <TriangleAlertIcon />,
     action: isNil(retryCallback)
       ? undefined
       : { text: 'Повторить', callback: retryCallback },

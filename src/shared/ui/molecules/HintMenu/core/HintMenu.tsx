@@ -31,7 +31,7 @@ const HintMenu = memo(
 
     return (
       <>
-        <span
+        <div
           {...getReferenceProps({
             onClick: (event) => {
               event.preventDefault()
@@ -42,7 +42,7 @@ const HintMenu = memo(
           className={className}
         >
           {children}
-        </span>
+        </div>
         {isMounted && (
           <FloatingPortal>
             <div
@@ -66,12 +66,16 @@ const HintMenu = memo(
                   })}
                 >
                   <div className={st.labelWrapper}>
-                    {item.IconLeft && <item.IconLeft className={st.icon} />}
+                    {item.IconLeft && (
+                      <div className={st.icon}>{item.IconLeft}</div>
+                    )}
                     <Text className={st.text} weight="700">
                       {item.text}
                     </Text>
                   </div>
-                  {item.IconRight && <item.IconRight className={st.icon} />}
+                  {item.IconRight && (
+                    <div className={st.icon}>{item.IconRight}</div>
+                  )}
                 </button>
               ))}
             </div>

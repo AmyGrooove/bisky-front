@@ -18,7 +18,7 @@ const AniBattleErrorModal = memo(() => {
           onClick={() => closeModal()}
           className={st.button}
           variant="big"
-          Icon={DonutIcon}
+          Icon={<DonutIcon />}
         >
           АниПик
         </BigButton>

@@ -12,15 +12,6 @@
   @include effect(background-blur-shadow);
 }
 
-.icon {
-  height: 20px;
-  width: 20px;
-}
-
-.text {
-  @include text-style(16);
-}
-
 .menuItem {
   align-items: center;
   border-radius: var(--radius-12);
@@ -37,13 +28,7 @@
   }
 
   &_selected {
-    .icon {
-      fill: var(--bisky-100);
-    }
-
-    .text {
-      color: var(--bisky-100);
-    }
+    color: var(--bisky-100);
   }
 }
 
@@ -51,4 +36,13 @@
   align-items: center;
   display: flex;
   gap: 4px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+}
+
+.text {
+  @include text-style(16);
 }

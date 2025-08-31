@@ -83,7 +83,7 @@ const AnimeCard = memo((props: IAnimeCardProps) => {
           <Badge
             variant={badgeVariant}
             className={st.reWatchedCountBadge}
-            Icon={HistoryIcon}
+            Icon={<HistoryIcon />}
           >
             {reWatchedCountBadge}
           </Badge>

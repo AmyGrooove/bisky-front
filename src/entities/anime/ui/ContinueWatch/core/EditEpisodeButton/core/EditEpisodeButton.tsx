@@ -28,7 +28,11 @@ const EditEpisodeButton = memo((props: IEditEpisodeButtonProps) => {
         className={buttonClassName}
         placement="bottom"
       >
-        <Button className={st.button} variant={variant} Icon={EllipsisIcon} />
+        <Button
+          className={st.button}
+          variant={variant}
+          Icon={<EllipsisIcon />}
+        />
       </HintMenu>
       <ProgressBar
         height={variant === 'big' ? 8 : 4}

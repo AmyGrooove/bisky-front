@@ -1,8 +1,7 @@
-import { IIconProps } from '@shared/types'
-import { ComponentType } from 'react'
+import { ReactNode } from 'react'
 
 interface IHoverIconProps {
-  Icon: ComponentType<IIconProps>
+  Icon: ReactNode
 
   onClick?: () => void
   isSelected?: boolean

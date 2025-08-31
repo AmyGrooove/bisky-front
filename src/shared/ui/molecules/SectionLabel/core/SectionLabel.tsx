@@ -1,3 +1,5 @@
+'use client'
+
 import { ChevronLeftIcon, EllipsisIcon } from '@shared/icons'
 import { Text } from '@shared/ui/atoms/Text'
 import { cn, isNil } from '@shared/utils/functions'
@@ -17,7 +19,7 @@ const SectionLabel = memo(
       <div ref={ref} className={cn(st.root, className)}>
         <ChevronLeftIcon onClick={onClickHandler} className={st.backIcon} />
         <div className={st.labelWrapper}>
-          {!isNil(Icon) && <Icon className={st.icon} />}
+          {!isNil(Icon) && <div className={st.icon}>{Icon}</div>}
           <Text weight="700" className={st.label}>
             {children}
           </Text>

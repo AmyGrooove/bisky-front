@@ -24,7 +24,7 @@ const GlassButton = memo(
             {otherProps.children}
           </Text>
         ) : (
-          <otherProps.Icon className={st.icon} />
+          <div className={st.icon}> {otherProps.Icon}</div>
         )}
       </button>
     )

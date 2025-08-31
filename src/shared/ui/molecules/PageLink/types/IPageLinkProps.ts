@@ -1,12 +1,11 @@
-import { IIconProps } from '@shared/types'
-import { ComponentType } from 'react'
+import { ReactNode } from 'react'
 
 interface IPageLinkProps {
   children: string
 
   onClick?: () => void
   variant?: 'footer' | 'header' | 'mobileHeader'
-  Icon?: ComponentType<IIconProps>
+  Icon?: ReactNode
   className?: string
   isSelected?: boolean
   isChevronEnabled?: boolean

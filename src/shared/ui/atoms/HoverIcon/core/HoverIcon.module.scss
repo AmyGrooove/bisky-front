@@ -1,12 +1,11 @@
 @use '@shared/styles/reusable.scss' as *;
 
 .root {
+  color: var(--light-100);
   cursor: pointer;
-  fill: var(--light-100);
   @extend %press, %no-select;
   @include effect(back-shadow);
-  @include transition((opacity, fill));
-  @include transition((fill, opacity, scale), (250ms, 250ms, 100ms));
+  @include transition((color, opacity, scale), (250ms, 250ms, 100ms));
 
   &_barIcon {
     height: 40px;
@@ -15,7 +14,7 @@
 
     &.root_selected,
     &:hover {
-      fill: var(--bisky-100);
+      color: var(--bisky-100);
       opacity: 1;
     }
   }

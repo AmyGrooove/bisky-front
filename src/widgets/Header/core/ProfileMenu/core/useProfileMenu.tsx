@@ -51,7 +51,7 @@ const useProfileMenu = () => {
 
   const copyUsername = useCallback(async () => {
     await navigator.clipboard.writeText(nickname)
-    successToast({ Icon: UserIcon, message: 'Никнейм скопирован' })
+    successToast({ Icon: <UserIcon />, message: 'Никнейм скопирован' })
   }, [nickname])
 
   return {

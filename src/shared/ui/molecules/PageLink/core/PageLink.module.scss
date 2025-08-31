@@ -21,7 +21,7 @@
     }
 
     .icon {
-      fill: var(--bisky-100);
+      color: var(--bisky-100);
     }
 
     .label {
@@ -70,7 +70,7 @@
 }
 
 .icon {
-  @include transition((fill, rotate));
+  @include transition((color, rotate));
 }
 
 .label {

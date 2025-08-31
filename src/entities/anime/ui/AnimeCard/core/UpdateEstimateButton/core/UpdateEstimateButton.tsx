@@ -18,7 +18,7 @@ const UpdateEstimateButton = memo((props: IUpdateEstimateButtonProps) => {
       <Button
         onClick={openModal}
         className={className}
-        Icon={EllipsisVerticalIcon}
+        Icon={<EllipsisVerticalIcon />}
         variant="small"
       />
     )

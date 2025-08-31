@@ -20,7 +20,7 @@ const Button = memo(
         className={cn(st.root, className, st[`root_${variant}`])}
         disabled={isDisabled}
       >
-        {!isNil(Icon) && <Icon className={st.icon} />}
+        {!isNil(Icon) && <div className={st.icon}>{Icon}</div>}
         {!isNil(children) && (
           <Text weight="700" className={st.children}>
             {children}

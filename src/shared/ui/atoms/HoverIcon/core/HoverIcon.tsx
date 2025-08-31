@@ -7,12 +7,12 @@ import { useHoverIcon } from './useHoverIcon'
 import st from './HoverIcon.module.scss'
 
 const HoverIcon = memo(
-  forwardRef<SVGSVGElement, IHoverIconProps>((props, ref) => {
+  forwardRef<HTMLDivElement, IHoverIconProps>((props, ref) => {
     const { Icon, variant, className, isSelected, onClick } =
       useHoverIcon(props)
 
     return (
-      <Icon
+      <div
         ref={ref}
         onClick={onClick}
         className={cn(
@@ -21,7 +21,9 @@ const HoverIcon = memo(
           { [st.root_selected]: isSelected },
           className,
         )}
-      />
+      >
+        {Icon}
+      </div>
     )
   }),
 )

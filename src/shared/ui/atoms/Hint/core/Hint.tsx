@@ -25,13 +25,13 @@ const Hint = memo((props: IHintProps) => {
 
   return (
     <>
-      <span
+      <div
         {...getReferenceProps()}
         ref={refs.setReference}
         className={className}
       >
         {children}
-      </span>
+      </div>
       {isMounted && !isNil(hintChildren) && (
         <FloatingPortal>
           <div

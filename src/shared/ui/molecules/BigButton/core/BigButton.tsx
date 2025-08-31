@@ -29,7 +29,7 @@ const BigButton = memo(
         disabled={isDisabled}
       >
         <div className={st.iconWrapper}>
-          <Icon className={st.icon} />
+          <div className={st.icon}>{Icon}</div>
           {!isNil(iconText) && (
             <Text weight="700" className={st.iconText}>
               {iconText}

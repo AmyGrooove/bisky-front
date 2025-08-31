@@ -57,7 +57,7 @@ const Carousel = memo(
                   <Button
                     onClick={scrollPrev}
                     isDisabled={!isCanScrollPrev}
-                    Icon={ChevronLeftIcon}
+                    Icon={<ChevronLeftIcon />}
                     variant="big"
                     className={st.button}
                   />
@@ -67,7 +67,7 @@ const Carousel = memo(
                     onClick={scrollNext}
                     isDisabled={!isCanScrollNext}
                     variant="big"
-                    Icon={ChevronRightIcon}
+                    Icon={<ChevronRightIcon />}
                     className={st.button}
                   />
                 </div>

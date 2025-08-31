@@ -1,15 +1,8 @@
 @use '@shared/styles/reusable.scss' as *;
 
-.icon {
-  fill: var(--bisky-100);
-}
-
-.label {
-  color: var(--bisky-100);
-}
-
 .root {
   align-items: center;
+  color: var(--bisky-100);
   display: flex;
   gap: 4px;
   @include effect(back-shadow);
