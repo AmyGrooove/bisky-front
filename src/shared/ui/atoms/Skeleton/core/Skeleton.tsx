@@ -7,6 +7,8 @@ import { SkeletonSeasonalAnimeCard } from './SkeletonSeasonalAnimeCard/SkeletonS
 import { SkeletonBadge } from './SkeletonBadge/SkeletonBadge'
 import { SkeletonAnimeCard } from './SkeletonAnimeCard/SkeletonAnimeCard'
 import { SkeletonAnimeCardCarouselRow } from './SkeletonAnimeCardCarouselRow/SkeletonAnimeCardCarouselRow'
+import { SkeletonFactCard } from './SkeletonFactCard/SkeletonFactCard'
+import { SkeletonBigButton } from './SkeletonBigButton/SkeletonBigButton'
 
 import type { TSkeletonProps } from '../types/TSkeletonProps'
 
@@ -18,6 +20,14 @@ const Skeleton = memo(
 
     if (props.templates === 'badge') {
       return <SkeletonBadge ref={ref} {...props} />
+    }
+
+    if (props.templates === 'bigButton') {
+      return <SkeletonBigButton ref={ref} {...props} />
+    }
+
+    if (props.templates === 'factCard') {
+      return <SkeletonFactCard ref={ref} {...props} />
     }
 
     if (props.templates === 'animeCard') {
@@ -32,8 +42,15 @@ const Skeleton = memo(
       return <SkeletonSectionLabel ref={ref} {...props} />
     }
 
-    const { className } = props
-    return <div ref={ref} className={cn(st.none, className)} />
+    const { className, isFlexShrinkEnabled = true } = props
+    return (
+      <div
+        ref={ref}
+        className={cn(st.none, className, {
+          [st.none_flexShrink]: isFlexShrinkEnabled,
+        })}
+      />
+    )
   }),
 )
 

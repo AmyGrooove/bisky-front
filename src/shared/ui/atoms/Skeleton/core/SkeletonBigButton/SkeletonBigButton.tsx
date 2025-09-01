@@ -1,12 +1,12 @@
 import { cn } from '@shared/utils/functions'
 import { forwardRef, memo } from 'react'
 
-import { ISkeletonSeasonalAnimeCardProps } from '../../types/TSkeletonProps'
+import { ISkeletonBigButtonProps } from '../../types/TSkeletonProps'
 
-import st from './SkeletonSeasonalAnimeCard.module.scss'
+import st from './SkeletonBigButton.module.scss'
 
-const SkeletonSeasonalAnimeCard = memo(
-  forwardRef<HTMLDivElement, ISkeletonSeasonalAnimeCardProps>((props, ref) => {
+const SkeletonBigButton = memo(
+  forwardRef<HTMLDivElement, ISkeletonBigButtonProps>((props, ref) => {
     const { variant = 'big', className, isFlexShrinkEnabled = true } = props
 
     return (
@@ -20,6 +20,6 @@ const SkeletonSeasonalAnimeCard = memo(
   }),
 )
 
-SkeletonSeasonalAnimeCard.displayName = 'SkeletonSeasonalAnimeCard'
+SkeletonBigButton.displayName = 'SkeletonBigButton'
 
-export { SkeletonSeasonalAnimeCard }
+export { SkeletonBigButton }

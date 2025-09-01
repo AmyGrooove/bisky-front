@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { redirect, usePathname } from 'next/navigation'
 import { useSession } from '@entities/auth/hooks/useSession'
 import { useAuthGate } from '@entities/auth/hooks/useAuthGate'
@@ -15,16 +15,27 @@ const useBar = () => {
 
   const links = useMemo(() => barLinks(nickname), [nickname])
 
+  const checkIsActiveHref = useCallback(
+    (value: string) => {
+      if (value === '/') return pathname === '/'
+
+      return pathname === value
+    },
+    [pathname],
+  )
+
   const mainLinksConverted = useMemo(
     () =>
       links.map((link) => {
-        const isSelected = pathname.includes(link.href)
+        const isSelected = checkIsActiveHref(link.href)
 
         const onClick = () => {
-          if (!isSelected) {
+          if (!isSelected && link.href.includes('user')) {
             guardCall(() => {
               redirect(link.href)
             })()
+          } else {
+            redirect(link.href)
           }
         }
 

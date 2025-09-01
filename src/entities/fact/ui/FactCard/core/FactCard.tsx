@@ -40,7 +40,7 @@ const FactCard = memo((props: IFactCardProps) => {
               <Text className={st.sourceText}>Источник</Text>
             </Link>
           )}
-          {!isNil(author) && (
+          {!isNil(author?.slug) && (
             <AuthorBadge userData={author} variant={authorBadgeVariant} />
           )}
         </div>

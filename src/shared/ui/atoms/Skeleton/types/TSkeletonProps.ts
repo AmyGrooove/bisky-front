@@ -1,5 +1,6 @@
 interface IBaseSkeletonProps {
   className?: string
+  isFlexShrinkEnabled?: boolean
 }
 
 interface ISkeletonDefaultProps extends IBaseSkeletonProps {
@@ -26,6 +27,16 @@ interface ISkeletonAnimeCardCarouselRowProps extends IBaseSkeletonProps {
   variant?: 'big' | 'small'
 }
 
+interface ISkeletonFactCardProps extends IBaseSkeletonProps {
+  templates?: 'factCard'
+  variant?: 'big' | 'small'
+}
+
+interface ISkeletonBigButtonProps extends IBaseSkeletonProps {
+  templates?: 'bigButton'
+  variant?: 'big' | 'small'
+}
+
 interface ISkeletonSectionLabelProps extends IBaseSkeletonProps {
   templates?: 'sectionLabel'
   variant?: 'big' | 'small'
@@ -39,6 +50,8 @@ type TSkeletonProps =
   | ISkeletonAnimeCardProps
   | ISkeletonSeasonalAnimeCardProps
   | ISkeletonAnimeCardCarouselRowProps
+  | ISkeletonFactCardProps
+  | ISkeletonBigButtonProps
 
 export type {
   TSkeletonProps,
@@ -47,4 +60,6 @@ export type {
   ISkeletonSeasonalAnimeCardProps,
   ISkeletonSectionLabelProps,
   ISkeletonAnimeCardCarouselRowProps,
+  ISkeletonFactCardProps,
+  ISkeletonBigButtonProps,
 }

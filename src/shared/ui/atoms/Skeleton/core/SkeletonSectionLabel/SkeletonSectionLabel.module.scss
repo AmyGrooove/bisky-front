@@ -5,6 +5,10 @@
   display: flex;
   justify-content: space-between;
 
+  &_flexShrink {
+    flex-shrink: 0;
+  }
+
   &_big .label {
     height: 37px;
     width: 200px;

@@ -2,21 +2,15 @@
 @use '../Skeleton.module.scss' as *;
 
 .root {
+  width: 100%;
   @extend %skeleton-base;
 
   &_big {
-    height: 32px;
-    width: 78px;
-  }
-
-  &_medium {
-    height: 24px;
-    width: 64px;
+    height: 124px;
   }
 
   &_small {
-    height: 20px;
-    width: 44px;
+    height: 94px;
   }
 
   &_flexShrink {

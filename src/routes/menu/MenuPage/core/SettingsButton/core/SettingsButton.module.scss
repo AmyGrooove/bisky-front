@@ -1,0 +1,10 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.buttonLink {
+  width: 100%;
+}
+
+.button {
+  background-color: var(--bisky-300);
+  width: 100%;
+}

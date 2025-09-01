@@ -5,18 +5,13 @@
   @extend %skeleton-base;
 
   &_big {
-    height: 32px;
-    width: 78px;
-  }
-
-  &_medium {
-    height: 24px;
-    width: 64px;
+    height: 80px;
+    width: 180px;
   }
 
   &_small {
-    height: 20px;
-    width: 44px;
+    height: 62px;
+    width: 120px;
   }
 
   &_flexShrink {

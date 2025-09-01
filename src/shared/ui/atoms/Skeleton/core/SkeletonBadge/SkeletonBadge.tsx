@@ -7,12 +7,14 @@ import st from './SkeletonBadge.module.scss'
 
 const SkeletonBadge = memo(
   forwardRef<HTMLDivElement, ISkeletonBadgeProps>((props, ref) => {
-    const { variant = 'big', className } = props
+    const { variant = 'big', className, isFlexShrinkEnabled = true } = props
 
     return (
       <div
         ref={ref}
-        className={cn(st.root, className, st[`root_${variant}`])}
+        className={cn(st.root, className, st[`root_${variant}`], {
+          [st.root_flexShrink]: isFlexShrinkEnabled,
+        })}
       />
     )
   }),

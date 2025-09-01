@@ -19,9 +19,12 @@
   animation: 1s shine linear infinite;
   border-radius: var(--radius-20);
   display: flex;
-  flex-shrink: 0;
 }
 
 .none {
   @extend %skeleton-base;
+
+  &_flexShrink {
+    flex-shrink: 0;
+  }
 }

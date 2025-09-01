@@ -6,6 +6,10 @@
   flex-direction: column;
   gap: 4px;
 
+  &_flexShrink {
+    flex-shrink: 0;
+  }
+
   &_big {
     .card {
       height: 320px;

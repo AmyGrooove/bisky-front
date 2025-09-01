@@ -13,4 +13,8 @@
     height: 180px;
     width: 380px;
   }
+
+  &_flexShrink {
+    flex-shrink: 0;
+  }
 }

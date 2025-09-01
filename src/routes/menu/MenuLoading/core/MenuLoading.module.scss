@@ -1,0 +1,30 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  max-width: 900px;
+  width: 100%;
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+}
+
+@include media-query(tablet) {
+  .root {
+    gap: 12px;
+  }
+
+  .buttonsWrapper {
+    gap: 8px;
+  }
+}

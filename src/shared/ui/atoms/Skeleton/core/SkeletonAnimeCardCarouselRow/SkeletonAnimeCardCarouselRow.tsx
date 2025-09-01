@@ -10,12 +10,14 @@ import st from './SkeletonAnimeCardCarouselRow.module.scss'
 const SkeletonAnimeCardCarouselRow = memo(
   forwardRef<HTMLDivElement, ISkeletonAnimeCardCarouselRowProps>(
     (props, ref) => {
-      const { variant = 'big', className } = props
+      const { variant = 'big', className, isFlexShrinkEnabled = true } = props
 
       return (
         <div
           ref={ref}
-          className={cn(st.root, className, st[`root_${variant}`])}
+          className={cn(st.root, className, st[`root_${variant}`], {
+            [st.root_flexShrink]: isFlexShrinkEnabled,
+          })}
         >
           <SkeletonSectionLabel variant={variant} isLinkEnabled />
           <div className={cn(st.animeCards, st[`animeCards_${variant}`])}>
