@@ -38,7 +38,6 @@ const Unauthorized = () => {
           </Link>
         </div>
       </div>
-      <div className={st.empty} />
     </>
   )
 }

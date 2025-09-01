@@ -1,0 +1,29 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.root {
+  background-color: var(--dark-300);
+  border-radius: var(--radius-20);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1280px;
+  padding: 24px;
+}
+
+.barMargin {
+  flex-shrink: 0;
+  height: 92px;
+}
+
+@include media-query(tablet) {
+  .root {
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+@include media-query(tablet, true) {
+  .barMargin {
+    display: none;
+  }
+}

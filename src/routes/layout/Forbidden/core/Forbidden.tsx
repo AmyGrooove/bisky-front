@@ -35,7 +35,6 @@ const Forbidden = () => {
           </Link>
         </div>
       </div>
-      <div className={st.empty} />
     </>
   )
 }

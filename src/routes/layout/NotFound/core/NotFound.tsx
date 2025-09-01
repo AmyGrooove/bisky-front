@@ -35,7 +35,6 @@ const NotFound = () => {
           </Link>
         </div>
       </div>
-      <div className={st.empty} />
     </>
   )
 }

@@ -48,7 +48,6 @@ const GlobalError = (props: IGlobalError) => {
           </Link>
         </div>
       </div>
-      <div className={st.empty} />
     </>
   )
 }
