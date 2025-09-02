@@ -31,6 +31,7 @@ const StaticSectionSelector = memo(
               [st.tab_active]: activeTab === item.value,
             })}
             onClick={() => onSwitchTab(item.value)}
+            Icon={item.Icon}
           >
             {item.children}
           </Button>

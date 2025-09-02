@@ -9,6 +9,7 @@ import { IRootLayoutProps } from '../types/IRootLayoutProps'
 import st from './RootLayout.module.scss'
 import { useRootLayout } from './useRootLayout'
 import { Providers } from './Providers'
+import { OAuthProvider } from './OAuthProvider'
 
 const ubuntu = Ubuntu({
   weight: ['400', '700'],
@@ -24,6 +25,7 @@ const RootLayout = (props: IRootLayoutProps) => {
       <body className={ubuntu.className}>
         <Providers dehydratedState={dehydratedState}>
           <main className={st.main}>
+            <OAuthProvider />
             <MiniLogo />
             <Header />
             {children}

@@ -3,19 +3,19 @@ import {
   DonutIcon,
   LifeBuoyIcon,
   SettingsIcon,
-  ShieldIcon,
   StarIcon,
 } from '@shared/icons'
 
 const MENU_LINKS = [
-  [
-    {
-      Icon: <ShieldIcon />,
-      variant: 'big',
-      name: 'AnimePass',
-      href: '/animePass',
-    },
-  ],
+  // TODO
+  // [
+  //   {
+  //     Icon: <ShieldIcon />,
+  //     variant: 'big',
+  //     name: 'AnimePass',
+  //     href: '/animePass',
+  //   },
+  // ],
   [
     {
       Icon: <SettingsIcon />,

@@ -4,7 +4,6 @@
   color: var(--light-100);
   cursor: pointer;
   @extend %press, %no-select;
-  @include effect(back-shadow);
   @include transition((color, opacity, scale), (250ms, 250ms, 100ms));
 
   &_barIcon {

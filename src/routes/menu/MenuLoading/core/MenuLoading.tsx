@@ -9,7 +9,8 @@ const MenuLoading = async () => {
 
   return (
     <div className={st.root}>
-      <Skeleton className={st.button} templates="bigButton" variant="big" />
+      {/* TODO
+      <Skeleton className={st.button} templates="bigButton" variant="big" /> */}
       <div className={st.buttonsWrapper}>
         {getEmptyArray(2).map((_, index) => (
           <Skeleton

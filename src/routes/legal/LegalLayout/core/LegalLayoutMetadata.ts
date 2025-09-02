@@ -7,7 +7,7 @@ const LegalLayoutMetadata = async (): Promise<Metadata> => {
       title: 'Информация',
       description: 'Информация',
       openGraph: {
-        title: 'Информация | Bisky — Смотреть Аниме',
+        title: 'Информация | Bisky',
         description: 'Информация',
         images: `${ENV.APP_URL}/images/openGraph.png`,
       },

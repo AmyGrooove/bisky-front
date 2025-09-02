@@ -68,7 +68,7 @@ const ProfileMenu = memo(() => {
                 onClick={() => toggle(false)}
               >
                 <Text weight="700">{link.name}</Text>
-                <link.Icon className={st.linkIcon} />
+                <div className={st.linkIcon}>{link.Icon}</div>
               </Link>
             ))}
           </div>

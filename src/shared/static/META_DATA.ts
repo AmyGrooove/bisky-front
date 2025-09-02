@@ -3,9 +3,9 @@ import { Metadata } from 'next'
 import { ENV } from './ENV'
 
 const META_DATA: Metadata = {
-  title: { template: '%s | Bisky', default: 'Bisky — Смотреть Аниме' },
+  title: { template: '%s | Bisky', default: 'Bisky' },
   description:
-    'Bisky — Смотреть Аниме. Большая база лучших аниме с русской озвучкой в хорошем качестве',
+    'Bisky. Большая база лучших аниме с русской озвучкой в хорошем качестве',
   keywords: ['аниме', 'смотреть', 'япония', 'манга', 'сериалы', 'фильмы'],
   metadataBase: new URL(ENV.APP_URL),
   alternates: { canonical: '/' },
@@ -34,11 +34,11 @@ const META_DATA: Metadata = {
   openGraph: {
     type: 'website',
     url: ENV.APP_URL,
-    siteName: 'Bisky — Смотреть Аниме',
+    siteName: 'Bisky',
     locale: 'ru-RU',
     title: 'Bisky',
     description:
-      'Bisky — Смотреть Аниме. Большая база лучших аниме с русской озвучкой в хорошем качестве',
+      'Bisky. Большая база лучших аниме с русской озвучкой в хорошем качестве',
     images: [
       {
         url: `${ENV.APP_URL}/images/openGraph.png`,

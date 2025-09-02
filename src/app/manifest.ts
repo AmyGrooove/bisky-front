@@ -7,7 +7,7 @@ const manifest = (): MetadataRoute.Manifest => ({
   theme_color: '#dd5480',
   background_color: '#170e19',
   description:
-    'Bisky — Смотреть Аниме онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве',
+    'Bisky онлайн бесплатно. Большая база лучших аниме с русской озвучкой в хорошем качестве',
   display: 'standalone',
   icons: [
     { src: '/favicons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },

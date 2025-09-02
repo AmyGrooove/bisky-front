@@ -6,8 +6,11 @@ import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
 
 import st from './Unauthorized.module.scss'
+import { useUnauthorized } from './useUnauthorized'
 
 const Unauthorized = () => {
+  const { authorizeAndRefresh } = useUnauthorized()
+
   return (
     <>
       <div className={st.root}>
@@ -28,7 +31,11 @@ const Unauthorized = () => {
             height={170}
             alt="biskyHi"
           />
-          <Button variant="big" className={st.button}>
+          <Button
+            onClick={authorizeAndRefresh}
+            variant="big"
+            className={st.button}
+          >
             Авторизоваться
           </Button>
           <Link href="/" className={st.buttonLink}>
