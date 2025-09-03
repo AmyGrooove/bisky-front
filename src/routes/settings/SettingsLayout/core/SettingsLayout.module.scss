@@ -1,0 +1,47 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  max-width: 900px;
+  width: 100%;
+}
+
+.mainWrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.label {
+  height: 37px;
+  width: 200px;
+}
+
+.menu {
+  height: 256px;
+  width: 160px;
+}
+
+.main {
+  height: 256px;
+  width: 100%;
+}
+
+@include media-query(tablet) {
+  .skeleton {
+    gap: 12px;
+  }
+
+  .menu,
+  .label {
+    width: 100%;
+  }
+
+  .mainWrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 
 import st from './Unauthorized.module.scss'
 import { useUnauthorized } from './useUnauthorized'
@@ -24,11 +24,10 @@ const Unauthorized = () => {
             </Text>
           </div>
           <Text className={st.description}>Требуется авторизация</Text>
-          <Image
+          <PlaceholderImage
             className={st.image}
             src="/images/biskyHi.png"
-            width={170}
-            height={170}
+            sizes={[170, 170]}
             alt="biskyHi"
           />
           <Button

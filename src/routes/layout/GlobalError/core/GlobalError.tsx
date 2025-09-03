@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { Button } from '@shared/ui/molecules/Button'
 import { Text } from '@shared/ui/atoms/Text'
 import Link from 'next/link'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 
 import { IGlobalError } from '../types/IGlobalErrorProps'
 
@@ -26,11 +26,10 @@ const GlobalError = (props: IGlobalError) => {
             </Text>
           </div>
           <Text className={st.description}>{errorText}</Text>
-          <Image
+          <PlaceholderImage
             className={st.image}
             src="/images/biskyPleaseCry.png"
-            width={170}
-            height={170}
+            sizes={[170, 170]}
             alt="biskyPleaseCry"
           />
           <Link href="/support" className={st.buttonLink}>

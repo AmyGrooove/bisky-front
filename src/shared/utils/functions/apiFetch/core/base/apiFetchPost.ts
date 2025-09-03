@@ -8,12 +8,18 @@ const apiFetchPost = async <TResponse = true>(
   methodType: TMethodType,
   options: IApiFetchPostOptions = {},
 ): Promise<TResponse> => {
-  const { body, tokenType = 'accessToken' } = options
+  const {
+    body,
+    file,
+    tokenType = 'accessToken',
+    isEmptyContentType = false,
+  } = options
 
   return authorizedFetch<TResponse>(
     url,
-    { method: methodType, body: JSON.stringify(body) },
+    { method: methodType, body: file ?? JSON.stringify(body) },
     tokenType,
+    isEmptyContentType,
   )
 }
 

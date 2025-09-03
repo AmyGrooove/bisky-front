@@ -11,6 +11,8 @@ const useCheckSessionInPage = () => {
       unauthorized()
     }
   }, [isAuthenticated, isLoading])
+
+  return { isLoading }
 }
 
 export { useCheckSessionInPage }

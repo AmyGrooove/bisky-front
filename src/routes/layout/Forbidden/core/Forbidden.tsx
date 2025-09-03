@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { Text } from '@shared/ui/atoms/Text'
 import { Button } from '@shared/ui/molecules/Button'
 import Link from 'next/link'
+import { PlaceholderImage } from '@shared/ui/atoms/PlaceholderImage'
 
 import st from './Forbidden.module.scss'
 
@@ -21,11 +21,10 @@ const Forbidden = () => {
             </Text>
           </div>
           <Text className={st.description}>Доступ запрещен</Text>
-          <Image
+          <PlaceholderImage
             className={st.image}
             src="/images/biskyFinger.png"
-            width={170}
-            height={170}
+            sizes={[170, 170]}
             alt="biskyFinger"
           />
           <Link href="/" className={st.buttonLink}>

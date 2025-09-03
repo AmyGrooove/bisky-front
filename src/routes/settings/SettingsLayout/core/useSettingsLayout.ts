@@ -5,9 +5,9 @@ import { ISettingsLayoutProps } from '../types/ISettingsLayoutProps'
 const useSettingsLayout = (props: ISettingsLayoutProps) => {
   const { children } = props
 
-  useCheckSessionInPage()
+  const { isLoading } = useCheckSessionInPage()
 
-  return { children }
+  return { isLoading, children }
 }
 
 export { useSettingsLayout }

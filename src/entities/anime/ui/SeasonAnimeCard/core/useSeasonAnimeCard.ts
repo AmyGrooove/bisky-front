@@ -5,7 +5,6 @@ import { IMAGE_INTERVAL } from '../static/IMAGE_INTERVAL'
 
 const useSeasonAnimeCard = (props: ISeasonAnimeCardProps) => {
   const { data, className, variant = 'big' } = props
-
   const { screenshots, slug, poster } = data
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)

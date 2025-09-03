@@ -14,10 +14,12 @@ const authorizedFetch = async <TResponse>(
   url: URL,
   fetchOptions: RequestInit,
   tokenType: TTokenKey = 'accessToken',
+  isEmptyContentType = false,
 ) => {
   const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
+    ...(isEmptyContentType
+      ? {}
+      : { 'Content-Type': 'application/json', Accept: 'application/json' }),
     ...(fetchOptions.headers as Record<string, string>),
   }
 

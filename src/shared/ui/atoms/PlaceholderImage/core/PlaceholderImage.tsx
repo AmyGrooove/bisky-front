@@ -22,10 +22,18 @@ const PlaceholderImage = memo(
       handleError,
       handleTransitionEnd,
       sizesAttr,
+      onClick,
+      objectFit,
+      style,
     } = usePlaceholderImage(props)
 
     return (
-      <div ref={ref} className={cn(st.root, className)}>
+      <div
+        ref={ref}
+        style={style}
+        onClick={onClick}
+        className={cn(st.root, className)}
+      >
         {!isPlaceholderHidden && (
           <div
             className={cn(st.blurImage, { [st.blurImage_hide]: isLoaded })}
@@ -36,7 +44,6 @@ const PlaceholderImage = memo(
         )}
         {src ? (
           <Image
-            className={st.image}
             src={src}
             alt={alt}
             onLoad={handleLoad}
@@ -44,6 +51,7 @@ const PlaceholderImage = memo(
             loading="lazy"
             fill
             sizes={sizesAttr}
+            style={{ objectFit }}
           />
         ) : null}
       </div>

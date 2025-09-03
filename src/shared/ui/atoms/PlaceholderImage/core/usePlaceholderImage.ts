@@ -5,11 +5,22 @@ import {
   useState,
   type TransitionEvent,
 } from 'react'
+import { isNil } from '@shared/utils/functions'
 
 import { IPlaceholderImageProps } from '../types/IPlaceholderImageProps'
+import { addParam } from '../functions/addParam'
 
 const usePlaceholderImage = (props: IPlaceholderImageProps) => {
-  const { src, className, alt = '', sizes } = props
+  const {
+    src,
+    className,
+    alt = '',
+    sizes,
+    onClick,
+    objectFit = 'cover',
+    style,
+    version,
+  } = props
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [isPlaceholderHidden, setIsPlaceholderHidden] = useState(false)
@@ -34,21 +45,31 @@ const usePlaceholderImage = (props: IPlaceholderImageProps) => {
     [sizes[0], sizes[1]],
   )
 
+  const resolvedSrc = useMemo(() => {
+    if (isNil(src)) return null
+    if (version == null) return src
+
+    return addParam(src, 'v', version)
+  }, [src, version])
+
   useEffect(() => {
     setIsLoaded(false)
     setIsPlaceholderHidden(false)
-  }, [src])
+  }, [src, version])
 
   return {
     className,
     isPlaceholderHidden,
     isLoaded,
-    src,
+    src: resolvedSrc,
     alt,
     handleLoad,
     handleError,
     handleTransitionEnd,
     sizesAttr,
+    onClick,
+    objectFit,
+    style,
   }
 }
 

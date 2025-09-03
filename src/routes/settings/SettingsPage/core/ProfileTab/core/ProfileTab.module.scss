@@ -1,0 +1,39 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.submitButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.button {
+  background-color: var(--bisky-300);
+}
+
+.avatarWrapper {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.avatar {
+  border-radius: var(--radius-full);
+  height: 100px;
+  width: 100px;
+}
+
+.avatarCrop {
+  border-radius: var(--radius-full);
+}
+
+@include media-query(tablet) {
+  .avatarWrapper {
+    gap: 8px;
+  }
+
+  .avatar {
+    height: 56px;
+    width: 56px;
+  }
+}
