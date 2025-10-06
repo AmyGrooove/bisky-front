@@ -12,6 +12,7 @@ import { SETTINGS_SECTIONS } from '../static/SETTINGS_SECTIONS'
 import st from './SettingsPage.module.scss'
 import { useSettingsPage } from './useSettingsPage'
 import { ProfileTab } from './ProfileTab'
+import { NotificationsTab } from './NotificationsTab'
 
 const SettingsPage = () => {
   const { isMobile, data, isLoading, activeTab, switchTab } = useSettingsPage()
@@ -35,9 +36,11 @@ const SettingsPage = () => {
             onSwitchTab={switchTab}
             className={st.bar}
           />
-          <Text weight="700" className={st.temporary}>
-            Временный
-          </Text>
+          {data?.protectionStatus === 'temporary' && (
+            <Text weight="700" className={st.temporary}>
+              Временный
+            </Text>
+          )}
         </div>
         <div className={st.settingItem}>
           {isLoading || isNil(data) ? (
@@ -45,7 +48,10 @@ const SettingsPage = () => {
               <Skeleton key={index} templates="none" className={st.skeleton} />
             ))
           ) : (
-            <>{activeTab === 'profile' && <ProfileTab data={data} />}</>
+            <>
+              {activeTab === 'profile' && <ProfileTab data={data} />}
+              {activeTab === 'mail' && <NotificationsTab data={data} />}
+            </>
           )}
         </div>
       </div>

@@ -1,0 +1,19 @@
+@use '@shared/styles/reusable.scss' as *;
+
+.submitButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.button {
+  background-color: var(--bisky-300);
+}
+
+.description {
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+}
